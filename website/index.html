@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benn Stancil's Intellectual Footprint</title>
+    <style>
+:root {
+    --bg-color: #fafafa;
+    --text-color: #1a1a1a;
+    --accent-color: #6366f1;
+    --card-bg: #ffffff;
+    --border-color: #e5e7eb;
+    --quote-bg: #f3f4f6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-color);
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.2s;
+}
+
+nav a:hover, nav a.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.theme-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.theme-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.theme-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+.theme-count {
+    color: var(--accent-color);
+    font-size: 0.875rem;
+}
+
+.quote-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quote-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.quote-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.quote-text::before {
+    content: '"';
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.quote-text::after {
+    content: '"';
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.quote-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.quote-source {
+    font-size: 0.875rem;
+}
+
+.quote-source a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.quote-source a:hover {
+    text-decoration: underline;
+}
+
+.quote-date {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.quote-themes {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+}
+
+.theme-tag {
+    background: var(--quote-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-year {
+    margin-bottom: 2rem;
+}
+
+.timeline-year h3 {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.timeline-year h3::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+.timeline-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.timeline-post {
+    font-size: 0.9rem;
+}
+
+.timeline-post a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.timeline-post a:hover {
+    color: var(--accent-color);
+}
+
+.timeline-post .date {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: #666;
+    font-size: 0.875rem;
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .stats {
+        gap: 1rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Benn Stancil's Intellectual Footprint</h1>
+        <p class="subtitle">An archive and analysis of writings from <a href="https://benn.substack.com">benn.substack.com</a></p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">240</div>
+                <div class="stat-label">Posts</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">1184</div>
+                <div class="stat-label">Quotes Extracted</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Themes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2021 - 2026</div>
+                <div class="stat-label">Time Span</div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#themes">Themes</a>
+        <a href="#quotes">Money Quotes</a>
+        <a href="#timeline">Timeline</a>
+    </nav>
+
+    <section id="themes">
+        <h2>Key Themes</h2>
+        <div class="theme-grid">
+            
+        <div class="theme-card">
+            <div class="theme-name">Sql And Technical</div>
+            <div class="theme-count">231 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Career And Work</div>
+            <div class="theme-count">218 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Industry Criticism</div>
+            <div class="theme-count">217 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Specific Tools</div>
+            <div class="theme-count">209 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Startups And Vc</div>
+            <div class="theme-count">197 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Analytics Practice</div>
+            <div class="theme-count">171 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Modern Data Stack</div>
+            <div class="theme-count">158 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Metrics And Measurement</div>
+            <div class="theme-count">149 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Ai And Llms</div>
+            <div class="theme-count">145 posts</div>
+        </div>
+        
+        <div class="theme-card">
+            <div class="theme-name">Data Quality</div>
+            <div class="theme-count">62 posts</div>
+        </div>
+        
+        </div>
+    </section>
+
+    <section id="quotes">
+        <h2>Money Quotes</h2>
+        <div class="quote-list">
+            
+        <div class="quote-card">
+            <div class="quote-text">It’s almost as if the problem isn’t the protest, but the protestors.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/runaway-train" target="_blank">Social media's runaway train</a>
+                </span>
+                <span class="quote-date">2021-02-02</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">specific tools</span><span class="theme-tag">startups and vc</span><span class="theme-tag">industry criticism</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">In the best case, these calculations drift apart over time; in the worst case, they never match in the first place.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/metrics-layer" target="_blank">The missing piece of the modern data stack</a>
+                </span>
+                <span class="quote-date">2021-04-22</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Of course, few people would claim that SQL is the best language for everything.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/has-sql-gone-too-far" target="_blank">Has SQL gone too far?</a>
+                </span>
+                <span class="quote-date">2022-04-15</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Whenever we create something with an external edge—a dashboard, an explorable dataset, an operational pipeline with a user or system on the other end—we should make a choice: Is this a production asset?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/what-is-production" target="_blank">If data is a product, what is production?</a>
+                </span>
+                <span class="quote-date">2022-09-09</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">If we knew we’d never be famous, would we still post?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/all-in-one-place" target="_blank">All in one place</a>
+                </span>
+                <span class="quote-date">2022-10-21</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">To the best of my knowledge, Jared Kushner has never posted on AITA.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/am-i-the-jared-kushner" target="_blank">“Am I the Jared Kushner?”</a>
+                </span>
+                <span class="quote-date">2023-04-21</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">sql and technical</span><span class="theme-tag">metrics and measurement</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">But most companies aren’t killed by some obscure threat lurking in the weeds that they never see; they’re killed by the thing that everyone knew about, everyone saw, everyone felt, andnobody fully faced.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/how-an-acquisition-fails" target="_blank">How an acquisition fails</a>
+                </span>
+                <span class="quote-date">2023-07-21</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Like, someone could argue that, but nobody would?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/whatever-do-the-secondary-sale" target="_blank">Whatever, do the secondary sale</a>
+                </span>
+                <span class="quote-date">2024-03-01</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Button mashing in response to problems—and there will always be problems—rarely fixes the machine, and tells you nothing about it actually works.6The machine will change, but based on what?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/how-a-startup-feels" target="_blank">How a startup feels</a>
+                </span>
+                <span class="quote-date">2024-08-23</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">industry criticism</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Like, as aconsumer, what is the best AI product you can imagine?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/another-one" target="_blank">Another one</a>
+                </span>
+                <span class="quote-date">2025-01-31</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">We have always been like this, but have we always been likethis?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/it-is-the-internet" target="_blank">It is the internet</a>
+                </span>
+                <span class="quote-date">2025-09-12</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">modern data stack</span><span class="theme-tag">career and work</span><span class="theme-tag">industry criticism</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">When approaching any analytical problem—from something small like answering a single question to introducing a data practice at a company that’s never had one—we should expect the first steps to be uneven and uncomfortable.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/analytics-is-a-mess" target="_blank">Analytics is a mess</a>
+                </span>
+                <span class="quote-date">2021-05-17</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">sql and technical</span><span class="theme-tag">metrics and measurement</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">There are the animal lovers, who try to fit their Bernese mountain "service" dog under the seat in front of them, and assure everyone, over its whines and shuffling, that he never does this and he's a good boy.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/open-the-window" target="_blank">To the man in 18A: Open the window, you degenerative cusk eel</a>
+                </span>
+                <span class="quote-date">2021-05-20</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">modern data stack</span><span class="theme-tag">career and work</span><span class="theme-tag">industry criticism</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">As a fan, there’s another question that always nagged me whenever I’m watching my team play: How stressed should I be during a tight game?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/how-to-feel-about-a-tie" target="_blank">How to feel about a tie</a>
+                </span>
+                <span class="quote-date">2021-07-06</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">modern data stack</span><span class="theme-tag">specific tools</span><span class="theme-tag">metrics and measurement</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Or—to touch the rail we rarely touch—are we just not worth that much?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/third-rail" target="_blank">The third rail</a>
+                </span>
+                <span class="quote-date">2021-07-30</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">The terminal point of an analyst’s career, it seems, is the data leader treadmill, hopping between different VP roles, always running but never moving forward.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-missing-analytics-executive" target="_blank">The missing analytics executive</a>
+                </span>
+                <span class="quote-date">2021-11-19</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">[6](https://benn.substack.com/p/the-technical-pay-gap#footnote-anchor-6-56820702)
+
+Spend an afternoon on Hacker News, and you can’t help but wonder how many engineers assume nobody can do their jobs, but they can do everyone else’s.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-technical-pay-gap" target="_blank">The technical pay gap</a>
+                </span>
+                <span class="quote-date">2022-05-27</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">sql and technical</span><span class="theme-tag">metrics and measurement</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">To nobody’s surprise but my own, I sometimes get things wrong.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/when-we-get-it-wrong" target="_blank">What do we do when we get it wrong?</a>
+                </span>
+                <span class="quote-date">2022-08-19</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">[5](https://benn.substack.com/p/how-snowflake-fails#footnote-anchor-5-71510341)
+
+If a dashboard or pipeline updates in a forest and nobody is around to look at it, does it still make a sound?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/how-snowflake-fails" target="_blank">How Snowflake fails</a>
+                </span>
+                <span class="quote-date">2022-09-02</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Imagine a ski resort with vaguely defined runs: Resorts would never quite know which slopes people expect them to keep clear, and skiers could never be sure if they were somewhere safe or dangerous.8This would be chaos, for everyone.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/what-is-production" target="_blank">If data is a product, what is production?</a>
+                </span>
+                <span class="quote-date">2022-09-09</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">They’re the companies that were always going to be business school case study; the only question was if they’d be a winner or a warning.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/how-dbt-fails" target="_blank">How dbt fails</a>
+                </span>
+                <span class="quote-date">2022-10-07</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">They instruct everyone to disagree, but commit.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/datas-invisible-hand" target="_blank">Data's invisible hand</a>
+                </span>
+                <span class="quote-date">2022-10-28</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">They create the illusion of connection and causality, but can never actually confirm it.As Randy says, the best we can do is create “a coherent whole that resists falling apart upon closer inspection.”
+
+[6](https://benn.substack.com/p/how-analysis-dies#footnote-anchor-6-89635026)
+
+Silicon Valley hasn’t been this excited for a new product release since Pokémon Go.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/how-analysis-dies" target="_blank">How analysis dies</a>
+                </span>
+                <span class="quote-date">2022-12-09</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Both teams landed punches, but nobody went down.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/moneyballing-the-world-cup" target="_blank">Moneyballing the World Cup</a>
+                </span>
+                <span class="quote-date">2022-12-23</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">But you’ll never know if you’re fully compatible until the deal is done and everyone is working together—until you’re not just dating, but married and moved in.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/how-an-acquisition-fails" target="_blank">How an acquisition fails</a>
+                </span>
+                <span class="quote-date">2023-07-21</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Everyone already knows this, but very roughly, here’s how we do things with data.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-hunt-for-the-holy-grail" target="_blank">The hunt for the Holy Grail</a>
+                </span>
+                <span class="quote-date">2023-08-11</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">SQL isdeclarative, but used forimperativeends—we need to know how it works, step by step.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-smol-analyst" target="_blank">The smol analyst</a>
+                </span>
+                <span class="quote-date">2023-08-18</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">We should probably figure out what that’s about?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-potential-gap" target="_blank">The potential gap</a>
+                </span>
+                <span class="quote-date">2023-09-29</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">It’s never empty, but rarely full enough to cover your costs.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/avg-text" target="_blank">AVG(text)</a>
+                </span>
+                <span class="quote-date">2023-12-01</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">The scheme is the whole reason most people are here, but the scheme doesn’t always work.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-whole-scheme" target="_blank">The whole scheme</a>
+                </span>
+                <span class="quote-date">2023-12-22</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">The scheme is the whole reason most people are here, but the scheme doesn’t always work.5
+
+
+—
+
+
+There are several ways to interpret a deal like this, but here’s one: It’s the end of Alteryx’s run at the Silicon Valley scheme.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-whole-scheme" target="_blank">The whole scheme</a>
+                </span>
+                <span class="quote-date">2023-12-22</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">This is where things seem more complicated, and SQL—ever the technical zombie, always dying but never dead—seems more durable.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/llms-shouldnt-write-sql" target="_blank">LLMs shouldn’t write SQL</a>
+                </span>
+                <span class="quote-date">2024-02-23</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">[6](https://benn.substack.com/p/the-posters-decide#footnote-anchor-6-142647438)
+
+Am I the only person who will never be able to separate this word fromthis granola bar?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-posters-decide" target="_blank">The posters decide</a>
+                </span>
+                <span class="quote-date">2024-03-15</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Nobody quite knew what any of it was for, but a16zliked the idea.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-vibes-are-weird" target="_blank">The vibes are weird</a>
+                </span>
+                <span class="quote-date">2024-06-07</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">The best reason to build a boat today may not be to make something that endures, but simply to be out on the ocean, for whenever it finds its rhythm again.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-vibes-are-weird" target="_blank">The vibes are weird</a>
+                </span>
+                <span class="quote-date">2024-06-07</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">“That’s AI-generated” could become the same generic defense—never probable, but now, always possible.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-vibes-are-weird" target="_blank">The vibes are weird</a>
+                </span>
+                <span class="quote-date">2024-06-07</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">If the important thing is for people not to think that it’s your fault—and in cloud software security, that is andalways has beenthe important thing—you can’t get blamed for something that nobody’s talking about.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-important-thing-for-you-to-know" target="_blank">The important thing for you to know is that it’s not my fault</a>
+                </span>
+                <span class="quote-date">2024-06-14</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Though the first risk is real, it happens more slowly than most people imagine.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/its-too-many-options" target="_blank">It’s too many options</a>
+                </span>
+                <span class="quote-date">2024-06-21</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">On the other hand, maybe we shouldn’t?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/ambition-then-and-now" target="_blank">Ambition, then and now</a>
+                </span>
+                <span class="quote-date">2024-06-28</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">The modern enterprise needs data more than ever, but usingdata has never been harder.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/postgres-in-a-box" target="_blank">Postgres in a box</a>
+                </span>
+                <span class="quote-date">2024-12-06</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Redshift is a has-been; Athena is a never-was.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/ai-companies-are-just-saas-companies" target="_blank">AI companies are just SaaS companies</a>
+                </span>
+                <span class="quote-date">2024-12-20</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Nobody’s gonna know.How would they know?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/ai-companies-are-just-saas-companies" target="_blank">AI companies are just SaaS companies</a>
+                </span>
+                <span class="quote-date">2024-12-20</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">They still use Jira, because these people—the people who hate Jira—aren’t the people whobuyJira.Management, whodoesn’t have to actually resolve tickets in Jira, buys it, forceseveryone else to adopt it, andnobody can use anything else.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/the-trenderprise" target="_blank">The Trenderprise</a>
+                </span>
+                <span class="quote-date">2025-01-03</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">What if DeepSeek hadn’t been launched to global fanfare, but instead operated in quiet obscurity, silently upending financial markets by trading onprime number patternsthat nobody else could see?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/another-one" target="_blank">Another one</a>
+                </span>
+                <span class="quote-date">2025-01-31</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">[2](https://benn.substack.com/p/achievement-here-and-there#footnote-anchor-2-157153168)
+
+I’ve always wondered how much announcers plan forthis stuff?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/achievement-here-and-there" target="_blank">Achievement, here and there</a>
+                </span>
+                <span class="quote-date">2025-02-14</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Would you run a startupthatdifferently if you never wanted to turn a profit?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/live-like-youre-dying" target="_blank">Live like you’re dying</a>
+                </span>
+                <span class="quote-date">2025-03-28</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Nobody knew who was going to die, though most people agreed on who was going to kill them.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/no-really-everything-becomes-bi" target="_blank">No, really, everything becomes BI</a>
+                </span>
+                <span class="quote-date">2025-05-09</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Heller responds, “Yes, but I have something he will never have … enough.”
+
+
+– from Morgan Housel’sThe Psychology of Money, recounting a story from Vanguard founder John Bogle
+
+
+---
+
+
+It’s both everywhere and, somehow, still, nobody knows how to talk about it.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/enough" target="_blank">Enough</a>
+                </span>
+                <span class="quote-date">2025-08-08</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">There are never numbers—numbers are gauche; most everyone is very lucky here;6and we’re not private equity raiders, but TeChNoLoGiStS—but then, everyone eventually goes home and does the math.</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/enough" target="_blank">Enough</a>
+                </span>
+                <span class="quote-date">2025-08-08</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        <div class="quote-card">
+            <div class="quote-text">Would it matter if everyone was constantly talking about burritos?</div>
+            <div class="quote-meta">
+                <span class="quote-source">
+                    <a href="https://benn.substack.com/p/outdated" target="_blank">Outdated</a>
+                </span>
+                <span class="quote-date">2025-08-22</span>
+            </div>
+            <div class="quote-themes"><span class="theme-tag">career and work</span><span class="theme-tag">startups and vc</span><span class="theme-tag">sql and technical</span></div>
+        </div>
+        
+        </div>
+    </section>
+
+    <section id="timeline">
+        <h2>Timeline</h2>
+        <div class="timeline">
+            
+        <div class="timeline-year">
+            <h3>2026</h3>
+            <div class="timeline-posts"><div class="timeline-post">
+                <span class="date">2026-01-16</span>
+                <a href="https://benn.substack.com/p/why-cowork-cant-work" target="_blank">Why Cowork can’t work</a>
+            </div><div class="timeline-post">
+                <span class="date">2026-01-09</span>
+                <a href="https://benn.substack.com/p/make-it-better" target="_blank">Make it better</a>
+            </div><div class="timeline-post">
+                <span class="date">2026-01-02</span>
+                <a href="https://benn.substack.com/p/have-you-tried-a-text-box" target="_blank">Have you tried a text box?</a>
+            </div></div>
+        </div>
+        
+        <div class="timeline-year">
+            <h3>2025</h3>
+            <div class="timeline-posts"><div class="timeline-post">
+                <span class="date">2025-12-19</span>
+                <a href="https://benn.substack.com/p/pure-heroin" target="_blank">Pure heroin</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-12-12</span>
+                <a href="https://benn.substack.com/p/the-vibes-and-the-noise" target="_blank">The vibes and the noise</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-12-05</span>
+                <a href="https://benn.substack.com/p/will-there-ever-be-a-worse-time-to" target="_blank">Will there ever be a worse time to start a startup?</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-11-28</span>
+                <a href="https://benn.substack.com/p/9-9-6-0" target="_blank">9-9-6-0</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-11-21</span>
+                <a href="https://benn.substack.com/p/producer-theory" target="_blank">Producer theory</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-11-14</span>
+                <a href="https://benn.substack.com/p/all-you-can-do-is-play-the-game" target="_blank">All you can do is play the game</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-10-31</span>
+                <a href="https://benn.substack.com/p/a-strange-delight" target="_blank">A strange delight</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-10-24</span>
+                <a href="https://benn.substack.com/p/an-very-obvious-deal" target="_blank">An very obvious deal</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-10-17</span>
+                <a href="https://benn.substack.com/p/in-the-air" target="_blank">In the air</a>
+            </div><div class="timeline-post">
+                <span class="date">2025-10-03</span>
+                <a href="https://benn.substack.com/p/something-in-the-orange" target="_blank">Something in the orange</a>
+            </div><div class="timeline-post">...and 36 more</div></div>
+        </div>
+        
+        <div class="timeline-year">
+            <h3>2024</h3>
+            <div class="timeline-posts"><div class="timeline-post">
+                <span class="date">2024-12-27</span>
+                <a href="https://benn.substack.com/p/results-actually" target="_blank">Results, Actually</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-12-20</span>
+                <a href="https://benn.substack.com/p/ai-companies-are-just-saas-companies" target="_blank">AI companies are just SaaS companies</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-12-13</span>
+                <a href="https://benn.substack.com/p/is-this-a-career" target="_blank">Is this a career?</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-12-06</span>
+                <a href="https://benn.substack.com/p/postgres-in-a-box" target="_blank">Postgres in a box</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-11-29</span>
+                <a href="https://benn.substack.com/p/searching-for-insight" target="_blank">Searching for insight</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-11-22</span>
+                <a href="https://benn.substack.com/p/does-data-quality-matter" target="_blank">Does data quality matter?</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-11-08</span>
+                <a href="https://benn.substack.com/p/no-better-room" target="_blank">No better room</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-11-01</span>
+                <a href="https://benn.substack.com/p/fragile" target="_blank">Fragile</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-10-25</span>
+                <a href="https://benn.substack.com/p/dont-be-evil" target="_blank">Don't be evil*</a>
+            </div><div class="timeline-post">
+                <span class="date">2024-10-18</span>
+                <a href="https://benn.substack.com/p/is-being-data-driven-a-fad" target="_blank">Is being data driven a fad?</a>
+            </div><div class="timeline-post">...and 36 more</div></div>
+        </div>
+        
+        <div class="timeline-year">
+            <h3>2023</h3>
+            <div class="timeline-posts"><div class="timeline-post">
+                <span class="date">2023-12-22</span>
+                <a href="https://benn.substack.com/p/the-whole-scheme" target="_blank">The whole scheme</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-12-15</span>
+                <a href="https://benn.substack.com/p/playing-for-ourselves" target="_blank">Playing for ourselves</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-12-08</span>
+                <a href="https://benn.substack.com/p/the-modern-data-stack-was-never-big-enough" target="_blank">The modern data stack was never big enough</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-12-01</span>
+                <a href="https://benn.substack.com/p/avg-text" target="_blank">AVG(text)</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-11-24</span>
+                <a href="https://benn.substack.com/p/tribal-accelerationism" target="_blank">Tribal accelerationism</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-11-17</span>
+                <a href="https://benn.substack.com/p/the-series-everything-is-fine" target="_blank">The series E(verything is fine)</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-11-10</span>
+                <a href="https://benn.substack.com/p/ai-is-coming-for-your-favorite-products" target="_blank">AI is coming for your favorite product's good user experience</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-11-03</span>
+                <a href="https://benn.substack.com/p/why-are-we-still-surprised-that-startups" target="_blank">Why are we still surprised that startups are hard?</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-10-27</span>
+                <a href="https://benn.substack.com/p/the-effects-of-a-war" target="_blank">The effects of a war</a>
+            </div><div class="timeline-post">
+                <span class="date">2023-10-20</span>
+                <a href="https://benn.substack.com/p/transforming-into-san-diego" target="_blank">Transforming into San Diego</a>
+            </div><div class="timeline-post">...and 40 more</div></div>
+        </div>
+        
+        <div class="timeline-year">
+            <h3>2022</h3>
+            <div class="timeline-posts"><div class="timeline-post">
+                <span class="date">2022-12-30</span>
+                <a href="https://benn.substack.com/p/scoring-data-predictions" target="_blank">Scoring a decade of data predictions</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-12-23</span>
+                <a href="https://benn.substack.com/p/moneyballing-the-world-cup" target="_blank">Moneyballing the World Cup</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-12-16</span>
+                <a href="https://benn.substack.com/p/the-product-is-the-process" target="_blank">The product is the process</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-12-09</span>
+                <a href="https://benn.substack.com/p/how-analysis-dies" target="_blank">How analysis dies</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-12-02</span>
+                <a href="https://benn.substack.com/p/the-worst-spreadsheet" target="_blank">The worst spreadsheet I've ever made</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-11-25</span>
+                <a href="https://benn.substack.com/p/should-we-be-grateful" target="_blank">Should we be grateful for the modern data stack?</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-11-18</span>
+                <a href="https://benn.substack.com/p/the-internet-2022" target="_blank">The internet, 2022</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-11-11</span>
+                <a href="https://benn.substack.com/p/day-of-reckoning" target="_blank">Data’s day of reckoning</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-11-04</span>
+                <a href="https://benn.substack.com/p/the-emperor-and-his-clothes" target="_blank">The emperor and his clothes</a>
+            </div><div class="timeline-post">
+                <span class="date">2022-10-28</span>
+                <a href="https://benn.substack.com/p/datas-invisible-hand" target="_blank">Data's invisible hand</a>
+            </div><div class="timeline-post">...and 42 more</div></div>
+        </div>
+        
+        <div class="timeline-year">
+            <h3>2021</h3>
+            <div class="timeline-posts"><div class="timeline-post">
+                <span class="date">2021-12-31</span>
+                <a href="https://benn.substack.com/p/the-more-the-merrier" target="_blank">The more the merrier</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-12-17</span>
+                <a href="https://benn.substack.com/p/semantic-observability" target="_blank">Fwd: Exec KPIs - Daily</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-12-10</span>
+                <a href="https://benn.substack.com/p/delirium" target="_blank">Delirium</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-12-03</span>
+                <a href="https://benn.substack.com/p/data-is-for-dashboards" target="_blank">Data is for dashboards</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-11-26</span>
+                <a href="https://benn.substack.com/p/coffee-cake" target="_blank">Lies, damned lies, and coffee cake</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-11-19</span>
+                <a href="https://benn.substack.com/p/the-missing-analytics-executive" target="_blank">The missing analytics executive</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-11-12</span>
+                <a href="https://benn.substack.com/p/does-data-make-us-cowards" target="_blank">Does data make us cowards?</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-11-05</span>
+                <a href="https://benn.substack.com/p/method-for-measuring-analytical-work" target="_blank">A method for measuring analytical work</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-10-29</span>
+                <a href="https://benn.substack.com/p/data-and-the-almighty-dollar" target="_blank">Data and the almighty dollar</a>
+            </div><div class="timeline-post">
+                <span class="date">2021-10-22</span>
+                <a href="https://benn.substack.com/p/the-future-of-operational-analytics" target="_blank">The future of operational analytics</a>
+            </div><div class="timeline-post">...and 33 more</div></div>
+        </div>
+        
+        </div>
+    </section>
+
+    <footer>
+        <p>Generated on 2026-01-16 |
+        Original content at <a href="https://benn.substack.com">benn.substack.com</a></p>
+        <p>This is a personal research project archiving and analyzing Benn Stancil's public writings.</p>
+    </footer>
+</body>
+</html>
