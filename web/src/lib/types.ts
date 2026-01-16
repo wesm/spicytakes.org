@@ -15,6 +15,9 @@ export interface Quote {
   quote: string;
   post: Post;
   themes: string[];
+  spiciness: number;
+  date?: Date;
+  year?: number;
 }
 
 export interface ThemeData {
@@ -44,3 +47,19 @@ export const THEME_ICONS: Record<string, string> = {
   'industry_criticism': '🔍',
   'tools_products': '🛠️'
 };
+
+export function getSpicyLabel(spiciness: number): string {
+  if (spiciness <= 3) return 'Mild';
+  if (spiciness <= 5) return 'Moderate';
+  if (spiciness <= 7) return 'Pointed';
+  if (spiciness <= 9) return 'Spicy';
+  return 'Maximum Heat';
+}
+
+export function getSpicyColor(spiciness: number): string {
+  if (spiciness <= 3) return 'bg-green-100 text-green-700';
+  if (spiciness <= 5) return 'bg-yellow-100 text-yellow-700';
+  if (spiciness <= 7) return 'bg-orange-100 text-orange-700';
+  if (spiciness <= 9) return 'bg-red-100 text-red-700';
+  return 'bg-red-200 text-red-800';
+}

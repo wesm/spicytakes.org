@@ -2,6 +2,14 @@ import type { Post, Quote, ThemeData } from './types';
 import { THEME_LABELS, THEME_ICONS } from './types';
 import rawData from '../../data/llm_quotes.json';
 
+// Try to load spicy quotes if available
+let spicyData: any = null;
+try {
+  spicyData = await import('../../data/spicy_quotes.json');
+} catch {
+  // Spicy quotes not yet generated
+}
+
 function parseDate(filename: string): Date {
   const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (match) {
@@ -18,6 +26,15 @@ function formatTitle(filename: string): string {
     .join(' ');
 }
 
+// Build spiciness lookup
+const spicyLookup: Record<string, number> = {};
+if (spicyData?.quotes) {
+  for (const q of spicyData.quotes) {
+    const key = q.quote + q.filename;
+    spicyLookup[key] = q.spiciness || 5;
+  }
+}
+
 // Process posts
 export const posts: Post[] = (rawData as any).posts
   .filter((p: any) => !p.error)
@@ -29,14 +46,21 @@ export const posts: Post[] = (rawData as any).posts
   }))
   .sort((a: Post, b: Post) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
 
-// Build quotes array
+// Build quotes array with spiciness
 export const quotes: Quote[] = posts.flatMap(post =>
-  (post.money_quotes || []).map(quote => ({
-    quote,
-    post,
-    themes: post.themes || []
-  }))
-);
+  (post.money_quotes || []).map(quote => {
+    const key = quote + post.filename;
+    const date = post.date;
+    return {
+      quote,
+      post,
+      themes: post.themes || [],
+      spiciness: spicyLookup[key] || 5,
+      date,
+      year: date?.getFullYear()
+    };
+  })
+).sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
 
 // Build themes data
 export const themes: ThemeData[] = (() => {
@@ -54,9 +78,15 @@ export const themes: ThemeData[] = (() => {
         };
       }
       themeMap[theme].posts.push(post);
-      (post.money_quotes || []).forEach(q => {
-        themeMap[theme].quotes.push({ quote: q, post, themes: post.themes || [] });
-      });
+    });
+  });
+
+  // Add quotes to themes
+  quotes.forEach(q => {
+    q.themes.forEach(theme => {
+      if (themeMap[theme]) {
+        themeMap[theme].quotes.push(q);
+      }
     });
   });
 
@@ -71,11 +101,20 @@ export const postsByYear: Record<number, Post[]> = posts.reduce((acc, post) => {
   return acc;
 }, {} as Record<number, Post[]>);
 
+// Group quotes by year
+export const quotesByYear: Record<number, Quote[]> = quotes.reduce((acc, quote) => {
+  const year = quote.year || new Date().getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(quote);
+  return acc;
+}, {} as Record<number, Quote[]>);
+
 export const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
 
 // Stats
 export const stats = {
   totalPosts: posts.length,
   totalQuotes: quotes.length,
-  yearRange: `${Math.min(...years)}-${Math.max(...years)}`
+  yearRange: `${Math.min(...years)}-${Math.max(...years)}`,
+  hasSpiciness: Object.keys(spicyLookup).length > 0
 };
