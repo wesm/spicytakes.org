@@ -1,0 +1,19 @@
+{
+  "summary": "Stancil argues that data orchestration is backwards: we schedule pipelines from upstream triggers instead of from the freshness guarantees we actually care about at the end of the lineage. He proposes a reverse-ETL-style model where each table declares latency requirements and the system derives the DAG and run timing to meet those guarantees, improving maintainability, cost control, and alert relevance.",
+  "money_quotes": [
+    "We want the updated datasets or fresh dashboards at the end of our lineage graph, but define our schedules around what\u2019s at the beginning of it.",
+    "As analysts, we committed parameterized SQL statements and YAML configuration files to Integritie, which would use the queries, and the dependencies implied in them, to regularly create and update tables in our warehouse.",
+    "Instead, for each model, analysts set a latency requirement\u2014this table should never have data that\u2019s more than four hours out of date, a day out of date, a week out of date.",
+    "When adding a new table that we needed to update once a day, we didn\u2019t have to define a procedure for making it so... We just told the tool what we wanted.",
+    "I just want my data to be fresh\u2014where I can declare what fresh means\u2014and to know when it\u2019s not."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "analytics_practice",
+    "tools_products",
+    "industry_criticism"
+  ],
+  "tone": "analytical, critical, reflective",
+  "key_insight": "Define data freshness guarantees first and let orchestration derive the DAG and schedules, rather than chaining tasks from upstream triggers.",
+  "filename": "2022-08-12-down-with-the-dag"
+}
