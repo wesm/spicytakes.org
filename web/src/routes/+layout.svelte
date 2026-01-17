@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>Benn Stancil - Intellectual Footprint</title>
+  <title>Benn Stancil - Spicy Takes</title>
   <meta name="description" content="Explore the intellectual arc of Benn Stancil's writing on data, analytics, startups, and tech." />
 </svelte:head>
 

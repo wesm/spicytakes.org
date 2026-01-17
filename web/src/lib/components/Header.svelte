@@ -38,7 +38,7 @@
     <div class="flex items-center justify-between py-4">
       <div class="flex items-center gap-3">
         <h1 class="text-xl font-bold tracking-tight text-stone-900">Benn Stancil</h1>
-        <span class="hidden sm:inline text-stone-400 font-medium">Intellectual Footprint</span>
+        <span class="hidden sm:inline text-stone-400 font-medium">Spicy Takes</span>
       </div>
 
       <!-- Navigation -->
