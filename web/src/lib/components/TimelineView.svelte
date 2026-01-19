@@ -127,8 +127,8 @@
                 >
                   <div class="flex items-start gap-4">
                     {#if post.spiciness}
-                      <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold">
-                        {post.spiciness}
+                      <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold" title="Spiciness score: how provocative or contrarian">
+                        🌶️{post.spiciness}
                       </div>
                     {/if}
                     <div class="flex-1 min-w-0">
@@ -180,8 +180,8 @@
               >
                 <div class="flex items-start gap-4">
                   {#if post.spiciness}
-                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold">
-                      {post.spiciness}
+                    <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold" title="Spiciness score: how provocative or contrarian">
+                      🌶️{post.spiciness}
                     </div>
                   {/if}
                   <div class="flex-1 min-w-0">

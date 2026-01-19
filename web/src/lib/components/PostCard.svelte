@@ -27,8 +27,8 @@
       {formatDate(post.date)}
     </p>
     {#if post.spiciness}
-      <span class="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} text-xs font-bold">
-        {post.spiciness}
+      <span class="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} text-xs font-bold" title="Spiciness score">
+        🌶️{post.spiciness}
       </span>
     {/if}
   </div>
