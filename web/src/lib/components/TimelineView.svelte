@@ -10,7 +10,7 @@
 
   // Filter and sort posts
   let displayPosts = $derived(() => {
-    let result = $filteredPosts.filter(p => p.spiciness == null || p.spiciness >= minSpiciness);
+    let result = $filteredPosts.filter(p => p.spiciness == null || !Number.isFinite(p.spiciness) || p.spiciness >= minSpiciness);
 
     if (selectedYear) {
       result = result.filter(p => p.year === selectedYear);
