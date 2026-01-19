@@ -1,6 +1,7 @@
 <script lang="ts">
   import { filteredPosts } from '$lib/stores';
   import { years } from '$lib/data';
+  import { filterPosts } from '$lib/filter';
   import PostCard from './PostCard.svelte';
   import type { Post } from '$lib/types';
 
@@ -10,11 +11,7 @@
 
   // Filter and sort posts
   let displayPosts = $derived(() => {
-    let result = $filteredPosts.filter(p => p.spiciness == null || !Number.isFinite(p.spiciness) || p.spiciness >= minSpiciness);
-
-    if (selectedYear) {
-      result = result.filter(p => p.year === selectedYear);
-    }
+    let result = filterPosts($filteredPosts, minSpiciness, selectedYear);
 
     if (sortBy === 'spiciness') {
       result = [...result].sort((a, b) => (b.spiciness || 0) - (a.spiciness || 0));
