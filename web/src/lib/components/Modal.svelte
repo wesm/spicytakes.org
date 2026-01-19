@@ -55,11 +55,11 @@
           <p class="text-sm font-medium text-stone-400 uppercase tracking-wide">
             {formatDate($selectedPost.date)}
           </p>
-          {#if $selectedPost.spiciness}
-            <div class="flex items-center gap-2 {getSpicyColor($selectedPost.spiciness)} px-3 py-1 rounded-full" title="Spiciness score: how provocative or contrarian">
-              <span class="text-sm">🌶️</span>
+          {#if $selectedPost.spiciness != null}
+            <div class="flex items-center gap-2 {getSpicyColor($selectedPost.spiciness)} px-3 py-1 rounded-full" aria-label="Spiciness score: {$selectedPost.spiciness} (how provocative or contrarian)">
+              <span aria-hidden="true">🌶️</span>
               <span class="font-bold">{$selectedPost.spiciness}</span>
-              <span class="text-xs opacity-75">spiciness</span>
+              <span class="text-xs opacity-75" aria-hidden="true">spiciness</span>
             </div>
           {/if}
         </div>

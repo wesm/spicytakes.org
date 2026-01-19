@@ -24,8 +24,8 @@
   class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
 >
   <div class="flex items-start gap-4">
-    <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold" title="Spiciness score: how provocative or contrarian">
-      🌶️{quote.spiciness}
+    <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold" aria-label="Spiciness score: {quote.spiciness} (how provocative or contrarian)">
+      <span aria-hidden="true">🌶️{quote.spiciness}</span>
     </div>
     <div class="flex-1 min-w-0">
       <blockquote class="font-serif text-lg text-stone-800 leading-relaxed mb-3">

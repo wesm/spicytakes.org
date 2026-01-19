@@ -127,8 +127,8 @@
                 >
                   <div class="flex items-start gap-4">
                     {#if post.spiciness}
-                      <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold" title="Spiciness score: how provocative or contrarian">
-                        🌶️{post.spiciness}
+                      <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold" aria-label="Spiciness score: {post.spiciness} (how provocative or contrarian)">
+                        <span aria-hidden="true">🌶️{post.spiciness}</span>
                       </div>
                     {/if}
                     <div class="flex-1 min-w-0">
