@@ -3,6 +3,7 @@
   import { years, quotesByYear } from '$lib/data';
   import { getSpicyColor } from '$lib/types';
   import { selectedPost } from '$lib/stores';
+  import { filterQuotes } from '$lib/filter';
   import type { Quote } from '$lib/types';
 
   let sortBy = $state<'date' | 'spiciness'>('date');
@@ -23,12 +24,8 @@
   }
 
   // Filter and sort quotes
-  let displayQuotes = $derived(() => {
-    let result = $filteredQuotes.filter(q => q.spiciness >= minSpiciness);
-
-    if (selectedYear) {
-      result = result.filter(q => q.year === selectedYear);
-    }
+  let displayQuotes = $derived.by(() => {
+    let result = filterQuotes($filteredQuotes, minSpiciness, selectedYear);
 
     if (sortBy === 'spiciness') {
       result = [...result].sort((a, b) => b.spiciness - a.spiciness);
@@ -40,10 +37,10 @@
   });
 
   // Get spiciest per year (respects minSpiciness filter)
-  let spiciestByYear = $derived(() => {
+  let spiciestByYear = $derived.by(() => {
     const result: Record<number, Quote[]> = {};
     for (const year of years) {
-      const yearQuotes = $filteredQuotes.filter(q => q.year === year && q.spiciness >= minSpiciness);
+      const yearQuotes = filterQuotes($filteredQuotes, minSpiciness, year);
       result[year] = [...yearQuotes].sort((a, b) => b.spiciness - a.spiciness).slice(0, 5);
     }
     return result;
@@ -93,7 +90,7 @@
     </div>
 
     <div class="ml-auto text-sm text-stone-500">
-      {displayQuotes().length} quotes
+      {displayQuotes.length} quotes
     </div>
   </div>
 
@@ -101,7 +98,7 @@
   {#if !selectedYear && sortBy === 'spiciness'}
     <div class="space-y-8">
       {#each years as year}
-        {@const yearSpicy = spiciestByYear()[year]}
+        {@const yearSpicy = spiciestByYear[year]}
         {#if yearSpicy.length > 0}
           <section>
             <h3 class="text-xl font-bold text-stone-900 mb-4 pb-2 border-b-2 border-stone-900">
@@ -137,14 +134,14 @@
     </div>
   {:else}
     <!-- Regular chronological list -->
-    {#if displayQuotes().length === 0}
+    {#if displayQuotes.length === 0}
       <div class="text-center py-16">
         <p class="text-stone-500 text-lg">No quotes found</p>
         <p class="text-stone-400 mt-1">Try adjusting your filters</p>
       </div>
     {:else}
       <div class="space-y-3">
-        {#each displayQuotes() as quote, i (quote.quote + quote.post.filename + i)}
+        {#each displayQuotes as quote, i (quote.quote + quote.post.filename + i)}
           <button
             onclick={() => openPost(quote)}
             class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"

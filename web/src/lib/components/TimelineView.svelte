@@ -10,7 +10,7 @@
   let minSpiciness = $state(1);
 
   // Filter and sort posts
-  let displayPosts = $derived(() => {
+  let displayPosts = $derived.by(() => {
     let result = filterPosts($filteredPosts, minSpiciness, selectedYear);
 
     if (sortBy === 'spiciness') {
@@ -35,13 +35,13 @@
       .map(([year, posts]) => ({ year: Number(year), posts }));
   }
 
-  let groupedPosts = $derived(getPostsByYear(displayPosts()));
+  let groupedPosts = $derived(getPostsByYear(displayPosts));
 
   // Get spiciest posts per year
-  let spiciestByYear = $derived(() => {
+  let spiciestByYear = $derived.by(() => {
     const result: Record<number, Post[]> = {};
     for (const year of years) {
-      const yearPosts = displayPosts().filter(p => p.year === year);
+      const yearPosts = displayPosts.filter(p => p.year === year);
       result[year] = [...yearPosts].sort((a, b) => (b.spiciness || 0) - (a.spiciness || 0)).slice(0, 5);
     }
     return result;
@@ -91,7 +91,7 @@
     </div>
 
     <div class="ml-auto text-sm text-stone-500">
-      {displayPosts().length} posts
+      {displayPosts.length} posts
     </div>
   </div>
 
@@ -99,7 +99,7 @@
   {#if !selectedYear && sortBy === 'spiciness'}
     <div class="space-y-8">
       {#each years as year}
-        {@const yearSpicy = spiciestByYear()[year]}
+        {@const yearSpicy = spiciestByYear[year]}
         {#if yearSpicy.length > 0}
           <section>
             <div class="sticky top-[145px] z-10 bg-stone-50 py-3 border-b-2 border-stone-900 mb-6">
@@ -117,7 +117,7 @@
         {/if}
       {/each}
     </div>
-  {:else if displayPosts().length === 0}
+  {:else if displayPosts.length === 0}
     <div class="text-center py-16">
       <p class="text-stone-500 text-lg">No posts found</p>
       <p class="text-stone-400 mt-1">Try adjusting your search or filters</p>

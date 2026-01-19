@@ -1,19 +1,34 @@
-import type { Post } from './types';
+import type { Post, Quote } from './types';
 
 /**
  * Filters posts based on spiciness and year.
- * Posts with undefined or NaN spiciness are treated as "missing" data and are INCLUDED
- * (i.e., they are not filtered out based on minSpiciness).
+ * Missing spiciness is treated as 0.
  */
 export function filterPosts(posts: Post[], minSpiciness: number, selectedYear: number | null): Post[] {
   return posts.filter(p => {
     // Spiciness check
-    // If spiciness is missing (undefined/null) or invalid (NaN), we include it
-    // Otherwise, it must meet the minimum spiciness
-    const passSpiciness = p.spiciness == null || !Number.isFinite(p.spiciness) || p.spiciness >= minSpiciness;
+    const spiciness = p.spiciness ?? 0;
+    const passSpiciness = spiciness >= minSpiciness;
     
     // Year check
     const passYear = selectedYear == null || p.year === selectedYear;
+
+    return passSpiciness && passYear;
+  });
+}
+
+/**
+ * Filters quotes based on spiciness and year.
+ * Missing spiciness is treated as 0.
+ */
+export function filterQuotes(quotes: Quote[], minSpiciness: number, selectedYear: number | null): Quote[] {
+  return quotes.filter(q => {
+    // Spiciness check
+    const spiciness = q.spiciness ?? 0;
+    const passSpiciness = spiciness >= minSpiciness;
+    
+    // Year check
+    const passYear = selectedYear == null || q.year === selectedYear;
 
     return passSpiciness && passYear;
   });
