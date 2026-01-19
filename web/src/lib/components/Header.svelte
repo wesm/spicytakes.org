@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { activeView, searchQuery, activeThemes, clearFilters } from '$lib/stores';
+  import { searchQuery, activeThemes, clearFilters } from '$lib/stores';
   import { themes } from '$lib/data';
-  import { THEME_LABELS } from '$lib/types';
 
   let searchValue = $state('');
   let searchTimeout: ReturnType<typeof setTimeout>;
@@ -20,10 +19,6 @@
     searchTimeout = setTimeout(() => {
       searchQuery.set(value);
     }, 200);
-  }
-
-  function setView(view: 'timeline' | 'quotes' | 'themes') {
-    activeView.set(view);
   }
 
   function toggleTheme(theme: string) {
@@ -47,28 +42,6 @@
         <h1 class="text-xl font-bold tracking-tight text-stone-900">Benn Stancil</h1>
         <span class="hidden sm:inline text-stone-400 font-medium">Spicy Takes</span>
       </div>
-
-      <!-- Navigation -->
-      <nav class="flex gap-1 bg-stone-100 p-1 rounded-lg">
-        <button
-          onclick={() => setView('timeline')}
-          class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-150 {$activeView === 'timeline' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-600 hover:text-stone-900'}"
-        >
-          Timeline
-        </button>
-        <button
-          onclick={() => setView('quotes')}
-          class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-150 {$activeView === 'quotes' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-600 hover:text-stone-900'}"
-        >
-          Quotes
-        </button>
-        <button
-          onclick={() => setView('themes')}
-          class="px-4 py-2 text-sm font-medium rounded-md transition-all duration-150 {$activeView === 'themes' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-600 hover:text-stone-900'}"
-        >
-          Themes
-        </button>
-      </nav>
     </div>
 
     <!-- Search and filters -->

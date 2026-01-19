@@ -1,6 +1,6 @@
 <script lang="ts">
   import { selectedPost } from '$lib/stores';
-  import { THEME_LABELS } from '$lib/types';
+  import { THEME_LABELS, getSpicyColor } from '$lib/types';
 
   function close() {
     selectedPost.set(null);
@@ -50,10 +50,19 @@
       </button>
 
       <div class="p-8">
-        <!-- Date -->
-        <p class="text-sm font-medium text-stone-400 uppercase tracking-wide mb-2">
-          {formatDate($selectedPost.date)}
-        </p>
+        <!-- Date and Spiciness -->
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-medium text-stone-400 uppercase tracking-wide">
+            {formatDate($selectedPost.date)}
+          </p>
+          {#if $selectedPost.spiciness}
+            <div class="flex items-center gap-2 {getSpicyColor($selectedPost.spiciness)} px-3 py-1 rounded-full" title="Spiciness score: how provocative or contrarian">
+              <span class="text-sm">🌶️</span>
+              <span class="font-bold">{$selectedPost.spiciness}</span>
+              <span class="text-xs opacity-75">spiciness</span>
+            </div>
+          {/if}
+        </div>
 
         <!-- Title -->
         <h2 class="font-serif text-2xl font-semibold text-stone-900 mb-4 pr-8">
