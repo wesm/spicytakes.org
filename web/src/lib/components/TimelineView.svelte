@@ -52,8 +52,9 @@
   <!-- Controls -->
   <div class="flex flex-wrap items-center gap-4 p-4 bg-white rounded-xl border border-stone-200">
     <div class="flex items-center gap-2">
-      <label class="text-sm font-medium text-stone-600">Sort:</label>
+      <label for="timeline-sort" class="text-sm font-medium text-stone-600">Sort:</label>
       <select
+        id="timeline-sort"
         bind:value={sortBy}
         class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
       >
@@ -63,8 +64,9 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <label class="text-sm font-medium text-stone-600">Year:</label>
+      <label for="timeline-year" class="text-sm font-medium text-stone-600">Year:</label>
       <select
+        id="timeline-year"
         bind:value={selectedYear}
         class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
       >
@@ -76,8 +78,9 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <label class="text-sm font-medium text-stone-600">Min Spice:</label>
+      <label for="timeline-spice" class="text-sm font-medium text-stone-600">Min Spice:</label>
       <input
+        id="timeline-spice"
         type="range"
         min="1"
         max="10"
