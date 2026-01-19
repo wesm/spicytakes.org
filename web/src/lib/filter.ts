@@ -8,9 +8,9 @@ import type { Post } from './types';
 export function filterPosts(posts: Post[], minSpiciness: number, selectedYear: number | null): Post[] {
   return posts.filter(p => {
     // Spiciness check
-    // If spiciness is missing (null/undefined) or invalid (NaN), we include it
+    // If spiciness is missing (undefined) or invalid (NaN), we include it
     // Otherwise, it must meet the minimum spiciness
-    const passSpiciness = p.spiciness == null || !Number.isFinite(p.spiciness) || p.spiciness >= minSpiciness;
+    const passSpiciness = p.spiciness === undefined || !Number.isFinite(p.spiciness) || p.spiciness >= minSpiciness;
     
     // Year check
     const passYear = selectedYear == null || p.year === selectedYear;
