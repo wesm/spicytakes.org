@@ -64,3 +64,11 @@ export function getSpicyColor(spiciness: number): string {
   if (spiciness <= 9) return 'bg-red-100 text-red-700';
   return 'bg-red-200 text-red-800';
 }
+
+export function getSpicyTextColor(spiciness: number): string {
+  if (spiciness <= 3) return 'text-green-600';
+  if (spiciness <= 5) return 'text-yellow-600';
+  if (spiciness <= 7) return 'text-orange-600';
+  if (spiciness <= 9) return 'text-red-600';
+  return 'text-red-700';
+}

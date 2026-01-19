@@ -1,7 +1,7 @@
 <script lang="ts">
   import { themes, years } from '$lib/data';
   import { activeThemes, activeView } from '$lib/stores';
-  import { getSpicyColor } from '$lib/types';
+  import { getSpicyColor, getSpicyTextColor } from '$lib/types';
 
   function selectTheme(themeName: string) {
     activeThemes.set(new Set([themeName]));
@@ -48,7 +48,7 @@
           </div>
           <div class="text-right">
             <div class="text-sm text-stone-400">Avg Spice</div>
-            <div class="text-xl font-bold {getSpicyColor(avgSpice).replace('bg-', 'text-').replace('-100', '-600').replace('-200', '-700')}">{avgSpice}</div>
+            <div class="text-xl font-bold {getSpicyTextColor(avgSpice)}">{avgSpice}</div>
           </div>
         </div>
 

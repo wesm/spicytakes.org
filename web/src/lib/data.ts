@@ -21,9 +21,16 @@ function parseDate(filename: string): Date {
 
 function formatTitle(filename: string): string {
   const titlePart = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+  const acronyms = ['bi', 'sql', 'ai', 'yc', 'vc', 'llm', 'llms', 'mds', 'obp', 'svb', 'tam', 'mvp'];
+  
   return titlePart
     .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map(word => {
+      const lowerWord = word.toLowerCase();
+      if (acronyms.includes(lowerWord)) return lowerWord.toUpperCase();
+      if (lowerWord === 'dbt') return 'dbt';
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
     .join(' ');
 }
 
@@ -31,7 +38,7 @@ function formatTitle(filename: string): string {
 const spicyLookup: Record<string, number> = {};
 if (spicyData?.quotes) {
   for (const q of spicyData.quotes) {
-    const key = q.quote + q.filename;
+    const key = `${q.quote}|${q.filename}`;
     spicyLookup[key] = q.spiciness || 5;
   }
 }
@@ -50,7 +57,7 @@ export const posts: Post[] = (rawData as any).posts
 // Build quotes array with spiciness
 export const quotes: Quote[] = posts.flatMap(post =>
   (post.money_quotes || []).map(quote => {
-    const key = quote + post.filename;
+    const key = `${quote}|${post.filename}`;
     const date = post.date;
     return {
       quote,
@@ -133,9 +140,11 @@ export const quotesByYear: Record<number, Quote[]> = quotes.reduce((acc, quote) 
 export const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
 
 // Stats
+const minYear = Math.min(...years);
+const maxYear = Math.max(...years);
 export const stats = {
   totalPosts: posts.length,
   totalQuotes: quotes.length,
-  yearRange: `${Math.min(...years)}-${Math.max(...years)}`,
+  yearRange: minYear === maxYear ? `${minYear}` : `${minYear}-${maxYear}`,
   hasSpiciness: Object.keys(spicyLookup).length > 0
 };

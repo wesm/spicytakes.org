@@ -14,7 +14,7 @@ describe('filterPosts', () => {
   it('filters by minSpiciness', () => {
     const res1 = filterPosts(posts, 4, null);
     // Should include: 1 (5), 3 (8)
-    // Should exclude: 2 (3), 4 (undefined -> 0), 5 (NaN -> 0)
+    // Should exclude: 2 (3), 4 (undefined -> 1), 5 (NaN -> 1)
     expect(res1.length).toBe(2);
     expect(res1.find(p => p.filename === '1')).toBeDefined();
     expect(res1.find(p => p.filename === '3')).toBeDefined();
@@ -51,7 +51,7 @@ describe('filterQuotes', () => {
   it('filters by minSpiciness (handles NaN/missing)', () => {
     const res = filterQuotes(quotes, 4, null);
     // Includes q1(5), q3(8)
-    // Excludes q2(2), q4(NaN->0), q5(undefined->0)
+    // Excludes q2(2), q4(NaN->1), q5(undefined->1)
     expect(res.length).toBe(2);
     expect(res.find(q => q.quote === 'q1')).toBeDefined();
     expect(res.find(q => q.quote === 'q3')).toBeDefined();
@@ -61,8 +61,10 @@ describe('filterQuotes', () => {
 
   it('filters by Year', () => {
     const res = filterQuotes(quotes, 1, 2022);
-    // q3 (8) included. q4 (NaN->0) and q5 (undefined->0) excluded because minSpiciness is 1
-    expect(res.length).toBe(1);
+    // q3 (8), q4 (NaN->1) and q5 (undefined->1) are all included because minSpiciness is 1
+    expect(res.length).toBe(3);
     expect(res.find(q => q.quote === 'q3')).toBeDefined();
+    expect(res.find(q => q.quote === 'q4')).toBeDefined();
+    expect(res.find(q => q.quote === 'q5')).toBeDefined();
   });
 });
