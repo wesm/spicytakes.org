@@ -1,14 +1,13 @@
 import { describe, it, expect } from 'vitest';
+import { makeSpicinessKey } from '../src/lib/data';
 
 /**
  * Tests for the spiciness lookup key format.
  * The key must avoid collisions when quotes or filenames contain delimiters.
  */
 describe('spiciness lookup key format', () => {
-  // Mirror the key generation from data.ts
-  function makeKey(quote: string, filename: string): string {
-    return JSON.stringify([quote, filename]);
-  }
+  // Use the production function from data.ts
+  const makeKey = makeSpicinessKey;
 
   it('avoids collisions that would occur with pipe delimiter', () => {
     // These would collide with `${quote}|${filename}` format:

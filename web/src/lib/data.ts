@@ -34,11 +34,16 @@ function formatTitle(filename: string): string {
     .join(' ');
 }
 
-// Build spiciness lookup (use JSON key to avoid delimiter collisions)
+/** Creates a collision-safe lookup key for quote + filename pairs */
+export function makeSpicinessKey(quote: string, filename: string): string {
+  return JSON.stringify([quote, filename]);
+}
+
+// Build spiciness lookup
 const spicyLookup: Record<string, number> = {};
 if (spicyData?.quotes) {
   for (const q of spicyData.quotes) {
-    const key = JSON.stringify([q.quote, q.filename]);
+    const key = makeSpicinessKey(q.quote, q.filename);
     spicyLookup[key] = q.spiciness || 5;
   }
 }
@@ -57,7 +62,7 @@ export const posts: Post[] = (rawData as any).posts
 // Build quotes array with spiciness
 export const quotes: Quote[] = posts.flatMap(post =>
   (post.money_quotes || []).map(quote => {
-    const key = JSON.stringify([quote, post.filename]);
+    const key = makeSpicinessKey(quote, post.filename);
     const date = post.date;
     return {
       quote,

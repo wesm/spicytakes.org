@@ -1,9 +1,22 @@
 <script lang="ts">
-  import { filteredPosts } from '$lib/stores';
+  import { filteredPosts, selectedPost } from '$lib/stores';
   import { years } from '$lib/data';
   import { filterPosts } from '$lib/filter';
-  import PostCard from './PostCard.svelte';
+  import { getSpicyColor, THEME_LABELS } from '$lib/types';
   import type { Post } from '$lib/types';
+
+  function formatDate(date: Date | undefined): string {
+    if (!date) return '';
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  }
+
+  function openPost(post: Post) {
+    selectedPost.set(post);
+  }
 
   let sortBy = $state<'date' | 'spiciness'>('date');
   let selectedYear = $state<number | null>(null);
@@ -102,15 +115,44 @@
         {@const yearSpicy = spiciestByYear[year]}
         {#if yearSpicy.length > 0}
           <section>
-            <div class="sticky top-[145px] z-10 bg-stone-50 py-3 border-b-2 border-stone-900 mb-6">
-              <h2 class="text-2xl font-bold text-stone-900">
-                {year}
-                <span class="text-base font-normal text-stone-500 ml-2">Top 5 Spiciest</span>
-              </h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <h3 class="text-xl font-bold text-stone-900 mb-4 pb-2 border-b-2 border-stone-900">
+              {year}
+              <span class="text-sm font-normal text-stone-500 ml-2">Top 5 Spiciest</span>
+            </h3>
+            <div class="space-y-3">
               {#each yearSpicy as post (post.filename)}
-                <PostCard {post} />
+                <button
+                  onclick={() => openPost(post)}
+                  class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
+                >
+                  <div class="flex items-start gap-4">
+                    {#if post.spiciness}
+                      <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold">
+                        {post.spiciness}
+                      </div>
+                    {/if}
+                    <div class="flex-1 min-w-0">
+                      <h4 class="font-serif text-lg font-semibold text-stone-900 mb-2 leading-snug">
+                        {post.title}
+                      </h4>
+                      <p class="text-sm text-stone-600 mb-3 line-clamp-2">
+                        {post.summary}
+                      </p>
+                      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+                        <span class="text-stone-400">{formatDate(post.date)}</span>
+                        {#if post.themes?.length}
+                          <div class="flex gap-1">
+                            {#each post.themes.slice(0, 2) as theme}
+                              <span class="text-xs px-2 py-0.5 bg-stone-100 text-stone-500 rounded">
+                                {THEME_LABELS[theme] || theme.replace(/_/g, ' ')}
+                              </span>
+                            {/each}
+                          </div>
+                        {/if}
+                      </div>
+                    </div>
+                  </div>
+                </button>
               {/each}
             </div>
           </section>
@@ -123,18 +165,47 @@
       <p class="text-stone-400 mt-1">Try adjusting your search or filters</p>
     </div>
   {:else}
-    <div class="space-y-12">
+    <div class="space-y-8">
       {#each groupedPosts as { year, posts }}
         <section>
-          <div class="sticky top-[145px] z-10 bg-stone-50 py-3 border-b-2 border-stone-900 mb-6">
-            <h2 class="text-2xl font-bold text-stone-900">
-              {year}
-              <span class="text-base font-normal text-stone-500 ml-2">{posts.length} posts</span>
-            </h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h3 class="text-xl font-bold text-stone-900 mb-4 pb-2 border-b-2 border-stone-900">
+            {year}
+            <span class="text-sm font-normal text-stone-500 ml-2">{posts.length} posts</span>
+          </h3>
+          <div class="space-y-3">
             {#each posts as post (post.filename)}
-              <PostCard {post} />
+              <button
+                onclick={() => openPost(post)}
+                class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
+              >
+                <div class="flex items-start gap-4">
+                  {#if post.spiciness}
+                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} font-bold">
+                      {post.spiciness}
+                    </div>
+                  {/if}
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-serif text-lg font-semibold text-stone-900 mb-2 leading-snug">
+                      {post.title}
+                    </h4>
+                    <p class="text-sm text-stone-600 mb-3 line-clamp-2">
+                      {post.summary}
+                    </p>
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+                      <span class="text-stone-400">{formatDate(post.date)}</span>
+                      {#if post.themes?.length}
+                        <div class="flex gap-1">
+                          {#each post.themes.slice(0, 2) as theme}
+                            <span class="text-xs px-2 py-0.5 bg-stone-100 text-stone-500 rounded">
+                              {THEME_LABELS[theme] || theme.replace(/_/g, ' ')}
+                            </span>
+                          {/each}
+                        </div>
+                      {/if}
+                    </div>
+                  </div>
+                </div>
+              </button>
             {/each}
           </div>
         </section>
@@ -142,3 +213,13 @@
     </div>
   {/if}
 </div>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 2;
+  }
+</style>
