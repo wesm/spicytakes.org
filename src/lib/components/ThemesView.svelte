@@ -56,7 +56,7 @@
           <div class="text-xs font-medium text-stone-400 uppercase tracking-wide">Top Spicy Takes</div>
           {#each topSpicy as q}
             <div class="flex items-start gap-2">
-              <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full {getSpicyColor(q.spiciness)} text-xs font-bold" aria-label="Spiciness score: {q.spiciness} (how provocative or contrarian)">
+              <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full {getSpicyColor(q.spiciness)} text-xs font-bold" role="img" aria-label="Spiciness score: {q.spiciness} out of 10" title="Spiciness: {q.spiciness}/10">
                 <span aria-hidden="true">🌶️{q.spiciness}</span>
               </span>
               <p class="font-serif text-sm text-stone-600 line-clamp-2">

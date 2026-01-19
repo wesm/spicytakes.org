@@ -112,7 +112,7 @@
                   class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
                 >
                   <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold text-sm" aria-label="Spiciness score: {quote.spiciness} (how provocative or contrarian)">
+                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold text-sm" role="img" aria-label="Spiciness score: {quote.spiciness} out of 10" title="Spiciness: {quote.spiciness}/10 (how provocative or contrarian)">
                       <span aria-hidden="true">🌶️{quote.spiciness}</span>
                     </div>
                     <div class="flex-1 min-w-0">
@@ -147,7 +147,7 @@
             class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
           >
             <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold" aria-label="Spiciness score: {quote.spiciness} (how provocative or contrarian)">
+              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold" role="img" aria-label="Spiciness score: {quote.spiciness} out of 10" title="Spiciness: {quote.spiciness}/10 (how provocative or contrarian)">
                 <span aria-hidden="true">🌶️{quote.spiciness}</span>
               </div>
               <div class="flex-1 min-w-0">

@@ -56,7 +56,7 @@
             {formatDate($selectedPost.date)}
           </p>
           {#if $selectedPost.spiciness != null}
-            <div class="flex items-center gap-2 {getSpicyColor($selectedPost.spiciness)} px-3 py-1 rounded-full" aria-label="Spiciness score: {$selectedPost.spiciness} (how provocative or contrarian)">
+            <div class="flex items-center gap-2 {getSpicyColor($selectedPost.spiciness)} px-3 py-1 rounded-full" role="img" aria-label="Spiciness score: {$selectedPost.spiciness} out of 10" title="Spiciness: {$selectedPost.spiciness}/10 (how provocative or contrarian)">
               <span aria-hidden="true">🌶️</span>
               <span class="font-bold">{$selectedPost.spiciness}</span>
               <span class="text-xs opacity-75" aria-hidden="true">spiciness</span>
