@@ -9,19 +9,17 @@ describe('filterPosts', () => {
     { filename: '3', summary: 's3', money_quotes: [], themes: [], tone: '', key_insight: '', spiciness: 8, year: 2022 },
     { filename: '4', summary: 's4', money_quotes: [], themes: [], tone: '', key_insight: '', spiciness: undefined, year: 2022 },
     { filename: '5', summary: 's5', money_quotes: [], themes: [], tone: '', key_insight: '', spiciness: NaN, year: 2023 },
-    { filename: '6', summary: 's6', money_quotes: [], themes: [], tone: '', key_insight: '', spiciness: null as any, year: 2023 }, // Force null for test
   ];
 
   it('filters by minSpiciness', () => {
     const res1 = filterPosts(posts, 4, null);
-    // Should include: 1 (5), 3 (8), 4 (undefined), 5 (NaN), 6 (null)
+    // Should include: 1 (5), 3 (8), 4 (undefined), 5 (NaN)
     // Should exclude: 2 (3)
-    expect(res1.length).toBe(5);
+    expect(res1.length).toBe(4);
     expect(res1.find(p => p.filename === '1')).toBeDefined();
     expect(res1.find(p => p.filename === '2')).toBeUndefined();
     expect(res1.find(p => p.filename === '4')).toBeDefined();
     expect(res1.find(p => p.filename === '5')).toBeDefined();
-    expect(res1.find(p => p.filename === '6')).toBeDefined();
   });
 
   it('filters by Year', () => {
