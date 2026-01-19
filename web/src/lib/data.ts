@@ -5,7 +5,8 @@ import rawData from '../../data/llm_quotes.json';
 // Try to load spicy quotes if available
 let spicyData: any = null;
 try {
-  spicyData = await import('../../data/spicy_quotes.json');
+  const module = await import('../../data/spicy_quotes.json');
+  spicyData = module.default || module;
 } catch {
   // Spicy quotes not yet generated
 }
@@ -61,6 +62,21 @@ export const quotes: Quote[] = posts.flatMap(post =>
     };
   })
 ).sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+
+// Compute post-level spiciness (average of quote spiciness scores)
+const postSpiciness: Record<string, number> = {};
+posts.forEach(post => {
+  const postQuotes = quotes.filter(q => q.post.filename === post.filename);
+  if (postQuotes.length > 0) {
+    const avg = postQuotes.reduce((sum, q) => sum + q.spiciness, 0) / postQuotes.length;
+    postSpiciness[post.filename] = Math.round(avg * 10) / 10;
+  }
+});
+
+// Apply spiciness to posts
+posts.forEach(post => {
+  post.spiciness = postSpiciness[post.filename];
+});
 
 // Build themes data
 export const themes: ThemeData[] = (() => {

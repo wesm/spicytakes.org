@@ -39,11 +39,11 @@
     return result;
   });
 
-  // Get spiciest per year
+  // Get spiciest per year (respects minSpiciness filter)
   let spiciestByYear = $derived(() => {
     const result: Record<number, Quote[]> = {};
     for (const year of years) {
-      const yearQuotes = $filteredQuotes.filter(q => q.year === year);
+      const yearQuotes = $filteredQuotes.filter(q => q.year === year && q.spiciness >= minSpiciness);
       result[year] = [...yearQuotes].sort((a, b) => b.spiciness - a.spiciness).slice(0, 5);
     }
     return result;

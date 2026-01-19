@@ -6,8 +6,8 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-DATA_DIR="$PROJECT_DIR/data"
-OUTPUT_FILE="$DATA_DIR/spicy_quotes.json"
+export DATA_DIR="$PROJECT_DIR/data"
+export OUTPUT_FILE="$DATA_DIR/spicy_quotes.json"
 
 # Read all quotes and process them
 python3 <<'PYEOF'

@@ -6,6 +6,13 @@
   let searchValue = $state('');
   let searchTimeout: ReturnType<typeof setTimeout>;
 
+  // Sync local searchValue with store (for when clearFilters is called)
+  $effect(() => {
+    if ($searchQuery === '' && searchValue !== '') {
+      searchValue = '';
+    }
+  });
+
   function handleSearch(e: Event) {
     const value = (e.target as HTMLInputElement).value;
     searchValue = value;

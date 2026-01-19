@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Post } from '$lib/types';
-  import { THEME_LABELS } from '$lib/types';
+  import { THEME_LABELS, getSpicyColor } from '$lib/types';
   import { selectedPost } from '$lib/stores';
 
   let { post }: { post: Post } = $props();
@@ -22,9 +22,16 @@
   onclick={openPost}
   class="card card-hover text-left w-full cursor-pointer"
 >
-  <p class="text-xs font-medium text-stone-400 uppercase tracking-wide mb-2">
-    {formatDate(post.date)}
-  </p>
+  <div class="flex items-start justify-between gap-2 mb-2">
+    <p class="text-xs font-medium text-stone-400 uppercase tracking-wide">
+      {formatDate(post.date)}
+    </p>
+    {#if post.spiciness}
+      <span class="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full {getSpicyColor(post.spiciness)} text-xs font-bold">
+        {post.spiciness}
+      </span>
+    {/if}
+  </div>
   <h3 class="font-serif text-lg font-semibold text-stone-900 mb-2 leading-snug">
     {post.title}
   </h3>

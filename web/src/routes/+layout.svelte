@@ -2,6 +2,7 @@
   import '../app.css';
   import Header from '$lib/components/Header.svelte';
   import Modal from '$lib/components/Modal.svelte';
+  import { stats } from '$lib/data';
 
   let { children } = $props();
 </script>
@@ -17,7 +18,7 @@
     {@render children()}
   </main>
   <footer class="border-t border-stone-200 py-8 text-center text-sm text-stone-500">
-    <p>Exploring 238 posts from <a href="https://benn.substack.com" target="_blank" class="text-blue-600 hover:underline">benn.substack.com</a></p>
+    <p>Exploring {stats.totalPosts} posts from <a href="https://benn.substack.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">benn.substack.com</a></p>
     <p class="mt-1 text-stone-400">Built with LLM-powered analysis</p>
   </footer>
 </div>
