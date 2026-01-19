@@ -63,19 +63,24 @@ export const quotes: Quote[] = posts.flatMap(post =>
   })
 ).sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
 
-// Compute post-level spiciness (average of quote spiciness scores)
-const postSpiciness: Record<string, number> = {};
-posts.forEach(post => {
-  const postQuotes = quotes.filter(q => q.post.filename === post.filename);
-  if (postQuotes.length > 0) {
-    const avg = postQuotes.reduce((sum, q) => sum + q.spiciness, 0) / postQuotes.length;
-    postSpiciness[post.filename] = Math.round(avg * 10) / 10;
-  }
+// Group quotes by filename for O(Q) lookup instead of O(P*Q)
+const quotesByFilename: Record<string, Quote[]> = {};
+quotes.forEach(q => {
+  const filename = q.post.filename;
+  if (!quotesByFilename[filename]) quotesByFilename[filename] = [];
+  quotesByFilename[filename].push(q);
 });
 
-// Apply spiciness to posts
+// Compute post-level spiciness (average of quote spiciness scores)
 posts.forEach(post => {
-  post.spiciness = postSpiciness[post.filename];
+  const postQuotes = quotesByFilename[post.filename] || [];
+  const validScores = postQuotes
+    .map(q => q.spiciness)
+    .filter(s => typeof s === 'number' && Number.isFinite(s));
+  if (validScores.length > 0) {
+    const avg = validScores.reduce((sum, s) => sum + s, 0) / validScores.length;
+    post.spiciness = Math.round(avg * 10) / 10;
+  }
 });
 
 // Build themes data
