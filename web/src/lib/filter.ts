@@ -7,7 +7,8 @@ import type { Post, Quote } from './types';
 export function filterPosts(posts: Post[], minSpiciness: number, selectedYear: number | null): Post[] {
   return posts.filter(p => {
     // Spiciness check
-    const spiciness = p.spiciness ?? 0;
+    const rawSpiciness = p.spiciness;
+    const spiciness = (typeof rawSpiciness === 'number' && Number.isFinite(rawSpiciness)) ? rawSpiciness : 0;
     const passSpiciness = spiciness >= minSpiciness;
     
     // Year check
@@ -24,7 +25,8 @@ export function filterPosts(posts: Post[], minSpiciness: number, selectedYear: n
 export function filterQuotes(quotes: Quote[], minSpiciness: number, selectedYear: number | null): Quote[] {
   return quotes.filter(q => {
     // Spiciness check
-    const spiciness = q.spiciness ?? 0;
+    const rawSpiciness = q.spiciness;
+    const spiciness = (typeof rawSpiciness === 'number' && Number.isFinite(rawSpiciness)) ? rawSpiciness : 0;
     const passSpiciness = spiciness >= minSpiciness;
     
     // Year check

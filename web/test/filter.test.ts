@@ -28,6 +28,14 @@ describe('filterPosts', () => {
     expect(res2.length).toBe(2);
     expect(res2.every(p => p.year === 2021)).toBe(true);
   });
+
+  it('filters by Year and minSpiciness', () => {
+    const res3 = filterPosts(posts, 4, 2021);
+    // Should include: 1 (5, 2021)
+    // Should exclude: 2 (3, 2021), 3 (8, 2022)
+    expect(res3.length).toBe(1);
+    expect(res3[0].filename).toBe('1');
+  });
 });
 
 describe('filterQuotes', () => {
@@ -36,18 +44,25 @@ describe('filterQuotes', () => {
     { quote: 'q1', post: mockPost, themes: [], spiciness: 5, year: 2021 },
     { quote: 'q2', post: mockPost, themes: [], spiciness: 2, year: 2021 },
     { quote: 'q3', post: mockPost, themes: [], spiciness: 8, year: 2022 },
+    { quote: 'q4', post: mockPost, themes: [], spiciness: NaN, year: 2022 },
+    { quote: 'q5', post: mockPost, themes: [], spiciness: undefined, year: 2022 },
   ];
 
-  it('filters by minSpiciness', () => {
-    const res = filterQuotes(quotes, 5, null);
+  it('filters by minSpiciness (handles NaN/missing)', () => {
+    const res = filterQuotes(quotes, 4, null);
+    // Includes q1(5), q3(8)
+    // Excludes q2(2), q4(NaN->0), q5(undefined->0)
     expect(res.length).toBe(2);
     expect(res.find(q => q.quote === 'q1')).toBeDefined();
     expect(res.find(q => q.quote === 'q3')).toBeDefined();
+    expect(res.find(q => q.quote === 'q4')).toBeUndefined();
+    expect(res.find(q => q.quote === 'q5')).toBeUndefined();
   });
 
   it('filters by Year', () => {
     const res = filterQuotes(quotes, 1, 2022);
+    // q3 (8) included. q4 (NaN->0) and q5 (undefined->0) excluded because minSpiciness is 1
     expect(res.length).toBe(1);
-    expect(res[0].quote).toBe('q3');
+    expect(res.find(q => q.quote === 'q3')).toBeDefined();
   });
 });
