@@ -36,6 +36,14 @@ describe('filterPosts', () => {
     expect(res3.length).toBe(1);
     expect(res3[0].filename).toBe('1');
   });
+
+  it('includes posts with missing/NaN spiciness when minSpiciness=1', () => {
+    const res = filterPosts(posts, 1, null);
+    // All posts should be included: missing/NaN treated as 1
+    expect(res.length).toBe(5);
+    expect(res.find(p => p.filename === '4')).toBeDefined(); // undefined spiciness
+    expect(res.find(p => p.filename === '5')).toBeDefined(); // NaN spiciness
+  });
 });
 
 describe('filterQuotes', () => {

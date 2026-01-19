@@ -34,11 +34,11 @@ function formatTitle(filename: string): string {
     .join(' ');
 }
 
-// Build spiciness lookup
+// Build spiciness lookup (use JSON key to avoid delimiter collisions)
 const spicyLookup: Record<string, number> = {};
 if (spicyData?.quotes) {
   for (const q of spicyData.quotes) {
-    const key = `${q.quote}|${q.filename}`;
+    const key = JSON.stringify([q.quote, q.filename]);
     spicyLookup[key] = q.spiciness || 5;
   }
 }
@@ -57,7 +57,7 @@ export const posts: Post[] = (rawData as any).posts
 // Build quotes array with spiciness
 export const quotes: Quote[] = posts.flatMap(post =>
   (post.money_quotes || []).map(quote => {
-    const key = `${quote}|${post.filename}`;
+    const key = JSON.stringify([quote, post.filename]);
     const date = post.date;
     return {
       quote,
