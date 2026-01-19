@@ -50,11 +50,22 @@
       </button>
 
       <div class="p-8">
-        <!-- Date and Spiciness -->
+        <!-- Date, Link, and Spiciness -->
         <div class="flex items-center justify-between mb-2">
-          <p class="text-sm font-medium text-stone-400 uppercase tracking-wide">
-            {formatDate($selectedPost.date)}
-          </p>
+          <div class="flex items-center gap-2 text-sm text-stone-400">
+            <span class="font-medium uppercase tracking-wide">
+              {formatDate($selectedPost.date)}
+            </span>
+            <span>·</span>
+            <a
+              href={getSubstackUrl($selectedPost.filename)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
+            >
+              Read on Substack ↗
+            </a>
+          </div>
           {#if $selectedPost.spiciness != null}
             <div class="flex items-center gap-2 {getSpicyColor($selectedPost.spiciness)} px-3 py-1 rounded-full" role="img" aria-label="Spiciness score: {$selectedPost.spiciness} out of 10" title="Spiciness: {$selectedPost.spiciness}/10 (how provocative or contrarian)">
               <span aria-hidden="true">🌶️</span>
@@ -68,22 +79,6 @@
         <h2 class="font-serif text-2xl font-semibold text-stone-900 mb-4 pr-8">
           {$selectedPost.title}
         </h2>
-
-        <!-- Link to original (prominent, at top) -->
-        <a
-          href={getSubstackUrl($selectedPost.filename)}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center justify-center gap-2 w-full py-3 px-4 mb-6 bg-[#FF6719] hover:bg-[#e55a14] text-white font-semibold rounded-lg transition-colors"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
-          </svg>
-          Read the full post on Substack
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-          </svg>
-        </a>
 
         <!-- Themes -->
         {#if $selectedPost.themes?.length}
