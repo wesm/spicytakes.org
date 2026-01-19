@@ -13,7 +13,7 @@ export function filterPosts(posts: Post[], minSpiciness: number, selectedYear: n
     const passSpiciness = p.spiciness == null || !Number.isFinite(p.spiciness) || p.spiciness >= minSpiciness;
     
     // Year check
-    const passYear = selectedYear ? p.year === selectedYear : true;
+    const passYear = selectedYear == null || p.year === selectedYear;
 
     return passSpiciness && passYear;
   });
