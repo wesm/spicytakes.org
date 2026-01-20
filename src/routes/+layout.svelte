@@ -3,9 +3,16 @@
   import Header from '$lib/components/Header.svelte';
   import Modal from '$lib/components/Modal.svelte';
   import { config, isLandingMode, landing } from '$lib/config';
-  import { stats } from '$lib/data';
+  import { statsStore } from '$lib/stores';
+  import { initializeData } from '$lib/data';
+  import type { LayoutData } from './$types';
 
-  let { children } = $props();
+  let { children, data }: { children: any; data: LayoutData } = $props();
+
+  // Initialize stores from server data synchronously (runs during SSR and hydration)
+  if (data.blogData) {
+    initializeData(data.blogData);
+  }
 
   const title = isLandingMode ? `${landing.title} - ${landing.tagline}` : `${config?.name} - ${config?.tagline}`;
   const description = isLandingMode ? landing.description : config?.description;
@@ -32,7 +39,7 @@
       {@render children()}
     </main>
     <footer class="border-t border-stone-200 py-8 text-center text-sm text-stone-500">
-      <p>Exploring {stats.totalPosts} posts from <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{config?.sourceLabel}</a></p>
+      <p>Exploring {$statsStore.totalPosts} posts from <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{config?.sourceLabel}</a></p>
       <p class="mt-1 text-stone-400">Built with LLM-powered analysis</p>
     </footer>
   </div>

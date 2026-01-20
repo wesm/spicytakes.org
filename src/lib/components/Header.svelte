@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { searchQuery, activeThemes, clearFilters } from '$lib/stores';
-  import { themes } from '$lib/data';
+  import { searchQuery, activeThemes, clearFilters, themesStore } from '$lib/stores';
   import { config } from '$lib/config';
 
   let searchValue = $state('');
@@ -66,7 +65,7 @@
 
       <!-- Theme pills -->
       <div class="flex flex-wrap gap-2">
-        {#each themes as theme}
+        {#each $themesStore as theme}
           <button
             onclick={() => toggleTheme(theme.name)}
             class="theme-pill {$activeThemes.has(theme.name) ? 'theme-pill-active' : 'theme-pill-default'}"

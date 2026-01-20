@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { filteredQuotes } from '$lib/stores';
-  import { years, quotesByYear } from '$lib/data';
+  import { filteredQuotes, selectedPost, yearsStore } from '$lib/stores';
   import { getSpicyColor } from '$lib/types';
-  import { selectedPost } from '$lib/stores';
   import { filterQuotes } from '$lib/filter';
   import type { Quote } from '$lib/types';
 
@@ -39,7 +37,7 @@
   // Get spiciest per year (respects minSpiciness filter)
   let spiciestByYear = $derived.by(() => {
     const result: Record<number, Quote[]> = {};
-    for (const year of years) {
+    for (const year of $yearsStore) {
       const yearQuotes = filterQuotes($filteredQuotes, minSpiciness, year);
       result[year] = [...yearQuotes].sort((a, b) => b.spiciness - a.spiciness).slice(0, 5);
     }
@@ -70,7 +68,7 @@
         class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
       >
         <option value={null}>All Years</option>
-        {#each years as year}
+        {#each $yearsStore as year}
           <option value={year}>{year}</option>
         {/each}
       </select>
@@ -97,7 +95,7 @@
   <!-- Year-by-Year Spiciest (when no year selected) -->
   {#if !selectedYear && sortBy === 'spiciness'}
     <div class="space-y-8">
-      {#each years as year}
+      {#each $yearsStore as year}
         {@const yearSpicy = spiciestByYear[year]}
         {#if yearSpicy.length > 0}
           <section>

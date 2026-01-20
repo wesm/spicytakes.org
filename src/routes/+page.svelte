@@ -1,9 +1,7 @@
 <script lang="ts">
   import { isLandingMode } from '$lib/config';
   import LandingPage from '$lib/components/LandingPage.svelte';
-  // Static imports for blog mode - these are tree-shaken in landing builds
-  import { activeView, filteredPosts, filteredQuotes } from '$lib/stores';
-  import { stats } from '$lib/data';
+  import { activeView, filteredPosts, filteredQuotes, statsStore } from '$lib/stores';
   import TimelineView from '$lib/components/TimelineView.svelte';
   import QuotesView from '$lib/components/QuotesView.svelte';
   import ThemesView from '$lib/components/ThemesView.svelte';
@@ -45,7 +43,7 @@
       <div class="flex gap-4 text-sm text-stone-500">
         <span><strong class="text-stone-900">{$filteredPosts.length}</strong> posts</span>
         <span><strong class="text-stone-900">{$filteredQuotes.length}</strong> quotes</span>
-        <span><strong class="text-stone-900">{stats.yearRange}</strong></span>
+        <span><strong class="text-stone-900">{$statsStore.yearRange}</strong></span>
       </div>
     </div>
 

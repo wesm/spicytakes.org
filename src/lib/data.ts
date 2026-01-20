@@ -1,65 +1,43 @@
 import type { Post, Quote, ThemeData } from './types';
-import { THEME_LABELS, THEME_ICONS, blogId } from './config';
+import { THEME_LABELS, THEME_ICONS } from './config';
+import { postsStore, quotesStore, themesStore, statsStore, yearsStore } from './stores';
 
-// Static imports for all blog data - Vite tree-shakes unused ones at build time
-import bennQuotes from '../../blogs/benn/data/llm_quotes.json';
-import bennSpicy from '../../blogs/benn/data/spicy_quotes.json';
-import wesmQuotes from '../../blogs/wesm/data/llm_quotes.json';
-import wesmSpicy from '../../blogs/wesm/data/spicy_quotes.json';
-
-// Empty defaults for blogs without data yet
-const emptyQuotes = { posts: [] };
-const emptySpicy = { quotes: [] };
-
-// Select data based on blogId (determined at build time via VITE_BLOG_ID)
-function getQuotesData() {
-  switch (blogId) {
-    case 'benn':
-      return bennQuotes;
-    case 'wesm':
-      return wesmQuotes;
-    case 'armin':
-    default:
-      return emptyQuotes;
-  }
+// Types for server data
+interface ServerPost {
+  filename: string;
+  summary: string;
+  money_quotes: string[];
+  themes: string[];
+  tone: string;
+  key_insight: string;
+  video_url?: string;
+  content_type?: string;
+  dateStr: string;
+  title: string;
+  year: number;
+  spiciness?: number;
 }
 
-function getSpicyData() {
-  switch (blogId) {
-    case 'benn':
-      return bennSpicy;
-    case 'wesm':
-      return wesmSpicy;
-    case 'armin':
-    default:
-      return emptySpicy;
-  }
+interface ServerQuote {
+  quote: string;
+  filename: string;
+  themes: string[];
+  spiciness: number;
+  dateStr: string;
+  year: number;
 }
 
-const rawData = getQuotesData();
-const spicyData = getSpicyData();
-
-function parseDate(filename: string): Date {
-  const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (match) {
-    return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
-  }
-  return new Date();
-}
-
-function formatTitle(filename: string): string {
-  const titlePart = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
-  const acronyms = ['bi', 'sql', 'ai', 'yc', 'vc', 'llm', 'llms', 'mds', 'obp', 'svb', 'tam', 'mvp'];
-
-  return titlePart
-    .split('-')
-    .map(word => {
-      const lowerWord = word.toLowerCase();
-      if (acronyms.includes(lowerWord)) return lowerWord.toUpperCase();
-      if (lowerWord === 'dbt') return 'dbt';
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    })
-    .join(' ');
+interface ServerBlogData {
+  posts: ServerPost[];
+  quotes: ServerQuote[];
+  spicyLookup: Record<string, number>;
+  years: number[];
+  stats: {
+    totalPosts: number;
+    totalQuotes: number;
+    yearRange: string;
+    hasSpiciness: boolean;
+  };
 }
 
 /** Creates a collision-safe lookup key for quote + filename pairs */
@@ -67,66 +45,32 @@ export function makeSpicinessKey(quote: string, filename: string): string {
   return JSON.stringify([quote, filename]);
 }
 
-// Build spiciness lookup
-const spicyLookup: Record<string, number> = {};
-if (spicyData?.quotes) {
-  for (const q of spicyData.quotes) {
-    const key = makeSpicinessKey(q.quote, q.filename);
-    spicyLookup[key] = q.spiciness || 5;
-  }
-}
+// Initialize stores from server data
+export function initializeData(blogData: ServerBlogData) {
+  // Convert server posts to client Post type with Date objects
+  const posts: Post[] = blogData.posts.map(p => ({
+    ...p,
+    date: new Date(p.dateStr),
+  }));
 
-// Process posts
-export const posts: Post[] = (rawData as any).posts
-  .filter((p: any) => !p.error)
-  .map((post: any) => ({
-    ...post,
-    date: parseDate(post.filename),
-    title: formatTitle(post.filename),
-    year: parseDate(post.filename).getFullYear()
-  }))
-  .sort((a: Post, b: Post) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+  // Build a lookup map for posts by filename
+  const postsByFilename: Record<string, Post> = {};
+  posts.forEach(p => {
+    postsByFilename[p.filename] = p;
+  });
 
-// Build quotes array with spiciness
-export const quotes: Quote[] = posts.flatMap(post =>
-  (post.money_quotes || []).map(quote => {
-    const key = makeSpicinessKey(quote, post.filename);
-    const date = post.date;
-    return {
-      quote,
-      post,
-      themes: post.themes || [],
-      spiciness: spicyLookup[key] || 5,
-      date,
-      year: date?.getFullYear()
-    };
-  })
-).sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+  // Convert server quotes to client Quote type
+  const quotes: Quote[] = blogData.quotes.map(q => ({
+    quote: q.quote,
+    post: postsByFilename[q.filename],
+    themes: q.themes,
+    spiciness: q.spiciness,
+    date: new Date(q.dateStr),
+    year: q.year
+  }));
 
-// Group quotes by filename for O(Q) lookup instead of O(P*Q)
-const quotesByFilename: Record<string, Quote[]> = {};
-quotes.forEach(q => {
-  const filename = q.post.filename;
-  if (!quotesByFilename[filename]) quotesByFilename[filename] = [];
-  quotesByFilename[filename].push(q);
-});
-
-// Compute post-level spiciness (average of quote spiciness scores)
-posts.forEach(post => {
-  const postQuotes = quotesByFilename[post.filename] || [];
-  const validScores = postQuotes
-    .map(q => q.spiciness)
-    .filter(s => typeof s === 'number' && Number.isFinite(s));
-  if (validScores.length > 0) {
-    const avg = validScores.reduce((sum, s) => sum + s, 0) / validScores.length;
-    post.spiciness = Math.round(avg * 10) / 10;
-  }
-});
-
-// Build themes data
-export const themes: ThemeData[] = (() => {
+  // Build themes
   const themeMap: Record<string, ThemeData> = {};
-
   posts.forEach(post => {
     (post.themes || []).forEach(theme => {
       if (!themeMap[theme]) {
@@ -141,8 +85,6 @@ export const themes: ThemeData[] = (() => {
       themeMap[theme].posts.push(post);
     });
   });
-
-  // Add quotes to themes
   quotes.forEach(q => {
     q.themes.forEach(theme => {
       if (themeMap[theme]) {
@@ -150,34 +92,13 @@ export const themes: ThemeData[] = (() => {
       }
     });
   });
+  const themes = Object.values(themeMap).sort((a, b) => b.posts.length - a.posts.length);
 
-  return Object.values(themeMap).sort((a, b) => b.posts.length - a.posts.length);
-})();
+  // Update stores
+  postsStore.set(posts);
+  quotesStore.set(quotes);
+  themesStore.set(themes);
+  statsStore.set(blogData.stats);
+  yearsStore.set(blogData.years);
+}
 
-// Group posts by year
-export const postsByYear: Record<number, Post[]> = posts.reduce((acc, post) => {
-  const year = post.year || new Date().getFullYear();
-  if (!acc[year]) acc[year] = [];
-  acc[year].push(post);
-  return acc;
-}, {} as Record<number, Post[]>);
-
-// Group quotes by year
-export const quotesByYear: Record<number, Quote[]> = quotes.reduce((acc, quote) => {
-  const year = quote.year || new Date().getFullYear();
-  if (!acc[year]) acc[year] = [];
-  acc[year].push(quote);
-  return acc;
-}, {} as Record<number, Quote[]>);
-
-export const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
-
-// Stats
-const minYear = years.length > 0 ? Math.min(...years) : new Date().getFullYear();
-const maxYear = years.length > 0 ? Math.max(...years) : new Date().getFullYear();
-export const stats = {
-  totalPosts: posts.length,
-  totalQuotes: quotes.length,
-  yearRange: years.length === 0 ? '' : (minYear === maxYear ? `${minYear}` : `${minYear}-${maxYear}`),
-  hasSpiciness: Object.keys(spicyLookup).length > 0
-};

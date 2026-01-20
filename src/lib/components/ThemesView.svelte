@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { themes, years } from '$lib/data';
-  import { activeThemes, activeView } from '$lib/stores';
+  import { activeThemes, activeView, themesStore, yearsStore } from '$lib/stores';
   import { getSpicyColor, getSpicyTextColor } from '$lib/types';
+  import type { ThemeData } from '$lib/types';
 
   function selectTheme(themeName: string) {
     activeThemes.set(new Set([themeName]));
@@ -9,14 +9,14 @@
   }
 
   // Get top 3 spiciest quotes per theme
-  function getTopSpicy(theme: typeof themes[0]) {
+  function getTopSpicy(theme: ThemeData) {
     return [...theme.quotes]
       .sort((a, b) => b.spiciness - a.spiciness)
       .slice(0, 3);
   }
 
   // Get avg spiciness per theme
-  function getAvgSpiciness(theme: typeof themes[0]) {
+  function getAvgSpiciness(theme: ThemeData) {
     if (theme.quotes.length === 0) return 0;
     const total = theme.quotes.reduce((sum, q) => sum + q.spiciness, 0);
     return Math.round(total / theme.quotes.length * 10) / 10;
@@ -29,7 +29,7 @@
   </p>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-    {#each themes as theme}
+    {#each $themesStore as theme}
       {@const topSpicy = getTopSpicy(theme)}
       {@const avgSpice = getAvgSpiciness(theme)}
       <button

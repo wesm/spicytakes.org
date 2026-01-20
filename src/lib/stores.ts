@@ -1,6 +1,17 @@
 import { writable, derived } from 'svelte/store';
-import type { Post, Quote } from './types';
-import { posts, quotes } from './data';
+import type { Post, Quote, ThemeData } from './types';
+
+// Source data stores (populated from server data)
+export const postsStore = writable<Post[]>([]);
+export const quotesStore = writable<Quote[]>([]);
+export const themesStore = writable<ThemeData[]>([]);
+export const statsStore = writable<{
+  totalPosts: number;
+  totalQuotes: number;
+  yearRange: string;
+  hasSpiciness: boolean;
+}>({ totalPosts: 0, totalQuotes: 0, yearRange: '', hasSpiciness: false });
+export const yearsStore = writable<number[]>([]);
 
 // Active view
 export const activeView = writable<'timeline' | 'quotes' | 'themes'>('timeline');
@@ -13,9 +24,9 @@ export const activeThemes = writable<Set<string>>(new Set());
 
 // Filtered posts
 export const filteredPosts = derived(
-  [searchQuery, activeThemes],
-  ([$searchQuery, $activeThemes]) => {
-    return posts.filter(post => {
+  [postsStore, searchQuery, activeThemes],
+  ([$posts, $searchQuery, $activeThemes]) => {
+    return $posts.filter(post => {
       // Theme filter
       if ($activeThemes.size > 0) {
         const postThemes = post.themes || [];
@@ -46,9 +57,9 @@ export const filteredPosts = derived(
 
 // Filtered quotes
 export const filteredQuotes = derived(
-  [searchQuery, activeThemes],
-  ([$searchQuery, $activeThemes]) => {
-    return quotes.filter(item => {
+  [quotesStore, searchQuery, activeThemes],
+  ([$quotes, $searchQuery, $activeThemes]) => {
+    return $quotes.filter(item => {
       // Theme filter
       if ($activeThemes.size > 0) {
         if (!item.themes.some(t => $activeThemes.has(t))) {

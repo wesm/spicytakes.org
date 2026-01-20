@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { filteredPosts, selectedPost } from '$lib/stores';
-  import { years } from '$lib/data';
+  import { filteredPosts, selectedPost, yearsStore } from '$lib/stores';
   import { filterPosts } from '$lib/filter';
   import { getSpicyColor } from '$lib/types';
   import { THEME_LABELS } from '$lib/config';
@@ -54,7 +53,7 @@
   // Get spiciest posts per year
   let spiciestByYear = $derived.by(() => {
     const result: Record<number, Post[]> = {};
-    for (const year of years) {
+    for (const year of $yearsStore) {
       const yearPosts = displayPosts.filter(p => p.year === year);
       result[year] = [...yearPosts].sort((a, b) => (b.spiciness || 0) - (a.spiciness || 0)).slice(0, 5);
     }
@@ -85,7 +84,7 @@
         class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
       >
         <option value={null}>All Years</option>
-        {#each years as year}
+        {#each $yearsStore as year}
           <option value={year}>{year}</option>
         {/each}
       </select>
@@ -112,7 +111,7 @@
   <!-- Year-by-Year Spiciest (when no year selected and sorting by spiciness) -->
   {#if !selectedYear && sortBy === 'spiciness'}
     <div class="space-y-8">
-      {#each years as year}
+      {#each $yearsStore as year}
         {@const yearSpicy = spiciestByYear[year]}
         {#if yearSpicy.length > 0}
           <section>
