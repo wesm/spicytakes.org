@@ -34,6 +34,9 @@ case "$LLM_BACKEND" in
 
     claude)
         # Use claude CLI in print mode with streaming JSON
+        # Unset API key to use Max plan instead of API credits
+        unset ANTHROPIC_API_KEY
+
         tmpfile=$(mktemp)
         parsedfile=$(mktemp)
 
