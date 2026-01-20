@@ -5,7 +5,7 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	build: {
 		// Target older browsers for iOS Safari compatibility
-		target: ['es2020', 'safari13', 'chrome87', 'firefox78']
+		target: ['es2019', 'safari12']
 	},
 	server: {
 		fs: {
