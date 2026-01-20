@@ -1,0 +1,26 @@
+{
+  "summary": "Luu argues that distributed tracing can deliver high value without massive effort, contrary to common industry belief that it only works at Facebook/Google scale. Using Twitter's experience, he demonstrates how a small team (<2 person-years) transformed an underutilized trace-view system into a high-ROI analytics platform by restructuring trace data into queryable tables and building analysis tools on top. The key insight is that tracing data becomes valuable when you can run aggregations and queries across traces, not just view individual trace timelines.",
+  "key_points": [
+    "Twitter's tracing infrastructure was initially low-value due to poor schema design, inability to aggregate data, biased sampling, and clock skew issues",
+    "Simple engineering fixes (GC tuning, proper queuing, fixing sampling logic) addressed immediate problems",
+    "Creating queryable tables (trace_index, span_index, anno_index, etc.) that support SQL queries unlocked immediate high ROI",
+    "Tools like Service Dependency Explorer (SDE) built on structured trace data help users understand load amplification and service dependencies without writing queries",
+    "Tracing and metrics are complementary - having only one leaves significant blind spots in understanding system behavior"
+  ],
+  "money_quotes": [
+    "I think this overestimates how much work it is to get a lot of value from tracing.",
+    "Just having this set of tables, queryable with SQL queries... is enough for tracing to pay for itself, to go from being difficult to justify to being something that's obviously high value.",
+    "I'd estimate that there's been less than 2 person-years worth of work on everything discussed in this post.",
+    "This difference between the complexity of metrics data and tracing data makes the value add for higher-level views of tracing larger than it is for metrics.",
+    "You're going to pay a high cost for that in a variety of ways: unnecessary incidents, extra time spent debugging incidents, generally higher monetary costs due to running infra inefficiently, etc."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "measurement",
+    "industry_myths"
+  ],
+  "tone": "practical and empirical",
+  "key_insight": "Distributed tracing becomes high-ROI infrastructure when trace data is structured for aggregation and querying rather than just individual trace viewing - a transformation that requires modest engineering effort, not Facebook-scale resources.",
+  "filename": "2020-05-01-tracing-analytics"
+}

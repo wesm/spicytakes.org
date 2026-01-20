@@ -1,0 +1,27 @@
+{
+  "summary": "The post demonstrates that intrinsics, despite promises of being a portable and compiler-optimized alternative to hand-written assembly, remain unreliable and often produce suboptimal code. Through a detailed case study of the `popcnt` (population count) instruction, the author shows how naive use of intrinsics can be 3x slower than hand-written assembly due to compiler failures like not unrolling loops, generating backwards accumulation patterns, and not working around known CPU bugs. The analysis reveals that achieving optimal performance still requires manually checking assembly output across compilers and platforms, making intrinsics more work than just writing assembly directly.",
+  "key_points": [
+    "Intrinsics require manual verification of generated assembly across all target compilers and platforms",
+    "Naive use of popcnt intrinsic was 3x slower than hand-written assembly on the same hardware",
+    "Compilers fail to optimize around known CPU bugs like the popcnt false dependency issue",
+    "Loop unrolling and working around CPU errata are necessary to achieve near-theoretical maximum performance",
+    "The SSSE3 pshufb implementation appeared faster than popcnt only because of poor intrinsic code generation"
+  ],
+  "money_quotes": [
+    "The problem is that intrinsics are so unreliable that you have to manually check the result on every platform and every compiler you expect your code to be run on, and then tweak the intrinsics until you get a reasonable result. That's more work than just writing the assembly by hand.",
+    "Despite decade old claims that intrinsics can make your life easier, it never seems to work out.",
+    "It's easy to see why someone might have benchmarked the same code and decided that popcnt isn't very fast. It's also easy to see why using intrinsics for performance critical code can be a huge time sink.",
+    "Clang seems to be calculating things manually rather than using popcnt.",
+    "In this case, the hand coded assembly version is about 3x faster than the original intrinsic loop."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "hardware_systems",
+    "industry_myths",
+    "measurement"
+  ],
+  "tone": "analytical",
+  "key_insight": "Intrinsics promise compiler-optimized portable performance but in practice require the same manual verification and platform-specific tweaking as assembly, making them more work rather than less for high-performance code.",
+  "filename": "2014-10-01-assembly-intrinsics"
+}

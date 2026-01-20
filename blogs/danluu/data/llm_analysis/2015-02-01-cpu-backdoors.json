@@ -1,0 +1,26 @@
+{
+  "summary": "While backdoors in software are well-documented, the possibility of CPU-level hardware backdoors remains dismissed as impossible despite being technically straightforward to implement. The post details three components of a CPU backdoor: what it would do (privilege escalation from user to kernel mode), how it would be triggered (through carefully chosen instruction sequences with specific input values), and how it would be inserted (either through compromising the design process, manufacturing, or the microcode patch mechanism that all modern CPUs use for bug fixes). The technical barriers are minimal compared to the organizational challenges of gaining the necessary access.",
+  "key_points": [
+    "CPU backdoors could enable privilege escalation that bypasses both hardware and software virtualization",
+    "Backdoors could be triggered through specific floating-point instruction inputs, providing 160+ bits of state space to hide the trigger",
+    "Modern CPUs have built-in patch mechanisms that accept signed updates, which could be compromised to insert backdoors",
+    "Chips are designed to allow easy edits to top metal layers during manufacturing, making last-minute modifications feasible",
+    "AMD's K7 and K8 microcode patch mechanisms were actually compromised, demonstrating this is not just theoretical"
+  ],
+  "money_quotes": [
+    "I'm not going to claim that CPU backdoors exist, but I will claim that the implementation is easy, if you've got the right access.",
+    "Since it's the CPU that's doing it, this can punch through both hardware and software virtualization.",
+    "It would certainly be easier to compromise a present-day corporation than it was to compromise government agencies during the cold war, and that was eminently doable.",
+    "Since chips are designed to allow easy edits, someone with access to the design before the chip is manufactured (such as the manufacturer) can make major changes with relatively small edits.",
+    "Is this actually happening? I have no idea. Could it be happening? Absolutely."
+  ],
+  "themes": [
+    "hardware_systems",
+    "industry_myths",
+    "measurement",
+    "tech_culture"
+  ],
+  "tone": "analytical, methodical, matter-of-fact",
+  "key_insight": "CPU backdoors are not only technically feasible but relatively simple to implement through existing patch mechanisms and manufacturing processes\u2014the real barrier is organizational access, not technical difficulty.",
+  "filename": "2015-02-01-cpu-backdoors"
+}

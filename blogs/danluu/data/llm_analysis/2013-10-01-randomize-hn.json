@@ -1,0 +1,26 @@
+{
+  "summary": "Social news sites like HN and Reddit have a fundamental threshold problem where articles that don't get early votes never reach the front page, while those that do get disproportionate exposure. This creates inefficiency where content quality doesn't correlate well with visibility - success depends heavily on random early voters. The proposed solution is counterintuitive: add random noise to article rankings to smooth out the discontinuity between front-page success and obscurity, similar to probabilistic counting algorithms in computer science.",
+  "key_points": [
+    "Articles on HN face a critical threshold - those at N-1 votes have ~60% chance of reaching front page with 100+ votes, 40% chance of getting only 2 votes total",
+    "Low-traffic sites have the inverse problem - posting instantly to front page displaces quality content with uninteresting submissions",
+    "Current ad-hoc fixes (Reddit's rising page, HN's manual penalties) don't solve the root problem and create workaround wars",
+    "Adding random noise to rankings can smooth the discontinuity and give articles exposure proportional to their actual quality",
+    "HN eventually tried randomization but settled on human curation (second chance queue) which works better than pure algorithmic approaches"
+  ],
+  "money_quotes": [
+    "It's non-optimal that an article that will receive 50 votes in expectation has a 60% chance of getting 100+ votes, and a 40% chance of getting 2 votes.",
+    "By adding a small amount of random noise to the rank of an article, we can smooth out the discontinuity between making it onto the front page and languishing in obscurity.",
+    "That's the problem with 'simple' ad hoc solutions.",
+    "Adding noise to smooth out a discontinuity is a common trick when you can settle for an approximate result.",
+    "Most people seem to upvote and comment based on the title of the article and not the content"
+  ],
+  "themes": [
+    "software_engineering",
+    "measurement",
+    "industry_myths",
+    "tech_culture"
+  ],
+  "tone": "analytical",
+  "key_insight": "Social news aggregation suffers from a threshold effect where early randomness has outsized impact on visibility, and while adding algorithmic randomness seems counterintuitive, human curation ultimately proves more effective than pure algorithmic solutions.",
+  "filename": "2013-10-01-randomize-hn"
+}

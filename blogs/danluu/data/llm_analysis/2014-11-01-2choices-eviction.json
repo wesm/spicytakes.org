@@ -1,0 +1,25 @@
+{
+  "summary": "This post empirically tests cache eviction policies, particularly comparing LRU (least recently used) to a randomized approach of choosing the LRU between two random cache entries (2-random). Through extensive SPEC CPU benchmark simulations across different cache sizes and hierarchies, Luu demonstrates that while LRU performs better for smaller caches, 2-random actually outperforms LRU for larger caches (especially above 1MB). The counterintuitive finding is rooted in mathematical probability theory about load balancing\u2014choosing between k random options dramatically improves performance with diminishing returns after k=2, making 2-random nearly as effective as full LRU while being cheaper to implement.",
+  "key_points": [
+    "Random eviction degrades gracefully as cache size changes, while LRU can cause a miss every time if a tight loop doesn't fit in cache",
+    "2-random (choosing LRU between two random entries) performs within 5-10% of full LRU for small caches and actually beats it for larger caches",
+    "The advantage comes from probability theory: choosing the best of k random options gives O(log log n) maximum load versus O(log n) for pure random, with diminishing returns after k=2",
+    "Pseudo 3-random (80% accurate two-level tournament) approaches true 2-random performance while being as cheap to implement as pseudo-LRU",
+    "LRU works better when miss rates are low and cache sizes are small; 2-random excels when miss rates are high and caches are large"
+  ],
+  "money_quotes": [
+    "If you have a tight loop, LRU is going to be perfect as long as the loop fits in cache, but it's going to cause a miss every time if the loop doesn't fit. A random eviction policy degrades gracefully as the loop gets too big.",
+    "The mathematical intuition is that if we (randomly) throw n balls into n bins, the maximum number of balls in any bin is O(log n / log log n) with high probability, which is pretty much just O(log n). But if (instead of choosing randomly) we choose the least loaded of k random bins, the maximum is O(log log n / log k) with high probability.",
+    "Random and FIFO are both strictly worse than either LRU or 2-random. LRU and 2-random are pretty close, with LRU edging out 2-random for the smaller caches and 2-random edging out LRU for the larger caches.",
+    "A pseudo 2-random policy can be implemented that barely uses more resources than pseudo-LRU policies, which makes this very cheap compared to DIP."
+  ],
+  "themes": [
+    "performance",
+    "hardware_systems",
+    "measurement",
+    "industry_myths"
+  ],
+  "tone": "analytical",
+  "key_insight": "Counterintuitively, making cache eviction decisions based on just two random samples performs nearly as well as tracking full LRU state, and actually beats LRU for large caches\u2014a practical application of the 'power of two choices' theorem showing that a small amount of randomized choice can match expensive deterministic algorithms.",
+  "filename": "2014-11-01-2choices-eviction"
+}

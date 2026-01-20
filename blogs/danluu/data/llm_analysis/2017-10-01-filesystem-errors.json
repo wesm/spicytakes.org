@@ -1,0 +1,26 @@
+{
+  "summary": "This post reproduces decade-old filesystem robustness studies to test how modern filesystems (ext4, btrfs, etc.) handle errors at the block device level. While write error propagation has improved since 2005, most filesystems still don't detect silent data corruption (except btrfs/zfs which use checksums). The investigation also examines internal error handling code and finds that many function return values that indicate write failures are still frequently ignored in the Linux kernel, though less so than in 2008.",
+  "key_points": [
+    "Modern filesystems now correctly propagate write errors when block devices report failures, unlike in 2005 when ext3 and jfs would ignore them",
+    "Only btrfs and zfs checksum data to detect silent corruption; most filesystems (including Apple's apfs) rely entirely on hardware error detection",
+    "Internal kernel code still frequently ignores error return values from critical write functions, though the rate has improved from ~30% checking in 2008 to ~30-71% checking in 2017",
+    "C's error handling mechanisms make it easy to accidentally drop errors even with annotations like __must_check, as errors can propagate through many layers before being ignored",
+    "Funding work on correctness is difficult because consumers don't strongly incentivize it and open source contributors face perverse incentives (paid in complaints rather than cash)"
+  ],
+  "money_quotes": [
+    "More than 20% of flash drives develop uncorrectable errors in a four year period, 30-80% develop bad blocks and 2-7% of them develop bad chips.",
+    "Who drives their car around banging against the guardrail saying, 'Whoa! I'm glad I've got these guardrails because I'd never make it to the show on time.'",
+    "doing open source work is like doing normal paid work, except that you get paid in complaints instead of cash",
+    "A backup solution that works 90% of the time is quite bad, but if you have one that works 90% of the time, it will still have staunch defenders who drop into discussions to say things like 'I've restored from backup three times and it's never failed!'",
+    "If Kyle hadn't come along, would most of the bugs that he and his tool found still plague open source distributed systems today? That's a scary thought."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware_systems",
+    "measurement",
+    "industry_myths"
+  ],
+  "tone": "analytical, critical, empirical",
+  "key_insight": "Despite a decade of development, most filesystems still lack basic data integrity checks and kernel code continues to ignore error conditions at concerning rates, suggesting that correctness work remains chronically underfunded and undervalued in both industry and open source.",
+  "filename": "2017-10-01-filesystem-errors"
+}

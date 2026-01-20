@@ -1,0 +1,27 @@
+{
+  "summary": "This talk systematically dismantles the myth that file I/O is simple by examining failures at every layer of the storage stack. Luu demonstrates that writing a single file safely requires navigating filesystem-specific quirks, non-atomic operations, and ordering guarantees that even expert developers routinely get wrong. Through empirical evidence from academic research, he shows that filesystems drop errors at alarming rates, disks corrupt data millions of times more frequently than datasheets claim, and even 'power loss protection' features often fail in practice. The underlying issue isn't technical ignorance but economic misalignment: tech giants invest heavily in data integrity because they bear the costs of corruption, while consumer software vendors can externalize those costs to users.",
+  "key_points": [
+    "Writing a single file atomically requires careful use of fsync, checksums, directory syncing, and handling filesystem-specific modes - complexity that causes bugs even in databases and version control systems",
+    "Filesystem error handling is fundamentally broken: errors are routinely dropped or reported to wrong processes, and fsync failures are essentially unrecoverable on Linux",
+    "Actual disk error rates are 500,000 to 5 million times worse than vendor datasheets claim, with SSDs showing uncorrectable bit error rates of 2e-9 instead of promised 1e-16",
+    "Common 'simple tricks' like atomic rename or append-only writes don't actually work safely across different filesystems and crash scenarios",
+    "The core problem is economic rather than technical: companies bear costs of data loss proportional to their incentive to prevent it, leaving consumer data poorly protected"
+  ],
+  "money_quotes": [
+    "Many of the same things that make concurrent programming hard are the same things that make writing to files safely hard, so of course we should expect that writing to files is hard!",
+    "Depending on the type of drive, 2e-9 is 2 gigabits, or 250 MB, 500 thousand to 5 million times worse than stated on datasheets depending on the class of drive.",
+    "When a drive advertises that it has power loss protection, this appears to mean that someone spent some amount of effort implementing something that will, under some circumstances, prevent data loss or data corruption under power loss.",
+    "User data gets corrupted regardless of who's 'fault' the bug is, and as we've seen, bugs can persist in the filesystem layer for many years.",
+    "We know how to make this stuff pretty reliable. It's hard, and it takes a lot of time and effort, i.e., a lot of money, but it can be done."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware_systems",
+    "industry_myths",
+    "measurement",
+    "performance"
+  ],
+  "tone": "methodical and critical",
+  "key_insight": "File I/O safety is not a solved problem but an economic one: the technical solutions exist and are deployed by companies who bear the cost of data loss, while consumer software remains unsafe because vendors can externalize corruption costs to users who lack the sophistication to assign blame.",
+  "filename": "2019-07-01-deconstruct-files"
+}

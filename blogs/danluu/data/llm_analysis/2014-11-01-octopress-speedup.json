@@ -1,0 +1,26 @@
+{
+  "summary": "Dan Luu optimizes his Octopress static blog hosted on GitHub Pages, achieving a 25-50x speedup by removing unnecessary JavaScript, fonts, and CSS. Starting with a 12-second load time, he systematically eliminates bloat like unused modernizr/jQuery dependencies, custom fonts, and unminified CSS to reach 400ms. The post demonstrates how someone with zero web development knowledge can achieve GPU-to-ASIC-level performance gains simply by removing the default cruft that comes with popular frameworks, raising questions about why widely-used platforms ship with such massive performance problems.",
+  "key_points": [
+    "Moved JavaScript from head to footer, eliminating 4-second render-blocking delay",
+    "Removed unused Octopress.js features (flash videos, delicious integration) and all JavaScript since the only feature was an unused sidebar toggle",
+    "Eliminated custom web fonts which comprised 43.8% of page payload despite images being negligible",
+    "Minified and inlined CSS, removing support for obsolete browsers and unused features, cutting CSS by half",
+    "Switched to Cloudflare with 'Cache Everything' page rule since GitHub Pages doesn't cache HTML for bare domains without DNS alias records"
+  ],
+  "money_quotes": [
+    "How is it possible that someone with zero knowledge of web development can get that kind of speedup by watching one presentation and then futzing around for 25 minutes?",
+    "I associate speedups of that magnitude with porting plain Ruby code to optimized C++, optimized C++ to a GPU, or GPU to quick-and-dirty exploratory ASIC.",
+    "Despite my reference post being an unusually image heavy blog post, fonts are 43.8% and images are such a small percentage that webpagetest doesn't even list the number.",
+    "I haven't seen a study that looks at going from 400ms to 10900ms because the idea that a website would be that slow is so absurd that people don't even look into the possibility. But many websites are that slow!",
+    "Having no styling is surely not optimal, but there's something a bit funny about no styling beating the at-the-time most widely used programmer blog styling, which means it likely also beat wordpress, svtble, blogspot, medium, etc."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "measurement",
+    "industry_myths"
+  ],
+  "tone": "analytical",
+  "key_insight": "Popular web frameworks and platforms ship with such egregious performance problems that removing all their default features can yield hardware-optimization-level speedups, suggesting the industry has normalized absurdly slow websites.",
+  "filename": "2014-11-01-octopress-speedup"
+}

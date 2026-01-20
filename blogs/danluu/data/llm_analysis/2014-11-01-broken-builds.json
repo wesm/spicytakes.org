@@ -1,0 +1,27 @@
+{
+  "summary": "Dan Luu analyzes Travis CI data from 40 popular GitHub projects and finds that most open source projects have surprisingly unreliable builds compared to corporate environments. While 99% uptime (two 9s) would be considered poor in professional settings, only 8 of 40 open source projects achieve this baseline, with 15 projects failing to even reach 90% uptime. This is despite the fact that keeping builds working is technically trivial (the \"not rocket science rule\") and broken builds waste contributor time just as surely as they waste employee dollars.",
+  "key_points": [
+    "Only 8 of 40 popular open source projects achieve 99% build reliability, which would be considered bad in corporate environments",
+    "15 of 40 projects don't even achieve 90% uptime (one 9 of reliability)",
+    "Broken builds waste contributor time and reduce conversion rates for potential contributors",
+    "The solution is technically trivial but culturally difficult - tools like bors exist but aren't widely adopted",
+    "Corporate teams prevent broken builds because managers understand the cost calculation of idle engineers",
+    "The sample is biased toward reliable projects (featured on GitHub and using CI), meaning the true state is likely worse"
+  ],
+  "money_quotes": [
+    "Web programmers are hyper-aware of how 100ms of extra latency on a web page load has a noticeable effect on conversion rate. Well, what's the effect on conversion rate when a potential contributor to your project spends 20 minutes installing dependencies and an hour building your project only to find the build is broken?",
+    "Graydon Hoare literally calls keeping a clean build the 'not rocket science rule', and wrote an open source tool (bors) anyone can use to do not-rocket-science. And yet, most open source projects still suffer through broken and failed builds.",
+    "At every place I've worked, two 9s of reliability (99% uptime) on the build would be considered bad. That would mean that the build is failing for over three and a half days a year, or seven hours per month.",
+    "Instead of wasting dollars, contributor's time is wasted.",
+    "This is one of my most maligned blog posts because no one wants to believe the build for their project is broken more often than the build for other projects."
+  ],
+  "themes": [
+    "software_engineering",
+    "measurement",
+    "industry_myths",
+    "tech_culture"
+  ],
+  "tone": "analytical",
+  "key_insight": "Open source projects systematically tolerate levels of build unreliability that would be unacceptable in corporate environments, wasting contributor time despite having trivial technical solutions available, because they don't translate the cost of broken builds into wasted human effort the way businesses translate it to wasted money.",
+  "filename": "2014-11-01-broken-builds"
+}

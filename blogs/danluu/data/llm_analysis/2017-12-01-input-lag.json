@@ -1,0 +1,27 @@
+{
+  "summary": "Dan Luu empirically measured input-to-display latency across 40 years of computing devices (1977-2017) and found that most modern computers are significantly slower than machines from the 1970s and 80s. An Apple 2e from 1983 responds in 30ms while typical modern laptops range from 100-200ms. The culprit isn't raw processing power but architectural complexity: modern systems involve multiple process handoffs, buffering layers, and context switches that ancient machines simply didn't have, and the industry optimizes for throughput benchmarks rather than end-to-end latency.",
+  "key_points": [
+    "Empirical measurements show computers from the late 1970s/early 1980s (Apple 2e, Commodore PET) had 30-60ms latency versus 100-200ms for most modern computers",
+    "Only expensive gaming PCs with high refresh rate displays (165Hz) and iPad Pros can match the responsiveness of 40-year-old machines",
+    "The latency bloat comes from complexity at every layer: slower keyboard scanning (100-200Hz vs 556Hz), display buffering, OS handoffs between processes, and cross-process locks",
+    "Modern systems are optimized for throughput benchmarks (SPEC2006, Dhrystone) rather than end-to-end user-perceived latency, leading to 'you get what you measure' problem",
+    "Reducing latency typically requires adding more complexity (high refresh displays, careful buffer management) rather than simplification"
+  ],
+  "money_quotes": [
+    "It's a bit absurd that a modern gaming machine running at 4,000x the speed of an apple 2, with a CPU that has 500,000x as many transistors (with a GPU that has 2,000,000x as many transistors) can maybe manage the same latency as an apple 2 in very carefully coded applications if we have a monitor with nearly 3x the refresh rate.",
+    "In practice, the solution to poor performance caused by 'excess' complexity is often to add more complexity.",
+    "You get what you measure.",
+    "A lot of the complexity might be called accidental complexity, but most of that accidental complexity is there because it's so convenient.",
+    "It's perhaps even more absurd that the default configuration of the powerspec g405, which had the fastest single-threaded performance you could get until October 2017, had more latency from keyboard-to-screen (approximately 3 feet, maybe 10 feet of actual cabling) than sending a packet around the world."
+  ],
+  "themes": [
+    "performance",
+    "measurement",
+    "hardware_systems",
+    "industry_myths",
+    "software_engineering"
+  ],
+  "tone": "analytical, empirical, mildly critical",
+  "key_insight": "Despite 40 years of exponential hardware improvements, most modern computers feel slower than 1970s machines because the industry optimizes for measurable throughput benchmarks rather than unmeasured end-to-end user latency, demonstrating that you literally get what you measure.",
+  "filename": "2017-12-01-input-lag"
+}

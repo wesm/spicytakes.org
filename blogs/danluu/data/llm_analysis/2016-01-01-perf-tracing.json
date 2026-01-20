@@ -1,0 +1,26 @@
+{
+  "summary": "Traditional sampling profilers like perf are widely used but fundamentally inadequate for debugging tail latency and rare performance problems because they aggregate events into averages and sample too infrequently (typically 1kHz). The post demonstrates through several Google case studies how tracing frameworks that capture every event at much higher resolution (with ~1% overhead) can reveal critical performance bugs that sampling profilers miss\u2014including lock contention causing 50us waits, batched reindexing causing 1800ms email delays, and CPU quota throttling causing 250ms periodic stalls across entire machines. While Google's internal tracing tools can debug these problems effectively, the public tooling ecosystem remains fragmented and high-overhead, leaving most engineers stuck with profilers that can't see the performance problems that increasingly matter.",
+  "key_points": [
+    "Sampling profilers aggregate to averages and can't effectively debug tail latency problems, which are increasingly important for user experience and revenue",
+    "Perf samples at ~1kHz due to interrupt overhead, which violates Nyquist theorem for observing high-frequency performance phenomena like p-state changes",
+    "Google's tracing framework runs at ~1% overhead by injecting tracing code into execution stream rather than using periodic interrupts",
+    "Critical bugs found by tracing include: RPC slowdowns from scheduler affinity policies, Gmail 1800ms delays from batched reindexing, and 9-minute disk stalls from CPU quota throttling affecting 25% of servers",
+    "Building a minimal tracing system requires only ~32MB/s bandwidth and 1-4GB RAM to capture 200k events/sec/core with sub-100ns resolution"
+  ],
+  "money_quotes": [
+    "Sampling profilers, the most common performance debugging tool, are notoriously bad at debugging problems caused by tail latency because they aggregate events into averages. But tail latency is, by definition, not average.",
+    "Dick Sites says that fixing this bug paid for his salary for a decade.",
+    "We know from the Nyquist theorem that, to observe a signal with some frequency, X, we have to sample with a rate at least 2X. There are a lot of factors of performance that have a frequency higher than 1kHz (e.g., CPU p-state changes), so we should expect that we're unable to directly observe a lot of things that affect performance with perf or other traditional sampling profilers.",
+    "It's really common to hear stories of bugs that can take an unbounded amount of time to debug if the proper tools aren't available.",
+    "Tracing tools are cumbersome enough that [Brendan Gregg's] top recommendation on his page about tracing tools is to learn a profiling tool!"
+  ],
+  "themes": [
+    "performance",
+    "measurement",
+    "software_engineering",
+    "industry_myths"
+  ],
+  "tone": "analytical",
+  "key_insight": "The dominant performance debugging paradigm\u2014sampling profilers\u2014is fundamentally mismatched to the problems that matter most (tail latency), yet superior tracing approaches remain inaccessible outside companies like Google, creating a tooling gap that causes critical performance bugs to go undetected for years.",
+  "filename": "2016-01-01-perf-tracing"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Dan Luu examines how Unix command-line tools have dramatically increased in complexity since 1979, with commands like 'ls' growing from 11 options to 58 options. He argues this proliferation contradicts the Unix philosophy of 'do one thing well' but is actually inevitable given Unix's text-based design philosophy and the lack of structured data passing. While Unix pioneers like McIlroy decry this bloat, Luu contends the complexity was always going to exist somewhere\u2014either in the tools themselves or pushed onto users who must manually parse and format text streams. The Unix philosophy worked fine for a small team in one room but fundamentally cannot scale to modern collaborative software development without creating inconsistency and accidental complexity.",
+  "key_points": [
+    "Common Unix commands have grown dramatically in options count\u2014ls went from 11 options (1979) to 58 options (2017)",
+    "The Unix philosophy of text streams ironically drove complexity because formatting and content are intermingled in plain text",
+    "Structured data passing (like PowerShell) would reduce the need for formatting options and user-held metadata",
+    "The 'same room' design philosophy doesn't scale to large numbers of contributors or long time periods",
+    "Modern shells/terminals are inconsistent across systems in ways that dwarf the incoherence of mocked languages like PHP"
+  ],
+  "money_quotes": [
+    "Saying that 'text' is a universal format is like saying that 'binary' is a universal format.",
+    "At least with tools that bundle up more functionality and options than is UNIX-y users can replace a gigantic set of wildly inconsistent tools with a merely large set of tools that, while inconsistent with each other, may have some internal consistency.",
+    "The sleight of hand that's happening when someone says that we can keep software simple and compatible by making everything handle text is the pretense that text data doesn't have a structure that needs to be parsed.",
+    "As a language and a standard library, any commonly used shell plus the collection of widely used *nix tools taken together is much worse [than PHP] and contains much more accidental complexity due to inconsistency.",
+    "It's not a matter of not thinking longer or harder; it's a matter of having a philosophy that cannot scale unless you have a relatively small team with a shared cultural understanding, able to sit down in the same room."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_myths",
+    "measurement",
+    "tech_culture"
+  ],
+  "tone": "analytical and critical",
+  "key_insight": "The Unix philosophy's design decisions that worked for a small colocated team in the 1970s fundamentally cannot scale to modern collaborative development, and the resulting complexity burden was always inevitable\u2014the only question was whether it would be borne by tool maintainers or users.",
+  "filename": "2020-03-01-cli-complexity"
+}

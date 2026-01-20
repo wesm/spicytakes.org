@@ -1,0 +1,26 @@
+{
+  "summary": "Intel's new CLWB and PCOMMIT instructions address performance bottlenecks that emerge when non-volatile RAM becomes fast enough that OS overhead and cache hierarchy impedance dominate transaction costs. The post explains how next-generation storage (PCM, 3D XPoint) creates an Amdahl's law problem where traditional memory caching policies (writeback, writethrough, etc.) impose orders-of-magnitude slowdowns when persistence guarantees are needed. CLWB allows cache writeback without invalidation, while PCOMMIT ensures stores are committed to persistent storage, potentially solving the impedance mismatch between x86's cache hierarchy and NVRAM without requiring cache flushes everywhere.",
+  "key_points": [
+    "Next-gen NVRAM will be fast enough that syscall/OS overhead becomes more expensive than actual disk access",
+    "Traditional cache policies create massive overhead when persistence visibility is required - WB with visibility constraints can be within 2x of running without caches entirely",
+    "Research shows hardware+DMA costs are dwarfed by OS overhead even with significant optimizations (62% latency reduction still leaves majority as overhead)",
+    "CLWB writes back dirty cache lines without invalidating them (unlike CLFLUSH) and is ordered with SFENCE",
+    "PCOMMIT ensures accepted memory stores to persistent ranges become power-failure protected"
+  ],
+  "money_quotes": [
+    "next generation storage technologies (PCM, 3d XPoint, etc.), will be fast enough that syscall and other OS overhead can be more expensive than the actual cost of the disk access",
+    "Despite not being able to get rid of all of the overhead, they get pretty significant speedups, both on small microbenchmarks and real code.",
+    "WB with visibility constraints is significantly slower than the other alternatives. It's a multiple order of magnitude slowdown over WB when writes don't have to be ordered and flushed.",
+    "The performance of regular WB memory can be terribly slow: within a factor of 2 of the performance of running without caches.",
+    "How much CLWB and PCOMMIT actually improve performance will be up to their implementations. It will be interesting to benchmark these and see how they do."
+  ],
+  "themes": [
+    "performance",
+    "hardware_systems",
+    "measurement",
+    "software_engineering"
+  ],
+  "tone": "analytical",
+  "key_insight": "Fast NVRAM creates an Amdahl's law bottleneck where cache coherency protocols and OS overhead become the dominant cost, requiring new CPU instructions like CLWB and PCOMMIT to maintain performance while guaranteeing persistence.",
+  "filename": "2014-11-01-clwb-pcommit"
+}

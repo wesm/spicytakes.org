@@ -1,0 +1,26 @@
+{
+  "summary": "The post explains Sattolo's algorithm, which generates random permutations with exactly one cycle, contrasting it with the more common Fisher-Yates shuffle. Luu provides an accessible proof of why the algorithm works without requiring advanced mathematical machinery like Stirling numbers, motivated by finding that existing explanations were unnecessarily complex and that many people were misusing the algorithm. The post includes detailed proofs of correctness, discussion of derangements, and critiques common implementation mistakes in shuffling algorithms.",
+  "key_points": [
+    "Sattolo's algorithm differs from Fisher-Yates by just two characters but produces fundamentally different results: permutations with exactly one cycle rather than uniformly random permutations",
+    "The algorithm maintains the invariant that each cycle has exactly one swappable element, which guarantees merging two cycles with each swap",
+    "There are (n-1)! permutations with exactly one cycle, matching the number of outputs Sattolo's generates with uniform probability",
+    "Many people incorrectly use Sattolo's to generate random derangements, but it only produces derangements with one cycle, missing valid multi-cycle derangements",
+    "Incorrect shuffling implementations have appeared in production systems including games, gambling sites, and Microsoft's browser choice poll"
+  ],
+  "money_quotes": [
+    "I find that this is common for explanations of concepts that could, but don't have to, use a lot of mathematical machinery...for people who are only interested in a single result, I think it's unfortunate that it's hard to find a relatively simple explanation that doesn't require any background.",
+    "The key invariant that's maintained is that each cycle has exactly1swappable element.",
+    "Although I said that you probably don't need to know this stuff, you do actually need to know it if you're going to implement a custom shuffling algorithm!",
+    "At the time, the top Google hit for javascript random array sort was the incorrect algorithm that Microsoft ended up using.",
+    "I really enjoy the naive rejection based algorithm because I find it delightful when basic randomized algorithms that consist of 'keep trying again' work well."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_myths",
+    "measurement"
+  ],
+  "tone": "pedagogical and analytical",
+  "key_insight": "Simple algorithms can have subtle correctness requirements that are often misunderstood in practice, and accessible explanations without heavy mathematical machinery are valuable for practitioners who need to understand a single concept rather than master an entire field.",
+  "filename": "2017-08-01-sattolo"
+}

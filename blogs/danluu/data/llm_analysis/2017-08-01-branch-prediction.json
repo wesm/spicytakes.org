@@ -1,0 +1,26 @@
+{
+  "summary": "This post provides a technical deep-dive into CPU branch prediction, explaining why modern processors predict branch outcomes and how various prediction algorithms evolved from simple schemes to sophisticated multi-level predictors. Luu methodically walks through increasingly complex prediction strategies\u2014from always predicting 'taken' (70% accuracy) to hybrid predictors combining local and global state (96% accuracy)\u2014demonstrating how each improvement addresses specific weaknesses in prior approaches. The central argument is that CPUs are actually simpler and more understandable than most programmers assume, because hardware complexity is constrained by physical costs, performance overhead, and verification requirements that don't limit software in the same way.",
+  "key_points": [
+    "Branch prediction is essential because modern pipelined CPUs need to start executing subsequent instructions before knowing which path a branch will take",
+    "Without branch prediction, a 20-stage pipeline executing typical code (20% branches) would run at 4.8 cycles per instruction versus 1 cycle with perfect prediction\u2014nearly a 5x penalty",
+    "Branch prediction evolved from simple static schemes (always predict taken, backward-taken-forward-not-taken) to sophisticated dynamic predictors using local/global history and hybrid approaches",
+    "Modern predictors like gshare, agree, and TAGE achieve 93-96% accuracy by reducing interference between aliased branches and adapting predictions based on pattern history",
+    "Hardware is conceptually simpler than software because physical constraints (cost, power, speed, verification requirements) push back against complexity in ways that don't limit software development"
+  ],
+  "money_quotes": [
+    "Since having one bit for every possible branch is too many bits to feasibly store, we'll keep a table of some number of branches we've seen and their last results.",
+    "At 5 GHz, one unit of work is one-fifth of one nanosecond. For reference, light travels roughly one foot in one nanosecond.",
+    "If you think about the complexity of software, the main limiting factor on complexity is your imagination. If you can imagine something in enough detail that you can write it down, you can make it.",
+    "A side effect of these factors that push back against chip complexity is that, for any particular 'high-level' general purpose CPU feature, it is generally conceptually simple enough that it can be described in a half-hour or hour-long talk.",
+    "Every chunk of hardware you implement costs money, so you want to implement as little hardware as possible. Additionally, performance matters for most hardware, and adding complexity makes hardware slower."
+  ],
+  "themes": [
+    "performance",
+    "hardware_systems",
+    "measurement",
+    "industry_myths"
+  ],
+  "tone": "educational, analytical, methodical",
+  "key_insight": "Modern CPUs are more conceptually accessible than programmers assume because physical and economic constraints force hardware designs toward elegant simplicity, whereas software complexity is limited only by human imagination and organizational capability.",
+  "filename": "2017-08-01-branch-prediction"
+}

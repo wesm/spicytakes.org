@@ -1,0 +1,26 @@
+{
+  "summary": "Luu describes building LongTermMetrics (LTM), a system that stores and enables SQL queries over years of infrastructure metrics data, which took one day to build and immediately found millions in cost savings. The key insight is that storing just 0.01-0.1% of relevant metrics data indefinitely in a columnar format enables interactive analysis across all services and hosts, making it trivial to find misconfigurations and optimization opportunities. Rather than using sophisticated ML or real-time systems, LTM deliberately uses boring, proven technologies (Scalding, Presto, Parquet, HDFS) that required minimal effort to integrate with existing infrastructure. The post argues that simple, boring solutions often deliver better ROI than complex cutting-edge systems, but such work is underreported because it doesn't make good conference talks or resume items.",
+  "key_points": [
+    "Built LTM in one day by storing 0.01-0.1% of relevant metrics in columnar format on HDFS, enabling SQL queries across all services/hosts over any time period",
+    "Immediately found mid-7-figure optimization; shipped mid-8-figures in cost savings in first year by finding misconfigured JVM parameters, over-provisioned memory, and network bottlenecks",
+    "Deliberately chose boring, proven technologies (Scalding, Presto, Parquet) over sophisticated alternatives (ML, real-time systems, specialized databases) to minimize implementation and operational cost",
+    "Storage cost is trivial compared to value - individual optimizations found easily pay for decades of data storage",
+    "Industry bias toward complex solutions (deep learning, novel architectures) causes people to turn day-long projects into person-year projects with worse ROI"
+  ],
+  "money_quotes": [
+    "I think writing about systems like this, that are just boring work is really underrated. A disproportionate number of posts and talks I read are about systems using hot technologies.",
+    "If you do the math on the cost of metrics data storage for a project like this in a company in our size class, the storage cost is basically a rounding error. We've shipped individual diffs that easily pay for the storage cost for decades.",
+    "They turned a project that could return significant value to the company after a couple of person-days into a project that took person-years.",
+    "I would guess that at least 90% of metrics are things that almost no one will want to look at in almost any circumstance, and of the metrics anyone really cares about, the vast majority aren't performance related.",
+    "But the add a batch job took one day, you don't need to have roadmap and planning meetings for a day of work, you can just do it and then do follow-on work incrementally."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "industry_myths",
+    "measurement"
+  ],
+  "tone": "pragmatic and mildly critical",
+  "key_insight": "Boring technology choices that prioritize minimal implementation effort and operational burden often deliver vastly better ROI than sophisticated systems, but industry incentives (resume building, promotions, conference talks) bias engineers toward complex solutions that turn simple projects into multi-year endeavors.",
+  "filename": "2020-05-01-metrics-analytics"
+}

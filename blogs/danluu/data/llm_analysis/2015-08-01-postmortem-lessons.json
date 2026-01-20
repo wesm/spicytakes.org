@@ -1,0 +1,26 @@
+{
+  "summary": "Dan Luu examines common patterns in postmortems from major tech companies, identifying that most critical failures stem from a few recurring categories: error handling bugs (92% of critical failures involve incorrectly handled errors), configuration changes (responsible for ~50% of global outages despite being seen as \"obviously\" risky), hardware failures including silent data corruption, and process bugs that enable catastrophic human errors. Despite these failure modes being \"obvious\" to engineers, companies repeatedly fail to invest adequately in testing error paths, staging config changes, and automating risky manual operations, leading to the same types of outages over and over.",
+  "key_points": [
+    "Error handling bugs cause 92% of critical failures in distributed systems, with 25% from simply ignoring errors",
+    "Configuration changes cause about 50% of global outages, yet most companies don't test/stage config changes like code changes",
+    "Hardware fails more often than advertised (DRAM errors >10x worse than spec), and failover systems also fail",
+    "Process bugs that require humans to execute flawless manual procedures repeatedly cause catastrophic failures",
+    "Monitoring/alerting gaps often turn minor issues into major outages, but are underrepresented in public postmortems"
+  ],
+  "money_quotes": [
+    "If you care about building robust systems, the error checking code is the main code!",
+    "Configuration bugs, not code bugs, are the most common cause I've seen of really bad outages.",
+    "If you repeatedly put a human in a position where they can cause a catastrophic failure, you'll eventually get a catastrophe.",
+    "Just because something is obvious doesn't mean it's being done.",
+    "In one case, someone told me that what I was telling them was obvious at pretty much the same time their company was having a global outage of a multi-billion dollar service, caused by the exact thing we were talking about."
+  ],
+  "themes": [
+    "software_engineering",
+    "measurement",
+    "industry_myths",
+    "hardware_systems"
+  ],
+  "tone": "analytical",
+  "key_insight": "The gap between what's \"obvious\" about system reliability and what actually gets implemented is enormous\u2014companies repeatedly suffer outages from well-known failure modes because they don't invest proportionally in testing error paths, staging config changes, and automating manual procedures.",
+  "filename": "2015-08-01-postmortem-lessons"
+}

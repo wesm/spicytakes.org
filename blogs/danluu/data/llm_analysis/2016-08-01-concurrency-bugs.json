@@ -1,0 +1,27 @@
+{
+  "summary": "Luu examines the academic literature on concurrency bugs in both single-machine and distributed systems, finding that while most bugs are simple by count, non-deterministic concurrency bugs consume disproportionate debugging time (weeks to months per bug). He surveys numerous academic tools for detecting these bugs and notes a frustrating pattern: most published research tools are unavailable or unmaintained, while the most impactful real-world tools (TSan, Jepsen, AFL) use simpler, older techniques prioritizing practicality over novelty. The gap between academic research and usable tooling represents a major missed opportunity for industry impact.",
+  "key_points": [
+    "Non-deterministic bugs are rare but extremely costly - individual bugs can take weeks or months to debug, far exceeding time spent on all other bug types combined",
+    "Most concurrency bugs are surprisingly simple: 97% of non-deadlock bugs are atomicity or ordering violations, 96% can be reproduced by fixing order of just 2 threads",
+    "Distributed systems have different bug profiles than single-machine code: 63% relate to hardware faults, 47% cause latent failures, and 70% have simple fixes",
+    "Academic tools demonstrate novel techniques but are almost universally unavailable or unmaintained, while practical impact comes from tools like TSan and Jepsen that prioritize usability",
+    "Sample bias in studies is significant - bugs that take months to debug rarely make it into academic studies because they're too time-consuming to fully characterize"
+  ],
+  "money_quotes": [
+    "I've spent more time debugging some individual non-deterministic bugs (weeks or months) than on all other bug types combined.",
+    "One interesting incident occurred in the open source Chrome browser. Up to 15% of known crashes were attributed to just one bug which proved difficult to understand - the Chrome engineers spent over 6 months tracking this bug without success. On the other hand, the TSAN V1 team found the reason for this bug in a 30 minute run.",
+    "Almost all of the papers for the academic tools claim to do something novel that lets them find bugs not found by other tools... But since almost no one goes and runs the older tools on any codebase, you'd never know if one of the newer tools only found a subset of the bugs that one of the older tools could catch.",
+    "Individuals like Kyle Kingsbury or Michal Zalewski have had an outsized impact on industry... you too can probably pick an underserved area in testing and have a curiously large impact on an entire industry.",
+    "Bugs like that mostly don't make it into studies like this because it's rare that a job allows someone the time to chase bugs that elusive. How many bugs like that are out there is still an open question."
+  ],
+  "themes": [
+    "software_engineering",
+    "measurement",
+    "industry_myths",
+    "programming",
+    "tech_culture"
+  ],
+  "tone": "analytical, pragmatic, mildly frustrated",
+  "key_insight": "The most impactful bug-finding tools succeed not through algorithmic novelty but through relentless focus on usability and availability, revealing a systemic failure in academic computer science to translate research into practical tools that practitioners can actually use.",
+  "filename": "2016-08-01-concurrency-bugs"
+}

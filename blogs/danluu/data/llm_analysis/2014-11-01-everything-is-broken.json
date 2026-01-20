@@ -1,0 +1,26 @@
+{
+  "summary": "Dan Luu documents encountering approximately 80 new bugs in a single week across various software platforms (Ubuntu, GitHub, Julia, Google products, games, etc.) to demonstrate how pervasive software quality issues are. He argues that while everyone knows they should write more tests, the conventional approach of manual unit testing is too labor-intensive to be practical, especially given that complexity doesn't scale linearly with code size. Instead, he advocates for property-based testing, fuzzing, and other automated testing approaches that can find dozens of bugs in hours rather than requiring years of manual test-writing effort.",
+  "key_points": [
+    "Software is riddled with bugs - the author encountered 80 new bugs in one week across common platforms",
+    "Julia has only 18k lines of test code for 108k lines of source code, far below what would be expected for even a prototype",
+    "Manual unit testing is impractical - it would take 2-5 person-years to bring Julia's test coverage to prototype level",
+    "Automated testing approaches like fuzzing can find 20-30 bugs in an hour of development time",
+    "CPUs can execute 200 billion instructions per minute vs humans typing at 100 words per minute - automated testing is fundamentally more efficient"
+  ],
+  "money_quotes": [
+    "If I had to guess, I'd say I probably work around hundreds of bugs in an average week, and thousands in a bad week.",
+    "You can throw together an absurd hack in an hour and it will turn out to be pretty useful.",
+    "You might be able to hit 100 words a minute by typing, but your CPU can easily execute 200 billion instructions a minute. It's no contest.",
+    "There's a tragedy of the commons effect here. If there are only a few bugs, developers are likely to fix the bugs they run across. But if there are so many bugs that making a dent is hopeless, a lot of people won't bother.",
+    "Writing tests is like writing documentation. Everyone already knows you should do it. Telling people they should do it adds zero information."
+  ],
+  "themes": [
+    "software_engineering",
+    "measurement",
+    "industry_myths",
+    "programming"
+  ],
+  "tone": "critical yet pragmatic",
+  "key_insight": "Since developers won't invest the massive effort required for comprehensive manual testing, the path forward is automated testing approaches like fuzzing that can find orders of magnitude more bugs per hour of developer time invested.",
+  "filename": "2014-11-01-everything-is-broken"
+}

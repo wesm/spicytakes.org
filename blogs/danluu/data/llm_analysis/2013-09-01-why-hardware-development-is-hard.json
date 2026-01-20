@@ -1,0 +1,27 @@
+{
+  "summary": "Verilog, the dominant hardware design language in the US, was originally designed as a simulation language and is fundamentally ill-suited for describing actual hardware. This mismatch means that the vast majority of syntactically valid Verilog code produces either nonsensical or unsynthesizable results, requiring engineers to mentally picture hardware first and then awkwardly translate it into Verilog's C-like constructs. Despite numerous attempts at better alternatives (Haskell-based languages like Lava and Bluespec, or Scala-based Chisel), adoption has been stymied by politics and industry conservatism rather than technical merit.",
+  "key_points": [
+    "Verilog was designed as a simulation language, not a hardware description language, making most valid code untranslatable to actual hardware",
+    "Synthesis tools pattern-match Verilog to hardware constructs, often producing nothing or incorrect results without meaningful errors",
+    "Hardware engineers must first imagine the hardware they want, then figure out how to describe it in Verilog's counter-intuitive constructs",
+    "Alternative languages with better type systems and semantics exist (Bluespec, Chisel) but face political resistance rather than technical objections",
+    "The industry resists change due to language preferences (aversion to Haskell) and vendor track records of overpromising on high-level synthesis"
+  ],
+  "money_quotes": [
+    "As a software engineer, how would you feel if 99% of valid Java code ended up being translated to something that produced random results, even though tests pass on the untranslated Java code?",
+    "We hardware folks are so used to the vast majority of legal Verilog constructs producing unsynthesizable garbage that we don't find it the least bit surprising that you not only do you not get compile-time errors, you don't even get run-time errors, from writing naive Verilog code.",
+    "To write Verilog that will produce correct hardware, you have to first picture the hardware you want to produce. Then, you have to figure out how to describe that in this weird C-like simulation language.",
+    "Scala has managed to bring the modern world (in terms of type systems) to more programmers than ML, Ocaml, Haskell, Agda, etc., combined. Perhaps the same will be true in the hardware world.",
+    "It's not as high level, but it's the only hardware description language with a modern type system that I've been able to discuss with hardware folks without people objecting that Haskell is a bad idea."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware_systems",
+    "programming",
+    "tech_culture",
+    "industry_myths"
+  ],
+  "tone": "critical",
+  "key_insight": "Verilog's fundamental design as a simulation language rather than a hardware description language creates a massive impedance mismatch that forces engineers to work around the language rather than with it, yet better alternatives fail to gain adoption due to political and cultural resistance rather than technical deficiencies.",
+  "filename": "2013-09-01-why-hardware-development-is-hard"
+}

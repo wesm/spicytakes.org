@@ -1,0 +1,27 @@
+{
+  "summary": "Luu argues that Verilog development desperately needs basic static analysis tools to catch common bugs early, despite the industry's lack of such tooling. He describes how a simple custom linter based on naming conventions (for pipeline stages, clock domains, and module boundaries) found 7 bugs in 30 minutes, demonstrating that you don't need a PhD to build useful static analysis for hardware design. The post challenges the notion that static analysis is too hard, showing that simple checks can prevent costly errors that take hours to debug in simulation or days to discover in timing reports.",
+  "key_points": [
+    "Basic static analysis for Verilog is valuable but uncommon in the industry",
+    "Simple naming convention checks can catch bugs that take hours or days to discover through traditional methods",
+    "Cross-clock-domain accesses without synchronization can cause random errors, high power consumption, and physical damage",
+    "Referencing distant module signals without registering creates timing issues that take days to detect",
+    "A 30-minute custom linter found 7 bugs with only 2 false positives, proving static analysis doesn't require advanced expertise"
+  ],
+  "money_quotes": [
+    "Accessing a signal in a different clock domain without synchronization is like accessing a data structure from multiple threads without synchronization. Sort of. But worse. Much worse.",
+    "If you took a high-power chip from the late 90s and removed the heat sink, it would melt itself into the socket, even under normal operation.",
+    "I'd been feeling naked at my new gig, coding Verilog without any sort of static checking.",
+    "It turns out that don't need much of a parser, and all the things I've talked about are simple enough that half an hour after starting, I had a tool that found seven bugs, with only two false positives.",
+    "Huh. That wasn't so bad. I've now graduated to junior PL troll."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware_systems",
+    "industry_myths",
+    "programming",
+    "measurement"
+  ],
+  "tone": "pragmatic and mildly satirical",
+  "key_insight": "The hardware industry lacks basic static analysis tooling that software engineers take for granted, but simple custom linters can find critical bugs in minutes that would otherwise take days to discover through simulation or synthesis.",
+  "filename": "2013-09-01-pl-troll"
+}

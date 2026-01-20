@@ -1,0 +1,26 @@
+{
+  "summary": "Twitter's CPU-bound services were failing at around 50% container CPU utilization due to the Linux CFS scheduler's throttling mechanism. When services with large thread pools exceeded their reserved cores, the scheduler would let them burst above quota then throttle them to maintain average limits, causing severe tail latency degradation and forcing massive overprovisioning. Solutions included better thread pool defaults, the Finagle Offload Filter for separating IO and application work, and a kernel patch preventing containers from exceeding quotas instantaneously rather than on an amortized basis, yielding 15-60% cost reductions and eliminating throttling death spirals.",
+  "key_points": [
+    "Twitter services were falling over at 50% CPU utilization despite being CPU-bound, due to CFS bandwidth control throttling",
+    "Services commonly had 10-100+ runnable threads per reserved core, causing quota exhaustion and severe throttling",
+    "The throttling problem created metastable death spirals where throttled shards accumulated work and throttled even harder",
+    "Thread pool tuning for individual services like service-1 enabled 1.5-2x capacity increases worth millions annually",
+    "Cross-fleet solutions included Finagle Offload Filter for proper thread separation and a kernel patch preventing instantaneous quota violations"
+  ],
+  "money_quotes": [
+    "Because load isn't, in general, evenly balanced across shards and the shard-level degradation in performance is so severe when we exceed 50% CPU utilization, this makes the practical limit much lower than 50% even during peak load events.",
+    "A subsecond stop-the-world GC pause could take many seconds of wallclock time to complete.",
+    "In the worst case, a highly parallel application could exhaust all of its quota in the first bandwidth slice leaving 95ms of throttled time before any thread could be scheduled again.",
+    "What happens is that, when a service is under high load, it will throttle. Throttling doesn't prevent requests from coming into the shard that's throttled, so when the shard wakes up from being throttled, it has even more work to do than it had before it throttled, causing it to use even more CPU and throttle more quickly.",
+    "A service that's highly loaded and throttling toggles between attempting to use all of the cores on the box and then using none of the cores on the box, causing an extremely large amount of interference during the periods where it's attempting to use all of the cores on the box."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "industry_myths",
+    "measurement"
+  ],
+  "tone": "analytical",
+  "key_insight": "Container CPU throttling based on amortized quotas creates a fundamental mismatch between how developers reason about parallelism and how the scheduler enforces limits, resulting in catastrophic underutilization and metastable failure modes that can only be fixed by preventing instantaneous quota violations rather than amortized ones.",
+  "filename": "2021-12-01-cgroup-throttling"
+}

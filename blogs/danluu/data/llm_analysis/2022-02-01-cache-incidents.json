@@ -1,0 +1,28 @@
+{
+  "summary": "This post documents a decade of severe cache-related incidents at Twitter (2012-2022), revealing that cache was historically the #1 source of site outages. The incidents demonstrate how cache failures cascade through distributed systems due to positive feedback loops, client misbehavior, and infrastructure issues. Most major outages weren't caused by cache logic bugs, but rather by poorly mitigated interactions between cache and surrounding infrastructure\u2014kernel networking issues, hardware problems, aggressive client retry policies, and resource exhaustion under load.",
+  "key_points": [
+    "Cache was Twitter's #1 source of major outages during the early years, with restarting a single cache server causing SEV-0 incidents",
+    "Most cache incidents resulted from positive feedback loops and cascade failures rather than cache software bugs",
+    "Client retry policies and connection management frequently overwhelmed cache servers, causing site-wide outages",
+    "Low-level systems issues (IRQ affinity, firmware bugs, kernel networking, memory fragmentation) repeatedly caused or exacerbated major incidents",
+    "Many incidents occurred because fixes from previous incidents were incompletely applied or operational concerns weren't prioritized",
+    "Knowledge about past incidents decays rapidly at tech companies, with incorrect viral stories often replacing accurate accounts"
+  ],
+  "money_quotes": [
+    "Every single incident so far has at least mentioned cache. In fact, for a long time, cache was probably the #1 source of bringing the site down for a while. In my first six months, every time I restarted a cache server, it was a SEV-0 by today's standards.",
+    "There's a kind of Gresham's law of stories in play, where incorrect stories tend to win out over correct stories.",
+    "Cache failure modes are also interesting because, when cache is used to serve a significant fraction of requests or fraction of data, cache outages or even degradation can easily cause a total outage because an architecture designed with cache performance in mind will not (and should not) have backing DB store performance that's sufficient to keep the site up.",
+    "When reading the incidents below, it may be helpful to read them with an eye towards how cache interacts with things above cache in the stack that call caches and things below cache in the stack that cache interacts with.",
+    "Clients should 'do the math' when setting retry policies to avoid using retry policies that can completely overwhelm cache servers when 100% of responses fail and maximal backpressure is being applied."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "hardware_systems",
+    "measurement",
+    "tech_culture"
+  ],
+  "tone": "analytical",
+  "key_insight": "Most distributed systems failures in production aren't caused by logic bugs but by insufficiently mitigated positive feedback loops triggered by performance anomalies in the infrastructure stack, compounded by institutional knowledge loss that causes teams to repeatedly encounter similar failure modes.",
+  "filename": "2022-02-01-cache-incidents"
+}

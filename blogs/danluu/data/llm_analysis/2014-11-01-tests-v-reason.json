@@ -1,0 +1,27 @@
+{
+  "summary": "Dan Luu challenges the common claim that 'informal reasoning' is superior to testing for ensuring software correctness, particularly critiquing arguments from 'Out of the Tar Pit.' He argues that many real-world systems\u2014from modern CPUs to tax code implementations\u2014contain irreducible complexity that cannot be reasoned about formally, and that humans inevitably make reasoning errors. Drawing from 7.5 years in CPU verification, he demonstrates that comprehensive testing can achieve extremely high reliability (one logical bug in 7.5 years), making it not just necessary but practically sufficient for most engineering purposes.",
+  "key_points": [
+    "Many real systems have irreducible complexity that makes formal reasoning impossible",
+    "Modern high-performance CPUs cannot be understood through informal reasoning alone due to speculative execution and caching",
+    "Humans are inherently fallible at reasoning, even for 'obvious' cases (citing Euclid's Elements bug and Intel CPU bugs)",
+    "Testing with state space reduction and symbolic execution works well in practice despite theoretical limitations",
+    "Real-world evidence: CPU verification through testing achieved only one logical bug in 7.5 years"
+  ],
+  "money_quotes": [
+    "testing is hopelessly inadequate....(it) can be used very effectively to show the presence of bugs but never to show their absence.",
+    "no human can possibly hope to understand a modern high-performance CPU well enough to informally reason about its correctness",
+    "No matter how smart or knowledgeable, humans are incapable of reasoning correctly all of the time.",
+    "Testing may not be sufficient to find all bugs, but it can be sufficient to achieve better reliability than pretty much any software company cares to.",
+    "It's possible to make a simple CPU, but not one that's fast and simple."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_myths",
+    "measurement",
+    "hardware_systems",
+    "performance"
+  ],
+  "tone": "critical, empirical",
+  "key_insight": "While testing cannot prove the absence of bugs theoretically, practical evidence shows it can achieve reliability levels that exceed what most organizations require, making the 'informal reasoning over testing' argument actively harmful for real-world engineering.",
+  "filename": "2014-11-01-tests-v-reason"
+}

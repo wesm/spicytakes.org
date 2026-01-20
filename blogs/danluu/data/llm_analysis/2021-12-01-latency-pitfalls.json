@@ -1,0 +1,25 @@
+{
+  "summary": "This post examines systematic measurement problems in Twitter's latency monitoring infrastructure that cause service owners to drastically underestimate real user-experienced latency. Luu identifies three critical issues: opaque latency hidden in uninstrumented parts of the stack (netty, kernel) that can be 15x higher than reported metrics, lack of proper cluster-wide aggregation leading to misleading averages of per-shard tail latencies, and minutely-resolution metrics that miss sub-second latency spikes. These measurement gaps force Twitter to overprovision servers and maintain stricter-than-necessary SLOs to compensate for the uncertainty, directly increasing operating costs.",
+  "key_points": [
+    "Server-side latency measurements miss significant queuing delays in netty and the Linux kernel, causing 99th percentile latency to appear 15x lower than actual client-observed latency",
+    "Taking averages of per-shard tail latencies defeats the purpose of monitoring tail latency and fails to detect when individual bad nodes impact overall cluster performance",
+    "Minutely metrics resolution misses sub-second latency spikes that cause real incidents, requiring specialized tools to debug",
+    "These measurement problems force companies to overprovision infrastructure with large safety margins, significantly increasing operating costs"
+  ],
+  "money_quotes": [
+    "If we look at 99%-ile latency, we can see that it's ~16ms when measured at the server and ~240ms when measured at the client, a factor of 15 difference.",
+    "Taking the average of per-shard tail latency defeats the purpose of monitoring tail latency.",
+    "Reported p99 latency is 0.37ms, but actual p99 latency is ~580ms, an over three order of magnitude difference.",
+    "Due to large margins of error in our estimates of cluster-wide latencies, we have to provision a very large amount of slack and keep latency SLOs that are much stricter than the actual latencies we want to achieve to avoid user-visible incidents.",
+    "There is, in general, no per-shard percentile or other aggregation of per-shard tail latencies that can reconstruct the cluster-level tail latency."
+  ],
+  "themes": [
+    "measurement",
+    "performance",
+    "software_engineering",
+    "industry_myths"
+  ],
+  "tone": "analytical",
+  "key_insight": "Common latency measurement practices\u2014sampling at the wrong layer, averaging tail metrics, and low-resolution sampling\u2014can underestimate real latency by orders of magnitude, forcing expensive overprovisioning to compensate for fundamentally broken observability.",
+  "filename": "2021-12-01-latency-pitfalls"
+}

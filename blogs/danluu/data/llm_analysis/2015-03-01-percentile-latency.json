@@ -1,0 +1,26 @@
+{
+  "summary": "This post examines how optimizing for intermediate metrics instead of true goals leads to ineffective or counterproductive outcomes across domains. Using three case studies\u2014IQ scores in early childhood education, cholesterol levels in heart disease prevention, and percentile latency in software systems\u2014Luu demonstrates that when proxy metrics become targets, they can be improved without (or even at the expense of) the actual desired outcome. The fundamental problem is Goodhart's Law in action: when a measure becomes a target, it ceases to be a good measure.",
+  "key_points": [
+    "Early childhood education programs like Head Start showed IQ improvements that faded by age 10, yet produced significant long-term benefits in graduation rates, crime reduction, and health outcomes",
+    "Pharmaceutical companies spent billions developing drugs that improved cholesterol levels but failed to reduce (or even increased) heart attack risk",
+    "Optimizing only specific percentiles (99th, 99.9th) in latency measurements creates distributions with artificial kinks that meet targets while degrading overall user experience",
+    "Common benchmarking frameworks measure latency under unrealistic sequential-access patterns, producing metrics that differ by an order of magnitude from real concurrent-user scenarios",
+    "The solution isn't a simple trick but constantly validating that proxy metrics remain connected to actual goals"
+  ],
+  "money_quotes": [
+    "If you have very narrow optimization goals, and your measurements don't give you any visibility into anything else, everything but your optimization goals is going to get thrown out the window.",
+    "It's like the video game solving AI that presses pause before its character is about to get killed, because pausing the game prevents its health from decreasing.",
+    "But the only trick is that there is no trick, that you have to constantly check that your map is somehow connected to the territory.",
+    "If you optimize the 99%-ile of that measurement, you're optimizing the 99%-ile for when all of your users get together and decide to use your app sequentially, coordinating so that no one requests anything until the previous user is finished.",
+    "Since the end goal is usually to improve the user experience and not just optimize three specific points on the distribution, targeting a few points instead of using some kind of weighted integral can easily cause anti-optimizations that degrade the actual user experience, while producing great slideware."
+  ],
+  "themes": [
+    "measurement",
+    "industry_myths",
+    "performance",
+    "software_engineering"
+  ],
+  "tone": "analytical",
+  "key_insight": "Optimizing intermediate proxy metrics without validating their continued connection to ultimate goals is a universal failure mode across domains\u2014from education to medicine to software performance\u2014requiring constant vigilance to ensure the map matches the territory.",
+  "filename": "2015-03-01-percentile-latency"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "This tutorial walks through implementing a simple malloc/free memory allocator from scratch using sbrk to manipulate the heap. The implementation uses a linked list of memory blocks with metadata stored just below returned pointers, supports realloc and calloc, and can be dynamically linked to replace the system allocator in existing binaries. The post includes detailed debugging techniques using gdb and exercises to improve the basic implementation with proper alignment, block splitting, and block merging.",
+  "key_points": [
+    "Uses sbrk to request heap memory from the OS and stores metadata in a hidden region below returned pointers",
+    "Implements a linked list of blocks with size, next pointer, and free flag to track and reuse freed memory",
+    "Can be compiled as a shared library and loaded via LD_PRELOAD to replace malloc in existing binaries without recompilation",
+    "Demonstrates debugging techniques for memory allocators using gdb, including setting breakpoints and inspecting memory at different offsets",
+    "Basic implementation has limitations around memory fragmentation, alignment, and block splitting that are left as exercises"
+  ],
+  "money_quotes": [
+    "A common trick to work around this is to store meta-information about a memory region in some space that we squirrel away just below the pointer that we return.",
+    "The heap region we get from the OS has to be contiguous, so we can't return a block of memory in the middle to the OS.",
+    "You never really need to assert anything, but it often makes debugging a lot easier. In fact, when I wrote this code, I had a bug that would have resulted in silent data corruption if these asserts weren't there.",
+    "What's happening here is that structs get padded, so that sizeof(struct block_meta) is 32, even though the last valid member is at 24.",
+    "I haven't tested this much, so I'm sure there are bugs, even if this basically kinda sorta works."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "hardware_systems",
+    "measurement"
+  ],
+  "tone": "educational, practical, self-aware",
+  "key_insight": "Memory allocators work by requesting contiguous heap space from the OS and managing it through metadata hidden just before returned pointers, creating a reusable pool of blocks that can't be returned to the OS piecemeal but must be tracked and recycled within the application's address space.",
+  "filename": "2014-12-01-malloc-tutorial"
+}

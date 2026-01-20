@@ -1,0 +1,24 @@
+{
+  "summary": "Dan Luu applies TF-IDF (term frequency-inverse document frequency) analysis to Linux kernel commit messages from 2005 onwards to identify what different contributors work on. Simple word frequency counts are dominated by common words like 'the' and 'to', and manually filtering stop words still leaves too much noise. By applying TF-IDF to weight terms by how distinctive they are to each contributor, he successfully reveals clear patterns: for example, Takashi Iwai works on ALSA audio codecs, David Miller on SPARC64, and Ralf Baechle on MIPS.",
+  "key_points": [
+    "Simple word frequency analysis of commit messages is dominated by common words and provides little useful information",
+    "Standard stop-word filtering doesn't work well without manual intervention for this dataset, as it misses domain-specific noise like 'Signed-off-by'",
+    "TF-IDF successfully identifies distinctive terms for each contributor, revealing clear specialization patterns (e.g., tiwai\u2192ALSA, davem\u2192sparc64, ralf\u2192mips)",
+    "Very few Linux contributors work on POSIX compliance - you can count the individuals who mentioned it in commit messages",
+    "The post is an experiment in faster blogging (30-90 minute posts) to reinforce learning from a Mining Massive Data Sets course"
+  ],
+  "money_quotes": [
+    "Alright, so their most frequently used words are to, alsa, the, and the. Turns out, Takashi Iwai (tiwai) often works on audio (alsa), and by going down the list we can see that David Miller's (davem) fifth most frequently used term is sparc64, which is a pretty good indicator that he does a lot of sparc work. But the table is mostly noise.",
+    "I actually don't understand why it's standard to take the log here. Sometimes you want to take the log so you can work with smaller numbers, or so that you can convert a bunch of multiplies into a bunch of adds, but neither of those is true here.",
+    "Relatively, almost no one works on POSIX compliance. You can actually count the individual people who mentioned POSIX in commit messages.",
+    "TF-IDF is sometimes useful and incredibly easy to apply. You should use it when you should use it (when you want to see what words distinguish different documents/people from each other) and you shouldn't use it when you shouldn't use it (when you want to see what's common to documents/people)."
+  ],
+  "themes": [
+    "measurement",
+    "software_engineering",
+    "programming"
+  ],
+  "tone": "analytical",
+  "key_insight": "TF-IDF provides a simple, effective technique for identifying what distinguishes individual contributors in large collaborative projects by weighting terms by their uniqueness rather than just their frequency.",
+  "filename": "2014-11-01-linux-devs-say"
+}

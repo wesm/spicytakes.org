@@ -1,0 +1,26 @@
+{
+  "summary": "Luu examines how partially-degraded hardware ('limping' nodes) can catastrophically impact distributed systems performance far more than completely failed nodes. Through analysis of research by Thanh Do et al., he shows that a single slow disk or network card can cause 100x+ performance degradation across entire clusters in systems like Hadoop, HDFS, and HBase. While these failures are relatively rare (3% of hardware issues), they expose fundamental design flaws in tail-tolerance mechanisms and cascading failure prevention that have persisted since MapReduce's original 2004 paper.",
+  "key_points": [
+    "Partially degraded hardware causes worse performance than complete failures in most distributed systems",
+    "Three failure modes: operation limplock (slow component), node limplock (slow component affects unrelated operations), and cluster limplock (single slow node cascades)",
+    "Hadoop's speculative execution fails against limping nodes because slow map nodes drag down all reducers, preventing straggler detection",
+    "Cassandra handles limping hardware better due to queue overflow prevention and SEDA architecture that decouples operations",
+    "Limping hardware accounts for ~3% of failures\u2014rare but significant enough to warrant design consideration"
+  ],
+  "money_quotes": [
+    "The job completion rate slowed down from 172 jobs per hour to 1 job per hour, effectively killing the entire cluster.",
+    "In most (but not all) cases, having degraded hardware affected performance a lot more than having failed hardware.",
+    "This exact cause of failures was described in the original MapReduce paper, published in 2004. Five years later, when the paper we're reading was published, its built-in mechanism for straggler detection not only failed to prevent multiple types of stragglers, it also failed to prevent stragglers from effectively deadlocking the entire cluster.",
+    "Of course we should have monitoring, but we should also have systems that are robust when our monitoring fails, as it inevitably will."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "hardware_systems",
+    "measurement",
+    "industry_myths"
+  ],
+  "tone": "analytical",
+  "key_insight": "Distributed systems' tail-tolerance mechanisms often assume binary failure states (working/dead) and catastrophically fail against the more insidious case of degraded-but-functioning hardware, a design oversight that has persisted for over a decade despite being documented in foundational papers.",
+  "filename": "2015-09-01-limplock"
+}

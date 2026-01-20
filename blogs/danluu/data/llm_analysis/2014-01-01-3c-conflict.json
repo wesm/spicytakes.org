@@ -1,0 +1,25 @@
+{
+  "summary": "This post explains how cache line alignment can dramatically hurt performance through conflict misses. When data is page-aligned (or aligned to large powers of 2), addresses map to the same cache sets, artificially limiting cache capacity - for example, reducing a 32kB L1 cache to effectively only 8 useful locations. By misaligning data across different cache lines, the same hardware can utilize 512 locations in L1, yielding substantial performance improvements. The post uses empirical benchmarks and detailed cache organization analysis to demonstrate this counterintuitive result: 'nice' alignment can be disastrous.",
+  "key_points": [
+    "Page-aligned or power-of-2 aligned data causes conflict misses that prevent full cache utilization",
+    "On Sandy Bridge, page-aligned accesses can only use 8 of 512 possible L1 cache lines, while misaligned accesses can use all 512",
+    "Cache sets are determined by the middle bits of addresses - alignment zeroes out these bits, forcing all accesses into the same set",
+    "The performance penalty persists across the cache hierarchy (L1, L2, L3), with different working set size thresholds",
+    "Misaligned data is noticeably faster than page-aligned data for working sets between 8-512 in the benchmark"
+  ],
+  "money_quotes": [
+    "If this benchmark seems contrived, it actually comes from a real world example of the disastrous performance implications of using nice power of 2 alignment, or page alignment in an actual system",
+    "If we use the cache optimally, we can store 32,768 items. But, since we're accessing things that are page (4k) aligned, we effectively lose the bottom log\u2082(4k) = 12 bits, which means that every access falls into the same set, and we can only loop through 8 things before our working set is too large to fit in the L1!",
+    "Not only will aligning to any large power of 2 cause a problem, generating addresses with a power of 2 offset from each other will cause the same problem",
+    "Nowadays, the importance of caches is well understood enough that, when I'm asked to look at a cache related performance bug, it's usually due to the kind of thing we just talked about: conflict misses that prevent us from using our full cache effectively"
+  ],
+  "themes": [
+    "performance",
+    "hardware_systems",
+    "measurement",
+    "programming"
+  ],
+  "tone": "analytical",
+  "key_insight": "Counterintuitively, 'clean' power-of-2 memory alignment can cripple performance by forcing all accesses into the same cache sets, reducing effective cache capacity by orders of magnitude compared to deliberately misaligned data.",
+  "filename": "2014-01-01-3c-conflict"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Dan Luu documents how modern web bloat makes the internet largely unusable for people with slow connections, demonstrating through extensive testing that most popular websites fail to load on dialup-speed connections despite being text-based. He tests various sites across connection speeds from fiber to 16kbps satellite, finding that even Google takes 90+ seconds on dialup while many commercial sites fail entirely. The post argues this isn't just about developing countries\u2014millions of Americans still lack broadband, and the problem is often caused by easily fixable anti-optimizations in popular themes and frameworks.",
+  "key_points": [
+    "Most modern websites are unusable on slow connections despite being fundamentally text-based, with commercial sites frequently timing out entirely on dialup-speed connections",
+    "Half of Americans don't have broadband speed according to Microsoft's measurements, and AOL alone had 2 million dialup subscribers in 2015",
+    "Simple optimizations can yield 10-20x speedup\u2014Luu improved his own blog by that much just by moving JavaScript to the footer and removing unused dependencies",
+    "The 'page weight doesn't matter' meme is flawed because it relies on average speeds that mask the reality of users on terrible connections",
+    "Both page authors and browser developers share blame\u2014browsers make poor decisions like opening 6 parallel connections on slow satellites, guaranteeing all timeout"
+  ],
+  "money_quotes": [
+    "When I was at Google, someone told me a story about a time that 'they' completed a big optimization push only to find that measured page load times increased. When they dug into the data, they found that the reason load times had increased was that they got a lot more traffic from Africa after doing the optimizations.",
+    "The flaw in the 'page weight doesn't matter because average speed is fast' is that if you average the connection of someone in my apartment building (which is wired for 1Gbps internet) and someone on 56k dialup, you get an average speed of 500 Mbps. That doesn't mean the person on dialup is actually going to be able to load a 5MB website.",
+    "It's particularly galling that airbnb doesn't test this stuff, because traveling is pretty much the whole point of the site so they can't even claim that there's no money in servicing people with poor connections.",
+    "I was able to get a 20x speedup on my blog in a few hours. You might argue that I've now gone too far and removed too much CSS, but I got a 20x speedup for people on fast connections before making changes that affected the site's appearance.",
+    "Google's AMP currently has > 100kB of blocking javascript that has to load before the page loads! There's no reason for me to use AMP pages because AMP is slower than my current setup of pure HTML with a few lines of embedded CSS."
+  ],
+  "themes": [
+    "performance",
+    "software_engineering",
+    "industry_myths",
+    "measurement",
+    "tech_culture"
+  ],
+  "tone": "critical",
+  "key_insight": "Web performance optimization is treated as optional nicety for nerds, but the reality is that poor optimization excludes millions of users with slow connections from accessing fundamentally text-based content, and most sites could achieve 10-20x improvements with minimal effort by just avoiding blatant anti-optimizations.",
+  "filename": "2017-02-01-web-bloat"
+}

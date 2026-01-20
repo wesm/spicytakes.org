@@ -1,0 +1,24 @@
+{
+  "summary": "Binary editing is a practical technique for patching compiled programs when source code isn't available or recompiling isn't feasible. The author argues that while this seems shocking to developers who think exclusively in terms of source code, it's natural for those who understand that processors simply execute bits. Through concrete examples - from fixing bugs in closed-source software to handling emergency deployment situations - Luu demonstrates that binary editing is often the quickest path to solving real-world problems.",
+  "key_points": [
+    "Many developers are shocked by binary editing because they think only in terms of source code transformations, not the underlying processor instructions",
+    "Binary editing is essential for workarounds with non-Intel/AMD x86 processors that incorrectly check CPUID",
+    "Emergency situations (like the auto-update versioning mishap) could be resolved in minutes with binary patching vs hours of rebuild/release cycles",
+    "Basic binary editing requires only simple tools like a hex editor and disassembler, not expensive software like IDA",
+    "Common techniques include changing comparison values, patching in NOPs (0x90), and redirecting jumps"
+  ],
+  "money_quotes": [
+    "If you have the first view, breaking out a hex editor to modify a program is the action of a deranged lunatic. If you have the second view, editing binaries is the most natural thing in the world.",
+    "You can try filing a bug, but it's much easier to just edit your binaries.",
+    "If it had occurred to anyone to edit the binary to increment the version number, they could have pushed out a good update in a minute instead of an hour",
+    "Editing binaries is a trick that comes in handy a few times a year. You don't often need to, but when you do, there's no alternative."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "industry_myths"
+  ],
+  "tone": "practical, educational, matter-of-fact",
+  "key_insight": "Understanding programs as processor instructions rather than just source code transformations unlocks powerful problem-solving capabilities for emergencies and workarounds that would otherwise require lengthy recompilation processes.",
+  "filename": "2014-03-01-edit-binary"
+}

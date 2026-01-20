@@ -1,0 +1,26 @@
+{
+  "summary": "Dan Luu systematically measures terminal emulator latency and finds that most terminals add 30-100ms of delay from keypress to display, enough to be perceptible to users. He argues the terminal ecosystem is optimized for the wrong benchmarks\u2014stdout throughput and memory usage\u2014when latency and responsiveness matter far more for user experience. His measurements show significant variance across terminals and demonstrate that tail latency under load becomes even more problematic, with 99.9th percentile latencies reaching levels comparable to cross-country network roundtrips.",
+  "key_points": [
+    "Measured latency from keypress to screen update across major terminals ranges from 5-45ms at median, with tail latencies exceeding 100ms under load",
+    "Terminal benchmarks focus on stdout throughput and memory usage, which have minimal impact on user experience compared to latency",
+    "Research shows humans notice latency differences in the 10-100ms range, yet terminal tail latencies routinely exceed perceptible thresholds",
+    "The terminal ecosystem lacks awareness of latency issues because unlike tablets (vs pen-and-paper) or VR (vs real vision), users have no low-latency reference point for keyboard input",
+    "Common terminals can sink stdout orders of magnitude faster than humans can read, making further throughput optimization largely pointless"
+  ],
+  "money_quotes": [
+    "The idea that computers respond quickly to input, so quickly that humans can't notice the latency, is the most common performance-related fallacy I hear from professional programmers.",
+    "For reference, the internally generated keypress to GPU memory trip for some terminals is slower than the time it takes to send a packet from Boston to Seattle and back, about 70ms.",
+    "Say I type at 120wpm and that results in 600 characters per minute, or 10 characters per second of input. Then I'd expect to see the 99.9% tail (1 in 1000) every 100 seconds!",
+    "The relationship between the rate that a terminal can sink stdout and its latency is non-obvious.",
+    "Most terminals have enough latency that the user experience could be improved if the terminals concentrated more on latency and less on other features or other aspects of performance."
+  ],
+  "themes": [
+    "performance",
+    "measurement",
+    "industry_myths",
+    "software_engineering"
+  ],
+  "tone": "analytical",
+  "key_insight": "Terminal developers optimize for easily measured but largely irrelevant metrics like stdout throughput while ignoring the latency that actually degrades user experience, demonstrating how misaligned benchmarks lead to misguided optimization efforts.",
+  "filename": "2017-07-01-term-latency"
+}

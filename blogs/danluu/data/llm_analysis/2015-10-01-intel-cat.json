@@ -1,0 +1,26 @@
+{
+  "summary": "Intel added cache partitioning (Cache Allocation Technology/CAT) to enable higher server utilization by allowing latency-sensitive and batch workloads to coexist on the same machines. Research shows datacenter workloads only need 4-6MB of LLC despite chips having 12-30MB caches, and spend much of their time stalled on memory despite low bandwidth utilization. By partitioning cache alongside other resource isolation mechanisms (CPU pinning, network quotas, power limiting), systems like Google's Heracles achieve 90% utilization compared to typical 10-50% utilization, translating to hundreds of millions in cost savings.",
+  "key_points": [
+    "Typical server utilization is 10-50%, but Google demonstrates 90% utilization without impacting latency SLAs",
+    "Datacenter workloads only benefit from 4-6MB of LLC despite modern server chips having much larger caches",
+    "Cores spend 46-61% of time stalled on cache/memory, yet bandwidth utilization is surprisingly low",
+    "Cache partitioning (CAT) combined with CPU pinning, network quotas, and power limiting enables safe workload co-location",
+    "Heracles achieves 90% average utilization, worth $600M+ annually for large companies"
+  ],
+  "money_quotes": [
+    "Typical server utilization is between 10% and 50%. Google has demonstrated 90% utilization without impacting latency SLAs.",
+    "Datacenter workloads operate on such large data sets that it's often impossible to fit the dataset in RAM on a single machine, let alone in cache, making a larger LLC not particularly useful.",
+    "It's curious that we have low cache hit rates, a lot of time stalled on cache/memory, and low bandwidth utilization. This is suggestive of workloads spending a lot of time waiting on memory accesses that have some kind of dependencies that prevent them from being executed independently.",
+    "With Heracles, the worst case utilization is 80%, and the average is 90%. This is amazing.",
+    "SPEC is basically irrelevant as a benchmark now. It's somewhat dated as a workstation benchmark, and simply completely inappropriate as a benchmark for servers, office machines, gaming machines, dumb terminals, laptops, and mobile devices."
+  ],
+  "themes": [
+    "performance",
+    "hardware_systems",
+    "industry_myths",
+    "measurement"
+  ],
+  "tone": "analytical",
+  "key_insight": "Modern datacenter economics makes even small utilization improvements worth massive engineering effort, and empirical measurement reveals that datacenter workloads have fundamentally different resource usage patterns than traditional benchmarks assume, enabling novel hardware features like cache partitioning to unlock dramatic efficiency gains.",
+  "filename": "2015-10-01-intel-cat"
+}

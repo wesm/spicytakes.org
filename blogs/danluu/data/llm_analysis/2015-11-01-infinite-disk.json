@@ -1,0 +1,27 @@
+{
+  "summary": "Hardware latency improvements, particularly in networking and storage, fundamentally change optimal system architecture. As network round-trip times have dropped from 500\u03bcs to 10s of \u03bcs and NVRAM access times have decreased to 15\u03bcs, it's now feasible to disaggregate storage across datacenters without performance penalties\u2014providing applications with effectively \"infinite disk.\" This shift means systems designed for 2005-era latencies are no longer optimal; applications that relied on local caching for 1ms latencies now carry counter-productive overhead when network latencies drop below 1\u03bcs. The same economics that enable datacenter disaggregation will inevitably extend to consumer cloud storage as bandwidth costs continue their exponential decline.",
+  "key_points": [
+    "Network latencies have decreased enough (500\u03bcs to 10s of \u03bcs) that storage can be disaggregated across datacenters without noticeable performance impact",
+    "RDMA over Ethernet enables network latencies below NVRAM access times, allowing even high-performance storage to be disaggregated",
+    "Systems designed for higher-latency eras contain assumptions and optimizations (like local caching) that become overhead as latencies decrease",
+    "Cloud providers' cost of replicated storage is becoming lower than retail cost of local unreplicated storage for consumers",
+    "Bandwidth costs have declined exponentially (10Mb to 40Gb+ NICs) faster than applications have been re-architected to exploit it"
+  ],
+  "money_quotes": [
+    "The round-trip latency is so much lower than the seek time of a disk that we can dis-aggregate storage and distribute it anywhere in the datacenter without noticeable performance degradation, giving applications the appearance of having infinite disk space.",
+    "Applications written in a higher-latency era are often full of 'careless' operations that burn hundreds of nanoseconds at a time.",
+    "When latency drops below 1us, the caching that was a huge win in 2005 is often not just pointless, but actually counter-productive overhead.",
+    "If you look at what major cloud providers are paying for storage, their COGS of providing safely replicated storage is or will become lower than the retail cost to me of un-backed-up unreplicated local disk on my home machine.",
+    "There's literally more bandwidth than people know what to do with."
+  ],
+  "themes": [
+    "hardware_systems",
+    "performance",
+    "software_engineering",
+    "industry_myths",
+    "measurement"
+  ],
+  "tone": "analytical",
+  "key_insight": "Hardware performance ratios\u2014not just absolute speeds\u2014determine optimal system architectures, and as network/storage latency ratios shift by orders of magnitude, yesterday's performance optimizations become tomorrow's bottlenecks.",
+  "filename": "2015-11-01-infinite-disk"
+}

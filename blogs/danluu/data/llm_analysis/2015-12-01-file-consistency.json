@@ -1,0 +1,26 @@
+{
+  "summary": "Desktop applications routinely fail to handle file operations correctly, leading to data corruption that even Gmail avoids despite being distributed. The post systematically demonstrates that writing files safely requires navigating a minefield of filesystem-specific behaviors, undocumented semantics, poorly-handled disk errors, and reordering issues that mirror the challenges of concurrent programming. Most developers underestimate this complexity, resulting in widespread bugs even in critical applications like version control systems, databases, and email clients.",
+  "key_points": [
+    "Writing a simple file update atomically requires multiple fsync calls, careful ordering, checksums, and filesystem-specific knowledge to avoid corruption",
+    "Filesystem semantics are poorly documented (manpages literally cite 'rumor'), vary wildly between ext3/ext4/btrfs/xfs, and change between versions",
+    "Most filesystems ignore write errors and handle disk failures incorrectly - ext3 had comments like 'I really hope a write error doesn't happen here'",
+    "Studies found 5-20% of disks experience errors over two years, and 0.5% suffer silent data corruption annually",
+    "Even sophisticated applications (LevelDB, git, Mercurial, HDFS, Zookeeper) had file corruption bugs from incorrect assumptions about atomicity and ordering"
+  ],
+  "money_quotes": [
+    "Files are hard.",
+    "Correctly reasoning about re-ordering behavior and inserting barriers correctly is hard. But even though shared memory concurrency is considered a hard problem that requires great care, writing to files isn't treated the same way, even though it's actually harder in a number of ways.",
+    "The manpage literally refers to rumor. This is the level of documentation we have.",
+    "Comments they found next to ignored errors include: 'Should we pass any errors back?', 'Error, skip block and hope for the best.', 'We can't do anything about an error here.'",
+    "The fact that so many people thought that this was a simple solution to the problem demonstrates that this problem is one that people are prone to underestimating, even they're explicitly warned that people tend to underestimate this problem!"
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware_systems",
+    "industry_myths",
+    "measurement"
+  ],
+  "tone": "critical, analytical, empirically-grounded",
+  "key_insight": "File I/O is fundamentally a concurrent programming problem with filesystem-specific reordering and atomicity semantics, but unlike multithreading it's treated casually by developers, leading to pervasive data corruption bugs that could be caught with basic testing and static analysis.",
+  "filename": "2015-12-01-file-consistency"
+}
