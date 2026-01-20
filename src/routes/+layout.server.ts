@@ -37,9 +37,10 @@ function loadJson<T>(path: string, defaultValue: T): T {
 function parseDate(filename: string): string {
   const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (match) {
-    return `${match[1]}-${match[2]}-${match[3]}`;
+    // Use noon UTC to avoid timezone issues (midnight UTC shows as previous day in US timezones)
+    return `${match[1]}-${match[2]}-${match[3]}T12:00:00Z`;
   }
-  return new Date().toISOString().split('T')[0];
+  return new Date().toISOString().split('T')[0] + 'T12:00:00Z';
 }
 
 function formatTitle(filename: string): string {
