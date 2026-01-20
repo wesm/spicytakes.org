@@ -1,9 +1,9 @@
 ---
 title: "From Human Ergonomics to Agent Ergonomics"
-date: 2026-01-19T00:00:00
+date: 2026-01-20T00:00:00
 tags: ["ai", "llm", "thoughts"]
 slug: agent-ergonomics
-word_count: 1189
+word_count: 1215
 source_file: blog/agent-ergonomics/index.qmd
 content_type: blog
 ---
@@ -41,9 +41,9 @@ But agentic engineering is different:
   is punishing.
 * Painless software distribution feels essential. You may create
   numerous tools to enable your "agentic loop" and self-contained,
-  dependency-free binaries accessible in a coding agent context feels
+  dependency-free binaries accessible in a coding agent context feel
   like the right modality.
-* Human ergonomics matter less when humans aren't the primary authors.
+* Human ergonomics matters less when humans aren't the primary authors.
 
 In this context, Python has weaknesses: its test cycles are relatively
 slow and distribution has challenges (though `uv` helps). Dragging
@@ -52,13 +52,13 @@ Machine from which we tried so desperately to unburden ourselves.
 
 The *reasons* that Python has gotten so popular (and why I went down
 the Python rabbit hole back in 2007 and dedicated many years of my
-life to popularizing Python for data analysis) is that it is
+life to popularizing Python for data analysis) are that it is
 productive and pleasant for humans to write and use. As the hours and
 days pass by, this benefit feels increasingly moot compared with the
 evident downsides (performance, memory use, distribution, etc.),
 especially with an agent doing all the coding for you.
 
-***Put another way, human ergonomics in programming languages matter
+***Put another way, human ergonomics in programming languages matters
 much less now.*** The readability and simplicity benefits of Python
 help LLMs generate code, too, but viewed through the "annealing" lens
 of the iterative agentic loop, quicker iterations translate to net
@@ -156,8 +156,8 @@ the industry will be writing less and less of it given the
 agentic-loop productivity benefits of Go and other modern compiled
 languages. Where the road leads from here we will soon see.
 
-*Thanks to Josh Bloom, Ian Cook, and Pete Jarvis for their helpful
-feedback on this post.*
+*Thanks to Josh Bloom, Ian Cook, Pete Jarvis, and John Zila for their
+helpful feedback on this post.*
 
 [1]: https://www.linkedin.com/in/wesmckinn/recent-activity/all/
 [2]: https://x.com/wesmckinn
