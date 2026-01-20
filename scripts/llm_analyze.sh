@@ -3,6 +3,7 @@
 # Processes posts in parallel to extract summaries and money quotes
 #
 # Usage: BLOG_ID=benn ./scripts/llm_analyze.sh
+# Single post: BLOG_ID=armin POST_FILE=blogs/armin/posts/2024-02-04-rye-a-vision.md ./scripts/llm_analyze.sh
 
 set -e
 
@@ -34,33 +35,55 @@ read_config() {
     python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print($1)"
 }
 
+read_config_default() {
+    python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print($1)" 2>/dev/null || echo "$2"
+}
+
 AUTHOR_NAME=$(read_config "c['name']")
 CONTEXT_PROMPT=$(read_config "c['llmAnalysis']['contextPrompt']")
 THEMES_LIST=$(read_config "', '.join(c['themes'].keys())")
+SUMMARY_LENGTH=$(read_config_default "c['llmAnalysis'].get('summaryLength', '2-3 sentences')" "2-3 sentences")
+DETAILED_BREAKDOWN=$(read_config_default "str(c['llmAnalysis'].get('detailedBreakdown', False)).lower()" "false")
+MAX_WORDS=$(read_config_default "c['llmAnalysis'].get('maxWords', 150)" "150")
+NUM_QUOTES=$(read_config_default "c['llmAnalysis'].get('numQuotes', '3-5')" "3-5")
 
-analyze_post() {
-    local post_file="$1"
-    local filename=$(basename "$post_file" .md)
-    local output_file="$OUTPUT_DIR/${filename}.json"
+# Build the prompt based on config
+build_prompt() {
+    local content="$1"
 
-    # Skip if already analyzed
-    if [[ -f "$output_file" ]]; then
-        echo "Skipping $filename (already analyzed)"
-        return 0
-    fi
+    if [[ "$DETAILED_BREAKDOWN" == "true" ]]; then
+        cat <<PROMPT
+$CONTEXT_PROMPT
 
-    echo "Analyzing: $filename"
+Analyze this blog post in depth (up to $MAX_WORDS words total). Extract:
 
-    local content=$(cat "$post_file")
-    local tmpfile=$(mktemp)
+1. **Summary** ($SUMMARY_LENGTH): The post's main argument and conclusion
+2. **Key Points** (3-5 bullets): The distinct arguments, insights, or observations made
+3. **Money Quotes** ($NUM_QUOTES): The most memorable, quotable sentences that capture key insights. Choose lines that are self-contained and impactful out of context.
+4. **Themes**: Which of these themes apply? $THEMES_LIST
+5. **Tone**: The post's overall tone (e.g., critical, optimistic, reflective, satirical, technical, opinionated)
+6. **Key Insight**: One sentence capturing the core takeaway
 
-    codex exec --skip-git-repo-check --sandbox read-only -c reasoning_effort=medium \
-        -o "$tmpfile" - >/dev/null 2>&1 <<EOF
+Output as JSON:
+{
+  "summary": "...",
+  "key_points": ["point1", "point2", ...],
+  "money_quotes": ["quote1", "quote2", ...],
+  "themes": ["theme1", "theme2"],
+  "tone": "...",
+  "key_insight": "..."
+}
+
+POST CONTENT:
+$content
+PROMPT
+    else
+        cat <<PROMPT
 $CONTEXT_PROMPT
 
 Your task is to extract:
-1. A 2-3 sentence summary of the post's main argument
-2. The 3-5 best "money quotes" - memorable, quotable sentences that capture key insights
+1. A $SUMMARY_LENGTH summary of the post's main argument
+2. The $NUM_QUOTES best "money quotes" - memorable, quotable sentences that capture key insights
 3. Key themes (from: $THEMES_LIST)
 4. The post's overall tone (e.g., critical, optimistic, reflective, satirical, analytical)
 
@@ -75,7 +98,29 @@ Output as JSON with this structure:
 
 POST CONTENT:
 $content
-EOF
+PROMPT
+    fi
+}
+
+analyze_post() {
+    local post_file="$1"
+    local filename=$(basename "$post_file" .md)
+    local output_file="$OUTPUT_DIR/${filename}.json"
+
+    # Skip if already analyzed (unless FORCE=1)
+    if [[ -f "$output_file" && "$FORCE" != "1" ]]; then
+        echo "Skipping $filename (already analyzed)"
+        return 0
+    fi
+
+    echo "Analyzing: $filename"
+
+    local content=$(cat "$post_file")
+    local tmpfile=$(mktemp)
+    local prompt=$(build_prompt "$content")
+
+    codex exec --skip-git-repo-check --sandbox read-only -c reasoning_effort=medium \
+        -o "$tmpfile" - >/dev/null 2>&1 <<< "$prompt"
 
     if [[ -f "$tmpfile" && -s "$tmpfile" ]]; then
         # Extract just the JSON from the response
@@ -86,19 +131,39 @@ import re
 
 content = open('$tmpfile').read()
 
-# Try to find JSON in the response
-json_match = re.search(r'\{[^{}]*\"summary\"[^{}]*\}', content, re.DOTALL)
+# Try to find JSON in the response - handle nested objects like key_points
+json_match = re.search(r'\{.*\"summary\".*\}', content, re.DOTALL)
 if json_match:
     try:
-        data = json.loads(json_match.group())
+        # Find the balanced JSON object
+        text = json_match.group()
+        # Simple approach: find matching braces
+        depth = 0
+        end = 0
+        for i, c in enumerate(text):
+            if c == '{': depth += 1
+            elif c == '}': depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+        json_str = text[:end]
+        data = json.loads(json_str)
         data['filename'] = '$filename'
         print(json.dumps(data, indent=2))
-    except:
+    except Exception as e:
         # If JSON parsing fails, create a minimal record
         print(json.dumps({'filename': '$filename', 'error': 'parse_failed', 'raw': content[:500]}))
 else:
     print(json.dumps({'filename': '$filename', 'error': 'no_json', 'raw': content[:500]}))
 " > "$output_file" 2>/dev/null || echo "{\"filename\": \"$filename\", \"error\": \"processing_failed\"}" > "$output_file"
+
+        # Show output if single post mode
+        if [[ -n "$POST_FILE" ]]; then
+            echo ""
+            echo "=== Analysis Result ==="
+            cat "$output_file"
+        fi
+
         rm -f "$tmpfile"
         echo "  Done: $filename"
     else
@@ -109,19 +174,37 @@ else:
 }
 
 export -f analyze_post
+export -f build_prompt
 export OUTPUT_DIR
 export CONTEXT_PROMPT
 export THEMES_LIST
+export SUMMARY_LENGTH
+export DETAILED_BREAKDOWN
+export MAX_WORDS
+export NUM_QUOTES
+export FORCE
+export POST_FILE
 
 echo "=== $AUTHOR_NAME Post Analysis with Codex ==="
 echo "Posts directory: $POSTS_DIR"
 echo "Output directory: $OUTPUT_DIR"
-echo "Parallel jobs: $PARALLEL_JOBS"
+echo "Summary length: $SUMMARY_LENGTH"
+echo "Detailed breakdown: $DETAILED_BREAKDOWN"
+echo "Max words: $MAX_WORDS"
+echo "Num quotes: $NUM_QUOTES"
 echo ""
+
+# Single post mode
+if [[ -n "$POST_FILE" ]]; then
+    echo "Single post mode: $POST_FILE"
+    analyze_post "$PROJECT_DIR/$POST_FILE"
+    exit 0
+fi
 
 # Count total posts
 total=$(ls "$POSTS_DIR"/*.md 2>/dev/null | wc -l | tr -d ' ')
 echo "Total posts to analyze: $total"
+echo "Parallel jobs: $PARALLEL_JOBS"
 echo ""
 
 # Process in parallel
