@@ -9,6 +9,7 @@ import type { BlogConfig, LandingConfig } from './types';
 import bennConfig from '../../config/benn.json';
 import arminConfig from '../../config/armin.json';
 import wesmConfig from '../../config/wesm.json';
+import danluuConfig from '../../config/danluu.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -16,6 +17,7 @@ const configs: Record<string, BlogConfig> = {
   benn: bennConfig as BlogConfig,
   armin: arminConfig as BlogConfig,
   wesm: wesmConfig as BlogConfig,
+  danluu: danluuConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -74,6 +76,11 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
   if (config.scraper.type === 'quarto_blog') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${config.sourceUrl}/blog/${slug}/`;
+  }
+  // For static_html blogs (danluu), URL is just /slug/
+  if (config.scraper.type === 'static_html') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${config.sourceUrl}/${slug}/`;
   }
   return config.sourceUrl;
 }
