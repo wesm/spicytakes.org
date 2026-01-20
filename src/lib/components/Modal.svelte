@@ -52,15 +52,17 @@
             <span class="font-medium uppercase tracking-wide">
               {formatDate($selectedPost.date)}
             </span>
-            <span>·</span>
-            <a
-              href={getSourceUrl($selectedPost.filename, $selectedPost)}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
-            >
-              {$selectedPost.content_type === 'transcript' ? 'Watch/Listen' : `Read on ${config.sourceLabel}`} ↗
-            </a>
+            {#if getSourceUrl($selectedPost.filename, $selectedPost)}
+              <span>·</span>
+              <a
+                href={getSourceUrl($selectedPost.filename, $selectedPost)}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
+              >
+                {$selectedPost.content_type === 'transcript' ? 'Watch/Listen' : `Read on ${config.sourceLabel}`} ↗
+              </a>
+            {/if}
           </div>
           {#if $selectedPost.spiciness != null}
             <div class="flex items-center gap-2 {getSpicyColor($selectedPost.spiciness)} px-3 py-1 rounded-full" role="img" aria-label="Spiciness score: {$selectedPost.spiciness} out of 10" title="Spiciness: {$selectedPost.spiciness}/10 (how provocative or contrarian)">

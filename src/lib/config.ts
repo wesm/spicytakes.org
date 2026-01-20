@@ -34,10 +34,11 @@ export const THEME_ICONS: Record<string, string> = Object.fromEntries(
 
 // Helper to get source URL for a post
 // For transcripts, pass the post object to get video_url if available
+// Returns empty string if transcript has no video_url (caller should hide link)
 export function getSourceUrl(filename: string, post?: { video_url?: string; content_type?: string }): string {
-  // For transcripts, prefer video_url if available
-  if (post?.content_type === 'transcript' && post?.video_url) {
-    return post.video_url;
+  // For transcripts, use video_url or return empty (no public URL for transcripts)
+  if (post?.content_type === 'transcript') {
+    return post.video_url || '';
   }
 
   if (config.scraper.type === 'substack') {
