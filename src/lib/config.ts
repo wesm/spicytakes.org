@@ -8,11 +8,13 @@ import type { BlogConfig } from './types';
 // Import all blog configs statically (Vite requires this for production builds)
 import bennConfig from '../../config/benn.json';
 import arminConfig from '../../config/armin.json';
+import wesmConfig from '../../config/wesm.json';
 
 // Map of blog configs - add new blogs here
 const configs: Record<string, BlogConfig> = {
   benn: bennConfig as BlogConfig,
   armin: arminConfig as BlogConfig,
+  wesm: wesmConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -38,12 +40,20 @@ export function getSourceUrl(filename: string): string {
   }
   // For GitHub markdown blogs (lucumr), construct URL based on date
   // lucumr URLs are: /YYYY/M/D/slug/ (no leading zeros on month/day)
-  const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
-  if (match) {
-    const [, year, month, day, slug] = match;
-    const m = parseInt(month, 10);
-    const d = parseInt(day, 10);
-    return `${config.sourceUrl}/${year}/${m}/${d}/${slug}/`;
+  if (config.scraper.type === 'github_markdown') {
+    const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
+    if (match) {
+      const [, year, month, day, slug] = match;
+      const m = parseInt(month, 10);
+      const d = parseInt(day, 10);
+      return `${config.sourceUrl}/${year}/${m}/${d}/${slug}/`;
+    }
+  }
+  // For quarto_blog, construct URL based on slug
+  // wesmckinney.com URLs are: /blog/slug/
+  if (config.scraper.type === 'quarto_blog') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${config.sourceUrl}/blog/${slug}/`;
   }
   return config.sourceUrl;
 }

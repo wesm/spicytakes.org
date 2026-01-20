@@ -10,11 +10,19 @@ try {
 } catch {
   // Armin's data not yet generated
 }
+// Wesm's data
+let wesmQuotes: any = { posts: [] };
+try {
+  wesmQuotes = await import('../../blogs/wesm/data/llm_quotes.json').then(m => m.default || m);
+} catch {
+  // Wesm's data not yet generated
+}
 
 // Select data based on blogId
 const allBlogData: Record<string, any> = {
   benn: bennQuotes,
   armin: arminQuotes,
+  wesm: wesmQuotes,
 };
 const rawData = allBlogData[blogId] || allBlogData.benn;
 
@@ -26,6 +34,9 @@ try {
     spicyData = module.default || module;
   } else if (blogId === 'armin') {
     const module = await import('../../blogs/armin/data/spicy_quotes.json');
+    spicyData = module.default || module;
+  } else if (blogId === 'wesm') {
+    const module = await import('../../blogs/wesm/data/spicy_quotes.json');
     spicyData = module.default || module;
   }
 } catch {

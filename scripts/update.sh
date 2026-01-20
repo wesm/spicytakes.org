@@ -43,6 +43,8 @@ if [[ "$SCRAPER_TYPE" == "substack" ]]; then
     BLOG_ID="$BLOG_ID" python3 scripts/scrapers/substack.py
 elif [[ "$SCRAPER_TYPE" == "github_markdown" ]]; then
     BLOG_ID="$BLOG_ID" python3 scripts/scrapers/github_markdown.py
+elif [[ "$SCRAPER_TYPE" == "quarto_blog" ]]; then
+    BLOG_ID="$BLOG_ID" python3 scripts/scrapers/quarto_blog.py
 else
     echo "Unknown scraper type: $SCRAPER_TYPE"
     exit 1

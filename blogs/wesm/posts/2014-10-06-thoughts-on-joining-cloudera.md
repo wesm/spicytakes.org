@@ -1,0 +1,25 @@
+---
+title: "Thoughts on joining Cloudera"
+date: 2014-10-06T00:00:00
+tags: ["work"]
+slug: thoughts-on-joining-cloudera
+word_count: 686
+source_file: blog/thoughts-on-joining-cloudera/index.qmd
+content_type: blog
+---
+
+<!-- PELICAN_BEGIN_SUMMARY -->
+
+After some unanticipated media leaks (<a href="http://venturebeat.com/2014/09/30/cloudera-datapad/" title="Venturebeat leak" target="_blank">here</a> and <a href="https://gigaom.com/2014/09/30/cloudera-bought-datapad-because-data-scientists-need-tooling-too/" title="Gigaom leak" target="_blank">here</a>), I was very excited to finally share that my team and I are <a href="http://www.cloudera.com/content/cloudera/en/about/press-center/press-releases/2014/09/30/cloudera-acquires-datapad-technology-assets-and-team-to-strength.html" title="Cloudera press release" target="_blank">joining Cloudera</a>. You can find out all the concrete details in those articles, but I wanted to give a bit more intimate perspective on the move and what we see in the future inside Cloudera Engineering.
+
+<!-- PELICAN_END_SUMMARY -->
+
+<a href="https://github.com/changhiskhan" title="Chang" target="_blank">Chang She</a> and I conceived DataPad in 2012 while we were building out pandas and helping the PyData ecosystem get itself off the ground. I was <a href="http://www.kqzyfj.com/click-7040302-11260198?url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F0636920023784.do&#038;cjsku=0636920023784" title="Book" target="_blank">writing a book</a> and every 6 weeks or so we were cranking out another pandas release and watching the analytics ecosystem evolve. We saw a clear need for a next-generation business intelligence / visual analytics product, and set about getting the resources to build it. Many BI products in the ecosystem are designed to be a visualization and reporting layer for a database of some kind, and typically interact with the data store via SQL. 10 years ago, this was perfectly adequate for most users, but now in the 2010s, more and more businesses are grappling with business data spread across many different cloud silos, and the amount of planning and <a href="http://en.wikipedia.org/wiki/Extract,_transform,_load" title="ETL" target="_blank">ETL</a> work needed to make an existing BI system "fit" is frequently prohibitive.
+
+There are droves of data visualization and reporting companies building "new BI" for the web / cloud, but using in many cases some variant of the "it runs SQL queries against your database" architecture. We made an early decision to design a new architecture to enable the BI process to be more agile and iterative, sort of a "bring all your data, and figure things out as you go". In addition to our visual web interface (you can think of it as a sort of "Google Docs for Visual Analytics"), this resulted in our building substantial novel backend infrastructure for data management and analytics. We also decided early that we wanted to push the limits of speed and interactivity of working with larger data sets. The system we built, code-named Badger, delivered an interactive analytics experience that exceeded our own expectations in performance and truly delighted our users.
+
+I've been following Cloudera's engineering efforts with great interest over the last few years, especially after the launch of Impala in 2012, and as I predicted they are continuing to <a href="http://blog.cloudera.com/blog/2014/09/new-benchmarks-for-sql-on-hadoop-impala-1-4-widens-the-performance-gap/" title="Cloudera benchmarks" target="_blank">lead the way in high performance analytics</a> in the Hadoop ecosystem. As Cloudera had been a long-time supporter and fan of our work on pandas and DataPad, it became clear in our periodic catch-ups that we had been thinking about and tackling similar backend and distributed systems problems.
+
+As a major inflection point in DataPad's lifespan approached (forthcoming GA, paying customers, more venture capital), we took a hard look at the pressing technology problems and where we could make the most impact. As big a deal as collaboration and beautiful, functional design for visual analytics are, it was clear to us that what's holding back next-generation BI/visual analytics is much more on the data management and systems side. So the question came down to: continue building a standalone data product and duke it out in the marketplace, or use our systems expertise to accelerate the rising tide that will lift all ships (i.e. benefit all BI / analytics vendors). In the latter case, Cloudera is clearly the place to be.
+
+Systems engineering problems aside, we have done a lot of work on improving developer tooling for data work, and productivity and user happiness with these new technologies continue to be a major interest for us. The Cloudera team recognizes the importance of better tooling and has already made substantial open source investments in this area (Crunch, Oryx, and Impyla, to name a few). On this front, we're really looking forward to working together; there is a lot of work to be done to enable developers and data scientists to get value out of their data faster and more intuitively.
