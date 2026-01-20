@@ -1,0 +1,49 @@
+/**
+ * Blog configuration loader
+ * Reads VITE_BLOG_ID env var and loads the appropriate config
+ */
+
+import type { BlogConfig } from './types';
+
+// Import all blog configs statically (Vite requires this for production builds)
+import bennConfig from '../../config/benn.json';
+import arminConfig from '../../config/armin.json';
+
+// Map of blog configs - add new blogs here
+const configs: Record<string, BlogConfig> = {
+  benn: bennConfig as BlogConfig,
+  armin: arminConfig as BlogConfig,
+};
+
+// Get blog ID from env, default to 'benn'
+export const blogId = import.meta.env.VITE_BLOG_ID || 'benn';
+
+// Load the config for current blog
+export const config: BlogConfig = configs[blogId] || configs.benn;
+
+// Export theme labels and icons derived from config
+export const THEME_LABELS: Record<string, string> = Object.fromEntries(
+  Object.entries(config.themes).map(([key, value]) => [key, value.label])
+);
+
+export const THEME_ICONS: Record<string, string> = Object.fromEntries(
+  Object.entries(config.themes).map(([key, value]) => [key, value.icon])
+);
+
+// Helper to get source URL for a post
+export function getSourceUrl(filename: string): string {
+  if (config.scraper.type === 'substack') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${config.sourceUrl}/p/${slug}`;
+  }
+  // For GitHub markdown blogs (lucumr), construct URL based on date
+  // lucumr URLs are: /YYYY/M/D/slug/ (no leading zeros on month/day)
+  const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
+  if (match) {
+    const [, year, month, day, slug] = match;
+    const m = parseInt(month, 10);
+    const d = parseInt(day, 10);
+    return `${config.sourceUrl}/${year}/${m}/${d}/${slug}/`;
+  }
+  return config.sourceUrl;
+}

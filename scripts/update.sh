@@ -2,7 +2,7 @@
 # Incremental update script for Spicy Takes
 # Fetches new posts, analyzes them, grades spiciness, and rebuilds the site
 #
-# Usage: ./scripts/update.sh
+# Usage: BLOG_ID=benn ./scripts/update.sh
 #
 # Requirements:
 # - Python 3 with requests, beautifulsoup4
@@ -11,35 +11,60 @@
 
 set -e
 
+# Require BLOG_ID
+if [[ -z "$BLOG_ID" ]]; then
+    echo "Error: BLOG_ID environment variable required"
+    echo "Usage: BLOG_ID=benn ./scripts/update.sh"
+    exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+CONFIG_FILE="$PROJECT_DIR/config/${BLOG_ID}.json"
+
+# Validate config exists
+if [[ ! -f "$CONFIG_FILE" ]]; then
+    echo "Error: Config file not found: $CONFIG_FILE"
+    exit 1
+fi
 
 cd "$PROJECT_DIR"
 
 echo "=== Spicy Takes Incremental Update ==="
+echo "Blog: $BLOG_ID"
 echo ""
 
-# Step 1: Scrape new posts
+# Read scraper type from config
+SCRAPER_TYPE=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['scraper']['type'])")
+
+# Step 1: Scrape new posts (based on scraper type)
 echo "Step 1/4: Checking for new posts..."
-python3 scripts/scrape.py
+if [[ "$SCRAPER_TYPE" == "substack" ]]; then
+    BLOG_ID="$BLOG_ID" python3 scripts/scrapers/substack.py
+elif [[ "$SCRAPER_TYPE" == "github_markdown" ]]; then
+    BLOG_ID="$BLOG_ID" python3 scripts/scrapers/github_markdown.py
+else
+    echo "Unknown scraper type: $SCRAPER_TYPE"
+    exit 1
+fi
 echo ""
 
 # Step 2: Run LLM analysis on new posts
 echo "Step 2/4: Running LLM analysis on new posts..."
-bash scripts/llm_analyze.sh
+BLOG_ID="$BLOG_ID" bash scripts/llm_analyze.sh
 echo ""
 
 # Step 3: Grade spiciness on new quotes
 echo "Step 3/4: Grading spiciness on new quotes..."
-bash scripts/grade_spiciness.sh
+BLOG_ID="$BLOG_ID" bash scripts/grade_spiciness.sh
 echo ""
 
 # Step 4: Rebuild the site
 echo "Step 4/4: Rebuilding site..."
-npm run build
+VITE_BLOG_ID="$BLOG_ID" npm run build
 echo ""
 
 echo "=== Update Complete ==="
 echo ""
-echo "To preview locally: npm run preview"
-echo "To deploy: git add -A && git commit -m 'Update posts' && git push"
+echo "To preview locally: VITE_BLOG_ID=$BLOG_ID npm run preview"
+echo "To deploy: git add -A && git commit -m 'Update $BLOG_ID posts' && git push"

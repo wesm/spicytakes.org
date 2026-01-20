@@ -29,25 +29,36 @@ export interface ThemeData {
   quotes: Quote[];
 }
 
-export const THEME_LABELS: Record<string, string> = {
-  'data_infrastructure': 'Data Infrastructure',
-  'analytics_practice': 'Analytics Practice',
-  'ai_llms': 'AI & LLMs',
-  'startups_vc': 'Startups & VC',
-  'career': 'Career',
-  'industry_criticism': 'Industry Criticism',
-  'tools_products': 'Tools & Products'
-};
+export interface ThemeConfig {
+  label: string;
+  icon: string;
+}
 
-export const THEME_ICONS: Record<string, string> = {
-  'data_infrastructure': '🏗️',
-  'analytics_practice': '📊',
-  'ai_llms': '🤖',
-  'startups_vc': '🚀',
-  'career': '💼',
-  'industry_criticism': '🔍',
-  'tools_products': '🛠️'
-};
+export interface ScraperConfig {
+  type: 'substack' | 'github_markdown';
+  substackUrl?: string;
+  localPath?: string;
+  postsPath?: string;
+}
+
+export interface BlogConfig {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  sourceUrl: string;
+  sourceLabel: string;
+  scraper: ScraperConfig;
+  themes: Record<string, ThemeConfig>;
+  llmAnalysis: {
+    contextPrompt: string;
+    depthLevel: string;
+    summaryLength: string;
+  };
+  spiciness: {
+    contextPrompt: string;
+  };
+}
 
 export function getSpicyLabel(spiciness: number): string {
   if (spiciness <= 3) return 'Mild';

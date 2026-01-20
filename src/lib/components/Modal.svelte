@@ -1,6 +1,7 @@
 <script lang="ts">
   import { selectedPost } from '$lib/stores';
-  import { THEME_LABELS, getSpicyColor } from '$lib/types';
+  import { getSpicyColor } from '$lib/types';
+  import { THEME_LABELS, getSourceUrl, config } from '$lib/config';
 
   function close() {
     selectedPost.set(null);
@@ -17,11 +18,6 @@
       month: 'long',
       day: 'numeric'
     });
-  }
-
-  function getSubstackUrl(filename: string): string {
-    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
-    return `https://benn.substack.com/p/${slug}`;
   }
 </script>
 
@@ -58,12 +54,12 @@
             </span>
             <span>·</span>
             <a
-              href={getSubstackUrl($selectedPost.filename)}
+              href={getSourceUrl($selectedPost.filename)}
               target="_blank"
               rel="noopener noreferrer"
               class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
             >
-              Read on Substack ↗
+              Read on {config.sourceLabel} ↗
             </a>
           </div>
           {#if $selectedPost.spiciness != null}

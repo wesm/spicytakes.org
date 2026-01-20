@@ -1,6 +1,7 @@
 <script lang="ts">
   import { searchQuery, activeThemes, clearFilters } from '$lib/stores';
   import { themes } from '$lib/data';
+  import { config } from '$lib/config';
 
   let searchValue = $state('');
   let searchTimeout: ReturnType<typeof setTimeout>;
@@ -39,10 +40,10 @@
     <!-- Top bar -->
     <div class="flex items-center justify-between py-4">
       <div class="flex items-center gap-3">
-        <h1 class="text-xl font-bold tracking-tight text-stone-900">Benn Stancil</h1>
-        <span class="hidden sm:inline text-stone-400 font-medium">Spicy Takes</span>
-        <a href="https://benn.substack.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline text-blue-600 hover:text-blue-700 text-sm font-medium">
-          benn.substack.com →
+        <h1 class="text-xl font-bold tracking-tight text-stone-900">{config.name}</h1>
+        <span class="hidden sm:inline text-stone-400 font-medium">{config.tagline}</span>
+        <a href={config.sourceUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline text-blue-600 hover:text-blue-700 text-sm font-medium">
+          {config.sourceLabel} →
         </a>
       </div>
     </div>

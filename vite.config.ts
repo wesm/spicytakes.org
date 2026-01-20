@@ -5,7 +5,7 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	server: {
 		fs: {
-			allow: [searchForWorkspaceRoot(process.cwd()), 'data']
+			allow: [searchForWorkspaceRoot(process.cwd()), 'blogs', 'config']
 		}
 	}
 });

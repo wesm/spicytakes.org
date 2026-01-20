@@ -1,12 +1,33 @@
 import type { Post, Quote, ThemeData } from './types';
-import { THEME_LABELS, THEME_ICONS } from './types';
-import rawData from '../../data/llm_quotes.json';
+import { THEME_LABELS, THEME_ICONS, blogId } from './config';
 
-// Try to load spicy quotes if available
+// Import all blog data statically (Vite requires this for production builds)
+import bennQuotes from '../../blogs/benn/data/llm_quotes.json';
+// Armin's data will be imported once generated
+let arminQuotes: any = { posts: [] };
+try {
+  arminQuotes = await import('../../blogs/armin/data/llm_quotes.json').then(m => m.default || m);
+} catch {
+  // Armin's data not yet generated
+}
+
+// Select data based on blogId
+const allBlogData: Record<string, any> = {
+  benn: bennQuotes,
+  armin: arminQuotes,
+};
+const rawData = allBlogData[blogId] || allBlogData.benn;
+
+// Import spicy quotes for selected blog
 let spicyData: any = null;
 try {
-  const module = await import('../../data/spicy_quotes.json');
-  spicyData = module.default || module;
+  if (blogId === 'benn') {
+    const module = await import('../../blogs/benn/data/spicy_quotes.json');
+    spicyData = module.default || module;
+  } else if (blogId === 'armin') {
+    const module = await import('../../blogs/armin/data/spicy_quotes.json');
+    spicyData = module.default || module;
+  }
 } catch {
   // Spicy quotes not yet generated
 }
@@ -22,7 +43,7 @@ function parseDate(filename: string): Date {
 function formatTitle(filename: string): string {
   const titlePart = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
   const acronyms = ['bi', 'sql', 'ai', 'yc', 'vc', 'llm', 'llms', 'mds', 'obp', 'svb', 'tam', 'mvp'];
-  
+
   return titlePart
     .split('-')
     .map(word => {
@@ -105,7 +126,7 @@ export const themes: ThemeData[] = (() => {
         themeMap[theme] = {
           name: theme,
           label: THEME_LABELS[theme] || theme,
-          icon: THEME_ICONS[theme] || '📝',
+          icon: THEME_ICONS[theme] || '',
           posts: [],
           quotes: []
         };

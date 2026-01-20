@@ -1,13 +1,37 @@
 #!/bin/bash
 # Grade quotes on "spiciness" (1-10) using codex exec
-# Benn is known for sardonic, biting takes - this scores how provocative each quote is
+# Scores how provocative, sardonic, or biting each quote is
+#
+# Usage: BLOG_ID=benn ./scripts/grade_spiciness.sh
 
 set -e
 
+# Require BLOG_ID
+if [[ -z "$BLOG_ID" ]]; then
+    echo "Error: BLOG_ID environment variable required"
+    echo "Usage: BLOG_ID=benn ./scripts/grade_spiciness.sh"
+    exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-export DATA_DIR="$PROJECT_DIR/data"
+CONFIG_FILE="$PROJECT_DIR/config/${BLOG_ID}.json"
+BLOG_DIR="$PROJECT_DIR/blogs/$BLOG_ID"
+export DATA_DIR="$BLOG_DIR/data"
 export OUTPUT_FILE="$DATA_DIR/spicy_quotes.json"
+
+# Validate config exists
+if [[ ! -f "$CONFIG_FILE" ]]; then
+    echo "Error: Config file not found: $CONFIG_FILE"
+    exit 1
+fi
+
+# Read config values
+AUTHOR_NAME=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['name'])")
+SPICY_CONTEXT=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['spiciness']['contextPrompt'])")
+
+export AUTHOR_NAME
+export SPICY_CONTEXT
 
 # Read all quotes and process them
 python3 <<'PYEOF'
@@ -19,9 +43,16 @@ from pathlib import Path
 
 DATA_DIR = Path(os.environ.get('DATA_DIR', 'data'))
 OUTPUT_FILE = Path(os.environ.get('OUTPUT_FILE', 'data/spicy_quotes.json'))
+AUTHOR_NAME = os.environ.get('AUTHOR_NAME', 'Author')
+SPICY_CONTEXT = os.environ.get('SPICY_CONTEXT', '')
 
 # Load existing quotes
-with open(DATA_DIR / 'llm_quotes.json') as f:
+llm_quotes_file = DATA_DIR / 'llm_quotes.json'
+if not llm_quotes_file.exists():
+    print(f"Error: {llm_quotes_file} not found. Run llm_analyze.sh first.")
+    exit(1)
+
+with open(llm_quotes_file) as f:
     data = json.load(f)
 
 # Build list of all quotes with metadata
@@ -82,9 +113,9 @@ for i in range(0, len(all_quotes), BATCH_SIZE):
 
     quotes_text = "\n\n".join(quotes_with_context)
 
-    prompt = f"""You are grading quotes from Benn Stancil's blog on "spiciness" - how provocative, sardonic, biting, or contrarian the take is.
+    prompt = f"""You are grading quotes from {AUTHOR_NAME}'s blog on "spiciness" - how provocative, sardonic, biting, or contrarian the take is.
 
-Benn is known for witty, sometimes caustic observations about tech, data, startups, and culture. Consider each quote IN THE CONTEXT of the post it comes from.
+{SPICY_CONTEXT}
 
 A spicy quote is one that:
 - Takes a contrarian or unpopular position
@@ -175,7 +206,7 @@ scores = [q['spiciness'] for q in graded_quotes]
 print(f"\nScore distribution:")
 for s in range(1, 11):
     count = scores.count(s)
-    bar = '█' * (count // 5) if count > 0 else ''
+    bar = '#' * (count // 5) if count > 0 else ''
     print(f"  {s:2d}: {bar} ({count})")
 
 avg = sum(scores) / len(scores) if scores else 0

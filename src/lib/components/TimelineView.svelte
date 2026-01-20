@@ -2,7 +2,8 @@
   import { filteredPosts, selectedPost } from '$lib/stores';
   import { years } from '$lib/data';
   import { filterPosts } from '$lib/filter';
-  import { getSpicyColor, THEME_LABELS } from '$lib/types';
+  import { getSpicyColor } from '$lib/types';
+  import { THEME_LABELS } from '$lib/config';
   import type { Post } from '$lib/types';
 
   function formatDate(date: Date | undefined): string {

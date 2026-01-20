@@ -1,16 +1,42 @@
 #!/bin/bash
-# LLM-powered analysis of Benn Stancil posts using codex exec
+# LLM-powered analysis of blog posts using codex exec
 # Processes posts in parallel to extract summaries and money quotes
+#
+# Usage: BLOG_ID=benn ./scripts/llm_analyze.sh
 
 set -e
 
+# Require BLOG_ID
+if [[ -z "$BLOG_ID" ]]; then
+    echo "Error: BLOG_ID environment variable required"
+    echo "Usage: BLOG_ID=benn ./scripts/llm_analyze.sh"
+    exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-POSTS_DIR="$PROJECT_DIR/posts"
-OUTPUT_DIR="$PROJECT_DIR/data/llm_analysis"
+CONFIG_FILE="$PROJECT_DIR/config/${BLOG_ID}.json"
+BLOG_DIR="$PROJECT_DIR/blogs/$BLOG_ID"
+POSTS_DIR="$BLOG_DIR/posts"
+OUTPUT_DIR="$BLOG_DIR/data/llm_analysis"
 PARALLEL_JOBS="${PARALLEL_JOBS:-5}"
 
+# Validate config exists
+if [[ ! -f "$CONFIG_FILE" ]]; then
+    echo "Error: Config file not found: $CONFIG_FILE"
+    exit 1
+fi
+
 mkdir -p "$OUTPUT_DIR"
+
+# Read config values using Python
+read_config() {
+    python3 -c "import json; c=json.load(open('$CONFIG_FILE')); print($1)"
+}
+
+AUTHOR_NAME=$(read_config "c['name']")
+CONTEXT_PROMPT=$(read_config "c['llmAnalysis']['contextPrompt']")
+THEMES_LIST=$(read_config "', '.join(c['themes'].keys())")
 
 analyze_post() {
     local post_file="$1"
@@ -30,12 +56,12 @@ analyze_post() {
 
     codex exec --skip-git-repo-check --sandbox read-only -c reasoning_effort=medium \
         -o "$tmpfile" - >/dev/null 2>&1 <<EOF
-You are analyzing a blog post by Benn Stancil, a prominent writer on data, analytics, startups, and tech industry trends.
+$CONTEXT_PROMPT
 
 Your task is to extract:
 1. A 2-3 sentence summary of the post's main argument
 2. The 3-5 best "money quotes" - memorable, quotable sentences that capture key insights
-3. Key themes (from: data_infrastructure, analytics_practice, ai_llms, startups_vc, career, industry_criticism, tools_products)
+3. Key themes (from: $THEMES_LIST)
 4. The post's overall tone (e.g., critical, optimistic, reflective, satirical, analytical)
 
 Output as JSON with this structure:
@@ -84,8 +110,10 @@ else:
 
 export -f analyze_post
 export OUTPUT_DIR
+export CONTEXT_PROMPT
+export THEMES_LIST
 
-echo "=== Benn Stancil Post Analysis with Codex ==="
+echo "=== $AUTHOR_NAME Post Analysis with Codex ==="
 echo "Posts directory: $POSTS_DIR"
 echo "Output directory: $OUTPUT_DIR"
 echo "Parallel jobs: $PARALLEL_JOBS"
@@ -115,6 +143,7 @@ import glob
 import os
 
 output_dir = "$OUTPUT_DIR"
+data_dir = os.path.dirname(output_dir)
 results = []
 
 for f in sorted(glob.glob(os.path.join(output_dir, "*.json"))):
@@ -126,7 +155,7 @@ for f in sorted(glob.glob(os.path.join(output_dir, "*.json"))):
         print(f"Error reading {f}: {e}")
 
 # Save combined results
-combined_file = os.path.join(os.path.dirname(output_dir), "llm_quotes.json")
+combined_file = os.path.join(data_dir, "llm_quotes.json")
 with open(combined_file, "w") as fp:
     json.dump({
         "total_posts": len(results),
@@ -147,7 +176,7 @@ for r in results:
                 "themes": r.get("themes", [])
             })
 
-quotes_file = os.path.join(os.path.dirname(output_dir), "best_quotes.json")
+quotes_file = os.path.join(data_dir, "best_quotes.json")
 with open(quotes_file, "w") as fp:
     json.dump({"total": len(all_quotes), "quotes": all_quotes}, fp, indent=2)
 
