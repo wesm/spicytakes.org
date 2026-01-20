@@ -1,0 +1,32 @@
+{
+  "summary": "Wes argues that data systems should be built as composable stacks of open standards, modular engines, and shared protocols rather than vertically integrated monoliths. He explains why this shift is happening now: cloud-era standards like Parquet, faster hardware, and the limits of earlier Hadoop-era systems make interoperability feasible and necessary. He highlights Apache Arrow, ADBC/Flight, modular execution engines, and Substrait as the technical backbone enabling a multi-engine future. He frames composability as a way to reduce distributed-system overheads, improve performance portability, and adapt to new hardware accelerators. The conclusion is a vision where users can seamlessly move from laptop-scale workflows to large-scale clusters without rewriting queries or changing tools, with Arrow becoming a de facto connective standard.",
+  "key_points": [
+    "Composable systems rely on open standards and modular components to avoid the inefficiencies and lock-in of vertically integrated stacks.",
+    "Historical shifts\u2014cloud delivery, open formats, and hardware advances\u2014make composability practical in the 2020s.",
+    "Apache Arrow and related protocols solve cross-language data interchange and database export bottlenecks.",
+    "Substrait and modular engines decouple language frontends from execution backends, enabling multi-engine portability.",
+    "A unified dev-to-prod workflow (e.g., DuckDB to Snowflake/Spark) is the practical payoff of the multi-engine vision."
+  ],
+  "money_quotes": [
+    "Hadley and I think that the language wars are stupid. All the enmity between the R and Python communities is counterproductive.",
+    "We are building systems based on open standards and protocols.",
+    "The hope is that over time, each of the component pieces that we use to build these systems becomes so much better, easier to use, faster, more interoperable, and that you end up creating a solution that is a lot more future-proof.",
+    "To what degree are these systems truly improving performance, as opposed to parallelizing the overheads that they introduce?",
+    "If you need to export a lot of data out of a database, you're trying to drink a thick milkshake through a straw that's too small.",
+    "In many cases, a terabyte is no longer big data, and so for many people, big data is indeed dead. But there still is big data.",
+    "Nobody wants to burn a ton of Snowflake credits while they're developing their ETL workflow.",
+    "Now almost eight years into Arrow... it's great that Arrow is becoming the de facto standard for how we build APIs and how we connect systems together."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "python",
+    "open_source",
+    "pandas",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, optimistic",
+  "key_insight": "Composable, standards-based data systems are the path to portable performance, letting users move across engines and scales without sacrificing productivity or interoperability.",
+  "filename": "2024-03-26-data-council-composable-data-stack"
+}

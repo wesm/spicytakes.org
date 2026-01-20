@@ -136,17 +136,27 @@ content = open('$tmpfile').read()
 
 def extract_json(text):
     '''Extract JSON object from text, handling braces inside strings correctly.'''
-    # First try: look for fenced json code block
-    fenced = re.search(r'\`\`\`json\s*(\{.*?\})\s*\`\`\`', text, re.DOTALL)
+    decoder = json.JSONDecoder()
+
+    # First try: look for fenced json code block, extract content, parse with raw_decode
+    fenced = re.search(r'\`\`\`json\s*(.*?)\s*\`\`\`', text, re.DOTALL)
     if fenced:
-        return fenced.group(1)
+        fenced_content = fenced.group(1).strip()
+        # Find first { in fenced content and use raw_decode
+        start = fenced_content.find('{')
+        if start != -1:
+            try:
+                obj, end = decoder.raw_decode(fenced_content[start:])
+                if 'summary' in obj:
+                    return fenced_content[start:start+end]
+            except json.JSONDecodeError:
+                pass  # Fall through to unfenced scan
 
     # Second try: find first { and use json.JSONDecoder to find matching }
     start = text.find('{')
     if start == -1:
         return None
 
-    decoder = json.JSONDecoder()
     try:
         # Try to decode starting from each { until one works
         for i in range(start, len(text)):

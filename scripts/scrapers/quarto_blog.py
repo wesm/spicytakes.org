@@ -16,6 +16,42 @@ from pathlib import Path
 from base import BaseScraper, get_blog_dir
 
 
+def parse_date_robust(date_val, fallback_file: Path = None) -> datetime:
+    """Parse a date value robustly, handling various formats.
+
+    Args:
+        date_val: Date value from frontmatter (string, date object, or None)
+        fallback_file: File to use for mtime fallback if date parsing fails
+
+    Returns:
+        datetime object
+    """
+    if date_val:
+        # If it's already a date/datetime object from YAML
+        if hasattr(date_val, 'year'):
+            try:
+                return datetime(date_val.year, date_val.month, date_val.day)
+            except (ValueError, TypeError, AttributeError):
+                pass
+
+        # If it's a string, try parsing
+        if isinstance(date_val, str):
+            date_str = date_val.strip().replace('"', '').replace("'", "")
+            # Handle Z suffix (UTC indicator) - replace with +00:00
+            date_str = date_str.replace('Z', '+00:00')
+            try:
+                return datetime.fromisoformat(date_str)
+            except ValueError:
+                pass
+
+    # Stable fallback: use file modification time if available
+    if fallback_file and fallback_file.exists():
+        return datetime.fromtimestamp(fallback_file.stat().st_mtime)
+
+    # Last resort: use epoch (1970-01-01) to make it obvious something is wrong
+    return datetime(1970, 1, 1)
+
+
 class QuartoBlogScraper(BaseScraper):
     """Scraper for Quarto-based blogs with transcripts."""
 
@@ -73,18 +109,8 @@ class QuartoBlogScraper(BaseScraper):
         # Extract title
         title = frontmatter.get("title", post_dir.name)
 
-        # Parse date
-        date_str = frontmatter.get("date", "")
-        if date_str:
-            try:
-                if isinstance(date_str, str):
-                    pub_date = datetime.fromisoformat(date_str.replace('"', ''))
-                else:
-                    pub_date = date_str
-            except (ValueError, TypeError):
-                pub_date = datetime.now()
-        else:
-            pub_date = datetime.now()
+        # Parse date with robust handling
+        pub_date = parse_date_robust(frontmatter.get("date"), qmd_file)
 
         # Get categories as tags
         tags = frontmatter.get("categories", [])
@@ -124,28 +150,16 @@ class QuartoBlogScraper(BaseScraper):
         video_url = frontmatter.get("video_url", "")
         video_type = frontmatter.get("video_type", "talk")
 
-        # Parse date from frontmatter or filename
-        date_str = frontmatter.get("date", "")
-        if date_str:
-            try:
-                if isinstance(date_str, str):
-                    pub_date = datetime.fromisoformat(date_str)
-                else:
-                    pub_date = datetime(date_str.year, date_str.month, date_str.day)
-            except (ValueError, TypeError, AttributeError):
-                # Try parsing from filename: YYYY-MM-DD-slug.md
-                match = re.match(r'^(\d{4})-(\d{2})-(\d{2})', md_file.stem)
-                if match:
-                    pub_date = datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)))
-                else:
-                    pub_date = datetime.now()
-        else:
-            # Try parsing from filename
+        # Parse date from frontmatter, filename, or file mtime
+        pub_date = parse_date_robust(frontmatter.get("date"), None)
+        # If frontmatter date failed (returns epoch), try filename
+        if pub_date.year == 1970:
             match = re.match(r'^(\d{4})-(\d{2})-(\d{2})', md_file.stem)
             if match:
                 pub_date = datetime(int(match.group(1)), int(match.group(2)), int(match.group(3)))
             else:
-                pub_date = datetime.now()
+                # Last fallback: file mtime
+                pub_date = datetime.fromtimestamp(md_file.stat().st_mtime)
 
         # Create slug from filename (without date prefix)
         filename = md_file.stem

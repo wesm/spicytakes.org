@@ -5,6 +5,9 @@ export interface Post {
   themes: string[];
   tone: string;
   key_insight: string;
+  // Optional fields from scrapers
+  video_url?: string;
+  content_type?: string;
   // Computed fields
   date?: Date;
   title?: string;
@@ -35,10 +38,12 @@ export interface ThemeConfig {
 }
 
 export interface ScraperConfig {
-  type: 'substack' | 'github_markdown';
+  type: 'substack' | 'github_markdown' | 'quarto_blog';
   substackUrl?: string;
   localPath?: string;
   postsPath?: string;
+  blogPath?: string;
+  transcriptsPath?: string;
 }
 
 export interface BlogConfig {

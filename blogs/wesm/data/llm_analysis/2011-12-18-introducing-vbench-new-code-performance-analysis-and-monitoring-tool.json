@@ -1,0 +1,28 @@
+{
+  "summary": "McKinney introduces vbench as a lightweight way to track performance across a codebase\u2019s git history and avoid unnoticed regressions. He argues that performance is hard to unit test and that existing tools like codespeed focus on web reporting rather than automating historical benchmark runs. vbench defines benchmarks in code, runs them across revisions, and stores results in SQLite so reruns are incremental. The tool is positioned as prototype-y but designed to be extensible, with ideas like API-change handling and multi-version testing. He concludes with enthusiasm for the project and hints at future visualization and repository-analysis features.",
+  "key_points": [
+    "Performance regressions are common and hard to catch with traditional tests, motivating automated historical benchmarking.",
+    "vbench automates running benchmarks over git history and persists results to avoid redoing completed work.",
+    "Existing tools like codespeed are useful for visualization but lack orchestration for historical runs; vbench fills that gap.",
+    "The project is intentionally lightweight and extensible, with plans for visualization and additional repo analysis tools.",
+    "Future extensions include handling API changes and testing across library or Python versions."
+  ],
+  "money_quotes": [
+    "Unintentional performance regressions are extremely common in my experience: it's hard to unit test the performance of your code.",
+    "Over time I have gotten tired of playing the game of \"performance whack-a-mole\".",
+    "vbench is a super-lightweight Python library for running a collection of performance benchmarks over the course of your source repository's history.",
+    "The dealbreaker is that codespeed is just a web application.",
+    "I actually see a natural connection between vbench and codespeed, all you need to do is write a script to upload your vbench results to a codespeed web app!",
+    "Anyway, I'm really excited about this project.",
+    "It's very prototype-y at the moment but I tried to design it in a nice and extensible way."
+  ],
+  "themes": [
+    "developer_tools",
+    "python",
+    "open_source",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, enthusiastic",
+  "key_insight": "vbench aims to make performance regressions visible by automating benchmark runs across a repo\u2019s history in a lightweight, extensible workflow.",
+  "filename": "2011-12-18-introducing-vbench-new-code-performance-analysis-and-monitoring-tool"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "McKinney argues that pandas is misunderstood as a time-series-only tool and positions it as a general-purpose, labeled-data platform. He describes pandas as bringing R-like data frames to Python with strong alignment, reshaping, and missing-data handling. The talk emphasizes a long-term goal: building a foundation that could rival or replace R for statistics and data manipulation. He highlights major internal refactors that unify tabular implementations and improve dtype and missing-data behavior. He also outlines new capabilities in higher-dimensional support and label-based indexing. He concludes with ongoing I/O, reshaping, and storage improvements plus future work on sparse data, time zones, and group-by enhancements.",
+  "key_points": [
+    "Pandas is positioned as a broad relational and labeled-data tool, not just time series.",
+    "The core architecture centers on alignment, indexing/reshaping, and robust missing-data handling.",
+    "Internal refactors unify tabular structures and improve non-float dtype support.",
+    "New features include N-dimensional structures and richer label-based slicing/setting.",
+    "I/O, HDF5 storage, and pivot/reshape operations were overhauled, with more work planned."
+  ],
+  "money_quotes": [
+    "There's a kind of a misconception that pandas is only for time series data.",
+    "It's completely not true.",
+    "I would like to make it one of the best, if not the best, tools in any language for working with relational data, labeled data.",
+    "Trying to build a platform that could be used to essentially replace R, building the fundamental building blocks for statistics, for data manipulation, stuff that people in other scientific computing environments wish they had in Python and haven't had for a long time.",
+    "There used to be two classes with different internal implementations for tabular data. I fixed that.",
+    "Usually in the past, pandas only handled three dimensions and less, which is really all you need for finance and econometrics, but people keep asking for greater than three, so I'm giving in.",
+    "Here's another thing that I gave into recently, adding fancier indexing, something I stonewalled on for years, it feels like, and I finally added.",
+    "Somebody emailed me and said, how do you store pandas objects in HDF5, and so I hacked out something in an afternoon, but it was just a prototype, so I went through and actually built something real."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "pandas",
+    "python",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, forward-looking",
+  "key_insight": "Pandas is being built as a comprehensive, R-class platform for labeled data in Python, with ongoing architectural and usability upgrades to make it a best-in-class tool.",
+  "filename": "2011-07-14-scipy-2011-lightning-talk"
+}

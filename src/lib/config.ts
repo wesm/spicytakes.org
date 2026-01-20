@@ -33,7 +33,13 @@ export const THEME_ICONS: Record<string, string> = Object.fromEntries(
 );
 
 // Helper to get source URL for a post
-export function getSourceUrl(filename: string): string {
+// For transcripts, pass the post object to get video_url if available
+export function getSourceUrl(filename: string, post?: { video_url?: string; content_type?: string }): string {
+  // For transcripts, prefer video_url if available
+  if (post?.content_type === 'transcript' && post?.video_url) {
+    return post.video_url;
+  }
+
   if (config.scraper.type === 'substack') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${config.sourceUrl}/p/${slug}`;
@@ -49,7 +55,7 @@ export function getSourceUrl(filename: string): string {
       return `${config.sourceUrl}/${year}/${m}/${d}/${slug}/`;
     }
   }
-  // For quarto_blog, construct URL based on slug
+  // For quarto_blog blog posts, construct URL based on slug
   // wesmckinney.com URLs are: /blog/slug/
   if (config.scraper.type === 'quarto_blog') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');

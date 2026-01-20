@@ -1,0 +1,32 @@
+{
+  "summary": "The post argues that coding agents shift the center of gravity in language choice from human ergonomics to agent ergonomics. Fast compile-test cycles, frictionless distribution, and minimal runtime dependencies matter more when agents iterate orders of magnitude faster than humans. In that context, Python\u2019s strengths in readability and human productivity are outweighed by performance, memory, and packaging drawbacks. Go and Rust emerge as better fits, with Go\u2019s ultrafast builds giving it an edge for agentic loops despite Rust\u2019s safety and control. Python remains dominant in data science due to ecosystem inertia, but the author sees long-term value concentrating in lower-layer compute and data access systems rather than orchestration layers.",
+  "key_points": [
+    "Agentic development prioritizes rapid build/test loops and distribution over human readability, weakening Python\u2019s advantage.",
+    "Go and Rust better satisfy agentic needs, with Go favored for faster release builds and simpler concurrency.",
+    "LLMs currently code best in Python due to training data, but iterative agent loops and automated review can compensate in other languages.",
+    "In data/AI stacks, durable value increasingly sits in compute kernels and data access layers (CUDA/MLIR/XLA/Arrow, databases/ADBC).",
+    "Python persists for exploratory work and human-in-the-loop workflows, but its role will thin as lower layers move to systems languages."
+  ],
+  "money_quotes": [
+    "I have been building a lot of new software in Go. Except that I've never actually written a line of Go in my life.",
+    "Human ergonomics matter less when humans aren't the primary authors.",
+    "Put another way, human ergonomics in programming languages matter much less now.",
+    "The winners of this shift to agentic engineering are the languages that have solved the build system, runtime performance, packaging, and distribution problems.",
+    "From my experience, Go even has a substantial edge over Rust due to its ultrafast compile times for release builds.",
+    "When viewed this way, most of the long term value clearly resides in the first two layers (compute and data access), not the last two.",
+    "I still love the language, but it seems clear that I and much of the industry will be writing less and less of it given the agentic-loop productivity benefits of Go and other modern compiled languages."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "python",
+    "open_source",
+    "pandas",
+    "ai_llms",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Agent-driven development flips language priorities toward fast iteration and shipping, pushing work toward Go/Rust while Python remains vital but increasingly relegated to higher-level exploratory layers.",
+  "filename": "2026-01-19-agent-ergonomics"
+}

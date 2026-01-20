@@ -1,0 +1,28 @@
+{
+  "summary": "Wes McKinney announces NVIDIA AI Labs as a supporter of Ursa Labs, highlighting RAPIDS\u2019 adoption of Apache Arrow for interoperable tabular data. He argues that Arrow exists to make data and algorithms shareable across languages and environments with minimal cost. In GPU analytics, serialization and copying can outweigh compute, so a common in-memory format is essential. Arrow\u2019s columnar layout aligns well with CUDA\u2019s execution model, making it a strong fit for GPU analytics. He describes recent efforts to engage the GPGPU community, including contributions and a CUDA Arrow extension. The post concludes with optimism about the ecosystem\u2019s growth and a call for additional sponsors.",
+  "key_points": [
+    "NVIDIA\u2019s support strengthens Ursa Labs and aligns RAPIDS with Apache Arrow\u2019s interoperability goals.",
+    "Zero-copy data sharing is critical; without it, crossing languages or environments becomes costly.",
+    "Common in-memory structures are required to share algorithms, not just data.",
+    "Arrow\u2019s columnar format is well-suited for GPU analytics due to CUDA\u2019s manycore model.",
+    "The Arrow community is expanding into GPGPU through concrete implementations and tooling."
+  ],
+  "money_quotes": [
+    "NVIDIA's new open source RAPIDS data science platform uses Apache Arrow for an interoperable representation of tabular data (data frames).",
+    "If you can't share data at zero cost, then crossing languages or computation environments incurs a high penalty",
+    "You generally cannot share algorithms (code) without utilizing common in-memory data structures",
+    "The Arrow columnar format is an ideal fit for in-memory analytics on GPUs.",
+    "The cost of serialization or memory copying can frequently exceed that of the underlying GPU kernel execution.",
+    "We now have a CUDA Arrow extension library in C++ (with Python bindings) for managing interprocess communication and CUDA device memory management."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "open_source",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "optimistic, technical, opinionated",
+  "key_insight": "Apache Arrow\u2019s zero-copy, columnar in-memory standard is essential for interoperable GPU analytics, and NVIDIA\u2019s backing signals growing momentum for that ecosystem.",
+  "filename": "2018-10-10-ursa-labs-partner-nvidia"
+}

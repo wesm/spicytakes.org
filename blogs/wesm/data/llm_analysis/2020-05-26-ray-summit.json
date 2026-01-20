@@ -1,0 +1,31 @@
+{
+  "summary": "Wes McKinney argues that pandas succeeded by prioritizing usability over efficiency, but that choice left substantial technical debt that limits scalability. He warns that simply running pandas on clusters is costly because distributed systems add overhead and often fail to beat well-optimized single-node performance. He says the path to affordable scalability is improving data access, single-node performance, and communication costs while avoiding language lock-in. He frames Python\u2019s productivity as essential but insists it should not come with unacceptable performance trade-offs. His conclusion is that Apache Arrow provides the shared, language-agnostic foundation needed to modernize data tooling and end wasteful language wars.",
+  "key_points": [
+    "Pandas was built as a small-data tool, so performance and memory inefficiencies are expected and now constrain scaling.",
+    "Distributed computing introduces significant overhead; many systems need large configurations just to beat single-threaded baselines.",
+    "Real scalability requires faster data access, better single-node algorithms, and reduced serialization/transfer costs.",
+    "Python support in big data systems was often bolted on, making productivity come with excessive performance penalties.",
+    "Apache Arrow enables language-independent, high-performance data interchange and a shared foundation for tools like Ray and Dask."
+  ],
+  "money_quotes": [
+    "I was willing to write slow, inefficient code if it meant getting something usable out the door that unblocked people's use cases.",
+    "Pandas was not designed like a database and was not built by individuals - namely people like myself - with a background in database systems.",
+    "Along with making it easier to do distributed computing in Python, we must also improve the single-node computational foundation that projects like Dask and Ray are built on.",
+    "It is not enough to simply use these tools to run pandas on a cluster of machines.",
+    "This raises the question: why should choosing Python be a trade-off? That doesn't seem right to me.",
+    "Together we formed the Apache Arrow project in early 2016 with the mission of creating language-independent standards and computing tools for high-performance in-memory analytics and data transport.",
+    "With Arrow now in context, we have an amazing opportunity right now to work together - even across language borders - to build a modern computing foundation to power our data science tools that can even be used from any programming language."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "python",
+    "open_source",
+    "pandas",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective, optimistic",
+  "key_insight": "Affordable scalability in Python depends on a shared, language-agnostic compute foundation like Apache Arrow, not just distributing existing pandas workloads.",
+  "filename": "2020-05-26-ray-summit"
+}

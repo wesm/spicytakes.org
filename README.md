@@ -1,12 +1,12 @@
-# Spicy Takes - Benn Stancil Archive
+# Spicy Takes - Multi-Blog Archive Platform
 
-An archive and analysis of [Benn Stancil's Substack](https://benn.substack.com), featuring 240 posts from 2021-2026 with LLM-powered summaries, "money quotes," and spiciness scoring.
+A platform for archiving and analyzing blog content with LLM-powered summaries, "money quotes," and spiciness scoring. Currently supports multiple blogs including Benn Stancil's Substack, Armin Ronacher's lucumr, and Wes McKinney's blog.
 
 ## Quick Start
 
 ```bash
 npm install
-npm run dev
+VITE_BLOG_ID=benn npm run dev  # or armin, wesm
 ```
 
 Then open http://localhost:5173
@@ -14,17 +14,31 @@ Then open http://localhost:5173
 ## Project Structure
 
 ```
-benn-stancil/
-├── src/                    # SvelteKit website source
-├── posts/                  # 240 markdown posts with YAML frontmatter
-├── data/
-│   ├── llm_quotes.json     # LLM analysis (summaries, quotes, themes)
-│   ├── spicy_quotes.json   # Spiciness scores (1-10) for all quotes
-│   └── llm_analysis/       # Individual post analysis files
+spicy-takes/
+├── src/                        # SvelteKit website source
+├── config/
+│   ├── benn.json               # Benn Stancil config (Substack)
+│   ├── armin.json              # Armin Ronacher config (GitHub markdown)
+│   └── wesm.json               # Wes McKinney config (Quarto blog)
+├── blogs/
+│   ├── benn/
+│   │   ├── posts/              # Markdown posts with YAML frontmatter
+│   │   └── data/               # LLM analysis and spiciness data
+│   ├── armin/
+│   │   ├── posts/
+│   │   └── data/
+│   └── wesm/
+│       ├── posts/
+│       └── data/
 └── scripts/
-    ├── scrape.py           # Download posts from Substack
-    ├── llm_analyze.sh      # Run LLM analysis with codex
-    └── grade_spiciness.sh  # Grade quotes on spiciness
+    ├── scrapers/
+    │   ├── base.py             # Shared scraper interface
+    │   ├── substack.py         # Substack scraper
+    │   ├── github_markdown.py  # GitHub markdown scraper
+    │   └── quarto_blog.py      # Quarto blog scraper
+    ├── llm_analyze.sh          # Run LLM analysis with codex
+    ├── grade_spiciness.sh      # Grade quotes on spiciness
+    └── update.sh               # Full pipeline orchestrator
 ```
 
 ## Features
@@ -32,75 +46,94 @@ benn-stancil/
 ### Website Views
 
 - **Timeline** - Posts organized by year, searchable
-- **Quotes** - 1,195 money quotes in single-column layout
+- **Quotes** - Money quotes in single-column layout
   - Sort by date or spiciness
   - Filter by year or minimum spice level
   - "Spiciest First" shows top 5 per year
-- **Themes** - 7 topic areas with avg spiciness scores
+- **Themes** - Topic areas with avg spiciness scores
 
 ### Data
 
 Each post has:
-- **Summary** - 2-3 sentence overview
+- **Summary** - 2-6 sentence overview (configurable per blog)
 - **Key Insight** - Core takeaway
-- **Money Quotes** - 3-5 memorable, quotable sentences
-- **Themes** - Topics like `ai_llms`, `startups_vc`, `industry_criticism`
+- **Money Quotes** - 3-8 memorable, quotable sentences
+- **Themes** - Topics configured per blog
 - **Tone** - e.g., "sardonic, analytical, critical"
 - **Spiciness** (1-10) - How provocative/biting the take is
 
 ## Running the Data Pipeline
 
-### 1. Scrape Posts (already done)
+All scripts require `BLOG_ID` environment variable.
+
+### Full Update (Recommended)
 
 ```bash
-python scripts/scrape.py
+BLOG_ID=benn ./scripts/update.sh
 ```
 
-Downloads all posts as markdown to `posts/`.
+This runs all steps: scrape, analyze, grade, and build.
 
-### 2. LLM Analysis (requires codex CLI)
+### Individual Steps
+
+#### 1. Scrape Posts
 
 ```bash
-bash scripts/llm_analyze.sh
+# Substack blog
+BLOG_ID=benn python scripts/scrapers/substack.py
+
+# GitHub markdown blog (e.g., lucumr)
+BLOG_ID=armin python scripts/scrapers/github_markdown.py
+
+# Quarto blog with transcripts
+BLOG_ID=wesm python scripts/scrapers/quarto_blog.py
 ```
 
-Uses GPT-5 via codex to extract summaries and quotes. Requires a [Codex](https://openai.com/codex) subscription.
-
-### 3. Spiciness Grading (requires codex CLI)
+#### 2. LLM Analysis (requires codex CLI)
 
 ```bash
-bash scripts/grade_spiciness.sh
+BLOG_ID=benn ./scripts/llm_analyze.sh
+
+# Single post mode for testing
+BLOG_ID=benn POST_FILE=blogs/benn/posts/2024-01-15-some-post.md ./scripts/llm_analyze.sh
+
+# Force re-analysis
+BLOG_ID=benn FORCE=1 ./scripts/llm_analyze.sh
 ```
 
-Grades each quote 1-10 on "spiciness" - how sardonic, biting, or contrarian.
+#### 3. Spiciness Grading (requires codex CLI)
+
+```bash
+BLOG_ID=benn ./scripts/grade_spiciness.sh
+```
 
 ## Development
 
 ```bash
-npm run dev      # Dev server at localhost:5173
-npm run build    # Production build
-npm run preview  # Preview production build
+VITE_BLOG_ID=benn npm run dev      # Dev server at localhost:5173
+VITE_BLOG_ID=benn npm run build    # Production build
+VITE_BLOG_ID=benn npm run preview  # Preview production build
 ```
+
+## Adding a New Blog
+
+1. Create `config/<blog_id>.json` with themes, prompts, and scraper config
+2. Add scraper support if needed (or use existing type)
+3. Update `src/lib/config.ts` to import the new config
+4. Update `src/lib/data.ts` to import the new blog's data
+5. Run `BLOG_ID=<blog_id> ./scripts/update.sh`
 
 ## Tech Stack
 
-- **Scraping**: Python, BeautifulSoup, requests
-- **Analysis**: OpenAI Codex CLI (GPT-5)
+- **Scraping**: Python, BeautifulSoup, requests, PyYAML
+- **Analysis**: OpenAI Codex CLI
 - **Website**: SvelteKit, Svelte 5, Tailwind CSS v4
 - **Typography**: Inter (UI), Newsreader (quotes)
 
-## Stats
+## Supported Blogs
 
-- **240** posts (Feb 2021 - Jan 2026)
-- **1,195** money quotes extracted
-- **7** themes identified
-- **4.4** average spiciness score
-- Top spiciness: **9** (several quotes)
-
-## Sample Spicy Quotes
-
-> "Databricks is a $38 billion dollar mistake." (Spiciness: 9)
-
-> "Every LLM vendor is eighteen months from dead." (Spiciness: 9)
-
-> "They turn systemic racism into systematic racism, encoded and executed at scale." (Spiciness: 9)
+| Blog | Type | Posts |
+|------|------|-------|
+| Benn Stancil | Substack | ~240 |
+| Armin Ronacher | GitHub Markdown | ~200 |
+| Wes McKinney | Quarto + Transcripts | ~81 |

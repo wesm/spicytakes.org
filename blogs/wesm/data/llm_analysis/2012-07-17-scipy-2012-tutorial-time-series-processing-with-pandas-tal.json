@@ -1,0 +1,29 @@
+{
+  "summary": "Wes McKinney presents a 2012 SciPy update on pandas, centering on a major time series overhaul enabled by NumPy\u2019s DateTime64. He argues that pandas emerged to fill the high-level data manipulation gap he saw when moving from R to Python, aiming for both interactive ease and application-grade performance. The new DateTime64-based index and timestamp objects enable nanosecond resolution with acceptable historical tradeoffs and better database compatibility. He highlights string-based and partial indexing to make interactive exploration intuitive, and a new resampling API built on groupby for frequency conversion. Period logic and time zone handling are brought in or redesigned to support rich temporal arithmetic and efficient conversions via UTC storage. He concludes with broader library improvements and a push for coherent documentation via his forthcoming book.",
+  "key_points": [
+    "DateTime64 (int64-based) unlocks fast, memory-efficient nanosecond time series with pragmatic range limits and database compatibility.",
+    "String-based and partial date indexing make interactive time series slicing far easier than constructing datetime objects.",
+    "Resampling is rebuilt on groupby to handle both downsampling and upsampling with flexible binning and aggregation.",
+    "Period logic from scikits.timeseries enables interval-based arithmetic and frequency conversions across time hierarchies.",
+    "Time zone support stores UTC internally so conversions are metadata changes rather than costly value rewrites."
+  ],
+  "money_quotes": [
+    "I wanted some of those features in Python, but I wasn't willing to stop at where those languages ended, which kind of was where the pandas project came from.",
+    "The DateTime64 Dtype... is essentially just an int64. So it's an 8-byte integer that NumPy can interpret as being of a particular unit.",
+    "One of the downsides of going to nanoseconds is that you can only represent about 600 years.",
+    "I guess we probably don't care that much about, you know, nanoseconds prior to the year 1700.",
+    "Pandas is really all about being used interactively at the command line as well as building applications.",
+    "It makes it very nice and really kind of falls off the fingers when you're working interactively and exploring a data set.",
+    "But the really nice thing about this is that under the hood, all of the timestamps are represented in UTC. So this is actually a free operation."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "python",
+    "open_source",
+    "pandas",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "Pandas\u2019 2012 time series overhaul leverages NumPy\u2019s DateTime64 to deliver fast, intuitive temporal indexing, resampling, and time zone handling while improving interoperability and usability.",
+  "filename": "2012-07-17-scipy-2012-tutorial-time-series-processing-with-pandas-tal"
+}

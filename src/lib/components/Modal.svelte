@@ -54,12 +54,12 @@
             </span>
             <span>·</span>
             <a
-              href={getSourceUrl($selectedPost.filename)}
+              href={getSourceUrl($selectedPost.filename, $selectedPost)}
               target="_blank"
               rel="noopener noreferrer"
               class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
             >
-              Read on {config.sourceLabel} ↗
+              {$selectedPost.content_type === 'transcript' ? 'Watch/Listen' : `Read on ${config.sourceLabel}`} ↗
             </a>
           </div>
           {#if $selectedPost.spiciness != null}

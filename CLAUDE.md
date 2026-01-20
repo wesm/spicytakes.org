@@ -1,66 +1,88 @@
-# Benn Stancil Substack Archive & Analysis
+# Spicy Takes - Multi-Blog Archive Platform
 
 ## Project Overview
 
-This project archives and analyzes Benn Stancil's Substack (https://benn.substack.com), a prolific writer on data, analytics, startups, and the tech industry. The goal is to:
+This project archives and analyzes blog content from multiple authors with LLM-powered summaries, money quotes, and spiciness scoring. Currently supports:
 
-1. Download all posts as markdown files
-2. Extract key quotes ("money quotes") from each post
-3. Analyze themes and evolution of thinking over time
-4. Build a website showcasing his intellectual arc
-
-## Corpus
-
-- **Source**: https://benn.substack.com
-- **Posts**: 244 articles (as of January 2026)
-- **Date Range**: February 2021 - January 2026
-- **Frequency**: Approximately weekly
+- **Benn Stancil** (Substack) - Data, analytics, startups, tech industry
+- **Armin Ronacher** (lucumr) - Rust, Python, open source, tooling
+- **Wes McKinney** (wesmckinney.com) - Data infrastructure, Apache Arrow, Python
 
 ## Project Structure
 
 ```
-benn-stancil/
-├── CLAUDE.md              # This file
-├── scripts/               # Scraping and analysis scripts
-│   ├── scrape.py         # Download posts to markdown
-│   ├── analyze.py        # Extract themes and quotes
-│   └── build_site.py     # Generate static website
-├── posts/                 # Raw markdown files (one per post)
-├── data/
-│   ├── posts.json        # Post metadata index
-│   ├── quotes.json       # Extracted money quotes
-│   └── themes.json       # Identified themes over time
-└── website/              # Static site output
+spicy-takes/
+├── config/
+│   ├── benn.json               # Blog-specific themes, prompts, scraper config
+│   ├── armin.json
+│   └── wesm.json
+├── blogs/
+│   ├── benn/
+│   │   ├── posts/              # Markdown posts with YAML frontmatter
+│   │   └── data/
+│   │       ├── llm_quotes.json     # Combined LLM analysis
+│   │       ├── spicy_quotes.json   # Spiciness scores
+│   │       └── llm_analysis/       # Per-post analysis files
+│   ├── armin/
+│   │   └── ...
+│   └── wesm/
+│       └── ...
+├── scripts/
+│   ├── scrapers/
+│   │   ├── base.py             # Shared scraper interface
+│   │   ├── substack.py         # Substack scraper
+│   │   ├── github_markdown.py  # GitHub markdown scraper (lucumr-style)
+│   │   └── quarto_blog.py      # Quarto blog + transcripts scraper
+│   ├── llm_analyze.sh          # LLM analysis with codex
+│   ├── grade_spiciness.sh      # Spiciness grading
+│   └── update.sh               # Full pipeline orchestrator
+└── src/                        # SvelteKit website
 ```
-
-## Key Themes to Track
-
-Based on initial review, Benn frequently writes about:
-
-- **Data Infrastructure**: Modern data stack, dbt, Snowflake, Fivetran, data warehouses
-- **Analytics Practice**: Role of analysts, data teams, self-serve analytics, BI tools
-- **Startup/VC Dynamics**: Fundraising, valuations, startup culture, YC
-- **AI/LLMs**: Impact on data work, SQL chatbots, automation of analysis
-- **Industry Criticism**: Contrarian takes on trends, hype cycles, tech culture
 
 ## Running the Scripts
 
+All scripts require `BLOG_ID` environment variable.
+
 ```bash
-# Install dependencies
-pip install -r requirements.txt
+# Full update pipeline (scrape + analyze + grade + build)
+BLOG_ID=benn ./scripts/update.sh
 
-# Scrape all posts
-python scripts/scrape.py
+# Individual scrapers
+BLOG_ID=benn python scripts/scrapers/substack.py
+BLOG_ID=armin python scripts/scrapers/github_markdown.py
+BLOG_ID=wesm python scripts/scrapers/quarto_blog.py
 
-# Run analysis
-python scripts/analyze.py
+# LLM analysis
+BLOG_ID=benn ./scripts/llm_analyze.sh
 
-# Build website
-python scripts/build_site.py
+# Single post analysis (for testing)
+BLOG_ID=benn POST_FILE=blogs/benn/posts/2024-01-15-post.md ./scripts/llm_analyze.sh
+
+# Spiciness grading
+BLOG_ID=benn ./scripts/grade_spiciness.sh
 ```
+
+## Development
+
+```bash
+npm install
+VITE_BLOG_ID=benn npm run dev      # Dev server
+VITE_BLOG_ID=benn npm run build    # Production build
+```
+
+## Key Configuration
+
+Each blog config (`config/<blog_id>.json`) contains:
+
+- `id`, `name`, `tagline`, `description` - Blog identity
+- `sourceUrl`, `sourceLabel` - Original source link
+- `scraper` - Type and paths for the scraper
+- `themes` - Topic categories with labels and icons
+- `llmAnalysis` - Prompts and settings for LLM analysis
+- `spiciness` - Context prompt for spiciness grading
 
 ## Notes
 
-- Respect rate limits when scraping
 - Posts are archived for personal research purposes
-- Always attribute quotes to Benn Stancil with links to original posts
+- Always attribute quotes with links to original posts
+- The `BLOG_ID` env var selects which blog to process/build

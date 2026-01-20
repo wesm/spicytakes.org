@@ -1,0 +1,32 @@
+{
+  "summary": "McKinney introduces Apache Arrow\u2019s new streaming binary format, designed to complement the existing random-access IPC file format and reduce the cost of transposing large row-oriented datasets. He explains that Arrow uses record batches\u2014columnar chunks\u2014to represent streaming data, sending a schema followed by one or more batches. The post demonstrates how to write and read a 1 GB dataset in 1 MB chunks with PyArrow and convert it to a pandas DataFrame with zero-copy reads. Performance measurements show very high throughput, though smaller chunk sizes significantly degrade performance due to cache behavior and overhead. He concludes that streaming columnar data is an efficient way to transmit large datasets to columnar analytics tools and notes that optional compression may come later.",
+  "key_points": [
+    "The streaming format sends a schema followed by record batches, unlike the random-access file format that stores metadata at the end for cheap column or batch selection.",
+    "Record batches allow streaming data in small columnar chunks to avoid expensive full-table transposes for large datasets.",
+    "PyArrow can write and read streaming data in memory with zero-copy reads, enabling fast conversion to pandas DataFrames.",
+    "Throughput reaches about 7.75 GB/s for 1 MB chunks, while smaller chunks suffer from cache-inefficient access and container overhead.",
+    "Compression is not yet part of the streaming format, so in-memory and wire sizes are effectively the same."
+  ],
+  "money_quotes": [
+    "In Apache Arrow, an in-memory columnar array collection representing a chunk of a table is called a record batch.",
+    "In the streaming format, we send a series of messages: the schema followed by one or more record batches.",
+    "Since this data is in memory, reading back Arrow record batches is a zero-copy operation.",
+    "As the streaming chunksize grows smaller, the cost to reconstruct a contiguous columnar pandas DataFrame increases because of cache-inefficient memory access patterns.",
+    "This is an effective throughput of 7.75 GB/s to reconstruct a 1GB DataFrame from 1024 1MB chunks.",
+    "The performance degrades significantly from 256K to 64K chunks.",
+    "In the current iteration of the format, the data is not being compressed at all, so the in-memory and on-the-wire size are about the same.",
+    "Streaming columnar data can be an efficient way to transmit large datasets to columnar analytics tools like pandas using small chunks."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "python",
+    "open_source",
+    "pandas",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, pragmatic, empirical, mildly opinionated",
+  "key_insight": "Streaming Arrow record batches lets row-oriented systems send columnar chunks efficiently, yielding high-throughput pandas reconstruction when chunk sizes are tuned for cache behavior.",
+  "filename": "2017-01-27-arrow-streaming-columnar"
+}

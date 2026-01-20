@@ -1,0 +1,32 @@
+{
+  "summary": "McKinney argues that pandas\u2019s internal architecture, especially its BlockManager and tight coupling to NumPy, is the root cause of severe memory and performance limitations that become painful at modern data sizes. He explains that pandas was built in an era when 100GB\u20131TB datasets were not in scope, which left it ill-suited for today\u2019s workloads. He traces his work from Badger to Arrow and describes a consistent arc aimed at zero-copy, columnar, interoperable data infrastructure. Apache Arrow is presented as the foundational technology to address many of the \u201c10 Things I Hate About pandas,\u201d though not all pieces (like a full analytics engine) are complete yet. The conclusion is that Arrow plus a future pandas2 architecture can deliver scalable, interoperable, long-term data tooling, but the transition must respect pandas\u2019s existing user community.",
+  "key_points": [
+    "pandas\u2019s memory model and Python object usage create large, hidden RAM overheads that make big datasets impractical.",
+    "Badger proved that contiguous, immutable columnar data can deliver massive performance gains, motivating a more durable redesign.",
+    "Arrow provides zero-copy, columnar interoperability across systems, solving the costly data interchange bottleneck.",
+    "A future Arrow-based analytics engine with query planning and multicore execution is needed to eliminate pandas\u2019s temporary allocations and single-core limits.",
+    "Dask helps with scale but cannot fix pandas\u2019s underlying memory and IO inefficiencies because it treats pandas as a black box."
+  ],
+  "money_quotes": [
+    "Nowadays, my rule of thumb for pandas is that you should have 5 to 10 times as much RAM as the size of your dataset.",
+    "It\u2019s an overall bad situation for large datasets.",
+    "Zero-copy data access was the biggest thing; you need to be able to memory map complex tables to make accessing 1 terabyte of data on disk as fast and easy as 1 megabyte.",
+    "I strongly feel that Arrow is a key technology for the next generation of data science tools.",
+    "In Arrow, each string is right next to the previous one in memory, so you can scan all of the data in a column of strings without any cache misses.",
+    "pandas\u2019s lack of a C or Cython API for data frames has been another big problem over time.",
+    "Dask makes it easy to read a directory of CSV files by running pandas.read_csv in parallel and then running a groupby operation on the entire dataset.",
+    "dask.dataframe does not solve pandas\u2019s inherent performance and memory use problems, but it spreads them out across multiple processes."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "python",
+    "open_source",
+    "pandas",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective, pragmatic",
+  "key_insight": "Pandas\u2019s architectural debt makes large-scale analytics painful, and Arrow\u2019s zero-copy columnar infrastructure is the long-term path to interoperable, high-performance data tooling.",
+  "filename": "2017-09-21-apache-arrow-pandas-internals"
+}

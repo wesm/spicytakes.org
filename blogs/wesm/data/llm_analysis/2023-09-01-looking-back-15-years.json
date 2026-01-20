@@ -1,0 +1,33 @@
+{
+  "summary": "McKinney reflects on 15 years of building data tools, arguing that early Python data science succeeded but hit limits in performance, scale, and interoperability. He frames these pains as consequences of tightly coupled, vertically integrated systems and the lack of shared standards. Shifts in hardware, heterogeneous workloads, and ML tooling have made modular, composable systems both necessary and feasible. He highlights Arrow, RAPIDS, DuckDB/Velox, Ibis/dplyr, and Substrait as key pieces advancing a \u201cGreat Decoupling.\u201d The conclusion is optimistic: commoditized query engines and shared standards will shift effort toward better user interfaces and long\u2011term open source sustainability.",
+  "key_points": [
+    "pandas and NumPy\u2019s design constraints exposed deeper issues in eager APIs, interoperability, and volunteer-driven sustainability",
+    "hardware evolution and heterogeneous pipelines drive the need for modular, reusable components rather than monolithic systems",
+    "Apache Arrow enables a common in-memory format and compute layer, reducing interop cost and enabling hardware-optimized kernels",
+    "embeddable query engines (DuckDB, Velox, DataFusion) are commoditizing OLAP execution and making advanced SQL ubiquitous",
+    "Substrait and portable APIs (Ibis/dplyr) aim to decouple frontends from backends and reduce SQL dialect fragmentation"
+  ],
+  "money_quotes": [
+    "fragmentation is killing us.",
+    "pandas had to do everything for itself, and this is an enormous burden for a fully volunteer-based open source project.",
+    "Eagerly-evaluated APIs (as opposed to \u201clazy\u201d ones) make it more difficult to do efficient \u201cquery\u201d planning and execution.",
+    "I believe now more than ever that \u201cthe future is Arrow-native.\u201d",
+    "The ability to add cutting-edge analytic SQL processing to almost any application is a disruptive and transformative change for our industry.",
+    "I believe he\u2019s right and this is a big deal.",
+    "I\u2019m optimistic about what the future holds for the continuing trends of modularization, interoperability, and composability, and what I dubbed the \u201cGreat Decoupling.\u201d",
+    "Lastly, as developer energy shifts away from \u201cwho can build the fastest execution engine\u201d, I predict the coming years will bring a new wave of investment in user interface productivity."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "python",
+    "open_source",
+    "pandas",
+    "developer_tools",
+    "industry_observations",
+    "ai_llms"
+  ],
+  "tone": "reflective, technical, opinionated, optimistic",
+  "key_insight": "The path forward for data systems is a modular, Arrow-centered stack where interoperable components commoditize execution and free developers to focus on better, portable user interfaces.",
+  "filename": "2023-09-01-looking-back-15-years"
+}

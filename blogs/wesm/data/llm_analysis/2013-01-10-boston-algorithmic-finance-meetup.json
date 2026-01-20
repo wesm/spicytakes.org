@@ -1,0 +1,31 @@
+{
+  "summary": "Wes McKinney frames the talk as a demonstration of pandas for high-frequency financial data analysis, grounded in his experience as a quant and the limitations he saw in R for building maintainable systems. He argues that pandas adds essential higher-level constructs on top of NumPy, especially for time series alignment, resampling, and heterogeneous data integration. The live analysis of Apple minute-bar data highlights practical patterns like end-of-day volume surges and a negative overnight-to-morning return relationship. He shows how rolling OLS models reveal that these relationships change over time, motivating adaptive, model-driven strategies. The conclusion is that pandas enables fast, expressive research workflows but remains an actively evolving open-source project with much still to build.",
+  "key_points": [
+    "R was useful but weak for general-purpose engineering; Python plus pandas enables more maintainable, scalable systems.",
+    "Automatic alignment and time-series tooling reduce the friction of heterogeneous financial data integration.",
+    "Minute-bar analysis exposes end-of-day volume concentration and a negative overnight-to-morning return relationship.",
+    "Rolling regressions show regime changes, making static conclusions unreliable.",
+    "pandas supports complex, high-dimensional, and sparse data without excessive memory use."
+  ],
+  "money_quotes": [
+    "I wanted to have a really rich financial data manipulation tool that could also be used as the foundation for building more complex systems especially for asset management and trading.",
+    "So, I felt that doing things in Python would make all the code that we're building more maintainable and scalable.",
+    "If you add together two time series that don't align, it will automatically align them and insert missing data in the result.",
+    "People are rushing to get trades in.",
+    "If there's bad news overnight, stock price goes down and people buy it back and it goes up a little bit in the first half hour.",
+    "The relationship between those two returns changed quite a bit over time.",
+    "Don't try this at home.",
+    "There's a list of things to do which goes down to the floor and out the elevator and down to the bottom floor of the building."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "python",
+    "open_source",
+    "pandas",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "Pandas turns messy, high-frequency financial data into an analyzable substrate, but the insights it reveals are time-varying and demand cautious, adaptive modeling.",
+  "filename": "2013-01-10-boston-algorithmic-finance-meetup"
+}

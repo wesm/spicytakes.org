@@ -1,0 +1,30 @@
+{
+  "summary": "The post argues that current LLMs and coding agents, while highly useful for routine engineering work, exhibit clear cognitive deficits that undermine claims that AGI is imminent. McKinney\u2019s experiments show that many frontier models struggle with basic arithmetic once the number of values grows modestly, even in simple grouped-sum tasks. He highlights a mismatch between industry hype and model reliability, especially when models appear overconfident and fail to recognize when tool use is necessary. He also notes that GPT-5\u2019s apparent improvement comes with huge latency, suggesting heavy inference or hidden tool calls rather than fundamental capability. The conclusion is that LLMs should offload non-trivial data work to tools, and the ecosystem needs better data \u201csidecars\u201d (e.g., Arrow/Parquet) to avoid wasting tokens on tabular data.",
+  "key_points": [
+    "Coding agents are productive for experienced developers but are far from autonomous or reliably intelligent.",
+    "Frontier LLMs often fail at summing even small tables, with accuracy dropping after roughly 20\u201325 values.",
+    "Local open-weight models can outperform API models on arithmetic, but at higher inference cost and latency.",
+    "GPT-5\u2019s strong arithmetic results likely reflect slow \u201cthinking\u201d or hidden tool calls rather than native skill.",
+    "Models are overconfident about their accuracy, making tool avoidance a practical reliability risk."
+  ],
+  "money_quotes": [
+    "Overall, it's been hard for me to see the current iteration of coding agents as being more than a mostly effective way for experienced developers to accelerate routine software development tasks or fill in routine knowledge or skill gaps, a far cry from being the early stages of emergent superintelligence.",
+    "I found that the frontier models surprisingly struggled to do basic arithmetic, such as computing simple sums from small tables of numbers.",
+    "I actually laughed out loud when I read this.",
+    "It's interesting that most of the API models, even the smaller models, can add up ~ten single-digit numbers pretty consistently, but somewhere after that things start to break down.",
+    "gpt-5 is 34.3x slower than gpt-4.1 on this task.",
+    "But the models themselves aren't even \"aware\" of their incompetence, which is troubling.",
+    "It's fine if Claude Code is helping me write Linux sysadmin scripts for my local inference servers, but delegating business decisions to a fleet of agents that can't count good? I'm not so sure.",
+    "That said, there needs to be a more efficient way to attach data \"sidecars\" (e.g. in Arrow or Parquet format) that do not burn tokens but which allow the LLMs to pass the datasets through to efficient tools."
+  ],
+  "themes": [
+    "ai_llms",
+    "developer_tools",
+    "industry_observations",
+    "data_infrastructure",
+    "apache_arrow"
+  ],
+  "tone": "technical, skeptical, opinionated, reflective",
+  "key_insight": "LLMs are valuable assistants for experienced engineers, but their arithmetic failures, overconfidence, and inefficiencies show that tool-assisted workflows and better data plumbing are essential\u2014and that AGI hype is premature.",
+  "filename": "2025-12-01-llms-arithmetic"
+}

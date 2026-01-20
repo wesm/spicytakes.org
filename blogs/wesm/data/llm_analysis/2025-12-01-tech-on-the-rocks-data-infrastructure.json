@@ -1,0 +1,33 @@
+{
+  "summary": "McKinney traces his path from pandas to Arrow, arguing that modern data infrastructure needs interoperable, zero-copy in-memory formats to unlock speed and composability across languages and systems. He explains Arrow\u2019s design and why Parquet\u2019s storage-era tradeoffs now impose decoding bottlenecks as hardware and workloads shift. He contends that file formats must evolve for wide schemas, GPU-era processing, and multimodal data, while avoiding fragmentation through forward-compatibility mechanisms. He highlights the \u201cbig metadata\u201d problem and the push to simpler, scalable metadata systems rather than universal over-engineering. He is optimistic about productivity gains from AI tools but warns that open source sustainability, prompt-injection risks, and the erosion of developer judgment are serious concerns. He concludes that LLMs need better data interfaces, calling for a data context protocol and Arrow-native tooling like ADBC.",
+  "key_points": [
+    "Arrow\u2019s core value is a standardized, columnar in-memory format enabling zero-copy data exchange and deserialization costs tied to columns, not dataset size.",
+    "Parquet\u2019s compression-heavy design suited slow disks, but today decoding overhead is the bottleneck, driving demand for new formats with lightweight encodings and GPU-friendly behavior.",
+    "Metadata scale is a first-order problem; systems like Iceberg emerged to handle planning and schema evolution, yet simpler alternatives are needed for modest data lakes.",
+    "The DataFusion ecosystem shows how modular, Arrow-native engines let startups avoid rebuilding query engines and focus on differentiation.",
+    "AI coding tools boost productivity but introduce security risks, maintainer burden, and a risk of underdeveloped judgment for new engineers, while open source is being undercompensated."
+  ],
+  "money_quotes": [
+    "\"Why isn't there a standardized, efficient in-memory format for tabular data that's portable across languages? This seed became Arrow in 2013.\"",
+    "\"In Arrow, deserialization cost isn't proportional to dataset size.\"",
+    "\"Parquet's design constraints from 15 years ago are obsolete. I/O bandwidth isn't the bottleneck anymore; decoding performance is.\"",
+    "\"Forget big data. Let's start talking about big metadata.\"",
+    "\"What was big data for Google is just one machine in the cloud. Many distributed systems simply aren't needed. A terabyte isn't big data anymore.\"",
+    "\"AI companies are strip-mining intellectual property created by open source community and humanity generally.\"",
+    "\"Unsupervised agents without feedback make gigantic messes claiming to solve problems, generating totally incorrect code or unit tests introducing mocks pretending correctness when logic is wrong.\"",
+    "\"General recognition LLMs aren't data models\u2014they're language models. Providing datasets\u2014stuffing arrow data in context windows\u2014doesn't get good results for retrieval or analysis questions.\""
+  ],
+  "themes": [
+    "data_infrastructure",
+    "apache_arrow",
+    "python",
+    "open_source",
+    "pandas",
+    "ai_llms",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective, critical, optimistic",
+  "key_insight": "Modern data systems should prioritize interoperable, zero-copy in-memory data and evolve storage formats and metadata systems for today\u2019s hardware, while treating AI as a productivity aid that still needs better data interfaces and stronger open source support.",
+  "filename": "2025-12-01-tech-on-the-rocks-data-infrastructure"
+}
