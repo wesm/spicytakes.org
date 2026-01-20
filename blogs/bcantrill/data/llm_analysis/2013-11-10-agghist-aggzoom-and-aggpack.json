@@ -1,0 +1,23 @@
+{
+  "summary": "Cantrill introduces three new DTrace aggregation display options developed from Brendan Gregg's practical observations: agghist for histogram-style visualization of count/sum aggregations, aggzoom for scaling bar heights to the maximum value rather than distributing across all bars, and aggpack for compact single-line histogram representation using Unicode block elements. These features exemplify DTrace's evolution as a 'workhorse' tool where improvements come from real production needs rather than theoretical concerns.",
+  "key_points": [
+    "New agghist option adds histogram-style bars to count()/sum() aggregation output for easier visual differentiation",
+    "aggzoom fixes the long-standing whitespace problem by scaling bars relative to the maximum value rather than distributing height across all bars",
+    "aggpack provides dramatic output compression by rotating histograms 90 degrees, fitting each key's distribution on a single line",
+    "Unicode Block Elements enable more granular visualization than ASCII characters in terminal output",
+    "All features originated from Brendan Gregg's practical observations while using DTrace in production"
+  ],
+  "money_quotes": [
+    "DTrace is a workhorse, not a show horse: the features that we have added to DTrace over the years come not from theoretical notions but rather from actual needs in production environments.",
+    "This communicates essentially the same amount of information in just a fraction of the output (55 lines versus 482) \u2013 and makes it (much) easier to quickly compare distributions across aggregation keys.",
+    "DTrace only improves when those of us who depend on it every day envision a way that it could be even better!",
+    "Due to some combination of my laziness and my reverence for the lockstat-style histogram, I simply lifted the lockstat processing code \u2013 which means I inherited (or stole, depending on your perspective) the decisions Jeff had made with regard to histogram rendering."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "technical, enthusiastic, explanatory",
+  "key_insight": "The best developer tools evolve through the accumulated practical insights of power users who encounter real limitations in production environments, not through theoretical feature planning.",
+  "filename": "2013-11-10-agghist-aggzoom-and-aggpack"
+}

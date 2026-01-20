@@ -1,0 +1,24 @@
+{
+  "summary": "Cantrill celebrates the release of OpenSolaris by offering a deep technical tour through one of the kernel's most intricate subsystems: the turnstile mechanism for priority inheritance. He traces the discovery and resolution of a subtle design defect in user-level priority inheritance that caused false deadlock panics, detailing how he and Jeff Bonwick collaborated intensely to understand and fix the problem. The post serves both as technical documentation and as a demonstration of the kind of deep systems thinking required to work on operating system internals.",
+  "key_points": [
+    "Priority inheritance for user-level locks requires kernel-level state tracking, which creates complex lock ordering challenges",
+    "A design defect in Solaris 8's user-level priority inheritance caused false deadlock detection and system panics",
+    "The fix required distinguishing between real application deadlocks and transient false deadlocks caused by the kernel's internal locking",
+    "Intense collaborative debugging ('the mind-meld') was essential to solving a problem where every proposed solution introduced new issues"
+  ],
+  "money_quotes": [
+    "Solaris is the New York City of operating systems: it is what you don't see that makes what you do see possible \u2013 and like New York City, it's what you don't see that's really interesting.",
+    "This is one of the most gratifying feelings in software engineering: analyzing a failure postmortem, discovering that the bug should be easily reproduced, writing a test case testing the hypothesis, and then watching the system blow up just as you predicted. Nothing quite compares to this feeling; it's the software equivalent of the walk-off home run.",
+    "After exhausting ourselves on the alternatives, we were forced to the conclusion that the in-kernel lock was a constraint on the problem \u2013 and our focus switched from avoiding the situation to detecting it.",
+    "I won't go into details about why this is the case \u2013 it's left as an exercise to the reader \u2013 but suffice it to say it's one of the many reasons that we have joked about requiring a license to grab thread lock.",
+    "If you find it (and you can explain it fully), and you're in the job market, we'll fly you out for an interview."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source",
+    "career_reflections"
+  ],
+  "tone": "technical, enthusiastic, educational",
+  "key_insight": "The most critical parts of operating systems are often invisible infrastructure requiring extraordinary care and deep collaboration to get right, and opening source code invites others into that hidden world of complexity.",
+  "filename": "2005-06-14-opensolaris-sewer-tour"
+}

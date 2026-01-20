@@ -1,0 +1,24 @@
+{
+  "summary": "Cantrill introduces himself and explains the fundamental problem that led to DTrace: software is invisible during execution, and any attempt to observe it slows it down. This creates a paradox where debug builds that can be inspected are too slow for production, forcing engineers to reproduce symptoms in development environments\u2014which often leads to misdiagnosis because different root causes can manifest identical symptoms. DTrace solves this by enabling dynamic instrumentation of optimized production systems without requiring code changes or restarts.",
+  "key_points": [
+    "Traditional debugging requires choosing between fast production code you can't see and slow debug code you can observe",
+    "Reproducing production problems in development is fundamentally flawed because you're reproducing symptoms, not root causes",
+    "Disjoint problems can manifest the same symptoms, leading to incorrect diagnoses",
+    "DTrace enables dynamic instrumentation of production systems that is absolutely safe"
+  ],
+  "money_quotes": [
+    "Above all else, I believe that software should: Work correctly. Work efficiently.",
+    "The fundamental difficulty is that we cannot see software.",
+    "Software has the peculiar property that to see it, you must make it slower.",
+    "When you're reproducing performance problems, you're reproducing symptoms.",
+    "Disjoint problems can manifest the same symptoms.",
+    "How many times have you found 'a' problem without finding 'the' problem?"
+  ],
+  "themes": [
+    "systems_software",
+    "career_reflections"
+  ],
+  "tone": "analytical",
+  "key_insight": "The inability to observe production software without degrading its performance forces engineers into a diagnostic trap where they reproduce symptoms rather than root causes, making DTrace's zero-overhead dynamic instrumentation a paradigm shift.",
+  "filename": "2004-06-14-some-prehistory"
+}

@@ -10,6 +10,7 @@ import bennConfig from '../../config/benn.json';
 import arminConfig from '../../config/armin.json';
 import wesmConfig from '../../config/wesm.json';
 import danluuConfig from '../../config/danluu.json';
+import bcantrillConfig from '../../config/bcantrill.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -18,6 +19,7 @@ const configs: Record<string, BlogConfig> = {
   armin: arminConfig as BlogConfig,
   wesm: wesmConfig as BlogConfig,
   danluu: danluuConfig as BlogConfig,
+  bcantrill: bcantrillConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -89,6 +91,14 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
   if (config.scraper.type === 'static_html') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${config.sourceUrl}/${slug}/`;
+  }
+  // For hugo_rss blogs (bcantrill), URL is /YYYY/MM/DD/slug/
+  if (config.scraper.type === 'hugo_rss') {
+    const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
+    if (match) {
+      const [, year, month, day, slug] = match;
+      return `${config.sourceUrl}/${year}/${month}/${day}/${slug}/`;
+    }
   }
   return config.sourceUrl;
 }

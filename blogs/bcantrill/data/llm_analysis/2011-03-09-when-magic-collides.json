@@ -1,0 +1,24 @@
+{
+  "summary": "A nasty DTrace bug was discovered when instrumenting Node.js that caused mysterious segfaults. The root cause was a race condition in how DTrace handles signals during user-level tracing: when two asynchronous signals arrived in quick succession while executing instrumented code in a special trampoline region, the second signal could cause an instruction to be skipped entirely. The bug was traced to an off-by-one error in the signal deferral logic that failed to handle the edge case of a signal arriving at the exact start of the trampoline's second half.",
+  "key_points": [
+    "DTrace maintains a 'loss-less' constraint where all threads see instrumented code paths, unlike traditional debuggers that stop processes at breakpoints",
+    "User-level tracing uses per-thread trampolines to execute instrumented instructions out-of-line",
+    "Signal handling during trampoline execution required sophisticated kernel-level coordination to prevent state corruption",
+    "The bug manifested only with rapid signal delivery (from V8's Crankshaft profiling) combined with hot function instrumentation",
+    "The fix was a simple boundary condition correction in the signal deferral logic"
+  ],
+  "money_quotes": [
+    "We're headed into rough country; in the immortal words of Sixth Edition, you are not expected to understand this.",
+    "This is bad: it means that upon return from the signal, we will return to the trampoline and execute the wrong instruction. Only one of them, of course. Which, if you're lucky, will induce an immediate crash. But more likely, the program will execute tens, hundreds or even thousands of instructions before dying on some 'impossible' problem.",
+    "Sound nasty to debug? It is \u2013 and next time you see Adam, show some respect.",
+    "If we hit this case \u2013 first one signal on the first instruction of the trampoline followed by another signal on the first instruction on the second half of the trampoline \u2013 we will redirect control to be the instruction after the instrumentation without having executed the instruction. This, if it needs to be said, is bad.",
+    "So the signals are goodness \u2013 and that DTrace can now correctly handle them with respect to arbitrary instrumentation that much more so!"
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "technical, methodical, wryly humorous",
+  "key_insight": "Even the most carefully designed systems can harbor subtle bugs that only manifest when multiple layers of 'magic' - in this case, DTrace's loss-less tracing and V8's feedback-driven optimization - interact in unforeseen ways.",
+  "filename": "2011-03-09-when-magic-collides"
+}

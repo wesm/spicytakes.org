@@ -1,0 +1,23 @@
+{
+  "summary": "Cantrill provides a detailed walkthrough of using DTrace to instrument PHP applications, building from simple function tracing to full-stack observability including user-level code, libc calls, and kernel functions. The post demonstrates how DTrace's PHP provider (developed by Wez Furlong) enables developers to trace function entries and returns with file and line information. Through progressively more complex examples, he shows how to aggregate across multiple PHP instances and trace the complete execution path from PHP through native code into the kernel.",
+  "key_points": [
+    "DTrace PHP provider adds function-entry and function-return probes with function name, file, and line number arguments",
+    "DTrace can aggregate data across multiple PHP instances to understand system-wide PHP behavior",
+    "Thread-local variables enable following code flow through specific execution paths",
+    "Full-stack tracing reveals how PHP functions induce work in libc and the kernel",
+    "All instrumentation can be done safely in production systems"
+  ],
+  "money_quotes": [
+    "DTrace allows you to aggregate across PHP instances, allowing you to understand not just what a particular PHP is doing, but what PHP is doing more generally.",
+    "This shows us what's really going on \u2013 or at least more of what's really going on: our PHP functions are inducing work from libc.",
+    "Now we're seeing everything that our PHP program is doing, from the PHP through the native code, into the kernel and back.",
+    "Using DTrace on PHP has a number of unique advantages: you can look at the entire system, and you can look at the entire stack \u2013 and you can do it all in production."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "instructional",
+  "key_insight": "DTrace's ability to trace from high-level PHP code through native libraries into the kernel provides unprecedented full-stack visibility that traditional debugging tools cannot match, all while being safe for production use.",
+  "filename": "2005-08-05-dtrace-and-php-demonstrated"
+}

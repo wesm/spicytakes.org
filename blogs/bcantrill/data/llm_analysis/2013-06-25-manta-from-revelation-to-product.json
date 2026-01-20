@@ -1,0 +1,24 @@
+{
+  "summary": "Cantrill recounts the genesis of Manta, Joyent's revolutionary object storage service that enables compute to run where data lives, eliminating the need for data movement. He explains how the key insight came from Mark Cavage's realization that SmartOS Zones could enable secure, multi-tenant compute on storage nodes. The post captures the rare moment of technological revelation through preserved IM logs, and credits the extensive team that turned that flash of insight into a production system over 18 months.",
+  "key_points": [
+    "Manta combines ZFS-based storage with SmartOS Zones to run arbitrary compute where objects live",
+    "The key enabler was OS-level virtualization (Zones), not ZFS - hitting the sweet spot between hardware virtualization and PaaS",
+    "Simple ideas can seem obvious in hindsight, but this insight wasn't obvious even to those actively working on the problem",
+    "Transforming a flash of insight into a product required 18+ months and contributions from a large engineering team"
+  ],
+  "money_quotes": [
+    "Sometimes simple ideas can seem obvious in hindsight \u2013 especially as the nuance of historical context is lost to time \u2013 so for the record let me be clear on this point: this idea wasn't obvious.",
+    "This flash of total clarity is rare in a career; I have only felt it a handful of times and it's such an intense moment that it becomes locked in memory.",
+    "But while ZFS is essential to Manta, it is ultimately as an implementation detail; the technology that serves as the essential enabler is the OS-level virtualization provided by Zones.",
+    "Zones hit the sweet spot: hardware virtualization is at too low a level of abstraction to allow this efficiently, and higher levels of virtualization sacrifice expressive power and introduce significant multi-tenancy complexity and risk.",
+    "Of course, a flash of insight is a long way from a product \u2013 and that conversation over a year and a half ago was just the beginning of a long journey."
+  ],
+  "themes": [
+    "systems_software",
+    "cloud_infrastructure",
+    "startups_entrepreneurship"
+  ],
+  "tone": "celebratory, reflective, collegial",
+  "key_insight": "Revolutionary technology breakthroughs often come from combining existing capabilities in unexpected ways, but the real work lies in the long journey from that flash of insight to a production-ready product built by a dedicated team.",
+  "filename": "2013-06-25-manta-from-revelation-to-product"
+}

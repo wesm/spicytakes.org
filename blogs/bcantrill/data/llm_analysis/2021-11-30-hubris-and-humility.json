@@ -1,0 +1,25 @@
+{
+  "summary": "Oxide Computer developed Hubris, a new embedded operating system written entirely in Rust, after finding that existing open source operating systems didn't meet their security and robustness requirements. The system's key innovation is specifying all tasks at build time rather than allowing dynamic task creation at runtime, eliminating entire classes of failure modes related to resource exhaustion. Cantrill also developed Humility, a companion debugger, and both projects are now open source as part of Oxide's belief that open source is overdue in firmware and low-level systems software.",
+  "key_points": [
+    "Existing embedded operating systems didn't meet Oxide's security and robustness requirements",
+    "Hubris specifies all tasks at build time, eliminating dynamic resource exhaustion failures",
+    "The system is microkernel-based with memory protection, even though it's written in memory-safe Rust",
+    "Cantrill developed Humility debugger to complement Hubris",
+    "Both projects are now open source, reflecting Oxide's belief in open source firmware"
+  ],
+  "money_quotes": [
+    "Dynamic resource exhaustion is the root of many problems in embedded systems; having the system know a priori all of the tasks that it will ever see liberates it from not just a major source of dynamic allocation, but also from the concomitant failure modes.",
+    "It is hard to have a fork bomb when the system lacks fork itself!",
+    "In this regard, Hubris represents what we like about Rust, too: a creative solution that cuts through a false dichotomy to yield a system that is at once nimble and rigorous.",
+    "We also believe that the open source revolution \u2014 and its many advantages for customers \u2014 are long overdue in the lowest layers of the software stack.",
+    "And yes, even in memory safe languages like Rust, memory protection is essential!"
+  ],
+  "themes": [
+    "systems_software",
+    "open_source",
+    "hardware"
+  ],
+  "tone": "enthusiastic, technical, evangelical",
+  "key_insight": "By rejecting the conventional wisdom that operating systems must support dynamic task creation, Hubris achieves both the flexibility of general-purpose systems and the reliability of fully static embedded systems.",
+  "filename": "2021-11-30-hubris-and-humility"
+}

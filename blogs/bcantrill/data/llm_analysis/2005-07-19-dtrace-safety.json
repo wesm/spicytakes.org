@@ -1,0 +1,25 @@
+{
+  "summary": "DTrace's most fundamental principle is safety: it must never accidentally cause system failure, which is what enables its use on production systems. The post explains three key architectural decisions that ensure this safety: instrumentation providers that only expose safe probe points, a custom virtual machine (DIF) instead of native code execution, and careful exception handling for runtime errors. These deliberate design choices trade some flexibility for absolute safety guarantees.",
+  "key_points": [
+    "DTrace providers guarantee instrumentation safety by only exposing safe probe points",
+    "Probe context must never call into any kernel facilities to prevent recursion",
+    "Native code execution in the kernel is unsafe due to stores, loops, and illegal instructions",
+    "The DIF virtual machine has no backwards branches and no arbitrary stores by design",
+    "Runtime errors like division-by-zero and unmapped memory loads are handled gracefully"
+  ],
+  "money_quotes": [
+    "DTrace must not be able to accidentally induce system failure. It is our strict adherence to this principle that allows DTrace to be used with confidence on production systems \u2013 and it is its use on production systems that most fundamentally separates DTrace from what has come before it.",
+    "While in probe context, DTrace itself must not call into any facilities in the kernel at-large.",
+    "The alternative \u2013 to execute user-specified code natively in the kernel \u2013 is untenable from a safety perspective.",
+    "While heuristics are fine when trying to achieve performance, they are not acceptable when correctness is the constraint.",
+    "This may seem unnecessarily severe (this makes loops an impossibility by architecture), but to us it was an acceptable tradeoff to achieve absolute safety.",
+    "DTrace is not safe by accident \u2013 DTrace is safe by deliberate design and by careful execution."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "analytical",
+  "key_insight": "True safety in systems software requires making unsafe operations architecturally impossible rather than relying on detection or heuristics.",
+  "filename": "2005-07-19-dtrace-safety"
+}

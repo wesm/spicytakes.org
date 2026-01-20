@@ -1,0 +1,23 @@
+{
+  "summary": "Bryan Cantrill demonstrates the exciting new capability of using DTrace to dynamically trace Java applications through JVMTI/JVMPI agents. Using a Java Tetris game as an example, he walks through various DTrace techniques to monitor method calls, aggregate method invocations, capture Java stack traces, and track object allocations in real-time. While noting the limitation that the JVM must be restarted with the agent (making it more suitable for development than production), he emphasizes this represents unprecedented visibility into the full software stack from Java through native code to the kernel.",
+  "key_points": [
+    "JVMTI/JVMPI agents now allow DTrace to instrument Java applications with probes for method entry/exit, garbage collection, thread events, and more",
+    "The ability to trace code flow from Java through native code into the kernel and back is 'without precedent'",
+    "DTrace's aggregation capabilities make it easy to identify hot methods and understand call patterns",
+    "The jstack() action enables capturing Java stack traces to understand why specific methods are being called",
+    "Real-time monitoring of object allocation rates can help identify pathological behavior in Java applications"
+  ],
+  "money_quotes": [
+    "Such a view of code flow is without precedent \u2013 it is awesome (in all senses of that word) to see the progression through the stack of software abstraction.",
+    "damn is it a big leap forward",
+    "This is way too much output to sift through, so let's instead aggregate on class and method name",
+    "That doesn't seem so bad, but you can easily see how useful this is going to be on those pathological Java apps!"
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "DTrace's integration with Java through JVMTI agents provides unprecedented observability into the entire software stack, enabling developers to trace execution flow from high-level Java code through native libraries down to kernel calls.",
+  "filename": "2005-04-18-your-java-fell-into-my-dtrace"
+}

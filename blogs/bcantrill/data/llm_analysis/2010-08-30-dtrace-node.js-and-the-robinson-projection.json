@@ -1,0 +1,24 @@
+{
+  "summary": "Cantrill describes his first major project at Joyent: adding DTrace probes to node.js and building a real-time visualization leaderboard for the Node Knockout programming contest. The DTrace integration allows monitoring HTTP requests, responses, latency, and connections across multiple containers from a single global zone. The team built a system that geolocates incoming connections and displays them on a world map in real-time, demonstrating the powerful combination of DTrace's observability with node.js's event-driven architecture.",
+  "key_points": [
+    "Added USDT probes to node.js enabling production-safe DTrace instrumentation",
+    "DTrace can monitor HTTP requests, latency (wall time vs CPU time), and connections across all containers",
+    "Built real-time leaderboard showing geolocated connections on a Robinson projection map",
+    "Created libdtrace addon for node.js to process DTrace data",
+    "Latency from connection to map visualization under 700ms"
+  ],
+  "money_quotes": [
+    "This was an idea that was just too exciting not to take a swing at, so we got to work.",
+    "It was an incredible team, and we were pulling it off in such a short period of time and with such a firm deadline that we often felt like contestants ourselves!",
+    "In keeping with both the spirit of node and DTrace, the leaderboard is updated in real-time; from the time you connect to one of the Joyent-hostest (no.de) contestants, you should see yourself show up in the map in no more than 700 milliseconds.",
+    "Know that we've only scratched the surface of what DTrace and node.js can do together!"
+  ],
+  "themes": [
+    "systems_software",
+    "cloud_infrastructure",
+    "open_source"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Combining DTrace's deep system observability with node.js's event-driven model creates powerful new possibilities for real-time monitoring and visualization in cloud environments.",
+  "filename": "2010-08-30-dtrace-node.js-and-the-robinson-projection"
+}

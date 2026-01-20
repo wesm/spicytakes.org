@@ -1,0 +1,26 @@
+{
+  "summary": "Cantrill argues that the tech industry has a recurring pattern of concurrency 'shysters' who peddle overcomplicated solutions to exaggerated problems. Drawing parallels between the discredited two-level threading model of the 1990s and transactional memory advocacy in 2008, he contends that both promised simplicity but delivered complexity. He emphasizes that transactional memory is fundamentally unsuitable for systems software because real systems interact with external resources beyond memory, and advocates should rely on data rather than fear-mongering assertions.",
+  "key_points": [
+    "The two-level threading model was promoted as a solution to SMP challenges but proved fundamentally flawed and was eventually eliminated from Solaris",
+    "Transactional memory advocates use fear-mongering about concurrency without providing data or evidence from actual systems experience",
+    "System software cannot use transactional memory because it interacts with external resources (I/O devices, kernels, firmware) that exist outside memory",
+    "CMP arose from the success of concurrent software, not the failure of hardware imagination",
+    "Solutions that claim simplicity but export complexity to programmers are doomed to fail"
+  ],
+  "money_quotes": [
+    "There also seemed to be no end of concurrency hucksters and shysters, each eager to peddle their own quack cure for the miasma.",
+    "The fact that an engineer could speak so honestly spoke volumes for both the engineer and the company.",
+    "No data, no qualifiers, no study, no rationale, no evidence of experience trying to develop such systems \u2013 just a naked assertion used as a prop for a complicated and dubious solution.",
+    "There remains a fatal flaw with transactional memory: much system software can never be in a transaction because it does not merely operate on memory.",
+    "For me at least, transactional memory is an unacceptable solution to a non-problem.",
+    "It was the success of concurrent software \u2013 and not the failure of imagination on the part of hardware designers \u2013 that gave rise to the early CMP implementations."
+  ],
+  "themes": [
+    "systems_software",
+    "tech_industry",
+    "career_reflections"
+  ],
+  "tone": "polemical, sardonic, experience-driven",
+  "key_insight": "Concurrency problems repeatedly attract snake-oil solutions that promise simplicity but deliver complexity, and practitioners should demand data and real-world evidence rather than accepting fear-based assertions about programming difficulty.",
+  "filename": "2008-11-03-concurrencys-shysters"
+}

@@ -1,0 +1,9 @@
+---
+title: "Ubuntu and DTrace break bread"
+date: 2005-08-11
+url: https://bcantrill.dtrace.org/2005/08/11/ubuntu-and-dtrace-break-bread/
+slug: ubuntu-and-dtrace-break-bread
+word_count: 184
+---
+
+# Ubuntu and DTrace break bread Ubuntu and DTrace break bread Aug 11, 2005 Today,Mike,Adamand I had lunch withJeff Waugh, who is in town for LinuxWorld. He showed us his, we showed him ours, and a great time was had by all. I think everyone agreed that a system withDebian packages,Ubuntu package management, theSolaris Service Management Facilityand (of course)DTracewould be onehellof a system. And withOpenSolaris, this paradise seems tantalizingly attainable – or doesoriginal sinprevent us from reenteringthe garden? Today, [Mike](http://blogs.sun.com/mws) Mike , [Adam](http://blogs.sun.com/ahl) Adam and I had lunch with [Jeff Waugh](http://www.gnome.org/~jdub/blog/) Jeff Waugh , who is in town for LinuxWorld. He showed us his, we showed him ours, and a great time was had by all. I think everyone agreed that a system with [Debian packages](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) Debian packages , [Ubuntu package management](http://gnomejournal.org/article/19/simplified-package-management-in-ubuntu-hoary) Ubuntu package management , the [Solaris Service Management Facility](http://www.sun.com/bigadmin/content/selfheal/smf-quickstart.html) Solaris Service Management Facility and (of course) [DTrace](http://opensolaris.org/os/community/dtrace/) DTrace would be one **hell** hell of a system. And with [OpenSolaris](http://opensolaris.org) OpenSolaris , this paradise seems tantalizingly attainable – or does [original sin](http://en.wikipedia.org/wiki/Original_sin) original sin prevent us from reentering [the garden](http://www.ibiblio.org/wm/paint/auth/bosch/delight/delightc.jpg) the garden ?

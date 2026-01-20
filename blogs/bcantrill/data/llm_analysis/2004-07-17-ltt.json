@@ -1,0 +1,22 @@
+{
+  "summary": "Cantrill responds to a Linux kernel mailing list post where Karim Yaghmour claimed that LTT and DProbes provide essentially the same capabilities as DTrace. Cantrill argues this claim is false, pointing out that DTrace has fundamental architectural features like aggregations and thread-local variables that LTT lacks entirely. He also acknowledges the valid frustration that valuable projects like LTT and LKCD have been denied entry into the Linux kernel for seemingly non-technical reasons.",
+  "key_points": [
+    "LTT and DProbes lack core DTrace features like aggregations and thread-local variables",
+    "These missing features are architectural, not mere syntactic sugar",
+    "Linux kernel governance has blocked valuable projects for seemingly petty reasons",
+    "A RedHat developer's independent comparison reached similar conclusions about DTrace's superiority"
+  ],
+  "money_quotes": [
+    "For all of its putative development speed, Linux has a surprising number of otherwise valuable projects that have been repeatedly denied entry for reasons that seem to be petty and non-technical.",
+    "This claim is false, and indicates that while Karim may have scanned The Register article, he didn't bother to browse even our USENIX paper \u2013 let alone our documentation.",
+    "Two among these are aggregations and thread-local variables \u2013 two features that are not syntactic sugar or bolted-on afterthoughts, but rather are core to the DTrace architecture.",
+    "These features turn out to be essential in using DTrace to quickly resolve problems."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "defensive, technical, pointed",
+  "key_insight": "Surface-level feature comparisons between tracing tools miss the fundamental architectural differences that make DTrace's aggregations and thread-local variables essential for real-world debugging.",
+  "filename": "2004-07-17-ltt"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Cantrill reviews the book 'Beautiful Code' (to which he contributed a chapter) and reflects on the varied definitions of beauty in software. He challenges the common admiration for recursive code elegance, arguing that recursion creates dangerous implicit dependencies on architecture, data models, and compilers that can lead to stack overflows. Using Rob Pike's globbing code as an example, he demonstrates how 'beautiful' recursive code can fail catastrophically on pathological input, with stack limits varying by an order of magnitude across platforms.",
+  "key_points": [
+    "The book's greatest strength and weakness is its varied definitions of beauty",
+    "Recursive code often needs to be unrolled when facing larger-than-expected data structures",
+    "Pike's elegant globbing code overflows the stack on pathological input",
+    "Stack overflow thresholds vary by 10x across architectures and compilers",
+    "Correctness should trump aesthetic elegance in production code"
+  ],
+  "money_quotes": [
+    "The book's greatest strength \u2013 and, frankly, its greatest weakness \u2013 is that the chapters are so incredibly varied.",
+    "If Oprah were a code cranking propeller head, this would be the ideal choice for her book club.",
+    "It leaves you with edge conditions that on the one hand really are edge conditions (deeply pathological input), but with a failure mode (a stack overflow) that's just too nasty to ignore.",
+    "For most aesthetic senses, none of these options is going to make the code more beautiful \u2013 but they will make it indisputably more correct.",
+    "While recursion is a beautiful technique, it is one that ends up with the ugliest of implicit dependencies: on the CPU architecture, on the data model and on the compiler.",
+    "While recursion is still beautiful to me personally, it will always be a beauty that is more superficial than profound."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source",
+    "career_reflections"
+  ],
+  "tone": "analytical",
+  "key_insight": "Elegant recursive code carries hidden dangers because its correctness depends on implicit platform-specific constraints like stack size, making such beauty more superficial than profound in production systems.",
+  "filename": "2007-07-11-beautiful-code"
+}

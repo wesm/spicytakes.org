@@ -1,0 +1,26 @@
+{
+  "summary": "Cantrill describes building Thoth, a dump management system built on Manta, to solve the problem of managing and analyzing crash dumps from distributed systems. He argues that core dumps are sacred artifacts that should never be deleted because future debugging may require asking new questions of old data. The post demonstrates how Manta's in-situ compute capabilities enable both interactive debugging and automated analysis of dumps at scale, turning what was previously a storage and logistics nightmare into an elegant big-data solution.",
+  "key_points": [
+    "Core dumps are invaluable debugging artifacts that are typically deleted too quickly due to storage constraints",
+    "Distributed systems like Manta generate avalanches of dumps that require automated triage to find novel issues",
+    "Manta's compute-near-storage model is ideal for dump analysis since dumps are large but require modest computation",
+    "Thoth enables sharing dumps for collaborative debugging without moving data or granting system access",
+    "Automated analyzers can correlate dumps with logs and other system state to quickly diagnose issues"
+  ],
+  "money_quotes": [
+    "I am a disaster porn addict.",
+    "To free up space in the virtual morgue, dumps from resolved issues are inevitably torched on a regular basis. This act strikes me as a kind of desecration; every dump \u2013 even one whose immediate failure is understood \u2013 is a sacred snapshot of a running system, and we can't know what questions we might have in the future that may be answerable by the past.",
+    "Transporting tens of gigs around becomes so painful that we simply don't do it \u2013 and the quality of software suffers.",
+    "The power of Manta is that you can get the server to do work for you!",
+    "Manta loves it quick and dirty!",
+    "As an engineer, it's always gratifying to build something that you yourself want to use."
+  ],
+  "themes": [
+    "systems_software",
+    "cloud_infrastructure",
+    "open_source"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Every crash dump is a sacred snapshot of system state that may answer questions we haven't yet thought to ask, and the right infrastructure can transform dump management from a storage burden into a powerful debugging and analysis platform.",
+  "filename": "2013-07-23-serving-up-disaster-porn-with-manta"
+}

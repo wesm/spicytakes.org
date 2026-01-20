@@ -1,0 +1,24 @@
+{
+  "summary": "Cantrill walks through a comprehensive DTrace demonstration, starting from basic probe listing and system call tracing, then progressively drilling down to identify why dhcpagent repeatedly opens its config file. The demo showcases DTrace's power to aggregate data in-situ rather than post-mortem, instrument running applications without modification, and trace execution flow seamlessly across user-kernel boundaries. The post serves as both a practical tutorial and a showcase of how DTrace enables asking and answering questions iteratively, like a good conversation.",
+  "key_points": [
+    "DTrace can instrument over 30,000 probes on a stock system, with the pid provider able to instrument every instruction in every running app",
+    "In-situ data aggregation is a fundamental DTrace innovation that avoids the probe effect of streaming raw data",
+    "The demo follows a conversational pattern where each answer provokes the next question",
+    "DTrace can trace execution flow across the user/kernel boundary in a single unified view",
+    "Instrumentation is dynamic - apps return to their optimized state when tracing stops"
+  ],
+  "money_quotes": [
+    "Indeed, the best demos are when someone in the audience shouts out their own question that they want to see answered: answering such a question instantly with DTrace nearly always blows away the questioner \u2013 who has presumably suffered in the past trying to answer similar questions.",
+    "In DTrace \u2013 as in good cocktail conversation \u2013 the answer to one question typically provokes the next question.",
+    "This is a serious problem, and the DTrace solution represents a substantial difference from virtually all earlier work in this domain: in DTrace, the aggregation of data is a first-class citizen. Instead of aggregating data postmortem with traditional Unix tools, DTrace allows data to be aggregated in situ.",
+    "At the risk of sounding too much like Ron Popeil, the above output is the clearest display of code flow across a protection boundary from any tool \u2013 research or otherwise.",
+    "Once it's fixed, I will sadly have to find some other sub-optimal software with which to demonstrate DTrace. The good news is that such software isn't terribly hard to find."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "instructional, enthusiastic, technically detailed with dry humor",
+  "key_insight": "The most powerful debugging tool is one that lets you ask questions iteratively and get answers immediately, turning system investigation into a conversation rather than a batch process.",
+  "filename": "2004-08-05-demoing-dtrace"
+}

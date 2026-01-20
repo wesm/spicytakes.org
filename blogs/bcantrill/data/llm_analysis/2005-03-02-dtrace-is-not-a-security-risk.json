@@ -1,0 +1,23 @@
+{
+  "summary": "Cantrill responds to concerns raised after a Chaos Computer Club presentation suggested DTrace could be a security risk. He explains that DTrace requires root privileges to use, meaning it can only be exploited on systems that have already been compromised\u2014at which point attackers have far more dangerous options available. The presentation actually focused on designing kernel modules that evade DTrace detection, which reveals that DTrace is more threatening to attackers than useful to them.",
+  "key_points": [
+    "DTrace requires root privileges and can only be used on already-compromised systems",
+    "Once a system is compromised, attackers have many more dangerous tools available than DTrace",
+    "The CCC presentation focused on evading DTrace, not exploiting it",
+    "DTrace's observability makes it a security asset, not a risk"
+  ],
+  "money_quotes": [
+    "The techniques described in the paper and in the presentation are only for use on a system that one has already compromised.",
+    "Of course, once a system is compromised, all bets are off.",
+    "Everything you can do with DTrace was in principle possible before DTrace \u2013 DTrace just happens to make it a little easier.",
+    "The fact that time and effort were spent on DTrace evasion is telling: as a tool designed to expose the inner workings of a production system, DTrace is much more feared by the Black Hats than it is useful to them.",
+    "Far from being a security risk, DTrace is very much a security asset."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "defensive, authoritative",
+  "key_insight": "Powerful observability tools like DTrace are more valuable for defenders detecting intrusions than for attackers who already have root access, as evidenced by malware authors' efforts to evade rather than exploit such tools.",
+  "filename": "2005-03-02-dtrace-is-not-a-security-risk"
+}

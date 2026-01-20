@@ -1,0 +1,25 @@
+{
+  "summary": "Cantrill announces the successful port of KVM (Linux's kernel virtual machine) to illumos/SmartOS, filling the missing hardware virtualization piece alongside existing technologies like OS virtualization, DTrace, and ZFS. The port was a grueling nine-month effort requiring a small team to untangle KVM's deep integration with Linux internals and either reimplement facilities or map them to illumos equivalents. The project progressed from executing just three instructions in March to booting multiple operating systems by May, with performance matching Linux KVM.",
+  "key_points": [
+    "KVM port to illumos fills the hardware virtualization gap in the SmartOS stack",
+    "The port required untangling KVM's deep Linux kernel integration with no clean abstractions",
+    "Progress milestones: 3 instructions in March, booting multiple OSes by May, production-ready by August",
+    "Custom tooling (mdb dmod, 16-bit disassembler, DTrace VMCS support) was essential for debugging",
+    "Performance validated to be on par with Linux KVM"
+  ],
+  "money_quotes": [
+    "There is no level of the software stack that should be considered off-limits to innovation.",
+    "This notion is almost an oxymoron, as KVM is not 'portable' in any traditional sense: it interfaces between QEMU, Linux and the hardware with (rightful) disregard for other systems.",
+    "To the uninitiated, this might sound pathetic \u2013 but it meant that a tremendous amount of software and hardware were working properly.",
+    "On April 18th, we finally broke through into daylight: we were able to boot into KMDB running on a SmartOS guest!",
+    "As engineers, we all endeavor to build useful things, and with KVM on illumos, we can assert with absolute confidence that we've hit that mark!"
+  ],
+  "themes": [
+    "systems_software",
+    "open_source",
+    "cloud_infrastructure"
+  ],
+  "tone": "triumphant",
+  "key_insight": "Porting deeply Linux-integrated software like KVM to another operating system requires not just coding skill but strategic tooling development and the willingness to tackle seemingly impossible scope through persistent, incremental progress.",
+  "filename": "2011-08-15-kvm-on-illumos"
+}

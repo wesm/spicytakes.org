@@ -1,0 +1,24 @@
+{
+  "summary": "Cantrill demonstrates how DTrace can be used to diagnose GNOME desktop startup performance issues by tracing I/O operations and CPU sampling during login. His analysis reveals that GConf's XML backend accounts for over a quarter of all I/O, shared object loading causes a 'death of a thousand cuts,' and symlink resolution alone may cost a full second of startup time. The post serves as both a practical debugging tutorial and an advertisement for DTrace's capabilities in understanding complex system behavior.",
+  "key_points": [
+    "GConf's XML backend causes over 25% of all I/O during GNOME startup",
+    "Shared object text and read-only data loading accounts for nearly a third of I/O",
+    "Symlink chasing during startup (nearly 80 symlinks) may add a full second of blocked I/O time",
+    "CPU utilization is dwarfed by I/O costs as the main performance bottleneck",
+    "Icon file loading is another significant I/O contributor, addressed in GTK+ 2.6"
+  ],
+  "money_quotes": [
+    "This is classic death-of-a-thousand-cuts, and it's hard to see that there's an easy way to fix this.",
+    "Over a quarter of all I/O is from GConf \u2013 and many of these are from wandering around an expansive directory hierarchy looking for configuration information.",
+    "CPU utilization doesn't look like a big issue \u2013 or it's one that is at least dwarfed by the cost of performing I/O.",
+    "We might be spending as much as one second of GNOME startup blocked on I/O just to chase symlinks! Ouch!",
+    "Having an app link to libpango-1.0.so.0 and not libpango-1.0.so.400.1 is clearly a Good Thing, and having this be a symlink instead of a hardlink is clearly a Good Thing \u2013 but all of that goodness leaves you with a read dependency that's hard to work around."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "analytical",
+  "key_insight": "DTrace's ability to trace I/O and CPU activity system-wide reveals that GNOME startup slowness stems primarily from scattered filesystem reads rather than CPU usage, with GConf and symlink resolution being major culprits.",
+  "filename": "2005-07-11-using-dtrace-to-understand-gnome"
+}

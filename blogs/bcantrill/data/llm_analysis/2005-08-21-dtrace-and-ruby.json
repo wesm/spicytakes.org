@@ -1,0 +1,24 @@
+{
+  "summary": "Cantrill announces a prototype DTrace provider for Ruby developed by Rich Lowe, demonstrating its power through increasingly sophisticated D scripts that trace method calls, object initialization, and call hierarchies. Using Ruby's calendar script as an example, he shows how DTrace can reveal performance issues like the surprisingly complex implementation of Date#+() which induces dozens of method calls due to rational number usage. The post argues that while Ruby has existing profiling tools via set_trace_func, DTrace offers fundamentally superior capabilities for understanding application behavior.",
+  "key_points": [
+    "Rich Lowe has created a prototype Ruby DTrace provider with function-entry and function-return probes",
+    "DTrace can trace Ruby method calls, showing class, method, file, and line number information",
+    "The calendar example reveals Date#+() is surprisingly expensive, inducing 52+ method calls per invocation",
+    "DTrace advantages over Ruby's set_trace_func include aggregations, thread-local variables, and cross-stack visibility",
+    "Running Ruby scripts can be instrumented without stopping or restarting them"
+  ],
+  "money_quotes": [
+    "That's a lot of work for something that should be pretty simple! Indeed, it's counterintuitive that, say, Integer#gcd() would be called from Date#+() \u2013 and it certainly seems suboptimal.",
+    "The Ruby DTrace provider is nonetheless a great lurch forward for Ruby developers: it allows developers to use DTrace-specific constructs like aggregations and thread-local variables to hone in on a problem.",
+    "It allows Ruby-related work performed lower in the stack (e.g., in the I/O subsystem, CPU dispatcher or network stack) to be connected to the Ruby code inducing it.",
+    "It allows a running Ruby script to be instrumented (and reinstrumented) without stopping or restarting it; and it allows multiple, disjoint Ruby scripts to be coherently observed and understood as a single entity.",
+    "More succinctly, it's just damned cool."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "enthusiastic, technical, tutorial",
+  "key_insight": "DTrace's ability to dynamically instrument running applications and connect high-level language behavior to low-level system activity represents a quantum leap beyond traditional profiling tools.",
+  "filename": "2005-08-21-dtrace-and-ruby"
+}

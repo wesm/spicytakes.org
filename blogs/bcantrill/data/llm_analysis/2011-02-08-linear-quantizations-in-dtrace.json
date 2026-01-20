@@ -1,0 +1,22 @@
+{
+  "summary": "The post introduces llquantize(), a new DTrace aggregating function that solves the problem of choosing appropriate granularity when measuring system latency. Traditional approaches force a choice between fine-grained linear quantization (which generates too much data) or coarse logarithmic quantization (which loses detail). The new log/linear quantization combines both approaches, aggregating logarithmically by order of magnitude while maintaining linear resolution within each magnitude, providing efficient data collection across multiple time scales.",
+  "key_points": [
+    "Traditional DTrace aggregation forces choosing between microsecond and millisecond resolution, which doesn't work when operations span multiple orders of magnitude",
+    "The previous workaround of using five separate linear aggregations was acknowledged as 'wholly dissatisfying'",
+    "llquantize() logarithmically aggregates by order of magnitude but linearly within each magnitude",
+    "The solution prioritizes system efficiency while maintaining useful resolution across all latency ranges"
+  ],
+  "money_quotes": [
+    "Indeed, the problem is that one often does not know what order of magnitude of resolution is interesting for a particular operation until one has a feel for the data for the specific operation \u2013 one needs to instrument the system to best know how to instrument the system!",
+    "If one makes the wrong choice as the resolution of aggregation, one either ends up clogging the system with unnecessarily fine-grained data, or discarding valuable information in overly coarse-grained data.",
+    "The result is not necessarily easy on the eye (and indeed, it seems unlikely that llquantize() will find much use on the command line), but is easy on the system: it generates data that has the resolution of linearly quantized data with the efficiency of logarithmically quantized data.",
+    "Of course, you needn't appreciate the root system here to savor the fruit."
+  ],
+  "themes": [
+    "systems_software",
+    "cloud_infrastructure"
+  ],
+  "tone": "technical, explanatory, pragmatic",
+  "key_insight": "Effective system instrumentation requires adaptive granularity that spans multiple orders of magnitude, because you often need to observe the data before knowing what resolution will be meaningful.",
+  "filename": "2011-02-08-linear-quantizations-in-dtrace"
+}

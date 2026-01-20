@@ -1,0 +1,25 @@
+{
+  "summary": "Cantrill announces the first partial open-sourcing of Solaris through the release of DTrace source code, providing a detailed technical tour of the codebase layout and highlighting interesting implementation details. He walks through the directory structure (usr/src/cmd, usr/src/lib, usr/src/uts) and explains key libraries like libdtrace, libctf, and libproc. The post showcases several fascinating code snippets that demonstrate the complexity of systems programming, including circular list detection, compiler optimization workarounds, and SPARC register window manipulation.",
+  "key_points": [
+    "DTrace source code released as the first component of OpenSolaris, marking an important milestone in operating systems history",
+    "The codebase follows traditional Unix layout with Bell Labs roots, organized into commands, libraries, and kernel code (uts = Unix Time-Sharing System)",
+    "DTrace skirts the halting problem by not allowing backwards branches in DIF, requiring special techniques like circular list detection for untrusted data structures",
+    "Implementation comments are deliberately placed in public header files following the Unix philosophy that system implementation should be described in publicly available headers",
+    "Source readability is a core value - questions about unclear code will result in both answers and improved comments"
+  ],
+  "money_quotes": [
+    "I view OpenSolaris as an important milestone in the history of operating systems \u2013 doubly so because it is Solaris 10 that we are open sourcing, an operating system that I believe to be an important historical milestone in its own right.",
+    "You may recognize this little trick as the answer to a stupid interview question -- one that always seems to be asked by those who had to have it laboriously explained to them, and who can't even concisely describe the conditions under which one would be forced to resort to this technique.",
+    "As you browse the DTrace source, you may well find yourself asking 'does it need to be this complicated?' The short answer is, in most cases, 'regrettably yes.'",
+    "The moral of the story is this: don't assume that someone asking you a question is an idiot \u2013 especially if the question is about the intricacies of SPARC DCTI couples.",
+    "We did this because we believe in the Unix idea that the system implementation should be described as much as possible in its publicly available header files."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source",
+    "career_reflections"
+  ],
+  "tone": "enthusiastic and technically detailed, with characteristic Cantrill wit and self-deprecating humor",
+  "key_insight": "Opening source code is not just about transparency but about inviting others into the intellectual journey of understanding why complex systems software necessarily becomes complicated.",
+  "filename": "2005-01-25-solaris-10-revealed"
+}

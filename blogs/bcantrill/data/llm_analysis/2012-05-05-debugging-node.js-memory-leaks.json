@@ -1,0 +1,25 @@
+{
+  "summary": "Cantrill describes developing a new tool called ::findjsobjects for debugging Node.js memory leaks in production environments. The existing state-of-the-art tools were oriented toward development, not production, leaving engineers to essentially guess at leaks through code review. By iterating over all anonymous memory in core dumps and looking for V8 objects based on their internal consistency requirements, Joyent created a brute-force but effective approach that helped Voxer identify and fix a critical buffer leak that shipped in node 0.6.17.",
+  "key_points": [
+    "JavaScript closures create implicit references that can cause memory leaks not obvious to programmers",
+    "Node.js's asynchronous nature adds memory pressure: gains in concurrency may be paid for in memory from intermediate state",
+    "Production memory leaks are nearly impossible to reproduce in development, making existing developer-oriented tools inadequate",
+    "The ::findjsobjects tool works postmortem on core dumps with no code modifications required",
+    "The brute-force approach of scanning all memory for consistent V8 object structures proved surprisingly effective"
+  ],
+  "money_quotes": [
+    "While garbage collection simplifies the program's relationship with memory, it not mean the end of all memory-based pathologies.",
+    "What one gains in concurrency of operations one may pay for in memory.",
+    "Virtually anyone who has stood up node.js in production will identify memory leaks as their most significant open issue.",
+    "For node.js leaks in production, one has been left with essentially a Gedanken experiment: consider your load and peruse source code looking for a leak.",
+    "Given how diabolical these leaks can be, it's amazing to me that anyone ever finds these leaks.",
+    "MDB is the debugger Unix was meant to have."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "technical, problem-solving, triumphant",
+  "key_insight": "Production debugging requires fundamentally different tools than development debugging, and sometimes a brute-force approach that seems inelegant can illuminate problems that sophisticated but development-oriented tools cannot reach.",
+  "filename": "2012-05-05-debugging-node.js-memory-leaks"
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "Cantrill announces that DTrace can now be used with Ruby on Rails in production thanks to 'is-enabled probes' that achieve near-zero disabled probe effect (0.2% vs the previous 2X overhead). He demonstrates this with DTrace scripts that profile Rails applications, showing system calls, Ruby method invocations, and MySQL queries per request. The post positions this as an important capability for Solaris as Rails becomes a significant growth area.",
+  "key_points": [
+    "Is-enabled probes allow DTrace Ruby provider to have essentially zero disabled probe effect (0.2%)",
+    "Zero disabled probe effect is critical for production deployment of observability tools",
+    "DTrace can now trace the full stack: system calls, Ruby methods, and database queries in Rails apps",
+    "Ruby on Rails is identified as a hugely important growth area for Solaris"
+  ],
+  "money_quotes": [
+    "This provider represents a quantum leap for Ruby observability, but it suffers from the fact that we must do work (in particular, we must get the class and method) even when disabled.",
+    "This is undesirable (especially considering that the effect can be quite significant \u2013 up to 2X), and it runs against the DTrace ethos of zero disabled probe effect, but there has been no better solution.",
+    "Having zero disabled probe effect allows us to deploy DTrace on Ruby in production \u2013 which in turn opens up a whole new domain for DTrace: Ruby on Rails.",
+    "While this gives us lots of questions we might want to answer (e.g., 'why the hell are we doing 340 stats on every 'effing request!')"
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "technical, enthusiastic",
+  "key_insight": "Production-safe observability requires zero disabled probe effect\u2014you can't instrument what you can't afford to leave running.",
+  "filename": "2006-05-01-dtrace-on-rails"
+}

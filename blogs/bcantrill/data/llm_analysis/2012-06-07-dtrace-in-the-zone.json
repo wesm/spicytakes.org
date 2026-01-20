@@ -1,0 +1,25 @@
+{
+  "summary": "Cantrill describes the technical work required to make DTrace fully functional within non-global Solaris zones at Joyent. The original zones implementation only focused on global zone instrumentation, leaving users unable to run common DTrace scripts in their virtualized environments. Through careful analysis of kernel data structures and privilege models, the team implemented changes to allow access to key variables like curpsinfo, curlwpsinfo, and fds[] without compromising the security model of zones.",
+  "key_points": [
+    "DTrace was initially designed for global zone use only, leaving non-global zone users with limited functionality",
+    "Common D variables like curpsinfo and fds[] required kernel access that was blocked for security reasons",
+    "The solution involved careful analysis of which kernel structures could be safely exposed without privilege escalation risk",
+    "Memory retiring techniques allowed safe access to file descriptor tables even during concurrent operations",
+    "Production data from Joyent's cloud showed closef() was called thousands of times per second, requiring careful performance optimization"
+  ],
+  "money_quotes": [
+    "Whenever I type in a script from Brendan's book, it doesn't work.",
+    "I'm deployed on SmartOS because I want to be able to use DTrace, but you won't let me have it!",
+    "Historically in my career as a software engineer, this kind of question would be answered with a combination of ass scratching and hand waving.",
+    "One of my favorite things about working at Joyent is that we don't have to guess when we have a question like this: we can just fire up DTrace on every node in the public cloud for a couple of seconds and get the actual data from (many) actual production machines.",
+    "One of the reasons I love illumos is because of this heritage: compare the block comment above the Seventh Edition implementation of getf() to that above getf() currently in illumos \u2013 yes, we still have comments written by Ken!"
+  ],
+  "themes": [
+    "systems_software",
+    "cloud_infrastructure",
+    "open_source"
+  ],
+  "tone": "technical, enthusiastic, self-deprecating",
+  "key_insight": "Making powerful debugging tools accessible in virtualized environments requires deep understanding of kernel internals and security models, but production data and heritage codebases provide invaluable guidance for solving these problems correctly.",
+  "filename": "2012-06-07-dtrace-in-the-zone"
+}

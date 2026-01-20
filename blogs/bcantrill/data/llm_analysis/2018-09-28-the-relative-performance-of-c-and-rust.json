@@ -1,0 +1,25 @@
+{
+  "summary": "Cantrill investigates why his Rust implementation of statemap outperformed his C implementation, diving deep into CPU performance counters and data structure analysis. He discovers that Rust's BTreeSet (B-tree) is more cache-efficient than C's AVL tree for modern memory hierarchies, and explores performance anomalies caused by HashMap load factors. The post demonstrates rigorous systems benchmarking methodology while concluding that Rust's design philosophy of 'powerful abstractions without sacrificing performance' enables optimized data structures that would be impractical to implement in C.",
+  "key_points": [
+    "Rust version executed similar instruction count but with 28% fewer CPU cycles due to better cache behavior (96.9% vs 77.9% L1 hit rate)",
+    "Rust's BTreeSet is designed for modern memory hierarchies where cache misses are expensive, making B-trees sensible for in-memory use",
+    "Performance spikes in Rust were traced to HashMap load factor causing probing overhead near resize thresholds",
+    "C's intrusive data structures sidestep allocation/locking but make cache-optimized structures like B-trees impractical to implement",
+    "Rust's ownership model encourages orthogonal data structures that can be broadly used and carefully optimized"
+  ],
+  "money_quotes": [
+    "System benchmarking is one of those areas where \u2013 in Jonathan Swift's words from three centuries ago \u2013 'falsehood flies, and the truth comes limping after it.'",
+    "I think that it is a reasonable assumption that, for any task, a lower-level language can always be made to outperform a higher-level one. But with that said, a pesky fact remains: I reimplemented a body of C software in Rust, and it performed better for the same task.",
+    "This is definitely a domain where an ounce of data is worth much more than a pound of hypotheses!",
+    "Rust really, really wants you to have complete orthogonality of purpose in your software.",
+    "All of this adds up to the existential win of Rust: powerful abstractions without sacrificing performance.",
+    "Does this mean that Rust will always outperform C? No, of course not. But it does mean that you shouldn't be surprised when it does."
+  ],
+  "themes": [
+    "systems_software",
+    "open_source"
+  ],
+  "tone": "analytical",
+  "key_insight": "Rust's design philosophy enforces separation of concerns and clear ownership trees, enabling highly optimized standard library data structures that would be impractical to implement as intrusive data structures in C.",
+  "filename": "2018-09-28-the-relative-performance-of-c-and-rust"
+}

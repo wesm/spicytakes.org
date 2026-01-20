@@ -1,0 +1,23 @@
+{
+  "summary": "Cantrill recounts the harrowing final 24 hours before DTrace integrated into Solaris on September 3, 2003, when the team discovered a critical boot failure on legacy UltraSPARC-I hardware. Through systematic debugging, they traced the problem not to their architectural changes but to an accidental exclusion of a critical I/O line when folding old tracing code under a DEBUG-only define. The post celebrates DTrace's fifth birthday by sharing previously unpublished historical documents, including the original 1999 presentation and the integration announcement email.",
+  "key_points": [
+    "DTrace took nearly two years to develop and pushed all three engineers to their absolute limits",
+    "The boot failure was traced to a cosmetic change that accidentally made critical I/O code DEBUG-only",
+    "The DEBUG variant working while non-DEBUG failed was the key clue to solving the mystery",
+    "Core DTrace concepts like production instrumentation and zero disabled probe effect existed from 1999, but the D language came later"
+  ],
+  "money_quotes": [
+    "DTrace was a project that extended all three of us to our absolute limit as software engineers \u2013 and the 24 hours before integration was then (and remains now) the most harrowing of my career.",
+    "This is an awful failure mode because with no debugger and no fatal error, one has no place to start other than to start adding print statements \u2013 or start ripping out the code that is the difference between the working system and the busted one.",
+    "This was an incredibly important discovery: while we had a bevy of architectural changes that could conceivably be invalid on an ancient CPU, we had no such HBA-specific changes \u2013 this was more likely to be something marring the surface of our work rather than cracking its foundation.",
+    "We hadn't seen this until now because these drivers were only used on ancient machines \u2013 machines on which we had never tested non-DEBUG.",
+    "We fixed the problem, and all of our machines booted DEBUG and non-DEBUG \u2013 and we felt like we were breathing again for the first time in the more than six hours that we had been working on the problem."
+  ],
+  "themes": [
+    "systems_software",
+    "career_reflections"
+  ],
+  "tone": "nostalgic, visceral, celebratory",
+  "key_insight": "Even the most carefully architected systems software can be derailed by seemingly cosmetic changes, and systematic debugging under extreme pressure requires both methodical elimination and the humility to question your assumptions about where the real problem lies.",
+  "filename": "2008-09-03-happy-5th-birthday-dtrace"
+}

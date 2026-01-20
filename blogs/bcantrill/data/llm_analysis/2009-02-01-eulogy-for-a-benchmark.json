@@ -1,0 +1,26 @@
+{
+  "summary": "Cantrill argues that SPEC SFS, the dominant NAS benchmark, has become completely divorced from reality and actively harms customers by rewarding the wrong engineering decisions. The benchmark's ancient workload mix (based on 1986 data), arbitrary scaling rules that eliminate caching benefits, and lack of price disclosure combine to encourage vendors to build absurdly expensive, short-stroked disk configurations instead of innovative caching architectures. Rather than measuring useful performance, SPEC SFS has devolved into a dragster race where vendors compete on absolute performance at any cost, concealing economic insanity from customers.",
+  "key_points": [
+    "SPEC SFS workload is based on data from 1986 and hasn't meaningfully changed, ignoring the massive growth in client-side DRAM caching",
+    "The scaling rule that ties working set size to operations per second eliminates the benefits of intelligent caching architectures",
+    "Vendors short-stroke thousands of 15K RPM drives to win benchmarks, creating configurations no sane customer would buy",
+    "The lack of price disclosure conceals that benchmarked configurations cost $384/GB - 8X more expensive than DRAM",
+    "SPEC SFS 2008 made everything worse with a 40X increase in working set size, ensuring flash can't compete with disk farms"
+  ],
+  "money_quotes": [
+    "SPEC SFS has decayed to the point that it is serving the opposite ends: by rewarding the wrong engineering decisions, punishing the right ones and eliminating price from the discussion, SPEC SFS has actually led to lower performing, more expensive systems!",
+    "Short-stroking 224 15K RPM drives is the equivalent of fueling a dragster with nitromethane \u2013 it is top performance at a price so high as to be useless off the dragstrip.",
+    "The decision to both increase the scaling rule and increase the working set ratio is so terrible that incompetence becomes indistinguishable from malice.",
+    "I recently interviewed a prospective engineer who was not yet born when this data was gathered \u2013 and I've always thought it wise to be wary of data older than oneself.",
+    "This embodies the essence of the failings of SPEC SFS: the (mis)design of the benchmark demands economic insanity \u2013 but the lack of pricing disclosure conceals that insanity from the casual observer.",
+    "We have, after all, designed our systems to be run, not just to be sold."
+  ],
+  "themes": [
+    "systems_software",
+    "tech_industry",
+    "hardware"
+  ],
+  "tone": "critical, analytical, sardonic",
+  "key_insight": "Benchmarks without price disclosure create perverse incentives where vendors optimize for meaningless metrics at absurd costs, ultimately harming the customers they claim to serve.",
+  "filename": "2009-02-01-eulogy-for-a-benchmark"
+}
