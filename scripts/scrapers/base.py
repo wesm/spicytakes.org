@@ -93,6 +93,11 @@ class BaseScraper(ABC):
         existing = self.load_existing_index()
         return {p.get("slug", "") for p in existing.get("posts", [])}
 
+    def get_existing_filenames(self) -> set[str]:
+        """Get set of already-scraped post filenames (more reliable than slugs)."""
+        existing = self.load_existing_index()
+        return {p.get("filename", "") for p in existing.get("posts", [])}
+
     def run(self):
         """Main entry point - scrape and save all posts."""
         print(f"Scraper for {self.config['name']}")

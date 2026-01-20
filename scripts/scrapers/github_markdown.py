@@ -26,7 +26,13 @@ class GitHubMarkdownScraper(BaseScraper):
         if self.config["scraper"]["type"] != "github_markdown":
             raise ValueError(f"Blog {blog_id} is not configured as a github_markdown blog")
 
-        self.local_path = Path(self.config["scraper"]["localPath"])
+        # Allow env var override for localPath (e.g., ARMIN_LOCAL_PATH for armin blog)
+        env_var = f"{blog_id.upper()}_LOCAL_PATH"
+        local_path_str = os.environ.get(env_var) or self.config["scraper"].get("localPath")
+        if not local_path_str:
+            raise ValueError(f"localPath not set in config and {env_var} not set")
+
+        self.local_path = Path(local_path_str).expanduser()
         self.posts_path = self.config["scraper"].get("postsPath", "posts")
 
         # Validate local path exists
@@ -124,7 +130,7 @@ class GitHubMarkdownScraper(BaseScraper):
         print(f"Found {len(year_dirs)} year directories")
         print(f"Source: {self.source_dir}")
 
-        existing_slugs = self.get_existing_slugs()
+        existing_filenames = self.get_existing_filenames()
         posts = []
         existing = self.load_existing_index()
         all_posts = existing.get("posts", [])
@@ -139,13 +145,13 @@ class GitHubMarkdownScraper(BaseScraper):
                 if not post:
                     continue
 
-                # Check if already scraped
-                if post["slug"] in existing_slugs:
-                    continue
-
-                # Create filename from date and slug
+                # Create filename from date and slug (includes year, so unique)
                 date_prefix = post["date"][:10]
                 filename = f"{date_prefix}-{post['slug']}.md"
+
+                # Check if already scraped using filename (not slug) to handle same slug in different years
+                if filename in existing_filenames:
+                    continue
 
                 print(f"[{year}] {post['slug']}")
 

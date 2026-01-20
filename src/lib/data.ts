@@ -166,11 +166,11 @@ export const quotesByYear: Record<number, Quote[]> = quotes.reduce((acc, quote) 
 export const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
 
 // Stats
-const minYear = Math.min(...years);
-const maxYear = Math.max(...years);
+const minYear = years.length > 0 ? Math.min(...years) : new Date().getFullYear();
+const maxYear = years.length > 0 ? Math.max(...years) : new Date().getFullYear();
 export const stats = {
   totalPosts: posts.length,
   totalQuotes: quotes.length,
-  yearRange: minYear === maxYear ? `${minYear}` : `${minYear}-${maxYear}`,
+  yearRange: years.length === 0 ? '' : (minYear === maxYear ? `${minYear}` : `${minYear}-${maxYear}`),
   hasSpiciness: Object.keys(spicyLookup).length > 0
 };
