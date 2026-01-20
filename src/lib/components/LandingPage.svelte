@@ -81,6 +81,7 @@
         </a>
       {/each}
     </div>
+    <p class="text-center text-stone-400 mt-8 text-sm italic">More to be added in the future...</p>
   </section>
 
   <!-- How it works -->
