@@ -39,6 +39,8 @@
     <!-- Top bar -->
     <div class="flex items-center justify-between py-4">
       <div class="flex items-center gap-3">
+        <a href="https://spicytakes.org" class="text-xl font-bold tracking-tight text-red-500 hover:text-red-600 transition-colors">🌶️ Spicy Takes</a>
+        <span class="text-stone-300">|</span>
         <h1 class="text-xl font-bold tracking-tight text-stone-900">{config?.name}</h1>
         <span class="hidden sm:inline text-stone-400 font-medium">{config?.tagline}</span>
         <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline text-blue-600 hover:text-blue-700 text-sm font-medium">

@@ -40,7 +40,9 @@
     </main>
     <footer class="border-t border-stone-200 py-8 text-center text-sm text-stone-500">
       <p>Exploring {$statsStore.totalPosts} posts from <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{config?.sourceLabel}</a></p>
-      <p class="mt-1 text-stone-400">Built with LLM-powered analysis</p>
+      <p class="mt-2 text-stone-400">
+        Made with <span class="text-red-500">❤️</span> by <a href="https://wesmckinney.com" target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-red-500 transition-colors">Wes McKinney</a>
+      </p>
     </footer>
   </div>
   <Modal />
