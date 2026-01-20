@@ -8,8 +8,6 @@ import os
 import re
 import sys
 import time
-from datetime import datetime
-from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
@@ -50,25 +48,31 @@ class StaticHtmlScraper(BaseScraper):
     def get_post_urls_danluu(self, soup: BeautifulSoup) -> list[dict]:
         """
         Extract public post URLs from danluu.com index page.
-        Stops at the Patreon divider (hr#pt element).
+        Stops at the Patreon divider (hr#pt element or text marker).
         Returns list of {url, date_str, title} dicts.
         """
         posts = []
 
-        # Find all list items, but stop when we hit the hr#pt divider
+        # Find all list items, stopping when we hit the Patreon section
         # The structure is: <li>...</li>... ↑ Public posts <hr id=pt> ↓Patreon posts
         for li in soup.find_all("li"):
-            # Check if this li comes after the hr#pt element
-            # by seeing if hr#pt is a previous sibling
-            hr_divider = soup.find("hr", id="pt")
-            if hr_divider:
-                # Check if this li comes after the divider in document order
-                li_position = str(soup).find(str(li))
-                hr_position = str(soup).find(str(hr_divider))
-                if li_position > hr_position:
-                    if len(posts) > 0:
-                        print(f"  Found Patreon section, stopping. Got {len(posts)} public posts.")
-                    break
+            # DOM-aware check: if this li has hr#pt as a previous sibling, we're in Patreon section
+            if li.find_previous("hr", id="pt") is not None:
+                if len(posts) > 0:
+                    print(f"  Found Patreon section (hr#pt), stopping. Got {len(posts)} public posts.")
+                break
+
+            # Fallback: check for text markers if hr#pt is missing
+            li_text = li.get_text()
+            if "↓Patreon" in li_text or "Patreon posts" in li_text:
+                # Skip this item but don't break yet - it might be a navigation link
+                link = li.find("a")
+                if link and link.get("href") == "#pt":
+                    continue
+                # If it's actual Patreon content, stop
+                if len(posts) > 0:
+                    print(f"  Found Patreon section (text marker), stopping. Got {len(posts)} public posts.")
+                break
 
             # Find link in this li
             link = li.find("a")

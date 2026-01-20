@@ -5,26 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		%sveltekit.head%
-		<script>
-			// Global error handler to help debug iOS issues
-			window.onerror = function(msg, url, line, col, error) {
-				document.body.innerHTML = '<div style="padding:20px;font-family:monospace;white-space:pre-wrap;">' +
-					'<h1>Error:</h1>' +
-					'<p>' + msg + '</p>' +
-					'<p>URL: ' + url + '</p>' +
-					'<p>Line: ' + line + ', Col: ' + col + '</p>' +
-					'<p>Stack: ' + (error && error.stack ? error.stack : 'N/A') + '</p>' +
-					'</div>';
-				return false;
-			};
-			window.onunhandledrejection = function(e) {
-				document.body.innerHTML = '<div style="padding:20px;font-family:monospace;white-space:pre-wrap;">' +
-					'<h1>Unhandled Promise Rejection:</h1>' +
-					'<p>' + (e.reason ? (e.reason.message || e.reason) : 'Unknown') + '</p>' +
-					'<p>Stack: ' + (e.reason && e.reason.stack ? e.reason.stack : 'N/A') + '</p>' +
-					'</div>';
-			};
-		</script>
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
