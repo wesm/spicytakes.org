@@ -1,9 +1,16 @@
 #!/bin/bash
-# LLM-powered analysis of blog posts using codex exec
+# LLM-powered analysis of blog posts
 # Processes posts in parallel to extract summaries and money quotes
 #
 # Usage: BLOG_ID=benn ./scripts/llm_analyze.sh
 # Single post: BLOG_ID=armin POST_FILE=blogs/armin/posts/2024-02-04-rye-a-vision.md ./scripts/llm_analyze.sh
+#
+# Environment variables:
+#   BLOG_ID: required - which blog to process
+#   LLM_BACKEND: "codex" (default) or "claude"
+#   POST_FILE: optional - process single post only
+#   FORCE: set to 1 to reprocess already-analyzed posts
+#   PARALLEL_JOBS: number of parallel jobs (default 5)
 
 set -e
 
@@ -122,8 +129,8 @@ analyze_post() {
     local tmpfile=$(mktemp)
     local prompt=$(build_prompt "$content")
 
-    codex exec --skip-git-repo-check --sandbox read-only -c reasoning_effort=medium \
-        -o "$tmpfile" - >/dev/null 2>&1 <<< "$prompt"
+    # Use llm_call.sh for backend abstraction (codex or claude)
+    echo "$prompt" | "$SCRIPT_DIR/llm_call.sh" "$tmpfile" 2>/dev/null || true
 
     if [[ -f "$tmpfile" && -s "$tmpfile" ]]; then
         # Extract JSON from the response using robust parsing
@@ -197,7 +204,7 @@ else:
         rm -f "$tmpfile"
         echo "  Done: $filename"
     else
-        echo "{\"filename\": \"$filename\", \"error\": \"codex_failed\"}" > "$output_file"
+        echo "{\"filename\": \"$filename\", \"error\": \"llm_failed\"}" > "$output_file"
         rm -f "$tmpfile"
         echo "  Failed: $filename"
     fi
@@ -214,10 +221,14 @@ export MAX_WORDS
 export NUM_QUOTES
 export FORCE
 export POST_FILE
+export SCRIPT_DIR
+export LLM_BACKEND
 
-echo "=== $AUTHOR_NAME Post Analysis with Codex ==="
+LLM_BACKEND="${LLM_BACKEND:-codex}"
+echo "=== $AUTHOR_NAME Post Analysis with ${LLM_BACKEND} ==="
 echo "Posts directory: $POSTS_DIR"
 echo "Output directory: $OUTPUT_DIR"
+echo "LLM backend: $LLM_BACKEND"
 echo "Summary length: $SUMMARY_LENGTH"
 echo "Detailed breakdown: $DETAILED_BREAKDOWN"
 echo "Max words: $MAX_WORDS"

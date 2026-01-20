@@ -1,38 +1,21 @@
 <script lang="ts">
   import { isLandingMode } from '$lib/config';
   import LandingPage from '$lib/components/LandingPage.svelte';
-
-  // Only import blog-specific modules in blog mode
-  let activeView: any;
-  let filteredPosts: any;
-  let filteredQuotes: any;
-  let stats: any = { yearRange: '' };
-  let TimelineView: any;
-  let QuotesView: any;
-  let ThemesView: any;
-
-  if (!isLandingMode) {
-    import('$lib/stores').then(m => {
-      activeView = m.activeView;
-      filteredPosts = m.filteredPosts;
-      filteredQuotes = m.filteredQuotes;
-    });
-    import('$lib/data').then(m => {
-      stats = m.stats;
-    });
-    import('$lib/components/TimelineView.svelte').then(m => { TimelineView = m.default; });
-    import('$lib/components/QuotesView.svelte').then(m => { QuotesView = m.default; });
-    import('$lib/components/ThemesView.svelte').then(m => { ThemesView = m.default; });
-  }
+  // Static imports for blog mode - these are tree-shaken in landing builds
+  import { activeView, filteredPosts, filteredQuotes } from '$lib/stores';
+  import { stats } from '$lib/data';
+  import TimelineView from '$lib/components/TimelineView.svelte';
+  import QuotesView from '$lib/components/QuotesView.svelte';
+  import ThemesView from '$lib/components/ThemesView.svelte';
 
   function setView(view: 'timeline' | 'quotes' | 'themes') {
-    activeView?.set(view);
+    activeView.set(view);
   }
 </script>
 
 {#if isLandingMode}
   <LandingPage />
-{:else if activeView && filteredPosts && filteredQuotes && TimelineView && QuotesView && ThemesView}
+{:else}
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- View toggle and stats -->
     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -68,15 +51,11 @@
 
     <!-- Active view -->
     {#if $activeView === 'timeline'}
-      <svelte:component this={TimelineView} />
+      <TimelineView />
     {:else if $activeView === 'quotes'}
-      <svelte:component this={QuotesView} />
+      <QuotesView />
     {:else if $activeView === 'themes'}
-      <svelte:component this={ThemesView} />
+      <ThemesView />
     {/if}
-  </div>
-{:else}
-  <div class="flex items-center justify-center min-h-[50vh]">
-    <div class="text-stone-400">Loading...</div>
   </div>
 {/if}

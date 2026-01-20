@@ -1,8 +1,12 @@
 #!/bin/bash
-# Grade quotes on "spiciness" (1-10) using codex exec
+# Grade quotes on "spiciness" (1-10) using LLM
 # Scores how provocative, sardonic, or biting each quote is
 #
 # Usage: BLOG_ID=benn ./scripts/grade_spiciness.sh
+#
+# Environment variables:
+#   BLOG_ID: required - which blog to process
+#   LLM_BACKEND: "codex" (default) or "claude"
 
 set -e
 
@@ -32,6 +36,13 @@ SPICY_CONTEXT=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['
 
 export AUTHOR_NAME
 export SPICY_CONTEXT
+export LLM_BACKEND="${LLM_BACKEND:-codex}"
+export LLM_CALL_SCRIPT="$SCRIPT_DIR/llm_call.sh"
+
+echo "=== Grading Spiciness with ${LLM_BACKEND} ==="
+echo "Blog: $BLOG_ID"
+echo "LLM backend: $LLM_BACKEND"
+echo ""
 
 # Read all quotes and process them
 python3 <<'PYEOF'
@@ -45,6 +56,7 @@ DATA_DIR = Path(os.environ.get('DATA_DIR', 'data'))
 OUTPUT_FILE = Path(os.environ.get('OUTPUT_FILE', 'data/spicy_quotes.json'))
 AUTHOR_NAME = os.environ.get('AUTHOR_NAME', 'Author')
 SPICY_CONTEXT = os.environ.get('SPICY_CONTEXT', '')
+LLM_CALL_SCRIPT = os.environ.get('LLM_CALL_SCRIPT', 'scripts/llm_call.sh')
 
 # Load existing quotes
 llm_quotes_file = DATA_DIR / 'llm_quotes.json'
@@ -141,17 +153,13 @@ Example for {len(batch)} quotes: {json.dumps(list(range(5, 5 + len(batch))))}
 
 JSON array of scores:"""
 
-    # Call codex
+    # Call LLM via llm_call.sh helper
     result_file = tempfile.mktemp(suffix='.txt')
 
     try:
         result = subprocess.run([
-            'codex', 'exec',
-            '--skip-git-repo-check',
-            '--sandbox', 'read-only',
-            '-c', 'reasoning_effort=medium',
-            '-o', result_file,
-            '-'
+            LLM_CALL_SCRIPT,
+            result_file
         ], input=prompt, capture_output=True, text=True, timeout=180)
 
         with open(result_file) as f:

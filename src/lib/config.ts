@@ -42,10 +42,16 @@ export const THEME_ICONS: Record<string, string> = config?.themes
 // Helper to get source URL for a post
 // For transcripts, pass the post object to get video_url if available
 // Returns empty string if transcript has no video_url (caller should hide link)
+// Returns empty string if called in landing mode (no blog config)
 export function getSourceUrl(filename: string, post?: { video_url?: string; content_type?: string }): string {
   // For transcripts, use video_url or return empty (no public URL for transcripts)
   if (post?.content_type === 'transcript') {
     return post.video_url || '';
+  }
+
+  // Guard against null config (landing mode)
+  if (!config) {
+    return '';
   }
 
   if (config.scraper.type === 'substack') {

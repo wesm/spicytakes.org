@@ -1,47 +1,41 @@
 import type { Post, Quote, ThemeData } from './types';
 import { THEME_LABELS, THEME_ICONS, blogId } from './config';
 
-// Import all blog data statically (Vite requires this for production builds)
+// Static imports for all blog data
+// Vite will include only the ones needed based on blogId at build time
 import bennQuotes from '../../blogs/benn/data/llm_quotes.json';
-// Armin's data will be imported once generated
-let arminQuotes: any = { posts: [] };
-try {
-  arminQuotes = await import('../../blogs/armin/data/llm_quotes.json').then(m => m.default || m);
-} catch {
-  // Armin's data not yet generated
-}
-// Wesm's data
-let wesmQuotes: any = { posts: [] };
-try {
-  wesmQuotes = await import('../../blogs/wesm/data/llm_quotes.json').then(m => m.default || m);
-} catch {
-  // Wesm's data not yet generated
-}
+import bennSpicy from '../../blogs/benn/data/spicy_quotes.json';
 
-// Select data based on blogId
-const allBlogData: Record<string, any> = {
-  benn: bennQuotes,
-  armin: arminQuotes,
-  wesm: wesmQuotes,
-};
-const rawData = allBlogData[blogId] || allBlogData.benn;
+// For blogs without data yet, provide empty defaults
+// These will be tree-shaken if not used
+const emptyQuotes = { posts: [] };
+const emptySpicy = { quotes: [] };
 
-// Import spicy quotes for selected blog
-let spicyData: any = null;
-try {
-  if (blogId === 'benn') {
-    const module = await import('../../blogs/benn/data/spicy_quotes.json');
-    spicyData = module.default || module;
-  } else if (blogId === 'armin') {
-    const module = await import('../../blogs/armin/data/spicy_quotes.json');
-    spicyData = module.default || module;
-  } else if (blogId === 'wesm') {
-    const module = await import('../../blogs/wesm/data/spicy_quotes.json');
-    spicyData = module.default || module;
+// Select data based on blogId (determined at build time via VITE_BLOG_ID)
+function getQuotesData() {
+  switch (blogId) {
+    case 'benn':
+      return bennQuotes;
+    case 'armin':
+    case 'wesm':
+    default:
+      return emptyQuotes;
   }
-} catch {
-  // Spicy quotes not yet generated
 }
+
+function getSpicyData() {
+  switch (blogId) {
+    case 'benn':
+      return bennSpicy;
+    case 'armin':
+    case 'wesm':
+    default:
+      return emptySpicy;
+  }
+}
+
+const rawData = getQuotesData();
+const spicyData = getSpicyData();
 
 function parseDate(filename: string): Date {
   const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);

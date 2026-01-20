@@ -3,14 +3,9 @@
   import Header from '$lib/components/Header.svelte';
   import Modal from '$lib/components/Modal.svelte';
   import { config, isLandingMode, landing } from '$lib/config';
+  import { stats } from '$lib/data';
 
   let { children } = $props();
-
-  // Only import stats in blog mode (not landing)
-  let stats = $state({ totalPosts: 0 });
-  if (!isLandingMode) {
-    import('$lib/data').then(m => { stats = m.stats; });
-  }
 
   const title = isLandingMode ? `${landing.title} - ${landing.tagline}` : `${config?.name} - ${config?.tagline}`;
   const description = isLandingMode ? landing.description : config?.description;

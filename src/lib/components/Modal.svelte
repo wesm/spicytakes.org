@@ -24,6 +24,7 @@
 <svelte:window on:keydown={handleKeydown} />
 
 {#if $selectedPost}
+  {@const sourceUrl = getSourceUrl($selectedPost.filename, $selectedPost)}
   <div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
     <!-- Backdrop -->
     <button
@@ -52,15 +53,15 @@
             <span class="font-medium uppercase tracking-wide">
               {formatDate($selectedPost.date)}
             </span>
-            {#if getSourceUrl($selectedPost.filename, $selectedPost)}
+            {#if sourceUrl}
               <span>·</span>
               <a
-                href={getSourceUrl($selectedPost.filename, $selectedPost)}
+                href={sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
               >
-                {$selectedPost.content_type === 'transcript' ? 'Watch/Listen' : `Read on ${config.sourceLabel}`} ↗
+                {$selectedPost.content_type === 'transcript' ? 'Watch/Listen' : `Read on ${config?.sourceLabel ?? 'source'}`} ↗
               </a>
             {/if}
           </div>

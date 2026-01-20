@@ -1,6 +1,5 @@
 <script lang="ts">
   import { landing } from '$lib/config';
-  import type { BlogCard } from '$lib/types';
 
   // Pepper emoji for brand
   const pepper = '🌶️';
@@ -34,7 +33,7 @@
               src={blog.photo}
               alt={blog.name}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              onerror={(e) => { e.currentTarget.style.display = 'none'; }}
+              onerror={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
             />
             <!-- Fallback gradient if no photo -->
             <div class="absolute inset-0 bg-gradient-to-br from-red-400 to-orange-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
