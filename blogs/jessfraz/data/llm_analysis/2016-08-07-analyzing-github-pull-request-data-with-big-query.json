@@ -1,0 +1,23 @@
+{
+  "summary": "Jess Frazelle uses BigQuery to analyze GitHub Archive data, examining pull request statistics across popular repositories in 2015. She calculates merge ratios for top projects by unique contributors, finding that Docker had a 75.79% merge rate. The analysis culminates in comparing the average size of merged vs. closed pull requests to test the hypothesis that smaller PRs are more likely to be merged.",
+  "key_points": [
+    "Top repositories by PR count include openmicroscopy/snoopys-sandbox, liferay-portal, and Homebrew",
+    "Many popular repos (like Apache Spark and Homebrew) show 0 merged PRs because they don't use GitHub's merge functionality",
+    "Docker/docker had 5,250 closed PRs with 882 unique authors and a 75.79% merge ratio",
+    "Merged PRs consistently have smaller diffs than closed PRs across most repositories",
+    "For Docker specifically, merged PRs averaged 176 additions vs 334 for closed PRs"
+  ],
+  "money_quotes": [
+    "Which got me wondering about my favorite subject ever, The Art of Closing.",
+    "Oh that is super weird. After looking into a few of the repos with 0 merged, it seems they aren't really using GitHub for merges.",
+    "We *know* that it is always better to make a small pull request to have it merged. Let's see if we can prove that with data!",
+    "IT IS PROVEN!!!"
+  ],
+  "themes": [
+    "open_source",
+    "infrastructure"
+  ],
+  "tone": "analytical",
+  "key_insight": "Data from GitHub's top repositories confirms the conventional wisdom that smaller pull requests are significantly more likely to be merged than larger ones.",
+  "filename": "2016-08-07-analyzing-github-pull-request-data-with-big-query"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Jess Frazelle explains how she manages Docker's testing infrastructure of ~50 servers as a part-time responsibility while working as a core maintainer. The infrastructure tests Docker across 6 storage drivers, multiple Linux distros, various kernel versions, and Windows clients, processing hundreds of builds weekly. By running everything in Docker containers\u2014Jenkins, Consul, IRC bots, webhook services\u2014and using tools like Consul for monitoring, the system essentially runs itself, allowing her to focus on her primary engineering work.",
+  "key_points": [
+    "Docker's tests run in Docker containers across 6 storage drivers (aufs, btrfs, devmapper, overlay, vfs, zfs)",
+    "Every push to master triggers builds on 8+ servers; every PR triggers 3 builds on different servers",
+    "Consul running in containers on all 50 servers enables tracking kernel versions, storage drivers, and distros to identify bugs",
+    "Custom tooling (leeroy, gordonbot, docker-bb, nsqexec) all runs containerized to manage builds and deployments",
+    "Dogfooding Docker RC builds and master binaries catches bugs before releases"
+  ],
+  "money_quotes": [
+    "This blog post is going to be about how I manage ~50 servers but don't do anything at all.",
+    "I would honestly be lost without consul.",
+    "We were able to fix kernel bugs that were specific to those versions related to networking before an RC was even cut.",
+    "The greatest thing about all these services, which I so subtly mentioned, running in containers is that we can always be dogfooding and testing Docker.",
+    "All this is so seamless and runs so well that I have time to do my actual job of being a Docker core maintainer, occasionally fix some servers, spin up new servers if we add storage drivers, upgrade servers' kernels, and write this blog post."
+  ],
+  "themes": [
+    "containers",
+    "infrastructure",
+    "open_source"
+  ],
+  "tone": "practical",
+  "key_insight": "Running your entire testing infrastructure in the same technology you're building creates a virtuous cycle where dogfooding catches bugs early while automation keeps operational overhead minimal.",
+  "filename": "2015-06-06-dogfooding-docker-to-test-docker"
+}

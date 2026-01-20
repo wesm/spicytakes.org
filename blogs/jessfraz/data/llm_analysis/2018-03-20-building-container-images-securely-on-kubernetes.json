@@ -1,0 +1,29 @@
+{
+  "summary": "Jess Frazelle documents her journey to create 'img', an unprivileged container image builder for Kubernetes, after a challenge from a coworker who claimed it couldn't be done. She builds on prior art from Docker colleagues and the buildkit project, then systematically works through the technical obstacles of running unprivileged builds inside containers\u2014requiring patches to runc, Docker, and Kubernetes itself. The post demonstrates how achieving seemingly simple goals in the container ecosystem often requires deep yak-shaving across multiple layers of the stack.",
+  "key_points": [
+    "Created 'img' as an unprivileged container image builder by building on buildkit and prior Docker work",
+    "Unprivileged container builds require subuid/subgid maps, setgroups, and unprivileged mounting from inside user namespaces",
+    "Docker's default proc masking prevents mounting proc inside containers, requiring a new 'rawProc' option",
+    "The solution required patches across runc, Docker, and Kubernetes to work end-to-end",
+    "Security relies on user isolation, seccomp profiles, and masked/readonly proc in nested containers",
+    "For untrusted builds from the internet, VM-based isolation (like Intel Clear Containers) is recommended"
+  ],
+  "money_quotes": [
+    "Bullshit, if it was easy someone would have done it already. I've wanted this for years. Please pass the ranch dressing.",
+    "I didn't want to reinvent the world I just wanted to make it unprivileged and a single binary with a simple user interface that could easily be switched out with docker.",
+    "Not all of my ideas are good. I first started on a FUSE snapshotter. Turns out FUSE kinda sucks\u2026",
+    "This is much better than the current situation where people are mounting the docker socket into containers and everything is running as root.",
+    "If you are running a cluster inside your organization, it's unlikely someone is going waste a kernel 0day popping your cluster from within your org.",
+    "And that ends the most epic yak shave ever, minus the patches all being merged upstream."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux",
+    "infrastructure",
+    "open_source"
+  ],
+  "tone": "technical, irreverent, narrative",
+  "key_insight": "Building unprivileged container images in Kubernetes is achievable but requires coordinated patches across multiple layers of the container stack\u2014from runc to Docker to Kubernetes\u2014demonstrating how deeply intertwined these systems have become.",
+  "filename": "2018-03-20-building-container-images-securely-on-kubernetes"
+}

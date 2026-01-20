@@ -1,0 +1,25 @@
+{
+  "summary": "Jess Frazelle demonstrates an unconventional use of Docker: running desktop applications in containers on Linux. Motivated by the desire for OS X-style application sandboxing and clean uninstalls, she shows how to containerize everything from text-based apps (IRC, email, Twitter clients) to full GUI applications (Chrome, Spotify, Skype, Tor Browser) by mounting the X11 socket. This approach provides resource control (CPU/memory limits), application isolation, and the satisfaction of knowing deleted apps leave no traces behind.",
+  "key_points": [
+    "Docker can run GUI applications by mounting the X11 socket rather than using SSH X11 forwarding",
+    "Containerizing desktop apps provides resource control - you can limit CPU and memory usage",
+    "This approach ensures clean uninstalls with no leftover files scattered across the system",
+    "The technique works for everything from simple TUI apps to complex GUI apps requiring sound and video"
+  ],
+  "money_quotes": [
+    "I use Docker to run all the desktop apps on my computers.",
+    "I hate installing things on my host and the files getting everywhere. I wanted the ability to delete an app and know it is gone fully without some random file hanging around.",
+    "Yes, the cpu/memory hungry chrome is now perfectly contained!",
+    "Because why should you ever have to install ssh into a container? EWWW UNNECESSARY BLOAT!",
+    "The images work by mounting the X11 socket into the container! Yippeeeee!"
+  ],
+  "themes": [
+    "containers",
+    "linux",
+    "security",
+    "open_source"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Docker containers aren't just for production deployments\u2014they can sandbox desktop applications, giving you resource control and clean isolation that traditional package managers can't provide.",
+  "filename": "2015-02-21-docker-containers-on-the-desktop"
+}

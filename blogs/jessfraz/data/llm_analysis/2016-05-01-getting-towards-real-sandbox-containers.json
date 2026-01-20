@@ -1,0 +1,25 @@
+{
+  "summary": "The post argues that while containers and sandboxes use the same Linux primitives (namespaces, seccomp, AppArmor), containers aren't true sandboxes primarily because they require root privileges to create and run. By leveraging user namespaces, it's possible to create containers as an unprivileged user, though cgroups remain a challenge. The author presents binctr as a proof of concept and advocates for evolving containers toward real sandbox isolation.",
+  "key_points": [
+    "Containers and sandboxes share the same Linux primitives but differ in privilege requirements",
+    "Cgroups control what a process can use, namespaces control what it can see",
+    "User namespaces enable unprivileged container creation with specific uid/gid mapping constraints",
+    "Generic containers are too universal to provide true sandbox-level security",
+    "The scientific community has strong interest in unprivileged containers due to restrictions on running as root"
+  ],
+  "money_quotes": [
+    "One of the key differences between how you run Chrome and how you run a container are the privileges used. Chrome runs as your own unprivileged user. Most containers (be it docker, runc, or rkt) run as root.",
+    "Cgroups control what a process can use. Whereas namespaces control what a process can see.",
+    "A generic container will never be equivalent to a sandbox because it's too universal to really lock down the application.",
+    "Containers are not going to be the answer to preventing your application from being compromised, but they can limit the damage from a compromise.",
+    "If we ignore, for the time being, this huge tire fire that is creating cgroups as an unprivileged user, then unprivileged containers are easy."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux"
+  ],
+  "tone": "analytical",
+  "key_insight": "True container sandboxing requires running without root privileges, which user namespaces can enable, but the real security value comes from application-specific profiles rather than generic container configurations.",
+  "filename": "2016-05-01-getting-towards-real-sandbox-containers"
+}

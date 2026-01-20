@@ -1,0 +1,25 @@
+{
+  "summary": "Jess Frazelle describes building an automated internal infrastructure system at Oxide Computer Company that consolidates data from various external services (Google Forms, GitHub, etc.) into a single database with an API layer on top. The system evolved from 'bash, popsicle sticks, glue, and some rust' into a cleaner Rust-based architecture that provides resilience against API rate limits and service downtime. The infrastructure handles everything from applicant tracking to RFD (Request for Discussion) document management, with Airtable serving as a visual frontend for the data.",
+  "key_points": [
+    "Built a centralized database to cache data from external services, protecting against rate limits and downtime",
+    "Automated applicant tracking including document parsing, email notifications, and GitHub issue creation for onboarding",
+    "RFD content stored in database enables easy searching and sharing with external collaborators",
+    "API server acts as read-only middle-man between database and internal tools/users",
+    "Airtable used as visual frontend with automatic syncing from the database"
+  ],
+  "money_quotes": [
+    "I joke so much that I automated our CIO that I even named the repo holding the code\u2026cio.",
+    "Previously, our infrastructure was held together with bash, popsicle sticks, glue, and some rust. Now, it is mostly rust and a much more sane architecture to grok.",
+    "We also get the freedom of caching all our data in a database that we own so we can access it even when services are down.",
+    "At this point, I can't imagine working at a company without an internal API for querying everything from Google groups, to applicants, to mailing list subscribers, to RFDs, and more.",
+    "All in all, this was pretty fun to build, refactor, build, and refactor again."
+  ],
+  "themes": [
+    "infrastructure",
+    "open_source",
+    "tech_industry"
+  ],
+  "tone": "practical",
+  "key_insight": "Owning your company's operational data in a centralized database with an API layer provides resilience, searchability, and the flexibility to build custom tooling on top of external services.",
+  "filename": "2020-09-08-the-automated-cio"
+}

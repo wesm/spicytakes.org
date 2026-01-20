@@ -1,0 +1,9 @@
+---
+title: "This Industry is Fucked"
+date: 2015-07-05
+url: https://blog.jessfraz.com/post/this-industry-is-fucked/
+slug: this-industry-is-fucked
+word_count: 295
+---
+
+# This Industry is Fucked This Industry is Fucked Sunday, July 5, 2015 · 1 min read My least favorite topic in the world is ‘Women in Tech’, so I am going to make this short but I think it’s something that needs to be said. My least favorite topic in the world is ‘Women in Tech’, so I am going to make this short but I think it’s something that needs to be said. This industry is fucked. This industry is fucked. Ever since I started speaking at conferences and contributing to open source projects I have been endlessly harassed. I’ve gotten hundreds of private messages on IRC and emails about sex, rape, and death threats. People emailing me saying they jerked off to my conference talk video (you’re welcome btw) is mild in comparison to sending photoshopped pictures of me covered in blood. Ever since I started speaking at conferences and contributing to open source projects I have been endlessly harassed. I’ve gotten hundreds of private messages on IRC and emails about sex, rape, and death threats. People emailing me saying they jerked off to my conference talk video (you’re welcome btw) is mild in comparison to sending photoshopped pictures of me covered in blood. I wish I could do my job, something I very obviously love doing, without any of this bullshit. However that seems impossible at this point. I wish I could do my job, something I very obviously love doing, without any of this bullshit. However that seems impossible at this point. But I’m not leaving and I’m not going to stop being me. So this is me saying ‘Fuck You.’ But I’m not leaving and I’m not going to stop being me. So this is me saying ‘Fuck You.’

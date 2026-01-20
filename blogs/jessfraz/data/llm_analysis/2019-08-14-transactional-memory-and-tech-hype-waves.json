@@ -1,0 +1,26 @@
+{
+  "summary": "Frazelle uses transactional memory (specifically Intel's TSX) as a case study of how tech hype can lead to flawed implementations. She explains how transactional memory trades deadlocks for livelocks and creates security vulnerabilities that enabled attacks like DrK to break KASLR without generating page faults. The post traces how the transactional memory hype originated in academia around 2008, was implemented by Intel in 2012 despite practitioner warnings, and reflects on how hype propagation channels have evolved from academic journals to social media.",
+  "key_points": [
+    "Transactional memory eliminates deadlocks but introduces livelocks instead",
+    "Intel's TSX implementation aborts transactions without informing the OS, creating security blind spots",
+    "The DrK attack exploited TSX to break KASLR without generating any page faults",
+    "Practitioners like Bryan Cantrill warned against transactional memory in 2008, but Intel shipped TSX anyway in 2012",
+    "Hype channels have shifted from academic conferences and journals to social networks where everyone has a voice"
+  ],
+  "money_quotes": [
+    "Transactional memory removes the possibility of getting a deadlock and replaces it with what is known as a livelock.",
+    "Intel's implementation of TSX behaves in such a way that when a transaction aborts due to a hardware exception, it does not fire typical exceptions. Instead, it invokes a user-specified abort handler without informing the underlying OS. This seems like it might lead to some really bad behavior\u2026 we should probably know wtf is going on in our system at any given point in time.",
+    "Some practitioners, Bryan Cantrill and Jeff Bonwick, wrote rebuttles in the name of 'please dear god do not make transactional memory A Thing'.",
+    "Hype cycles come and go and if you spend anytime in our industry you tend to become pretty numb to them. Seeing through the hype has always been a joy of mine.",
+    "Hype seems to travel through the unconscious need of people to connect to others. Being a part of movements, like open source projects and a shared sense of need, allows people to be a part of something bigger than just themselves.",
+    "The way technology can spread has turned from a place where very few people have a voice (through getting papers accepted at conferences and in journals) to social networks where everyone has a voice."
+  ],
+  "themes": [
+    "security",
+    "hardware",
+    "tech_industry"
+  ],
+  "tone": "analytical",
+  "key_insight": "Tech hype that originates in academia and ignores practitioner warnings can lead to flawed implementations with real security consequences, as demonstrated by Intel's TSX enabling side-channel attacks that practitioners predicted would be problematic.",
+  "filename": "2019-08-14-transactional-memory-and-tech-hype-waves"
+}

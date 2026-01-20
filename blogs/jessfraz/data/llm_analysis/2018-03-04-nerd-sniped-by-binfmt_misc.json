@@ -1,0 +1,24 @@
+{
+  "summary": "Jess Frazelle takes a Cloudflare blog post about using BINFMT_MISC to script in Go and extends it to run any language through containers. She combines her binctr project (which embeds container images into static binaries) with BINFMT_MISC to execute Common Lisp scripts in isolated containers without installing anything on the host. The result is a proof-of-concept where any script can be 'dot slashed' and run in its own container environment.",
+  "key_points": [
+    "BINFMT_MISC lets you register custom binary formats in the Linux kernel",
+    "The binctr project embeds entire container images into static executables",
+    "Combining these allows running any language's scripts in containers without host installation",
+    "This approach provides isolation without needing a container daemon or root privileges"
+  ],
+  "money_quotes": [
+    "Right, so I want to do this with *all* languages\u2026 but what I also hate is installing shit on my host. Ew, we have containers for those silly things.",
+    "It creates fully static, unprivileged, self-contained, containers as executable binaries.",
+    "So you get containers without a daemon or privileges and without even having the image for the rootfs of the container. You just need this one binary.",
+    "Imagine if an entire OS had all the languages packaged this way so that everything could be 'dot slashed' and executed but without actually installing the language to your host operating system.",
+    "Well I could do this with *any language* and I'm a bit insane haven't you noticed\u2026"
+  ],
+  "themes": [
+    "containers",
+    "linux",
+    "open_source"
+  ],
+  "tone": "playful, technical, irreverent",
+  "key_insight": "By combining kernel-level binary format registration with self-contained container binaries, you can create a system where any programming language can be executed as a script without polluting your host with dependencies.",
+  "filename": "2018-03-04-nerd-sniped-by-binfmt_misc"
+}

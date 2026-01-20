@@ -1,0 +1,26 @@
+{
+  "summary": "This tutorial walks through the complete process of installing Debian Linux on a MacBook Pro Retina, covering boot manager setup with rEFInd, disk partitioning, building a custom 3.17.x kernel for thunderbolt hotplugging support, and configuring drivers for wifi, graphics, and touchpad. Frazelle documents the numerous pain points and workarounds required, from dealing with EFI boot quirks to fixing CD-ROM mount errors during installation. The post reflects her frustration with macOS and her determination to run Linux as her primary OS, even sharing her custom kernel configs and shell scripts for backlight control.",
+  "key_points": [
+    "rEFInd is the preferred boot manager over rEFIt for dual-booting",
+    "Kernel 3.17.x is required for thunderbolt hotplugging on Mac hardware",
+    "Building custom kernels is necessary for full hardware support",
+    "ext4 with overlay storage driver is recommended for Docker users",
+    "Most Mac hardware works on Linux except iSight camera and screen brightness"
+  ],
+  "money_quotes": [
+    "I really hope you didn't just copy, paste, and run a command on your host without knowing anything about the author.",
+    "I was so fed up with OSX and the fact I never used it, I nuked it entirely.",
+    "Obviously my favorite is Debian Jessie, so I will go into detail how to make a USB boot drive for that, but you can substitute out whatever sub-par distro you choose.",
+    "Do you understand now why rEFInd is the hardest part? It's like iptables, change one thing and everything comes crashing down.",
+    "Login as root, yes I know you just created an actual user in the installation steps but ROOT ACCESS OR DEATH.",
+    "The retina resolution is absolutely stunning, it's seriously hard for me to switch to my Thinkpad which has 32GB of memory (so I should want to switch)."
+  ],
+  "themes": [
+    "linux",
+    "hardware",
+    "infrastructure"
+  ],
+  "tone": "irreverent",
+  "key_insight": "Running Linux on Mac hardware requires significant effort including custom kernel builds and driver configuration, but the result\u2014especially thunderbolt hotplugging and retina display support\u2014makes it worthwhile for those committed to escaping macOS.",
+  "filename": "2014-11-27-linux-on-mac"
+}

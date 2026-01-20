@@ -1,0 +1,24 @@
+{
+  "summary": "Jess Frazelle presents a satirical 'BuzzFeed-style' listicle of her favorite linker flags, combining genuine technical utility with irreverent humor. The post covers flags for static linking, symbol management, debugging, and stripping binaries. While playfully mocking clickbait formats, it actually provides useful reference material for developers working with the linker.",
+  "key_points": [
+    "Static linking (-static) is presented as the most important flag for creating self-contained binaries",
+    "Flags like --export-dynamic and --whole-archive enable advanced techniques like dlopen'ing yourself",
+    "Symbol stripping flags help reduce binary size for constrained environments",
+    "The -nostdlib flag provides escape from corrupted library paths"
+  ],
+  "money_quotes": [
+    "I would be an embarassment to myself if I didn't start with the flag that tells the linker to not link against shared libraries. This is the best flag. STATIC BINARIES FTW.",
+    "But with this flag, you tell it 'YOLO, I want it all' so that later you can dlopen yourself with that symbol that was never actually used until runtime. FUN!",
+    "If say you are a few KB/MB off from your binary fitting on a floppy disk, this flag is your friend.",
+    "This is nice when *someone* completely messes with your library path and the world is burning and you just want to link to those things you put in some random directory somewhere.",
+    "This flag is helpful when telling the linker you DGAF about unresolved symbols and to stop yelling at you."
+  ],
+  "themes": [
+    "linux",
+    "infrastructure",
+    "open_source"
+  ],
+  "tone": "satirical",
+  "key_insight": "Static binaries and understanding linker flags give developers precise control over their build artifacts, enabling everything from minimal deployments to advanced runtime tricks like self-dlopen.",
+  "filename": "2016-07-18-top-10-favorite-ldflags"
+}

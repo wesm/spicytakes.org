@@ -1,0 +1,27 @@
+{
+  "summary": "Frazelle applies Conway's Law to the software stack and identifies a critical problem: insufficient communication between hardware, firmware, kernel, and application layers leads to dangerous security assumptions. She provides examples from hardware engineers who never intended chips for multi-tenant isolation (leading to Spectre/Meltdown), firmware complexity that frustrates kernel developers, and Kubernetes being misused for multi-tenant isolation despite not being designed for it. The post questions how the industry can solve this fundamental disconnect between stack layers.",
+  "key_points": [
+    "Hardware was never designed for multi-tenant isolation, which is the fundamental premise of cloud computing",
+    "Firmware complexity from CPU vendors creates bugs that kernel developers cannot debug or control",
+    "Kubernetes security features are often 'window dressing' that can be bypassed with deeper stack knowledge",
+    "The industry lacks mechanisms to promote communication between different layers of the software stack"
+  ],
+  "money_quotes": [
+    "All of the hardware engineers either laugh or are horrified and the resounding reaction is 'you'd be crazy to think hardware was ever intended to be used for isolating multiple users safely.'",
+    "Speculative execution was a feature intended to make processors faster but was never thought about in terms of the vector of hacking something running multi-tenant compute, like a cloud provider.",
+    "All the complexity in the firmware leads to overlooked bugs and odd behavior that can't be controlled or debugged from the kernel developers layer and/or user space.",
+    "I was horrified to find people are running multi-tenant kubernetes clusters with multiple customers processes, aka for isolating untrusted processes.",
+    "They are people thinking an interface or feature is secure when it is merely a window dressing that can be bypassed with just a bit more knowledge about the stack.",
+    "Or is the answer simply, own all the layers of the stack yourself?"
+  ],
+  "themes": [
+    "security",
+    "infrastructure",
+    "hardware",
+    "containers",
+    "tech_industry"
+  ],
+  "tone": "analytical",
+  "key_insight": "The entire cloud computing industry is built on dangerous assumptions because different layers of the stack\u2014from hardware to orchestration\u2014were designed in isolation without understanding how they would be composed for multi-tenant security.",
+  "filename": "2019-03-25-thoughts-on-conways-law-and-the-software-stack"
+}

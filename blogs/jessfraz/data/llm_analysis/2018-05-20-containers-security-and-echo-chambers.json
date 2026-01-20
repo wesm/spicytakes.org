@@ -1,0 +1,28 @@
+{
+  "summary": "Frazelle pushes back against marketing claims that existing container security mechanisms are inadequate, pointing out that she personally implemented Docker's default Seccomp and Apparmor profiles which provide multiple overlapping layers of protection. She argues that gvisor's marketing dismisses this work while spreading FUD, and that large organizations suffer from 'not invented here' syndrome combined with echo chambers that prevent them from recognizing external contributions. The post defends the extensive testing and thoughtful defaults built into container runtimes while questioning whether gvisor actually provides better security given its operational complexity and larger syscall surface.",
+  "key_points": [
+    "Container security relies on multiple overlapping layers: Seccomp, Apparmor, namespaces, cgroups, capabilities, and unprivileged users",
+    "The mount syscall alone is blocked by three separate security mechanisms demonstrating defense in depth",
+    "Default security profiles were exhaustively tested against every Dockerfile on GitHub before release",
+    "Large organizations suffer from 'not invented here' syndrome and echo chambers that dismiss external security work",
+    "gvisor's user-space syscall reimplementation adds operational burden and may actually use more syscalls than standard containers"
+  ],
+  "money_quotes": [
+    "Greetings. Reporting for duty. Literally I am the person who can do that. I was the person who did do that.",
+    "To be truly secure you need more than one layer of security so that when there is a vulnerability in one layer, the attacker also needs a vulnerability in another layer to bypass the isolation mechanism.",
+    "The tech never sells itself. It's all about marketing.",
+    "When you work at a large organization you are surrounded by an echo chamber. So if everyone in the org is saying 'containers are not secure,' you are bound to believe it and not research actual facts.",
+    "Spreading FUD while ignorant or not doing proper research is harmful to the facts and hard work many people put in to making containers at least decently isolated by default.",
+    "I truly believe that people choosing projects to use should research into them and not just choose something shiny that came out of Big Corp."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux",
+    "tech_industry",
+    "open_source"
+  ],
+  "tone": "critical, frustrated, authoritative",
+  "key_insight": "Marketing hype from large organizations often dismisses existing security work without proper research, creating echo chambers that spread FUD rather than building on the defense-in-depth mechanisms already implemented in container runtimes.",
+  "filename": "2018-05-20-containers-security-and-echo-chambers"
+}

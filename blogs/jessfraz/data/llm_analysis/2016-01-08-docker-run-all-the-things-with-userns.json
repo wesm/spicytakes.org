@@ -1,0 +1,24 @@
+{
+  "summary": "Jess Frazelle demonstrates how to run desktop applications and Docker-in-Docker using Docker's new user namespace support coming in version 1.10. She walks through practical examples including Chrome, the notify-osd daemon with irssi IRC client integration, and explains how to achieve Docker-in-Docker without the --privileged flag by carefully selecting only the necessary capabilities (CAP_SYS_ADMIN and CAP_NET_ADMIN) and adjusting seccomp/apparmor profiles.",
+  "key_points": [
+    "User namespace support moved from Docker Experimental to stable in version 1.10.0",
+    "Running Chrome in a container with user namespaces only requires adding --group-add video and --group-add audio",
+    "Desktop notification daemons can be containerized and shared with other containers via volume sharing",
+    "Docker-in-Docker without --privileged is possible by using only CAP_SYS_ADMIN and CAP_NET_ADMIN capabilities",
+    "The --privileged flag can be replaced with more granular security controls"
+  ],
+  "money_quotes": [
+    "Now I have always run my notifications daemon in a container, because that stuff is nasty to install, so many dependencies, ewwww.",
+    "What is --privileged actually doing? Well for starters it's allowing all capabilites, but\u2026 do we really need them all? The answer is no.. all we really need is CAP_SYS_ADMIN and CAP_NET_ADMIN.",
+    "Makes sense right.. we obviously want to be a member of those groups to watch Taylor Swift music videos.",
+    "When running the docker daemon with user namespace support, you cannot use docker run flags like --privileged, --net host, --pid host, etc. These are for pretty obvious reasons so I'm not going to get into it, if you want to know more RTFM."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux"
+  ],
+  "tone": "practical",
+  "key_insight": "The --privileged flag is a sledgehammer when you usually only need a scalpel\u2014understanding which specific Linux capabilities you actually need enables more secure container configurations.",
+  "filename": "2016-01-08-docker-run-all-the-things-with-userns"
+}

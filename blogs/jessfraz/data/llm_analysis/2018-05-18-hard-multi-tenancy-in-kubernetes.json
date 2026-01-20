@@ -1,0 +1,28 @@
+{
+  "summary": "Jess Frazelle argues that achieving hard multi-tenancy in Kubernetes requires more than one layer of security, drawing parallels to how operating system kernels handle privilege separation. She proposes applying 'intra-kernel isolation' to Kubernetes, where each namespace gets its own nested Kubernetes system services (api-server, kube-proxy, etc.), so that exploiting one tenant's services doesn't compromise the entire cluster. The post outlines how combining namespace isolation with node-level resource control\u2014or alternatively using VM-based container isolation\u2014can provide defense in depth against both API vulnerabilities and container breakouts.",
+  "key_points": [
+    "Current hard multi-tenancy proposals are insufficient because a single Kubernetes exploit leads to full cluster compromise",
+    "True sandboxes require multiple overlapping security layers\u2014not just one boundary",
+    "Kubernetes namespaces should work like Solaris Zones or FreeBSD Jails, automatically providing full isolation",
+    "Each tenant namespace should get its own nested Kubernetes control plane components",
+    "Resource isolation should extend to node assignment, preventing tenants from sharing machines",
+    "VM-based containers (like katacontainers) can provide hardware-level isolation for better resource utilization"
+  ],
+  "money_quotes": [
+    "Kubernetes is the new kernel. We can refer to it as a 'cluster kernel' versus the typical operating system kernel.",
+    "All systems have weaknesses and nothing is perfect. With a system as complex and large as Kubernetes it is hard to trust the entire system to not be vulnerable.",
+    "One single exploit in Kubernetes leads to full supervisor privileges and then it's game over. This is not an acceptable way to secure a system and guarantee isolation between tenants.",
+    "These layers ensure that one vulnerability in the system does not take out the entire security of the system. We need this for hard multi-tenancy in Kubernetes as well. This is why all the existing proposals are insufficient.",
+    "The namespaces in Kubernetes should automatically set up a well isolated world, just like that of Zones or Jails without the user having to worry about if they configured it correctly.",
+    "Kubernetes by default shares everything and has many different, sometimes very broken, drivers and plugins just like that of an operating system kernel."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux",
+    "infrastructure"
+  ],
+  "tone": "analytical",
+  "key_insight": "Hard multi-tenancy in Kubernetes requires treating it like an operating system kernel and applying proven intra-kernel isolation techniques, giving each tenant their own nested control plane rather than relying on a single shared system that can be fully compromised by one exploit.",
+  "filename": "2018-05-18-hard-multi-tenancy-in-kubernetes"
+}

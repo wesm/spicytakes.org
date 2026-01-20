@@ -1,0 +1,24 @@
+{
+  "summary": "Jess Frazelle documents her migration from Docker to runc for running desktop applications in containers, motivated by the desire for fine-grained control over user namespace mappings. She needed custom gid mappings to access audio and video devices while still benefiting from user namespace isolation. To facilitate this workflow, she built three tools: Riddler (converts Docker containers to OCI specs), Netns (provides bridge networking for runc containers), and Magneto (displays container stats).",
+  "key_points": [
+    "Migrated all desktop containers from Docker to runc for more control over user namespace mappings",
+    "Created Riddler to convert Docker container inspect output to OCI spec format",
+    "Built Netns to provide simple bridge networking for runc containers via prestart hooks",
+    "Developed Magneto as a stats viewer for runc containers, piping from runc events"
+  ],
+  "money_quotes": [
+    "This is the awesome thing about runc. You, the user, have all the control.",
+    "Then you can do cool things like listen to Taylor Swift in a container with a user namespace.",
+    "In layman's terms, I basically wanted to poke a teeny tiny map in the user namespace to be able to have permission to use my sound and video devices.",
+    "Keep in mind since these are generated a lot of the filepaths are hardcoded for things on my host. So if you try to run these and aren't me I don't want to hear any whining."
+  ],
+  "themes": [
+    "containers",
+    "linux",
+    "security",
+    "open_source"
+  ],
+  "tone": "technical, playful, practical",
+  "key_insight": "When higher-level container tools don't expose the low-level controls you need, dropping down to runc gives you complete power over namespace mappings and container configuration.",
+  "filename": "2016-01-19-runc-containers-on-the-desktop"
+}

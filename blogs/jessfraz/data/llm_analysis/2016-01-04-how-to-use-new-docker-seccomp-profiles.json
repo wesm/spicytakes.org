@@ -1,0 +1,26 @@
+{
+  "summary": "Jess Frazelle explains how to create custom seccomp profiles for Docker containers, walking through her experience generating a profile for Chrome by running it under strace for an entire day. She demonstrates that even with automated tools, the resulting profile missed 6 critical syscalls that required manual debugging and domain knowledge to identify. The post serves as both a tutorial and an argument for why Docker needed to ship sane default seccomp profiles that protect users without requiring this painful manual process.",
+  "key_points": [
+    "Docker merged a default seccomp profile that blocks dangerous syscalls while maintaining compatibility",
+    "Creating custom seccomp profiles requires running containers under strace and collecting syscall data",
+    "Automated profile generation tools miss syscalls - her script missed 6 including unshare, setns, setgid, and exit_group",
+    "Debugging missing syscalls requires domain knowledge about how applications use system calls",
+    "The default profile exists so users don't have to go through hours of painful debugging"
+  ],
+  "money_quotes": [
+    "So this is not the most sane thing in the world, I even tried in the process to create a bash script that takes the output from strace, collects the syscalls, and generates a profile. But like all tools of this sort it missed some, well to be exact it missed 6.",
+    "So I used chrome the entire day like this to create the most verbose strace output so I wouldn't miss any syscalls.",
+    "Now you have a whitelist generated from your strace output. But it's super bad and when you try to run your container with it you get a vague error and Operation not permitted.",
+    "So now we have to use our brains. WHAT!? NOOOOO!",
+    "Obviously noone else is going to do this, debug for hours the syscalls that are missing. This is why the default profile is so important, we wanted to create sane defaults that would protect people but also not cause all this pain.",
+    "We are working on sane security profiles for containers that don't make you want to pull your hair out."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux"
+  ],
+  "tone": "instructional, self-deprecating, pragmatic",
+  "key_insight": "Good security defaults matter because the manual alternative of creating custom seccomp profiles requires deep systems knowledge and hours of painful debugging that no normal user will actually do.",
+  "filename": "2016-01-04-how-to-use-new-docker-seccomp-profiles"
+}

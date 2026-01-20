@@ -1,0 +1,25 @@
+{
+  "summary": "Jess Frazelle explores Windows Subsystem for Linux (WSL) after joining Microsoft, explaining how it works at a technical level including Pico processes, system call translation, and the ability to run Linux binaries natively without a VM. She walks through the architecture where WSL kernel drivers translate Linux syscalls to Windows NT APIs, discusses practical features like launching Windows executables from WSL and running X applications, and shares pain points around copy/paste, file performance, and filesystem interoperability. The post also covers how to set up a Windows machine reproducibly using Boxstarter.",
+  "key_points": [
+    "WSL uses Pico processes and kernel drivers (lxcore.sys, lxss.sys) to translate Linux syscalls to Windows NT APIs",
+    "The Windows NT kernel was designed from the beginning to support POSIX and already had fork implemented",
+    "WSL allows launching Windows GUI apps from Linux and running X applications with an X server",
+    "File operations are slow in WSL because Windows isn't optimized for many small files",
+    "Boxstarter enables reproducible Windows machine setup similar to Linux scripting"
+  ],
+  "money_quotes": [
+    "I am super excited about Windows Subsystem for Linux. It is one of the coolest pieces of tech I've seen since I started using Docker.",
+    "None of this code came from the Linux kernel, it was all re-implemented by Windows engineers. This is truly mind blowing.",
+    "One of the first things I did in WSL was run a syscall fuzzer. I knew it would break but it was interesting for the purposes of figuring out which syscalls had been implemented without looking at the source.",
+    "Imagine a Linux setup where you can launch PowerPoint without a VM\u2026. well this is it!!",
+    "Obviously the unix way of 'everything is a file' does not scale well when saving a lot of small files is super slow."
+  ],
+  "themes": [
+    "linux",
+    "infrastructure",
+    "tech_industry"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Windows Subsystem for Linux represents a remarkable engineering achievement where Microsoft engineers reimplemented Linux syscalls from scratch, creating a native Linux compatibility layer that rivals containerization in its technical elegance.",
+  "filename": "2017-09-09-windows-for-linux-nerds"
+}

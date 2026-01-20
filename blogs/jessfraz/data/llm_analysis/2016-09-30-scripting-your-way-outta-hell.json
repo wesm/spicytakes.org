@@ -1,0 +1,25 @@
+{
+  "summary": "Jess Frazelle documents the chaos that ensued when she changed her GitHub username from 'jfrazelle' to 'jessfraz' to match her other online handles. What started as a simple username swap cascaded into broken Jenkins builds, failed Go imports across 50+ repositories, and potential breakage for other developers who depended on her repos. She walks through her systematic approach to fixing everything using sed, vim's argdo command, and pull requests, while maintaining her characteristic humor about self-inflicted infrastructure pain.",
+  "key_points": [
+    "Changing a GitHub username breaks Go imports that reference the old username path",
+    "Jenkins DSL configurations need manual intervention when the DSL repo itself can't be cloned",
+    "The vim 'argdo' command can batch-apply changes across multiple open buffers efficiently",
+    "Squatting on old usernames prevents malicious actors from creating fake repos to trick Go imports",
+    "Self-hosted infrastructure (private Jenkins, private Docker registry) gives more control but requires more maintenance"
+  ],
+  "money_quotes": [
+    "One thing you must know about me is that at no point was I thinking I hate this. I actually love stuff like this, I live for pain. Why else would I run Linux on the desktop?",
+    "Vendor your crap kids!!!",
+    "I'm going to need some more tires for this fire.",
+    "I am for sure going to hell for this. What have I done?",
+    "Also I have a deep fear of someone taking my old username and making fake repos to try and trick imports in Go so I figured I will squat on it forever to avoid this."
+  ],
+  "themes": [
+    "infrastructure",
+    "open_source",
+    "tech_industry"
+  ],
+  "tone": "humorous, self-deprecating, playful",
+  "key_insight": "Infrastructure changes that seem simple can cascade into unexpected breakage across interconnected systems, but systematic scripting and a tolerance for self-inflicted pain can get you through.",
+  "filename": "2016-09-30-scripting-your-way-outta-hell"
+}

@@ -19,6 +19,7 @@ PROMPT=$(cat)
 
 case "$LLM_BACKEND" in
     codex)
+        echo "  [LLM] Using codex (OpenAI)" >&2
         # Use codex exec with read-only sandbox
         tmpfile=$(mktemp)
         codex exec --skip-git-repo-check --sandbox read-only -c reasoning_effort=medium \
@@ -33,6 +34,7 @@ case "$LLM_BACKEND" in
         ;;
 
     claude)
+        echo "  [LLM] Using claude (Anthropic)" >&2
         # Use claude CLI in print mode with streaming JSON
         # Unset API key to use Max plan instead of API credits
         unset ANTHROPIC_API_KEY

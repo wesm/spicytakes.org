@@ -1,0 +1,23 @@
+{
+  "summary": "Jess Frazelle demonstrates how to install and use Wireguard VPN entirely through containers, staying true to her philosophy of never installing software directly on the host system. She provides Dockerfiles for both installing the Wireguard kernel module and running the wg command-line tools, showing how containers can manage even kernel-level components. The post includes a complete walkthrough of setting up a Wireguard connection using the demo server, with an update noting that Tailscale now offers an easier cross-platform solution using a Go implementation.",
+  "key_points": [
+    "Wireguard integrates directly into the Linux networking stack, making it easy to clone interfaces into specific containers",
+    "Even kernel modules can be installed via containers by mounting /lib/modules and /usr/src",
+    "The wg tools can be wrapped in a bash alias that runs them from a container with appropriate capabilities",
+    "Tailscale emerged as a simpler cross-platform alternative using Go-based userspace Wireguard"
+  ],
+  "money_quotes": [
+    "If you are new to my blog, I HATEEEE installing things on my host. I run everything in containers.",
+    "Wireguard is a kernel module. BUT guess what, literally anything can be run in a container.",
+    "What is cool about Wireguard is it integrates into the Linux networking stack so you have a lot of power over interactions with it."
+  ],
+  "themes": [
+    "containers",
+    "linux",
+    "security",
+    "infrastructure"
+  ],
+  "tone": "enthusiastic, practical",
+  "key_insight": "Containers can encapsulate and manage even kernel-level software like Wireguard, maintaining a clean host system while still gaining full functionality.",
+  "filename": "2018-06-14-installing-and-using-wireguard"
+}

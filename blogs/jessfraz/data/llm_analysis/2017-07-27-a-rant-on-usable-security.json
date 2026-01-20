@@ -1,0 +1,27 @@
+{
+  "summary": "Jess Frazelle argues that security tools have historically been too difficult to use, causing users to disable them entirely. She advocates for finding the right balance between security and usability through collaboration between security and software engineers. Using Docker's default seccomp and AppArmor profiles as examples of security made invisible to users, she proposes a future where programming languages generate seccomp filters at build-time, allowing binaries to sandbox themselves automatically.",
+  "key_points": [
+    "Security tooling traditionally requires users to jump through hoops or learn complex interfaces, leading to poor adoption",
+    "Docker's default AppArmor and seccomp profiles demonstrate how security can be enabled by default without users realizing it",
+    "Runtime-generated security profiles consistently fail because something is always missed during profiling",
+    "Build-time generated seccomp filters could ensure ALL code paths are covered, though challenges remain with exec'd binaries and plugins",
+    "Collaboration between security engineers and software engineers is essential for truly usable security"
+  ],
+  "money_quotes": [
+    "There is a point at which better security comes at the expense of convenience. This needs to stop happening. Stop compromising convenience for security.",
+    "When you combine expertise in different areas you build better products. This is not rocket science. However egos tend to get in the way as well as biases towards people who know and like the same things you do.",
+    "By making a default for all containers, we can secure a very large amount of users without them even realizing it's happening.",
+    "Generating security filters/profiles at runtime has been done in the past & failed\u2026 over and over and over again. Something is always missed while profiling the application.",
+    "When the 'thing that was missed' is called and blocked, users will just turn off the 'security.' This happens all the time with things like SELinux and AppArmor.",
+    "Hopefully my dream of making binaries sandbox themselves will eventually get there. I know I won't stop until it does."
+  ],
+  "themes": [
+    "security",
+    "containers",
+    "linux",
+    "open_source"
+  ],
+  "tone": "passionate and analytical",
+  "key_insight": "The best security is invisible security\u2014enabled by default, requiring no user configuration, and generated deterministically at build-time rather than through error-prone runtime profiling.",
+  "filename": "2017-07-27-a-rant-on-usable-security"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "The post examines the security implications of proprietary firmware running at the most privileged levels of computing hardware (Rings -2 and -3), which paradoxically have the least visibility despite having more access than the operating system or hypervisor. Frazelle explains how the Intel Management Engine and UEFI kernel contain hidden kernels with their own networking stacks and web servers, creating massive attack surfaces. She advocates for open source firmware initiatives like linuxboot, coreboot, and the NERF stack as solutions to improve security through transparency and reduced complexity.",
+  "key_points": [
+    "Rings -2 and -3 (SMM, UEFI, Management Engine) have more privileges than the OS kernel but are completely proprietary and opaque",
+    "The Intel Management Engine runs Minix 3, has a web server and full networking stack, and can turn on nodes and re-image disks invisibly",
+    "A bug in the Intel Management Engine's web server went undetected for seven years",
+    "The NERF stack and linuxboot replace proprietary firmware with hardened Linux drivers, improving both security and boot times (20x faster)",
+    "True root of trust verification is impossible without open source firmware across all hardware components",
+    "Major cloud providers have their own root of trust solutions (Cerberus, Titan, Nitro) but still assume trust in proprietary code"
+  ],
+  "money_quotes": [
+    "It's counter-intuitive that the code that we have the least visibility into has the most privileges. This is what open source firmware is aiming to fix.",
+    "We have very little visibility into what the code in these rings is actually doing, which is horrifying considering these rings have the most privileges.",
+    "Between Ring -2 and Ring -3 we have at least 2 and a half other kernels in our stack as well as a bunch of proprietary and unnecessary complexity.",
+    "How do we really know that the firmware in a component is not vulnerable or that is doesn't have any backdoors? Well we can't. Not unless it was all open source.",
+    "Better to use a open kernel with a lot of eyes on it, than the 2\u00bd other kernels that were all different and closed off.",
+    "I'm surprised how many people are responding that they love DigitalOcean but seem entirely unconcerned there's no answer here. You should be concerned."
+  ],
+  "themes": [
+    "security",
+    "hardware",
+    "open_source",
+    "infrastructure"
+  ],
+  "tone": "analytical",
+  "key_insight": "True hardware security is impossible to achieve or verify when the most privileged code in our systems remains proprietary and invisible, making open source firmware essential rather than optional.",
+  "filename": "2019-05-08-why-open-source-firmware-is-important-for-security"
+}

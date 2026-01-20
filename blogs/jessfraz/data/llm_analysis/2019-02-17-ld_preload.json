@@ -1,0 +1,25 @@
+{
+  "summary": "Jess Frazelle professes her love for LD_PRELOAD, an environment variable that allows overriding library symbols by loading custom shared objects before any other library. She clarifies that LD_PRELOAD is NOT a linker flag (despite common confusion), then showcases creative uses collected from Twitter, including hacking Quake 3, bypassing Dropbox filesystem restrictions, and reproducing SSH key vulnerabilities. The post culminates in her satirical 'Cloud Native Syscalls' project that uses LD_PRELOAD to forward all syscalls to a remote cloud daemon.",
+  "key_points": [
+    "LD_PRELOAD is an environment variable, not a linker flag - it loads specified shared objects before any other library including libc",
+    "This allows overriding any library function by providing your own implementation",
+    "Creative uses include game cheating, bypassing application restrictions, security research, and adding features to interpreters",
+    "The satirical 'kernelless.cloud' project demonstrates forwarding syscalls to a remote daemon via LD_PRELOAD"
+  ],
+  "money_quotes": [
+    "I am going to take the time right now to make one thing very clear, VERY CLEAR, listen closely: LD_PRELOAD IS NOT A FLAG. It is an environment variable. Wake up sheeple!",
+    "LD_PRELOAD allows you to override symbols in any library by specifying your new function in a shared object.",
+    "FEEL THE POWER!",
+    "F'king nuts right\u2026 I know. We are working on our A-round don't worry. It's truly revolutionary.",
+    "This is how most of my tweets start for what it's worth."
+  ],
+  "themes": [
+    "linux",
+    "security",
+    "infrastructure",
+    "open_source"
+  ],
+  "tone": "playful",
+  "key_insight": "LD_PRELOAD is an incredibly powerful Linux mechanism for intercepting and replacing library functions, enabling everything from debugging and security research to creative hacks and satirical cloud architectures.",
+  "filename": "2019-02-17-ld_preload"
+}

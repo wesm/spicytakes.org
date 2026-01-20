@@ -1,0 +1,26 @@
+{
+  "summary": "This post provides a comprehensive technical breakdown of data center power efficiency, explaining the differences between 'carbon neutral,' 'net zero,' and 'carbon negative' designations while examining how hyperscalers like Google, Facebook, and Microsoft optimize power usage. Frazelle dives deep into the engineering trade-offs of power distribution systems, comparing rack-level DC bus bars to individual AC power supplies, and explains how the Open Compute Project's designs achieve significant efficiency gains. The post argues that wider adoption of rack-scale architectures could reduce wasted carbon emissions across the industry, not just at hyperscale companies.",
+  "key_points": [
+    "Traditional data centers waste 21-27% of power in AC-to-DC conversions and transformations",
+    "The Open Compute Project achieved 38% less energy use and 24% lower costs at Facebook's Prineville data center",
+    "48VDC bus bars require only 500A versus 2kA for 12VDC, dramatically reducing copper costs and resistive losses",
+    "PUE as a metric is flawed because it doesn't account for data center location, capacity utilization, or seasonal variations",
+    "Most companies claiming 'carbon neutral' status are buying offsets that avoid emissions rather than removing carbon they emit"
+  ],
+  "money_quotes": [
+    "Most companies become 'carbon neutral' by investing in offsets that primarily avoid emissions, such as paying folks to not cut down trees or buying RECs. These offsets do not actually remove the carbon that they are emitting.",
+    "If a company calls themselves 'carbon negative' it means they are removing more carbon than they emit each year. This should be the gold standard for how companies operate.",
+    "Comparing a PUE value of data centres is somewhat meaningless unless it is known whether it is operating at full capacity or not.",
+    "For every unnecessary power conversion, you are paying an efficiency cost.",
+    "Server vendors would rather carry a small number of power supply SKUs that are oversized, than carry a large number of power supply SKUs that are right-sized to purpose since the economies of scale prefer the former.",
+    "While the hyperscalers have benefitted from these gains in power efficiency, most of the industry is still waiting."
+  ],
+  "themes": [
+    "infrastructure",
+    "hardware",
+    "tech_industry"
+  ],
+  "tone": "analytical",
+  "key_insight": "Rack-level power architectures with DC bus bars can achieve 8-12% efficiency gains over commodity servers, and broader adoption of Open Compute designs would significantly reduce the tech industry's carbon footprint beyond just hyperscalers.",
+  "filename": "2020-02-26-power-to-the-people"
+}

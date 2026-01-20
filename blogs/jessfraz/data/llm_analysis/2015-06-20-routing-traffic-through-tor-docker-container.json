@@ -1,0 +1,24 @@
+{
+  "summary": "This technical tutorial demonstrates how to route all host traffic through a Tor Docker container using iptables rules. Frazelle provides a straightforward approach: run her Tor image with host networking, then apply iptables NAT and filter rules to redirect all TCP traffic through Tor's transparent proxy port while allowing local network exceptions. The post acknowledges the tradeoff of using --net host but argues it's pragmatic given the goal of routing all traffic.",
+  "key_points": [
+    "Run Tor in Docker with --net host to simplify traffic routing",
+    "Use iptables NAT rules to redirect DNS and TCP traffic through Tor's TransPort",
+    "Allow exceptions for local network ranges that shouldn't route through Tor",
+    "Filter rules ensure only Tor's UID can make direct outbound connections"
+  ],
+  "money_quotes": [
+    "It's actually a lot simplier than you would think. But it involves dealing with some unsavory things such as iptables.",
+    "Easy right? I can already hear the haters, 'blah blah blah net host'. Chill out, the point is to route all our traffic duhhhh so we may as well, otherwise would need to change / overwrite some of Docker's iptables rules, and really who has time for that shit\u2026",
+    "You do? Ok make a PR to this blog post.",
+    "Contain yourselves, I am about to throw down some sick iptables rules."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux",
+    "infrastructure"
+  ],
+  "tone": "casual, irreverent, practical",
+  "key_insight": "Containerizing Tor and using host networking with iptables provides a clean, reproducible way to route all system traffic through the Tor network without complex Docker networking workarounds.",
+  "filename": "2015-06-20-routing-traffic-through-tor-docker-container"
+}

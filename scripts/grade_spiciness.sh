@@ -160,7 +160,7 @@ JSON array of scores:"""
         result = subprocess.run([
             LLM_CALL_SCRIPT,
             result_file
-        ], input=prompt, capture_output=True, text=True, timeout=180)
+        ], input=prompt, text=True, timeout=180, stdout=subprocess.PIPE)
 
         with open(result_file) as f:
             result_text = f.read().strip()

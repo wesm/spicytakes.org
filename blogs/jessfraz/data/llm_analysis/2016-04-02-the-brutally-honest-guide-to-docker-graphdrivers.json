@@ -1,0 +1,25 @@
+{
+  "summary": "Jess Frazelle provides an unfiltered evaluation of Docker's storage drivers (graphdrivers), examining the tradeoffs of each option. She advocates for Overlay as her personal choice despite some kernel bugs, dismisses Devicemapper as unreliable outside RedHat, and warns that each driver has significant setup requirements or limitations. The post cuts through marketing to give practitioners real-world guidance on which storage backend to choose.",
+  "key_points": [
+    "Overlay requires kernel 3.18+ and backported versions ('frankenkernels') shouldn't be trusted",
+    "Aufs works well but isn't in the kernel by default, requiring extra packages",
+    "Btrfs and ZFS both require disk partitioning or kernel module setup that creates adoption friction",
+    "Devicemapper only works properly on RedHat and requires perfect configuration",
+    "VFS should only be used for testing"
+  ],
+  "money_quotes": [
+    "Frankenkernels are not to be trusted. This is not to say it won't work, hey it might work great, but it's not to be trusted.",
+    "Aufs is another great one. But it is not in the kernel by default which blows.",
+    "My mom once asked her friend for her famous chicken enchilada recipe so she could make it herself. The friend gave the recipe but left out one key ingredient so that my mom's never tasted just right. There was always something off about it. This is how I think of devicemapper.",
+    "It works on RedHat.",
+    "I sure hope to hell you are just testing something or clinically insane."
+  ],
+  "themes": [
+    "containers",
+    "linux",
+    "infrastructure"
+  ],
+  "tone": "blunt, humorous, practical",
+  "key_insight": "Every Docker storage driver has significant tradeoffs, but Overlay with a modern kernel is the most practical choice for most users, while Devicemapper should be avoided unless you're on RedHat.",
+  "filename": "2016-04-02-the-brutally-honest-guide-to-docker-graphdrivers"
+}

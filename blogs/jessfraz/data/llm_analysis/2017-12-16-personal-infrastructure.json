@@ -1,0 +1,26 @@
+{
+  "summary": "Jess Frazelle details her extensive personal infrastructure setup, which includes self-hosted Jenkins CI, a private Docker registry with vulnerability scanning, a private git server, and various automation bots. She runs everything in Docker containers across NUCs and cloud instances, with automated pipelines that generate their own automation. The post serves as a practical guide to the tools and configurations she uses, demonstrating her philosophy of building custom infrastructure for control and performance.",
+  "key_points": [
+    "Self-hosted Jenkins CI with DSL plugins that automatically generate configurations for new repos",
+    "Private Docker registry with Notary for signing, Clair for CVE scanning, and custom UI",
+    "Private git server with Gitiles UI, mirroring all GitHub repositories",
+    "ghb0t automatically cleans up fork branches after PRs are merged",
+    "Everything runs in Docker containers with configs available as open source Dockerfiles"
+  ],
+  "money_quotes": [
+    "Yep I even generate the automation\u2026",
+    "It's super minimal and less gross than literally every other postfix image in existence.",
+    "Well because about 4 years ago when I started using docker, Docker Hub was super slow and I came to love having my own super fast one.",
+    "I am so OCD about keeping git repos clean and this is my little helper.",
+    "I run a lot of little shitty services for a personal pastebin and other things but those are all really less cool.",
+    "My attention span for blog posts is about 5 minutes and we have runneth over so I am going to call it a day with this\u2026"
+  ],
+  "themes": [
+    "infrastructure",
+    "containers",
+    "open_source"
+  ],
+  "tone": "casual, practical, self-deprecating",
+  "key_insight": "Building and maintaining your own personal infrastructure gives you control, performance, and the satisfaction of automation that generates its own automation.",
+  "filename": "2017-12-16-personal-infrastructure"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "This post explains two Linux kernel objects that aren't namespaced in containers: time and the kernel keyring. Frazelle demonstrates that changing time inside a container affects the host system, and that keys stored in the kernel keyring by one container are visible to all other containers on the same host. She emphasizes that Docker's default seccomp profiles block these potentially dangerous operations, reinforcing that namespaces and cgroups alone don't provide complete container isolation.",
+  "key_points": [
+    "Time is not namespaced - changing time in a container changes it on the host",
+    "The kernel keyring is shared across all containers on a host",
+    "Docker's default seccomp profiles block dangerous syscalls like settimeofday",
+    "CAP_SYS_TIME capability is required to change time and is not granted by default",
+    "A time namespace could be useful for testing scenarios but would create NTP complexity",
+    "Container isolation requires more than just namespaces and cgroups"
+  ],
+  "money_quotes": [
+    "Linux namespaces are one of the primitives that make up what is known as a 'container.' They control what a process can see. Cgroups, the other main ingredient of 'containers', control what a process can use.",
+    "Well, it's not namespaced so the time on the host would change as well. 'But whaaaaa? I thought containers were just like a VM', you ask.",
+    "Well if root in one container stores keys in the keyring, any other containers on that same host can see it in their keyring, which is really just the same exact keyring.",
+    "All in all, I hope this proves once again that you need more than just namespaces and cgroups to get any sort of 'real' isolation with containers.",
+    "Please, please don't disable seccomp or add extra capabilities you don't need."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux"
+  ],
+  "tone": "educational, slightly playful",
+  "key_insight": "Containers provide incomplete isolation by default because critical kernel objects like time and the keyring aren't namespaced, making seccomp profiles and capability restrictions essential for security.",
+  "filename": "2017-04-26-two-objects-not-namespaced-linux-kernel"
+}

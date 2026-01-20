@@ -1,0 +1,26 @@
+{
+  "summary": "Jess Frazelle describes her quest to build the ultimate Linux desktop experience by modifying CoreOS Container Linux (a server OS) to run on her laptop with graphics drivers, then running all applications in rootless containers. She hacked Gentoo-based ebuilds to add Intel graphics support, set up auto-updates via an Omaha server, and leveraged the read-only /usr filesystem to enforce containerization of everything. The setup represents her vision of a secure, automatically-updating desktop where even the container runtime doesn't require root privileges.",
+  "key_points": [
+    "Modified CoreOS Container Linux (a server OS) to work as a desktop OS by adding graphics drivers",
+    "Uses rootless containers exclusively - the container spawner itself doesn't run as root",
+    "Leverages Container Linux's auto-update system (based on Google's Omaha) for seamless OS updates",
+    "The read-only /usr filesystem forces everything to run in containers",
+    "Plans to migrate from X11 to Wayland (via sway) for better security"
+  ],
+  "money_quotes": [
+    "So just remember that before you get your panties in a knot on HackerNews because you live and die by Xmonad (I live and die by i3, fight me).",
+    "Yes I know I am insane to go through this much effort for my own laptop but whatever.",
+    "The filesystem is setup perfectly for running containers, there is a read-only /usr and a stateful read/write /. The data stored on / will never be manipulated by the update process. Plus since /usr is read-only it really forces you to run everything in containers.",
+    "You see the problem with both Docker and Runc as they are today is that they must be run as root. And I'm not talking about the process in the container. I'm talking about the container spawner itself.",
+    "So overall everything runs in containers, I can automatically update my operating system, and the containers are NOT running as root on my host. This is the dream and reality."
+  ],
+  "themes": [
+    "containers",
+    "linux",
+    "security",
+    "infrastructure"
+  ],
+  "tone": "enthusiastic, technically detailed, self-deprecating humor",
+  "key_insight": "A truly secure containerized desktop requires not just running apps in containers, but ensuring the container runtime itself doesn't need root privileges, combined with an immutable base OS that enforces containerization by design.",
+  "filename": "2017-01-16-ultimate-linux-on-the-desktop"
+}

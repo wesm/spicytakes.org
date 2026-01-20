@@ -130,7 +130,7 @@ analyze_post() {
     local prompt=$(build_prompt "$content")
 
     # Use llm_call.sh for backend abstraction (codex or claude)
-    echo "$prompt" | "$SCRIPT_DIR/llm_call.sh" "$tmpfile" 2>/dev/null || true
+    echo "$prompt" | "$SCRIPT_DIR/llm_call.sh" "$tmpfile" || true
 
     if [[ -f "$tmpfile" && -s "$tmpfile" ]]; then
         # Extract JSON from the response using robust parsing

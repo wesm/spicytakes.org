@@ -1,0 +1,23 @@
+{
+  "summary": "The post explains how to set up a reverse VPN to securely expose services from a home network to the public internet, rather than the traditional use of VPNs for accessing office networks remotely. Jess walks through the complete Docker-based setup using OpenVPN, from generating certificates on a cloud instance to configuring the client on a home NAS. The key insight is using Docker's network namespace sharing to route specific containers through the VPN tunnel, giving fine-grained control over what gets exposed.",
+  "key_points": [
+    "Reverse VPNs flip the traditional model - instead of accessing private networks from outside, they expose home services to the public",
+    "Using Docker containers for both the VPN server and client provides clean isolation and easy deployment",
+    "The --net container:openvpn flag lets you selectively route only specific containers through the VPN tunnel",
+    "This setup is useful for home automation webhooks, media servers, and other services that need public accessibility"
+  ],
+  "money_quotes": [
+    "A reverse VPN is for exposing things from your home network into the public. Why? Well for one, you shouldn't want to expose your home network to the world. There are a lot of risks in doing that. A reverse VPN allows you to securely control what you are exposing.",
+    "Of course on my NAS, I have docker installed, but you can install openvpn on your host too (but I will judge you).",
+    "Now all you have to do it run all your other containers in --net container:openvpn!",
+    "Alternatively if you would rather run everything on your server over the vpn you can run the openvpn container with --net host. I personally like the control though."
+  ],
+  "themes": [
+    "containers",
+    "infrastructure",
+    "security"
+  ],
+  "tone": "practical",
+  "key_insight": "Docker's network namespace sharing combined with a reverse VPN creates a secure, granular way to expose specific home services to the internet without opening up your entire network.",
+  "filename": "2015-10-02-reverse-vpn-for-all-the-things"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Frazelle recounts her experience at the Open Source Firmware Conference hackathon, where she attempted to replace proprietary BMC firmware with OpenBMC on a Supermicro motherboard. The project hit numerous obstacles including SPI flash contention issues, write speed problems, and debugging without a serial console. Despite not achieving a fully working open source BMC by the end, she frames the failures as valuable learning experiences about low-level hardware debugging.",
+  "key_points": [
+    "Purchased a Supermicro X10SLM-F board off eBay to run CoreBoot, starting with the BMC rather than CPU BIOS",
+    "The SPI flash development cycle is painful: 16MB requires erasing 4KB sectors at 120ms each before writing",
+    "Got locked out of SPI flash when BMC started interfacing with it, requiring desoldering and installing a qspimux multiplexer",
+    "Discovered they were writing firmware too quickly, causing data corruption that wasn't detected until comparing read-back images",
+    "The board still wouldn't boot the original firmware after all fixes, leaving the mystery unsolved"
+  ],
+  "money_quotes": [
+    "If you've ever used a Supermicro server I probably don't need to tell you that it's a piece of shit running a 2.6 linux kernel on the BMC.",
+    "I am going to interrupt the story here for a second to explain the pain involved with this development cycle of writing to firmware to SPI flash.",
+    "This is a huge pain in the ass. It turns out it is such a pain in the ass that people have made solutions for it.",
+    "I would have been sad had everything gone smoothly because we would not have learned as much about how to debug all the components of the SPI flash and board.",
+    "Having been pushed to attend vendor conferences and trade shows through my career for various jobs, it was so refreshing to have the chance to hang out with folks from such a genuine community that really just want to help one another."
+  ],
+  "themes": [
+    "hardware",
+    "open_source",
+    "infrastructure",
+    "security"
+  ],
+  "tone": "enthusiastic, technical, candid",
+  "key_insight": "The messy, failure-prone process of hacking on open source firmware\u2014complete with desoldering chips and debugging SPI flash timing issues\u2014is ultimately more educational and rewarding than a smooth success would have been.",
+  "filename": "2019-09-10-tales-from-firmware-camp"
+}

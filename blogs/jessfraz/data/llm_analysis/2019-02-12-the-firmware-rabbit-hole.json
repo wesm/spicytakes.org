@@ -1,0 +1,27 @@
+{
+  "summary": "Frazelle documents her deep dive into firmware and hardware security during her unemployment, exploring baseboard management controllers (BMC), Intel Management Engine, and Intel SGX. She traces her path from openbmc and u-bmc projects through the security vulnerabilities of closed-source firmware, ultimately landing on SGX's extensive attack surface including Foreshadow and cache attacks. The post reveals how technologies marketed as security features often contain hidden complexities, licensing restrictions, and fundamental vulnerabilities that undermine their stated purpose.",
+  "key_points": [
+    "BMC projects like openbmc and u-bmc are modernizing hardware management, with u-bmc using gRPC instead of legacy IPMI",
+    "Intel Management Engine has numerous security vulnerabilities and potential backdoors, leading vendors like Dell and Purism to disable or erase it",
+    "SGX secure enclaves require trusting significant base code and are vulnerable to side-channel attacks like Foreshadow",
+    "SGX launch control originally required Intel licensing, creating market lock-in disguised as a security feature",
+    "Foreshadow-NG can access all cached memory, not just virtual memory, completely bypassing isolation guarantees",
+    "SGX can actually be weaponized to conceal and amplify cache attacks, turning a security feature into a malware toolkit"
+  ],
+  "money_quotes": [
+    "So in between bouncing back and forth reading about various forms of firmware and how shitty and sketchy closed source firmware is, I read the book Bad Blood... so everything from here on out is with 'paranoid as fuck' goggles on because I was shook.",
+    "My opinion, which I'm sure the readers on Hacker News will call me all sorts of names for, I question what is the point if you need to trust so much base code just to run a damn thing in the enclave and when you run your process it's slow. AND it won't even protect you from side channel attacks or timing attacks.",
+    "While SGX from the outside is a feature to secure computing, it also has this hidden feature of securing the market for Intel perhaps?",
+    "Do you need a new feature set for your malware? Because you can use SGX to conceal cache attacks and amplify them!!!",
+    "With Foreshadow-NG, the hacker can access all cached memory, not just their own virtual memory. Bananas\u2026 right. But there's more\u2026"
+  ],
+  "themes": [
+    "security",
+    "hardware",
+    "infrastructure",
+    "open_source"
+  ],
+  "tone": "skeptical, technically curious, irreverent",
+  "key_insight": "Hardware security features like Intel SGX are often undermined by fundamental architectural vulnerabilities and corporate licensing schemes, making their security promises more marketing than reality.",
+  "filename": "2019-02-12-the-firmware-rabbit-hole"
+}

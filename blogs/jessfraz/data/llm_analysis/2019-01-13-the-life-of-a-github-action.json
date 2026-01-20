@@ -1,0 +1,25 @@
+{
+  "summary": "This post walks through the complete lifecycle of a GitHub Action, from workflow file configuration to Docker container execution. Using a practical example of automatically deleting merged PR branches, Frazelle explains how GitHub triggers events, resolves action dependencies, builds Docker images, and executes scripts. The tutorial demystifies the Actions system by showing each component: workflow files, Dockerfiles, and the bash scripts that do the actual work.",
+  "key_points": [
+    "GitHub Actions are triggered by events (like pull_request) and resolve a chain of dependent actions",
+    "Actions run in Docker containers defined by Dockerfiles that specify the runtime environment",
+    "The GITHUB_EVENT_PATH environment variable contains JSON data about the triggering event",
+    "Workflow files define which events trigger actions and what repositories/Docker images to use",
+    "Actions can access the GitHub API using secrets like GITHUB_TOKEN for authentication"
+  ],
+  "money_quotes": [
+    "The branch lingers around until the end of time and eats away at the part of my soul that likes everything to be clean.",
+    "The overall idea is scriptable GitHub but rather than do all that hand-wavy crap to try and explain I will take you through what happens when you run an Action.",
+    "Now, GitHub is like 'oh holy shit, something happened on a pull request, let me fire all ze missiles of things that happen on a pull request.'",
+    "This label defines our action name, we could have named it butts but I decided to be an adult.",
+    "A docker image is a bunch of files combined in a tarball."
+  ],
+  "themes": [
+    "containers",
+    "infrastructure",
+    "open_source"
+  ],
+  "tone": "educational, irreverent, practical",
+  "key_insight": "GitHub Actions is essentially 'scriptable GitHub' where Docker containers run in response to repository events, with the workflow file orchestrating the trigger conditions and the Dockerfile defining the execution environment.",
+  "filename": "2019-01-13-the-life-of-a-github-action"
+}
