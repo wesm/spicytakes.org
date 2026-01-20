@@ -30,7 +30,15 @@ export const isLandingMode = blogId === 'landing';
 export const landing: LandingConfig = landingConfig as LandingConfig;
 
 // Load the config for current blog (null in landing mode)
-export const config: BlogConfig | null = isLandingMode ? null : (configs[blogId] || configs.benn);
+function loadConfig(): BlogConfig | null {
+  if (isLandingMode) return null;
+  const cfg = configs[blogId];
+  if (!cfg) {
+    throw new Error(`Unknown blog ID: "${blogId}". Valid options: ${Object.keys(configs).join(', ')}`);
+  }
+  return cfg;
+}
+export const config: BlogConfig | null = loadConfig();
 
 // Export theme labels and icons derived from config (empty in landing mode)
 export const THEME_LABELS: Record<string, string> = config?.themes
