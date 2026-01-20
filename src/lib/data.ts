@@ -1,13 +1,13 @@
 import type { Post, Quote, ThemeData } from './types';
 import { THEME_LABELS, THEME_ICONS, blogId } from './config';
 
-// Static imports for all blog data
-// Vite will include only the ones needed based on blogId at build time
+// Static imports for all blog data - Vite tree-shakes unused ones at build time
 import bennQuotes from '../../blogs/benn/data/llm_quotes.json';
 import bennSpicy from '../../blogs/benn/data/spicy_quotes.json';
+import wesmQuotes from '../../blogs/wesm/data/llm_quotes.json';
+import wesmSpicy from '../../blogs/wesm/data/spicy_quotes.json';
 
-// For blogs without data yet, provide empty defaults
-// These will be tree-shaken if not used
+// Empty defaults for blogs without data yet
 const emptyQuotes = { posts: [] };
 const emptySpicy = { quotes: [] };
 
@@ -16,8 +16,9 @@ function getQuotesData() {
   switch (blogId) {
     case 'benn':
       return bennQuotes;
-    case 'armin':
     case 'wesm':
+      return wesmQuotes;
+    case 'armin':
     default:
       return emptyQuotes;
   }
@@ -27,8 +28,9 @@ function getSpicyData() {
   switch (blogId) {
     case 'benn':
       return bennSpicy;
-    case 'armin':
     case 'wesm':
+      return wesmSpicy;
+    case 'armin':
     default:
       return emptySpicy;
   }
