@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher revisits his 2022 \u201cAs-Any Hack,\u201d which worked around Rust\u2019s lack of supertrait upcasting for `dyn DebugAny`. The core pain was that a `dyn DebugAny` couldn\u2019t be treated as `dyn Any`, so `downcast_ref` and related `Any` APIs failed at compile time. He reports that Rust 1.86 finally fixes this, enabling the cast and making those downcasts work on trait objects that inherit `Any`. The fix is currently in beta, with stable imminent, which means old workaround patterns can be retired once MSRV advances. He closes with a thanks to contributors and provides an updated extension map example that no longer needs the hack.",
+  "key_points": [
+    "Trait object upcasting to supertraits (`DebugAny` \u2192 `Any`) was previously blocked on stable Rust.",
+    "The inability to call `Any` methods on `dyn DebugAny` broke common downcasting patterns.",
+    "Rust 1.86 adds the missing upcast support, making the cast and `downcast_ref` work.",
+    "This change obsoletes prior hacks once projects can bump MSRV.",
+    "A cleaned-up extension map demonstrates the new, simpler approach."
+  ],
+  "money_quotes": [
+    "That hack is a way to get upcasting to supertraits working on stable Rust.",
+    "The problem? Even though `DebugAny` inherits from `Any`, Rust wouldn't let you use methods from `Any` on a `dyn DebugAny`.",
+    "So while you could call `DebugAny` methods just fine, trying to use `downcast_ref` from `Any` (the reason to use Any in the first place) would fail.",
+    "But there is good news! As of Rust 1.86, this is finally fixed.",
+    "That means a lot of old hacks can finally be retired.",
+    "Thank you so much to everyone who worked on this to make it work!"
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "technical, upbeat, appreciative, opinionated",
+  "key_insight": "Rust 1.86 finally enables trait-object upcasting to supertraits like `Any`, removing long-standing hacks and restoring ergonomic downcasting.",
+  "filename": "2025-03-27-any-upcast"
+}

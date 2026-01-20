@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that Curiosity\u2019s core idea hides severe scaling and concurrency challenges that the shipped implementation failed to address. He expected a technically ambitious experiment in human behavior, but found a fragile system that barely functions and can\u2019t produce meaningful behavioral insights. He walks through the math of cube size, server load, synchronization, and contention to show why the design becomes untenable as the cube shrinks. The game\u2019s actual backend, LOD handling, and synchronization are, in his view, simplistic and misleading, making the experience incoherent and insecure. He concludes that the failure is not the idea itself but a lack of engineering rigor and the willingness to say \u201cno\u201d to an unworkable plan. The takeaway is that \u201csimple\u201d multiplayer ideas can be fundamentally hard to implement at scale.",
+  "key_points": [
+    "The cube\u2019s size and layer geometry create extreme contention and accelerating tap rates near the endgame, stressing servers and fairness.",
+    "Client rendering is manageable, but server synchronization, LOD accuracy, and real-time updates are the real bottlenecks.",
+    "Latency makes the \u201clast tap\u201d effectively random, undermining the promised reward experience.",
+    "Cheat prevention is fundamentally hard in such a simple, high-volume interaction model.",
+    "Curiosity\u2019s actual implementation ignores these issues, resulting in poor LOD, low sync frequency, and insecure economics."
+  ],
+  "money_quotes": [
+    "I was looking forward to it because there are two things in life that I find more interesting than anything else: technology and human behavior.",
+    "The technology behind it is not very clever and because it barely works it won't be able to tell us anything about how humans work.",
+    "The real issue however here is concurrency.",
+    "With 25.000 players tapping on the same screen the last tap will be absolutely random.",
+    "Now that's the hardest part: how do you keep cheaters out.",
+    "The answer is: it does not.",
+    "No matter how simple the idea sounds: that does not mean it will actually work."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated",
+  "key_insight": "A seemingly simple multiplayer mechanic becomes a complex, failure-prone system once you account for scaling, latency, synchronization, and fairness.",
+  "filename": "2012-11-12-death-by-million-cubes"
+}

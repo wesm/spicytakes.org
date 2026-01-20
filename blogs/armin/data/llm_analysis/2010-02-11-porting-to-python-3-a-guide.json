@@ -1,0 +1,29 @@
+{
+  "summary": "Armin Ronacher argues that porting to Python 3 is manageable but demands deliberate API decisions, especially around text vs bytes. The core challenge is choosing how your library should treat strings now that Python 3\u2019s `str` and `bytes` have incompatible semantics. He outlines practical tactics for byte-based and text-based libraries, including custom 2to3 fixers to handle tricky `__unicode__`/`__str__` patterns and guidance on file I/O to keep behavior consistent across versions. He emphasizes that distribute\u2019s 2to3 support makes dual-version packaging workable without maintaining separate codebases. The biggest migration pain, he says, is testing\u2014especially doctests\u2014so moving to unittest/py.test is advised. His conclusion is pragmatic and urging: even if Python 3 adoption hasn\u2019t gone as hoped, library maintainers should keep porting.",
+  "key_points": [
+    "Decide and document your library\u2019s string/bytes contract before porting; Python 3 makes mixed behavior harder to sustain.",
+    "Byte-based libraries need special handling because 2to3 can misconvert byte literals; runtime encoding hacks can preserve bytes.",
+    "Text-based libraries often port smoothly, but `__unicode__`/`__str__` patterns require custom fixers to avoid recursion and bytes returns.",
+    "Use distribute\u2019s 2to3 integration and custom fixers to build Python 3 outputs without maintaining two source trees.",
+    "The hardest part is the test suite; avoid doctests and use unittest/py.test with 2to3-enabled setup testing."
+  ],
+  "money_quotes": [
+    "It was surprisingly painless to port the application over but it did require a substantial amount of tweaks and code changes in order to get it running.",
+    "Because byte-strings no longer exist in Python 3 and were replaced by a `bytes` object that works similar, but has an incompatible API it is very unlikely that your code will be able to support both in the future.",
+    "The issue is that the way you operate on bytes changed fundamentally from Python 2.x to 3.x and 2to3 is not really able to pick it up.",
+    "If you call `str()` on your instance now, it will die with a runtime error because it recurses infinitely.",
+    "So in Python 3 there is a completely new input/output system. It is very Java-ish and is able to deal with unicode.",
+    "Now the biggest problem I had with switching to 3.x: The unittests.",
+    "First of all: **do not use doctest**.",
+    "Even if Python 3 did not work out as some of us hoped, it is very important that we continue to port libraries over to 3.x."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "Successful Python 3 ports hinge less on automated conversion and more on explicit string/bytes design choices, disciplined I/O handling, and a testing strategy that survives 2to3\u2019s blind spots.",
+  "filename": "2010-02-11-porting-to-python-3-a-guide"
+}

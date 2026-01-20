@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that Rust\u2019s borrow system fails in cases like thread locals because references can leak to 'static, creating unsafe access when the backing thread exits. He explains this \u201cleakage problem\u201d via his `fragile` crate, where `Sticky` cannot safely expose a deref-style API without risking invalid references. To avoid closure-based APIs like `with()`, he proposes stack tokens: zero-sized, non-`'static` proof objects created on the stack that constrain lifetimes safely. With stack tokens, APIs can return references tied to the token\u2019s stack frame, enabling ergonomic access without risking leaks. He notes that language or stdlib support could standardize this pattern, but soundness is unsettled because it conflicts with possible `mk_static`-style guarantees. He personally favors stack tokens\u2019 benefits, while acknowledging Rust may need to choose between competing soundness models.",
+  "key_points": [
+    "Thread-local deref is blocked because leaked `'static` references can outlive TLS cleanup and crash.",
+    "Closure-based `with()` prevents escaping references but creates awkward, nested APIs.",
+    "Stack tokens offer a safe, ergonomic way to prove a non-`'static` lifetime by tying borrows to a stack frame.",
+    "A standardized token or a `'caller` lifetime could make this pattern ergonomic in Rust\u2019s ecosystem.",
+    "Soundness is unresolved: stack tokens may conflict with `mk_static`-style assumptions."
+  ],
+  "money_quotes": [
+    "And it annoys me a lot.",
+    "This *obviously* is a problem and embarassingly that was missed entirely when the API was first created.",
+    "This is the same reason why thread locals won't let you deref something.",
+    "Surely there must be a better way?  And I believe there is.",
+    "A `StackToken` is a value that cannot be safely constructed, it can only be created through a macro on the stack which immediately takes a reference:",
+    "So here is an important question: is this sound?  The answer is \u201cunclear\u201d as it makes a statement about relationships of stacks to threads that's not entirely explored.",
+    "On a personal level I find the possibilities that stack tokens provide to be more valuable than `mk_static` but there are probably reasons to decide either way."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Stack tokens provide an ergonomic proof of non-`'static` lifetimes for safe borrowing, but Rust must reconcile this idea with broader soundness guarantees.",
+  "filename": "2022-11-23-stack-tokens"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that Python 3\u2019s string/bytes split makes WSGI significantly harder to implement than in Python 2, especially because web protocols are byte-oriented while frameworks need Unicode. He explains that WSGI lacks a configured encoding, so forcing Unicode at the spec level leads to awkward, lossy-looking conversions and more complex middleware. A \u201cfake Unicode\u201d Latin-1 strategy is emerging, but he is unhappy with the added complexity and with standard-library decisions that hardwire UTF-8 in places. He fears a spec that forces repeated encode/decode cycles just to compensate for bytes behavior and library constraints. He concludes by urging more people to experiment with Python 3 and the evolving WSGI spec so problems surface early and the language and tooling improve.",
+  "key_points": [
+    "Python 3\u2019s bytes are no longer string-like, making common WSGI byte-based operations lower-level and more cumbersome.",
+    "Web protocols are byte/ASCII-based, but WSGI has no encoding configuration, so Unicode at the interface creates ambiguity.",
+    "Standard library components introduced Unicode assumptions (latin1 headers, UTF-8 parsing) that break or limit real-world cases.",
+    "The draft WSGI-on-Python-3 spec uses a Latin-1 \u201cfake Unicode\u201d approach to preserve bytes, but it is unsatisfying in practice.",
+    "He proposes better bytes support and broader experimentation to avoid locking in a painful spec."
+  ],
+  "money_quotes": [
+    "There are only unicode strings now and the bytestrings got replaced by things that are more like arrays than strings.",
+    "WSGI like HTTP or URIs are all based on ASCII or an encoding like latin1 or even different encodings.",
+    "There is no configuration for WSGI so the only thing we could do is forcing a specific charset for WSGI applications on Python 3.",
+    "It just feels like the more I play with it, the more unhappy I become with how the bytes object works and how the standard library behaves.",
+    "Right now I'm a little bit afraid we end up with a specification that requires use to do the encode/decode/encode/decode dance.",
+    "Because one thing is for certain: ASCII and bytes are here to stay.",
+    "The reason why Python 3 is not as good as it could be, is that far too few people look at it."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, critical, opinionated, reflective",
+  "key_insight": "WSGI on Python 3 risks becoming needlessly complex because byte-based web protocols clash with a Unicode-focused language/runtime and an under-tested, evolving spec.",
+  "filename": "2010-05-25-wsgi-on-python-3"
+}

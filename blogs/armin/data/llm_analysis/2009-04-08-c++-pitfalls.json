@@ -1,0 +1,26 @@
+{
+  "summary": "Ronacher argues that C++ feels unnatural to Python programmers because its syntax and semantics are full of surprising traps. He highlights how C++\u2019s object size is baked into call sites, making private members a binary-compatibility hazard. He walks through confusing constructor syntax, compiler-generated copy/assignment behavior, and destructor pitfalls that silently break correctness. He emphasizes that operator overloading has strict rules, and RAII is essential to avoid leaks in the presence of exceptions. He concludes that these sharp edges are common enough to warrant a cautionary list for newcomers and will likely grow as he finds more.",
+  "key_points": [
+    "Changing class size by adding private members breaks binary compatibility because allocation size is fixed at the call site.",
+    "C++ declaration syntax can silently turn intended objects into function declarations, causing confusing errors.",
+    "Implicit copy constructors and assignment operators are dangerous with owning pointers; rule-of-three safeguards are needed.",
+    "Operator overloading has specific return-type rules that, if ignored, cause leaks or incorrect behavior.",
+    "Exceptions make manual resource management unsafe; RAII wrappers prevent leaks and crashes."
+  ],
+  "money_quotes": [
+    "For someone that mainly does Python development C++ feels very unnatural.",
+    "So be warned. If you add private members existing code will no longer work without recompilation.",
+    "The reason for this is of course, that with the parentheses after `obj` you would declare a function called obj that takes no arguments and returns a `MyClass` object by value.",
+    "This becomes a problem if you have pointers in your class which are not copied.",
+    "Also if you plan to subclass your class, you *have* to declare the destructor virtual, otherwise subclasses will not be able to add new members.",
+    "While this code would work perfectly fine in C, it's very dangerous in C++ because `do_something_with` could raise an exception.",
+    "The preprocessor does not know that `Pair<...>` belongs together and will try to split it up."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, critical, opinionated",
+  "key_insight": "C++\u2019s syntax quirks and implicit behaviors create hidden correctness and compatibility traps that demand defensive patterns like RAII and explicit copy/assignment control.",
+  "filename": "2009-04-08-c++-pitfalls"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that npm-style micro-packages create an unhealthy dependency explosion that imposes real costs and amplifies security risk. His main concern is not the pad-left incident itself but the trust and auditing problem created when thousands of tiny packages are pulled in indirectly. He contrasts this with Python\u2019s smaller, more consolidated dependency trees, which make vetting and monitoring maintainers feasible. He contends that package signing does little to solve the core issue because trust doesn\u2019t scale with the sheer number of dependencies. He concludes that unless npm changes (e.g., tagging micro-packages, automated analysis, or tighter practices like shrinkwrap), the ecosystem is a disaster waiting to happen.",
+  "key_points": [
+    "Micro-dependencies inflate dependency trees, turning a few direct deps into thousands of transitive ones.",
+    "Each dependency adds measurable costs: bandwidth, install time, storage, and licensing complexity.",
+    "Trust doesn\u2019t scale; auditing many tiny packages is infeasible and creates high-value, low-visibility targets.",
+    "Multiple versions of the same package and loose version pins expand attack surface and reduce oversight.",
+    "Package signatures are not a silver bullet because the core problem is trust and monitoring, not cryptography."
+  ],
+  "money_quotes": [
+    "dependencies incur cost.",
+    "every dependency is a liability.",
+    "This leads me to what my actual issue with micro-dependencies is: we do not have trust solved.",
+    "In essence if you use Flask you only need to trust me to not be malicious or idiotic.",
+    "Any pin for anything other than a strict version match is a disaster waiting to happen if someone would manage to push out a point release for it by stealing juliangruber's credentials.",
+    "To be perfectly honest: I'm legitimately scared about node's integrity of the ecosystem and this worry does not go away.",
+    "But as it stands right now I feel like this entire thing is a huge disaster waiting to happen and if you are not using node shrinkwrap yet you better get started quickly."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, opinionated, technical, cautionary",
+  "key_insight": "Micro-packages make dependency trees so large that trust and auditing no longer scale, turning ecosystem convenience into systemic security and reliability risk.",
+  "filename": "2016-03-24-open-source-trust-scaling"
+}

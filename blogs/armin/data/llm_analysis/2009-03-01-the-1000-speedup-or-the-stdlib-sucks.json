@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that parts of Python\u2019s standard library are poorly designed and can hide severe performance traps. He recounts a real-world issue in Werkzeug where serving static files was capped at 50 requests/second. The bottleneck was `mimetypes.guess_type`, which unexpectedly reloaded its database on every call due to how it monkey-patches itself during `init()`. Because he imported `guess_type` directly, the monkey-patch never replaced the local reference, causing repeated initialization. He concludes that the stdlib behavior is flawed enough to warrant a bug ticket and urges others to change their imports.",
+  "key_points": [
+    "The stdlib contains modules with design flaws and inconsistent quality.",
+    "A single function call (`mimetypes.guess_type`) caused a 10x slowdown in request throughput.",
+    "The function\u2019s implementation relies on runtime monkey-patching after initialization.",
+    "Using `from mimetypes import guess_type` bypasses the monkey-patch and triggers repeated database loads.",
+    "The fix is to import the module and call `mimetypes.guess_type` to benefit from the patched function."
+  ],
+  "money_quotes": [
+    "I hate the stdlib. There! I said it.",
+    "I noticed that Werkzeug's SharedDataMiddleware was just delivering 50 requests a second.",
+    "Until I removed the call to mimetypes.guess_type.",
+    "WTF? And then it hit me.",
+    "So on every call the database was reloaded.",
+    "If yes, change it to the following import: import mimetypes.",
+    "And now I file a ticket in the Python bug tracker."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "critical, opinionated, technical, frustrated",
+  "key_insight": "A subtle stdlib design quirk\u2014monkey-patching after init\u2014can turn a harmless import style into a massive performance regression.",
+  "filename": "2009-03-01-the-1000-speedup-or-the-stdlib-sucks"
+}

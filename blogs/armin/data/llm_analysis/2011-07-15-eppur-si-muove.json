@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that timezones are inherently messy because local time is shaped by DST, historical shifts, and political decisions, making it non-monotonic and ambiguous. He says the only sane internal representation is UTC, with local time treated as a display concern. Python\u2019s `datetime` design choices compounded the mess by separating naive and aware datetimes and providing confusing APIs for \u201cnow\u201d and timestamp conversion. As a result, developers are pushed into attaching and stripping tzinfo objects, which breaks comparisons and interoperability. His conclusion is pragmatic: keep internal timestamps in UTC, avoid offset-aware datetimes, and only rebase to local time for formatting using pytz.",
+  "key_points": [
+    "Timezones are not just UTC offsets; historical DST changes and local policies make them unstable and non-monotonic.",
+    "UTC is the only reliable internal reference, but converting back from local time can be ambiguous or impossible.",
+    "Python\u2019s `datetime` mixes naive and aware objects in a way that prevents safe comparison and encourages error-prone APIs.",
+    "Using `tzinfo` is more harmful than helpful due to broken conversions, library assumptions, and serialization issues.",
+    "Best practice: store UTC-naive datetimes, convert user input to UTC immediately, and rebase only for display."
+  ],
+  "money_quotes": [
+    "Always measure and store time in UTC.",
+    "For computing DST is a huge problem.",
+    "The biggest problem is that a datetime object with timezone information attached and a datetime object without that timezone information don't work at all together.",
+    "It might sound like a good idea to always attach a tzinfo object, but it's actually a much better idea to not do that.",
+    "There is no standard way to transport that timezone information ... to other languages or over HTTP etc.",
+    "Use that \u201cAPI weakness\u201d to your advantage.",
+    "Do not blindly guess."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic, lightly sardonic",
+  "key_insight": "Treat UTC as the only trustworthy internal time and use local time strictly for presentation, especially given Python\u2019s flawed tzinfo design.",
+  "filename": "2011-07-15-eppur-si-muove"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that WSGI\u2019s core goal\u2014bridging servers and apps\u2014worked, but the protocol\u2019s design choices made framework-agnostic \u201cpluggable\u201d apps unrealistic. He explains that WSGI\u2019s iterator-based response model and `start_response()` quirks were deliberate tradeoffs to enable streaming, error handling, and early compatibility, even if they complicate proxying and middleware. Many perceived problems are either edge cases or already worked around by existing frameworks, so replacing WSGI would incur massive ecosystem churn for limited gain. The bigger conflict is that people want WSGI both simpler and more powerful, which is incompatible. His conclusion is that true composition should move up the stack\u2014via HTTP/JSON and client-side JavaScript\u2014not via a new WSGI-like standard.",
+  "key_points": [
+    "WSGI solved server/app interoperability, but its iterator model broke older request/response APIs and made relaying and middleware composition hard.",
+    "`start_response()` exists to preserve streaming and error recovery, yet its write/`exc_info` features are rarely used and increase complexity.",
+    "Incremental fixes to WSGI won\u2019t satisfy conflicting goals; a clean break would fragment the ecosystem and invalidate existing tooling.",
+    "A genuine pluggable layer would require a rich, standardized request/response system beyond WSGI\u2019s scope, and async trends further bypass WSGI.",
+    "Integration should happen at higher layers (HTTP/JSON, client-side JS) rather than at the WSGI boundary."
+  ],
+  "money_quotes": [
+    "WSGI is such a simple specification but there is so much around it that it can really make your head hurt.",
+    "All in all this makes WSGI a terrible protocol for the simple case where you want to invoke another application, munch with the return value and then forward it.",
+    "A small evolving of WSGI is pointless and a big step is even worse.",
+    "The idea that you can reused code on top of WSGI to work with Framework 1 and Framework 2 is not working out.",
+    "If you want to replace WSGI, you would not replace it, you would put a new layer on top of it.",
+    "I am pretty damn sure that WSGI no longer carries the importance it had a few years ago.",
+    "In general JSON via HTTP or zeromq is so much cooler and more flexible than WSGI could ever be."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, critical, reflective",
+  "key_insight": "WSGI\u2019s compromises made sense for interoperability, but true cross-framework composability won\u2019t come from a new WSGI\u2014it will come from higher-level protocols and client-side integration.",
+  "filename": "2011-07-27-the-pluggable-pipedream"
+}

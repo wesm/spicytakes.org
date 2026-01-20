@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that not every MIME type accepts a `charset` parameter, and the common assumption that they do is wrong. He highlights `application/json` and `application/x-www-form-urlencoded` as frequent offenders where charset parameters are incorrectly added. For JSON, the RFC explicitly disallows parameters and defines encoding detection via byte patterns, so charset labels and BOMs are outside spec. For URL-encoded form data, the encoding is determined at the application/browser level, not the HTTP layer, so intermediaries cannot reliably infer it. He concludes that adding charset parameters where they don\u2019t belong only increases complexity and should not happen without a clear specification.",
+  "key_points": [
+    "MIME types vary in whether they allow `charset`; many non-`text/` types do not.",
+    "The JSON spec forbids parameters and already defines UTF-8/16/32 detection rules.",
+    "Libraries accept out-of-spec charset and BOMs for compatibility, reinforcing confusion.",
+    "Form-encoded data lacks charset because encoding is dictated by the server/application, not HTTP.",
+    "Adding charset parameters to such types creates ambiguity without a formal spec."
+  ],
+  "money_quotes": [
+    "If a mimetype accepts a charset parameter depends on the mimetype and as a rule of thumb, mimetypes that don't start with \u201ctext/\u201d often don't accept one.",
+    "These mimetypes are `application/json` and `application/x-www-form-urlencoded`.  Neither of those accept a charset.",
+    "So how do you specify a charset for those?  You don't!",
+    "JSON may be represented using UTF-8, UTF-16, or UTF-32.",
+    "Unfortunately, people started sending charset parameters.",
+    "`application/x-www-form-urlencoded` does not have a charset, because the encoding is done on a different level.",
+    "Adding a whole new set of confusion by adding charset parameters to things that previously did not have them should not be done without at least drafting up a spec about what that means."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, corrective",
+  "key_insight": "Charset parameters for JSON and form-encoded data are out of spec and add unnecessary ambiguity where encoding should be inferred or defined at the application level.",
+  "filename": "2013-07-19-application-mimetypes-and-encodings"
+}

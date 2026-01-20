@@ -1,0 +1,30 @@
+{
+  "summary": "Ronacher argues that Python 3\u2019s headline change\u2014making Unicode strings the default\u2014didn\u2019t fix the real Unicode problems and instead introduced new incompatibilities. He details how case mapping, locale-sensitive behavior, UCS2/UCS4 builds, and bytes/str semantics all remain broken or become harder to handle across libraries and platforms. He is especially critical of Python 3\u2019s byte iteration semantics and how they make it difficult to write libraries that accept both bytes and Unicode, with URL handling and filesystem behavior as concrete casualties. He also criticizes language design choices like the new `super()` behavior and missed opportunities to simplify the interpreter, improve embedding, or remove the GIL. He acknowledges several improvements (nonlocal, keyword booleans, metaclasses, iterators), but concludes they don\u2019t justify a hard break. His conclusion is that Python 3 should have been a strict mode layered onto Python 2 rather than a new incompatible version.",
+  "key_points": [
+    "Python 3 made Unicode the default but failed to address fundamental Unicode issues like locale-aware case mapping and UCS2/UCS4 inconsistencies.",
+    "The new bytes semantics break common Python 2 patterns and make dual bytes/Unicode interfaces much harder, especially for URLs and filesystem access.",
+    "The `super()` change is an example of compiler magic that undermines Python\u2019s dynamic semantics and exposes inconsistencies in optimization.",
+    "Python 3 missed chances for bigger wins: reentrant interpreters, removing the GIL, cleaner freezing/proxying, and a more coherent stdlib.",
+    "Improvements like nonlocal, class decorators, and iterator-returning builtins are good but insufficient to justify the migration cost."
+  ],
+  "money_quotes": [
+    "The Python unicode implementation cannot do two things: neither can it replace one letter with two when changing the case, nor does it allow a locale information for character mappings.",
+    "So what they did \"improve\" with Python 3 was making unicode strings the default.",
+    "Bytestrings are bytes objects, which are basically arrays of integers which look like strings in the repr, but yield the bytes as integers.",
+    "That means suddenly bytes and unicode objects have different semantics, making it impossible to provide an interface for both bytestrings and unicode.",
+    "The use of the name of a global function (which btw I can reassign!) should never affect the bytecode generated, that's what keywords are for!",
+    "What I wished for Python 3 was to remove really useless dynamic features like pulling in functions on every call to allow more compiler/interpreter optimizations.",
+    "But that does not justify a new version of Python.",
+    "They could have done so much more or skipped Python 3 altogether and get the cool stuff into an optional strict mode in Python 2."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "Python 3\u2019s breaking changes solved the wrong problems and should have been delivered as an optional strict mode rather than a wholesale incompatibility.",
+  "filename": "2010-01-07-pros-and-cons-about-python-3"
+}

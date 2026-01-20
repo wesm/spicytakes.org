@@ -1,0 +1,26 @@
+{
+  "summary": "Ronacher argues that Python is often mislabeled as \u201cwhitespace sensitive,\u201d but its parser only consumes indentation into tokens and then ignores whitespace. He contrasts that with Ruby, where spaces can change the parse tree and semantics. He shows that `foo[42]` and `foo [42]` are distinct in Ruby, affecting whether `foo` is called with an array or its return value is indexed. A second example demonstrates how a tiny space can flip division into an unterminated regex parse error. He concludes that Ruby, not Python, exhibits the more troublesome whitespace sensitivity, largely due to Ruby\u2019s parser resolving ambiguities based on local variable tracking.",
+  "key_points": [
+    "Python\u2019s whitespace sensitivity is limited to indentation tokens; the parser otherwise ignores whitespace.",
+    "Ruby\u2019s parser is whitespace sensitive because spaces can alter how expressions are parsed.",
+    "`foo[42]` and `foo [42]` represent different calls in Ruby due to parsing rules.",
+    "A space in `bar/foo` vs `bar /foo` can trigger a regex parsing error, revealing Ruby\u2019s ambiguity.",
+    "Ruby resolves ambiguous syntax using local variable/method tracking, which influences whitespace effects."
+  ],
+  "money_quotes": [
+    "Python doesn't care about Whitespace at all.",
+    "The only thing that somewhat has to do with whitespace is the indentation that the lexer convers into indent and outdent tokens.",
+    "That however is not true for Ruby!",
+    "`foo[42]` does a completely different thing than `foo [42]`.",
+    "Now this gives you an error that the regular Expression literal is unterminated.",
+    "That's what I call whitespace sensitivity :)"
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, lightly humorous",
+  "key_insight": "Python\u2019s whitespace complaints are overstated; Ruby\u2019s parsing rules make it far more sensitive to spaces in practice.",
+  "filename": "2008-07-01-whitespace-sensitivity"
+}

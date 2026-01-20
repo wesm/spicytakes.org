@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that Python\u2019s `re` module is an underappreciated exception in the standard library: old, quirky, but unusually well-designed and reliable. He notes that its lack of language-level regex syntax is compensated by a strong API and a split architecture (Python parser/compiler, C matcher) that enables powerful, undocumented possibilities. The core insight is that the module\u2019s distinction between matching and searching enables efficient iterative matching, especially for lexers. He then exposes a hidden \u201cscanner\u201d feature that can compile multiple regexes into a single efficient matcher, avoiding slow per-character fallback loops. Despite drawbacks like confusing group indices, he concludes that these internals make Python\u2019s regex engine cooler and more capable than commonly assumed.",
+  "key_points": [
+    "The `re` module is old, stable, and reliable, with a strong API despite minimal evolution.",
+    "Python\u2019s explicit distinction between `match` and `search` enables efficient lexer-style iteration without slicing strings.",
+    "Undocumented internals (Python parser/compiler + C matcher) allow bypassing parsing and composing patterns manually.",
+    "The hidden scanner can match multiple regexes efficiently, avoiding slow character-by-character fallback logic.",
+    "Group index handling becomes tricky in combined patterns, requiring extra wrapper logic."
+  ],
+  "money_quotes": [
+    "There are many terrible modules in the Python standard library, but the Python `re` module is not one of them.",
+    "While it's old and has not been updated in many years, it's one of the best of all dynamic languages I would argue.",
+    "One of the nice things about it being old is that it does not change between Python versions and is very reliable.",
+    "The best feature of the regex system in Python is without a doubt that it's making a clear distinction between matching and searching.",
+    "There has been a completely undocumented feature in the regular expression engine: the scanner.",
+    "Armed with this knowledge we can extend this."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "opinionated, technical, appreciative",
+  "key_insight": "Python\u2019s `re` module hides a powerful, undocumented scanner interface that turns regex matching into an efficient multi-pattern lexer.",
+  "filename": "2015-11-18-pythons-hidden-re-gems"
+}

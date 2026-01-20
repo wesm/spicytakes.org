@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that a unified Python 2/3 codebase is now practical if you target 2.6/2.7 and 3.3, avoiding 2.5 and 3.1/3.2. His painful 2to3-based workflow killed iteration speed and motivation, but python-modernize plus cleanup yields clean, readable code with minimal version branching. He recommends skipping six in favor of a tiny project-specific compatibility module to reduce dependency friction and improve clarity. The bulk of porting pain remains Unicode and string semantics, so he provides concrete patterns for strings, iterators, dicts, metaclasses, and codecs. He closes by noting remaining sharp edges (filesystem encoding, URLs, C extensions) but insists that unified codebases are now realistic and far less painful when you prune old versions.",
+  "key_points": [
+    "Drop 2.5, 3.1, and 3.2 to leverage overlapping features between 2.6 and 3.3 that enable clean shared syntax.",
+    "Avoid six when possible; a small internal compat module is usually enough and keeps the codebase readable and dependency-light.",
+    "Use python-modernize to handle mechanical conversions, then manually clean up imports and ugly artifacts.",
+    "Unicode/string handling is the core challenge; adopt disciplined rules for literals, types, and conversions.",
+    "Provide compatibility helpers for metaclasses, dict iteration, iterators, and exception re-raising to smooth API gaps."
+  ],
+  "money_quotes": [
+    "The unfortunate side-effect of that is that any change you do requires about a minute of translation which destroys all your iteration speeds.",
+    "Dropping 2.5 by now is more than possible since very few people are still on it and dropping 3.1 and 3.2 are no brainers anyways considering the low adoption of Python 3 so far.",
+    "Yes, the six module can get you quite far, but don't underestimate the impact of looking at nice code.",
+    "With the Python 3 port I basically lost interest in maintaining Jinja2 because the codebase started to frustrate me.",
+    "The biggest change in Python 3 is without doubt the changes on the Unicode interface.",
+    "If you have a C module written on top of the Python C API: shoot yourself.",
+    "Unified codebases for 2.x and 3.x are definitely within reach now."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, pragmatic, candid",
+  "key_insight": "A clean unified 2.x/3.x codebase is achievable if you drop old versions, minimize compatibility layers, and focus your effort on Unicode and API edge cases.",
+  "filename": "2013-05-21-porting-to-python-3-redux"
+}

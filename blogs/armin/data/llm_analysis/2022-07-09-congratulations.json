@@ -1,0 +1,30 @@
+{
+  "summary": "Ronacher reacts negatively to PyPI\u2019s \u201ccritical package\u201d program that mandates 2FA for highly adopted packages, arguing it creates a new class of maintainer obligations. He acknowledges the index\u2019s security motivations but worries the line between \u201ccritical\u201d and \u201cnon\u2011critical\u201d invites escalating restrictions. The core conflict is that maintainers did not choose critical status, yet are asked to shoulder extra burdens as usage grows. He sketches a future where indexes impose stronger controls\u2014signing, takeover of abandoned packages, and service-level expectations\u2014further shifting responsibility onto volunteers. His proposed alternative is a separation of concerns: keep indexes focused on distribution and immutability, and move vetting to an independent layer, as exemplified by Rust\u2019s cargo\u2011vet. The conclusion is a call for systems that protect supply chains without penalizing maintainers for their software\u2019s success.",
+  "key_points": [
+    "Labeling packages \u201ccritical\u201d justifies extra controls, but it shifts costs and governance to maintainers who never opted into that status.",
+    "Drawing a line enables future restrictions (signing, package reclamation, response SLOs) that may erode autonomy.",
+    "Indexes have structural incentives to centralize control, especially when alternatives are impractical.",
+    "Version-based vetting (cargo\u2011vet) focuses on code rather than people, improving security and transferability of ownership.",
+    "Separating distribution from vetting places friction on commercial users who benefit most, not volunteer maintainers."
+  ],
+  "money_quotes": [
+    "The message to me as a maintainer is quite clear: once a project achieved criticality, then the index wants to exercise a certain amount of control.",
+    "But a line has been drawn now and I'm not sure why it wouldn't be in the index best interest to put further restrictions in place.",
+    "Instead of putting the burden to the user of packages, we're now piling stuff onto the developer who already puts their own labor and time into it.",
+    "For me the most critical part of vetting is that it's based on versions and not on the people behind it.",
+    "In a sense people don't matter, the code does.",
+    "What I like about the `cargo-vet` approach is that it separates the concerns of running an index from vetting.",
+    "Maybe we can find a future for package indexes where maintainers of packages are not burdened further because the internet started depending on it."
+  ],
+  "themes": [
+    "open_source",
+    "developer_tools",
+    "software_engineering",
+    "industry_observations",
+    "rust",
+    "python"
+  ],
+  "tone": "opinionated, critical, technical, reflective",
+  "key_insight": "Security controls should be decoupled from package indexes so supply\u2011chain vetting falls on users\u2014especially commercial ones\u2014rather than imposing escalating obligations on volunteer maintainers.",
+  "filename": "2022-07-09-congratulations"
+}

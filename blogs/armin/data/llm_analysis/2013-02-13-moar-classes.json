@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that the Python community\u2019s bias toward functions and against classes leads to brittle, monolithic APIs that hide essential layers. He uses Python\u2019s `open()` and JSON APIs to show that convenient functions should be helpers, not the only interface. By concealing internal stages like tokenization, libraries prevent customization, streaming, and resource-aware processing. He contrasts this with C#\u2019s msgpack API and with Jinja2\u2019s extensible class-based design, where override points are explicit and powerful. The conclusion: monolithic function-only APIs are a design mistake, and classes are Python\u2019s practical tool for layered, extensible systems.",
+  "key_points": [
+    "Convenience functions are fine, but they should sit atop an exposed, class-based API rather than replace it.",
+    "Hiding internal layers (e.g., JSON tokenization) blocks streaming, customization, and responsible memory use.",
+    "Monolithic APIs can create performance and denial-of-service risks in async or green-threaded systems.",
+    "Other ecosystems (e.g., C# msgpack) expose low-level reading primitives that make extensions trivial.",
+    "Jinja2 demonstrates how class-based layering enables customization without forking libraries."
+  ],
+  "money_quotes": [
+    "I love concise APIs and I love such functions but these functions should be just helpers for the common case and not the sole API.",
+    "Unfortunately the Python community has decided that it's better to hide this beautiful layered architecture away behind a protection that prevents you from tapping and customizing the individual layers.",
+    "At the very least this makes stream processing absolutely impossible.",
+    "There is nothing more frustrating than figuring out that your library you have been using until now requires a patch in a C extension to continue functioning for you.",
+    "All of that is entirely irrelevant to the point I'm making which is that monolithic pieces of code are a bad idea.",
+    "So let's stop with this misleading idea of putting functionality in functions and let's start writing classes instead."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, critical, pragmatic",
+  "key_insight": "Exposing layered, class-based APIs is the practical antidote to brittle monolithic functions, enabling customization, streaming, and sustainable library use.",
+  "filename": "2013-02-13-moar-classes"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Ronacher argues that Rust\u2019s current `Result`/`try!` model is clean but breaks down when errors cross abstraction boundaries, because all errors must share a single type. He reviews how other languages handle this\u2014unchecked exceptions in Python, checked exceptions in Java, and in-band error state in C\u2014highlighting each approach\u2019s tradeoffs. He finds Java-style checked exceptions especially painful for API design and sees Rust\u2019s status quo as similarly constraining. He then endorses a proposed Rust design that adds error interoperability via `Error` and `FromError`, allowing libraries to wrap lower-level errors while preserving a stable external contract. He also praises the forthcoming `?` operator as a major ergonomic improvement that enables concise error propagation. He concludes by pointing out that Python libraries could adopt a similar \u201csingle public error type with chained causes\u201d discipline to improve API hygiene.",
+  "key_points": [
+    "Rust\u2019s current `try!`/`Result` approach forces a single error type, which clashes with real-world libraries that depend on multiple failure sources.",
+    "Unchecked exceptions fit dynamic languages like Python, while Java\u2019s checked exceptions impose rigid, painful contracts; both illustrate the abstraction-boundary problem.",
+    "Rust\u2019s proposed `Error` + `FromError` pattern enables wrapping internal errors and exposing a stable, library-specific error type with causal chains.",
+    "The `?` operator replaces `try!` and enables terse, composable error propagation without sacrificing explicitness.",
+    "Python could benefit from more disciplined exception APIs, rethrowing internal errors as a single public exception with chaining."
+  ],
+  "money_quotes": [
+    "There is however quite a big problem with it, and that is that all the errors from the function have to be the same.",
+    "The problem of errors that want to cross an abstraction boundary are a long standing issue in many programming languages.",
+    "Java has checked exceptions which have a terrible reputation (deservedly).",
+    "In some other languages like C the errors typically are an in-band signal that indicates that something went wrong and an some state elsewhere that you can query to figure out what happened.",
+    "The idea of the proposal is twofold.",
+    "The elegance becomes obvious once you see the actual usage code in action:",
+    "In a nutshell `try!(x)` would become `x?`.",
+    "Having to only deal with a `RequestFailed` exception is much more convenient and future proof."
+  ],
+  "themes": [
+    "rust",
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Rust\u2019s future error model should let libraries wrap internal failures into a stable, public error type\u2014preserving ergonomics and abstraction boundaries\u2014while the `?` operator makes that approach pleasant to use.",
+  "filename": "2014-10-16-on-error-handling"
+}

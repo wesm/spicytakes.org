@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that MCPs overloaded with many bespoke tools underperform compared to a single tool that accepts code in a familiar language. CLI tools compose well through shell scripting, but they are brittle: platform variance, encoding quirks, and session state make multi-turn automation fragile. MCPs can be stateful, so exposing a Python or JavaScript interpreter lets agents leverage a known language plus known SDKs like pexpect or Playwright. This reduces tool surface area, preserves composability, and makes it easy to turn successful sessions into reusable scripts. He concludes that security concerns are real but not meaningfully worse than existing code-execution workflows, and the benefits of code-first MCPs are compelling enough to explore further.",
+  "key_points": [
+    "CLI tools fail in practice due to platform differences, encoding edge cases, and session management overhead.",
+    "MCPs lose composability unless you expose a programming language rather than many narrow tools.",
+    "A single interpreter tool (Python/JS) leverages the model's training and makes scripts reusable after the session.",
+    "Stateful MCPs enable loops, logging, and data accumulation without extra inference turns.",
+    "Security preflights and sandboxing are porous; code execution risk is already inherent in agentic workflows."
+  ],
+  "money_quotes": [
+    "Your MCP doesn't need 30 tools: it needs code.",
+    "The command line really isn't just one tool \u2014 it's a series of tools that can be composed through a programming language: bash.",
+    "What is stateful out of the box, however, is MCP.",
+    "This works because the interface to the MCP is now not just individual tools it has never seen \u2014 it's a programming language that it understands very well.",
+    "A general challenge with MCP today is that the more tools you have, the more you're contributing to context rot.",
+    "So to some degree, I think the tail risks of code execution are here to stay.",
+    "There is little point in securing the MCP if what the MCP can run is any bash command."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective, critical",
+  "key_insight": "Expose a stateful interpreter as the MCP interface so agents can compose actions in a known language, reducing tool sprawl and turning sessions into reusable scripts.",
+  "filename": "2025-08-18-code-mcps"
+}

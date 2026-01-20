@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher uses a finance metaphor to explain how Rust ecosystem dynamics can turn ordinary dependency issues into a crisis. An unmaintained dependency becomes \"tech debt\" only when external signals like RUSTSEC advisories and public perception reclassify it as risky. That reclassification triggers a cascade of user pressure, forcing maintainers to act even if nothing actually broke for them. He surveys the usual options\u2014switching dependencies, forking, or waiting\u2014and argues they mostly just reshuffle the risk. The only practical escape, he says, is to vendor the dependency into the main project, effectively hiding the debt. His conclusion is bleak: the move technically works, but nobody really wins.",
+  "key_points": [
+    "Tech debt is often created by ecosystem perception and tooling alerts, not by actual breakage.",
+    "Security/advisory systems act like rating agencies, instantly downgrading dependencies and triggering CI failures.",
+    "Maintainers face a \"margin call\" from users once a dependency is flagged, even if it worked fine before.",
+    "Forking or switching dependencies merely shifts or delays the debt rather than resolving it.",
+    "Vendoring can \"upgrade\" the debt by absorbing it into the main project, but it is a hollow victory."
+  ],
+  "money_quotes": [
+    "That's because RUSTSEC is basically a rating agency and they decided that your debt is now junk.",
+    "If we really want to stress the financial terms this is your margin call.",
+    "Forking that library is putting cash on the pile of debt.",
+    "However here is what actually does work: you just merge that code into your own library.",
+    "Now that junk tech debt is suddenly rated \u201cAAA\u201d.",
+    "So as of today: I collateralized yaml-rust by vendoring it in insta.",
+    "Who won? I think nobody really."
+  ],
+  "themes": [
+    "rust",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, sardonic, technical",
+  "key_insight": "In Rust\u2019s ecosystem, public signals like RUSTSEC can transform benign dependencies into urgent liabilities, and the only reliable escape is to absorb the debt rather than solve it.",
+  "filename": "2024-03-26-rust-cdo"
+}

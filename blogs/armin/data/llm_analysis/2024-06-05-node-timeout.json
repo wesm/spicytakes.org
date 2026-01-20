@@ -1,0 +1,26 @@
+{
+  "summary": "The post argues that Node\u2019s `setTimeout` can accidentally cause memory leaks because it returns a `Timeout` object, not a primitive, and that object retains internal state even after completion or cancellation. The risk grows with `AsyncLocalStorage`, which attaches hidden state to timeouts and persists unless the timeout reference is dropped. Converting the timeout to a primitive number would avoid holding references, but a current Node bug makes this approach unsafe and can cause unrecoverable leaks. As a workaround, the author suggests aggressively nulling timeout references and, in extreme cases, monkey\u2011patching timers. He concludes that Node should avoid exposing the internal `Timeout` object and that the ecosystem needs better ways to prevent async\u2011local context from leaking into long\u2011lived resources.",
+  "key_points": [
+    "Node returns a `Timeout` object, so holding a timeout reference keeps internal state alive even after it fires or is cleared.",
+    "AsyncLocalStorage attaches hidden context to timeouts, which can retain large data structures and multiply leak impact.",
+    "Converting timeouts to primitive IDs would fix the retention, but a Node bug currently makes that unsafe.",
+    "Immediate nulling of timeout references is the safest current practice; monkey\u2011patching is a risky interim option.",
+    "Long\u2011lived background resources and common APIs like `console.log` can accidentally capture async\u2011local context, pointing to a broader design issue."
+  ],
+  "money_quotes": [
+    "You can very easily create memory leaks with the `setTimeout` API in node.",
+    "The most problematic part is most likely the `_onTimeout` member on it which might pull in a closure.",
+    "This means that the more async local storage you use, the more \u201cstuff\u201d you hold on if you don't clear our the timeouts.",
+    "Except it doesn't (today).",
+    "At the very least for timeouts in node there might be a simple improvement by no longer exposing the internal `Timeout` object.",
+    "It's incredibly easy to leak async local storage today if you spawn \"background\" operations that last."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, cautionary",
+  "key_insight": "Node\u2019s timer API leaks internal state, and with AsyncLocalStorage that hidden context can quietly retain large heaps unless timeout references are aggressively cleared.",
+  "filename": "2024-06-05-node-timeout"
+}

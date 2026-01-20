@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher compares Mako, Jinja, and Genshi as second-generation Python template engines with distinct philosophies and tradeoffs. He explains how his own needs, including WSGI routing, dynamic inheritance, and performance, led him to use Mako for logic-heavy templates. He contrasts that with Jinja\u2019s designer-friendly, Django-inspired syntax and safer, more expressive template language. He then positions Genshi as a powerful XML-stream engine with automatic escaping and transformation features but a steeper learning curve and slower performance. He concludes that the variety is a strength and that different contexts justify different engines.",
+  "key_points": [
+    "All three engines are modern, framework-agnostic, Unicode-capable successors to earlier template tools, but each targets a different workflow.",
+    "Mako emphasizes Pythonic logic, dynamic inheritance, and performance, making it ideal when templates need real code.",
+    "Jinja keeps a Django-like, sandboxed syntax but removes restrictive expression limits to reduce template tag boilerplate.",
+    "Genshi\u2019s XML-stream model enables context-aware escaping and powerful transforms, at the cost of speed and designer accessibility.",
+    "Tool choice should follow project context, not a single universal preference."
+  ],
+  "money_quotes": [
+    "All three template engines are totally different but have a one thing in common: All three are the \"second generation\" of template engines.",
+    "Mako is a great template engine if you know Python, if you need some logic in templates (and you know: logic in templates is not bad in every situation) and if you need the best performance.",
+    "When Mako is like PHP, Jinja is like Smarty (even though Mako is a million times better than PHP as template engine).",
+    "This lead to the development of what is now known as Jinja.",
+    "Because it's stream based you can rewrite streams during the rendering process.",
+    "And lastly: this whole stream processing makes Genshi slow.",
+    "I hope this post sums up why I'm using all three template engines and why I think we should be happy that we can chose between a couple of template engines :-)"
+  ],
+  "themes": [
+    "python",
+    "developer_tools",
+    "software_engineering"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Template engines embody different tradeoffs, so choosing among Mako, Jinja, and Genshi should be driven by the project\u2019s workflow, audience, and performance needs.",
+  "filename": "2008-01-01-python-template-engine-comparison"
+}

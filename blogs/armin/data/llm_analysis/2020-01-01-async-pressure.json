@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that async/await makes waiting easy but hides a dangerous failure mode: absent or poorly exposed back pressure. He explains back pressure and flow control with a pipeline/luggage analogy, showing why systems must signal overload rather than buffer indefinitely. In asyncio, seemingly harmless APIs like `writer.write` default to buffering and can explode memory, and async services often accept unbounded work even when downstream capacity is fixed. He proposes explicit readiness signals (as in Rust\u2019s tower/actix-service) to let callers decide whether to proceed, and notes that streaming protocols like HTTP/2 make flow control mandatory and complex. The conclusion is a plea to async library authors to prioritize back pressure and flow control in APIs and documentation, because retrofitting it later is extraordinarily hard.",
+  "key_points": [
+    "Back pressure is resistance to data flow that prevents overload; ignoring it leads to runaway buffering and failure.",
+    "Async APIs can mask back pressure needs (e.g., non-awaitable `write`), encouraging silent buffering instead of blocking or dropping.",
+    "Unbounded concurrency in async servers can overwhelm limited resources like DB pools, making early rejection preferable to endless queueing.",
+    "Readiness signaling (service-style APIs) lets callers detect overload before committing work, improving system behavior.",
+    "Streaming protocols require explicit bidirectional flow control; relying on TCP\u2019s hidden mechanisms is insufficient at higher layers."
+  ],
+  "money_quotes": [
+    "It makes it so simple, that it creates innumerable new ways to blow ones foot off.",
+    "Back pressure sounds quite negative \u2014 who does not imagine a bathtub overflowing due to a clogged pipe \u2014 but it's here to save your day.",
+    "It's in fact better to admit defeat \u2014 that you're overloaded \u2014 than to pretend that you're operational and keep buffering up forever.",
+    "So why is `write` not doing an implicit `drain`?  Well it's a massive API oversight and I'm not exactly sure how it happened.",
+    "We're basically endlessly buffering here until the server will finally run out of memory and crash.",
+    "The lack of back pressure however is a type of footgun that has the size of a bazooka.",
+    "So for you developers of async libraries here is a new year's resolution for you: give back pressure and flow control the importance they deserve in documentation and API."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, critical, opinionated, cautionary",
+  "key_insight": "Async makes concurrency easy, but without explicit back pressure and flow control it quietly turns overload into catastrophic failure, and fixing it later is brutally hard.",
+  "filename": "2020-01-01-async-pressure"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "The post argues that generic type parameters quickly become unwieldy when you want extensible APIs, so a better pattern is to store arbitrary per-type extensions using Rust\u2019s `Any` and `TypeId`. It walks through a basic `Extensions` map that can insert and retrieve typed values and explains the safety of downcasting in this context. The author then addresses practical shortcomings: panics on missing values and borrow checker friction, solving them with `RefCell` to enable interior mutability and upsert-on-read. For `Send + Sync` use cases, it switches to `parking_lot`\u2019s mapped lock guards to preserve borrow mapping across threads. The conclusion is that extension maps are a flexible, reusable pattern, with a note that `Debug` support requires an additional trick covered in Part 2.",
+  "key_points": [
+    "Generic parameters scale poorly for extensible APIs; type-erased storage via `Any` and `TypeId` avoids cascading generics.",
+    "A simple `HashMap<TypeId, Box<dyn Any>>` enables typed insert/get with safe downcasts because each type has a unique key.",
+    "Interior mutability with `RefCell` fixes both panic-on-missing and borrow checker limitations for shared access.",
+    "For `Send + Sync`, `parking_lot` is needed because standard locks cannot map guards while keeping borrow semantics.",
+    "`Debug` for the extension map is non-trivial and requires the as-any pattern introduced in the next post."
+  ],
+  "money_quotes": [
+    "Sometimes in Rust you want to design APIs that provide a little bit of flexibility for the user.",
+    "While this works, it quickly becomes complex.",
+    "A solution for this issue comes in the form of the Any type.",
+    "This means you can store arbitrary types somewhere (like on our App object) and retrieve them later.",
+    "This feat is accomplished by RefCell having the ability to move the necessary checks to runtime.",
+    "Sadly the Mutex or RwLock from the standard library does not provide a way to hold on to the loan and map it, so we need to use something else.",
+    "We need the as-any pattern in Part 2."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, instructional",
+  "key_insight": "Using `Any`-based extension maps is a practical, scalable way to make Rust APIs extensible without exploding generic type parameters, with interior mutability and lock-mapping as the key enablers.",
+  "filename": "2022-01-06-rust-extension-map"
+}

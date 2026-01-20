@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that Python\u2019s asyncio is far more complex than expected and that its pieces do not fit together cleanly. He details how event loops, coroutines, awaitables, futures, and tasks interact in ways that are hard to reason about, especially for library authors. He believes Python\u2019s historical overloading of generators and `StopIteration` created lasting confusion that newer coroutine features only partly fix. He is especially critical of the lack of built-in context propagation for async code, calling it a serious design gap with real security and observability implications. He concludes that asyncio remains messy, slow relative to simpler alternatives, and not yet a stable or enjoyable foundation for Python async development.",
+  "key_points": [
+    "The event loop policy and thread binding model make it unclear which loop is running a coroutine, forcing awkward explicit loop passing.",
+    "Generator overloading and `StopIteration` semantics created confusing coroutine behavior that newer async syntax cannot fully erase.",
+    "Asyncio exposes overlapping, inconsistent abstractions (awaitables, futures, tasks, wrappers) that are difficult to reason about in practice.",
+    "Lack of async context propagation makes reliable context-local data and tracing extremely difficult in Python.",
+    "Despite its complexity, asyncio is not particularly fast, undermining its core promise."
+  ],
+  "money_quotes": [
+    "Primarily what I learned from this exercise is that I it's a much more complex system than I expected and I am now at the point where I am very confident that I do not know how to use it properly.",
+    "In my humble opinion the biggest design mistake of Python was to overload iterators so much.",
+    "That is a lot of stuff you need to know now for quite some time going forward.",
+    "Aside from the insane complexity and lack of understanding on my part of how to best write APIs for it my biggest issue is the complete lack of consideration for context local data.",
+    "The worst part is that asyncio is not even particularly fast.",
+    "There is an enormous amount of complexity that's hard to understand and reason about and then it fails on it's main promise.",
+    "I'm not sure what to think about it but I know at least that I don't understand asyncio enough to feel confident about giving people advice about how to structure code for it."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "Asyncio\u2019s layered abstractions, historical design baggage, and missing context propagation make it hard to use correctly, while delivering less performance and clarity than its complexity suggests.",
+  "filename": "2016-10-30-i-dont-understand-asyncio"
+}

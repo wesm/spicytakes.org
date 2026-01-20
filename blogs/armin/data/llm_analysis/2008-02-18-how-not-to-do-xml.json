@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that WordPress\u2019s WXR export is labeled XML but violates basic XML expectations in ways that make real XML tooling unusable. He describes missing doctypes, reliance on HTML entities, and unescaped HTML in comments that cause standard parsers to fail. WordPress\u2019s own importer works only because it ignores XML correctness and uses regex, which breaks namespace handling and proper escaping. The result is that compliant XML output is incompatible with WordPress, forcing developers to mirror the flaws. He concludes with a bitter loss of faith in standards and the project\u2019s claims about web standards.",
+  "key_points": [
+    "WXR mimics XML syntax but omits a doctype while referencing HTML entities, requiring hacks just to parse.",
+    "Broken HTML in comments isn\u2019t escaped or wrapped in CDATA, so valid XML parsers fail on real exports.",
+    "WordPress\u2019s importer uses regex and relies on the flawed format, breaking namespaces and proper escaping.",
+    "Standards-compliant XML tools produce output WordPress can\u2019t ingest, forcing developers to adapt to defects.",
+    "The project\u2019s marketing about web standards feels hollow given these practices."
+  ],
+  "money_quotes": [
+    "It has XML syntax, XML namespace declarations but what doesn't it have? A doctype.",
+    "So step one for parsing: inject an inline DTD that defines those entities.",
+    "Because comments are neither escaped nor marked as CDATA.",
+    "WORDPRESS PARSES THAT WXR FILE USING REGULAR EXPRESSIONS!!!",
+    "That's not XML what you are doing there, that's nothing.",
+    "I can't even write a proper exporter using XML tools because what my XML tools generate is not compatible to WordPress.",
+    "Without further comments... I lost my faith into standards that moment."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, frustrated, opinionated, technical",
+  "key_insight": "A format that claims to be XML but breaks core rules forces developers to abandon standard tooling and erodes trust in the platform\u2019s stated commitment to standards.",
+  "filename": "2008-02-18-how-not-to-do-xml"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that while he values strong type systems, they often hinder agentic coding tools in practice. LSP-provided type information is slow, bloats context, and isn\u2019t well understood by current models, so plain compiler errors help more. Agents can make \u201cprogress\u201d by writing types but then pay a steep cleanup cost when type checks run late, especially with complex TypeScript or Python typing ecosystems. He contrasts this with Go\u2019s simpler, structural types, which are easier for LLMs to grasp and enforce. He concludes that best-effort or simpler type systems may be more effective for AI-assisted coding and that languages like Go and Java may be better designed for this era than he previously thought.",
+  "key_points": [
+    "LSP type data often slows agents and doesn\u2019t improve outcomes compared to textual compiler errors.",
+    "Delayed type checking leads to wasted context and cleanup loops, especially with complex type systems.",
+    "TypeScript\u2019s advanced types and Python\u2019s fragmented typing tooling confuse LLMs and degrade fixes.",
+    "Go\u2019s simpler, structural typing is more compatible with LLM reasoning and enforcement.",
+    "Best-effort type hints (e.g., JSDoc) may deliver more practical value for agents than strict, complex types."
+  ],
+  "money_quotes": [
+    "The LSP protocol slows things down and pollutes the context significantly.",
+    "Just getting a type check failure from the compiler in text form yields better results.",
+    "That's bad progress\u2014it's the type of progress where it needs to come back after and clean up the types.",
+    "LLMs have little clue how to read any of this.",
+    "For the LLM it's more important that the type name in the error message aligns with the type name in source.",
+    "Because Go has a much simpler type system that doesn't support complicated constructs, it works much better\u2014both for LLMs to understand the code they produce and for the LLM to understand real-world libraries you might give to an LLM.",
+    "There is more elegance to their design than I gave it credit for."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective, critical",
+  "key_insight": "Complex type systems can actively degrade LLM coding performance, so simpler or best-effort typing may be better aligned with AI-assisted development.",
+  "filename": "2025-08-04-shitty-types"
+}

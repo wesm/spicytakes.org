@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that CoffeeScript\u2019s implicit scoping rule (\u201creassign unless unknown from higher scope\u201d) is a language-design flaw that makes maintenance error-prone. He explains how explicit scoping in JavaScript (`var`) and Python (`nonlocal`) clearly communicates intent, while CoffeeScript hides it. A real bug from his own code demonstrates how adding a top-level import silently changes a formerly local variable into a global, producing a delayed and confusing failure. He proposes a simple fix: an explicit `nonlocal`-like keyword or an assignment operator that marks outer-scope reassignment. He also challenges CoffeeScript\u2019s claim of forbidding shadowing, noting that it still allows parameter shadowing and that shadowing is actually beneficial when scoping is explicit. He concludes that CoffeeScript\u2019s rules are the worst of all options and warns future language designers not to repeat the mistake.",
+  "key_points": [
+    "Explicit scoping keywords (JavaScript\u2019s `var`, Python\u2019s `nonlocal`) make intent clear; CoffeeScript\u2019s implicit rule obscures it.",
+    "Implicit scoping causes silent, delayed bugs when new globals collide with locals, making large codebases harder to maintain.",
+    "A minimal language change (explicit outer-scope assignment) would fix the problem without sacrificing terseness.",
+    "CoffeeScript claims to forbid shadowing, but in practice it allows it; controlled shadowing is useful and predictable.",
+    "The current rules make CoffeeScript uncomfortable to use and are a cautionary tale for future language design."
+  ],
+  "money_quotes": [
+    "Adding an import or writing a new function / global variable should never, ever affect local code in a function!",
+    "CoffeeScript does a third thing which is \u201calways reassign unless unknown from higher scope\u201d.",
+    "The end result is that in that file you can then use `tan(x)` instead of `Math.tan(x)`.",
+    "Considering there are 400 lines of code in that module it took me a bit to figure out what happened.",
+    "Shadowing is good for you, seriously.",
+    "As it stands right now, I consider the CoffeeScript scoping rules the worst of all possible scoping rules and it makes me feel uncomfortable using the language, now that I was bitten already.",
+    "This article should at least serve as a reminder for errors not to repeat with the next language someone designs."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "Implicit scoping hides intent and enables silent, hard-to-debug failures, so languages should require explicit markers when reassigning outer-scope variables.",
+  "filename": "2011-12-22-implicit-scoping-in-coffeescript"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that Python modules are de facto singletons, and that the real problem with singletons is shared global state. He contrasts Python modules with C# namespaces to show how Python\u2019s module objects can store mutable state, which then becomes globally shared through `sys.modules`. This global cache makes module reloading, multi-version dependencies, and multiple app instances in one interpreter effectively impossible without unsafe hacks. He proposes an idea\u2014tagged modules in `sys.modules`\u2014to allow multiple versions or instances, but notes it cannot be made backward compatible. He concludes that the post is more a problem statement and brainstorming than a concrete fix, and hints the issue is broader than Python alone.",
+  "key_points": [
+    "Python modules are singletons because imports are cached in `sys.modules`, creating global shared state.",
+    "Shared state in module scope causes real-world problems in stdlib and frameworks (e.g., reinitialization, configuration clashes).",
+    "Hot-reloading or upgrading code in long-running processes is dangerous because modules cannot be cleanly unloaded.",
+    "Single-module globality blocks multi-version dependencies and multiple app instances within one interpreter.",
+    "A hypothetical tagging system for module imports could mitigate this, but it is incompatible with existing Python behavior."
+  ],
+  "money_quotes": [
+    "A singleton is nothing more than a glorified global variable.",
+    "That's right folks: a Python module is a singleton.",
+    "There can only be one version of a module, what does this mean for us?",
+    "This is dangerous and stupid.",
+    "The funny (and sad) part is that all these nice things do not work just because of one single object: `sys.modules`, the \u00fcbersingleton of Python.",
+    "So if we can't get rid of the singleton, add some more!",
+    "I guess \u2026 there is none."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "Python\u2019s module system is a global singleton cache, and that shared state makes reloading, multi-version dependencies, and multi-instance apps fundamentally hard to do safely.",
+  "filename": "2009-07-24-singletons-and-their-problems-in-python"
+}

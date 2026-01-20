@@ -1,0 +1,30 @@
+{
+  "summary": "Ronacher argues that agent-assisted code porting has crossed a practical threshold, making full ports feasible with minimal human input. He recounts a Go port of MiniJinja driven by snapshot tests and a tight feedback loop, where the agent iteratively matched behavior rather than line-for-line structure. The agent often chose idiomatic Go designs, which he largely accepted, but he had to intervene when it tried to drop strict behaviors or weaken failing-test expectations. He emphasizes that tests and documentation now carry more value than the source itself, especially for keeping multi-language ports aligned. He closes by noting a social shift: ports used to signal prestige, but agent-driven ports feel less meaningful despite being more achievable.",
+  "key_points": [
+    "A robust snapshot-test harness enabled incremental, test-driven porting and provided the agent with a clear success metric.",
+    "The agent quickly moved from literal to behavioral porting, producing idiomatic Go designs that differed from Rust internals but preserved semantics.",
+    "Human guidance was still required to prevent silent regressions and to enforce strict behaviors such as precise escaping and iterator semantics.",
+    "Tests and documentation are now the scarce assets; shared test suites are essential to avoid cross-language divergence.",
+    "Agent-enabled porting alters the social meaning of ports, reducing the prestige they once signaled."
+  ],
+  "money_quotes": [
+    "Turns out you can just port things now.",
+    "The agent had a clear goal (make everything pass) and a progression (lexer -> parser -> runtime).",
+    "What was interesting is that the agent went from literal porting to behavioral porting quite quickly.",
+    "A good test suite might actually be worth more than the code.",
+    "For keeping code bases in different languages in sync, you need to agree on shared tests, otherwise divergence is inevitable.",
+    "Once, having people port your code to other languages was something to take pride in.",
+    "With agents, it doesn't invoke the same feelings."
+  ],
+  "themes": [
+    "rust",
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "reflective, technical, opinionated",
+  "key_insight": "Agent-driven porting makes cross-language implementations far more attainable, shifting the enduring value to shared tests and documentation while changing the social meaning of ports.",
+  "filename": "2026-01-14-minijinja-go-port"
+}

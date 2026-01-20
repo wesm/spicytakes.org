@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that Rust\u2019s `FromStr` is ergonomically useful but inefficient when you already own a `String`, since it forces a borrow path that can trigger unnecessary clones. He proposes a `FromString` trait that consumes a `String`, defers to `FromStr` for most types, and treats `String -> String` as a no-op. The design uses a boxed error type to unify disparate `FromStr` error types and keep the trait broadly applicable. A key implementation trick is using `transmute_copy` with `TypeId` to bypass cloning for `String` while staying on stable Rust. He concludes that this utility is practical enough to ship as a small crate and acknowledges tradeoffs around `unsafe`, specialization, and `'static` bounds.",
+  "key_points": [
+    "`FromStr` is useful but wasteful when the input is already a `String`, since it can force an unnecessary clone.",
+    "A `FromString` trait can consume `String` directly, while still delegating to `FromStr` for most types.",
+    "Using `Box<dyn Error>` as a common error type lets even non-`Error` `FromStr` failures (like `String`) integrate cleanly.",
+    "A `String -> String` fast path avoids cloning by using `TypeId` and `transmute_copy` under `unsafe`.",
+    "Stable Rust limitations (no specialization, no `transmute_unchecked`) shape the implementation details."
+  ],
+  "money_quotes": [
+    "It has however a drawback: it takes a `&str` and not a `String` which makes it wasteful in situations where your input is a `String`.",
+    "In such cases, having a conversion that works directly with `String` values would be helpful.",
+    "To solve this, we can introduce a new trait: `FromString`.",
+    "We also add a special case for when the input and output types are both `String`, using `transmute_copy` to avoid a clone.",
+    "Another, even nicer solution, would be to have specialization, but sadly that is not stable either.",
+    "Hopefully, this utility is useful in your own codebase when wanting to abstract over string conversions.",
+    "If you need it exactly as implemented, I also published it as a simple crate."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "By wrapping `FromStr` with a `FromString` trait and a `String` fast path, you can preserve Rust\u2019s parsing ergonomics while eliminating avoidable clones in owned-string workflows.",
+  "filename": "2025-03-23-from-string"
+}

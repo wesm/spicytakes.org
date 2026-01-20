@@ -1,0 +1,30 @@
+{
+  "summary": "Ronacher reacts to PEP 3333 and the Python 3 web story, arguing that while Python 3 is the better language, the upgrade cost and ecosystem realities make it impractical for most web apps in 2011. He concedes his earlier stance on WSGI/Unicode, noting the standard library\u2019s Unicode direction makes bytes-centric designs untenable and creates opportunities for better IRI tooling. He stresses that Python 3 performance, breakage, and low adoption create a chicken\u2011and\u2011egg problem, compounded by alternative implementations not prioritizing Python 3. His pragmatic conclusion is to stay on Python 2 for now but write code that can pass through 2to3. Beyond Python 3, he argues that consolidation and collaboration among web frameworks and WSGI libraries are healthy, with recent and potential merges improving focus without stifling innovation. He closes by urging broader developer participation in cross\u2011framework discussions to strengthen shared standards and security.",
+  "key_points": [
+    "Python 3\u2019s Unicode model in WSGI is now the practical reality, even if bytes would have been cleaner, and it will reshape web tooling (e.g., IRI libraries).",
+    "Porting to Python 3 is costly, adoption is low, performance is worse for some tasks, and broken edges persist\u2014creating a self\u2011reinforcing migration stall.",
+    "Alternative implementations (PyPy, Jython, etc.) matter for real-world deployment and may overtake CPython\u2019s role, complicating the Python 3 transition.",
+    "Strategic consolidation among similar frameworks and WSGI libraries (Pylons/BFG, potential Flask/Bottle, Werkzeug/WebOb) can reduce fragmentation without losing choice.",
+    "Cross\u2011project collaboration on standards, security, and packaging is essential to keep Python a compelling web platform."
+  ],
+  "money_quotes": [
+    "Python 3 is clearly the better language, hands down.",
+    "So let me reiterate my suggestion for Python 3 in web applications: don't use it just yet, but write your code in a way that it could pass through 2to3.",
+    "A switch to Python 3 is a lot of work and you don't win anything.",
+    "Alternative Python implementations are important because they enable web developers to use Python in environments where they couldn't otherwise use it.",
+    "Pylons and BFG have recently merged into a new framework called Pyramid and this was one of the greatest moves in Python's web framework history.",
+    "With better communication early on this problem would have never been and we would only have one library now.",
+    "What makes me incredible happy currently is that the developers of most Python frameworks or WSGI implementations have contact with each other in some form or another.",
+    "Also it's in the interest of everybody involved that Python stays an interesting platform for web developers so a consensus on various things (WSGI, packaging standards, database APIs etc.) is important."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, pragmatic, reflective",
+  "key_insight": "Python 3\u2019s long\u2011term value is clear, but the web ecosystem should prioritize pragmatic compatibility and collaboration now, while writing code that can migrate cleanly later.",
+  "filename": "2011-01-22-python-the-web-and-little-things"
+}

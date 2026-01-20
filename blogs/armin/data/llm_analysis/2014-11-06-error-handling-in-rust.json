@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that Rust\u2019s new multidispatch plus the `FromError` trait fundamentally improves error handling by making error conversions standardized and composable. The core tension is between extensible APIs and stable error contracts; adding new failure modes shouldn\u2019t break callers or force boilerplate. He explains how `FromError` enables wrapping or translating errors while preserving causes, and how `try!` drives this conversion at compile time. He walks through several error-design patterns, from simple enums to rich structs, and shows when each makes sense. He concludes that this model is likely to persist until after 1.0, with experimentation in crates and macros, and that practical tooling like `try!` (and possibly `fail!`) makes the approach viable today.",
+  "key_points": [
+    "Error types are part of your public API, so evolving implementations must balance stability with transparency.",
+    "`FromError` provides a standardized conversion layer that usually wraps causes but allows full customization.",
+    "`try!` leverages `FromError` to make early returns ergonomic and consistent across heterogeneous errors.",
+    "Different error representations (simple enums, complex enums, struct-like variants, fat structs) fit different needs for detail and recoverability.",
+    "The current approach is likely the near-term path for Rust, with macros filling gaps in language support."
+  ],
+  "money_quotes": [
+    "The problem is to find a middle ground between extensibility and API stability.",
+    "It\u2019s really more interesting to the user to also expose the original root cause of the error.",
+    "The `FromError` trait provides a standardized conversion of errors into another error.",
+    "All this dispatching however is done at compile time.",
+    "For as long as all the `try!` macros go to compatible errors for which we defined a conversion this code will work.",
+    "Because it can work with arbitrary types and not just types implementing `Error` you can build convenience methods to create errors.",
+    "It\u2019s a good idea to always have an error kind enum so that users of your library can do pattern matching on your errors.",
+    "Not having it in the language will not be the end of the world."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "Rust\u2019s `FromError`-driven conversions, combined with `try!`, create a flexible, low-boilerplate error model that preserves causes while keeping APIs stable.",
+  "filename": "2014-11-06-error-handling-in-rust"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher explains why he built MiniJinja: despite less server-side HTML, templating remains vital for text generation like YAML and LLM prompts, and existing Rust options were either static (Askama) or not Jinja-compatible. He describes the core runtime model, especially the `Value` enum and `Object` trait, and how Rust\u2019s memory model shapes design tradeoffs such as reference counting and avoiding heavy unsafe tricks. The post digs into iteration semantics via enumerators, the VM and instruction model, and the compromises needed to support macros and closures without GC. He highlights the \u201ccreative API design\u201d behind ergonomic filter registration through trait-based conversions. He concludes that MiniJinja\u2019s patterns are broadly useful for Rust runtime and API design, and that he is pleased with the engine\u2019s public API and documentation.",
+  "key_points": [
+    "MiniJinja exists to deliver Jinja2 compatibility in Rust with dynamic loading, filling a gap between static template systems and partial ports.",
+    "The `Value`/`Object` model and reference counting enable a dynamic language in Rust, but require explicit choices about size, cycles, and safety.",
+    "Enumerator semantics and `ObjectRepr` drive how iteration and rendering behave, even when laziness is preserved via size hints.",
+    "The VM uses an AST-compiled instruction set and a stack machine; macro lifetimes force indirection through state IDs rather than direct references.",
+    "Ergonomic filter APIs rely on deep trait machinery to convert `Value` arguments into Rust types and back."
+  ],
+  "money_quotes": [
+    "When building a template engine for Rust you end up building a little dynamic programming language that is optimized for text generation.",
+    "Since values here are really fat (they are 24 bytes in memory) a `SmallStr` type is used to hold up to 22 bytes of string data inline.",
+    "In pure theory this is all wrong.",
+    "Now quite frankly I don't like that iteration protocol.",
+    "Rust is just not particularly amazing at tree structures.",
+    "The downside of this is that a macro cannot be \"returned\" from a template.",
+    "I myself learned quite a bit about what creative API design can look like in Rust by building it."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Building a Jinja2-compatible engine in Rust means inventing a dynamic runtime with careful tradeoffs in memory, iteration semantics, and API ergonomics, and those patterns generalize beyond templating.",
+  "filename": "2024-08-27-minijinja"
+}

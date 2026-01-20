@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that Python\u2019s new-style string formatting is dangerously powerful when the format string is user-controlled. Because format strings can traverse attributes and items, they become a data-exfiltration surface rather than a simple templating aid. He shows that seemingly harmless formatting can reveal internal object state and even global secrets when Python objects are passed in. The risk is widespread in places like translation files and user-configurable templates, where untrusted parties may supply format strings. He concludes that developers must treat `str.format` as unsafe on untrusted input and, if necessary, implement a restricted formatter.",
+  "key_points": [
+    "New-style format strings allow attribute and item access, which turns formatting into introspection.",
+    "Untrusted format strings commonly appear in translations and user-configurable templates, making this a practical threat.",
+    "Passing Python objects into formatting exposes rich internals, including globals reachable via function attributes.",
+    "A safer approach is to override the formatter and block dangerous attribute access, though it relies on undocumented APIs."
+  ],
+  "money_quotes": [
+    "It should have been obvious to me for a longer time, but until earlier today I did not really realize the severity of the issues caused by `str.format` on untrusted user input.",
+    "In essence: whoever controls the format string can access potentially internal attributes of objects.",
+    "First question is why would anyone control the format string.",
+    "For as long as only C interpreter objects are passed to the format string you are somewhat safe.",
+    "However tricky it becomes once Python objects are passed in.",
+    "If the user can inject `format_string` here they could discover the secret string like this:",
+    "Now you can use the `safe_format` method as a replacement for `str.format`."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "technical, cautionary, opinionated",
+  "key_insight": "Treat `str.format` as unsafe with untrusted input because its attribute/item access can leak sensitive internals unless you explicitly sandbox it.",
+  "filename": "2016-12-29-careful-with-str-format"
+}

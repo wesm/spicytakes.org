@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that Python 3\u2019s \u201cUnicode everywhere\u201d model clashes with Unix\u2019s byte-oriented reality, making even simple CLI tools painful to implement correctly. He shows that Unix provides no reliable encoding context across terminals, argv, filesystems, or locales, so treating everything as Unicode is a leaky abstraction. The C locale exemplifies this mismatch: POSIX guarantees ASCII behavior without forbidding non-ASCII bytes, while Python 3 raises Unicode errors instead of letting bytes pass through. His Python 3 \u201ccat\u201d example demonstrates the extra complexity and error-prone dances required to handle binary I/O and filenames safely. He concludes that Python 3\u2019s model will likely push users to stay on Python 2, ship broken tools, or move to simpler byte-based languages like Go.",
+  "key_points": [
+    "Unix is fundamentally a byte system with no authoritative encoding across key boundaries, so Unicode correctness cannot be enforced globally.",
+    "The C locale is a POSIX escape hatch that expects ASCII semantics but still allows arbitrary bytes; Python 3 treats this as an error case.",
+    "Python 3 forces lossy decode/encode cycles (surrogateescape, re-encoding) for filenames and CLI I/O, complicating even trivial utilities.",
+    "Compatibility workarounds (binary stdio, buffer juggling, flush ordering) make Python 3 boundary code significantly harder than in Python 2.",
+    "The practical outcome is stalled migration: users either stick to Python 2, build brittle Python 3 tools, or adopt simpler byte-first languages."
+  ],
+  "money_quotes": [
+    "UNIX is bytes, has been defined that way and will always be that way.",
+    "There is no filename encoding!",
+    "Unicode on UNIX is only madness if you force it on everything.",
+    "Python 3 says: everything is Unicode... and people should really change the POSIX specification.",
+    "Python 3 raises Unicode errors in the C locale.",
+    "The much more likely thing to happen is that people stick to Python 2 or build broken stuff on Python 3.",
+    "Go... uses an even simpler model than Python 2: everything is a byte string."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, opinionated, technical, frustrated",
+  "key_insight": "Python 3\u2019s Unicode-first design conflicts with Unix\u2019s byte-based contracts, turning simple CLI tools into encoding minefields and discouraging real-world adoption.",
+  "filename": "2014-05-12-everything-about-unicode"
+}

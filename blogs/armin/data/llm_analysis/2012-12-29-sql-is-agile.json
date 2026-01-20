@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that starting new projects on non-relational stores like MongoDB often backfires, not because they lack schemas but because schema assumptions still exist and go unenforced. He contends that denormalization can be powerful but becomes brittle when requirements change and new questions arise. His experience extracting unexpected analytics from a well-denormalized MongoDB dataset showed how hard it is to reshape data without SQL\u2019s flexible querying. SQL databases, he says, tolerate imperfect planning and let you adapt by adding indexes or composing joins as needs emerge. The conclusion is pragmatic: for new products with unknown questions, SQL\u2019s flexibility is more \u201cagile,\u201d even if MongoDB remains useful in stable, well-understood domains.",
+  "key_points": [
+    "Schemas are unavoidable; even in NoSQL, assumptions about types and structure still exist and will bite you if they live only in your head.",
+    "Indexes in non-relational stores effectively freeze schema expectations, reintroducing the same constraints people claim to avoid.",
+    "Denormalized models are great until you need data in a new shape; then SQL\u2019s joins/grouping are dramatically easier.",
+    "SQL systems tolerate evolving questions through indexing and querying, while some NoSQL designs can make new queries infeasible.",
+    "For new, uncertain products, flexibility in data retrieval matters more than early denormalization wins."
+  ],
+  "money_quotes": [
+    "I would never start a project with MongoDB \u2014 or for that matter any other non relational database as primary data store \u2014 again.",
+    "At the very least the schema lives in your head.",
+    "When you add an index you are freezing a part of your schema which previously only existed in your head into your database.",
+    "Everything was so amazingly well denormalized that it was a bloody mess getting some data out that with an SQL database would have been the case for a few joins and a group by.",
+    "MongoDB and other non-relational datastores are amazing if you already know everything.",
+    "Unfortunately a neat little idea I had was essentially killed by it being too complicated to do because it became too complex for the datastore without changing the layout.",
+    "So for at least myself my personal conclusion is that I will never be able to predict all the things upfront so while I have the chance I will opt for a more flexible data store and right now that means I will use a SQL database.",
+    "And I still like you MongoDB."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, reflective, pragmatic",
+  "key_insight": "SQL feels more agile for new projects because it absorbs uncertainty and new questions better than denormalized NoSQL designs.",
+  "filename": "2012-12-29-sql-is-agile"
+}

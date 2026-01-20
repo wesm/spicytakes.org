@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher introduces WSGI as a lower-level, scalable alternative to CGI that sits between web apps and servers and is defined by a simple Python callable interface. He walks through a basic WSGI app, then expands it with URL dispatching, environment usage, and middleware to show how routing and error handling can be built from first principles. He emphasizes that while it\u2019s possible to build these pieces yourself, existing libraries like Werkzeug and Paste provide higher-level conveniences. He outlines deployment options and argues that WSGI enables flexible, composable stacks. The post concludes that WSGI is powerful and approachable, and that utility libraries can simplify the work without constraining you.",
+  "key_points": [
+    "WSGI standardizes the interface between Python apps and servers, enabling scalable, multi-threaded/multi-process deployments across implementations.",
+    "A minimal WSGI app is just a callable that receives an environment and a start_response function and returns an iterable.",
+    "Routing and middleware are built by inspecting PATH_INFO and wrapping the app, illustrating how frameworks are assembled from small parts.",
+    "Deployment can use built-in servers for development and FastCGI or other adapters in production.",
+    "Avoid NIH/DRY by leveraging mature frameworks or utility libraries depending on your needs."
+  ],
+  "money_quotes": [
+    "WSGI is lower level than CGI which you probably know.",
+    "WSGI does scale and can work in both multithreaded and multi process environments because it's a specification that doesn't mind how it's implemented.",
+    "Because it bypasses middlewares ... it's a terrible bad idea to use that function.",
+    "Not so in WSGI. There you only have one file which consumes all paths.",
+    "By adding something to the environment we did something normally middlewares do.",
+    "Avoid the \"Not Invented Here\" problem and don't repeat yourself.",
+    "WSGI rocks. You can simply create your own personal stack."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, instructional",
+  "key_insight": "WSGI\u2019s simple callable interface makes web apps portable and composable, and you can either build the stack yourself or lean on utilities without losing flexibility.",
+  "filename": "2007-05-21-getting-started-with-wsgi"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that USB-C hubs with built-in Ethernet can destabilize a home network in surprising ways when left powered without a laptop connected. He walks through a debugging trail that initially pointed to switches or broadcast storms, but evidence didn\u2019t fit those hypotheses. Community reports led him to suspect Ethernet PAUSE frames emitted by some hubs, which can inadvertently cause switches to throttle or halt traffic for multiple devices. He notes the problem appears only after topology changes and is hard to observe directly in packet captures. The practical conclusion is a workaround: avoid these hubs for networking and use a dedicated Apple USB-C Ethernet adapter, while acknowledging the root cause likely spans hub and network gear behavior.",
+  "key_points": [
+    "The failure only occurs when the hub remains powered while the laptop is disconnected, causing wired devices to become unreachable while Wi\u2011Fi remains fine.",
+    "Initial theories (faulty switch, broadcast storm, spanning tree issues) didn\u2019t match observed symptoms or traces.",
+    "Reports suggest some hubs emit Ethernet PAUSE frames that certain switches propagate incorrectly, effectively stalling network traffic.",
+    "The issue is likely an interoperability bug between consumer hubs and switches/routers rather than a single defective device.",
+    "A reliable workaround is to avoid hub Ethernet ports and use a dedicated adapter."
+  ],
+  "money_quotes": [
+    "USB-C continues to be an exciting mess.",
+    "The most recent breakage is that I have three hubs where if I connect an ethernet cable to it and a USB-C charger but disconnect my laptop, after about 30 seconds the network goes haywire.",
+    "Previously the USB-C hubs with the network adapter I used where powered off when the laptop was disconnected, as of recently they stay on due to some changes I made in how they are connected to the laptop.",
+    "Against earlier expectations it doesn't seem to cause a broadcast storm.",
+    "One is that the ethernet card in the hub starts sending \u201cPAUSE\u201d flow control frames when the hub is powered but disconnected from the laptop at high intervals.",
+    "So where is the fault?  I'm not sure.",
+    "Not particularly satisfying but I only have so much time dealing with this."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, frustrated, investigative",
+  "key_insight": "Some USB\u2011C hubs likely emit PAUSE frames when powered without a host, and certain consumer switches propagate them in ways that can quietly take down wired networks.",
+  "filename": "2020-07-06-usb-c-network-hubs"
+}

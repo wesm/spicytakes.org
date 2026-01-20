@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that upserts are not a convenience feature but a requirement for building reliable, concurrent web applications. He explains how MySQL\u2019s replace and ON DUPLICATE KEY UPDATE variants work and why Postgres lacks an equivalent, forcing unsafe or inefficient workarounds. The core problem is concurrency: without upserts, it is impossible to atomically ensure a row\u2019s state under competing transactions. This becomes acute for lazy creation, idempotency under network failure, and handling unique constraint races. He criticizes Postgres\u2019s emphasis on standards-compliant MERGE over a pragmatic, restricted syntax, and concludes with disappointment that upserts continue to slip. His conclusion is that Postgres should ship even an imperfect upsert because it would still be better than the brittle patterns developers must use today.",
+  "key_points": [
+    "Without upserts, concurrent inserts/updates cannot be made reliable; transactions alone do not guarantee atomicity of row state.",
+    "Lazy creation and feature backfills become costly or unsafe without an atomic insert-or-update primitive.",
+    "Network failures make non-idempotent requests dangerous; upserts enable safe retries using a nonce and uniqueness.",
+    "Handling unique constraint failures with manual retry loops is complex and can still fail under delete races.",
+    "Postgres\u2019s lack of upserts is a tooling gap driven by standards purity rather than pragmatic web needs."
+  ],
+  "money_quotes": [
+    "Depending on upserts means that the design of the application is bad but I would argue that anything other than upserts means that the application is actually deeply unreliable or badly planned.",
+    "The only safe way to handle concurrency with uniques.",
+    "Without an upsert there is no way to reliably ensure that a row is in a certain state.",
+    "The unfortunate truth is that network failure is very, very common and can really happen for every single HTTP request.",
+    "This ultimately is loop that endlessly retries and has not guarantee of ever succeeding if high concurrency happens.",
+    "If Postgres would implement a shitty and inefficient version of an upsert statement at the very worst it could be as bad as the current implementation that people write on their own.",
+    "I miss upserts. A lot."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations",
+    "open_source"
+  ],
+  "tone": "opinionated, technical, critical",
+  "key_insight": "Upserts are the only practical way to make concurrent, idempotent web operations reliable, and Postgres\u2019s lack of them forces unsafe workarounds.",
+  "filename": "2014-02-16-a-case-for-upserts"
+}

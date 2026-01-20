@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that WebAssembly is poised to be a broad, portable runtime target, but real-world deployment quickly exposes debugging gaps that source maps cannot solve. He explains why DWARF is the right foundation for crash reporting in WASM and how Sentry is adopting it. The post walks through WASM execution, the lack of a unified address space, and the mismatch between reported offsets and DWARF\u2019s code-section-relative offsets. He details practical hurdles\u2014missing build ID standards, browser API limitations, and tooling that destroys debug info. The conclusion is cautiously optimistic: the ecosystem is strong, but meaningful debugging requires standardization and better tool support.",
+  "key_points": [
+    "Source maps are insufficient for WebAssembly; DWARF is needed for accurate crash reporting and inlined frames.",
+    "WASM\u2019s architecture and lack of standardized module metadata make symbolication and stack traces brittle.",
+    "Build IDs are essential for matching binaries and debug files, but WASM lacks a standard for them.",
+    "Browser APIs don\u2019t expose module URLs or code section offsets, forcing hacks in crash tooling.",
+    "Toolchains like wasm-bindgen currently discard DWARF, blocking practical debugging workflows."
+  ],
+  "money_quotes": [
+    "With WebAssembly that simplified approach breaks down.",
+    "DWARF is now slowly being adopted by more and more and we're about to support it for WebAssembly on Sentry.",
+    "Generally it's currently not possible to generate stack traces in most WebAssembly environments unless a custom implementation was made.",
+    "This means that crash reporting tools are required to be able to operate with the absolute offset in the WASM file instead.",
+    "If your project involves a tool like that, you're currently out of luck getting DWARF debug information going.",
+    "To end on a positive note: the ecosystem around WebAssembly \u2014 particularly in the Rust world \u2014 is amazing.",
+    "There are a lot of people working on making everybody's debugging experience as good as possible and that work is rarely honored."
+  ],
+  "themes": [
+    "rust",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, pragmatic, cautiously optimistic",
+  "key_insight": "WebAssembly\u2019s promise depends on standardizing DWARF-friendly tooling and metadata so crash reporting can be as reliable as it is on native platforms.",
+  "filename": "2020-11-30-how-to-wasm-dwarf"
+}

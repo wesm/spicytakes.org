@@ -1,0 +1,26 @@
+{
+  "summary": "The post argues that Mercurial\u2019s distributed model is fundamentally different from Subversion\u2019s centralized, server\u2011dependent workflow. Ronacher explains that in Mercurial there is no special server, every clone is a full repository, and branching/merging are first\u2011class operations rather than painful exceptions. He walks through how cloning, pulling, updating, and merging work locally, and how configuration is stored in per\u2011repo `hgrc`. He emphasizes that contributions can flow through bundles, patchbombs, or ad\u2011hoc servers even without push access. The conclusion is pragmatic: Mercurial enables fast, resilient collaboration and makes it easy to keep history intact across contributors.",
+  "key_points": [
+    "Subversion is centralized like FTP; Mercurial is distributed like BitTorrent with no special server.",
+    "Branching and merging are core workflows in Mercurial, avoiding huge, delayed changesets.",
+    "Cloning creates a full local repo with history; pulls create another branch that must be updated/merged.",
+    "Contributors without push rights can share bundles or serve their own repos for others to pull.",
+    "Distributed workflow makes teams resilient: work continues even if the central machine disappears."
+  ],
+  "money_quotes": [
+    "Subversion works like FTP whereas mercurial is bittorrent.",
+    "All the revision information is available to anyone and there is absolutely no difference between server and clients.",
+    "This fundamental design decision means that there are dozens of separate branches of the code.",
+    "After you got your very own repository by cloning the pygments one you will notice that all the subversion-like commands ... work locally only.",
+    "A bundle stores multiple changesets in one file and it also preserves the correct author information and timestamps.",
+    "When I left everybody had all the changes locally because they pulled and I could remove my notebook and everybody continued working on their way home."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, explanatory, opinionated",
+  "key_insight": "Mercurial\u2019s distributed design removes the server bottleneck, making branching, collaboration, and offline continuity natural rather than exceptional.",
+  "filename": "2008-01-28-mercurial-for-subversion-users"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher announces new Werkzeug and Flask releases after a long gap, centered on Python 3 support. He explains that some backward-incompatible changes were unavoidable to align with PEP 3333 and to fix long-standing API issues. Flask breaks less, but internal cleanups and JSON behavior changes may affect tests. Python 2.5 support is dropped to move the ecosystem forward, while Python 3.3+ support is now in place. He closes by outlining a shift to more frequent releases and thanking the community sprint contributors.",
+  "key_points": [
+    "Backward-incompatible changes in Werkzeug were required to properly support PEP 3333 and Unicode/IRI handling.",
+    "Python 2.5 support is removed to enable the Python 3 port; Python 3.3+ is now supported.",
+    "Flask gains improved JSON handling, application context usage, and more reliable error handling.",
+    "Werkzeug sees major internal improvements: URL/IRI parsing, form parsing, WSGI bridging utilities, and safer request/response data access.",
+    "Future releases will be smaller and more frequent as APIs stabilize."
+  ],
+  "money_quotes": [
+    "These releases took their fair amount of time and I will ensure the process is quicker next time around.",
+    "This was necessary because some functionality just does not map well to the updated PEP 3333 specification.",
+    "Bad news for you if you're on 2.5: support for your Python version is gone.",
+    "On the flip-side support for Python 3 is in.",
+    "This change might seem tiny but actually simplifies working with Flask from outside web environments.",
+    "Werkzeug's internal form parsing got vastly improved which now makes it possible to access the stream in all cases.",
+    "Going into the future there will be a new process for releases."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "The Python 3 transition forced breaking changes, but the releases deliver stronger APIs and a healthier release cadence moving forward.",
+  "filename": "2013-06-13-werkzeug-and-flask-releases"
+}

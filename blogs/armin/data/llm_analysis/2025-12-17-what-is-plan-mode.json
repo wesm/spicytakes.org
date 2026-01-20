@@ -1,0 +1,26 @@
+{
+  "summary": "The post examines what Claude Code\u2019s plan mode actually does, from the perspective of a user who mostly avoids it. The author finds that plan mode is essentially a hidden markdown file plus a short prompt that tells the model to behave read-only and follow a phased planning structure. The tooling is not truly read-only; it\u2019s prompt-based reinforcement with a small state machine and UX flow around entering and exiting plan mode. He argues that much of the behavior could be replicated by manual prompting, but you would lose the UI affordances like the approval screen. The conclusion is that plan mode is largely a structured prompt and a bit of UI, which feels less natural to him than direct collaboration with the model and editable files.",
+  "key_points": [
+    "Plan mode writes a plain markdown plan file with no special structure, effectively similar to asking the model to draft a file.",
+    "The \u201cread-only\u201d behavior is enforced by prompt instructions, not by actual tool restrictions.",
+    "Entering and exiting plan mode is itself a tool-driven UX flow that surfaces the hidden plan file to the user.",
+    "The prompt adds a phased planning framework, but the author sees limited behavioral differences in tool use.",
+    "He prefers visible, editable files and questions whether a separate UI mode is necessary for planning."
+  ],
+  "money_quotes": [
+    "A plan in Claude Code is effectively a markdown file that is written into Claude's plans folder by Claude in plan mode.",
+    "It is in fact just a rather short predefined prompt that enters plan mode.",
+    "So the system prompt is the same. It is just a little bit of extra verbiage with some UX around it.",
+    "Plan mode as it exists in Claude has this sort of weirdness in my mind where it doesn't come quite natural to me.",
+    "I always want to look into whether just working with the model can accomplish something similar enough that I don't actually need to have another user interaction or a user interface that replicates something that natural language could potentially do.",
+    "And now I know: I'm mostly a custom prompt to give it structure, and some system reminders and a handful of examples."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Claude Code\u2019s plan mode is mostly a structured prompt plus UX scaffolding, rather than a fundamentally different capability.",
+  "filename": "2025-12-17-what-is-plan-mode"
+}

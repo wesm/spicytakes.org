@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that MCP\u2019s current design is less effective than code generation because it relies too heavily on inference and consumes too much context. He says even domain-specific automation works better when LLMs generate scripts that can be reviewed, validated, and run repeatedly. His blog migration example shows an LLM-to-code-to-LLM pipeline that produced trustworthy results by focusing on verifiable transformations rather than direct inference. He concedes MCP can be useful in some UI-driving scenarios, but notes that scripts outperform tool calls when the domain is known. The conclusion is to favor code-first agentic workflows and only use inference as a judging layer after bulk execution.",
+  "key_points": [
+    "MCP is not truly composable and is context-inefficient compared to CLI or code-based approaches.",
+    "Automation at scale favors generated code because it is reviewable, repeatable, and easier to validate than inferred actions.",
+    "A multi-step pipeline (generate code, run it, then use LLMs to judge diffs) yields higher trust and lower regression risk.",
+    "When tasks are known and structured, scripts outperform MCP tool calls and avoid real-time inference costs.",
+    "The future may require better sandboxes and abstractions that combine code generation with selective LLM judging."
+  ],
+  "money_quotes": [
+    "MCP suffers from two major flaws: it isn\u2019t truly composable and it demands too much context.",
+    "Current MCP will always be harder to use than writing code, primarily due to the reliance on inference.",
+    "We need to figure out how to ensure that our automated task actually works correctly at scale.",
+    "For that repetition, there's a very strong argument to be made for always using code.",
+    "What\u2019s key is that I actually trusted this process at the end because I could review the approach.",
+    "Once the script is written, I can execute it 100, 200, or even 300 times without requiring any further inference.",
+    "In any case I can only encourage people to bypass MCP and to explore what else is possible."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "LLMs are most powerful when they generate verifiable code and reserve inference for judging results, not driving every step.",
+  "filename": "2025-07-03-tools"
+}

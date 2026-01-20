@@ -1,0 +1,26 @@
+{
+  "summary": "Ronacher explains how to turn an OS X machine into a transparent Wi\u2011Fi man\u2011in\u2011the\u2011middle proxy to inspect mobile traffic without configuring a proxy on the device. He outlines the required components: an OS X host acting as gateway, an SSL-capable interception proxy (Charles or mitmproxy), and a transparent relay (redsocks). The core steps are enabling IP forwarding, running redsocks, and redirecting inbound Wi\u2011Fi traffic for ports 80/443 via `ipfw`. He notes a kernel bug that breaks forwarding unless `net.inet.ip.scopedroute` is disabled, requiring a boot-time flag on Lion. The post closes by emphasizing that SSL interception only works when the device trusts the proxy\u2019s CA, and that some apps require recompilation to add that trust.",
+  "key_points": [
+    "Transparent proxying avoids per-app proxy settings by making the OS X host the Wi\u2011Fi gateway.",
+    "redsocks bridges transparent traffic to a standard proxy like Charles or mitmproxy.",
+    "OS X must forward packets and use `ipfw` rules to redirect port 80/443 traffic.",
+    "A kernel bug (`net.inet.ip.scopedroute`) can break forwarding and needs a boot-time workaround on Lion.",
+    "SSL interception depends on trusting the proxy\u2019s CA, which some apps bypass."
+  ],
+  "money_quotes": [
+    "There are better ways to transparently proxy connections from a device connected via Wifi which does not require any changes on the actual device.",
+    "Then you need to convince the Wifi device to see you as the gateway instead of the actual gateway.",
+    "The second ingredient is an HTTP proxy, ideally one that can also decrypt and reencrypt SSL traffic.",
+    "After that you will need to point all the traffic that is not from your computer and from port `80` and `443` of your Wifi through redsocks.",
+    "The cause for this is a Bug in the OS X kernel that requires flipping the `net.inet.ip.scopedroute` flag to `0`.",
+    "SSL will only work if the application on your Wifi device is trusting your SSL interception proxy's CA.",
+    "Note that this will not work with applications that don't use the system's CA trust store."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, practical, matter-of-fact",
+  "key_insight": "A reliable transparent MITM setup on OS X hinges on correct packet forwarding, proxy chaining, and CA trust\u2014plus a kernel workaround\u2014rather than device-side proxy settings.",
+  "filename": "2013-01-06-osx-wifi-proxy"
+}

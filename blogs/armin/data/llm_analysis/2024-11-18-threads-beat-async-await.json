@@ -1,0 +1,31 @@
+{
+  "summary": "Ronacher argues that `async`/`await` is a poor abstraction for most languages because it breaks the ability to suspend anywhere, creates \u201ccolored functions,\u201d and weakens back-pressure and debugging. He contrasts this with blocking semantics, where suspension is implicit and call stacks remain intact, and shows how promises can leave work unresolved forever. He traces how different languages arrived at `async`/`await` and notes that identical syntax hides fundamentally different runtime models. He contends that in languages with real threads (especially Python and C#), `async`/`await` adds complexity without delivering core benefits. His conclusion favors a return to thread-based models\u2014ideally virtual threads like Java\u2019s Project Loom\u2014paired with structured concurrency, channels, and better primitives. `async`/`await` did spur valuable innovation, but future designs should center on threads with clearer, safer concurrency structure.",
+  "key_points": [
+    "`async`/`await` harms expressiveness by forcing explicit suspension points, splitting code into \u201ccolored\u201d sync/async worlds.",
+    "Promises can legally never resolve, which undermines back-pressure, resource release, and call-stack visibility.",
+    "Blocking is a powerful abstraction because even \u201cnon-IO\u201d operations (like memory access) can block in practice.",
+    "The same `async`/`await` syntax masks radically different semantics across JavaScript, Python, C#, and Rust.",
+    "Virtual threads plus structured concurrency and channels offer a more natural and safer concurrency model."
+  ],
+  "money_quotes": [
+    "I\u2019m now convinced that `async`/`await` is, in fact, a bad abstraction for most languages.",
+    "In terms of expressiveness, we have lost an important affordance: we cannot freely suspend.",
+    "Promises/futures and `async`/`await` are making something strictly worse than not having them.",
+    "Call stacks are really, really important. They help with debugging and are also crucial for profiling.",
+    "The trade-off that `async`/`await` makes today is that the idea is that not everything needs to block or needs to suspend.",
+    "The worst offender here in my mind is Python.",
+    "So what we really want is where we started out with: threads! Good old threads!",
+    "Future language design should rethink concurrency once more."
+  ],
+  "themes": [
+    "python",
+    "rust",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, critical, reflective",
+  "key_insight": "For most languages, `async`/`await` trades away the power of implicit suspension and clear call stacks, so the better path is thread-based concurrency\u2014preferably virtual threads\u2014paired with structured concurrency and channels.",
+  "filename": "2024-11-18-threads-beat-async-await"
+}

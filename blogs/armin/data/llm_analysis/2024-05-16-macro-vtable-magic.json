@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher explains why MiniJinja\u2019s dynamic runtime values need reference counting and dynamic dispatch that Rust\u2019s object safety rules block. He shows that an `Object` trait with `&Arc<Self>` receivers enables refcount-aware behavior but prevents building a standard trait object. To solve this, he constructs a custom fat pointer and vtable via a `type_erase!` macro that generates trampolines, refcount hooks, and downcasting support. The post walks through the unsafe machinery and the macro that produces it, then integrates the result into MiniJinja\u2019s `Value` representation. He concludes that Rust\u2019s restrictions can be worked around with creativity and unsafe code, and argues that better compile-time introspection would make such patterns far less contorted.",
+  "key_points": [
+    "MiniJinja needs dynamic, GC-like value behavior in Rust, best approximated with reference counting and dynamic dispatch.",
+    "Using `&Arc<Self>` in the trait API enables self-cloning and iterator lifetimes but breaks object safety for `Arc<dyn Object>`.",
+    "A custom vtable and erased pointer (`DynObject`) restore dynamic dispatch, including downcasting and refcount management.",
+    "A macro generates the unsafe glue code and trampolines to make the pattern reusable.",
+    "The exercise highlights Rust\u2019s macro limitations and motivates compile-time introspection features."
+  ],
+  "money_quotes": [
+    "Given that building programming languages and interpreters is the developer's most favorite hobby, I will never stop writing templating engines.",
+    "The reason it cannot be made into an object is because we declare the receiver as `&Arc<Self>` instead of `&Self`.",
+    "A vtable is nothing more than a struct that holds a field with a function pointer for each method on the trait.",
+    "Since this requires a lot of unsafe code, and we want to generate all the necessary trampolines to put into the vtable automatically, we will use a macro.",
+    "The macro is surprisingly only a bit awful.",
+    "Just because Rust tells you that you cannot make something into an object does not mean that you actually can't.",
+    "It just requires some creativity and the willingness to actually use unsafe code.",
+    "Zig programmers will laugh / cry about this since comptime is a much more powerful system to make something like this work compared to the ridiculous macro abuse necessary in Rust."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "When Rust\u2019s object safety rules block dynamic patterns, you can recover the needed behavior with a custom vtable and macro-generated unsafe glue\u2014though it exposes how much the language lacks ergonomic compile-time introspection.",
+  "filename": "2024-05-16-macro-vtable-magic"
+}

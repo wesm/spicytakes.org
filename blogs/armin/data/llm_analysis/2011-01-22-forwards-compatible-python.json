@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that Python 2 is still the pragmatic baseline for web apps in 2011, but that making code forward-compatible with Python 3 is both feasible and largely painless if you write with the transition in mind. He recommends targeting Python 2.6/2.7 and selectively using `__future__` imports to align semantics with Python 3, while avoiding imports like `print_function` and `unicode_literals` that add confusion or create API friction. Much of the pain, he says, is in text and byte handling, so explicit Unicode policy and disciplined file I/O are essential. He highlights areas where 2to3 can misfire (notably `__str__`/`__unicode__` and implicit string comparisons) and offers concrete workarounds. The conclusion is practical: write cleanly today, avoid ambiguous string behavior, and you can upgrade later with minimal drama.",
+  "key_points": [
+    "Stick with Python 2.6/2.7 but opt into select `__future__` behaviors to ease the Python 3 transition.",
+    "Avoid `print_function` and `unicode_literals` for forward-compatible application code; let 2to3 handle print and keep string types explicit.",
+    "Adopt a strict Unicode-first policy in text I/O using `codecs.open`, and use `b''` for byte data to guide 2to3.",
+    "2to3 can introduce bugs (e.g., `__str__` recursion); use helper mixins or fixers to preserve intent.",
+    "Implicit string comparisons across byte/unicode types are dangerous; use tooling like `unicode-nazi` to surface them."
+  ],
+  "money_quotes": [
+    "For web applications the safest bet currently is to stick with Python 2.x even for new projects.",
+    "In fact there is no reason why an upgrade to Python 3 shouldn't be possible in a painless way.",
+    "The most important one.  No longer will `from xml import bar` import a module `foo.xml` from the `foo` package when you are inside it.",
+    "Generally if things behave differently in different files it's a good idea to avoid these things if possible.",
+    "For the very simple reason that many APIs are changing the supported string types in different places and `unicode_literals` is counterproductive.",
+    "If you are dealing with text data, use the `codecs.open` function for opening the files.",
+    "Now this is just wrong.",
+    "But be aware that this module is very noisy and has a noticeable runtime overhead."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "technical, opinionated, practical, cautionary",
+  "key_insight": "Forward-compatible Python 2 code is mostly about disciplined string and I/O handling plus a few carefully chosen `__future__` imports, which makes the eventual Python 3 port straightforward.",
+  "filename": "2011-01-22-forwards-compatible-python"
+}

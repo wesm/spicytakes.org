@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher revisits the trust-scaling problem and argues that dependency explosion has worsened, now affecting Rust as well as JavaScript. While registries are more immutable, the practical risks of auditing, downloading, and updating hundreds of dependencies remain. He maintains that dependencies are essential for shared infrastructure and accessibility, but the ecosystem encourages unchecked upgrades. His proposed answer is a layered auditing system that verifies packages against source and limits acceptable versions, combined with better visibility into micro-dependencies. He concludes that updates should carry deliberate cost and tooling should help distinguish when to upgrade and when to freeze.",
+  "key_points": [
+    "Immutable registries reduce some supply-chain risk, but massive dependency graphs remain unauditable in practice.",
+    "Dependencies are necessary for complex problems and shared community infrastructure, so elimination is not viable.",
+    "Introduce auditor groups and an audit file to gate acceptable versions and reduce the number of entities to trust.",
+    "Classify micro-dependencies to reduce cognitive and licensing overhead and improve visibility into real risk.",
+    "Stop updating by default; updates should be intentional and prioritized by dependency importance and security needs."
+  ],
+  "money_quotes": [
+    "Every dependency comes with a cost.",
+    "Currently I'm in the situation that I can just pray that when I run `cargo update` the release is clean.",
+    "So clearly dependencies are something we do not want to get rid of.  But we also need to live with the downsides they bring.",
+    "We started to update dependencies because it's easy, not because it's a good idea.",
+    "One should update dependencies but an update should have a cost.",
+    "If we have an auditing tool where auditing our dependencies becomes an interactive process ... I would feel a lot less worried about the dependency count.",
+    "The chance that there is a security vulnerability in `isArray` that is fixed in an update is impossibly small."
+  ],
+  "themes": [
+    "rust",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "Dependency explosion isn\u2019t solved by immutability alone; we need auditing mechanisms and more deliberate update practices that align trust with real risk.",
+  "filename": "2019-07-29-dependency-scaling"
+}

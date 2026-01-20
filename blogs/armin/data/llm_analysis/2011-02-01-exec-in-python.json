@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that `exec`/`eval` are often misunderstood and misused in Python, and that their convenience comes with semantic, performance, and tooling costs. He explains that `exec` compiles code to bytecode under the hood and shows that precompiling with `compile` and executing in a fresh namespace is dramatically faster and cleaner. He highlights deep differences between global and local scopes, showing how `exec` can disable optimizations and create surprising behavior. The larger concern is that executing code outside normal module semantics breaks expectations around pickling, GC/destructor behavior, module lifetime, and import conventions. He concludes that Python\u2019s idioms and module system exist for good reasons, and frameworks that bypass them harm developer expectations and language consistency.",
+  "key_points": [
+    "`exec`/`eval` work by compiling to bytecode first, and you should precompile and run in a fresh namespace for correctness and speed.",
+    "Local scope uses fast locals, so `exec` in local context can change optimization behavior and performance.",
+    "Executing code outside modules breaks conventions relied on by tools like pickle, inspect, and pydoc.",
+    "`exec` can create GC and destructor issues because module shutdown semantics are not replicated.",
+    "Frameworks that alter Python semantics via `exec` create confusing, incompatible environments."
+  ],
+  "money_quotes": [
+    "Python compiles? That is correct.",
+    "If you want to use `exec` and you plan on executing that code more than once, make sure you compile it into bytecode first and then execute that bytecode only and only in a new dictionary as namespace.",
+    "Because parsing Python code and converting that into Bytecode is an expensive operation compared to evaluating the bytecode.",
+    "Classes and functions belong into a module.",
+    "If you are using `exec` to execute Python code, be prepared that some modules like pickle, inspect, pkgutil, pydoc and probably some others that depend on those will not work as expected.",
+    "Don't try to circumvent Python idioms because some other language does it differently.",
+    "Having different semantics in different frameworks/modules/libraries is very hurtful for Python as a runtime and language."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "technical, opinionated, cautionary",
+  "key_insight": "Using `exec`/`eval` outside normal module semantics trades convenience for performance penalties and broken language conventions that confuse tools and developers.",
+  "filename": "2011-02-01-exec-in-python"
+}

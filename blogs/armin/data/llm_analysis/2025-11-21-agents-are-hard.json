@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that building practical agents remains messy because abstractions fracture under real tool use. Higher-level SDKs promise unification but often hide model-specific quirks, so he now prefers direct platform SDKs for control and clearer errors. He finds explicit caching (despite initial skepticism) yields predictability and enables branching, context edits, and cost clarity. Reinforcement inside the tool loop is crucial, and failures should be isolated to avoid poisoning the main context. Shared filesystem state and a dedicated output tool help structure multi-tool workflows, though output steering is unexpectedly hard. Overall, model choice is still task-dependent, testing/evals are the biggest unresolved pain, and recent tooling shifts are incremental rather than transformative.",
+  "key_points": [
+    "Agent SDK abstractions break down under model/tool differences; direct SDKs offer better control and debuggability.",
+    "Explicit caching changes agent design but improves predictability, cost control, and workflow flexibility.",
+    "Reinforcement after tool calls materially improves progress and recovery, especially in long loops.",
+    "Failure isolation and shared filesystem state prevent dead ends and keep multi-tool workflows composable.",
+    "Output tooling and evals are surprisingly difficult, and model choice remains situational rather than settled."
+  ],
+  "money_quotes": [
+    "Building agents is still messy.",
+    "The benefits do not yet outweigh the costs for us.",
+    "I initially found the manual management pretty dumb.  Why doesn't the platform do this for me?  But I've fully come around and now vastly prefer explicit cache management.",
+    "Every time the agent runs a tool you have the opportunity to not just return data that the tool produces, but also to feed more information back into the loop.",
+    "You should try to build an agent that doesn't have dead ends.",
+    "One interesting thing about how we structured our agent is that it does not represent a chat session.",
+    "There's also probably the very obvious realization that token cost alone doesn't really define how expensive an agent.",
+    "We find testing and evals to be the hardest problem here."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, candid, opinionated, reflective",
+  "key_insight": "Agent systems only look simple; in practice, model-specific behavior, caching trade-offs, reinforcement, and failure isolation force bespoke engineering and make testing the hardest unsolved piece.",
+  "filename": "2025-11-21-agents-are-hard"
+}

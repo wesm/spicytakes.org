@@ -1,0 +1,26 @@
+{
+  "summary": "Ronacher argues that OpenID and OAuth share a subtle security weakness rooted in user and developer laziness. Because providers remember recent authentications, sensitive actions on relying sites can be re-approved without a fresh password prompt. He notes that traditional account operations require re-entering a password, but federated login lacks an equivalent local challenge. This makes actions like account deletion or linking a new OpenID identity vulnerable if someone gains access to an already-open browser session. He concludes that current protocols and best-practice guidance do not clearly offer a way to force a re-approval screen at the moment it is needed, leaving users exposed.",
+  "key_points": [
+    "Federated login shifts critical confirmations away from the site, but providers often auto-approve within a session.",
+    "Standard account-protection patterns (re-enter password) don\u2019t translate cleanly to OpenID/OAuth.",
+    "Attack scenario: an unattended, logged-in browser can be used to perform destructive actions even if the site re-checks OpenID.",
+    "OpenID\u2019s ability to attach multiple identities makes the risk worse than OAuth\u2019s per-provider linkage model.",
+    "PAPE can limit session lifetime but doesn\u2019t let sites force immediate re-approval when performing sensitive actions."
+  ],
+  "money_quotes": [
+    "Enter OpenID's (and OAuth's) security problem: the \u201cremember me for this computer button\u201d.",
+    "Notice one thing? All these steps require you to enter a password.",
+    "If you are a careful user you will not let the service there remember your password for general authentication, but it will remember you when you come back in the same browser session.",
+    "Even if the application does a OpenID auth check to delete the account (which no website I tested does) the OpenID provider will have remembered you.",
+    "I might be missing something completely obvious, but there does not seem to be a way to force the OpenID provider to force the user to approve the authentication again (same for OAuth).",
+    "Either way I will be very careful to not leave my notebook unattended for a second when a browser is still open."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, cautionary",
+  "key_insight": "Federated login\u2019s convenience undermines traditional \u201cre-authenticate for sensitive actions\u201d safeguards because providers remember sessions and don\u2019t let sites reliably force a fresh approval.",
+  "filename": "2010-08-18-the-lazy-user-is-openid-s-security-issue"
+}

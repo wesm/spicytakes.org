@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that Python\u2019s standard library is weighed down by old, decaying modules that were reasonable at the time but now cause real-world pain. The core problem is that once code lands in the stdlib, it can\u2019t evolve quickly without breaking compatibility, so design flaws and outdated assumptions become permanent. He illustrates this with concrete examples like cgi, Cookie, urllib, BaseHTTPServer, and XML tooling, where magical APIs and legacy behaviors make safe, modern use hard. He distinguishes between stdlib-worthy modules (stable, platform-dependent essentials) and fast-moving domains like web development that should live outside. The solution he favors is a slimmer stdlib paired with better package distribution so libraries can iterate rapidly. He closes by reaffirming his love for Python while criticizing the constraints imposed by stdlib inclusion.",
+  "key_points": [
+    "Many stdlib modules are legacy artifacts whose APIs mix high- and low-level concerns, leading to unsafe or unpredictable behavior.",
+    "Stdlib inclusion freezes APIs and philosophy, preventing necessary breaking fixes and slowing evolution compared to external libraries.",
+    "Only stable, platform-dependent, or core language facilities belong in the stdlib; web/UI and fast-changing areas should not.",
+    "Package distribution improvements would make it feasible to move even \u201cessential\u201d modules out of the stdlib.",
+    "The pain is structural, not blameworthy\u2014stdlib status changes ownership, priorities, and upgrade constraints."
+  ],
+  "money_quotes": [
+    "Once code is there, it sticks.",
+    "This is the effect a standard library has on code.",
+    "Not standard library worthy is stuff like any kind of web development support.",
+    "The great libraries are great because they are actively developed.",
+    "In the standard library you are forced to live with some bugs if they are not fixable in a backwards compatible way.",
+    "If there is one thing I want to say with this blog post, it's that I strongly support the idea of making the standard library as light as possible and to improve the package distribution problem which still exists.",
+    "As always read this post with a grain of salt."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, opinionated, technical, reflective",
+  "key_insight": "A bloated stdlib freezes flawed APIs in time, so Python should keep the core small and let fast-moving libraries evolve outside it through better packaging.",
+  "filename": "2009-03-02-std-stands-for-sleazy-tattered-and-dead"
+}

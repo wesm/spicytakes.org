@@ -1,0 +1,30 @@
+{
+  "summary": "Ronacher frames Unicode as historically messy but remarkably workable, and uses that history to explain why different encodings behave the way they do. He compares UTF-8, UTF-16, and UTF-32, arguing that UTF-32 is too wasteful and UTF-8 is generally best for text and data exchange. The harder question is internal string encoding, where UTF-16 once dominated due to constant-time indexing but UTF-8 has gained ground in modern languages like Rust and Go. He argues that constant-time character access is less valuable than it seems because real Unicode processing already requires normalization and higher-level tooling. He concludes that UTF-8 as an internal encoding is increasingly sensible and likely to spread, especially if UTF-8 remains the dominant external format.",
+  "key_points": [
+    "UTF-16\u2019s design and surrogate pairs were shaped by the need to preserve error detectability while exceeding 16-bit limits.",
+    "UTF-8 wins for interoperability, reliability, and practical memory usage, while UTF-32 is wasteful given the 21-bit code point limit.",
+    "UTF-16\u2019s indexing advantage is undermined by the lack of true 21-bit character types in Java/C# and by Unicode\u2019s inherent complexity.",
+    "UTF-8 internal strings make byte-level protocol handling efficient, which matters for real-world data formats like HTTP.",
+    "Python 3\u2019s per-string encoding strategy has real downsides, like whole-string upgrades to UTF-32 for a single emoji."
+  ],
+  "money_quotes": [
+    "Unicode is a fascinating mess.",
+    "UTF-8 is very pragmatic but not just that, it's also very reliable.",
+    "UTF-32 sounds a bit like a pointless encoding now as it's 32 bit wide, but only ever about 21 bits are used which makes this very wasteful.",
+    "For text UTF-8 has clearly won.",
+    "In many ways the question is how valuable constant time addressing of a single character in strings is.",
+    "Go on the other hand lets you happily mix random bytes into your string, but all IO operations are required to ensure that the data is valid.",
+    "As someone who works a lot at the byte <-> Unicode boundary the idea of having strings with an internal UTF-8 encoding is very interesting.",
+    "I'm definitely expecting more languages to take the UTF-8 route in the future and just provide more tools to deal with Unicode as part of the standard library."
+  ],
+  "themes": [
+    "rust",
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "UTF-8 internal strings trade away constant-time indexing but align better with real-world data and Unicode realities, making them the more future-proof choice.",
+  "filename": "2014-01-09-ucs-vs-utf8"
+}

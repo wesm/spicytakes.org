@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that the Rust `rand` crate has become disproportionately dependency-heavy relative to its core purpose. He contrasts the current dependency tree and code size with earlier versions, showing significant growth in crates, lines of code, and compile time. The post stresses the auditability and security implications of pulling in many third-party maintainers and large platform crates for minimal functionality. He acknowledges the crates are high quality but questions whether their inclusion is necessary just to generate random numbers. He concludes by suggesting Rust\u2019s standard library might be too small and that widely used \u201cquasi-stdlib\u201d crates should be more dependency-cautious, though he notes there is momentum to reduce `rand`\u2019s footprint.",
+  "key_points": [
+    "`rand`\u2019s dependency graph and code size have expanded sharply, increasing security exposure and audit complexity for a basic task.",
+    "Platform dependencies like `windows-targets` and `libc` are large despite only a few functions being needed.",
+    "The chain introduces heavyweight crates (proc-macro stack, zerocopy, byteorder) that add many lines of code and compile time.",
+    "The community\u2019s emphasis on reducing `unsafe` shifts risk rather than reducing overall complexity.",
+    "A bigger standard library or stricter dependency discipline for near-stdlib crates would improve auditability."
+  ],
+  "money_quotes": [
+    "It is however a crate that does not appear very concerned about how many dependencies it has, and I want to put this in perspective: of all the dependencies and lines of codes it pulls in, how many does it actually use?",
+    "For that single function (and the information which DLL it needs link into), we are compiling and downloading megabytes of `windows-targets`.",
+    "All of these are great crates, but do I need all of this just to generate a random number?",
+    "The main sentiment is that `rand` now uses less `unsafe` so that's benefit enough.",
+    "We already treat crates like `regex`, `rand`, and `serde` as if they were part of the standard library.",
+    "If these external, but almost standard crates were more cautious about dependencies and make it more of a goal to be auditable, we would all benefit.",
+    "Or maybe this is just how Rust works now.  That would make me quite sad."
+  ],
+  "themes": [
+    "rust",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "Rust\u2019s de facto standard crates can become bloated enough to undermine auditability and trust, suggesting the ecosystem needs stronger dependency discipline or a larger standard library.",
+  "filename": "2025-02-04-fat-rand"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that writing unsafe Rust has become harder than equivalent C or C++, largely because the rules around initialization, references, and layout are subtle and easy to violate. Through a step-by-step translation example, he shows how naive uses of `mem::zeroed` or `MaybeUninit` lead to undefined behavior or crashes, and why correct usage demands awkward pointer operations like `addr_of_mut!` and `write`. He contends that the safety model now requires deep expertise, making unsafe code less approachable and more error-prone for casual programmers. Documentation and compiler guidance are inconsistent or insufficient, leaving developers to guess at correct patterns. He concludes that this trend is unhealthy for Rust\u2019s ecosystem, especially for C interop, and calls for more ergonomic unsafe tooling because unsafe code is not going away.",
+  "key_points": [
+    "A straightforward C-style initialization becomes non-obvious and unsafe in Rust without specialized patterns and `MaybeUninit`.",
+    "Valid references and initialized states must be maintained even inside `unsafe`, forcing raw pointer use and explicit `write` operations.",
+    "The evolving rules and APIs (e.g., replacing `mem::uninitialized` with `MaybeUninit`) reflect growing complexity rather than clarity.",
+    "Unsafe Rust has become less approachable over time, with documentation and compiler feedback failing to prevent common mistakes.",
+    "The difficulty of unsafe code undermines Rust\u2019s strengths in systems and C interop work."
+  ],
+  "money_quotes": [
+    "I made the case on Twitter a few days ago that writing unsafe Rust is harder than C or C++, so I figured it might be good to explain what I mean by that.",
+    "Any construct like a mutable reference (`&mut`) or value on the stack in itself (even in `unsafe`) that would be valid outside of unsafe code still needs to be in a valid state at all times.",
+    "One important note is that a mutable reference must also never point to an invalid object, so doing `let role = &mut *uninit.as_mut_ptr()` if that object is not fully initialized is also wrong.",
+    "It's 2022 and I will admit that I no longer feel confident writing unsafe Rust code.",
+    "Over the last few years it seem to have happened that the Rust developers has made writing unsafe Rust harder in practice and the rules are so complex now that it's very hard to understand for a casual programmer and the documentation surrounding it can be easily misinterpreted.",
+    "These rules have made one of Rust's best features less and less approachable and also harder to understand.",
+    "More importantly: the compiler is not helpful in pointing out when I'm doing something wrong.",
+    "Because one thing is clear: people won't be stopping writing unsafe code any time soon."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, technical, opinionated, reflective",
+  "key_insight": "Unsafe Rust\u2019s rules have grown so complex that even experienced developers struggle to write correct code, undermining one of Rust\u2019s core strengths and calling for better ergonomics and guidance.",
+  "filename": "2022-01-30-unsafe-rust"
+}

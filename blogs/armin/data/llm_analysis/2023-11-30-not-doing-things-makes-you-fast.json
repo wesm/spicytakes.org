@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that claims about bundleless dev servers being infeasible focus on the wrong bottleneck. The real issue is not the lack of bundling, but excessive code execution and heavy startup work. He uses Python\u2019s import model to illustrate that loading many modules is fine if you avoid doing too much during import. The path forward is better structure: reduce cross-dependencies, embrace lazy loading, and isolate code so less runs up front. With those practices, bundleless development becomes not just viable but preferable, and bundling becomes a secondary, optional optimization.",
+  "key_points": [
+    "Bundleless performance problems are symptoms of too much startup execution, not a lack of bundling.",
+    "Python\u2019s module loading shows that loading many files is acceptable if import-time work is minimized.",
+    "Designing for lazy loading and low coupling enables faster iteration and hot reloading.",
+    "Bundling is still useful for large, rarely changing third-party libraries, and tools like Vite handle that.",
+    "Early architectural discipline around imports and isolation pays off as projects scale."
+  ],
+  "money_quotes": [
+    "The solution isn't to increase bundling but to reduce overall code execution, particularly at startup.",
+    "Don't forget that in addition to all the bytes you're not loading, you're also not parsing or executing code.",
+    "You become faster by not doing all of this.",
+    "The objective for developers, both end-users and framework creators, should be to make bundleless development viable and at least in principle preferred.",
+    "This initial effort in organizing your code will pay dividends as your project expands, making future development faster and more efficient.",
+    "Future you will be happy \u2014 and bundleless as evidenced by vite, with the right project setup works."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, reflective",
+  "key_insight": "Bundleless development succeeds when you engineer your codebase to do less work at startup, making bundling an optimization rather than a necessity.",
+  "filename": "2023-11-30-not-doing-things-makes-you-fast"
+}

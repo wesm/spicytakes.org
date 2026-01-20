@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher revisits a Rust type-system limitation he thought was impossible to solve: abstracting over borrowed vs owned values when higher\u2011rank trait bounds are involved. A seemingly simple conversion API works until closures enter the picture, where HRTBs demand implementations that are \u201cgeneral enough,\u201d breaking `&str` use cases. He shows a workaround using an associated type to decouple the trait\u2019s implementer from the returned reference, plus stricter bounds on callbacks. The fix feels hacky, is compiler\u2011version sensitive, and exposes how leaky and unintuitive Rust\u2019s advanced type features can be. He concludes that this area remains treacherous and recommends avoiding APIs that abstract over ownership in function contexts unless you deeply understand the internals.",
+  "key_points": [
+    "Abstracting over borrow vs ownership with HRTBs fails because `for<'a>` requires implementations valid for all lifetimes, which `&str` cannot satisfy directly.",
+    "A workaround uses an associated type in the conversion trait and more complex callback bounds to make the conversion compatible with HRTBs.",
+    "The solution compiles but is brittle, can break on older compilers, and feels like unintended type\u2011system hackery.",
+    "GATs don\u2019t necessarily solve this class of problems; the issue is deeper in how lifetimes and HRTBs interact.",
+    "The complexity leaks into everyday Rust APIs and error messages, showing limitations in Rust\u2019s abstraction boundaries."
+  ],
+  "money_quotes": [
+    "Rust's restrictions about being able to abstract over the borrow status / ownership of a values in some hard to discover situations involving higher-kinded type bounds.",
+    "Rust basically tells us that our trait is only implemented for a specific lifetime yet it has to be valid for all lifetimes.",
+    "HRTBs, GATs and all this fancy pantsy stuff is incredible complex and a very leaky abstraction.",
+    "Ultimately the solution turned out to not require modern language features such as GATs.",
+    "A lot of this advanced level of hackery runs into all kinds of weird edge cases and it's never quite clear if what ends up compiling was actually intended to do so.",
+    "Rust is normally quite capable of hiding the complexities of type theory, but it's completely failing here.",
+    "Do not abstact over borrows and ownership if functions are involved."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective, critical",
+  "key_insight": "Rust\u2019s advanced lifetime and HRTB machinery makes ownership\u2011abstracting APIs with functions fragile and unintuitive, so avoid them unless you\u2019re prepared for type\u2011system hackery.",
+  "filename": "2022-09-11-abstracting-over-ownership"
+}

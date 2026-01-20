@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that many Python web security and architecture issues come from blind trust in APIs and sloppy boundaries between data and context. He highlights how `os.path.join` can enable path traversal and why filenames must be sanitized beyond naive assumptions. He insists data should be stored exactly as received, with rendering deferred to the output context to avoid security bugs and API misuse. He challenges developers who over-index on framework choice, noting that systems are more interchangeable than they think. He concludes by advocating smaller, HTTP-connected services instead of monoliths, while warning against operational complexity from too many runtimes.",
+  "key_points": [
+    "Untrusted filenames and `os.path.join` can let attackers escape upload directories; sanitize paths explicitly.",
+    "Storing HTML-escaped data or mixing markup with data creates API pain and security vulnerabilities.",
+    "Keep raw data pristine; render per context and cache if needed rather than persisting HTML.",
+    "Framework selection is less important than improving the system itself; switching is often feasible.",
+    "Prefer small HTTP services over monoliths, but avoid operational chaos from too many languages."
+  ],
+  "money_quotes": [
+    "So yes, `os.path.join` is totally not safe to use in a web context.",
+    "store the data as it comes in.  Don't flip a single bit!",
+    "never, ever let the HTML formatted version be the only thing you have in your database.",
+    "If you ever are in the situation where you have to think about \u201cis this plain text that is HTML escaped or just plain text\u201d you are in deep troubles already.",
+    "If you have a small application (say less than 10.000 lines of code) the framework probably isn't your problem anyways.",
+    "Write small services that speak HTTP and bridge them together with another application.",
+    "If you end up with ten different programming languages with different runtime environments you are quickly making the life of your system administrator hell."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, cautionary",
+  "key_insight": "Most Python web problems come from mishandling trust boundaries and context\u2014sanitize inputs, keep data raw, and architect for change rather than fetishizing frameworks.",
+  "filename": "2010-12-24-common-mistakes-as-web-developer"
+}

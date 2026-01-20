@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that many short-lived data needs (tokens, sessions, tickets) can be served without a database by sending signed data back and forth over the network. Instead of persisting state, the client returns the data, and integrity is ensured with MAC/HMAC signatures. This yields unbounded \u201cstorage,\u201d removes a database bottleneck, and decouples services. He introduces \u201csignature anchoring\u201d to enable revocation and expiry by tying payloads to time or related data (like password hashes). The conclusion is that signed messages are an underused, practical way to eliminate databases in many scenarios while improving system resilience and modularity.",
+  "key_points": [
+    "Signed, client-carried payloads can replace database lookups for small, self-contained state and remove storage limits.",
+    "HMAC-based signatures prevent tampering and are a mature, well-understood primitive for this pattern.",
+    "Revocation requires \u201csignature anchoring,\u201d such as time-based expiry or linking to mutable related data.",
+    "This approach decouples services and enables crash-resilient components that rebuild state from client replays.",
+    "Signed payloads can freeze state across slow or time-limited workflows to avoid race conditions."
+  ],
+  "money_quotes": [
+    "Instead of storing the data in the database, you can just store small data like this on the network.",
+    "This has two huge advantages: the biggest one is that your storage is unbounded.",
+    "The basic concept of signing data with a MAC is a shared secret and a cryptographic hash function.",
+    "Because the message is properly authenticated it means that you cannot delete records.",
+    "I don't know what this concept is called, but I generally refer to it as \"signature anchoring\".",
+    "It's the perfect decoupling because the matchmaker itself does not need to know anything else (in theory) of the system.",
+    "In my mind a signed messages are an awesome way to avoid using databases altogether in many situations."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, practical",
+  "key_insight": "Signed, self-contained messages let you push state to the edge, avoid database dependencies, and still keep integrity and revocation through careful anchoring.",
+  "filename": "2013-11-17-my-favorite-database"
+}

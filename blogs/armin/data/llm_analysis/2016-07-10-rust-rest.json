@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher recounts building a Sentry CLI in Rust to ship a single static binary and summarizes the ecosystem tradeoffs he encountered. He compares HTTP libraries, landing on rust-curl for TLS integration, stability, and cross-platform builds, while noting hyper\u2019s flux and missing features. He details an API design that separates request/response types and defers HTTP errors to preserve flexibility, culminating in a layered error-handling approach. He argues that buffering response bodies simplifies reasoning and enables nicer APIs, with escape hatches for streaming. The conclusion is that Rust is an excellent choice for CLI tools, serde is powerful but still awkward on stable, and pragmatic use of C libraries like curl is often the right call.",
+  "key_points": [
+    "Rust was chosen to deliver a single statically linked executable, and the ecosystem proved strong enough for a real CLI.",
+    "rust-curl beat hyper due to TLS integration, stability, and platform support; hyper was evolving and lacked proxy support at the time.",
+    "A multi-type API (Api/ApiRequest/ApiResponse/ApiResult) plus deferred HTTP error conversion yields more ergonomic client code.",
+    "Buffering response bodies makes conditional logic and error handling simpler, with streaming available when needed.",
+    "Lessons learned emphasize Rust\u2019s cross-platform builds, serde\u2019s power with stability friction, and the practicality of C libraries."
+  ],
+  "money_quotes": [
+    "There is no denying that I really like Rust so it was already a pretty good choice for me.",
+    "The second reason is that Hyper is currently undergoing a major shift in how it's structured and a bit in flux.",
+    "The bulk of the complexity is hidden behind multiple layers of error handling.",
+    "One thing you can see here is that the body is buffered into memory entirely.",
+    "Rust is definitely a great choice for building command line utilities.",
+    "The cross platform support is superb.",
+    "Result objects in rust are great but sometimes it makes sense to not immediately convert data into a result object.",
+    "Don't be afraid of using C libraries like `curl` instead of native Rust things."
+  ],
+  "themes": [
+    "rust",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Ergonomic Rust HTTP clients emerge from pragmatic library choices and API designs that defer HTTP errors while keeping responses flexible.",
+  "filename": "2016-07-10-rust-rest"
+}

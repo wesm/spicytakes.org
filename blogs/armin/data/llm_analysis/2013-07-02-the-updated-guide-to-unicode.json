@@ -1,0 +1,25 @@
+{
+  "summary": "Ronacher updates his Unicode guidance to reflect Python 3\u2019s added complexity and the pitfalls that came with the removal of byte strings. He argues that Python 3 still mixes bytes and text in practice via filesystem, HTTP, and stdlib APIs, which spreads confusing types through programs. He criticizes Python 3\u2019s locale-based default encodings and urges explicit encodings for text files to avoid fragile behavior across environments. He details \u201ctransport decoded\u201d and \u201csurrogate escaped\u201d strings as new hazards and recommends early detection and normalization. He closes by proposing an alternative language design that preserves Python 2\u2019s flexibility while clarifying intent, noting that high-level frameworks can still insulate users from most pain.",
+  "key_points": [
+    "Python 2\u2019s implicit ASCII upgrade was flawed but relatively predictable; Python 3 replaced it with multiple string-like types and confusing API behavior.",
+    "Locale-derived default encodings in Python 3 are unreliable across environments, so explicit encodings are essential.",
+    "\u201cTransport decoded\u201d and \u201csurrogate escaped\u201d strings create hidden failure modes; developers must normalize or detect them early.",
+    "Frameworks like Flask can shield users by enforcing clear boundaries between bytes and text."
+  ],
+  "money_quotes": [
+    "Python 2's biggest problem with unicode was that some APIs did not support it.",
+    "On Python 3 two things happened that make unicode a whole lot more complicated.",
+    "I am not a fan of that behavior and I strongly recommend explicitly passing the encoding of text files as third parameter.",
+    "Unicode is still hard, and in my experience it's not much easier on 3.x than it was on 2.x.",
+    "On the bright side: nothing changes much for high level users of Python.",
+    "The higher level the API, the fewer does encoding play a role in it."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic, critical",
+  "key_insight": "Python 3\u2019s Unicode model adds hidden complexity and fragile defaults, so robust code must explicitly manage encodings and normalize string types early.",
+  "filename": "2013-07-02-the-updated-guide-to-unicode"
+}

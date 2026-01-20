@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that durable execution doesn\u2019t require heavyweight infrastructure or new services; Postgres alone is enough for many real-world needs. He frames durable workflows as a queue plus a state store, which Postgres already provides via SKIP LOCKED and persistent storage. He introduces Absurd, a minimal SQL-only library that pushes workflow complexity into the database while keeping SDKs thin and ergonomic. The post shows how agent-style loops map cleanly onto this model through repeatable steps with checkpointing. He concludes that many teams overcomplicate durability and that a simpler, self-hostable approach is often more appropriate.",
+  "key_points": [
+    "Durable execution is fundamentally a queue plus state storage, both already handled well by Postgres.",
+    "Absurd implements durable workflows with a single SQL file and thin SDKs, avoiding extra services or plugins.",
+    "Checkpointed steps prevent repeated work; failed tasks replay prior state without re-running steps.",
+    "Agent loops fit naturally by reusing a single step name with automatic checkpoint indexing.",
+    "Events and sleeps enable long-lived flows without needing an external orchestrator."
+  ],
+  "money_quotes": [
+    "Durable execution can be thought of as the combination of a queue system and a state store that remembers the most recently seen execution state.",
+    "Absurd at the core is a single `.sql` file ... which needs to be applied to a database of your choice.",
+    "Tasks are subdivided into *steps*, which are executed in sequence by the worker.",
+    "Steps are never retried, only tasks.",
+    "Really, that's it.",
+    "It's just a queue and a state store \u2014 that's all you need.",
+    "Not every problem necessarily needs to scale to that level of complexity, and you can get quite far with much less."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, pragmatic",
+  "key_insight": "Durable workflows are simpler than industry tooling suggests, and for many cases Postgres alone can deliver reliable execution without extra services.",
+  "filename": "2025-11-03-absurd-workflows"
+}

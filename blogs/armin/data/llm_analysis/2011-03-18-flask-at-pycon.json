@@ -1,0 +1,28 @@
+{
+  "summary": "Armin Ronacher recounts his PyCon 2011 experience centered on his Flask talk, noting a scheduling mismatch that forced him to compress the session. He highlights early discussions about unifying Werkzeug and WebOb into a shared request/response library, while acknowledging it is still tentative. The Flask sprints yielded concrete improvements, notably better extension documentation and multi-database support in Flask-SQLAlchemy, with more docs planned. He also explains why extension reviews lagged: the testing process didn\u2019t scale, prompting a move to a Jenkins-backed workflow. The post concludes with his dissatisfaction with Flask \u201cmodules\u201d and the planned replacement: a new, more flexible \u201cBlueprints\u201d concept to be shipped in the next release.",
+  "key_points": [
+    "PyCon talk logistics required shortening the Flask talk despite strong reception.",
+    "Early collaboration discussions aimed at a shared Werkzeug/WebOb request/response library.",
+    "Sprint outcomes included improved extension docs and multi-database support for Flask-SQLAlchemy.",
+    "Extension review bottlenecks led to adopting Jenkins for scalable testing and review.",
+    "Flask modules were deemed problematic, leading to the new Blueprint concept."
+  ],
+  "money_quotes": [
+    "The sprints on Flask themselves were quite successful too.",
+    "Flask-Principal did not get enough love yet and other extensions were also not reviewed yet, but there is a good reason for this: our extension testing script does not scale well to many extensions.",
+    "In order to fix this we now have a Jenkins installation running on a dedicated machine sponsored by Ron DuPlain who will also help out with extension reviewing from now on.",
+    "Flask modules are the one part of Flask I am very unhappy with and it took us a while to find something that solves most of the problems (including the name).",
+    "So with the next Flask release we will ship a new concept for modules called \u201cBlueprints\u201d.",
+    "Essentially what these blueprints will do is capturing construction information."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "reflective, technical, pragmatic, optimistic",
+  "key_insight": "PyCon 2011 catalyzed practical improvements to Flask\u2019s ecosystem and tooling, culminating in the shift from problematic modules to the more flexible Blueprint system.",
+  "filename": "2011-03-18-flask-at-pycon"
+}

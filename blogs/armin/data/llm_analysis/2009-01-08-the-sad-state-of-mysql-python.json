@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that MySQL\u2019s Python driver (MySQLdb) is effectively broken and abandoned, pushing him away from MySQL despite past loyalty. He highlights missing support for newer MySQL features and a serious memory leak that impacts production systems like ubuntuusers. While the leak seems fixed in trunk, releases and distributions haven\u2019t picked it up, and development activity appears stalled. He sees this as part of MySQL\u2019s broader decline and poor release management reputation. He closes by asking for new maintainers and offering short-term workarounds.",
+  "key_points": [
+    "MySQLdb is outdated, missing features and leaking memory in real deployments.",
+    "Fixes exist in trunk but are unshipped, and project activity appears dormant.",
+    "Packaged releases (PyPI, Debian/Ubuntu) don\u2019t include the fixes, leaving users stuck.",
+    "MySQL\u2019s wider reputation issues and release management problems worsen confidence.",
+    "Short-term mitigations include using trunk or disabling unicode leaks and relying on SQLAlchemy."
+  ],
+  "money_quotes": [
+    "Now that would be fine if mysql-python aka MySQLdb would not suck so much.",
+    "Besides not supporting the latest MySQL features it also leaks memory a lot.",
+    "That problem seems to be fixed in the SVN trunk but the latest activity there was more than 9 months ago which is a problem.",
+    "Neither the cheeseshop pypi has non-leaking packages, also not Linux distributions such as debian or ubuntu.",
+    "Now I wonder if anyone has experience with the MySQL library and the Python API to take over the development.",
+    "I guess there are still some MySQL users left, even though the project has an incredible bad reputation lately due to problems in the release management."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "critical, opinionated, frustrated, technical",
+  "key_insight": "A widely used Python MySQL driver is effectively unmaintained, leaving users with leaks and missing features and forcing them toward workarounds or new maintainers.",
+  "filename": "2009-01-08-the-sad-state-of-mysql-python"
+}

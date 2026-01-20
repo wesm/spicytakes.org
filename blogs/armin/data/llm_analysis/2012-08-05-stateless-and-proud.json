@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that \u201crealtime\u201d on the web is about pushing data, not about abandoning stateless HTTP frameworks. He explains that push is already solved through techniques like long polling and WebSockets, so the real challenge is server architecture, not protocol novelty. The mistake, he says, is tying state to persistent connections inside application code, which breaks scalability and deploy flexibility. Instead, he advocates a pub/sub architecture that keeps the web app stateless while a separate realtime server manages connections. He concludes that Python frameworks should not become long\u2011lived connection managers; they should stay stateless and integrate messaging layers.",
+  "key_points": [
+    "Realtime equals push; polling is the only true alternative and is inferior for latency.",
+    "Push transport is solved via existing browser techniques and libraries; the bottleneck is backend design.",
+    "Stateful, long\u2011lived connections inside app workers create deployment and scaling pain.",
+    "Pub/sub + queues let standard WSGI apps serve realtime without changing framework paradigms.",
+    "Stateless designs preserve web strengths like worker mobility and zero\u2011downtime updates."
+  ],
+  "money_quotes": [
+    "I\u2019m going to argue that the overall stateless design of modern web frameworks is perfectly adequate even for more realtime environments.",
+    "The only difference between realtime and not realtime in web applications is that realtime is pushing, non realtime is polling.",
+    "Pushing information from the server to the client is as of now a solved problem.",
+    "If that standing connection is directly exposed to your application internally I bet with you that you will associate state with that standing connection.",
+    "It seems wrong to give up on these design ideas that make HTTP powerful just because we want to go from poll to push.",
+    "I believe that a stateless communication protocol is what makes the web great and it can be extended to the realtime web without removing functionality.",
+    "I am very convinced that Python frameworks will not change much when the people demand more realtime on the web."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, critical",
+  "key_insight": "Realtime apps should keep web frameworks stateless and move connection management into a separate pub/sub layer rather than rewriting frameworks around persistent state.",
+  "filename": "2012-08-05-stateless-and-proud"
+}

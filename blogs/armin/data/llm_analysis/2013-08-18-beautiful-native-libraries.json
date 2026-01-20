@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that native libraries should prioritize ergonomics, stability, and cross-language friendliness, not just functionality. He frames shared libraries as the default and recommends C or a restrained subset of C++ because of ABI stability and minimal runtime assumptions. Public headers should be minimal, namespaced, and carefully control symbol visibility to avoid leaking internals or third-party symbols. He emphasizes stable ABIs, avoiding public structs/macros, and providing version checks to prevent mismatches. For usability, he recommends context objects over globals and customizable allocators, even if it means extra boilerplate. He concludes with practical guidance on build tooling and testing, advocating Python + CFFI/pytest to speed iteration and improve isolation.",
+  "key_points": [
+    "Shared libraries should favor C or a C-like C++ subset to maintain a stable, widely compatible ABI.",
+    "Public headers must be minimal, namespaced, and explicit about symbol visibility to avoid clashes and accidental exports.",
+    "Stable APIs require avoiding public structs/macros, embedding version checks, and limiting ABI-sensitive features.",
+    "Global state is harmful; context objects and custom allocators make libraries safer and more flexible.",
+    "Testing via Python (CFFI/pytest) improves iteration speed and isolation compared to C/C++-only tests."
+  ],
+  "money_quotes": [
+    "The greatest trick that C ever pulled was convince the world that it does not have a runtime.",
+    "Requiring a tool chain that is not native to the operating system is an easy way to alienate your developer audience.",
+    "Please under no circumstances, make a library, that pollutes the namespace with generic names.",
+    "Global state is terrible, so what's the solution?",
+    "In my mind the best way to deal with memory allocation failures is to not deal with them.",
+    "Autotools/autoconf are terrible, terrible pieces of software and if you give that to a windows guy they will call you all kinds of names.",
+    "What better way is there to test your API by using it from a language that is not C++?"
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, pragmatic, occasionally blunt",
+  "key_insight": "A \u201cbeautiful\u201d native library is less about clever C++ and more about disciplined ABI design, minimal headers, explicit symbol control, and tooling/testing choices that respect users on every platform.",
+  "filename": "2013-08-18-beautiful-native-libraries"
+}

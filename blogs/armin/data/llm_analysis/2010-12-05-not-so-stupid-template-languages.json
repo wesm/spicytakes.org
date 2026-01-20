@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher responds to criticism of \u201csmart\u201d template languages by arguing that Jinja2\u2019s macros make template dependencies explicit rather than hiding them. He contrasts Django\u2019s include-based templates, where implicit context variables and request-level data can be pulled in silently, with Jinja2\u2019s explicit macro imports and arguments. That explicitness improves comprehensibility, enables optimizations, and allows macros to act like functions in expressions. He notes that any tool can be abused, but Jinja2 offers stronger safeguards such as sandboxing to prevent unintended behavior like hidden database queries. He concludes that the \u201csmart templates lead to spaghetti code\u201d argument is a straw man, and that different template systems make different trade-offs rather than one being inherently safer.",
+  "key_points": [
+    "Jinja2 macros are explicit templates with declared inputs, aligning with \u201cexplicit is better than implicit.\u201d",
+    "Django includes hide dependencies via implicit context, making templates harder to reason about.",
+    "Explicit macros enable performance optimizations and functional use in expression contexts.",
+    "Jinja2 provides sandboxing to prevent accidental side effects like database queries during rendering.",
+    "Template misuse happens across systems; the complexity critique of smart templates is overstated."
+  ],
+  "money_quotes": [
+    "A macro is basically nothing more than a template that is meant for including, but with the additional information about what variables it wants.",
+    "It's the Python principle of \u201cexplicit is better than implicit\u201d applied for templating languages.",
+    "From looking at that specific code it's completely impossible to figure out what variables the included template depends on.",
+    "Macros are functions and thus can be used in an expression context.",
+    "I am well aware of the fact that users will find ways to shoot themselves into the foot with any tool you give them which obviously includes Jinja2.",
+    "The \u201cunrestricted template languages are bad and result in PHP spaghetti code\u201d straw man argument is just that: a straw man."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "opinionated, technical, critical",
+  "key_insight": "Explicitness in template design, not artificial limitation, is what makes templates safer and more maintainable.",
+  "filename": "2010-12-05-not-so-stupid-template-languages"
+}

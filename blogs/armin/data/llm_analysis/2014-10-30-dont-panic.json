@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that Rust\u2019s current reliance on panics and stack unwinding is both a practical necessity and a design liability. He explains how Rust uses two error models\u2014explicit result carriers and panics\u2014and notes that many APIs panic to avoid verbose error handling. He details why unwinding is complex, poorly standardized across ABIs, and especially problematic at language boundaries, making Rust libraries harder to interoperate with C and other ecosystems. He suggests that if panics were rarer, Rust could disable unwinding and abort on panic, using process boundaries for isolation instead. His conclusion is that better APIs for ergonomic error propagation are required before unwinding can be safely removed, but that removing it is a worthwhile long-term goal for portability and library reuse.",
+  "key_points": [
+    "Rust\u2019s mix of result carriers and panics leads many APIs to panic, especially for convenience in common operations like printing.",
+    "Stack unwinding is nonstandard and complex, making cross-language interoperability and compiler support fragile.",
+    "Panics are sometimes necessary for unrecoverable states, but overuse reflects API ergonomics rather than necessity.",
+    "Disabling unwinding and aborting on panic can be viable if panics are rare and processes provide isolation.",
+    "Long-term improvement depends on better error propagation mechanisms that reduce the temptation to panic."
+  ],
+  "money_quotes": [
+    "Rust has an awesome developer community but sometimes emotions can cloud the discussions that are taking place.",
+    "Panics are intended for situations where the runtime runs out of choices about how to deal with this failure.",
+    "The answer to why the panic is that computers are hard and many things can fail.",
+    "One of the big problems with stack unwinding is that it's not exactly an operation that comes natural to program execution.",
+    "The second problem with stack unwinding is that it's really complex.",
+    "Once panics are unlikely to happen, it's an option to disable the support for unwinding and to just abort the application if a panic ever happens.",
+    "Until we arrive there, I don't think disabling of stack unwinding would be a good idea."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, critical, reflective",
+  "key_insight": "Stack unwinding is a costly, fragile mechanism that Rust should eventually avoid, but only after APIs make explicit error handling ergonomic enough to reduce panics.",
+  "filename": "2014-10-30-dont-panic"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "The post argues that current LLM APIs expose the wrong abstraction: they pretend to be message-based when the reality is distributed state synchronization. He explains that models operate on tokens and internal derived state (like KV caches), while providers inject hidden context that users cannot see or control. Completion APIs force quadratic data retransmission, and Responses-style server-side state creates opaque synchronization failures and recovery gaps. Because hidden state is provider-specific and incompatible, unifying APIs at the message layer misses the real problem. He concludes that future standards should focus on explicit state synchronization, replay semantics, and failure modes rather than cementing today\u2019s message abstractions.",
+  "key_points": [
+    "LLM APIs hide critical state (prompt templates, role markers, tool outputs, reasoning tokens), creating a mismatch between user-visible messages and model reality.",
+    "Completion APIs are inefficient at scale due to quadratic retransmission and attention costs.",
+    "Server-side state (Responses API) introduces opaque synchronization failures and unclear recovery or retention guarantees.",
+    "Intermediary SDKs cannot truly unify providers because hidden state is incompatible and unsynchronized.",
+    "Local-first sync ideas (canonical vs derived state, incremental logs, conflict handling) map well to LLM interactions."
+  ],
+  "money_quotes": [
+    "The way I like to think about this problem now is that it's actually a distributed state synchronization problem.",
+    "As far as the core model is concerned, there's no magical distinction between \"user text\" and \"assistant text\"\u2014everything is just tokens.",
+    "You can replay the tokens and regain the text content, but you won't restore the exact derived state the model had built.",
+    "In completion-style APIs, each new turn requires resending the entire prompt history.",
+    "All of a sudden, you need to take some information on your side and funnel it back to the server so that state can be reconciled on either end.",
+    "The more I work with these agents, the more I feel like I don't actually need a unified message API.",
+    "Maybe it's time to start thinking about what a state synchronization API would look like, rather than a message-based API."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, critical, opinionated, reflective",
+  "key_insight": "The real challenge in LLM APIs is synchronizing hidden distributed state, so future standards should model explicit state sync rather than message passing.",
+  "filename": "2025-11-22-llm-apis"
+}

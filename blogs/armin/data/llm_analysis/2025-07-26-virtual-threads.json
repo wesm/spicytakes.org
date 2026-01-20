@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that while async/await in Python exposed more developers to concurrency, it also imposed complex machinery, colored functions, and leaky abstractions. With free-threading on the horizon, the neat guarantee of async suspension points erodes, leaving developers to juggle both async and thread complexity. He proposes re-centering concurrency on threads\u2014specifically virtual threads\u2014paired with structured concurrency so the runtime, not user code, carries most of the complexity. He sketches a \u201cbetter API\u201d that keeps blocking-style code while enabling structured parallelism, showing how this could avoid futures for most common cases. He concludes that the idea is a conversation starter, but the direction\u2014virtual threads plus structured concurrency\u2014could make async/await largely unnecessary for future code.",
+  "key_points": [
+    "Async/await broadened access to concurrency but forced complex, leaky semantics like colored functions into Python\u2019s surface API.",
+    "Free-threading makes async\u2019s \u201conly suspend at await\u201d guarantee less meaningful, pushing Python toward a thread-first model.",
+    "Structured concurrency is a major ergonomic win, but its cancellation guarantees break down when thread pools or blocking I/O are involved.",
+    "Virtual threads could restore a simple blocking programming model while keeping structured concurrency and performance.",
+    "Complexity should move into the runtime (locking, cancellation, scheduling), letting programmers avoid futures and promises for most tasks."
+  ],
+  "money_quotes": [
+    "Async/await did actually produce one very good outcome for Python: it has exposed many more people to concurrent programming.",
+    "Unfortunately, recent changes with free-threading make that guarantee rather pointless.",
+    "This is a good moment to rethink if we maybe have a better path in front of us by fully embracing threads.",
+    "In many ways, what we really want is to go back to the drawing board and say, \"What does a world look like that only ever would have used threads with a better API?\"",
+    "What is so important about this entire concept is that it moves a lot of the complexity of concurrent programming where it belongs: into the interpreter and the internal APIs.",
+    "Even though it could support futures, you can actually express a whole lot of programming code without needing to defer to an abstraction like that.",
+    "The idea of no longer having to deal with colored functions really appeals to me and I hope we can explore it a bit."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, reflective",
+  "key_insight": "Virtual threads plus structured concurrency could let Python keep a simple blocking style while moving concurrency complexity into the runtime, making async/await largely unnecessary.",
+  "filename": "2025-07-26-virtual-threads"
+}

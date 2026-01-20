@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher argues that JavaScript\u2019s automatic semicolon insertion (ASI) is a flawed convenience that creates ambiguity and real-world bugs. He explains the spec rules to show that ASI is not a simple \u201cmissing semicolon fix,\u201d but a set of heuristics that can change program meaning across line breaks and restricted productions. Through examples with array literals, function calls, and file concatenation, he shows how omitting semicolons can silently turn valid-looking code into different expressions. He also notes that ASI complicates parsing and leads to inconsistent behavior across engines and tooling. His conclusion is practical: use explicit semicolons for consistency and to avoid edge cases, because \u201csometimes\u201d is not good enough for correctness.",
+  "key_points": [
+    "ASI is governed by complex grammar rules that insert semicolons only in specific failure cases, not reliably where a developer expects.",
+    "Line breaks before array literals or parentheses can reinterpret the prior line as an indexing operation or a function call.",
+    "Concatenating files without semicolons can turn a function expression into an immediate invocation, breaking exports.",
+    "ASI makes JavaScript harder to parse and implement, leading to engine divergences and tool failures.",
+    "Tooling like compressors, parsers, and i18n scanners can mis-handle code without explicit semicolons."
+  ],
+  "money_quotes": [
+    "Despite popular belief the answer is \u201csometimes\u201d and not \u201cno\u201d.",
+    "But to save yourself time and troubles, just place them all the time.",
+    "If however one would add a plus after `c`, the expression in parentheses would not be the argument for a function call.",
+    "That is not a syntax error, but it will fail with an odd error.",
+    "So the rest of this blog article only covers the cases where adding semicolons would have avoided a problem.",
+    "Because automatic semicolon insertion has shown to be handled differently in browsers it wouldn't be too unlikely that you will encounter some differences there.",
+    "The logical conclusion here is that people will get it wrong."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, critical, opinionated, pragmatic",
+  "key_insight": "ASI is a leaky convenience that introduces ambiguity and tooling risk, so explicit semicolons are the safest, most consistent choice.",
+  "filename": "2011-02-06-automatic-semicolon-insertion"
+}

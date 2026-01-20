@@ -1,0 +1,27 @@
+{
+  "summary": "Ronacher explains why `Any` can\u2019t be combined with `Debug` in a trait object and walks through a workable workaround. The naive `Box<dyn Any + Debug>` fails, so he introduces a supertrait and shows why downcasting breaks. He then uses the \u201cas any\u201d pattern to upcast back to `Any`, and highlights a subtle method-resolution pitfall with boxed trait objects. With the fix (explicit deref), he rebuilds a debuggable extension map and demonstrates correct downcasting and debug output. He concludes by improving debug readability further by preserving type names via a custom key type.",
+  "key_points": [
+    "Rust only allows one non-auto trait in a trait object, so `Any + Debug` needs a supertrait.",
+    "A `Box<dyn DebugAny>` is not a `Box<dyn Any>`, so downcasting methods are lost unless you add an upcast method.",
+    "Calling `as_any` on a boxed trait object hits the box\u2019s blanket impl, so you must dereference to reach the inner value.",
+    "The \u201cas any\u201d pattern restores downcasting and enables a debuggable extension map.",
+    "Replacing `TypeId` with a `TypeKey` that stores `type_name` yields clearer debug output."
+  ],
+  "money_quotes": [
+    "The challenge is that unfortunately in Rust you cannot do `Box<dyn Any + Debug>`.",
+    "The reason for this is that a `Box<dyn DebugAny>` unfortunately is not a `Box<dyn Any>`.",
+    "The simplest method is the \u201cas any\u201d pattern where we implement a method on our `DebugAny` trait that upcasts into an `Any`.",
+    "When we invoke `as_any` on `Box<dyn DebugAny>` we're not looking through the box.",
+    "So how do we reach through the box? By dereferencing it.",
+    "These learnings we can now take back to building an extension map which can be debug printed.",
+    "If we want to retain the original type name and not just type ID we could change our `TypeId` key for a custom type."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, instructive",
+  "key_insight": "By adding an explicit `as_any` upcast and dereferencing boxed trait objects, you can combine debuggability with `Any`-based downcasting despite Rust\u2019s trait-object constraints.",
+  "filename": "2022-01-07-as-any-hack"
+}

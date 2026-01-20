@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that Battlefield 3\u2019s Battlelog demonstrates a truly modern web application, far beyond a traditional, server-rendered site like Call of Duty Elite. He explains how Battlelog pushes rendering to the client, uses JSON payloads with HTML5 history, and achieves notably faster, smoother navigation. He highlights the real-time architecture and dual rendering strategy as evidence that large-scale apps can be built with modern web tech. The post explores the Windows browser plugin that bridges the web UI and the native game, detailing the end\u2011to\u2011end flow of launching and joining servers. He then considers how the same integration could work without a plugin via custom URL schemes and a local daemon, and suggests browser APIs should improve native communication. He concludes that Battlelog is a \u201ckiller app\u201d for HTML5 features that can effectively force users onto modern browsers.",
+  "key_points": [
+    "Battlelog is a client\u2011rendered, JSON-driven app that uses HTML5 history and delivers major performance gains over classic server-rendered sites.",
+    "A single real-time connection powers notifications, chat, and invites, creating a responsive, stateful UI that survives navigation.",
+    "The system likely compiles templates for both Python and JavaScript, enabling dual rendering paths.",
+    "The browser plugin enables two-way communication with the native game, letting the browser drive launching, server selection, and lifecycle events.",
+    "A plugin-less alternative could use custom URL schemes plus a local daemon, but would require extra user consent and a mediator service."
+  ],
+  "money_quotes": [
+    "Battlelog is written by a company called ESN and their infrastructure from the released code is basically Python 2.x with gevent as well as JavaScript with jQuery and their own stuff on the client and Java for their websocket backend.",
+    "The HTML for the index page is 18KB in size. If we trigger the request to the same URL with just the JSON it's 4KB.",
+    "The user does not notice that anything interesting is going on unless he's tech savvy enough to open the firebug network panel and watch the system operate.",
+    "Clicking on a link in Battlelog is such a snappy operation it's haunting for the trained web developer eye.",
+    "In fact if you are playing on PC this is how the game is launched, always. There is no in game menu, you join from within your browser.",
+    "Falling back to a browser plugin currently is the only way to make a consenting communication with a local application.",
+    "Battlelog shows that it can be done already with a little help of a small plugin.",
+    "For a certain audience websites like Battlelog can be the killer application of modern HTML5 features."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, enthusiastic, opinionated, reflective",
+  "key_insight": "Battlelog proves that large-scale apps can be faster and more capable by pushing rendering and real-time behavior to the client while using the browser as a native-app frontend.",
+  "filename": "2011-11-15-modern-web-applications-are-here"
+}

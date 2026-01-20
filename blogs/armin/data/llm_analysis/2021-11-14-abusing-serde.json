@@ -1,0 +1,28 @@
+{
+  "summary": "The post argues that Serde is more than a serialization framework; it can be abused as a reflection-like bridge between Rust\u2019s static types and dynamic runtimes. Ronacher explains how MiniJinja uses Serde to transform Rust structs into an in-memory value model, enabling template access to fields without true runtime reflection. He then shows how Serde\u2019s data model limits require hacks like in-band signaling and thread-local storage to move non-serializable data, such as dynamic loop state or file descriptors. These tricks work for in-process transformations and IPC, but they rely on fragile conventions that can collide with normal data. The conclusion is that Serde 2.0 should address these extension needs explicitly, reducing reliance on hacks while preserving Serde\u2019s power.",
+  "key_points": [
+    "Serde can be used as a reflection surrogate by serializing into custom in-memory structures instead of bytes.",
+    "MiniJinja uses this pattern to pass structured Rust data into templates, bypassing Rust\u2019s lack of runtime dynamism.",
+    "In-band signaling plus TLS can smuggle non-Serde data (like dynamic objects or file descriptors) through serialization.",
+    "These abuses expose real limitations in Serde\u2019s data model, especially for arbitrary extensions.",
+    "A future Serde should offer cleaner extension points to avoid brittle hacks."
+  ],
+  "money_quotes": [
+    "One of the very interesting use cases for serde is to use it as some form of reflection framework to expose structs to other \u201cenvironments\u201d that cannot natively support rust structs.",
+    "Under normal circumstances the serializer would be something like a JSON serializer that writes the struct into a string or file, encoding it into JSON in the process.",
+    "However the serde interface does not require this to happen.",
+    "This is where clever use of thread local state can be a neat workaround.",
+    "Unfortunately all of this relies on both the use of thread local storage and in-band signalling.",
+    "That\u2019s all not great and if we ever get a serde 2.0 I wish there were better ways to accomplish the above things in a better way.",
+    "it might be time to slowly start thinking about what a hypothetical future version of serde looks like that is a bit more friendly to extensions to the data model that could get away with fewer hacks."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "technical, opinionated, critical, reflective",
+  "key_insight": "Serde\u2019s flexibility enables powerful reflection-like hacks, but those hacks expose structural limits that a future Serde should address with first-class extension mechanisms.",
+  "filename": "2021-11-14-abusing-serde"
+}

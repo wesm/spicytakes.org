@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that \u201c90% AI-written code\u201d is already his lived reality on a serious Go infrastructure service, not a distant prediction. He emphasizes that this only works because he enforces strong architectural standards and treats every AI-generated line as his responsibility. The post details how he structures projects (raw SQL, OpenAPI-first, PR-sized chunks) and how he pairs tools like Claude and Codex for complementary strengths. He warns that agents are error-prone, create inappropriate abstractions, and can hide failures unless tightly guided. His conclusion is that AI accelerates engineering and unlocks better trade-offs, but it never replaces the need for strong engineering judgment and accountability.",
+  "key_points": [
+    "High AI code percentage is feasible in production, but only with strict human ownership of architecture, layout, and quality.",
+    "OpenAPI-first design and raw SQL become more attractive because AI removes the tedium while improving debuggability.",
+    "Agent workflows require deliberate scoping, iterative review, and context curation to avoid duplication and bad abstractions.",
+    "AI excels at rapid research-to-implementation, refactoring, infra setup, and SQL generation, shrinking weeks to days.",
+    "Without strong engineering judgment, AI yields brittle systems, poor runtime behavior, and opaque failure modes."
+  ],
+  "money_quotes": [
+    "I still treat every line as my responsibility, judged as if I wrote it myself.",
+    "The fact that I no longer have to write SQL because the AI does it for me is a game changer.",
+    "I cannot stress enough how bad the code from these agents can be if you're not careful.",
+    "You constantly need to learn how to bring the right information to the context.",
+    "It is easy to create systems that appear to behave correctly but have unclear runtime behavior when relying on agents.",
+    "For me, this has reached the point where I can't imagine working any other way.",
+    "The tools are powerful, but they don't absolve you of responsibility."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, reflective, cautionary",
+  "key_insight": "AI can now generate the bulk of production code, but only engineers with strong judgment and ownership can keep those systems reliable.",
+  "filename": "2025-09-29-90-percent"
+}

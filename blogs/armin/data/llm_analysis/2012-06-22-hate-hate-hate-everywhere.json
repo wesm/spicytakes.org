@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that setuptools, while imperfect, solved real packaging problems in Python by pragmatically exploiting the import system. He explains how eggs and .pth hooks enabled metadata, virtual package trees, and binary distributions that distutils and later tools struggled to replace. The post contends that pip\u2019s design removed critical capabilities (especially binary eggs), creating painful deployment workarounds. He concludes that replacing infrastructure without fully understanding its design rationale leads to regressions and fragmented tooling. The lesson: document design decisions and fix existing tools before rewriting them.",
+  "key_points": [
+    "Setuptools used .pth execution and eggs to create a virtual package tree and a place for metadata.",
+    "Eggs as zipfiles enabled fast, portable binary distributions; many issues blamed on setuptools were interpreter bugs.",
+    "Pip\u2019s move away from eggs dropped binary distribution support, breaking some deployment workflows.",
+    "Multiple competing systems (setuptools/easy_install, pip/distribute, distutils2) left gaps in real-world use cases.",
+    "Replacing infrastructure without understanding its history causes regressions and missed requirements."
+  ],
+  "money_quotes": [
+    "Setuptools in a way was the Quake approach to distributing things.",
+    "This horrible design however enabled setuptools existence to a large degree.",
+    "What eggs could do was actually more interesting and something we lost in the transition to pip.",
+    "The sad aspect is just that we have three competing distribution systems: setuptools with easy_install, distribute with pip as well as the new distutils2 efforts and not one covers all use cases.",
+    "It\u2019s a better idea to learn all of the design of a project first before attempting to replace it.",
+    "All in all, the issue is just too complex and it\u2019s easy to miss things when starting from scratch again.",
+    "TL;DR: setuptools wrongly got so much hate that tools tried to replace it which did not help much."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, critical, reflective",
+  "key_insight": "Pragmatic, battle-tested tooling like setuptools encoded hard-earned design decisions that were lost when replacements prioritized theory over real-world deployment needs.",
+  "filename": "2012-06-22-hate-hate-hate-everywhere"
+}

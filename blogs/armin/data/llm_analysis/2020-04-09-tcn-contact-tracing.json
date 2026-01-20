@@ -1,0 +1,28 @@
+{
+  "summary": "Armin revises his earlier view and now favors decentralized, temporary contact number (TCN) protocols for privacy\u2011preserving COVID contact tracing. He argues that app\u2011based tracing on smartphones is one of the best paths back to normal without sacrificing civil liberties, but it must be voluntary because users can infer positive status from encounters. Centralized schemes don\u2019t really solve that and can devolve into \u201csecurity by obscurity,\u201d especially given Bluetooth Low Energy payload limits. The post explains why BLE constraints make heavy public\u2011key approaches impractical and pushes systems that exchange short random identifiers. He walks through TCN strawman and DP\u20113T designs, highlighting their feasibility and trade\u2011offs. He closes by pointing to PEPP\u2011PT, Co\u2011Epi, and BlueTrace as practical implementation paths for governments.",
+  "key_points": [
+    "The privacy risk that someone can infer a contact\u2019s positive status is inherent; disclosure and voluntariness are required.",
+    "BLE payload limits make centralized, crypto\u2011heavy protocols impractical, pushing designs toward short random identifiers.",
+    "TCN approaches decentralize data and reduce reliance on cloud infrastructure.",
+    "The strawman TCN protocol is simple but data\u2011heavy; DP\u20113T reduces bandwidth while improving unlinkability.",
+    "PEPP\u2011PT and Co\u2011Epi provide real\u2011world paths for governments, with BlueTrace as a centralized alternative."
+  ],
+  "money_quotes": [
+    "I strongly believe that contact tracing through phone apps is one of our best chances to return to normal and without losing our civil liberties.",
+    "So the disclaimer to any app has to be: if you do not want that other people discover when you will test positive for covid-19 you should not use any contact tracing apps.",
+    "Which is also why I strongly believe that any such system absolutely needs to be voluntary.",
+    "The more correct way to deal with this is to just fundamentally communicate to users that this is an inherent property of the system.",
+    "BLE comes with different modes and different platforms call this in different ways but the most compatible and energy preserving modes restrict us to under 30 bytes of payload.",
+    "TCN based protocols instead will exchange just random identifiers instead.",
+    "DP-3T is currently one of the most promising protocols here."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "Given BLE constraints and inherent privacy trade\u2011offs, decentralized TCN protocols like DP\u20113T are the most practical and civil\u2011liberties\u2011preserving path for contact tracing apps.",
+  "filename": "2020-04-09-tcn-contact-tracing"
+}

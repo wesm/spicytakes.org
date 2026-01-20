@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that agents should lean into what they do best\u2014writing code\u2014even for tasks that are not inherently about code, by generating throwaway programs that solve real-world problems. He positions Pyodide as a surprisingly powerful runtime for this because it brings Python\u2019s ecosystem into a sandboxed, portable environment with minimal setup. A controlled virtual file system becomes the primary interface for safe resource access, letting agents interact with external data without direct network privileges. He notes that durable execution is still awkward and requires pragmatic cache-and-queue patterns, though his team later built a dedicated tool. The post concludes that a sparse toolset plus code execution can yield surprisingly capable agents, and points to related industry approaches that validate the pattern.",
+  "key_points": [
+    "Pyodide is an unexpectedly strong foundation for agent runtimes because it is easy to run, works well in web workers, and taps Python\u2019s library ecosystem.",
+    "A virtual file system is the safest and most flexible bridge between sandboxed code and external resources, enabling controlled read/write access.",
+    "Making async resource access appear synchronous inside emscripten requires awkward workarounds like `Atomics.wait`, and the FS API should evolve.",
+    "Durable execution remains a gap; simple cache-by-step loops work but feel like a stopgap until better infrastructure exists.",
+    "Minimal tool availability plus code execution can still produce impressive outcomes, as shown in the mini-agent example."
+  ],
+  "money_quotes": [
+    "Agents are very good at writing code, so why don't we let them write throw-away code to solve problems that are not related to code at all?",
+    "Pyodide is secretly becoming a pretty big deal for a lot of agentic interactions.",
+    "The reason the file system is so good is that agents just know so much about how they work.",
+    "The sandbox itself does not have network access, so it's only the file system that gates access to resources.",
+    "That said, I wish the emscripten file system API was changed to support stack swiching instead of this.",
+    "What is a little bit disappointing is that there is no truly simple durable execution system.",
+    "It's really just that simple."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, opinionated, pragmatic, exploratory",
+  "key_insight": "Let agents write disposable code inside a well-designed Pyodide sandbox\u2014paired with a controlled file system and basic durability\u2014and you can solve non-code problems with surprisingly little tooling.",
+  "filename": "2025-10-17-code"
+}

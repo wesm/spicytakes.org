@@ -1,0 +1,27 @@
+{
+  "summary": "Armin argues that while Mercurial has a friendlier UI and better out-of-the-box collaboration features, Git ultimately serves his branching and patch workflow better. The key difference is philosophical: Mercurial bakes branch names into changesets, which becomes painful when cherry-picking, transplanting, and maintaining release branches. Git\u2019s lightweight branches and cherry-pick flow let him apply fixes without dragging in unrelated history, even if provenance is lost. He details how Mercurial\u2019s UI and commands (incoming/outgoing, tip, heads, fetch, branch-in-URL) break down once you start doing branch-heavy workflows. Despite Git\u2019s awkward UI, he concludes its branching model makes it the better tool for his real-world maintenance and patch-review needs.",
+  "key_points": [
+    "Mercurial\u2019s UI and collaboration tooling are excellent, but its branch model causes confusion and errors in practice.",
+    "Git\u2019s branch-as-label design enables clean cherry-picking for maintenance releases without unwanted merges.",
+    "Mercurial features like transplant, tip, heads, and fetch don\u2019t integrate well with branches, leading to broken mental models.",
+    "Branch names being embedded in Mercurial changesets produce unexpected behavior when merging or pulling from others.",
+    "Git\u2019s UI is hostile, but for branchy development and patch review it performs better overall."
+  ],
+  "money_quotes": [
+    "I don't like merging.",
+    "On the surface hg and git look very much alike. The commands are now pretty similar and they appear to solve the same problems. However there is a philosophical difference between these two: the handling of branches.",
+    "Doing the same in hg is also possible with the transplant command. The downside is that if you transplant patches from one repo or branch into another one, the incoming and outgoing commands no longer work like you would expect them to do.",
+    "Especially that the branch name is imprinted into the changeset is confusing to say the least.",
+    "It all boils down basically to hg having an awesome internal concept that does a lot of things really well, but other things not being properly supported by the user interface I suppose.",
+    "It took me a while to start fully appreciating the possibilities of small branches and now I can't live without them any more.",
+    "With all these UI faults, git has the better UI for branchy development :("
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "opinionated, technical, critical, reflective",
+  "key_insight": "For branch-heavy maintenance and patch workflows, Git\u2019s lightweight branching model beats Mercurial\u2019s nicer UI because Mercurial\u2019s branch metadata and commands don\u2019t compose cleanly.",
+  "filename": "2010-08-17-git-and-mercurial-branching"
+}

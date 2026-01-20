@@ -1,0 +1,25 @@
+{
+  "summary": "Armin describes building a Minecraft-inspired C project and hitting the lack of generic collections that C++ templates would solve. He argues that in C, the preprocessor is the closest viable tool for code generation, and external generators introduce portability and toolchain headaches. He outlines two preprocessor approaches, favoring the pattern of including a parameterized implementation file multiple times with type/name macros. The post walks through macro utilities and a concrete list implementation for pointers and floats, showing how to structure headers and .inc files. He concludes that this technique is limited compared to C++ templates but is practical and sufficient for many small applications.",
+  "key_points": [
+    "External code generators are avoided because they complicate toolchains and portability, especially on Windows.",
+    "Macro-based code generation is viable but should use include-time substitution rather than giant single-line macros.",
+    "Token concatenation needs indirection (e.g., CAT/UCAT) to expand nested macros correctly.",
+    "A reusable pre/post include pattern enables multiple type-specific instantiations of a collection.",
+    "C\u2019s limitations remain: no true generics and no macro generation, so inline functions fill some gaps."
+  ],
+  "money_quotes": [
+    "The C++ way for this is obvious: use templates.",
+    "I normally like to avoid tools that generate new C files for the very simple reason that these usually generate ugly looking code I then have to look at which is annoying.",
+    "Macros are fine if they are small, bug looking at endless lines of generated C code from the preprocessor can be hairy and frustrating.",
+    "This is what I ended up doing for my collection classes.",
+    "There is really nothing you can do to change this, this is how the language works.",
+    "Generally speaking though, this is probably good enough to cover the majority of use cases and small applications."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "In C, the preprocessor can approximate generics through careful include-time macro substitution, which is limited but often sufficient for real-world collections.",
+  "filename": "2010-11-24-collections-in-c"
+}

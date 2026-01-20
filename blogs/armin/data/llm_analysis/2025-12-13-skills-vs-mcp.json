@@ -1,0 +1,29 @@
+{
+  "summary": "Ronacher argues that Anthropic\u2019s deferred tool loading doesn\u2019t resolve his core dissatisfaction with MCPs because the tooling still requires static, predeclared definitions and adds engineering overhead. He contrasts this with \u201cskills,\u201d which are lightweight summaries that teach an agent how to use existing tools rather than injecting new tool definitions into context. In practice, skills outperform MCPs for him because they avoid token costs, leverage existing RL tool-calling behavior, and stay under his control. Attempts to expose MCPs via CLI tools like mcporter still fail because the model lacks stable, reliable tool documentation and MCP servers frequently change their APIs. He concludes that manually maintained skills and agent-authored tools are currently the path of least resistance, while MCP would need protocol stability and skill-like manuals to be competitive.",
+  "key_points": [
+    "Deferred tool loading still requires static tool definitions and costly system-level engineering.",
+    "Skills are lightweight, proactively loaded summaries that teach usage without adding tool definitions.",
+    "Exposing MCPs via CLI (e.g., mcporter) fails because models lack stable tool knowledge and MCP APIs shift.",
+    "Eager MCP loading creates a lose-lose: too long for context, too short to teach effective use.",
+    "Until MCP stabilizes and gains built-in manuals, self-authored tools plus skills are more reliable."
+  ],
+  "money_quotes": [
+    "The skill system gets away without any of that and, at least from my experience, still outperforms it.",
+    "Crucially, skills do not actually load a tool definition into the context.",
+    "The problem however is that the LLM does not have any idea about what tools are available, and now you need to teach it that.",
+    "MCP servers have no desire to maintain API stability.",
+    "The eager loading of MCP tools we have done in the past now has ended up with an awkward compromise.",
+    "I tend to go with what is easiest, which is to ask the agent to write its own tools as a skill.",
+    "I suspect that MCP would greatly benefit of protocol stability."
+  ],
+  "themes": [
+    "open_source",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations",
+    "python"
+  ],
+  "tone": "opinionated, technical, pragmatic",
+  "key_insight": "In practice, lightweight skills and agent-authored tools beat MCPs today because MCP lacks stable, usable tool documentation and imposes high context and engineering costs.",
+  "filename": "2025-12-13-skills-vs-mcp"
+}

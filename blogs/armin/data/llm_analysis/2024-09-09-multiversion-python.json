@@ -1,0 +1,28 @@
+{
+  "summary": "Armin proposes a path to multi-version Python imports so incompatible library versions can coexist, motivated by uv\u2019s solver ambitions. The core obstacle is Python\u2019s import cache: everything lands in `sys.modules` keyed by import name, so two versions clash. He argues for installing multi-version packages in separate paths, then using a custom import hook that registers versioned module names and proxies for unversioned lookups. The real difficulty is determining which version to load based on the importing package, which is hampered by missing distribution metadata and opaque C-extension import context. He concludes that while a workable approach exists with minimal Python changes, it is fragile and incomplete, especially around `sys.modules` patching and C-layer imports.",
+  "key_points": [
+    "Multi-version installs require separating files from `site-packages` and using versioned keys in `sys.modules`.",
+    "Import resolution must be context-aware: the importer\u2019s identity should determine which dependency version loads.",
+    "Python lacks a reliable mapping from module to distribution; current metadata APIs are slow and ambiguous.",
+    "C extensions import by hardcoded names and lack context, making version resolution difficult without stack-walking.",
+    "A practical solution likely needs installer support (e.g., uv) to materialize distribution metadata on modules."
+  ],
+  "money_quotes": [
+    "The goal here is to enable multiple resolutions from the solver in uv so that two incompatible versions of a library can be installed and used simultaniously.",
+    "So step 1 would be to place these modules in different places.",
+    "This means that in addition to the new entries in `sys.modules` we would also need to register some proxies that \u201credirect\u201d us to the real names.",
+    "There are two challenges with this today and they come from the history of Python.",
+    "A C extension does not \u201cknow\u201d what the intended name is, it must know this on its own.",
+    "The solution here might just be that installers like `uv` start materializing the distribution name onto the modules in one way or another.",
+    "There are lots of holes with this approach unfortunately."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, exploratory, cautious",
+  "key_insight": "Multi-version Python imports are feasible with minimal language changes, but only if the import system gains reliable context and distribution metadata\u2014especially for C extensions.",
+  "filename": "2024-09-09-multiversion-python"
+}

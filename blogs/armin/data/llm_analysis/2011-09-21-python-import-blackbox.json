@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that Python\u2019s import system is a black box that makes it hard to distinguish \u201cmodule not found\u201d from \u201cmodule failed while importing.\u201d This ambiguity breaks common fallback patterns and leads to misleading error messages. He explains why splitting find/load with `imp` or parsing `ImportError` text is unreliable given the underspecified, highly dynamic import machinery. He proposes a pragmatic workaround: walk the traceback to see whether the target module\u2019s frame appeared, and only then treat the error as a real failure. Despite the hackiness, he concludes it\u2019s surprisingly defensible because traceback frames retain globals for loader support, making the approach workable in practice.",
+  "key_points": [
+    "The standard `try/except ImportError` fallback pattern can hide real dependency failures and report the wrong missing module.",
+    "Python offers no reliable signal to distinguish a missing module from a failed import, and the error messages are inconsistent.",
+    "Re-implementing import logic with `imp`/`importlib` is complex and still brittle due to custom import hooks.",
+    "A traceback-walking sidechannel can detect whether the target module started executing and thus whether the failure is internal.",
+    "The hack works because traceback frames retain `f_globals` for loader semantics, despite module cleanup behavior."
+  ],
+  "money_quotes": [
+    "For a long time Python's import system was (although customizable) at the very core a black box.",
+    "Unfortunately Python's exceptions are an example of a stringly typed API, and one of the worst.",
+    "If `foo` does not exist you want to retry with `simplefoo`, you don't want to swallow the import error of `foo` since that one might have been a dependency that failed loading.",
+    "The problem is that Python does not provide you with information if the module was not found or failed to import.",
+    "The Python import machinery is complex and even with the new `importlib` module everything but easy to use.",
+    "The second possibility that is actually in use sometimes is parsing the error message of the import error. This however is a lost cause.",
+    "And with that, the above hack suddenly looks quite reasonable and supported again."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "open_source"
+  ],
+  "tone": "technical, opinionated, critical",
+  "key_insight": "When Python hides whether an import failed to find a module or failed inside it, a traceback-based sidechannel is the most practical way to build correct fallback imports.",
+  "filename": "2011-09-21-python-import-blackbox"
+}

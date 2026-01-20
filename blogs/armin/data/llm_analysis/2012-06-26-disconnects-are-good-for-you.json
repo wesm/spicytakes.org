@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that ZeroMQ\u2019s high-level \u201cbetter sockets\u201d abstraction hides disconnects in a way that makes request/response apps unexpectedly brittle. The REQ/REP pattern has an implicit state machine that can get stuck if a peer disconnects or a server crashes between recv and send. Because ZeroMQ masks disconnects, the client may keep waiting forever after a server restart, unlike TCP where the OS surfaces resets. He notes that common examples (and convenience helpers like recv_json/send_json) exacerbate the issue by turning exceptions into permanent stalls. His conclusion is pragmatic: you must build timeouts or state recovery into your app, because ZeroMQ itself cannot reliably expose disconnects across transport layers.",
+  "key_points": [
+    "REQ/REP sockets have an implicit state that breaks when a disconnect happens mid-request, leaving clients blocked forever.",
+    "ZeroMQ intentionally hides disconnects, so failures look like hangs rather than recoverable network errors.",
+    "Typical examples and Python helpers encourage patterns that become stuck on exceptions or invalid data.",
+    "Timeouts or heartbeats can mitigate the issue, but are imperfect and workload-dependent.",
+    "A full fix likely requires app-level state tracking or restart-at-last-state behavior, not just ZeroMQ settings."
+  ],
+  "money_quotes": [
+    "Unfortunately the high abstraction also makes it very easy to write applications that become unresponsive.",
+    "Since ZeroMQ hides disconnects entirely from you, there is no way to be notified if the client or the server went away.",
+    "If a disconnect happens while the socket is in the bound state everything falls apart.",
+    "The server's socket is in the \u201caccepting requests\u201d state again but the client never noticed the server to disappear and is still waiting for the reply to come.",
+    "This behavior should probably be obvious but I have never seen a ZeroMQ example that did not suffer from that.",
+    "A userspace level communication protocol like ZeroMQ can't really benefit from all of that.",
+    "I suppose the better solution for the problem would be to memorize the state the socket is in in your app."
+  ],
+  "themes": [
+    "python",
+    "software_engineering",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "technical, critical, opinionated",
+  "key_insight": "ZeroMQ\u2019s abstraction hides disconnects, so without explicit timeouts or state recovery your REQ/REP apps can silently deadlock after routine failures.",
+  "filename": "2012-06-26-disconnects-are-good-for-you"
+}

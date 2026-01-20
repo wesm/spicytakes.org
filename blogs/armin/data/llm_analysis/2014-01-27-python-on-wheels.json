@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that Python packaging has long been fragmented, with competing tools and weak binary distribution story. Wheels are presented as a pragmatic successor to eggs: still zip archives, but designed for install-time unpacking and avoiding embedded bytecode. He explains that wheels solve some pain points yet inherit ABI and Linux compatibility issues that keep PyPI from broadly accepting binary wheels. The post details practical workflows for building and installing wheels, highlighting broken `pip wheel` behavior and manual workarounds. He concludes that wheels are gaining traction and are worth adopting despite rough edges, especially for internal deployments.",
+  "key_points": [
+    "The packaging ecosystem has been historically chaotic, leading to fractured tooling and formats.",
+    "Wheels improve on eggs but still struggle with ABI compatibility and Linux distribution variance.",
+    "Binary wheels are useful in controlled environments even if PyPI can\u2019t fully support them.",
+    "Building wheels is straightforward, but binary packages require explicit non-pure flags.",
+    "Pip\u2019s wheel tooling is buggy for dependency collection, making devpi a practical solution for private packages."
+  ],
+  "money_quotes": [
+    "The python packaging infrastructure has long received criticism from both Python developers as well as system administrators.",
+    "Wheels on the other hand are just distribution archives that you need to unpack upon installation.",
+    "The end effect of this is that you presently cannot upload binary wheels to PyPI on concerns of incompatibility with different setups.",
+    "On the bright side: nothing stops yourself from using binary wheels for your own homogenous infrastructure.",
+    "All in all this whole process will get a bit simpler when the `pip wheel` command stops ignoring already existing wheels.",
+    "Wheels currently seem to have more traction than eggs.",
+    "So there you have it.  Python on wheels.  It's there, it kinda works, and it's probably worth your time."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic",
+  "key_insight": "Wheels are the best available path forward for Python deployments today, but their real-world utility still depends on working around ABI and tooling gaps.",
+  "filename": "2014-01-27-python-on-wheels"
+}

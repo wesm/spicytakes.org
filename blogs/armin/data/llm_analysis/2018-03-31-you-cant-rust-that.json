@@ -1,0 +1,28 @@
+{
+  "summary": "Ronacher argues that productive Rust requires learning what not to attempt, especially if you come from C++ assumptions. Rust values move, so references are often less useful and self-referential structs are effectively off-limits today. Instead, use handles that can be resolved to pointers on demand, avoiding invalidated references. When lifetimes and the borrow checker block you, reference counting (Arc/Rc) often clarifies ownership and makes APIs usable. Finally, he warns against interior mutability via setters in shared state and recommends promoting new immutable state instead. The conclusion distills these into three practical mantras for working with Rust safely and sanely.",
+  "key_points": [
+    "Rust\u2019s move semantics make C++-style pointer assumptions unsafe; self-referential structs are not viable in practice.",
+    "Use handles (offsets or indices) instead of storing raw pointers to movable data structures.",
+    "Refcounting with Arc/Rc is a pragmatic way to share ownership across lifetimes, especially with thread locals.",
+    "Interior mutability can harm concurrency expectations; prefer immutable configs and promote new state atomically.",
+    "Rust\u2019s strengths emerge when APIs are designed around ownership and immutability rather than fighting them."
+  ],
+  "money_quotes": [
+    "Knowing that certain things just cannot be done helps putting your mind back back on the right track.",
+    "The biggest difference between Rust and C++ for me is the address-of operator (`&`).",
+    "Objects in Rust generally move around.",
+    "This difference might sound very minor but it's one of the most fundamental ones that has huge consequences for Rust programmers.",
+    "To recap: instead of storing a pointer to an object itself, store some information so that you can calculate the pointer later.",
+    "This API is clearly objectively bad.",
+    "Don't be afraid of using `Arc` but be aware that this locks you to immutable data.",
+    "Consider promoting new state instead of interior mutability."
+  ],
+  "themes": [
+    "rust",
+    "software_engineering",
+    "developer_tools"
+  ],
+  "tone": "technical, opinionated, pragmatic, reflective",
+  "key_insight": "Rust productivity comes from embracing move semantics and ownership constraints by using handles, refcounting, and immutable state promotion rather than forcing C++-style mutability and self-references.",
+  "filename": "2018-03-31-you-cant-rust-that"
+}
