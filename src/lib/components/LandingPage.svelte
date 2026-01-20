@@ -107,4 +107,11 @@
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 text-center">
+    <p class="text-stone-400 text-sm">
+      Made with <span class="text-red-500">❤️</span> by <a href="https://wesmckinney.com" target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-red-500 transition-colors">Wes McKinney</a>
+    </p>
+  </footer>
 </div>
