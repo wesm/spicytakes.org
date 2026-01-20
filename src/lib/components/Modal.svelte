@@ -34,7 +34,7 @@
     ></button>
 
     <!-- Modal content -->
-    <div class="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-2xl lg:max-w-3xl w-full max-h-[85vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
       <!-- Close button -->
       <button
         onclick={close}
