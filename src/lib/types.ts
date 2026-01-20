@@ -72,6 +72,7 @@ export interface BlogCard {
   description: string;
   subdomain: string;
   photo: string;
+  hidden?: boolean;
   stats: {
     posts: number;
     quotes: number;

@@ -75,19 +75,30 @@ class HugoHomepageScraper(BaseScraper):
 
     def parse_date_from_page(self, soup: BeautifulSoup) -> str | None:
         """Extract date from post page. Returns YYYY-MM-DD string."""
-        # Look for date patterns in the page text
-        # Format: "Friday, January 22, 2021" or similar
-        text = soup.get_text()
+        # First, try <time> elements with datetime attribute (most reliable)
+        time_elem = soup.find("time", datetime=True)
+        if time_elem:
+            dt = time_elem.get("datetime", "")
+            # Handle ISO format: 2021-01-22 or 2021-01-22T...
+            match = re.match(r"(\d{4})-(\d{2})-(\d{2})", dt)
+            if match:
+                return f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
 
-        # Try various date patterns
-        patterns = [
-            # "Friday, January 22, 2021"
-            r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+(\w+)\s+(\d{1,2}),\s+(\d{4})",
-            # "January 22, 2021"
-            r"(\w+)\s+(\d{1,2}),\s+(\d{4})",
-            # "22 January 2021"
-            r"(\d{1,2})\s+(\w+)\s+(\d{4})",
-        ]
+        # Second, try meta tags
+        for meta in soup.find_all("meta", property=True):
+            if "date" in meta.get("property", "").lower():
+                content = meta.get("content", "")
+                match = re.match(r"(\d{4})-(\d{2})-(\d{2})", content)
+                if match:
+                    return f"{match.group(1)}-{match.group(2)}-{match.group(3)}"
+
+        # Fall back to text parsing in header area only
+        header = soup.find("header") or soup.find("article") or soup.find("main")
+        if header:
+            text = header.get_text()
+        else:
+            # Last resort: first 500 chars of page to avoid content dates
+            text = soup.get_text()[:500]
 
         months = {
             "january": 1, "february": 2, "march": 3, "april": 4,
@@ -95,23 +106,28 @@ class HugoHomepageScraper(BaseScraper):
             "september": 9, "october": 10, "november": 11, "december": 12
         }
 
-        for pattern in patterns:
+        # Try various date patterns
+        patterns = [
+            # "Friday, January 22, 2021"
+            (r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+(\w+)\s+(\d{1,2}),\s+(\d{4})", "mdy"),
+            # "January 22, 2021"
+            (r"(\w+)\s+(\d{1,2}),\s+(\d{4})", "mdy"),
+            # "22 January 2021"
+            (r"(\d{1,2})\s+(\w+)\s+(\d{4})", "dmy"),
+        ]
+
+        for pattern, fmt in patterns:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
                 groups = match.groups()
                 try:
-                    if pattern == patterns[0] or pattern == patterns[1]:
-                        # Month Day, Year
+                    if fmt == "mdy":
                         month_name, day, year = groups[0], groups[1], groups[2]
-                        month = months.get(month_name.lower())
-                        if month:
-                            return f"{year}-{month:02d}-{int(day):02d}"
                     else:
-                        # Day Month Year
                         day, month_name, year = groups[0], groups[1], groups[2]
-                        month = months.get(month_name.lower())
-                        if month:
-                            return f"{year}-{month:02d}-{int(day):02d}"
+                    month = months.get(month_name.lower())
+                    if month:
+                        return f"{year}-{month:02d}-{int(day):02d}"
                 except (ValueError, KeyError):
                     continue
 
@@ -157,57 +173,52 @@ class HugoHomepageScraper(BaseScraper):
         }
 
     def html_to_markdown(self, element) -> str:
-        """Convert HTML element to markdown."""
+        """Convert HTML element to markdown.
+
+        Only processes block-level elements to avoid text duplication.
+        Inline elements are handled within their parent blocks via get_text().
+        """
         lines = []
 
-        for child in element.descendants:
-            if child.name is None:
-                # Text node
-                text = str(child).strip()
+        # Block-level elements to process
+        block_tags = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "pre", "ul", "ol", "li"]
+
+        for child in element.find_all(block_tags, recursive=True):
+            # Skip nested blocks (e.g., li inside ul) - they'll be processed separately
+            if child.find_parent(block_tags[:-1]):  # Exclude li from parent check
+                if child.name != "li":
+                    continue
+
+            if child.name == "p":
+                text = child.get_text(separator=" ", strip=True)
                 if text:
                     lines.append(text)
-            elif child.name == "p":
-                text = child.get_text(strip=True)
-                if text:
-                    lines.append(f"\n{text}\n")
+                    lines.append("")
             elif child.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
                 level = int(child.name[1])
                 text = child.get_text(strip=True)
                 if text:
-                    lines.append(f"\n{'#' * level} {text}\n")
+                    lines.append(f"{'#' * level} {text}")
+                    lines.append("")
             elif child.name == "blockquote":
-                text = child.get_text(strip=True)
+                text = child.get_text(separator=" ", strip=True)
                 if text:
-                    quoted = "\n".join(f"> {line}" for line in text.split("\n"))
-                    lines.append(f"\n{quoted}\n")
+                    lines.append(f"> {text}")
+                    lines.append("")
             elif child.name == "pre":
                 code = child.get_text()
-                lines.append(f"\n```\n{code}\n```\n")
-            elif child.name == "code" and child.parent.name != "pre":
-                lines.append(f"`{child.get_text()}`")
-            elif child.name == "a":
-                href = child.get("href", "")
-                text = child.get_text(strip=True)
-                if text and href:
-                    lines.append(f"[{text}]({href})")
+                lines.append("```")
+                lines.append(code.strip())
+                lines.append("```")
+                lines.append("")
             elif child.name == "li":
-                text = child.get_text(strip=True)
+                text = child.get_text(separator=" ", strip=True)
                 if text:
                     lines.append(f"* {text}")
-            elif child.name == "em" or child.name == "i":
-                text = child.get_text(strip=True)
-                if text:
-                    lines.append(f"*{text}*")
-            elif child.name == "strong" or child.name == "b":
-                text = child.get_text(strip=True)
-                if text:
-                    lines.append(f"**{text}**")
 
-        # Clean up the result
-        result = " ".join(lines)
-        # Fix spacing issues
-        result = re.sub(r"\s+", " ", result)
-        result = re.sub(r"\n\s*\n\s*\n", "\n\n", result)
+        # Join with newlines, collapse multiple blank lines
+        result = "\n".join(lines)
+        result = re.sub(r"\n{3,}", "\n\n", result)
         return result.strip()
 
     def scrape(self):

@@ -8,8 +8,6 @@ import os
 import re
 import sys
 import time
-import xml.etree.ElementTree as ET
-from html import unescape
 
 import requests
 from bs4 import BeautifulSoup
@@ -30,7 +28,6 @@ class HugoRssScraper(BaseScraper):
             raise ValueError(f"Blog {blog_id} is not configured as hugo_rss")
 
         self.base_url = self.config["scraper"]["baseUrl"].rstrip("/")
-        self.rss_url = self.config["scraper"]["rssUrl"]
 
         # Headers to appear as a regular browser
         self.headers = {
@@ -71,35 +68,6 @@ class HugoRssScraper(BaseScraper):
             return posts
         except Exception as e:
             print(f"  Error fetching homepage: {e}")
-            return []
-
-    def fetch_rss(self) -> list[dict]:
-        """Fetch and parse the RSS feed. Returns list of post metadata."""
-        try:
-            response = requests.get(self.rss_url, timeout=30, headers=self.headers)
-            response.raise_for_status()
-
-            root = ET.fromstring(response.content)
-
-            # Handle RSS 2.0 namespace
-            posts = []
-            for item in root.findall(".//item"):
-                title = item.find("title")
-                link = item.find("link")
-                pub_date = item.find("pubDate")
-                description = item.find("description")
-
-                if title is not None and link is not None:
-                    posts.append({
-                        "title": title.text,
-                        "url": link.text,
-                        "pub_date": pub_date.text if pub_date is not None else None,
-                        "description": description.text if description is not None else None
-                    })
-
-            return posts
-        except Exception as e:
-            print(f"  Error fetching RSS: {e}")
             return []
 
     def parse_date(self, pub_date: str | None, url: str) -> str | None:
@@ -157,57 +125,52 @@ class HugoRssScraper(BaseScraper):
         }
 
     def html_to_markdown(self, element) -> str:
-        """Convert HTML element to markdown."""
+        """Convert HTML element to markdown.
+
+        Only processes block-level elements to avoid text duplication.
+        Inline elements are handled within their parent blocks via get_text().
+        """
         lines = []
 
-        for child in element.descendants:
-            if child.name is None:
-                # Text node
-                text = str(child).strip()
+        # Block-level elements to process
+        block_tags = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "pre", "ul", "ol", "li"]
+
+        for child in element.find_all(block_tags, recursive=True):
+            # Skip nested blocks (e.g., li inside ul) - they'll be processed separately
+            if child.find_parent(block_tags[:-1]):  # Exclude li from parent check
+                if child.name != "li":
+                    continue
+
+            if child.name == "p":
+                text = child.get_text(separator=" ", strip=True)
                 if text:
                     lines.append(text)
-            elif child.name == "p":
-                text = child.get_text(strip=True)
-                if text:
-                    lines.append(f"\n{text}\n")
+                    lines.append("")
             elif child.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
                 level = int(child.name[1])
                 text = child.get_text(strip=True)
                 if text:
-                    lines.append(f"\n{'#' * level} {text}\n")
+                    lines.append(f"{'#' * level} {text}")
+                    lines.append("")
             elif child.name == "blockquote":
-                text = child.get_text(strip=True)
+                text = child.get_text(separator=" ", strip=True)
                 if text:
-                    quoted = "\n".join(f"> {line}" for line in text.split("\n"))
-                    lines.append(f"\n{quoted}\n")
+                    lines.append(f"> {text}")
+                    lines.append("")
             elif child.name == "pre":
                 code = child.get_text()
-                lines.append(f"\n```\n{code}\n```\n")
-            elif child.name == "code" and child.parent.name != "pre":
-                lines.append(f"`{child.get_text()}`")
-            elif child.name == "a":
-                href = child.get("href", "")
-                text = child.get_text(strip=True)
-                if text and href:
-                    lines.append(f"[{text}]({href})")
+                lines.append("```")
+                lines.append(code.strip())
+                lines.append("```")
+                lines.append("")
             elif child.name == "li":
-                text = child.get_text(strip=True)
+                text = child.get_text(separator=" ", strip=True)
                 if text:
                     lines.append(f"* {text}")
-            elif child.name == "em" or child.name == "i":
-                text = child.get_text(strip=True)
-                if text:
-                    lines.append(f"*{text}*")
-            elif child.name == "strong" or child.name == "b":
-                text = child.get_text(strip=True)
-                if text:
-                    lines.append(f"**{text}**")
 
-        # Clean up the result
-        result = " ".join(lines)
-        # Fix spacing issues
-        result = re.sub(r"\s+", " ", result)
-        result = re.sub(r"\n\s*\n\s*\n", "\n\n", result)
+        # Join with newlines, collapse multiple blank lines
+        result = "\n".join(lines)
+        result = re.sub(r"\n{3,}", "\n\n", result)
         return result.strip()
 
     def scrape(self):

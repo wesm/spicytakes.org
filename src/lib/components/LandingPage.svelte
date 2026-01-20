@@ -22,7 +22,7 @@
   <!-- Blog Cards Grid -->
   <section class="max-w-5xl mx-auto px-6 pb-20">
     <div class="grid gap-6 md:grid-cols-2">
-      {#each landing.blogs as blog}
+      {#each landing.blogs.filter(b => !b.hidden) as blog}
         <a
           href="https://{blog.subdomain}"
           class="group block bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden hover:shadow-lg hover:border-stone-300 transition-all duration-200 p-5"
