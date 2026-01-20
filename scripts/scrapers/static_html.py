@@ -62,29 +62,33 @@ class StaticHtmlScraper(BaseScraper):
                     print(f"  Found Patreon section (hr#pt), stopping. Got {len(posts)} public posts.")
                 break
 
-            # Fallback: check for text markers if hr#pt is missing
-            li_text = li.get_text()
-            if "↓Patreon" in li_text or "Patreon posts" in li_text:
-                # Skip this item but don't break yet - it might be a navigation link
-                link = li.find("a")
-                if link and link.get("href") == "#pt":
-                    continue
-                # If it's actual Patreon content, stop
+            # Fallback: check for exact marker text if hr#pt is missing
+            # Only match marker-only items, not posts with "Patreon" in the title
+            li_text = li.get_text(strip=True)
+            link = li.find("a")
+
+            # Navigation link to Patreon section - skip but continue
+            if link and link.get("href") == "#pt":
+                continue
+
+            # Exact marker patterns that indicate start of Patreon section
+            # These should be short marker-only lines, not full post titles
+            is_patreon_marker = (
+                li_text == "↓Patreon posts" or
+                li_text.startswith("↓Patreon") or
+                (link and link.get("href", "").startswith("https://www.patreon.com/"))
+            )
+            if is_patreon_marker:
                 if len(posts) > 0:
                     print(f"  Found Patreon section (text marker), stopping. Got {len(posts)} public posts.")
                 break
 
-            # Find link in this li
-            link = li.find("a")
+            # Skip if no valid link
             if not link or not link.get("href"):
                 continue
 
             href = link.get("href")
             title = link.get_text(strip=True)
-
-            # Skip the navigation link to Patreon section
-            if href == "#pt":
-                continue
 
             # Skip external links (Patreon links)
             if href.startswith("http") and "danluu.com" not in href:
