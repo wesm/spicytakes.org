@@ -50,19 +50,25 @@ class StaticHtmlScraper(BaseScraper):
     def get_post_urls_danluu(self, soup: BeautifulSoup) -> list[dict]:
         """
         Extract public post URLs from danluu.com index page.
-        Stops at the Patreon divider.
+        Stops at the Patreon divider (hr#pt element).
         Returns list of {url, date_str, title} dicts.
         """
         posts = []
 
-        # Find all list items
+        # Find all list items, but stop when we hit the hr#pt divider
+        # The structure is: <li>...</li>... ↑ Public posts <hr id=pt> ↓Patreon posts
         for li in soup.find_all("li"):
-            text = li.get_text()
-
-            # Stop at Patreon divider
-            if "Patreon posts" in text or "↓Patreon" in text:
-                print(f"  Found Patreon divider, stopping. Got {len(posts)} public posts.")
-                break
+            # Check if this li comes after the hr#pt element
+            # by seeing if hr#pt is a previous sibling
+            hr_divider = soup.find("hr", id="pt")
+            if hr_divider:
+                # Check if this li comes after the divider in document order
+                li_position = str(soup).find(str(li))
+                hr_position = str(soup).find(str(hr_divider))
+                if li_position > hr_position:
+                    if len(posts) > 0:
+                        print(f"  Found Patreon section, stopping. Got {len(posts)} public posts.")
+                    break
 
             # Find link in this li
             link = li.find("a")
@@ -71,6 +77,10 @@ class StaticHtmlScraper(BaseScraper):
 
             href = link.get("href")
             title = link.get_text(strip=True)
+
+            # Skip the navigation link to Patreon section
+            if href == "#pt":
+                continue
 
             # Skip external links (Patreon links)
             if href.startswith("http") and "danluu.com" not in href:
@@ -88,7 +98,8 @@ class StaticHtmlScraper(BaseScraper):
             else:
                 url = href
 
-            # Extract date (MM/YY format)
+            # Extract date (MM/YY format) from the li text
+            text = li.get_text()
             date_match = re.search(r"(\d{1,2})/(\d{2})", text)
             date_str = None
             if date_match:
@@ -122,18 +133,17 @@ class StaticHtmlScraper(BaseScraper):
         # Clean up title (remove site name suffix if present)
         title = re.sub(r"\s*[-|]\s*Dan Luu\s*$", "", title, flags=re.IGNORECASE)
 
-        # Find main content - Dan Luu's posts are fairly simple HTML
-        # The content is typically after the h1 and before any footer
-        content_parts = []
+        # Find main content - Dan Luu's posts use minimal HTML
+        # Try <main> first, then <body>, then the whole document
+        content_elem = soup.find("main")
+        if not content_elem:
+            content_elem = soup.find("body")
+        if not content_elem:
+            # Use the html element or the soup itself for minimal HTML pages
+            content_elem = soup.find("html") or soup
 
-        # Get the body content, excluding navigation
-        body = soup.find("body")
-        if not body:
-            print(f"  Warning: No body found for {url}")
-            return None
-
-        # Convert body to markdown, skipping nav elements
-        content = self.html_to_markdown(body, skip_nav=True)
+        # Convert to markdown, skipping nav elements
+        content = self.html_to_markdown(content_elem, skip_nav=True)
 
         # Extract slug from URL
         slug = url.rstrip("/").split("/")[-1]
