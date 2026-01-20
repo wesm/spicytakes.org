@@ -3,12 +3,13 @@
  * Reads VITE_BLOG_ID env var and loads the appropriate config
  */
 
-import type { BlogConfig } from './types';
+import type { BlogConfig, LandingConfig } from './types';
 
 // Import all blog configs statically (Vite requires this for production builds)
 import bennConfig from '../../config/benn.json';
 import arminConfig from '../../config/armin.json';
 import wesmConfig from '../../config/wesm.json';
+import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
 const configs: Record<string, BlogConfig> = {
@@ -20,17 +21,23 @@ const configs: Record<string, BlogConfig> = {
 // Get blog ID from env, default to 'benn'
 export const blogId = import.meta.env.VITE_BLOG_ID || 'benn';
 
-// Load the config for current blog
-export const config: BlogConfig = configs[blogId] || configs.benn;
+// Check if we're in landing page mode
+export const isLandingMode = blogId === 'landing';
 
-// Export theme labels and icons derived from config
-export const THEME_LABELS: Record<string, string> = Object.fromEntries(
-  Object.entries(config.themes).map(([key, value]) => [key, value.label])
-);
+// Export landing config for landing page
+export const landing: LandingConfig = landingConfig as LandingConfig;
 
-export const THEME_ICONS: Record<string, string> = Object.fromEntries(
-  Object.entries(config.themes).map(([key, value]) => [key, value.icon])
-);
+// Load the config for current blog (null in landing mode)
+export const config: BlogConfig | null = isLandingMode ? null : (configs[blogId] || configs.benn);
+
+// Export theme labels and icons derived from config (empty in landing mode)
+export const THEME_LABELS: Record<string, string> = config?.themes
+  ? Object.fromEntries(Object.entries(config.themes).map(([key, value]) => [key, value.label]))
+  : {};
+
+export const THEME_ICONS: Record<string, string> = config?.themes
+  ? Object.fromEntries(Object.entries(config.themes).map(([key, value]) => [key, value.icon]))
+  : {};
 
 // Helper to get source URL for a post
 // For transcripts, pass the post object to get video_url if available

@@ -65,6 +65,27 @@ export interface BlogConfig {
   };
 }
 
+export interface BlogCard {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  subdomain: string;
+  photo: string;
+  stats: {
+    posts: number;
+    quotes: number;
+  };
+}
+
+export interface LandingConfig {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  blogs: BlogCard[];
+}
+
 export function getSpicyLabel(spiciness: number): string {
   if (spiciness <= 3) return 'Mild';
   if (spiciness <= 5) return 'Moderate';
