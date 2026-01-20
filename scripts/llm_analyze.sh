@@ -48,6 +48,7 @@ MAX_WORDS=$(read_config_default "c['llmAnalysis'].get('maxWords', 150)" "150")
 NUM_QUOTES=$(read_config_default "c['llmAnalysis'].get('numQuotes', '3-5')" "3-5")
 
 # Build the prompt based on config
+# Schema is consistent: always includes key_points (empty array if not detailed)
 build_prompt() {
     local content="$1"
 
@@ -64,7 +65,7 @@ Analyze this blog post in depth (up to $MAX_WORDS words total). Extract:
 5. **Tone**: The post's overall tone (e.g., critical, optimistic, reflective, satirical, technical, opinionated)
 6. **Key Insight**: One sentence capturing the core takeaway
 
-Output as JSON:
+Output as JSON (no markdown fences):
 {
   "summary": "...",
   "key_points": ["point1", "point2", ...],
@@ -86,14 +87,16 @@ Your task is to extract:
 2. The $NUM_QUOTES best "money quotes" - memorable, quotable sentences that capture key insights
 3. Key themes (from: $THEMES_LIST)
 4. The post's overall tone (e.g., critical, optimistic, reflective, satirical, analytical)
+5. One sentence key insight capturing the core takeaway
 
-Output as JSON with this structure:
+Output as JSON (no markdown fences):
 {
   "summary": "...",
+  "key_points": [],
   "money_quotes": ["quote1", "quote2", ...],
   "themes": ["theme1", "theme2"],
   "tone": "...",
-  "key_insight": "One sentence capturing the core insight"
+  "key_insight": "..."
 }
 
 POST CONTENT:
@@ -123,7 +126,7 @@ analyze_post() {
         -o "$tmpfile" - >/dev/null 2>&1 <<< "$prompt"
 
     if [[ -f "$tmpfile" && -s "$tmpfile" ]]; then
-        # Extract just the JSON from the response
+        # Extract JSON from the response using robust parsing
         python3 -c "
 import sys
 import json
@@ -131,27 +134,44 @@ import re
 
 content = open('$tmpfile').read()
 
-# Try to find JSON in the response - handle nested objects like key_points
-json_match = re.search(r'\{.*\"summary\".*\}', content, re.DOTALL)
-if json_match:
+def extract_json(text):
+    '''Extract JSON object from text, handling braces inside strings correctly.'''
+    # First try: look for fenced json code block
+    fenced = re.search(r'\`\`\`json\s*(\{.*?\})\s*\`\`\`', text, re.DOTALL)
+    if fenced:
+        return fenced.group(1)
+
+    # Second try: find first { and use json.JSONDecoder to find matching }
+    start = text.find('{')
+    if start == -1:
+        return None
+
+    decoder = json.JSONDecoder()
     try:
-        # Find the balanced JSON object
-        text = json_match.group()
-        # Simple approach: find matching braces
-        depth = 0
-        end = 0
-        for i, c in enumerate(text):
-            if c == '{': depth += 1
-            elif c == '}': depth -= 1
-            if depth == 0:
-                end = i + 1
-                break
-        json_str = text[:end]
+        # Try to decode starting from each { until one works
+        for i in range(start, len(text)):
+            if text[i] == '{':
+                try:
+                    obj, end = decoder.raw_decode(text[i:])
+                    if 'summary' in obj:  # Verify it's our expected object
+                        return text[i:i+end]
+                except json.JSONDecodeError:
+                    continue
+    except Exception:
+        pass
+
+    return None
+
+json_str = extract_json(content)
+if json_str:
+    try:
         data = json.loads(json_str)
         data['filename'] = '$filename'
+        # Ensure consistent schema with defaults
+        data.setdefault('key_points', [])
+        data.setdefault('key_insight', '')
         print(json.dumps(data, indent=2))
     except Exception as e:
-        # If JSON parsing fails, create a minimal record
         print(json.dumps({'filename': '$filename', 'error': 'parse_failed', 'raw': content[:500]}))
 else:
     print(json.dumps({'filename': '$filename', 'error': 'no_json', 'raw': content[:500]}))
