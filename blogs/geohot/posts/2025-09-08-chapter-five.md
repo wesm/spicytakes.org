@@ -3,12 +3,8 @@ title: "chapter five: sleuthing"
 date: 2025-09-08
 url: https://geohot.github.io/blog/jekyll/update/2025/09/08/chapter-five.html
 slug: chapter-five
-word_count: 1005
+word_count: 1014
 ---
-
-# chapter five: sleuthing
-
-Sep 8, 2025
 
 Mom
 
@@ -16,11 +12,27 @@ Mom
 
 Dave
 
-> You set the disappearing message time to 3 hours 12:48 – hey you doing better 12:48 – lol yea i really didn't sleep much 12:49 – what's up u didn't set timeout for that 12:49 – yea is what Brian said true 12:49 – what did he say 12:49 – about how Tom worked at operant? 12:50 – yea why? 12:50 – you know that's where my dad worked 12:50 – and he kind of went crazy too 12:50 – do you know what he did there? 12:54 – not rly 12:54 – my mom gets real upset when i bring it up 12:54 – it was some math shit with magnets 12:54 – wanna come over and ask her 12:54 – lol
+> **You set the disappearing message time to 3 hours**
+> 12:48 – hey you doing better
+> 12:48 – lol yea i really didn't sleep much
+> 12:49 – what's up u didn't set timeout for that
+> 12:49 – yea is what Brian said true
+> 12:49 – what did he say
+> 12:49 – about how Tom worked at operant?
+> 12:50 – yea why?
+> 12:50 – you know that's where my dad worked
+> 12:50 – and he kind of went crazy too
+> 12:50 – do you know what he did there?
+> 12:54 – not rly
+> 12:54 – my mom gets real upset when i bring it up
+> 12:54 – it was some math shit with magnets
+> 12:54 – wanna come over and ask her
+> 12:54 – lol
 
 I did not want to have a conversation with Dave’s mother.
 
-> 12:55 – haha im good 12:55 – but im just chilling at home if you want to come by here
+> 12:55 – haha im good
+> 12:55 – but im just chilling at home if you want to come by here
 
 The doorbell rang again. Resolving to be less of a pussy, I answered it. I was prepared to talk to the cops. Polite, short answers, step outside and lock the door, find out what they want. Not a pussy. Not a pussy. Not a pussy.
 
@@ -40,7 +52,7 @@ The first drawer I opened had sex toys in it. I saw a vibrator and a butt plug b
 
 The third drawer had tons of scattered papers. My college rejections. Some essays from high school. A note written in crayon about how I wanted a Nintendo Switch for Christmas. I guess this was the “me” drawer.
 
-The fourth drawer was papers, but more organized. My parents marriage certificate. My mom’s birth certificate. My old passport. As far as I knew, they never got a divorce. He just left. Then, something I didn’t know. A document entitling one Jessica Baker to $10,000 per month, to be paid out on the first of every month by the Triangle Trust , for the rest of her natural life, or until the trust is dissolved.
+The fourth drawer was papers, but more organized. My parents marriage certificate. My mom’s birth certificate. My old passport. As far as I knew, they never got a divorce. He just left. Then, something I didn’t know. A document entitling one Jessica Baker to $10,000 per month, to be paid out on the first of every month by  *the Triangle Trust* , for the rest of her natural life, or until the trust is dissolved.
 
 That was nice of my Dad. I went through the rest of the drawers, but didn’t find anything else interesting. I put everything back as carefully as I could. I considered that someone might dust for fingerprints. I wondered if I did anything illegal. I live here, right?
 
@@ -52,14 +64,14 @@ Not delivered. Maybe her phone died? Nah but it’s the afternoon she probably w
 
 I checked the Mercedes app to see where her car was. She’d let me take the car sometimes, so we were both on the app. It asked me to login. I copied the password from 1password.
 
-Incorrect Password
+*Incorrect Password*
 
 Maybe she changed it? I tried to set her up on 1password but she didn’t get it. She’d just reset the passwords when she needed to login. Ugh, logging into stuff is the worst. I clicked the reset password and typed in the e-mail.
 
-There is no account with that e-mail
+*There is no account with that e-mail*
 
 Okay, that doesn’t make sense. My Mom and I shared an e-mail for this stuff, and she wouldn’t change it without telling me. I clicked forgot e-mail. It needed the VIN of the car. The title was in the fourth drawer with the other papers. I went and got it and typed in the VIN.
 
-The e-mail associated with your account is: skinner666@gmail.com
+The e-mail associated with your account is:  *skinner666@gmail.com*
 
 A jolt of anxiety coarsed through my body. I’d never seen that e-mail address in my life.

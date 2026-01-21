@@ -3,12 +3,8 @@ title: "Brain FLOPS"
 date: 2022-02-17
 url: https://geohot.github.io/blog/jekyll/update/2022/02/17/brain-flops.html
 slug: brain-flops
-word_count: 106
+word_count: 100
 ---
-
-# Brain FLOPS
-
-Feb 17, 2022
 
 Google “energy for neuron firing” and you get:
 

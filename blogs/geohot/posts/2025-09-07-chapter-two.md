@@ -3,12 +3,8 @@ title: "chapter two: party"
 date: 2025-09-07
 url: https://geohot.github.io/blog/jekyll/update/2025/09/07/chapter-two.html
 slug: chapter-two
-word_count: 1095
+word_count: 1088
 ---
-
-# chapter two: party
-
-Sep 7, 2025
 
 I had watched enough true crime to know that you should never talk to the police. And I wasn’t arrogant enough to believe that I was different. While I felt like I knew the interrogation tactics in and out, they were repeat customers of that interaction. I wasn’t going to call. I was going to ignore it. I’m not getting Reid techniqued.
 
@@ -30,7 +26,7 @@ This whole thing was stupid. I thought about how I got the beers, wondering if t
 
 When I got to Brian’s everything was normal. I walked around the back of his house and opened the screen door to his basement. There were three leather couches in a U-shape, two of which were sparsely occupied by Brian and Dave. I took my place on the third empty one and put my backpack on the center ottoman.
 
-“Pretty cool, right? Yea I found it in my Dad’s old stuff.” said Brian, referring to the inflated bag atop a device labeled Volcano sharing the ottoman with my backpack.
+“Pretty cool, right? Yea I found it in my Dad’s old stuff.” said Brian, referring to the inflated bag atop a device labeled  *Volcano*  sharing the ottoman with my backpack.
 
 “What is it?”
 

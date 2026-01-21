@@ -1,7 +1,7 @@
 ---
 title: "The opinion that pisses everyone off"
 date: 2025-12-22
-url: https://geohot.github.io//blog/jekyll/update/2025/12/22/the-opinion.html
+url: https://geohot.github.io/blog/jekyll/update/2025/12/22/the-opinion.html
 slug: the-opinion
 word_count: 358
 ---

@@ -1,7 +1,7 @@
 ---
 title: "you have three minutes to escape the perpetual underclass"
 date: 2026-01-17
-url: https://geohot.github.io//blog/jekyll/update/2026/01/17/three-minutes.html
+url: https://geohot.github.io/blog/jekyll/update/2026/01/17/three-minutes.html
 slug: three-minutes
 word_count: 336
 ---
@@ -20,4 +20,4 @@ The solution to this is not to accumulate grain, buy shares in a granary, or any
 
 If you work at a large company, if you work according to the principles of modern capitalism, where all the fish will be eaten by the bigger fish, and all will be eaten by the sharks, and all the sharks will be eaten by bigger sharks, you are actively bringing about the system that will kill you.
 
-Have you considered not participating? If you participate, we all lose. We will either all be in the underclass together or not.
+**Have you considered not participating?**  If you participate, we all lose. We will either all be in the underclass together or not.

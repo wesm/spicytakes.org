@@ -3,12 +3,8 @@ title: "Coliving Spaces"
 date: 2021-08-10
 url: https://geohot.github.io/blog/jekyll/update/2021/08/10/coliving-spaces.html
 slug: coliving-spaces
-word_count: 60
+word_count: 54
 ---
-
-# Coliving Spaces
-
-Aug 10, 2021
 
 This post is my first ask to this blog, and I guess we’ll find out if anybody is reading it.
 

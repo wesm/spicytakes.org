@@ -3,24 +3,28 @@ title: "you are a good person"
 date: 2025-09-02
 url: https://geohot.github.io/blog/jekyll/update/2025/09/02/you-are-a-good-person.html
 slug: you-are-a-good-person
-word_count: 380
+word_count: 373
 ---
 
-# you are a good person
-
-Sep 2, 2025
-
-In my previous post , I advocate turning against the unproductive. Whenever you decide to turn against a group, it’s very important to prevent purity spirals. There needs to be a bright line that doesn’t move.
+In  [my previous post](https://geohot.github.io/blog/jekyll/update/2025/09/01/you-will-blame-the-wrong-people.html) , I advocate turning against the unproductive. Whenever you decide to turn against a group, it’s very important to prevent purity spirals. There needs to be a bright line that doesn’t move.
 
 Here is that line.
 
-You should be, on net, producing more than you are consuming.
+*You should be, on net, producing more than you are consuming.*
 
-You shouldn’t feel bad if you are producing less than you could be. You shouldn’t feel bad if others are producing more. You shouldn’t feel bad if you are living off of savings for a bit. You shouldn’t feel bad if you are making an investment that will pay off in the future.
+You shouldn’t feel bad if you are producing less than you could be. 
+ 
+You shouldn’t feel bad if others are producing more. 
+ 
+You shouldn’t feel bad if you are living off of savings for a bit. 
+ 
+You shouldn’t feel bad if you are making an investment that will pay off in the future.
 
 But at the end of your life, total it all up. You should have produced more than you consumed. That’s what it means to be a good person.
 
-> We used to make shit in this country, build shit. Now all we do is put our hand in the next guy’s pocket. Frank Sobotka – The Wire
+> We used to make shit in this country, build shit.
+> Now all we do is put our hand in the next guy’s pocket.
+>    Frank Sobotka – The Wire
 
 It needs to stop. I have to believe that the average person is net positive, because if they aren’t, we’re already too far gone, and any prospect of a democracy is over.
 

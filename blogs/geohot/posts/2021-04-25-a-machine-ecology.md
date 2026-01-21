@@ -3,12 +3,8 @@ title: "A Machine Ecology"
 date: 2021-04-25
 url: https://geohot.github.io/blog/jekyll/update/2021/04/25/a-machine-ecology.html
 slug: a-machine-ecology
-word_count: 462
+word_count: 455
 ---
-
-# A Machine Ecology
-
-Apr 25, 2021
 
 The smallest animal, even the smallest cell, is capable of survival and reproduction. To date, no technological system is. Even the most advanced technology we have built fundamentally relies on humans to maintain it. You’ve seen zombie movies. It all falls fast.
 

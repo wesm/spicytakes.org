@@ -146,6 +146,7 @@ class JekyllFeedScraper(BaseScraper):
                 # Try finding post-content div
                 content_elem = soup.find("div", class_="post-content")
             if not content_elem:
+                print(f"  Warning: Falling back to <body> for {url} - may include nav/footer")
                 content_elem = soup.find("body")
 
             if content_elem:
@@ -168,46 +169,128 @@ class JekyllFeedScraper(BaseScraper):
         slug_match = re.search(r"/([^/]+?)(?:\.html)?$", url.rstrip("/"))
         return slug_match.group(1) if slug_match else "unknown"
 
+    def _inline_to_markdown(self, element) -> str:
+        """Convert inline HTML elements to markdown, preserving links and formatting."""
+        if isinstance(element, str):
+            return element
+
+        if not hasattr(element, 'name'):
+            return str(element) if element else ""
+
+        tag = element.name
+
+        if tag == "a":
+            href = element.get("href", "")
+            text = "".join(self._inline_to_markdown(c) for c in element.children)
+            if href and text and not href.startswith("#"):
+                return f"[{text}]({href})"
+            return text
+
+        if tag == "code":
+            return f"`{element.get_text()}`"
+
+        if tag in ["strong", "b"]:
+            text = "".join(self._inline_to_markdown(c) for c in element.children)
+            return f"**{text}**"
+
+        if tag in ["em", "i"]:
+            text = "".join(self._inline_to_markdown(c) for c in element.children)
+            return f"*{text}*"
+
+        if tag == "br":
+            return "\n"
+
+        # For other inline elements, recurse into children
+        if hasattr(element, 'children'):
+            return "".join(self._inline_to_markdown(c) for c in element.children)
+
+        return element.get_text() if hasattr(element, 'get_text') else str(element)
+
+    def _get_direct_text(self, element, exclude_tags: list[str] | None = None) -> str:
+        """Get text from element, excluding specified nested tags, preserving inline formatting."""
+        exclude_tags = exclude_tags or []
+        parts = []
+
+        for child in element.children:
+            if isinstance(child, str):
+                parts.append(child)
+            elif hasattr(child, 'name'):
+                if child.name in exclude_tags:
+                    continue
+                parts.append(self._inline_to_markdown(child))
+
+        return " ".join(parts).strip()
+
     def html_to_markdown(self, html_content: str) -> str:
         """Convert HTML content to markdown."""
         soup = BeautifulSoup(html_content, "html.parser")
         lines = []
 
-        # Block-level elements to process
-        block_tags = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "pre", "ul", "ol", "li"]
+        def process_element(elem, depth=0):
+            """Recursively process an element and its children."""
+            if isinstance(elem, str):
+                return
 
-        for child in soup.find_all(block_tags, recursive=True):
-            # Skip nested blocks (e.g., li inside ul) - they'll be processed separately
-            if child.find_parent(block_tags[:-1]):  # Exclude li from parent check
-                if child.name != "li":
-                    continue
+            if not hasattr(elem, 'name'):
+                return
 
-            if child.name == "p":
-                text = child.get_text(separator=" ", strip=True)
-                if text:
-                    lines.append(text)
-                    lines.append("")
-            elif child.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
-                level = int(child.name[1])
-                text = child.get_text(strip=True)
+            tag = elem.name
+
+            if tag in ["h1", "h2", "h3", "h4", "h5", "h6"]:
+                level = int(tag[1])
+                text = self._get_direct_text(elem)
                 if text:
                     lines.append(f"{'#' * level} {text}")
                     lines.append("")
-            elif child.name == "blockquote":
-                text = child.get_text(separator=" ", strip=True)
+
+            elif tag == "p":
+                text = self._get_direct_text(elem)
                 if text:
-                    lines.append(f"> {text}")
+                    lines.append(text)
                     lines.append("")
-            elif child.name == "pre":
-                code = child.get_text()
+
+            elif tag == "blockquote":
+                text = self._get_direct_text(elem)
+                if text:
+                    quoted = "\n".join(f"> {line}" for line in text.split("\n") if line.strip())
+                    lines.append(quoted)
+                    lines.append("")
+
+            elif tag == "pre":
+                # Preserve whitespace in code blocks
+                code_elem = elem.find("code")
+                if code_elem:
+                    code = code_elem.get_text()
+                else:
+                    code = elem.get_text()
+                # Strip only leading/trailing newlines, preserve internal indentation
+                code = code.strip("\n")
                 lines.append("```")
-                lines.append(code.strip())
+                lines.append(code)
                 lines.append("```")
                 lines.append("")
-            elif child.name == "li":
-                text = child.get_text(separator=" ", strip=True)
-                if text:
-                    lines.append(f"* {text}")
+
+            elif tag in ["ul", "ol"]:
+                for i, li in enumerate(elem.find_all("li", recursive=False)):
+                    prefix = "*" if tag == "ul" else f"{i+1}."
+                    # Get only direct text, exclude nested ul/ol
+                    text = self._get_direct_text(li, exclude_tags=["ul", "ol"])
+                    if text:
+                        lines.append(f"{prefix} {text}")
+                    # Process nested lists with indentation (simplified - just recurse)
+                    for nested_list in li.find_all(["ul", "ol"], recursive=False):
+                        for nested_li in nested_list.find_all("li", recursive=False):
+                            nested_text = self._get_direct_text(nested_li, exclude_tags=["ul", "ol"])
+                            if nested_text:
+                                lines.append(f"  * {nested_text}")
+                lines.append("")
+
+            elif tag in ["div", "article", "section", "main"]:
+                for child in elem.children:
+                    process_element(child, depth + 1)
+
+        for child in soup.children:
+            process_element(child)
 
         # If no block elements found, just extract all text
         if not lines:

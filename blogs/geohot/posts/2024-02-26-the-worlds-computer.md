@@ -3,12 +3,8 @@ title: "The World's Computer"
 date: 2024-02-26
 url: https://geohot.github.io/blog/jekyll/update/2024/02/26/the-worlds-computer.html
 slug: the-worlds-computer
-word_count: 306
+word_count: 299
 ---
-
-# The World's Computer
-
-Feb 26, 2024
 
 This was the tagline of Ethereum, and it’s really smart. Sadly, I feel they have lost their way with Proof of Stake, and wish they would go back to focusing on building a reasonable world computer.
 
@@ -24,6 +20,6 @@ There’s 21,510 credit card transactions per second. There’s 6,000 tweets per
 
 If there’s 8 billion people on the planet, they do some database write action on average about every 10 minutes. That seems right.
 
-Ethereum is off by a factor of a million. Though I suspect the world’s compute is growing faster than the world’s transactions per second. Once a single machine can handle the worlds transactions, big tech falls.
+Ethereum is off by a factor of a million. Though I suspect the world’s compute is growing faster than the world’s transactions per second. Once a  [single machine](https://thume.ca/2023/01/02/one-machine-twitter/)  can handle the worlds transactions, big tech falls.
 
 Who’s building the 10M TPS ethereum?

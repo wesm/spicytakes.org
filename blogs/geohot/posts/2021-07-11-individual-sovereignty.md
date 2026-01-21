@@ -3,20 +3,17 @@ title: "Individual Sovereignty"
 date: 2021-07-11
 url: https://geohot.github.io/blog/jekyll/update/2021/07/11/individual-sovereignty.html
 slug: individual-sovereignty
-word_count: 874
+word_count: 869
 ---
 
-# Individual Sovereignty
+I sang NOFX’s The Decline  [on stream last week](https://www.youtube.com/watch?v=MeE4Y2862FY) , and one line really stuck out to me:
 
-Jul 11, 2021
-
-I sang NOFX’s The Decline on stream last week , and one line really stuck out to me:
-
-> Place a wager on your greed, a wager on your pride Why try to beat them when a million others tried?
+> Place a wager on your greed, a wager on your pride
+> Why try to beat them when a million others tried?
 
 And I thought about this a lot. If I want to beat them, something will have to be different. Any tactics I use will have to be ones that were unavailable to the masses of people thinking about the problem throughout history.
 
-Andrew Breitbart has the classic line “politics is downstream from culture”, so if you want to change politics, you first change culture. Seems quite true, especially in any manufacturing consent style “democracy”. To quote Moldbug :
+Andrew Breitbart has the classic line “politics is downstream from culture”, so if you want to change politics, you first change culture. Seems quite true, especially in any manufacturing consent style “democracy”. To quote  [Moldbug](https://www.unqualified-reservations.org/2009/01/gentle-introduction-to-unqualified/) :
 
 > The root problem with a state church in a democratic state is that, to believe in democracy, one must believe that the levers of power terminate with the voters. But if your democracy has an effective state church, the actual levers of power pass through the voters, and go back to the church. The church teaches the voters what to think; the voters tell the politicians what to do.
 
@@ -34,9 +31,9 @@ How many people in the world today are successfully living completely “off the
 
 Seasteading is a perpetual failure. Because unless you are on a cruise ship or high end yacht, life on the water is awful. And those boats have super heavy dependence on the land, so much so you need to be very rich to operate one.
 
-I know a lot of people want to go to Mars, but would balk at the idea of living on the North Pole. Life at the North Pole might suck, but the air is breathable and the water is drinkable! It is so much more hospitable than Mars. In fact, most people would find Albert, Kansas inhospitable; you have to drive 22 minutes to get any food!
+I know a lot of people want to go to Mars, but would balk at the idea of living on the North Pole. Life at the North Pole might suck, but the air is breathable and the water is drinkable! It is so much more hospitable than Mars. In fact, most people would find  [Albert, Kansas](https://en.wikipedia.org/wiki/Albert,_Kansas)  inhospitable; you have to drive 22 minutes to get any food!
 
-Post-scarcity was a concept discussed a lot in the Occupy Wall Street era. I guess I started to realize this idea in a more incomplete form earlier, with the ecromata slogan being:
+Post-scarcity was a concept discussed a lot in the Occupy Wall Street era. I guess I started to realize this idea in a more incomplete form earlier, with the  [ecromata](https://ecromata.com)  slogan being:
 
 > we will abolish scarcity; there will be nothing for them to steal they can’t have for free
 

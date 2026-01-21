@@ -3,14 +3,10 @@ title: "A Really Big Computer"
 date: 2023-08-08
 url: https://geohot.github.io/blog/jekyll/update/2023/08/08/a-really-big-computer.html
 slug: a-really-big-computer
-word_count: 399
+word_count: 391
 ---
 
-# A Really Big Computer
-
-Aug 8, 2023
-
-GPT-4 was trained on 25k A100s in about 90 days. That’s 3e25 FLOPs.
+GPT-4  [was trained](https://www.reddit.com/r/OpenAI/comments/11sbw40/estimate_of_amount_of_compute_used_to_train_gpt4/)  on 25k A100s in about 90 days. That’s 3e25 FLOPs.
 
 If a person has 20 PFLOPS (20e15) of compute, GPT-4 used 47.5 person-years to train. Very human scale.
 
@@ -22,11 +18,11 @@ At $0.05/kWh, it’s $34k/hr to operate.
 
 But seriously with continuing computer progress this probably doesn’t make sense at this ~$5B scale. Why are we buying the GPUs? Why are we buying the power?
 
-It costs $20,000 for a 3nm wafer from TSMC. Wafer scale compute probably makes sense. I get 89 600mm^2 dies, so let’s say I can get 100 PFLOPS from a 3nm wafer. Cerebras doesn’t tell you their FLOPS, but it’s 62.5 PFLOPS on a 7nm wafer, which makes me think I could get over 100 on 3nm. But 100 conservatively. Also, my wafers will be circles, not lame squares.
+It costs  [$20,000](https://www.tomshardware.com/news/tsmc-will-charge-20000-per-3nm-wafer)  for a 3nm wafer from TSMC.  [Wafer scale compute](https://www.cerebras.net/blog/wafer-scale-processors-the-time-has-come/)  probably makes sense. I get 89 600mm^2 dies, so let’s say I can get 100 PFLOPS from a 3nm wafer. Cerebras doesn’t tell you their FLOPS, but it’s 62.5 PFLOPS on a 7nm wafer, which makes me think I could get over 100 on 3nm. But 100 conservatively. Also, my wafers will be circles, not lame squares.
 
 It’s $7 for a TFLOP on AMD. It’s $0.20 for a TFLOP on my wafers. We are in the much more reasonable land of $69M for my computer, buying 3450 wafers.
 
-For power, I’m not getting scammed by the stupid grid. Solar panels are $0.20/watt now (thanks China!). My 675 MW plant will cost $135M, and it will have a much longer shelf life (15 years) than the computer (3 years). I’ll note that if we get 50% out of these panels, my plant pays for itself in a year.
+For power, I’m not getting scammed by the stupid grid. Solar panels  [are $0.20/watt now](https://www.alibaba.com/countrysearch/CN/price-per-watt-solar-panels.html)  (thanks China!). My 675 MW plant will cost $135M, and it will have a much longer shelf life (15 years) than the computer (3 years). I’ll note that if we get 50% out of these panels, my plant pays for itself in a year.
 
 Rough budget:
 
@@ -36,8 +32,9 @@ Rough budget:
 * $135M solar panels
 * $50M to buy the land
 * $50M in construction costs
+
 The tiny corp’s next raise will be $400M at a $2B valuation. No joke. Still several years away though. We will of course sell the wafer computers too for the price of a DGX box with 10x the compute. That’s how we’ll make money.
 
 The real question is where should we build this? Must have good sunlight, be cool enough we can use free cooling, not have crazy expensive grid power, be friendly to building, and respect property rights.
 
-Welcome to the new Los Alamos . To the zettaflop and beyond!
+Welcome to the new  [Los Alamos](https://en.wikipedia.org/wiki/Los_Alamos_National_Laboratory) . To the  [zettaflop](https://en.wikipedia.org/wiki/Zettascale_computing)  and beyond!

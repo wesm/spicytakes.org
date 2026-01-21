@@ -3,12 +3,8 @@ title: "Beauty after COVID"
 date: 2022-03-05
 url: https://geohot.github.io/blog/jekyll/update/2022/03/05/beauty-after-covid.html
 slug: beauty-after-covid
-word_count: 830
+word_count: 823
 ---
-
-# Beauty after COVID
-
-Mar 5, 2022
 
 Hopefully we can talk about this now that the world has moved on to the next “happening”
 
@@ -22,11 +18,11 @@ Humanity is not past these things. It’s unclear if they ever will be.
 
 To the brainwashers. To the controllers of the media. To the great determiners of narrative.
 
-What do you think is beautiful?
+**What do you think is beautiful?**
 
 Lex Fridman talks about love a lot, and I think this is his answer. It’s a pretty common one. Maybe it’s even the tautological answer. Beyond the narrow interhuman definition of love, there’s love for nature, love for simplicity, love for truth, and love for winning. Love is beautiful.
 
-But here we are in 2022, and Moloch is what’s left. When we are all atomized, work from home, entertainment from home, economic units. I like to think I’d resist wireheading, but would I really?
+But here we are in 2022, and  [Moloch](https://slatestarcodex.com/2014/07/30/meditations-on-moloch/)  is what’s left. When we are all atomized, work from home, entertainment from home, economic units. I like to think I’d resist wireheading, but would I really?
 
 Go read the above linked piece. “If everyone hates the current system, who perpetuates it?”
 

@@ -3,16 +3,12 @@ title: "The AI Control Problem"
 date: 2021-02-28
 url: https://geohot.github.io/blog/jekyll/update/2021/02/28/the-ai-control-problem.html
 slug: the-ai-control-problem
-word_count: 858
+word_count: 850
 ---
-
-# The AI Control Problem
-
-Feb 28, 2021
 
 Put it out of your mind that the AI Control Problem is a mathematical problem with a mathematical solution. This is rationalist hogwash from the same people who, when pressed, won’t really tell you polyamory is the rational choice, but do subtlely believe that if you don’t agree about polyamory you are somehow less rational. Or perhaps just less Rational, but either way isn’t it obviously correct and can’t you see it?
 
-Rationality is a wonderful tool, but it is only a tool. It can only deal in is, not in ought. This is a classic problem in moral philosophy .
+Rationality is a wonderful tool, but it is only a tool. It can only deal in is, not in ought. This is  [a classic problem in moral philosophy](https://en.wikipedia.org/wiki/Is%E2%80%93ought_problem) .
 
 While I didn’t fully follow the internet drama, my understanding is that the neoreactionaries were a spinoff of the rationalists, with Yarvin and Yudkowsky laying down the frameworks respectively.
 
@@ -20,11 +16,12 @@ The AI control problem is a problem of Power, and neoreaction at least speaks th
 
 But the problem isn’t politics like anyone has known before. Politics of the past is a minigame played within the overarching MMORPG of nature. Resources are scarce, time is scarce, and therefore the damage it can do is limited.
 
-This will not be true in the future. Even war is a game we can’t really play anymore. And get off your stupid moral high horse about peace and shit, war is great. It just sucks that we have machine guns and nukes which make war no fun. Camping in the woods preparing to fight with swords for the honor and glory of the kingdom sounds fun. Do you not play video games? Oh no but real people really die in war. They might, but they also might not. It’s putting everything on the line.
+This will not be true in the future. Even war is a game we can’t really play anymore. And get off your stupid moral high horse about peace and shit, war is great. It just sucks that we have machine guns and nukes which make war no fun. Camping in the woods preparing to fight with swords for the honor and glory of the kingdom sounds fun. Do you not play video games? Oh no but real  *people*  really  *die*  in war. They might, but they also might not. It’s putting everything on the line.
 
-* Become worthy
-* Accept power
-* Rule
+1. Become worthy
+2. Accept power
+3. Rule
+
 We are so still at number 1. Is humanity worthy of unlimited power? I’ve heard Larry Page believes the AIs are our children and know more about righteousness than we do. But even early Yudkowsky writings understood this makes no sense, and that superintelligence doesn’t imply supermorality.
 
 A child raised wrong will grow up wrong. And how are we doing right now as a society raising our children, when half the kids are born out of wedlock, up from 5% 70 years ago. Who thinks we can raise an AI?

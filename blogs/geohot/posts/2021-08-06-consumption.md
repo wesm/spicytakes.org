@@ -3,12 +3,8 @@ title: "Consumption"
 date: 2021-08-06
 url: https://geohot.github.io/blog/jekyll/update/2021/08/06/consumption.html
 slug: consumption
-word_count: 221
+word_count: 216
 ---
-
-# Consumption
-
-Aug 6, 2021
 
 Oh the dream. We all travel. Vacation forever. Live life as digital nomads. See beautiful things, eat amazing food, journey to distant lands…
 

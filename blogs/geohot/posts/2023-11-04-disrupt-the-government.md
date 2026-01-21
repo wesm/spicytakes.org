@@ -3,14 +3,10 @@ title: "Disrupt the Government"
 date: 2023-11-04
 url: https://geohot.github.io/blog/jekyll/update/2023/11/04/disrupt-the-government.html
 slug: disrupt-the-government
-word_count: 756
+word_count: 749
 ---
 
-# Disrupt the Government
-
-Nov 4, 2023
-
-I watched this video about South Africa and it clarified the plan.
+I watched  [this video](https://www.youtube.com/watch?v=Iiny1GrfhYM)  about South Africa and it clarified the plan.
 
 You disrupt the government by providing 10x better versions of all of the services that it provides.
 
@@ -18,15 +14,15 @@ The key thing the government is supposed to be able to do is infrastructure. Mos
 
 Crypto, and almost everything decentralized, is terrible compared to what centralized alternatives could be. Decentralized stuff is inefficient and harder to build. However, if the people running the centralized stuff are too bad of scammers, the decentralized stuff can outcompete it.
 
-Money: Government policy has resulted in a $129 trillion dollar wealth transfer from the young to the old. This is over 5x the US GDP. The national debt is $33T. They control the printers and use them as they see fit. The largest thing the governement spends money on is a big ponzi scheme .
+Money: Government policy has resulted in a  [$129 trillion dollar](https://unusualwhales.com/news/government-policy-has-resulted-in-a-129-trillion-wealth-transfer-into-the-pockets-of-boomers-and-older-americans-per-bank-of-america)  wealth transfer from the young to the old. This is over 5x the US GDP. The national debt is $33T. They control the printers and use them as they see fit. The largest thing the governement spends money on is a  [big ponzi scheme](https://en.wikipedia.org/wiki/Social_Security_(United_States)) .
 
-Energy: Energy use per capita in the US has been stagnant since 1971. In San Diego, I’m paying 43c/kWh of power.
+Energy: Energy use per capita in the US has been stagnant  [since 1971.](https://wtfhappenedin1971.com)  In San Diego, I’m paying 43c/kWh of power.
 
 Protection: The crime/murder rate is the same as it was in the 50s, spiking in the 60s/70s/80s and returning in the 90s. Recently it’s been trending upward.
 
-Education: Education spending has increased with nothing to show for it. Much of how the government thinks about education seems to just be wrong .
+Education: Education spending has increased with nothing to show for it. Much of how the government thinks about education  [seems to just be wrong](https://www.amazon.com/Case-against-Education-System-Waste/dp/0691174652) .
 
-Healthcare: Health spending per person in the U.S. was nearly two times higher than in the closest country, Germany, and four times higher than in South Korea.
+Healthcare:  [Health spending](https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022)  per person in the U.S. was nearly two times higher than in the closest country, Germany, and four times higher than in South Korea.
 
 The US government failed somewhere around 1971, the failure is just less visible because the starting place was pretty high. Similar to Google in 2010. When an organization can no longer deliver growth, it has failed.
 

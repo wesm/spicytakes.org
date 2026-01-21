@@ -3,14 +3,10 @@ title: "Money is the Map"
 date: 2025-02-24
 url: https://geohot.github.io/blog/jekyll/update/2025/02/24/money-is-the-map.html
 slug: money-is-the-map
-word_count: 615
+word_count: 607
 ---
 
-# Money is the Map
-
-Feb 24, 2025
-
-A lot of smooth brains on Hacker News about the last post. I’m sorry if you spent your whole life worshipping money, but hey, the Bible warned you about false idols, don’t shoot the messenger.
+A lot of smooth brains on  [Hacker News](https://news.ycombinator.com/item?id=43136567)  about the last post. I’m sorry if you spent your whole life worshipping money, but hey, the Bible warned you about false idols, don’t shoot the messenger.
 
 > “It’s easier to imagine the end of the world than the end of capitalism” – Mark Fisher
 
@@ -18,7 +14,7 @@ It’s actually very easy to imagine the end of capitalism. Imagine capitalism a
 
 When one person (or company) has all the money, do you see how the money would be worthless?
 
-I’ll spell this out clearly. Money is a map, it is not a territory . Please understand what I mean by this before continuing to read. You can erase the mountains from the map, but you still have to climb over them in real life, and even worse, now you don’t have a map!
+I’ll spell this out clearly.  [Money is a map, it is not a territory](https://en.wikipedia.org/wiki/Map%E2%80%93territory_relation) . Please understand what I mean by this before continuing to read. You can erase the mountains from the map, but you still have to climb over them in real life, and even worse, now you don’t have a map!
 
 > “Everything around you that you call ‘life’ was made up by people who were no smarter than you” – Steve Jobs
 
@@ -26,9 +22,9 @@ So, if money is the map, what territory is it attempting to capture? Presumably 
 
 A map that doesn’t accurately capture a territory is not a Schelling point. It’s not a useful map. And maps are only as good as their usefulness. Useless maps die out.
 
-Do you agree or disagree that money is supposed to be a map of value? If you disagree, that’s an ought and I can’t use logic to convince you otherwise, I can just call you a moron who refuses to burn paper $100 bills for warmth on a deserted island. No no don’t burn the dollars they are valuable .
+Do you agree or disagree that money is supposed to be a map of value? If you disagree, that’s an  [ought](https://en.wikipedia.org/wiki/Is%E2%80%93ought_problem)  and I can’t use logic to convince you otherwise, I can just call you a moron who refuses to burn paper $100 bills for warmth on a deserted island. No no don’t burn the dollars they are  *valuable* .
 
-Many capitalists I meet are as stupid as communists, trying to give a moral justification for their system. This is my money, I deserve it. I should be able to passively deploy my capital into the markets and live off the returns.
+Many capitalists I meet are as stupid as communists, trying to give a  *moral*  justification for their system. This is  *my*  money, I  *deserve*  it. I should be able to passively deploy  *my*  capital into the markets and live off the returns.
 
 > “Moral victories are for minor league coaches.” – JAY-Z
 

@@ -3,12 +3,8 @@ title: "Avatar 2 was Bad"
 date: 2022-12-27
 url: https://geohot.github.io/blog/jekyll/update/2022/12/27/avatar-2-was-bad.html
 slug: avatar-2-was-bad
-word_count: 1088
+word_count: 1080
 ---
-
-# Avatar 2 was Bad
-
-Dec 27, 2022
 
 Spoliers below the line, and this probably won’t make sense if you didn’t see the movie.
 
@@ -46,7 +42,9 @@ Cue the climactic battle scene. Humans are sending out a massive navy to hunt th
 
 The water people, led by princess girl and her reformed father, show dominance in the battlefield (with the help of the whales of course). They work to pacify both the humans and the Omatikaya. The big fight scene is the younger brother vs the older brother while the big navy boat sinks around them. Epic dialog during the fight:
 
-OB: The humans are a cancer on this planet, they must be destroyed. That’s the only way they’ll listen. YB: OUR FATHER WAS HUMAN!!!
+OB: The humans are a cancer on this planet, they must be destroyed. That’s the only way they’ll listen. 
+ 
+YB:  **OUR FATHER WAS HUMAN!!!**
 
 The younger brother gains the upper hand, older brother begs to be killed with honor, younger brother refuses. His heart turns, and they work together to capture and jail the remaining humans involved in whaling.
 

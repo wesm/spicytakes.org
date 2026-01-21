@@ -3,12 +3,8 @@ title: "Technology without Industry"
 date: 2021-01-18
 url: https://geohot.github.io/blog/jekyll/update/2021/01/18/technology-without-industry.html
 slug: technology-without-industry
-word_count: 668
+word_count: 661
 ---
-
-# Technology without Industry
-
-Jan 18, 2021
 
 In the Unabomber Manifesto, Section 212 always remained unfulfilling to me.
 
@@ -16,7 +12,7 @@ In the Unabomber Manifesto, Section 212 always remained unfulfilling to me.
 
 That issue is why the “Freedom Club” revolution isn’t appealing. Genies do not go back in boxes. Similar to the communist manifesto, while problems are correctly identified, the solution leaves something to be desired.
 
-Ran Prieur takes technology and breaks it down in a more nuanced way than I think about it. I’m going to focus on a single axis.
+Ran Prieur takes technology and  [breaks it down](https://www.ranprieur.com/tech.html)  in a more nuanced way than I think about it. I’m going to focus on a single axis.
 
 Compare Waymo to comma. In one, you need cooperation from a society, in the other you don’t. One is a complex system that depends on industry and loses it’s usefulness out of context. The other is a complex self contained system.
 
@@ -28,11 +24,11 @@ If all our world died tomorrow, from COVID-22 or something, we would leave behin
 
 That’s godshatter of the information age. A handheld device that allowed you to breathe underwater. A phaser. A portable device that could construct houses. The doctor’s mobile emitter. A machine that pulls the water from the air. A handheld flying machine. An arc reactor. All ruined if you have to connect to WiFi.
 
-Perhaps a replicator could make you god.
+[Perhaps a replicator could make you god.](https://en.wikipedia.org/wiki/False_Profits)
 
 Why does anyone want Waymo? We need to decentralize the world, not build brittle systems that leak power. A Waymo network can be used for evil if evil people are at the controls. The Bitcoin blockchain has no controls. Every gun fires when its owner pulls the trigger, owned by millions. We’d live in a better world if nuclear weapons weren’t possible, owned by tens.
 
-Can we build technology without industry? I fantasize about living in a forest with my AI girlfriend while we probe the universe. What pathetic losers are building Twitter and Facebook. That’s practically industry without technology. And they have the nerve to call themselves technology companies.
+Can we build technology without industry? I fantasize about living in a forest with my AI girlfriend while we probe the universe.  **What pathetic losers are building Twitter and Facebook.**  That’s practically industry without technology. And they have the nerve to call themselves technology companies.
 
 Ask yourself this. Am I building technology to further centralize or decentralize power?
 

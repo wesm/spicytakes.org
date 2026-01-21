@@ -3,14 +3,10 @@ title: "To Fight against Entropy"
 date: 2021-10-24
 url: https://geohot.github.io/blog/jekyll/update/2021/10/24/to-fight-against-entropy.html
 slug: to-fight-against-entropy
-word_count: 796
+word_count: 788
 ---
 
-# To Fight against Entropy
-
-Oct 24, 2021
-
-Earlier this year, I bought 123 acres of land in Lakeside, CA. I’ve named it ecromata . I’ve been considering for a while how to build a competitor to the university system, and well, you have to start somewhere. It’s a idea that’s surprisingly broad, and in my mind has this as a sub goal. The goal of course isn’t to build another Harvard, because you’ll be subject to the same causes and forces of the current Harvard. The idea is to build a different type of Harvard .
+Earlier this year, I bought 123 acres of land in Lakeside, CA. I’ve named it  [ecromata](https://ecromata.com) . I’ve been considering for a while how to build a competitor to the university system, and well, you have to start somewhere. It’s a idea that’s surprisingly broad, and in my mind has this as a sub goal. The goal of course isn’t to build another Harvard, because you’ll be subject to the same causes and forces of the current Harvard. The idea is to build a  *different type of Harvard* .
 
 At comma, management has been able to be quite chill. I think of myself like the teacher from Good Will Hunting, and even if I’m not as capable as everyone we hire, I can tell the difference. Hopefully people there trust my ability to properly evaluate skill and contributions, and also trust my second order ability to select those who can properly evaluate skill and contribution. It helps also to have shared growth and shared ownership with people who are aligned with the mission.
 
@@ -34,6 +30,6 @@ For now, I’m likely shelving the land project. The initial goal of it was to b
 
 I would potentially hire someone with a >1 MC who has clever ways to approach this project, I know a lot of people are interested in this general area. Would require you to live on the land and work with very little direction toward being able to live completely off grid with a high standard of living. The ideal candidate would be someone who is working on this anyway. Land has water, beautiful views, tons of sunlight, 5G internet, 3 broken tractors, and a (beat up) trailer to live in initially. Reach out if you are interested, think like an off grid airbnb manager. Job would be part time; you’d be able to keep a full time remote job.
 
-Though I think really, this dream of a sustainable fight against entropy has to wait for the robots. Solving self driving cars is just the start at comma (we’ve been saying this long before the Tesla bot!). The next target will be home robotics, robots that can cook and clean. And after that, we’ll move to more general purpose robotics. Robots that do security, building, plumbing, robot repair, and more. Of course if you are interested in this, comma is hiring , but we finish self driving cars first.
+Though I think really, this dream of a sustainable fight against entropy has to wait for the robots. Solving self driving cars is just the start at comma (we’ve been saying this long before the Tesla bot!). The next target will be home robotics, robots that can cook and clean. And after that, we’ll move to more general purpose robotics. Robots that do security, building, plumbing, robot repair, and more. Of course if you are interested in this,  [comma is hiring](https://comma.ai/jobs) , but we finish self driving cars first.
 
 A paradise built and maintained by machines.

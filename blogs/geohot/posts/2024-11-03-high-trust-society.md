@@ -3,14 +3,12 @@ title: "High Trust Society"
 date: 2024-11-03
 url: https://geohot.github.io/blog/jekyll/update/2024/11/03/high-trust-society.html
 slug: high-trust-society
-word_count: 648
+word_count: 643
 ---
 
-# High Trust Society
-
-Nov 3, 2024
-
-> I just want you to see, I just want you to see The way we drag a bunch of people into lunacy – mos thoser
+> I just want you to see, I just want you to see
+> The way we drag a bunch of people into lunacy
+>   – mos thoser
 
 Regardless of who wins on Tuesday, does anyone think this gets fixed? Is Kamala going to restore trust in government? Is Trump going to restore trust in government?
 
@@ -18,7 +16,7 @@ Despite what Western media might have you believe about how the people in China 
 
 It’s obvious on the streets. These aren’t scared people obeying out of fear, these are people playing their role with pride to live in a nice society. I feel the American sneer just writing those words, but it doesn’t make it less true.
 
-GDP can be manipulated ten ways till Sunday, electricity and steel production are much harder to fake. A government delivering growth and better lives to people is one worth trusting. A government that kills squirrels that get too famous on social media, not as much. I’ll note that social issues are well handled in China too.
+GDP can be manipulated ten ways till Sunday, electricity and steel production are much harder to fake. A government delivering growth and better lives to people is one worth trusting. A government that  [kills squirrels](https://apnews.com/article/new-york-pet-squirrel-seized-peanut-pnut-c2baa345d9e76416e0ca6d6e947ee272)  that get too famous on social media, not as much. I’ll note that  [social issues](https://en.wikipedia.org/wiki/Abortion_in_China)  are well handled in China too.
 
 When Americans are asked about this, they will defend some nebulous concept of freedom, and I ask, freedom to what? Vote? Freedom from what? People taking your stuff? Here’s a guy trying to steal a bike from the comma office last week.
 
@@ -32,8 +30,8 @@ None of this fixes trust in society. None of this brings you closer with your ne
 
 So where does that leave us? Facts are easy, figuring out actions is hard. China is a society for the Chinese, and I am not Chinese. Hong Kong, Singapore, and Dubai are nice (and multicultural), but they aren’t large markets.
 
-I think the future is the Internet. The American empire is over, the Chinese empire is next, and the Internet is the empire after that. We build for that world.
+I think the future is the Internet. The American empire is over, the Chinese empire is next, and  [the Internet](https://thenetworkstate.com/)  is the empire after that. We build for that world.
 
-Back to work. tiny corp is a remote first company, and we are hiring. I trust that the tools to manage remote companies will get rapidly better with AI in the next 5 years (think automated PMs and ops).
+Back to work.  [tiny corp](https://tinygrad.org/)  is a remote first company, and we are hiring. I trust that the tools to manage remote companies will get rapidly better with AI in the next 5 years (think automated PMs and ops).
 
 Oh and in the IRL mean time, it’s very nice to be physically in a high trust society. Still working on opening an office in Hong Kong for those who want, salaries higher in person.

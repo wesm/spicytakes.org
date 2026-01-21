@@ -3,14 +3,10 @@ title: "A Place for Me"
 date: 2024-11-20
 url: https://geohot.github.io/blog/jekyll/update/2024/11/20/a-place-for-me.html
 slug: a-place-for-me
-word_count: 683
+word_count: 675
 ---
 
-# A Place for Me
-
-Nov 20, 2024
-
-Have all the jobs been fake for years? Read this , a NASA critique from 1992.
+Have all the jobs been fake for years?  [Read this](https://www.researchgate.net/publication/234554226_On_Self-Licking_Ice_Cream_Cones) , a NASA critique from 1992.
 
 Basically society is run by useless people making work for other useless people so that together they can all alleviate their deep concern about not having a place in society.
 
@@ -26,7 +22,7 @@ The industrial revolution required labor at mass scale, hence we got liberal dem
 
 Though don’t worry if you consider yourself one of those useless people, I do not think your life will become materially bad. Between the fact that it’s cheap to keep people alive, fed, and entertained, and that everyone no matter how secure believes they may be useless, it will be a lot more like retirement.
 
-UBI is a double edged sword . If you take it, you are no longer meaningfully a citizen.
+UBI is a  [double edged sword](https://www.piratewires.com/p/wireheading-city-george-hotz?f=home) . If you take it, you are no longer meaningfully a citizen.
 
 It remains to be seen how this will all shape up, but the unprofitablity of the average person in rich countries cannot be ignored for too much longer. Their expectations exceed their market value, hence why protectionist economics to bring manufacturing back to America will not work.
 

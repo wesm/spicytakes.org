@@ -3,16 +3,17 @@ title: "chapter six: dashcam"
 date: 2025-09-08
 url: https://geohot.github.io/blog/jekyll/update/2025/09/08/chapter-six.html
 slug: chapter-six
-word_count: 1225
+word_count: 1231
 ---
-
-# chapter six: dashcam
-
-Sep 8, 2025
 
 Dave
 
-> 2:41 – yoo i took a nap 2:41 – wanna play minecraft? 2:41 – actually i need your help with something 2:41 – what 2:42 – just come over 2:42 – kk i gotta shower
+> 2:41 – yoo i took a nap
+> 2:41 – wanna play minecraft?
+> 2:41 – actually i need your help with something
+> 2:41 – what
+> 2:42 – just come over
+> 2:42 – kk i gotta shower
 
 Dave knew stuff about computers. Don’t let the being high all the time fool you, he was the smartest guy in our friend group. And he was the most chronically online. He showed up on his bike 20 minutes later.
 
@@ -22,7 +23,7 @@ Dave knew stuff about computers. Don’t let the being high all the time fool yo
 
 “My mom is missing and she isn’t answering her phone. Then I tried to track her on the car app, but somebody changed the e-mail.”
 
-Dave came inside the house (I locked the door behind him) and opened his laptop at the kitchen table. I messaged him the VIN, and he tried the reset e-mail again but on the website. Same result. Same skinner666
+Dave came inside the house (I locked the door behind him) and opened his laptop at the kitchen table. I messaged him the VIN, and he tried the reset e-mail again but on the website. Same result. Same  *skinner666*
 
 “What did the e-mail used to be? Do you have access to that account?”
 
@@ -64,15 +65,17 @@ Dave typed it into website billing itself as the world’s data marketplace. “
 
 Clip 1
 
-> Timestamp (overlay): ~5:36:12 PM, Sat Jul 12
-Location (inferred): Manhattan Bridge lower roadway, westbound into Manhattan. Overhead signage OCR fragments: “CANAL ST / CHINATOWN”; steel truss pattern matches the bridge; skyline and arch glimpses align.
-What’s visible: Mercedes (body/DRL signature consistent) in center lane, moderate traffic, dry pavement, dusk light. No notable tail vehicle persists across frames.
+> `Timestamp (overlay): ~5:36:12 PM, Sat Jul 12
+> Location (inferred): Manhattan Bridge lower roadway, westbound into Manhattan. Overhead signage OCR fragments: “CANAL ST / CHINATOWN”; steel truss pattern matches the bridge; skyline and arch glimpses align.
+> What’s visible: Mercedes (body/DRL signature consistent) in center lane, moderate traffic, dry pavement, dusk light. No notable tail vehicle persists across frames.
+> `
 
 Clip 2
 
-> Timestamp (overlay): ~11:29:47 PM, Sat Jul 12
-Location (inferred): Sheepshead Bay corridor. Streetfront OCR: “EMMONS AVE,” “BAY DELI,” and a marina awning; sodium-vapor lighting; parked fishing boats visible for 2–3 frames.
-What’s visible: Mercedes eastbound along Emmons Ave, signals right at the next intersection and turns toward a residential side street (likely Knapp/Bragg area; exact street name unreadable due to glare). Traffic light cycle and storefront shutters consistent with late-night return.
+> `Timestamp (overlay): ~11:29:47 PM, Sat Jul 12
+> Location (inferred): Sheepshead Bay corridor. Streetfront OCR: “EMMONS AVE,” “BAY DELI,” and a marina awning; sodium-vapor lighting; parked fishing boats visible for 2–3 frames.
+> What’s visible: Mercedes eastbound along Emmons Ave, signals right at the next intersection and turns toward a residential side street (likely Knapp/Bragg area; exact street name unreadable due to glare). Traffic light cycle and storefront shutters consistent with late-night return.
+> `
 
 I pondered, “That doesn’t make sense. That second clip is right by our house, but I got home an hour after that and she wasn’t here. What’s the third clip?”
 
@@ -94,4 +97,4 @@ However, in plain sight, there was a note from my mother on the refrigerator. I 
 
 I showed the note to Dave. He shrugged and asked if he could have one of the bagels that Anne left. Sure. Was this just me being paranoid, or is that the exact note my mother would leave if she didn’t want me to worry and that’s not at all what happened?
 
-Who logged into her accounts? Who was skinner666 ?
+Who logged into her accounts? Who was  *skinner666* ?

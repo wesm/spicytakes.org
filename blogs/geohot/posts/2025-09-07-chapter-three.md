@@ -3,14 +3,10 @@ title: "chapter three: father"
 date: 2025-09-07
 url: https://geohot.github.io/blog/jekyll/update/2025/09/07/chapter-three.html
 slug: chapter-three
-word_count: 937
+word_count: 930
 ---
 
-# chapter three: father
-
-Sep 7, 2025
-
-7 years earlier
+*7 years earlier*
 
 Jonathan sat there while his Mercedes S-Class with DRIVE PILOT drove him across the Brooklyn Bridge to Wall Street. He had been working at Operant Capital for 10 years. The idea was simple. Predict the market, trade based on those predictions, and get rich. The implementation however, was not as simple as the idea.
 
@@ -24,9 +20,9 @@ Jonathan believed in the mission. Well, mostly anyway. Make markets more efficie
 
 Most of the tricks were standard. The same run of the mill models everyone in the industry was using. But they felt that their differentiator was always remembering that the market doesn’t obey physical laws. Technical analysis is complete bullshit. This is a simple betting game played against other agents.
 
-Which is the line of thinking that led to the RPS project. RPS stood for rock-paper-scissors. A game with a simple Nash equilibrium. One-third, one-third, one-third. Deviate at all from that strategy, and your opponent can exploit you. But if your opponent isn’t playing that strategy, you have to deviate to exploit them .
+Which is the line of thinking that led to the RPS project. RPS stood for rock-paper-scissors. A game with a simple Nash equilibrium. One-third, one-third, one-third. Deviate at all from that strategy, and your opponent can exploit you. But if your opponent isn’t playing that strategy, you have to deviate to  *exploit them* .
 
-Shortly after MRI machines were invented, people started using them to see if they could read minds. They’d put someone in an MRI and give them two buttons, say a red and a blue. Of course the machine knew which button you would press before you pressed it. But what was crazier is that the machine knew which button you would press before you were even aware of your choice .
+Shortly after MRI machines were invented, people started using them to see if they could read minds. They’d put someone in an MRI and give them two buttons, say a red and a blue. Of course the machine knew which button you would press before you pressed it. But what was crazier is that the machine knew which button you would press  *before you were even aware of your choice* .
 
 The obvious follow up question is, how much before? Seconds was very believable. But could you know as soon as the subject walked in the room? At the time there wasn’t really a way to explore this. Aside from the 55% prior on red, there wasn’t much more to say.
 

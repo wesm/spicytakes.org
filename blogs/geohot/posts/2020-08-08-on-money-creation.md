@@ -3,12 +3,8 @@ title: "On Money Creation"
 date: 2020-08-08
 url: https://geohot.github.io/blog/jekyll/update/2020/08/08/on-money-creation.html
 slug: on-money-creation
-word_count: 800
+word_count: 793
 ---
-
-# On Money Creation
-
-Aug 8, 2020
 
 Consider a mining town. Once upon a time there was a mine, and the mine was the largest employer in the town. They mined copper ore and sold it on the global market. This brought money into the town, which sprouted a restaurant, real estate broker, doctor’s office, and church. Although those people weren’t employed by the mine, they got enough customers from the miners, who fundamentally got money from outside the town.
 
@@ -16,7 +12,7 @@ But eventually the mine dried up. The miners lost their jobs, since the town was
 
 The town went broke, died, and became a ghost town.
 
-All jobs can be broken down into one of three groups.
+**All jobs can be broken down into one of three groups.**
 
 The first(constant) is the shoeshiners, bank tellers, politicians, retail workers, clergy, social media managers, lawyers, and the rest of the service industry. An economy made up of only these people wouldn’t work. Imagine a town without imports and exports comprised of only this class of people. Considering every transaction always has a fee, regardless of what this town started with, they would always end up going broke.
 
@@ -35,6 +31,7 @@ Breaking down group 1 into 3 subgroups:
 * 1M: movers of stuff (waiters, retail, clerks, drivers, bankers)
 * 1E: fighters of entropy (maids, doctors, nurses)
 * 1B: people who tell other people what to do. “bosses” of various sorts (management, executives, specialists, “finance”, sales, admins)
+
 I found teachers somewhat hard to classify as well, assuming education works, they are group 2, producing more productive people, like a tractor maker. If education is daycare, they are group 1. We gave them the benefit of the doubt and included them in group 2.
 
 And surely not all “Computer Occupations” are group 3, but that’s how it’s broken down.

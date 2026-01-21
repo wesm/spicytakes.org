@@ -3,12 +3,8 @@ title: "The Fourth Estate"
 date: 2021-12-18
 url: https://geohot.github.io/blog/jekyll/update/2021/12/18/the-fourth-estate.html
 slug: the-fourth-estate
-word_count: 870
+word_count: 863
 ---
-
-# The Fourth Estate
-
-Dec 18, 2021
 
 Regardless of your opinion on Trump, it became obvious in those years that there’s a machine behind the scenes in our government. I’ve heard this referred to as “the deep state”, though I don’t mean to suggest shadowy figures in a secret cellar. I just mean the people who are actually wielding power, that perhaps are not the “politicians” who you see on the TV. You might even know some of their names, but you likely don’t think of them as having power.
 
@@ -16,7 +12,7 @@ Hopefully everyone understands now the actual power structure isn’t what the r
 
 Which begs the question, is there documentation on how the regime operates anywhere? How is it that the government, corporations, education, NGOs, intelligence agencies, and media all act in lockstep? This is the key question of neoreaction.
 
-I believe the simple answer is that they are all the same people, the well documented “revolving door”. I have seen glimpses of the society these people inhabit, practically totally separate from my lived reality. This is the oligarchy of “the free world” and we are all subjects.
+I believe the simple answer is that they are all the same people, the well documented “revolving door”. I have seen glimpses of the society these people inhabit, practically totally separate from my lived reality. This is the  [oligarchy](https://spectatorworld.com/topic/oligarchy-america-rome-athens-jeff-bezos/)  of “the free world” and we are all subjects.
 
 At some point in history, we stopped being citizens of a free society and became something for the ruling class to manage. As much as there is consent, it is manufactured. You work to make money, they print the money.
 

@@ -3,12 +3,8 @@ title: "chapter seven: nudge"
 date: 2025-09-08
 url: https://geohot.github.io/blog/jekyll/update/2025/09/08/chapter-seven.html
 slug: chapter-seven
-word_count: 1368
+word_count: 1361
 ---
-
-# chapter seven: nudge
-
-Sep 8, 2025
 
 “Why are you here on a Sunday?”
 

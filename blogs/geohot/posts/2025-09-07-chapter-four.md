@@ -3,18 +3,14 @@ title: "chapter four: bagel"
 date: 2025-09-07
 url: https://geohot.github.io/blog/jekyll/update/2025/09/07/chapter-four.html
 slug: chapter-four
-word_count: 1004
+word_count: 997
 ---
-
-# chapter four: bagel
-
-Sep 7, 2025
 
 “Earth to Dave.” Brian rapped his knuckles lightly against Dave’s head. He snapped back into it. “This nice lady wants to know what kind of bagel you want”
 
-It was so like Brian to call the woman at the counter a nice lady . At some point, he’d watched American Pie and thought Stifler was how people should be. Or maybe he was just always like that and the movie made him think it was acceptable. He called himself a gentleman , but not in the creepy Elliot Rodger way, or in anything resembling the real meaning of the word. I think he just thought it was funny how that word got a rise out of people.
+It was so like Brian to call the woman at the counter a  *nice lady* . At some point, he’d watched American Pie and thought Stifler was how people should be. Or maybe he was just always like that and the movie made him think it was acceptable. He called himself a  *gentleman* , but not in the creepy Elliot Rodger way, or in anything resembling the real meaning of the word. I think he just thought it was funny how that word got a rise out of people.
 
-Dave replied, “uhhh a cinnamon raisin…with uhh…butter…yea butter.” Even the nice lady knew Dave was high, Brian and I ordered normal bagel sandwiches and here was Dave ordering dessert. Brian paid for the bagels with his mom’s credit card and told us we could Venmo him later. His mom’s credit card and we Venmo him. That’s the type of guy he was.
+Dave replied, “uhhh a cinnamon raisin…with uhh…butter…yea butter.” Even the  *nice lady*  knew Dave was high, Brian and I ordered normal bagel sandwiches and here was Dave ordering dessert. Brian paid for the bagels with his mom’s credit card and told us we could Venmo him later. His mom’s credit card and we Venmo him. That’s the type of guy he was.
 
 “He didn’t leave last night. Passed out right where he was sitting,” Brian spoke about Dave like he wasn’t there. This would happen sometimes. Like we would smoke and get high, but for Dave it was a different thing. He would smoke till he was catatonic.
 
@@ -48,6 +44,6 @@ Brian gave me a scolding look and I felt embarrassed. I came back at him, trying
 
 Dave now had finished his bagel and put his head down on the table. Brian smiled at the retort, “At least my dad isn’t some kind of Kaczynski freak.”
 
-This was the nature of our friendship. Last night I thought my world was closing in, now I realize this just all isn’t my problem. My dad was sort of a Kaczynski freak . Maybe he mailed bombs to people and the cops caught him. Maybe he has some lame manifesto about why he did it. I love reading manifestos. I took out my phone and venmoed Brian for mine and Dave’s bagel. We’d venmo him about half the time; Brian’s mom was rich from the settlement and we knew she didn’t care about his little scam.
+This was the nature of our friendship. Last night I thought my world was closing in, now I realize this just all isn’t my problem. My dad was  *sort of a Kaczynski freak* . Maybe he mailed bombs to people and the cops caught him. Maybe he has some lame manifesto about why he did it. I love reading manifestos. I took out my phone and venmoed Brian for mine and Dave’s bagel. We’d venmo him about half the time; Brian’s mom was rich from the settlement and we knew she didn’t care about his little scam.
 
 My mom still wasn’t back when I got home.
