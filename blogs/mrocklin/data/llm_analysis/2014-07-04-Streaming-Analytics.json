@@ -1,0 +1,26 @@
+{
+  "summary": "This post demonstrates how to perform SQL-like data analytics operations using pure Python data structures and the toolz/cytoolz library. Rocklin walks through streaming-compatible alternatives to common operations like selection (map/filter), split-apply-combine (groupby/reduceby), and joins. The key insight is that while Pandas excels at in-memory analytics, toolz enables processing datasets larger than memory through streaming primitives. The post introduces the new 'join' operation in toolz, which is semi-streaming (left sequence in memory, right sequence streams) and runs in linear time. Rocklin concludes that while toolz offers benefits like streaming and composition, dedicated tools like Pandas or SQLAlchemy may better serve pure data analysis use cases.",
+  "key_points": [
+    "The toolz library provides SQL-like operations (SELECT\u2192map, WHERE\u2192filter, GROUP BY\u2192groupby/reduceby, JOIN\u2192join) on Python data structures",
+    "Streaming operations like reduceby enable processing datasets larger than memory by using binary operators instead of full reductions",
+    "The new join operation is semi-streaming and asymptotically optimal\u2014linear time with only the left sequence needing to fit in memory",
+    "CyToolz (Cython implementation) achieves Java-like speeds on standard Python data structures",
+    "While toolz enables streaming analytics, dedicated tools like Pandas remain better for pure data analysis workloads"
+  ],
+  "money_quotes": [
+    "Toolz targets functional programming more than it targets data analytics.",
+    "The incremental nature of add allows us to do the summation work as new data comes in. The use of binary operators like add over full reductions like sum enables computation on very large streaming datasets.",
+    "The challenge to using reduceby often lies in the construction of a suitable binary operator.",
+    "Those familiar with SQL are accustomed to this kind of join on columns. However a functional join is more general than this; it doesn't need to operate on tuples, and key functions do not need to get particular columns.",
+    "Toolz gives a compact set of primitives for data analysis on plain Python data structures. CyToolz accelerates those workflows through Cython. This approach is both low-tech and supports uncomfortably big data through streaming.",
+    "While there are obvious benefits (streaming, composition, etc.) users interested in data analysis might be better served by using projects dedicated projects like Pandas or SQLAlchemy."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "distributed"
+  ],
+  "tone": "technical",
+  "key_insight": "Functional programming primitives like map, filter, and reduceby can enable streaming analytics on datasets larger than memory, providing a low-tech alternative to heavyweight frameworks when memory is constrained.",
+  "filename": "2014-07-04-Streaming-Analytics"
+}

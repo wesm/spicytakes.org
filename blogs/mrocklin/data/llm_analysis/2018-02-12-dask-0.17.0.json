@@ -1,0 +1,27 @@
+{
+  "summary": "Dask 0.17.0 is a significant major release featuring new task ordering heuristics for better memory management, improved Scikit-Learn integration through Joblib for distributed machine learning, and a major internal refactor of the scheduler from dictionaries to objects. The release also introduces user-settable task priorities and deprecates older rolling methods and the dask-ec2 project in favor of Kubernetes deployments. While the internal refactor didn't achieve its original performance goals with Cython or PyPy, it improved code readability for new developers. The release acknowledges contributions from over 40 developers across the dask and distributed repositories.",
+  "key_points": [
+    "New task prioritization heuristics improve memory efficiency when traversing complex computations",
+    "Enhanced Joblib integration allows Dask to distribute Scikit-Learn algorithms across clusters and handle nested parallel computations without oversubscribing hardware",
+    "Major scheduler refactor from dictionaries to objects improved code readability but didn't achieve hoped-for Cython/PyPy performance gains",
+    "User-settable priorities now allow fine-grained control over task execution order",
+    "The project is moving away from dask-ec2 toward Kubernetes for cluster deployment across cloud providers"
+  ],
+  "money_quotes": [
+    "As Dask encounters more complex problems from more domains we continually run into problems where its current heuristics do not perform optimally.",
+    "The proliferation of state dictionaries was not highly discoverable.",
+    "Goal one ended up not working out. We have not yet been able to make the scheduler significantly faster under Cython or PyPy with this new layout.",
+    "However we have been happy with the results in code readability, and we hope that others find this useful as well.",
+    "We generally recommend kubernetes instead both for Amazon's EC2, and for Google and Azure as well."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Open source projects must balance ambitious technical goals like performance optimization against pragmatic improvements like code readability, and sometimes a refactor's secondary benefits outweigh its original objectives.",
+  "filename": "2018-02-12-dask-0.17.0"
+}

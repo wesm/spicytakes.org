@@ -1,0 +1,27 @@
+{
+  "summary": "Matt Rocklin explores the principle of extracting general-purpose code into separate packages, taking it to its logical extreme to reveal both the value and absurdity of boundless granularity. Using the groupby function as a case study\u2014which he found implemented six times across his own projects\u2014he demonstrates the difficulty of deciding where atomic utilities should live. While acknowledging that extreme package separation breaks current development models, he argues that granular software ecosystems enable evolution and competition. The post advocates for separating tests from source code to establish clear interfaces and promote alternative implementations, suggesting that tooling will evolve to support better practices.",
+  "key_points": [
+    "The principle of separating general code from application-specific code, taken to its extreme, produces 'atomic packages' of single functions with complex dependency graphs",
+    "Cross-package testing, multi-repository development, and dependency management all become significantly harder with extreme granularity",
+    "Elevating test suites to first-class packages could establish clear interfaces and promote healthy competition between implementations",
+    "Software doesn't truly depend on other software\u2014it depends on code that satisfies a consistent interface, which tests can specify",
+    "Tooling historically evolves to meet developer needs (git replaced svn, conda addressed package manager frustrations), suggesting granular ecosystems could become practical"
+  ],
+  "money_quotes": [
+    "Invariably packages contain code of varying general utility. Scientific codes often target specific applications (like genome sequencing of the fruit fly) but also contain some generally applicable routines (like fuzzy string matching).",
+    "I love groupby. I implement it in most of my projects. A quick grep of my workspace directory shows that it is separately defined in six different projects.",
+    "The result is that groupby lives in its own project. This seems absurd.",
+    "Granular software ecosystems enable software evolution.",
+    "Elevating test suites to first class packages establishes clear interfaces and promotes competition.",
+    "It is not the case that scipy depends on numpy but rather that scipy depends on code that satisfies the numpy test suite.",
+    "The demands on the end user of organized software construction have been considerably lessened. This changes how we should approach software development, particularly within community codebases."
+  ],
+  "themes": [
+    "open_source",
+    "python",
+    "technical"
+  ],
+  "tone": "playful-intellectual",
+  "key_insight": "While extreme package granularity is impractical today, separating interfaces (tests) from implementations could enable healthier software evolution by promoting competition and reducing lock-in to specific codebases.",
+  "filename": "2013-07-02-Packages"
+}

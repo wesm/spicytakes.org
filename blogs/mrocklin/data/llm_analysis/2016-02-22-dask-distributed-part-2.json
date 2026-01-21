@@ -1,0 +1,27 @@
+{
+  "summary": "This post demonstrates how to use dask.dataframe with a distributed scheduler to process large CSV datasets stored in HDFS. Using NYC taxi data (25GB per year on disk, 60GB in memory), Rocklin shows how dask coordinates hundreds of Pandas dataframes across a cluster of workers to enable interactive analysis at scale. The post walks through practical examples including computing basic statistics, analyzing tipping patterns by payment type and time of day, and examining performance characteristics. The key finding from the data analysis reveals that 4am riders tip an astonishing 34%, while business hours show a trough in tip percentages.",
+  "key_points": [
+    "Dask.dataframe presents a Pandas-like API but distributes work across many Pandas dataframes on cluster workers, enabling analysis of datasets too large for single machines",
+    "HDFS breaks CSV files into 128MB chunks distributed across the cluster, and dask workers read chunks local to them, achieving nearly 1 GB/s network throughput",
+    "The scheduler incurs about 1ms overhead per task, making it the bottleneck for very fast computations like computing length across 178 partitions",
+    "Dask.dataframe implements a commonly used subset of Pandas functionality, notably lacking shuffle algorithms for groupby apply and some joins in distributed settings",
+    "Building on Pandas rather than reinventing a 'Big-Data-Frame' allows dask to inherit all of Pandas' CSV parsing, type inference, and datetime handling capabilities"
+  ],
+  "money_quotes": [
+    "This is a nice model dataset for computational tabular data because it's large enough to be annoying while also deep enough to be broadly appealing.",
+    "Pandas is well loved because it removes all of these little hurdles from the life of the analyst.",
+    "If we tried to reinvent a new 'Big-Data-Frame' we would have to reimplement all of the work already well done inside of Pandas.",
+    "Dask dataframe implements a commonly used subset of Pandas functionality, not all of it. It's surprisingly hard to communicate the exact bounds of this subset to users.",
+    "The 1ms overhead per task limit is significant. While we can still scale out to clusters far larger than what we have here, we probably won't be able to strongly accelerate very quick operations until we reduce this number.",
+    "This head computation is about as fast as a film projector. You could perform this roundtrip computation between every consecutive frame of a movie; to a human eye this appears fluid."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "By building on top of Pandas rather than reinventing dataframe functionality, dask.dataframe can scale familiar workflows to cluster computing while inheriting all of Pandas' battle-tested CSV parsing, type inference, and API design.",
+  "filename": "2016-02-22-dask-distributed-part-2"
+}

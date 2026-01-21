@@ -1,0 +1,28 @@
+{
+  "summary": "This development log covers two weeks of work on Dask's distributed scheduler, highlighting a micro-release with performance improvements for multi-dimensional array communication. A compression heuristic bug was discovered and fixed after bandwidth issues surfaced during image processing work. The post also covers the new ability to add futures to the as_completed iterator for asynchronous algorithms, experimental ZeroMQ support through a communication refactor, and collaboration with Capital One on parallel solvers for machine learning. The author emphasizes the importance of finding collaborators who are both performance-focused and committed to building good open source software.",
+  "key_points": [
+    "A compression sampling bug was causing poor network performance for multi-dimensional arrays - Dask was taking much larger samples than intended when handling memoryviews",
+    "The as_completed iterator can now accept new futures while iterating, enabling more flexible asynchronous algorithm patterns",
+    "A communication refactor allows pluggable transport mechanisms including experimental ZeroMQ support, though stability issues remain",
+    "The new 'persist' verb has been mirrored to the single machine scheduler, enabling algorithms that work optimally across both schedulers",
+    "XArray's new release with better NetCDF support opens distributed array computing to atmospheric scientists, potentially Dask's largest scientific user community"
+  ],
+  "money_quotes": [
+    "We've gotten both incredibly positive and incredibly negative praise/warnings about using ZeroMQ.",
+    "It's not a great fit because Dask mostly just does point-to-point communication, so we don't benefit from all of ZeroMQ's patterns, which now become more of a hindrance than a benefit.",
+    "ZeroMQ support is strictly experimental and will likely stay that way for a long time. Readers should not get excited about this.",
+    "The possibility that we might tap into Infiniband someday and have the ability to manage data locally without copies (Tornado does not achieve this) is very attractive to some user communities.",
+    "This relatively simple change allows for the easy expression of a broad set of asynchronous algorithms.",
+    "Working with the developers at Capital One has been very rewarding."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, candid, pragmatic",
+  "key_insight": "Small API changes like allowing futures to be added to as_completed, combined with careful performance debugging of issues like compression sampling, compound to enable entirely new classes of distributed algorithms.",
+  "filename": "2017-01-30-dask-dev-6"
+}

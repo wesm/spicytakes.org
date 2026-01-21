@@ -1,0 +1,27 @@
+{
+  "summary": "Matt Rocklin demonstrates new slicing and stacking capabilities in dask.array, using meteorological data as a practical example. The post shows how to combine many netCDF files containing global temperature data into a single logical array that can be manipulated with NumPy-style syntax. By using lazy evaluation and blocked algorithms, users can work with datasets larger than memory while maintaining familiar NumPy semantics. The workflow processes a year of global temperature data at quarter-degree resolution, demonstrating operations like computing day-vs-night temperature differences without loading all data into memory.",
+  "key_points": [
+    "Dask.array now supports most NumPy slicing syntax including integer slices, boolean masks, and integer list indexing",
+    "Stack and concatenate functions allow combining many on-disk arrays into one logical array without loading data into memory",
+    "The lazy evaluation model means all setup operations (opening files, creating arrays, writing NumPy-style code) are just bookkeeping until actual computation is triggered",
+    "The threaded scheduler has significant overhead for this workflow, making the single-threaded scheduler actually faster in some cases",
+    "Existing projects like Biggus from the UK Met Office provide similar functionality and have been in production longer"
+  ],
+  "money_quotes": [
+    "Even though this looks and feels like NumPy we're actually operating off of disk using blocked algorithms.",
+    "We execute these operations using only a small amount of memory.",
+    "A flurry of chunks fly out of all the netCDF files. These chunks meet various NumPy functions and create new chunks. Well organized magic occurs and an np.ndarray emerges.",
+    "If these operations were computationally intense (they aren't) then we also would also benefit from multiple cores.",
+    "This, like the other steps, is just book-keeping. We haven't loaded data or computed anything yet."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Dask.array enables working with collections of on-disk arrays using familiar NumPy syntax through lazy evaluation and blocked algorithms, making it possible to process datasets larger than memory.",
+  "filename": "2015-02-13-Towards-OOC-Slicing-and-Stacking"
+}

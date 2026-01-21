@@ -1,0 +1,28 @@
+{
+  "summary": "This post documents the early efforts to build a distributed GPU-backed Pandas dataframe by combining cuDF (GPU Pandas) with Dask Dataframe's parallel algorithms. The approach reuses existing Dask parallel algorithms designed for Pandas, allowing shared maintenance and establishing conventions for future Pandas-like libraries. While the integration is young and many features don't yet work, basic operations like reading CSVs and aggregations function smoothly. Early benchmarks show impressive single-CPU to single-GPU speedups but poor multi-GPU scaling, likely due to I/O bottlenecks rather than computation limits. The author emphasizes that API compatibility between Pandas, cuDF, and Dask makes it remarkably easy to test across different hardware configurations.",
+  "key_points": [
+    "Building on cuDF and Dask Dataframe allows reuse of parallel algorithms and shared maintenance costs across CPU and GPU implementations",
+    "The approach establishes conventions for Pandas-like libraries, potentially benefiting future projects like Arrow's computational system",
+    "API pressure on cuDF to match Pandas creates friction, particularly around edge cases like column ordering and missing value handling",
+    "Current scaling tests show 40x performance span across architectures, but multi-GPU scaling is disappointing (2x speedup with 8x GPUs) due to I/O bottlenecks",
+    "The tight integration means switching between CPU and GPU requires minimal code changes, making hardware flexibility a key advantage"
+  ],
+  "money_quotes": [
+    "Given these building blocks, our approach is to make the cuDF API close enough to Pandas that we can reuse the Dask Dataframe algorithms.",
+    "By building code that works equally with two DataFrame implementations (CPU and GPU) we establish conventions and protocols that will make it easier for other projects to do the same.",
+    "This approach also aims to demonstrate that the ecosystem should support Pandas-like libraries, rather than just Pandas.",
+    "Dask parallelism is orthogonal to the choice of CPU or GPU.",
+    "For GPUs for example we got around a 2x speedup when we added 8x as many GPUs.",
+    "It may be that for data-loading and pre-processing workloads the previous wisdom of 'pack as much computation as you can into a single box' no longer holds."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Building GPU-accelerated distributed dataframes by maintaining Pandas API compatibility enables code reuse and hardware flexibility, but early scaling results reveal that I/O bottlenecks, not computation, often limit real-world multi-GPU performance gains.",
+  "filename": "2019-01-13-dask-cudf-first-steps"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "This technical post describes the development of an efficient partitioning system for out-of-core dataframes that don't fit in memory. Rocklin explains how partitioning is fundamentally challenging because it's inherently non-local\u2014with 1,000 partitions, you end up with a million partition shards to manage, where even millisecond latencies compound into significant delays. The solution leverages BColz (an on-disk chunked array container) to create a new 'pframe' data structure that efficiently appends and extracts partitioned data. Through iterative optimization on the NYC Taxi dataset, performance improved from 'all night' to 3.5 minutes. The approach requires only one full pass through the data plus an index scan, which Rocklin argues is theoretically better than external sorting's two-pass requirement.",
+  "key_points": [
+    "Partitioning is inherently non-local and creates O(n\u00b2) communication patterns\u20141,000 partitions means 1,000,000 shards, where even 1ms latency per shard equals 18 minutes of overhead",
+    "The initial mistake was treating each partition shard independently; aggregating shards headed for the same output block dramatically improved performance",
+    "BColz provides efficient on-disk append operations in Cython that enable streaming partitioned writes at near I/O bandwidth limits",
+    "The iterative optimization process took NYC Taxi partitioning from overnight runs to 3.5 minutes through multiple improvements including Pandas categoricals and multithreading",
+    "The approach is theoretically superior to external sorting because partitioning only needs approximate divisions, not a full sort, requiring fewer passes through the data"
+  ],
+  "money_quotes": [
+    "Data locality is the root of all performance \u2014 A Good Programmer",
+    "Partitioning/shuffling is inherently non-local. Every block of input data needs to separate and send bits to every block of output data.",
+    "If our communication/storage of those shards has even a millisecond of latency then we run into problems.",
+    "Previously I stored the partition-shards individually on the filesystem using cPickle. This was a mistake.",
+    "We don't need a full sort, we need something far weaker.",
+    "Task scheduling lets us be pretty sloppy with load imbalance as long as we have many tasks.",
+    "There isn't much literature to back up my approach. That concerns me."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Efficient out-of-core partitioning requires aggregating operations to amortize latency costs, because the O(n\u00b2) nature of shuffling makes even millisecond overheads catastrophic at scale.",
+  "filename": "2015-03-25-Partition-and-Shuffle"
+}

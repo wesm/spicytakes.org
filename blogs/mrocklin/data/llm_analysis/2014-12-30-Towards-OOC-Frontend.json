@@ -1,0 +1,28 @@
+{
+  "summary": "This post demonstrates how Blaze provides a user-friendly NumPy-like interface on top of the low-level dask dictionary system for out-of-core array operations. Building on the previous post's task scheduler design, Rocklin shows how complex operations like transpose/dot-product can be expressed in familiar syntax while still generating the same efficient task graphs underneath. The key architectural insight is separating the frontend (user interface) from the backend (execution engine), allowing both to evolve independently. This separation enabled Blaze integration to be completed in just an afternoon, validating the design approach.",
+  "key_points": [
+    "Blaze wraps the low-level dask dict task system with a NumPy-like API that's familiar to data scientists",
+    "The same underlying task graph is generated whether using low-level dicts or high-level Blaze syntax",
+    "Separating frontend from backend allows both sides to progress more swiftly and stay cleaner",
+    "The computed task dict contains all information needed for either sequential or distributed execution",
+    "The approach has proven surprisingly effective with relatively little implementation effort"
+  ],
+  "money_quotes": [
+    "Blaze is an extensible front-end for analytic computations",
+    "By separating backend work from frontend work we allow both sides to be cleaner and to progress more swiftly.",
+    "This result contains all necessary information to go from on-disk arrays to computed result in whatever manner you choose.",
+    "It's exciting how effective this approach has been with relatively little effort.",
+    "I quit my academic postdoc to work on this and couldn't be happier with the switch."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "open_source",
+    "technical",
+    "career"
+  ],
+  "tone": "technical, optimistic, casual",
+  "key_insight": "Clean separation between user-facing frontend APIs and execution backends enables rapid development on both sides while keeping code maintainable.",
+  "filename": "2014-12-30-Towards-OOC-Frontend"
+}

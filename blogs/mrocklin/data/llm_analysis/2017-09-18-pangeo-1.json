@@ -1,0 +1,29 @@
+{
+  "summary": "This post announces and documents the initial work on Pangeo, an NSF-funded collaboration between NCAR, Columbia University, and Anaconda to run Dask and XArray on HPC systems for climate data analysis. The team solved the HPC deployment problem by creating a dask-mpi executable that leverages MPI's universal support on supercomputers, even though Dask still uses TCP for actual communication. They developed workarounds for batch scheduler limitations by requesting many small jobs instead of few large ones, taking advantage of Dask's ability to dynamically add workers. The post also covers JupyterLab integration for remote interactive work and identifies network performance optimization as a key area for future improvement.",
+  "key_points": [
+    "Dask deployment on HPC was solved by creating an MPI wrapper that translates 'How do I start Dask?' into 'How do I run this MPI program?' - a question HPC staff can answer",
+    "Interactive analysis conflicts with batch schedulers designed for non-interactive jobs, but requesting many small single-machine jobs starts faster than requesting one large allocation",
+    "Network bandwidth on Infiniband reaches ~1GB/s (10x faster than Amazon) but only 30% of the hardware's capability, likely due to Tornado's byte handling",
+    "XArray's early adoption of Dask means it predates distributed scheduler features like persisting data in RAM and parallel debugging",
+    "JupyterLab provides critical functionality for remote HPC work: file browsing, terminals, and visualization through a single SSH-tunneled connection"
+  ],
+  "money_quotes": [
+    "We've successfully translated the question 'How do I start Dask?' to the question 'How do I run this MPI program?' which is a question that the technical staff at supercomputer facilities are generally much better equipped to handle.",
+    "To be clear, Dask isn't using MPI for inter-process communication. It's still using TCP. We're just using MPI to launch a scheduler and several workers and hook them all together.",
+    "Many small jobs can start more quickly than a few large ones. These take advantage of holes in the schedule that are too small to be used by larger jobs.",
+    "Dask doesn't need to be started all at once. Workers can come and go.",
+    "For any commodity or cloud-based system this is very fast (about 10x faster than what I observe on Amazon). However for a super-computer this is only about 30% of what's possible.",
+    "If we can get near MPI bandwidth then that may help to reduce concerns for this performance-oriented community.",
+    "This grant isn't just about serving the scientific needs of researchers at Columbia and NCAR, but about building long-term systems that can benefit the entire atmospheric and oceanographic community."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Pragmatic integration with existing HPC infrastructure (MPI, batch schedulers) rather than fighting against it enables Dask to bring interactive, scalable data analysis to supercomputing environments.",
+  "filename": "2017-09-18-pangeo-1"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "This tutorial demonstrates how to use dask.array for distributed computing on a typical academic cluster setup with Sun GridEngine, NFS, and NetCDF weather data. Rocklin walks through deploying dask's distributed scheduler, loading temperature data across multiple workers, and performing interactive analyses using NumPy-style operations. The post shows how to coordinate scattered NumPy arrays into a single logical dask array, enabling standard PyData workflows on distributed data. A key demonstration involves normalizing temperature data to reveal fine-grained weather patterns beyond obvious trends. While the setup works, Rocklin acknowledges several pain points including the lack of high-level APIs and the need for easier deployment options.",
+  "key_points": [
+    "Dask's distributed scheduler can be deployed on academic clusters using job schedulers like SGE by starting a scheduler on the master node and submitting workers via qsub",
+    "Multiple NumPy arrays scattered across workers can be coordinated into a single logical dask array, enabling standard NumPy syntax on distributed data",
+    "Network roundtrip time, bandwidth, and scheduler overhead are the primary bottlenecks for different types of operations (single element access, data transfer, and aggregations respectively)",
+    "Interactive IPython widgets can provide fluid exploration of distributed datasets, though performance varies based on how well queries align with data chunking",
+    "The ecosystem still lacks high-level convenience functions for distributed data loading, requiring users to work with mid-level APIs"
+  ],
+  "money_quotes": [
+    "Operations on the single dask array will trigger many operations on each of our numpy arrays.",
+    "It is really satisfying to me to couple interactive widgets with data on a cluster in an intuitive way. This sort of fluid interaction on larger datasets is a core problem in modern data science.",
+    "Our dataset could have fit into a Macbook Pro. A larger dataset that could not have been efficiently investigated from a single machine would have really cemented the need for this technology.",
+    "We had to use the mid-level API of executor.map to construct our dask array. This is a bit of a pain for novice users.",
+    "This second example is less fluid because we index across our NumPy chunks. Each computation touches all of our data. It's still not bad though and quite acceptable by today's standards of interactive distributed data science."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, instructional, candid",
+  "key_insight": "Distributed computing with familiar NumPy-style APIs enables interactive exploration of cluster-scale data, though the ecosystem still needs higher-level abstractions to be truly accessible to novice users.",
+  "filename": "2016-02-26-dask-distributed-part-3"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "This technical post demonstrates how SymPy's symbolic matrix expressions can be combined with Theano's code generation to implement the Kalman filter algorithm. The author shows how blocking matrix computations\u2014a standard technique to optimize memory access patterns\u2014can be applied automatically through SymPy's symbolic manipulation and compiled by Theano. The blocked version achieves 20% performance improvement over the naive implementation. However, the approach has limitations: Theano doesn't support specialized BLAS/LAPACK routines that SymPy's inference engine could identify, and debugging across the multi-layer toolchain requires broad expertise.",
+  "key_points": [
+    "SymPy and Theano can be combined to transform symbolic matrix expressions into efficient numeric code, with any SymPy matrix expression now translatable to Theano",
+    "Blocking computations reduces memory shuffling by keeping data in faster cache levels, a technique that can be extended beyond individual routines to coordinate across operations",
+    "The approach achieved 20% performance improvement on Kalman filter computation through automated blocking",
+    "The lower-level interface (Theano) lacks support for specialized BLAS routines like POSV, preventing full use of SymPy's mathematical inference capabilities",
+    "Debugging across the SymPy->Theano->SciPy->BLAS toolchain requires broad expertise when components aren't well unit-tested"
+  ],
+  "money_quotes": [
+    "High performance dense linear algebra libraries hard-code all of these tricks into each individual routine... Unfortunately these routines are unable to coordinate blocked computation between calls.",
+    "Fortunately, SymPy and Theano can.",
+    "Blocked matrix multiply and blocked solve routines have long been established as a good idea. High level mathematical and array programming libraries like SymPy and Theano allow us to extend this good idea to arbitrary array computations.",
+    "The lower-level interface (Theano) is not sufficiently rich to use all information captured in the higher-level (SymPy) representation.",
+    "Debugging in this context can be wonderful if all elements are well unit-tested. If they're not (they're not) then tracking down errors like this requires an unfortunate breadth of expertise."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "distributed"
+  ],
+  "tone": "technical",
+  "key_insight": "Composing high-level symbolic mathematics tools with code generation systems enables automatic optimization of complex computations that would otherwise require hand-tuned implementations.",
+  "filename": "2013-04-05-SymPy-Theano-part-3"
+}

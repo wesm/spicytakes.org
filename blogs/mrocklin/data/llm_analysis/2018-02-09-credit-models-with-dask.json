@@ -1,0 +1,28 @@
+{
+  "summary": "This guest post by Rich Postelnik demonstrates how a large retail bank uses Dask to manage complex credit modeling computations. The problem involves hundreds of interdependent equations for estimating loan default likelihood, which creates a challenging dependency and ordering problem. By using dask.delayed decorators, they transform Python functions into graph vertices that automatically track dependencies, eliminating manual argument passing and messy code. The approach allows analysts to write isolated equation functions while Dask handles graph generation, computation ordering, and optional distribution across clusters. The resulting system separates model code from computational infrastructure, enabling easier maintenance and scaling to larger-than-memory datasets without rewriting code for tools like Spark.",
+  "key_points": [
+    "Credit modeling involves hundreds of interdependent equations with complex input/output relationships, making manual dependency tracking error-prone and code maintenance difficult",
+    "Dask's delayed decorator transforms regular Python functions into DAG vertices, automatically constructing computation graphs when delayed outputs are passed as inputs to other delayed functions",
+    "The bank created a custom Equation data structure that marks inputs and outputs, enabling automatic topological sorting and graph generation",
+    "Tree reduction patterns enable scalable aggregation of results across many applicants while creating visually structured computation graphs",
+    "Dask provides additional benefits beyond task scheduling: built-in diagnostics, seamless distribution to clusters, and DataFrame APIs accessible to less technical analysts"
+  ],
+  "money_quotes": [
+    "This boils down to a dependency and ordering problem known as task scheduling.",
+    "We want to avoid manually keeping track of the dependencies, as well as messy code.",
+    "It is this passing of Delayed objects as inputs to other delayed functions that allows Dask to construct the task graph.",
+    "This allows us to write each equation as its own isolated function and mark its inputs and outputs.",
+    "With our Dask-based data structure, we spend more of our time writing model code rather than maintenance of the engine itself.",
+    "This allows a clean separation between our analysts that design and write our models, and our computational system that runs them.",
+    "Now if I want to run our model across larger-than-memory data or on a distributed cluster, we don't have to worry about rewriting our code to incorporate something like Spark."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Complex computational dependency problems like credit modeling can be elegantly solved by using Dask's delayed decorator to automatically construct and execute task graphs, separating business logic from computational infrastructure.",
+  "filename": "2018-02-09-credit-models-with-dask"
+}

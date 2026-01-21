@@ -1,0 +1,24 @@
+{
+  "summary": "This post introduces Blaze's `into` function, which enables seamless data migration between different storage and computational backends. The function takes a target container type and source data, automatically handling the conversion between formats like CSV, NumPy arrays, Pandas DataFrames, SQL databases, MongoDB, and BColz. Rather than implementing conversions from scratch, Blaze delegates to existing optimized solutions where available and manages streaming conversions where they don't. The post demonstrates the breadth of supported formats through practical examples.",
+  "key_points": [
+    "The `into` function provides a unified interface for moving data between any pair of supported container types",
+    "Blaze leverages existing optimized loaders (like database-specific CSV importers) rather than reimplementing data migration",
+    "For unsupported conversion paths, Blaze streams data through Python with automatic type translation",
+    "The function complements Blaze's query abstraction by solving the data portability problem that enables backend flexibility"
+  ],
+  "money_quotes": [
+    "Blaze migrates data efficiently between a variety of data stores.",
+    "The `into` function takes two arguments, `a` and `b`, and it puts the data in `b` into a container like `a`.",
+    "Again, Blaze isn't doing any of the work, it just calls out to the `read_csv` function of the appropriate library with the right inputs.",
+    "Blaze leverages known solutions where they exist.",
+    "Blaze manages solutions where they don't exist, for example when migrating from a MongoDB to a BColz out-of-core array we stream the database through Python, translating types as necessary."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "A unified data migration interface that delegates to optimized solutions where they exist and gracefully handles edge cases enables true backend portability for data analysis.",
+  "filename": "2014-09-01-Blaze-into"
+}

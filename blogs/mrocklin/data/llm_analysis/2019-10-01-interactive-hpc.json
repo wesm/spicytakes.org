@@ -1,0 +1,29 @@
+{
+  "summary": "Scientific institutions struggle to adapt traditional HPC infrastructure for modern data science workloads that are interactive, data-centric, and ad-hoc rather than batch-oriented. The post identifies three main friction points: rapidly changing software environments, the need for rich user interfaces like Jupyter, and the mismatch between bursty on-demand computing needs and HPC policies optimized for high utilization. Rocklin presents practical solutions at both user and institutional levels, including Conda for self-managed environments, JupyterHub for accessible interfaces, and Dask for elastic scaling within job queues. The key insight is that existing HPC infrastructure can serve data science effectively with modest policy changes and appropriate tooling, without requiring a full migration to cloud.",
+  "key_points": [
+    "Data science workloads differ fundamentally from traditional HPC: they're interactive, ad-hoc, and data-centric rather than batch-oriented overnight jobs",
+    "Users can self-manage software environments with Conda, freeing IT from maintaining hundreds of bespoke configurations",
+    "JupyterHub bridges the UX gap by providing rich interfaces while maintaining institutional security and getting users off login nodes",
+    "Dask integrates with job schedulers to exploit scheduling gaps\u2014'if you fill a bucket full of rocks, you can still pour in a fair amount of sand'",
+    "HPC policies optimizing purely for utilization may actually reduce scientific productivity compared to policies allowing bursty, on-demand access"
+  ],
+  "money_quotes": [
+    "HPC hardware and policies weren't designed for these use cases, and the rise of data science happened more quickly than our typical HPC procurement cycle.",
+    "Asking an IT system administrator to manage hundreds of bespoke software environments is infeasible. Neither side would be happy with the arrangement.",
+    "It is both liberating and scary to give up control over the software that runs on your machine.",
+    "They're comfortable waiting for a minute or two, but if there is an hour-long wait in the queue then they're going to switch off to something else, and they're probably not going to try this workflow again in the future.",
+    "A good analogy I've heard before is that if you fill a bucket full of rocks, you can still pour in a fair amount of sand. Our goal is to be like sand.",
+    "Many HPC systems are judged on utilization, but it's important to remember that scientific productivity does not necessarily follow utilization perfectly.",
+    "Our ability to generate large scientific datasets on supercomputers has vastly outstripped our ability to analyze them."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "practical, diplomatic, technical",
+  "key_insight": "Existing HPC infrastructure can effectively support interactive data science through a combination of user-level tooling (Conda, Dask) and modest institutional policy changes, without requiring cloud migration.",
+  "filename": "2019-10-01-interactive-hpc"
+}

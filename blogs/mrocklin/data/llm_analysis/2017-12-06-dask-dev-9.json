@@ -1,0 +1,28 @@
+{
+  "summary": "This development log covers ongoing work in the Dask ecosystem, including a potential shift to more open community communication practices, a major scheduler rewrite to enable compiler optimizations at scale, new Kubernetes deployment tooling, and various bug fixes and feature additions. The post emphasizes transparency by sharing work-in-progress updates that aren't yet production-ready. A key theme is scaling Dask to handle 1000+ worker clusters, which has exposed scheduler bottlenecks requiring architectural changes. The work spans infrastructure, community governance, and keeping pace with the broader Python data ecosystem.",
+  "key_points": [
+    "The distributed scheduler is being rewritten to work better with PyPy and Cython, moving from Python dictionaries to Python objects for potential C-speed optimization",
+    "Dask is migrating away from closed internal communication systems toward more open community channels",
+    "New Kubernetes and Helm Chart tooling makes deploying Dask clusters on cloud infrastructure significantly easier",
+    "The project must continuously update to maintain compatibility with evolving NumPy and Pandas releases",
+    "Adaptive deployment features that auto-scale clusters based on workload received significant bug fixes"
+  ],
+  "money_quotes": [
+    "To increase transparency I'm trying to blog more often about the current work going on around Dask and related projects.",
+    "When you start building clusters with 1000 workers the distributed scheduler can become a bottleneck on some workloads.",
+    "Compiler technologies like PyPy and Cython can optimize Python object access down to C speeds, so we're experimenting with switching away from Python data structures to Python objects.",
+    "We're now trying to migrate away from closed systems when possible.",
+    "This change will be invisible operationally (the full test suite remains virtually unchanged), but will be a significant change to the scheduler's internal state.",
+    "I am learning on the job with Helm here."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical, transparent, collaborative",
+  "key_insight": "Scaling distributed systems to thousands of workers requires rethinking fundamental architectural decisions, and open source projects benefit from transparent communication about work-in-progress.",
+  "filename": "2017-12-06-dask-dev-9"
+}

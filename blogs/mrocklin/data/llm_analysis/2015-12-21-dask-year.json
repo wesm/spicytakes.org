@@ -1,0 +1,29 @@
+{
+  "summary": "On Dask's first anniversary, the project has grown from an 'inefficient scheduler' to a mature ecosystem with multiple collection types serving different scientific domains. Dask.array has achieved the most success, particularly through downstream projects like xray in climate science. Dask.dataframe, while sophisticated, generates the most user frustration due to implementing only a subset of Pandas functionality. The author argues that big data collections are over-hyped and that users should consider custom graphs and the imperative API for complex parallel computations. He also provocatively suggests that parallelism itself is often the wrong solution, advocating instead for better storage formats and algorithms.",
+  "key_points": [
+    "Dask.array is the most successful component, with independent researchers now using it for scientific work in climate science, imaging, and genomics",
+    "Dask.dataframe causes frustration because there's no clear 'core subset' of Pandas that satisfies all users, and expectations are hard to communicate",
+    "Big data collections like arrays and dataframes are over-hyped; real-world parallel computations often require more particular, custom approaches",
+    "Parallelism is often sub-optimal compared to improving storage formats, using better algorithms, or C/Numba acceleration",
+    "A new distributed cluster scheduler is in experimental development to extend Dask to 'big data' systems"
+  ],
+  "money_quotes": [
+    "People that I don't know now use dask.array to do scientific research. From my perspective that's mission accomplished.",
+    "Big data collections are cool but perhaps less useful than people expect.",
+    "The big dataframe in particular is over-hyped.",
+    "It's often far cheaper to improve storage formats, use better algorithms, or use C/Numba accelerated code than it is to parallelize.",
+    "Unfortunately storage formats and C aren't as sexy as big data parallelism, so they're not in the forefront of people's minds.",
+    "I'll proudly buy a beer for anyone that helps to make storage formats a sexier topic.",
+    "What one user considers core another user considers fringe."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "reflective, candid, opinionated",
+  "key_insight": "The most valuable parallel computing work often comes not from big data abstractions like dataframes, but from custom approaches\u2014and frequently, the best solution isn't parallelism at all but better algorithms and storage formats.",
+  "filename": "2015-12-21-dask-year"
+}

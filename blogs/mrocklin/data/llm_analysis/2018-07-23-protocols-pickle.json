@@ -1,0 +1,28 @@
+{
+  "summary": "The post addresses a performance issue where Dask with PyTorch was slow due to inefficient pickle serialization. Rather than adding a Dask-specific workaround, the author contributed a five-line fix upstream to PyTorch that improved serialization from 1-50 MB/s to 1 GB/s. The key insight is that pickle itself isn't slow\u2014it's a protocol that developers implement, and poor implementations create the perception of slowness. The author argues that supporting standard protocols like pickle benefits the entire Python ecosystem, allowing interoperability between Dask, PySpark, Ray, and other distributed systems without special-case code.",
+  "key_points": [
+    "A five-line fix to PyTorch's __reduce__ method improved pickle serialization from 1-50 MB/s to 1 GB/s by using torch.save instead of .tolist()",
+    "Pickle is a protocol, not an implementation\u2014slowness comes from how developers implement __reduce__, not from pickle itself",
+    "Fixing issues upstream in protocols benefits the entire ecosystem rather than just one library",
+    "Specialized serialization methods have their place but create friction for users and make library interoperability harder",
+    "The belief that 'pickle is just slow' prevented investigation into the actual performance bottleneck"
+  ],
+  "money_quotes": [
+    "Pickle is not slow. Pickle is a protocol. We implement pickle. If it's slow then it is our fault, not Pickle's.",
+    "We didn't solve a Dask problem, we solved an ecosystem problem.",
+    "I suspect that the common belief of 'Pickle is just slow' stopped anyone else from investigating the poor performance here.",
+    "Other libraries that need to interact definitely won't read the documentation, and even if they did it's not sensible for every library to special case every other library's favorite method to turn their objects into bytes.",
+    "Ecosystems of libraries depend strongly on the presence of protocols and a strong consensus around implementing them consistently and efficiently.",
+    "Today we use a large and rapidly changing set of libraries. It's hard for users to become experts in all of them."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, ecosystem-minded",
+  "key_insight": "When a protocol seems slow, investigate your implementation rather than blaming the protocol\u2014and fix issues upstream to benefit the entire ecosystem rather than adding special-case workarounds.",
+  "filename": "2018-07-23-protocols-pickle"
+}

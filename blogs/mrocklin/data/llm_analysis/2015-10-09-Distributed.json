@@ -1,0 +1,29 @@
+{
+  "summary": "Matt Rocklin introduces a prototype distributed computing library for Python, demonstrating its capabilities through a simple computation across a four-node EC2 cluster. The post shows two approaches: a Pool-based method for manual data management and a dask graph approach that handles intermediates automatically. A key design principle is data locality\u2014keeping intermediate results on the cluster and scheduling jobs on nodes that already have relevant data. The library is presented as experimental and the author explicitly solicits critical feedback from the community.",
+  "key_points": [
+    "The distributed library provides both Pool and dask graph interfaces that share the same underlying network and codebase",
+    "Data locality is a core design principle\u2014jobs are scheduled on computers that already have relevant data to minimize communication",
+    "Dask's separation of schedulers from collections means existing dask code automatically benefits from new scheduler implementations",
+    "The goal is to lower the bar for non-trivial cluster computing in Python with minimal setup requirements",
+    "The prototype is explicitly experimental and the author welcomes critical feedback"
+  ],
+  "money_quotes": [
+    "We don't move data until we need to.",
+    "Data transfer will happen when necessary though, as when we compute the final sum.",
+    "We keep intermediate results on the cluster and schedule jobs on computers that already have the relevant data if possible.",
+    "The workers can communicate with each other if necessary so that any worker can do any job, but we try to arrange jobs so that workers don't have to communicate if not necessary.",
+    "Dask's separation of schedulers from collections means that existing dask.array code gets to evolve as we experiment with new fancier schedulers.",
+    "My hope is that distributed lowers the bar for non-trivial cluster computing in Python.",
+    "The library itself is broken and unstable. It was made in the last few weeks and hasn't been used on anything serious."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, humble, exploratory",
+  "key_insight": "Data locality\u2014scheduling computation where data already resides and minimizing unnecessary transfers\u2014is the key to practical distributed computing, and this principle can be abstracted behind familiar Python interfaces.",
+  "filename": "2015-10-09-Distributed"
+}

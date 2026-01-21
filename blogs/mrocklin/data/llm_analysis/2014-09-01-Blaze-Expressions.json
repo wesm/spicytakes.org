@@ -1,0 +1,26 @@
+{
+  "summary": "This post introduces Blaze, a Python library that abstracts tabular computation to provide uniform access to multiple database technologies. The core insight is that Blaze separates expression definition from computation execution, allowing users to write queries once and run them against various backends including Pandas, MongoDB, SQL, and Spark. The post demonstrates how the same 'deadbeats' query can execute against Python lists, Pandas DataFrames, and MongoDB without code changes. Blaze addresses the friction data scientists face when learning and migrating between different data storage systems, with the goal of reducing startup costs associated with 'biggish-data' analytics.",
+  "key_points": [
+    "Blaze separates abstract expression definition from actual computation, allowing queries to be defined once and executed against multiple backends",
+    "The library supports diverse backends including Pure Python, Pandas, MongoDB, SQL, PySpark, PyTables, and BColz",
+    "Blaze doesn't compute results itself - it translates expressions and drives other systems to perform the actual computation",
+    "The interactive Table abstraction bridges the gap between abstract expressions and the immediate feedback users expect from NumPy/Pandas",
+    "The project aims to reduce the friction of learning and migrating data between different storage technologies"
+  ],
+  "money_quotes": [
+    "The startup costs of learning to munge and migrate data between new technologies often dominate biggish-data analytics.",
+    "Blaze doesn't compute results; Blaze drives other systems to compute results.",
+    "At its core, Blaze is a way to express data and computations.",
+    "Blaze strives to reduce this friction. Blaze provides a uniform interface to a variety of database technologies and abstractions for migrating data.",
+    "The separation of expressions and computation is core to Blaze."
+  ],
+  "themes": [
+    "python",
+    "distributed",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, explanatory, practical",
+  "key_insight": "By separating the definition of data operations from their execution, Blaze enables data scientists to write queries once and run them across any supported backend, eliminating the need to learn each system's unique API.",
+  "filename": "2014-09-01-Blaze-Expressions"
+}

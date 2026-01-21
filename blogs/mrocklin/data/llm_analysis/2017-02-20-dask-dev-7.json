@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin provides a development update on Dask covering work from early February 2017. The main focus is on profiling iterative machine learning algorithms through the Dask-GLM project, which revealed that scheduler overhead becomes a significant bottleneck when underlying NumPy operations are fast. This led to two graph optimization efforts: more aggressive task fusion for nearly-linear graphs and structural sharing to avoid copying task graphs. The post also covers experiments integrating Dask with TensorFlow, Keras, and XGBoost, plus ecosystem improvements including Google Cloud Storage support and tutorial updates.",
+  "key_points": [
+    "Scheduler overhead becomes the dominant bottleneck when in-memory NumPy operations are very fast, as revealed by Dask-GLM benchmarks",
+    "New graph optimizations trade potential parallelism for reduced overhead by fusing 'diamond-shaped' nearly-linear task graphs",
+    "Structural sharing now prevents unnecessary graph copies, significantly reducing overhead for math-heavy array operations",
+    "TensorFlow and XGBoost integrations demonstrate how Dask can deploy and manage other distributed services",
+    "The true goal of technical blogposts is attracting potential developers and collaborators"
+  ],
+  "money_quotes": [
+    "This is mostly just because the actual in-memory NumPy operations are so fast; any sluggishness on Dask's part becomes very apparent.",
+    "There is a tradeoff here and we'd like to be able to exchange some parallelism (of which we have a lot) for less overhead.",
+    "The true goal of all blogposts is attracting the attention of other potential developers.",
+    "The challenge for me is that I have little concrete experience with the applications that these libraries were designed to solve.",
+    "Feedback and collaboration from open source developers who use these libraries in production is welcome.",
+    "Because of the experimental nature of this work we had labeled the library 'not ready for use', which drew some curious responses from potential users."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, transparent, collaborative",
+  "key_insight": "When low-level operations become fast enough, the coordination overhead of a distributed scheduler becomes the primary performance constraint, requiring optimization strategies that deliberately sacrifice some parallelism.",
+  "filename": "2017-02-20-dask-dev-7"
+}

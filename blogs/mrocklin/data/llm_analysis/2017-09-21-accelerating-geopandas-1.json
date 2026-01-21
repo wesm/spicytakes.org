@@ -1,0 +1,29 @@
+{
+  "summary": "Matt Rocklin and Joris Van den Bossche dramatically accelerate Python's geospatial analysis stack by rewriting GeoPandas with Cython and adding Dask parallelization. The Cython rewrite provides 10-100x speedups by storing direct pointers to GEOS C objects instead of wrapping them in Python Shapely objects, achieving performance parity with PostGIS. Adding Dask parallelization provides an additional 3-4x speedup on multi-core machines. They demonstrate the improvement by reducing a 3-hour NYC taxi analysis to 8 minutes, though the work remains experimental and they actively seek contributors.",
+  "key_points": [
+    "GeoPandas was slow because it wrapped each geometry in a Shapely Python object and iterated through them in Python, causing both iteration overhead and memory bloat",
+    "Cythonizing GeoPandas to directly loop over GEOS pointers achieved 10-100x speedups, matching PostGIS performance since both use the same underlying GEOS library",
+    "Dask-geopandas enables parallel processing across cores by partitioning data either naively (by row chunks) or spatially (by geographic region)",
+    "Data ingestion via Fiona/GDAL remains a bottleneck now that computation is fast - loading CSV files took half the total runtime in their demo",
+    "The work requires upstream Pandas changes to support custom block types for properly tracking GEOS geometry pointers"
+  ],
+  "money_quotes": [
+    "Python's Geospatial stack is slow. We accelerate the GeoPandas library with Cython and Dask. Cython provides 10-100x speedups.",
+    "So instead of using a Pandas object-dtype column that holds shapely objects we instead store a NumPy array of direct pointers to the GEOS objects.",
+    "Cythonized GeoPandas and PostGIS run at almost exactly the same speed. This is because they use the same underlying C library, GEOS.",
+    "Cities are now doing a wonderful job publishing data into the open. This provides transparency and an opportunity for civic involvement to help analyze, understand, and improve our communities.",
+    "The Python GIS stack now has a full-speed library that operates as fast as any other open GIS system is likely to manage.",
+    "I suspect that we can build an intuitive and performant parallel GIS analytics system with modest effort.",
+    "We believe that this project can have a large social impact and are enthusiastic about pursuing it in the future."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, optimistic, collaborative",
+  "key_insight": "By eliminating Python object overhead through Cython and adding Dask parallelization, Python's geospatial stack can match the performance of established tools like PostGIS while maintaining Python's accessibility and ecosystem benefits.",
+  "filename": "2017-09-21-accelerating-geopandas-1"
+}

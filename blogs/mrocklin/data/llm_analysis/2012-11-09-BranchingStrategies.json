@@ -1,0 +1,23 @@
+{
+  "summary": "This post extends the author's previous work on transformation strategies by introducing branching strategies that handle rules with multiple possible outcomes. The key innovation is using lazy evaluation to avoid combinatorial explosion when pattern matching can produce multiple valid results. By creating branching analogs of existing strategies (like exhaust and top_down), complex simplification functions can be built that preserve all possible transformation paths. The post demonstrates this with a toy function that has multiple outcomes for the same input, and a practical trigonometric identity simplification.",
+  "key_points": [
+    "Transformation rules from unification can match patterns in multiple ways, requiring lazy yielding of solutions to avoid combinatorial blowup",
+    "Branching strategies are lazy analogs of regular strategies, mapping expressions to sets of expressions rather than single values",
+    "Complex simplification functions can be built by cleanly separating logic (the rules) from control (the strategy composition)",
+    "The exhaust strategy combined with top_down and multiplex creates powerful tree-wise simplification",
+    "SymPy's Expr construction has quirks that require workarounds like rebuild functions and special pattern handling"
+  ],
+  "money_quotes": [
+    "To avoid combinatorial blowup in the number of possible matches we solved this by yielding matches lazily.",
+    "Transformation rules produced by unify don't return values, they yield possible solutions lazily.",
+    "We see how we can easily build up powerful simplification functions through the separate description of logic and control.",
+    "Notice that in the case where x = 5 there are two possible outcomes. Each of these is preserved by the application of branching strategies."
+  ],
+  "themes": [
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Separating the description of transformation logic (rules) from control flow (strategies) enables building powerful simplification systems while managing combinatorial complexity through lazy evaluation.",
+  "filename": "2012-11-09-BranchingStrategies"
+}

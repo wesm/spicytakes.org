@@ -1,0 +1,26 @@
+{
+  "summary": "This post introduces the concept of strategies as a way to separate control flow from logic in programming. Building on previous work about unification and rewrite rules, Rocklin demonstrates how higher-order functions like 'exhaust' and 'top_down' can encapsulate common control patterns (like 'repeatedly apply until no change' or 'traverse a tree'). This separation enables code reuse, makes logic more extensible, and turns control patterns into first-class programmable entities. The approach was applied to rewrite SymPy's Matrix Expression canonicalization code, composing small atomic rules into larger transformations. The work is inspired by the StrategoXT language, which treats control structures as composable primitives.",
+  "key_points": [
+    "Traditional programming mixes control flow and logic, but separating them yields significant benefits: code reuse, extensibility, and programmable control patterns",
+    "The 'exhaust' strategy captures the common pattern of 'apply a function repeatedly until it has no effect' - a pattern that appears frequently in serious code",
+    "Strategies are higher-order functions that transform rules into larger rules, enabling composition of small atomic transformations into complex canonicalization functions",
+    "Tree traversal strategies like 'top_down' allow expression-wise functions to work across entire expression trees without the logic knowing about tree structure",
+    "This approach was inspired by StrategoXT, a language where control structures like 'breadth first search' and 'dynamic programming' are natural, composable expressions"
+  ],
+  "money_quotes": [
+    "We give you a higher order function, top_down, which turns an expression-wise function into a tree-wise function.",
+    "By factoring out the control strategy we achieve several benefits: Code reuse, Exposure of logic, Programmability of control.",
+    "The control pattern is now first class. We can manipulate and compose it as we would manipulate or compose a variable or function.",
+    "It is the 'Exhaustively apply this function until there is no effect' control pattern. It occurs often in general programming and very often in the SymPy sourcecode.",
+    "Stratego is a language for control that takes these ideas much farther and implements them more cleanly. It is a language where control structures are the primitives that can be built up, composed, and compiled down.",
+    "Can we build large strategies out of small strategies?"
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, pedagogical, methodical",
+  "key_insight": "Separating control flow from logic through higher-order 'strategy' functions enables reusable, composable, and programmable control patterns that transform simple rules into powerful tree-traversing transformations.",
+  "filename": "2012-11-07-Strategies"
+}

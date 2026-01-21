@@ -1,0 +1,26 @@
+{
+  "summary": "The post describes an ambitious project to translate high-level matrix expressions in SymPy into optimized Fortran code that calls BLAS and LAPACK routines. Rocklin argues that while NumPy provides access to fast low-level operations like DGEMM, it misses optimization opportunities because it executes operations at the Python level without reasoning about computation order or matrix properties. SymPy's symbolic reasoning capabilities can determine mathematical properties like positive-definiteness, enabling selection of specialized algorithms like Cholesky decomposition. The project aims to bridge the gap between accessible high-level notation and expert-level numerical optimization by encoding domain knowledge about linear algebra operations into a computation graph framework.",
+  "key_points": [
+    "BLAS routines like DGEMM are extremely well-optimized but have daunting interfaces that most scientific programmers cannot use directly",
+    "NumPy's per-operation Python-level execution prevents optimal operation ordering and creates unnecessary temporary matrices",
+    "SymPy can reason about mathematical properties of matrices (symmetric, positive definite, orthogonal) that numerical libraries cannot",
+    "Computation graphs (DAGs) provide a more general representation than linear code, enabling optimization before execution",
+    "The key unsolved problems are transforming matrix expressions into valid BLAS call graphs and choosing the optimal one among alternatives"
+  ],
+  "money_quotes": [
+    "You should never code up your own matrix multiply, you should always use DGEMM.",
+    "DGEMM is fast but inaccessible.",
+    "If we're allowed to reason about the computation before execution then we can make some substantial optimizations.",
+    "Step (2) is often removed in scripting languages for programmer simplicity. There has been a lot of activity recently in putting it back in for array computations.",
+    "Positive-Definiteness is a very important property of matrix expressions. It strongly influences our choice of numerical algorithm.",
+    "Expert numerical analysts know this but most scientific programmers do not. NumPy does not know this but SymPy does.",
+    "This description allows us to concisely describe the expert knowledge used by numerical analysts."
+  ],
+  "themes": [
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Symbolic reasoning about mathematical properties of matrices can bridge the gap between accessible high-level notation and expert-level numerical optimization that most programmers cannot access directly.",
+  "filename": "2012-10-29-Matrix-Computations"
+}

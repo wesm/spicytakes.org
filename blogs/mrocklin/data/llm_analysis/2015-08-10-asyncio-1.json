@@ -1,0 +1,27 @@
+{
+  "summary": "Matt Rocklin documents his experience rewriting dask.distributed's Worker component using Python's asyncio library. He compares asyncio's concurrency model to Go and Clojure's core.async, finding that it enables cleaner code organization, better debugging with pdb, and more graceful failure handling than threads. While praising the paradigm for making complex asynchronous logic manageable in a single place, he notes significant pain points including poor Python 2 support via Trollius, missing ZeroMQ bindings, and unhelpful tracebacks. He concludes that the design paradigm itself may be as valuable as the library implementation.",
+  "key_points": [
+    "Asyncio allows complex application logic involving multiple async calls, exception handling, and branching to live in one place rather than scattered across callbacks",
+    "The debugging experience improves significantly over threads - pdb works, Ctrl-C works, and failures are more graceful",
+    "Python 2 support via Trollius was usable but ecosystem gaps (like missing ZeroMQ bindings) forced falling back to threads for I/O",
+    "The concurrency paradigm shared by Go, core.async, and asyncio enabled better reasoning about program correctness through explicit process and channel diagrams",
+    "Documentation and community resources for asyncio were sparse; Go and Clojure resources proved more helpful for understanding the paradigm"
+  ],
+  "money_quotes": [
+    "Asyncio offers a programming paradigm that lets many moving parts interact without involving separate threads.",
+    "I can write complex code that involves multiple asynchronous calls, complex logic, and exception handling all in a single place. Complex application logic is no longer spread in many places.",
+    "The paradigm shared by Go, Clojure's core.async, and Python's asyncio felt viscerally good.",
+    "I was able to reason well about my program as I was building it and made nice diagrams about explicitly which sequential processes interacted with which others over which channels.",
+    "After having gone through this exercise I suspect that I could now implement just about the same design without asyncio. The design paradigm was perhaps as important as the library itself.",
+    "While exceptions raise cleanly I can't determine from where they originate. There are no line numbers or tracebacks."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "technical"
+  ],
+  "tone": "reflective, pragmatic, technical",
+  "key_insight": "The concurrent programming paradigm that asyncio embodies\u2014with explicit yielding of control and channel-based communication\u2014may be more valuable than asyncio itself, enabling cleaner reasoning about complex distributed systems.",
+  "filename": "2015-08-10-asyncio-1"
+}

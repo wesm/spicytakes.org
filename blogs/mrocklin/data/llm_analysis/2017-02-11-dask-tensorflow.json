@@ -1,0 +1,27 @@
+{
+  "summary": "This post explores how Dask and TensorFlow can work together for distributed machine learning, demonstrating three integration patterns: simple data parallelism for hyperparameter searches, deployment of TensorFlow networks on existing Dask clusters, and data preprocessing pipelines. The author walks through a concrete example of distributed training using parameter servers, where Dask handles data preparation, TensorFlow network setup, and coordination while TensorFlow manages the actual training. The post emphasizes that both libraries are designed to play nicely together without requiring special integration efforts, thanks to their shared foundation in Python and the PyData ecosystem.",
+  "key_points": [
+    "Dask can trivially set up TensorFlow networks, prepare/clean data, and coordinate training progress without special integration code",
+    "Distributed deep learning suffers from public excitement that may distort its utility - single-machine optimization and traditional ML techniques are often more effective",
+    "TensorFlow servers can run alongside Dask workers in the same processes, sharing memory spaces and enabling efficient data movement",
+    "The integration required only about 80 lines of code to launch TensorFlow servers alongside Dask workers",
+    "Both libraries work well together because they share Python and the PyData stack (NumPy/Pandas) as a common foundation"
+  ],
+  "money_quotes": [
+    "Distributed deep learning is fundamentally changing the way humanity solves some very hard computing problems like natural language translation, speech-to-text transcription, image recognition, etc. However, distributed deep learning also suffers from public excitement, which may distort our image of its utility.",
+    "Focusing on single machine computation is often a better use of time. Model design, GPU hardware, etc. can have a more dramatic impact than scaling out.",
+    "Traditional machine learning techniques like logistic regression, and gradient boosted trees can be more effective than deep learning if you have finite data.",
+    "There is no need for a separate collaborative effort to integrate Dask and TensorFlow at a core level. Instead, they are designed in such a way so as to foster this type of interaction without special attention or effort.",
+    "The fact that both libraries play nicely within Python and the greater PyData stack (NumPy/Pandas) makes it trivial to move data between them without costly or complex tricks.",
+    "This is also the first blogpost that I've written that, from a Dask perspective, uses some more complex features like long running tasks or publishing state between workers with channels."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, self-deprecating",
+  "key_insight": "Well-designed libraries that embrace Python's ecosystem can interoperate naturally without requiring explicit integration efforts, enabling sophisticated distributed workflows through composition rather than coupling.",
+  "filename": "2017-02-11-dask-tensorflow"
+}

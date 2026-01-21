@@ -1,0 +1,29 @@
+{
+  "summary": "Matt Rocklin addresses misconceptions about Dask's scaling capabilities, clarifying that while Dask began focused on single-node parallelism for medium-sized datasets, it has grown to handle distributed computing across thousands of nodes. The post demonstrates a 50-node cluster handling a terabyte dataset as a 'modest' example, noting this could scale two more orders of magnitude. Rocklin then catalogs the practical challenges users face when scaling out, from file handle limits and scheduler overhead to graph serialization times and dashboard usability. The core tension he identifies is that Dask's flexibility and power make it harder to protect users from mistakes at scale\u2014constrained systems are easier to make foolproof. He concludes that standard workflows like Dask dataframe will generally work fine, but custom algorithms at thousand-node scale require genuine expertise.",
+  "key_points": [
+    "Dask maintains two separate schedulers\u2014one optimized for single-node simplicity, another for distributed scaling\u2014allowing the same API to work from laptops to thousand-node clusters",
+    "The scheduler has roughly 200 microseconds overhead per task, creating an inverse relationship between task duration and maximum core saturation",
+    "Task graphs can consume around 1kB of memory per task, meaning million-node graphs require careful management and gigabytes of scheduler memory",
+    "The combination of scalability and user freedom makes it impossible for Dask to fully protect users from breaking things\u2014constrained systems are easier to make foolproof",
+    "At scale, users often accidentally overwhelm external components like distributed storage or databases that were designed for single-machine access patterns"
+  ],
+  "money_quotes": [
+    "High performance computing isn't about doing any one thing well, it's about doing nothing badly.",
+    "Dask provides users more power than they're accustomed to. It's easy for them to accidentally clobber some other component of their systems.",
+    "It's much easier to protect users when you can constrain what they can do.",
+    "Many of these systems provide abstractions that are very well tested and stable for normal single-machine use, but that quickly become brittle when you have a thousand machines acting on them with the full creativity of a novice user.",
+    "We still believe in the efficiency of single-node parallelism.",
+    "If you press compute and nothing shows up on the dashboard for a minute or two, this is what's happening.",
+    "Seeing the start and stop time of every task of a million-task computation just isn't something that our brains can fully understand."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, candid, pragmatic",
+  "key_insight": "Dask's power comes from giving users freedom to build custom distributed systems, but that same freedom means scaling to thousands of nodes requires genuine expertise\u2014the framework can't fully protect you from yourself.",
+  "filename": "2018-06-26-dask-scaling-limits"
+}

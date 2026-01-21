@@ -1,0 +1,26 @@
+{
+  "summary": "The post argues against excessive use of abstraction and indirection in code, particularly in open source community projects. While acknowledging the traditional benefits of abstracting code into separate functions (DRY principles, centralized logic, cleaner appearance), Rocklin contends that indirection creates significant costs for code readers. The cognitive burden of jumping between function definitions across multiple files is especially problematic during code review and debugging\u2014activities that are more often bottlenecks than original development. He concludes that while functions still have their place, authors should be mindful of the human cost that indirection imposes on everyone except the original author.",
+  "key_points": [
+    "Indirection feels good during writing because authors are building mental abstractions, but creates cognitive burden for readers who must jump between files",
+    "Code review and debugging are more common bottlenecks than original development, and both suffer from excessive abstraction",
+    "Reviewers typically have one-tenth the time of original authors, making complex indirection particularly costly",
+    "The case for inlining isn't absolute\u2014repetition and likely-to-change policies still justify separate functions",
+    "There's an asymmetry: indirection costs are felt by everyone reading the code except the original author"
+  ],
+  "money_quotes": [
+    "This non-linear reading process requires more mental focus than reading linear code.",
+    "This indirection isn't as much of a problem during the writing process, the original author is focused on building up an abstraction model in their head, and so writing this abstraction into code makes sense and feels good.",
+    "That reviewer probably has about a tenth as much time to spend as the original author does on that code.",
+    "Both review and debugging are far more often bottlenecks in modern community code than is original development.",
+    "I often encourage developers to avoid abstraction, and 'please inline this function definition'.",
+    "There is a human cost to indirection that is felt more acutely by everyone reading the code except the original author."
+  ],
+  "themes": [
+    "open_source",
+    "python",
+    "technical"
+  ],
+  "tone": "pragmatic, reflective, opinionated",
+  "key_insight": "Abstraction in code benefits the writer but taxes every future reader, and since reading (review, debugging) is the bottleneck in community software, we should bias toward inline, linear code.",
+  "filename": "2019-06-23-avoid-indirection"
+}

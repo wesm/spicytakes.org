@@ -1,0 +1,28 @@
+{
+  "summary": "This post addresses a frequently asked question about dataframe performance across Pandas, Dask, Spark, and Arrow. Rocklin argues that Pandas remains the right choice for small datasets and computations under 100ms, while parallel solutions like Dask or Spark offer linear speedups for simple operations on large data but require careful configuration. The choice between Spark and Dask often comes down to cultural preferences (JVM vs Python ecosystems) rather than raw performance, with Spark excelling at large SQL-style queries and Dask better for time series and complex computations. Arrow is clarified as a data interchange format rather than a Pandas replacement, though computational features are planned for the future.",
+  "key_points": [
+    "Parallelism has overhead costs that make it counterproductive for computations under ~100ms",
+    "Simple operations (filtering, aggregating) scale linearly with cores, but complex operations like distributed joins may not",
+    "Many Pandas performance issues can be solved without parallelism through better encoding, file formats, and avoiding groupby.apply",
+    "Spark vs Dask is often decided by cultural preference (JVM vs Python) rather than performance differences",
+    "Arrow is infrastructure for moving data between systems, not a computational library (though that may change)"
+  ],
+  "money_quotes": [
+    "If you're doing small computations then Pandas is always the right choice. The administrative costs of parallelizing will outweigh any benefit.",
+    "You should not parallelize if your computations are taking less than, say, 100ms.",
+    "Many people looking to speed up Pandas don't need parallelism.",
+    "This is often decided more by cultural preferences (JVM vs Python, all-in-one-tool vs integration with other tools) than performance differences.",
+    "Spark is generally higher level and all-in-one while Dask is lower-level and focuses on integrating into other tools.",
+    "Arrow is not a replacement for Pandas. Today Arrow is useful to people building systems and not to analysts directly like Pandas.",
+    "For complex operations like distributed joins it's more complicated. You might get linear speedups like above, or you might even get slowdowns."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, balanced",
+  "key_insight": "The right dataframe tool depends more on your ecosystem preferences and problem characteristics than on abstract performance comparisons\u2014parallelism isn't always faster, and cultural fit often matters more than benchmarks.",
+  "filename": "2018-08-28-dataframe-performance-high-level"
+}

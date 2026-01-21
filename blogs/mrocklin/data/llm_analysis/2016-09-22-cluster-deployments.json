@@ -1,0 +1,27 @@
+{
+  "summary": "Matt Rocklin addresses the challenge of deploying Dask across diverse cluster resource managers like Kubernetes, SLURM, and Mesos. He acknowledges that while power users can successfully deploy Dask by reading documentation, the barrier remains too high for non-power users. The post explores two potential solutions: maintaining a registry of community-contributed deployment examples, and developing clean API boundaries that separate deployment policies from backend implementations. As a demonstration, he built an adaptive deployment system for Marathon that separates the 'when to scale' logic from the 'how to scale' implementation, allowing either component to be replaced independently.",
+  "key_points": [
+    "Dask is already deployed on numerous cluster systems (SGE, SLURM, Kubernetes, Mesos, etc.) but primarily by power users who can navigate the complexity themselves",
+    "The core challenge is supporting many resource managers with different scaling policies while keeping Dask's concerns separable from deployment configuration",
+    "A clean API boundary between adaptive scaling logic and backend-specific deployment code enables composable, replaceable components",
+    "The proposed Adaptive class handles when to scale (policy) while backend-specific classes like MarathonCluster handle how to scale (implementation)",
+    "Community-driven registries of deployment solutions may be the pragmatic answer, supporting copy-paste-edit workflows rather than one-size-fits-all solutions"
+  ],
+  "money_quotes": [
+    "These systems provide users access to cluster resources and ensure that many distributed services / users play nicely together. They're essential for any modern cluster deployment.",
+    "Generally these users are pretty happy; however we should reduce this barrier so that non-power-users with access to a cluster resource manager can use Dask on their cluster just as easily.",
+    "This raises the question of 'What should Dask provide and what should it leave to administrators?' It may be that the best we can do is to support copy-paste-edit workflows.",
+    "Because we've isolated all of the 'when' logic to the Adaptive code, the Marathon specific code is blissfully short and specific.",
+    "My hope is that people familiar with other cluster resource managers will be able to write similar objects and will publish them as third party libraries.",
+    "It's not clear that either solution is sufficient, or that the current implementation of either solution is any good. This is an important problem though as Dask.distributed is, today, still mostly used by super-users."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, exploratory, humble",
+  "key_insight": "Complex deployment challenges are best addressed by separating policy decisions (when to scale) from implementation details (how to scale), enabling composable solutions that empower community contributions rather than requiring one monolithic answer.",
+  "filename": "2016-09-22-cluster-deployments"
+}

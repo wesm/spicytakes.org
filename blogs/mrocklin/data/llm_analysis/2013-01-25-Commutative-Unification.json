@@ -1,0 +1,25 @@
+{
+  "summary": "This post introduces commutative and associative pattern matching in LogPy, a logic programming system. Traditional unification performs exact structural matching on expression trees, but mathematical operations like addition are commutative, meaning order shouldn't matter. Rocklin explains how he built commutative equality by combining set unification with head-tail pattern matching. The implementation allows LogPy to match mathematical expressions regardless of argument order, bringing it to feature parity with SymPy's unify module in a cleaner, more extensible form.",
+  "key_points": [
+    "Traditional unification in logic programming requires exact structural matching, which fails for commutative operations where argument order is irrelevant",
+    "Expression trees represent both mathematical expressions and programs as nested tuples with operations as heads and arguments as tails",
+    "Commutative equality is built by combining set unification (seteq) with head-tail pattern matching (conso) to allow order-independent matching",
+    "Operations must register themselves as commutative, keeping LogPy general-purpose rather than math-specific"
+  ],
+  "money_quotes": [
+    "LogPy now supports commutative and associative pattern matching on expression trees.",
+    "This is a standard requirement for computer algebra systems like SymPy but not a traditional feature of logic programming systems.",
+    "Unification is a computational cornerstone of LogPy.",
+    "As mathematicians however we know that because add is commutative these expressions should match if we are allowed to rearrange the terms in the tail.",
+    "LogPy doesn't know this by default. LogPy is not a math library.",
+    "With this LogPy contains all of the functionality of SymPy's old unify module but in a cleaner and much more extensible form."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "By combining set unification with head-tail pattern matching, logic programming systems can support the commutative pattern matching that mathematical applications require without sacrificing generality.",
+  "filename": "2013-01-25-Commutative-Unification"
+}

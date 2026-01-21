@@ -1,0 +1,27 @@
+{
+  "summary": "This release announcement for Dask 0.14.3 details a wide range of performance improvements and new features across the Dask ecosystem. Major additions include sparse array support, Arrow-based Parquet reading, customizable graph optimizations, and improved distributed computing capabilities. The release also introduces quality-of-life improvements like preload scripts for custom initialization, InfiniBand network interface support for HPC environments, and enhanced web diagnostics. The post reflects the collaborative nature of open source development, acknowledging contributions from numerous developers across multiple related libraries.",
+  "key_points": [
+    "Dask arrays now support sparse arrays and mixed dense/sparse arrays through a new API-compatible sparse library",
+    "Parquet data can now be read using either fastparquet or Arrow/Parquet-CPP, giving users flexibility in their data access approach",
+    "Communities can now define their own optimization schemes, allowing different performance constraints to be addressed",
+    "The distributed scheduler's web diagnostics moved into the scheduler process, making new visuals easier to build but sharing CPU resources",
+    "New InfiniBand network interface support enables better performance on HPC supercomputers"
+  ],
+  "money_quotes": [
+    "As Dask has grown into more communities, each with strong and differing performance constraints, we've found that we needed to allow each community to define its own optimization schemes.",
+    "These features were heavily requested by the climate science community, which tends to serve both highly technical computer scientists, and less technical climate scientists who were running into issues with the nuances of chunking.",
+    "Hopefully this capability increases the use of both projects and results in greater feedback to those libraries so that they can continue to advance Python's access to the Parquet format.",
+    "This makes it easier for people to adapt Dask to their particular institution.",
+    "Early trials indicate that computations like scikit-learn's RandomForest scale nicely on a cluster without any additional code."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "As Dask matures and expands into diverse communities with different performance requirements, the project increasingly focuses on extensibility and customization rather than one-size-fits-all solutions.",
+  "filename": "2017-05-08-dask-0.14.3"
+}

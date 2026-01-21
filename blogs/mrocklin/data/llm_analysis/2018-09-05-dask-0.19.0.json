@@ -1,0 +1,27 @@
+{
+  "summary": "This release announcement for Dask 0.19.0 highlights several significant improvements to the distributed computing framework, including new Hadoop/YARN deployment tools, an experimental Actors framework for stateful workloads, and substantial dashboard enhancements. The release drops Python 3.4 support while adding Python 3.7 compatibility. The post also showcases the growing Dask ecosystem through user stories from diverse domains including genomics, climate science, and financial services, demonstrating the library's real-world applicability. The extensive contributor list reflects a healthy open-source community actively improving stability and feature parity with NumPy and Pandas.",
+  "key_points": [
+    "New YARN/Hadoop deployment tools (conda-pack, Skein, dask-yarn) enable Dask on enterprise clusters without requiring JVM knowledge",
+    "Actors framework borrowed from Ray Project allows direct state mutation on workers with reduced latency, trading resilience for performance",
+    "Dashboard improvements include saveable task stream plots, responsive CSS for different screen sizes, and JupyterLab integration",
+    "Dask Stories initiative collects real-world use cases spanning genomics, climate science, urban modeling, and telecommunications",
+    "Over 70 contributors across three repositories in a roughly 3-month period shows strong community momentum"
+  ],
+  "money_quotes": [
+    "The idea to adopt Actors was shamelessly stolen from the Ray Project :)",
+    "Some advanced workloads want to directly manage and mutate state on workers. A task-based framework like Dask can be forced into this kind of workload using long-running-tasks, but it's an uncomfortable experience.",
+    "A ton of work has happened over the past two months, but most of the changes are small and diffuse. Stability, feature parity with upstream libraries (like Numpy and Pandas), and performance have all significantly improved, but in ways that are difficult to condense into blogpost form.",
+    "These stories help people understand where Dask is and is not applicable, and provide useful context around how it gets used in practice.",
+    "This is very valuable for communicating performance issues within a team."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Dask's strength lies not just in its technical capabilities but in its growing ecosystem of deployment tools, documentation, and community-contributed use cases that make distributed computing accessible across diverse domains.",
+  "filename": "2018-09-05-dask-0.19.0"
+}

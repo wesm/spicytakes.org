@@ -1,0 +1,28 @@
+{
+  "summary": "This release announcement for Dask 0.14.1 details significant performance improvements and new features across arrays, dataframes, and the distributed scheduler. The array module now handles NumPy interoperability more smoothly with automatic chunking, and reshape operations support more complex transformations. DataFrame improvements include smarter set_index that automatically detects sorted columns and optimizes partitioning. The distributed scheduler gains powerful debugging capabilities that let users replay remote exceptions locally, plus new async/await syntax support, in-process transport for single-machine clusters, and connection pooling that reduces round-trip latency to 11ms.",
+  "key_points": [
+    "Dask arrays now automatically chunk and convert NumPy arrays in mixed operations, improving usability",
+    "Slicing optimizations have been reworked to minimize inter-worker communication for distributed computing while still supporting the original HDF5/NetCDF single-machine use case",
+    "New recreate_error_locally feature brings remote exceptions back to local machine for debugging with standard Python tools like pdb",
+    "In-process transport allows single-machine users to access advanced distributed scheduler features like async computation and web diagnostics without network overhead",
+    "Set_index is now smarter, automatically detecting sorted columns and optimizing partition counts during shuffles"
+  ],
+  "money_quotes": [
+    "Debugging is hard in part because exceptions happen on remote machines where normal debugging tools like pdb can't reach.",
+    "Historically dask.arrays were used almost exclusively by researchers with large on-disk arrays stored as HDF5 or NetCDF files.",
+    "We have tons of distributed disk bandwidth but really want to avoid communicating large results between workers.",
+    "Supporting both use cases is possible and I think that we've achieved that in this release so far, but it's starting to require increasing levels of care.",
+    "We strongly recommend Parquet as the standard data storage format for Dask dataframes (and Pandas DataFrames).",
+    "It turns out that when you offer distributed grid search people quickly want to scale up their computations to hundreds of thousands of trials."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "As Dask's user base expands from single-machine HDF5 researchers to distributed cluster computing, the optimization goals shift from disk bandwidth to minimizing inter-worker communication, requiring increasingly careful engineering to support both use cases.",
+  "filename": "2017-03-23-dask-0.14.1"
+}

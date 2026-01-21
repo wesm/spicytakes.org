@@ -1,0 +1,28 @@
+{
+  "summary": "This post evaluates three Python libraries for Apache Kafka: kafka-python, PyKafka, and confluent-kafka. The author finds that confluent-kafka offers the best performance (50% higher consumption, 3x higher production throughput) but has minimal documentation and a Java-centric API. PyKafka, maintained by Parse.ly, provides a more Pythonic interface, better documentation, and a more accessible codebase for contributors. The author notes that raw performance may not matter for most applications, as Parse.ly itself doesn't even enable their C library optimizations in production. He concludes by expressing cultural preference for PyKafka while acknowledging Confluent's stronger long-term alignment with Kafka development.",
+  "key_points": [
+    "Confluent-kafka is significantly faster (50% higher consumption, 3x production throughput) but has poor Python documentation and error messages",
+    "PyKafka offers a more Pythonic API, better documentation, and more accessible codebase written mostly in Python rather than C extensions",
+    "Performance differences may be irrelevant for most use cases - Parse.ly runs their production systems on the slow Pure Python implementation",
+    "PyKafka has more comprehensive testing including actual Kafka integration tests, while confluent-kafka only tests API without a real Kafka instance",
+    "The author is investigating async support for Dask streaming integration and found PyKafka maintainers more responsive to Tornado-related issues"
+  ],
+  "money_quotes": [
+    "It took me a few times to get confluent-kafka to work. It wasn't clear what information I needed to pass to the constructor to connect to Kafka and when I gave the wrong information I received no message that I had done anything incorrectly.",
+    "According to the PyKafka maintainers at Parse.ly they haven't actually turned on the librdkafka optimizations in their internal pipelines, and are instead using the slow Pure Python implementation, which is apparently more than fast enough for common use.",
+    "Getting messages out of Kafka just isn't their bottleneck.",
+    "I find that Python C extensions are not pleasant to work with, even if you are comfortable with C.",
+    "Culturally I am drawn to Parse.ly's PyKafka library. They're clearly Python developers writing for Python users.",
+    "However the costs of using a non-Pythonic system here just aren't that large (Kafka's API is small), and Confluent's interests are more aligned with investing in Kafka long term than are Parse.ly's."
+  ],
+  "themes": [
+    "python",
+    "distributed",
+    "dask",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, balanced, pragmatic",
+  "key_insight": "When choosing between Python libraries, developer experience and API design often matter more than raw performance, since the fastest option may still be overkill for actual production needs.",
+  "filename": "2017-10-10-kafka-python"
+}

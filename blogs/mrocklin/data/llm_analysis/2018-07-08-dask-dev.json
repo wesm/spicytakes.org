@@ -1,0 +1,29 @@
+{
+  "summary": "This development log updates the Dask community on four active workstreams in June 2018: Yarn deployment for Hadoop clusters, expanded machine learning examples, incremental training capabilities, and HPC deployment improvements. The Yarn integration, built on Jim Crist's skein project, finally answers the common question of how to deploy Dask on enterprise Hadoop/Spark clusters. The incremental training wrapper enables Scikit-Learn estimators to train on large datasets in batches, trading parallelism for pragmatism. The post also announces a new initiative to collect user stories, acknowledging that Dask needs help with community building as much as technical development.",
+  "key_points": [
+    "Yarn deployment is now possible through dask-yarn and skein, making Dask a first-class citizen on Hadoop/Spark/Hive clusters that previously required Java APIs",
+    "Incremental training wraps Scikit-Learn estimators with partial_fit support, enabling batch training on large datasets in a simple but pragmatic sequential approach",
+    "The project is actively collecting user stories because understanding who uses Dask has been difficult due to unclear permission around sharing user information",
+    "Dask needs more help with spreading the word than it does with technical solutions",
+    "HPC deployment configuration is being overhauled to improve onboarding, which will cause breaking changes for existing users"
+  ],
+  "money_quotes": [
+    "Dask developers often get asked 'How do I deploy Dask on my Hadoop/Spark/Hive cluster?'. We haven't had a very good answer until recently.",
+    "Unfortunately Yarn has really only been accessible through a Java API, and so has been difficult for Dask to interact with.",
+    "If you ever wanted direct help on your cluster, now is the right time because Jim is working on this actively and is not yet drowned in user requests.",
+    "From a parallel computing perspective this is a very simple and un-sexy way of doing things. However my understanding is that it's also quite pragmatic.",
+    "In a distributed context we leave a lot of possible computation on the table (the solution is inherently sequential) but it's fun to see the model jump around the cluster as it absorbs various chunks of data.",
+    "Even though we're inundated with thousands of requests for help from various companies and research groups, it's never fully clear who minds having their information shared with others.",
+    "Arguably Dask needs more help with spreading the word than it does with technical solutions."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "informative, transparent, pragmatic",
+  "key_insight": "Open source projects often need as much help with community building and documentation as they do with technical development, and pragmatic solutions that sacrifice theoretical optimality for usability can be more valuable than elegant but complex alternatives.",
+  "filename": "2018-07-08-dask-dev"
+}

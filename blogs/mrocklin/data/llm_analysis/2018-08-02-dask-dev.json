@@ -1,0 +1,28 @@
+{
+  "summary": "This development log provides a transparent update on two weeks of Dask development work across eight different areas. The major highlights include an experimental Actors framework for stateful processing (inspired by Ray), machine learning experiments combining incremental training with hyper-parameter selection, and new preprocessing transformers for dask-ml. Infrastructure improvements include statistical profiling of the scheduler's event loop, new releases of dask-yarn, LSF cluster support in dask-jobqueue, and ongoing test suite cleanup to address intermittent failures in distributed testing.",
+  "key_points": [
+    "Dask is adding an experimental Actors framework that trades resilience and diagnostics for reduced latency and direct state mutation on workers",
+    "Combining incremental training with hyper-parameter selection allows training multiple models simultaneously, making better use of processing power",
+    "The team is building lower-level tooling that accepts user-defined policies for hyper-parameter optimization, enabling experimentation without writing Dask code",
+    "Statistical profiling revealed performance issues in the scheduler's event loop that traditional profilers couldn't catch due to coroutine confusion",
+    "Testing distributed systems is hard - intermittent test failures add friction and are expensive to track down"
+  ],
+  "money_quotes": [
+    "A task-based framework like Dask can be forced into this kind of workload using long-running-tasks, but it's an uncomfortable experience.",
+    "The idea to adopt Actors was shamelessly stolen from the Ray Project :)",
+    "This training is inherently sequential because the model only trains on one batch of data at a time. We're leaving a lot of processing power on the table.",
+    "This is an active field of research and so it's hard for a general project like Dask to pick and implement a single method that works well for everyone.",
+    "Profiling concurrent code is hard. Traditional profilers like CProfile become confused by passing control between all of the different coroutines.",
+    "Testing distributed systems is hard."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Building a general-purpose distributed computing framework requires constantly balancing trade-offs between flexibility and optimization, often by borrowing good ideas from other projects and building lower-level primitives that let users experiment rather than prescribing single solutions.",
+  "filename": "2018-08-02-dask-dev"
+}

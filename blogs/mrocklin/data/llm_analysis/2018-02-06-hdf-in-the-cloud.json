@@ -1,0 +1,28 @@
+{
+  "summary": "The post examines the challenge of accessing multi-dimensional scientific data (stored in HDF/NetCDF formats) from cloud storage systems like S3 and GCS. While organizations like NASA are uploading petabytes of HDF data to the cloud, the format's complex metadata structure makes efficient remote access nearly impossible\u2014users must download entire files to extract small portions. Rocklin evaluates five potential solutions: using existing cloud-optimized formats, FUSE filesystem mounting, custom HDF readers, distributed services, and new purpose-built formats like Zarr. He concludes that the community faces a critical decision between fixing HDF's cloud limitations or adopting newer formats, with urgency mounting as NASA's data volumes are projected to grow tenfold by 2025.",
+  "key_points": [
+    "HDF files scatter metadata throughout the file, requiring dozens of small reads that become prohibitively slow over network connections to cloud storage",
+    "Organizations like NASA are uploading massive HDF datasets to cloud storage that effectively cannot be efficiently accessed, missing the potential of cloud-hosted public data",
+    "Existing cloud-optimized formats (GeoTIFF, Parquet) work well but lack the multi-dimensional blocked array capabilities that scientific computing requires",
+    "New formats like Zarr and N5 have independently converged on similar specifications\u2014storing array blocks as separate objects with centralized metadata\u2014suggesting a sensible common solution",
+    "The scientific community must weigh the difficulty of retrofitting HDF for cloud efficiency against the institutional inertia of shifting to new standards"
+  ],
+  "money_quotes": [
+    "So organizations like NASA are dumping large amounts of HDF onto Amazon's S3 that no one can actually read, except by downloading the entire file to their local hard drive, and then pulling out the particular bits that they need with the HDF library.",
+    "This is inefficient. It misses out on the potential that cloud-hosted public data can offer to our society.",
+    "The HDF format is complex and metadata is strewn throughout the file, so that a complex sequence of reads is required to reach a specific chunk of data.",
+    "This unintended uniformity is a good sign. It means that both developer groups were avoiding creativity, and have converged on a sensible common solution.",
+    "However, technical merits are not alone sufficient to justify a shift in data format, especially for archival datasets of record that we're discussing.",
+    "The institutions in charge of this data have multi-decade horizons and so move slowly.",
+    "From its current cumulative archive size of almost 22 petabytes (PB), the volume of data in the EOSDIS archive is expected to grow to almost 247 PB by 2025."
+  ],
+  "themes": [
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, analytical, pragmatic",
+  "key_insight": "The scientific community faces an urgent infrastructure decision: either retrofit the legacy HDF format for cloud storage efficiency or embrace newer formats like Zarr that were designed for distributed access from the start.",
+  "filename": "2018-02-06-hdf-in-the-cloud"
+}

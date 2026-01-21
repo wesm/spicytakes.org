@@ -1,0 +1,27 @@
+{
+  "summary": "This post argues that CSV files, while convenient, are far too slow for interactive analysis of large datasets (10-100GB) and presents five key principles for efficient tabular storage: binary formats, columnar storage, categorical encoding, compression, and indexing/partitioning. Using the NYC Taxi dataset as a benchmark, Rocklin demonstrates that moving from CSV (11-minute parse times) to optimized formats can reduce query times to seconds. The post introduces Castra, a 500-line experimental project implementing these principles, though emphasizes the broader lesson is about storage principles rather than any specific tool. The key insight is that larger-than-memory datasets force disk I/O into the interactive workflow, making storage format choice critical for productivity.",
+  "key_points": [
+    "CSV parsing maxes out at ~100MB/s, creating unacceptable multi-minute delays for interactive exploration of large datasets",
+    "Binary formats eliminate translation overhead (e.g., datetime parsing requires calculating microseconds since epoch for every value)",
+    "Columnar storage allows reading only relevant columns, potentially reducing I/O from 24GB to 2GB for typical analytic queries",
+    "Categoricals provide ~10x efficiency gains by encoding repetitive text as small integers with a lookup table",
+    "Compression helps integers and datetimes significantly but provides marginal benefit for floating point data; avoid slow compressors like gzip/bz2 in favor of blosc or snappy"
+  ],
+  "money_quotes": [
+    "Larger-than-memory datasets force interactive workflows to include the hard drive.",
+    "A four minute delay is too long for interactivity. We need to operate in seconds rather than minutes otherwise people leave to work on something else.",
+    "Each step in our thought process now takes eleven minutes, ouch.",
+    "Categoricals replace the original column with a column of integers along with a small index mapping those integers to the original values.",
+    "Moving from CSV files to Castra moved the bottleneck of our computation from disk I/O to processing speed, allowing improvements like multi-core processing to really shine.",
+    "This blogpost is not saying 'use Castra!' Rather it says 'don't use CSVs!' and consider more efficient storage for interactive use."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Interactive data analysis at scale requires moving beyond CSV to storage formats that use binary encoding, columnar layout, categorical compression, and partitioning to keep iteration times in seconds rather than minutes.",
+  "filename": "2015-08-28-Storage"
+}

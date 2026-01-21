@@ -1,0 +1,24 @@
+{
+  "summary": "This post demonstrates how SymPy's powerful scalar simplification routines can significantly benefit Theano's computational efficiency. Using a radial wavefunction derivative as an example, Rocklin shows that while Theano's built-in optimizations can reduce operations through common sub-expression elimination and constant folding, SymPy's algebraic simplification achieves far more dramatic reductions. The key insight is that the two projects simplify in orthogonal ways\u2014SymPy handles algebraic cancellation while Theano handles compiler-style optimizations. When combined, they reduce a 57-operation computation down to just 17 operations, demonstrating that specialized tools working together outperform either alone.",
+  "key_points": [
+    "Scalar differentiation has a theoretical upper bound of 5x the original computation cost, but simplification often reduces derivatives to near the original complexity",
+    "SymPy's algebraic simplification reduced a 48-operation derivative to 18 operations through symbolic cancellation, while Theano's optimizations work through common sub-expression elimination and constant folding",
+    "The two projects simplify in orthogonal ways\u2014SymPy handles mathematical simplification while Theano handles compiler optimizations like CSE and constant folding",
+    "Combining SymPy preprocessing with Theano optimization reduced operations from 57 to 17, far better than either tool alone (57\u219224 for Theano only, 27\u219217 for SymPy+Theano)"
+  ],
+  "money_quotes": [
+    "I argued that projects should stick to one specialty and depend on others for secondary concerns. Interfaces are better than add-ons.",
+    "Sympians are devoted to scalar simplification to a degree that far exceeds the Theano community's devotion to this topic.",
+    "The two projects simplify in orthogonal ways.",
+    "The combination of SymPy's scalar simplification and Theano's common sub-expression optimization yields a significantly simpler computation than either project could do independently.",
+    "Theorems behind automatic differentiation state that the cost of a derivative will be at most five times the cost of the original."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Specialized tools that excel at different aspects of a problem\u2014SymPy for algebraic simplification, Theano for compiler optimizations\u2014produce dramatically better results when composed together than either achieves alone.",
+  "filename": "2013-03-28-SymPy-Theano-part-2"
+}

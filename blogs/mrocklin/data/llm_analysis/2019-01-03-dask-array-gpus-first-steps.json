@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin demonstrates how combining Dask Array with CuPy enables dramatic performance gains on GPU hardware, reducing a 2TB data computation from two hours on a single CPU to nineteen seconds on an eight-GPU system. The key insight is not the raw performance but the composability of existing libraries\u2014CuPy for GPU arrays, Dask Array for chunked algorithms, and Dask distributed for parallel scheduling\u2014requiring only minor glue code to work together. The post shows how switching between CPU and GPU architectures requires minimal code changes, making such experiments accessible to non-experts. While acknowledging significant work remains to make this reliable and broadly useful, Rocklin highlights the potential for GPU-accelerated distributed computing to become approachable for typical users.",
+  "key_points": [
+    "Combining CuPy, Dask Array, and Dask distributed enables multi-GPU parallel array computing with minimal code changes",
+    "The jump from multi-core CPU to single GPU provides an order of magnitude speedup, and multi-GPU provides another order of magnitude",
+    "Switching between CPU and GPU only requires swapping Numpy for CuPy as the underlying array library",
+    "Many Dask Array algorithms still contain Numpy-specific assumptions that break with GPU arrays",
+    "The composability of Python libraries allows rapid prototyping across different hardware architectures"
+  ],
+  "money_quotes": [
+    "On a single CPU, this computation takes two hours. On an eight-GPU single-node system this computation takes nineteen seconds.",
+    "What *is* impressive is that we were able to create a distributed parallel GPU array quickly by composing these three existing libraries.",
+    "By mashing these tools together we can quickly build and switch between different architectures to explore what is best for our application.",
+    "The jump from the biggest multi-core CPU to a single GPU is still an order of magnitude though.",
+    "We did this in less than twenty lines of code, making this experiment something that an undergraduate student or other novice could perform at home.",
+    "We're approaching a point where experimenting with multi-GPU systems is approachable to non-experts (at least for array computing).",
+    "For example if you were to switch sum for mean in the computation above you would get an error because our mean computation contains an easy to fix error that assumes Numpy arrays exactly."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical, exploratory, candid",
+  "key_insight": "The true power of composable Python libraries is that switching between radically different hardware architectures\u2014from single-threaded CPU to multi-GPU\u2014requires only minimal code changes, democratizing experimentation with high-performance computing.",
+  "filename": "2019-01-03-dask-array-gpus-first-steps"
+}

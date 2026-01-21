@@ -1,0 +1,24 @@
+{
+  "summary": "This post explains how to analyze and optimize data pipeline performance by understanding bandwidth constraints at each stage. Rocklin presents the key insight that bandwidths combine like electrical conductances in series\u2014you add the inverses. This means the slowest component dominates overall throughput, making it crucial to identify and optimize bottlenecks. The post demonstrates that cheap software changes (like switching serialization formats) can outperform expensive hardware upgrades when targeting the actual bottleneck.",
+  "key_points": [
+    "Bandwidths combine by adding inverses (like electrical conductances in series), so the slowest link dominates",
+    "Switching from JSON (50 MB/s) to msgpack (125 MB/s) can double effective bandwidth more than upgrading disk hardware",
+    "Communication bandwidths can often be overlapped with computation bandwidths to hide latency",
+    "Computational bandwidths can be parallelized across cores, but communication bandwidths typically cannot",
+    "Optimizing the weakest link first yields the best returns on investment"
+  ],
+  "money_quotes": [
+    "Understanding data bandwidths helps us to identify bottlenecks and write efficient code.",
+    "There is no need to use a faster network or disk if you store your data as JSON.",
+    "One quickly learns to optimize the slowest link in the chain first.",
+    "Cheap changes like switching from JSON to msgpack can be more effective than expensive changes, like purchasing expensive hardware for fast storage."
+  ],
+  "themes": [
+    "python",
+    "distributed",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Optimizing data pipelines requires identifying the slowest bandwidth in the chain, where cheap software changes often outperform expensive hardware upgrades.",
+  "filename": "2015-12-29-data-bandwidth"
+}

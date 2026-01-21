@@ -1,0 +1,27 @@
+{
+  "summary": "This development log covers two weeks of Dask project work, focusing on stability fixes for the distributed scheduler, NASA grant writing for climate science applications, and infrastructure improvements. A key bugfix in version 1.15.1 addressed task removal errors that only surfaced in serious production deployments. The post also highlights work on Dask-EC2 deployment tools, categorical data handling improvements, and a communication layer refactor to address inter-worker bottlenecks.",
+  "key_points": [
+    "A subtle bug in the distributed scheduler showed how coupling mostly-working components can yield a faulty system, caught only in serious production deployments",
+    "The Dask-EC2 project oscillates between 'very useful' and 'horribly broken' states depending on maintenance attention",
+    "Categorical column handling is being improved to support unknown categories without requiring a full dataset read upfront",
+    "Inter-worker communication has become a dominant bottleneck after recent optimizations, prompting a major refactor",
+    "NASA grant work aims to enable 100TB-scale atmospheric and oceanographic science with Dask+XArray"
+  ],
+  "money_quotes": [
+    "This was a nice exercise in how coupling mostly-working components can easily yield a faulty system.",
+    "This project can be either very useful for people just getting started and for Dask developers when we run benchmarks, or it can be horribly broken if AWS or Dask interfaces change and we don't keep this project maintained.",
+    "Nothing here is ready for production. This blogpost is written in haste, so refined polish should not be expected.",
+    "The Dask scheduler was able to heal the missing pieces (using the same machinery that makes Dask resilience) and so we didn't notice the flaw until the system was deployed in some of the more serious Dask deployments in the wild.",
+    "This distinction may seem small, but it limits performance in a surprising number of real-world use cases."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical, transparent, pragmatic",
+  "key_insight": "Complex distributed systems can hide subtle bugs through their own resilience mechanisms, with flaws only emerging under serious production workloads.",
+  "filename": "2017-01-18-dask-dev-5"
+}

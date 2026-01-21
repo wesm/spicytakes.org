@@ -1,0 +1,26 @@
+{
+  "summary": "The post argues that Python's multiprocessing capabilities are severely limited by pickle's inability to serialize common function types like lambdas, closures, and methods. Matt Rocklin presents the dill library as a drop-in replacement that handles these cases robustly. He demonstrates how dill integrates with both the pathos library (a multiprocessing fork) and IPython parallel to enable practical distributed computing. The post serves as an early exploration of the serialization challenges that would later inform Dask's design.",
+  "key_points": [
+    "Pickle fails to serialize methods, lambdas, closures, and interactively-defined functions, which most real projects use",
+    "The dill library is a drop-in pickle replacement that handles robust function serialization",
+    "The pathos library provides a dill-enabled fork of multiprocessing",
+    "IPython parallel offers hooks to use custom serializers like dill via the .use_dill method",
+    "Poor serialization is likely why multiprocessing is rarely used in real-world Python projects"
+  ],
+  "money_quotes": [
+    "To communicate this function we translate it down into a blob of text, ship that text over a wire, and then retranslate that text back into a fully operational function.",
+    "This process, called serialization, is like the teleporters in Star Trek; it takes an important thing (function or crew member) translates it into something manageable (text or bits) moves it quickly to some other location, and then reassembles it correctly (we hope!)",
+    "Most large projects use at least one (often all) of these features. This makes multiprocessing a pain.",
+    "I rarely see multiprocessing in the wild. I suspect that this is because poor function serialization makes it a pain for any but the most trivial of projects.",
+    "The dill library is a drop-in alternative to pickle that can robustly handle function serialization."
+  ],
+  "themes": [
+    "python",
+    "distributed",
+    "technical",
+    "dask"
+  ],
+  "tone": "technical, practical, instructive",
+  "key_insight": "Python's parallel computing potential is bottlenecked not by the parallel frameworks themselves, but by the fundamental limitation of pickle's inability to serialize the function types that real applications actually use.",
+  "filename": "2013-12-05-Parallelism-and-Serialization"
+}

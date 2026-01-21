@@ -1,0 +1,27 @@
+{
+  "summary": "This release announcement for Dask Distributed 1.13.0 details major user-facing features including renaming Executor to Client for clarity, worker memory spill-to-disk capability, and improved Bokeh visualizations. The post also introduces experimental features like publishing datasets for collaboration, task-launched tasks for dynamic workloads, and live environment redeployment. Internal improvements include a state-machine scheduler architecture, connection pooling, and enhanced work stealing. The release represents significant progress in both usability and robustness for distributed computing in Python.",
+  "key_points": [
+    "Executor renamed to Client to avoid confusion with Spark/Mesos terminology where 'executor' means something different",
+    "Workers can now spill excess data to disk when memory runs low, improving robustness for large problems on small clusters",
+    "New experimental publish_dataset feature allows sharing computed results between collaborators without re-running computations",
+    "Tasks can now launch other tasks, enabling highly dynamic workloads that adapt based on computed values",
+    "Workers can restart in new Conda environments live, enabling faster experimentation than Docker deployment cycles"
+  ],
+  "money_quotes": [
+    "Unfortunately, this is the same term used by projects like Spark and Mesos for 'the low-level thing that executes tasks on each of the workers' causing significant confusion when communicating with other communities or for transitioning users.",
+    "Generally this feature should improve robustness and allow the solution of larger problems on smaller clusters, although with a performance cost.",
+    "Dask's policies to reduce memory use through clever scheduling remain in place, so in the common case you should never need this feature, but it's nice to have as a failsafe.",
+    "You can now submit tasks to the cluster that themselves submit more tasks. This allows the submission of highly dynamic workloads that can shape themselves depending on future computed values without ever checking back in with the original client.",
+    "This helps users to experiment with different software environments with a much faster turnaround time (typically tens of seconds) than asking IT to install libraries or building and deploying Docker containers."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Distributed systems benefit from both robustness features like disk spilling that handle failure gracefully, and flexibility features like dynamic task launching that let computations evolve without returning to the client.",
+  "filename": "2016-09-12-dask-distributed-release-1.13.0"
+}

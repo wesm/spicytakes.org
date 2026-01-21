@@ -1,0 +1,27 @@
+{
+  "summary": "This release announcement details Dask version 0.13.0, highlighting major improvements across arrays, dataframes, and distributed scheduling. Key additions include Python 3.6 support, Parquet file format integration, and significant algorithmic improvements to handle thousand-core deployments. The release introduces embedded Bokeh servers for visual diagnostics within the scheduler and workers, custom serialization for better inter-worker communication, and dataframe-to-array conversions to support machine learning workflows. The post also previews future development directions including communication optimization and third-party tool growth.",
+  "key_points": [
+    "Thousand-core deployments have become common, requiring algorithmic changes from workstation-focused designs to true distributed algorithms with tree reductions and approximate methods",
+    "Parquet support via fastparquet brings 'Big Data' ecosystem compatibility to Python, with multiple competing implementations emerging",
+    "Scheduling logic has been pushed from scheduler to workers, enabling better hardware saturation and complex features like GPU resource constraints",
+    "Embedded Bokeh servers within scheduler and workers provide deep visual diagnostics with direct access to internal state",
+    "Custom serialization enables support for previously unserializable types like HDF5/NetCDF files and opens paths to GPU-GPU communication and cross-language worker support"
+  ],
+  "money_quotes": [
+    "Thousand-core Dask deployments have become significantly more common in the last few months.",
+    "Parquet has gone from inaccessible in Python to having multiple competing implementations, which is a wonderful and exciting change for the 'Big Data' Python ecosystem.",
+    "Now that workers are more fully saturated we've found that communication issues are arising more frequently as bottlenecks.",
+    "I hope that external projects like these become the main focus of Dask development going forward as Dask penetrates new domains.",
+    "This is also the first step towards two frequently requested features: Better support for GPU-GPU specific serialization options and passing data between workers of different runtime languages."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "As Dask scales to thousand-core deployments, the project is transitioning from workstation-focused algorithms to true distributed computing patterns, while building the infrastructure for third-party tools to drive future growth.",
+  "filename": "2017-01-03-dask-0.13.0"
+}

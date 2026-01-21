@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin announces a new weekly development log series to increase transparency around Dask development, which has accelerated due to increased adoption and corporate funding. The post covers four main development areas: embedded Bokeh servers for worker diagnostics, a redesigned scheduler architecture that shifts intelligence to workers, new dataframe algorithms, and the fastparquet library. The scheduler changes move responsibility from a centralized scheduler to smarter workers, enabling better resource utilization and features like GPU constraints. These architectural changes are expected to yield around 30% speedup for dataframe operations while also simplifying the codebase for contributors.",
+  "key_points": [
+    "Embedded Bokeh servers in workers now enable rapid diagnostic visualization development - creating a new diagnostic is faster than grepping through logs",
+    "The scheduler architecture has been inverted: workers are now smarter and receive all ready tasks immediately rather than being fed tasks just-in-time",
+    "Moving logic from scheduler to workers paradoxically made both components easier to reason about, lowering barriers for contributors",
+    "The changes enable resource constraints (GPU, RAM requirements) that the simpler workers couldn't handle",
+    "Fastparquet provides a Pythonic Parquet reader/writer using Numba with good performance"
+  ],
+  "money_quotes": [
+    "It is now faster for me to build a new diagnostic than to grep through logs.",
+    "Previously the scheduler knew everything and the workers were fairly simple-minded.",
+    "This is better locally but slightly worse globally.",
+    "By moving logic from the scheduler to the worker we've actually moved them both easier to reason about.",
+    "Increased activity is great, however an unintended side effect is that I have spent less time writing about development and engaging with the broader community.",
+    "Everyone running a Tornado application should have an embedded Bokeh server running."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, transparent, pragmatic",
+  "key_insight": "Distributing intelligence from a centralized scheduler to smarter workers can improve both performance and code simplicity, even though it trades global optimization for local efficiency.",
+  "filename": "2016-12-05-dask-dev-1"
+}

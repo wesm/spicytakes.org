@@ -1,0 +1,25 @@
+{
+  "summary": "This technical tutorial demonstrates how to programmatically start Bokeh servers from within Python applications rather than from the command line. Rocklin argues that Bokeh's true value lies not in static visualizations but in serving live-streaming, interactive dashboards that update with real-time data. He provides progressively complex code examples, from a basic line plot to streaming data visualizations, culminating in a real-world example from Dask's diagnostic dashboard. The post is aimed at developers who want to embed Bokeh directly into their libraries rather than running it as a standalone application.",
+  "key_points": [
+    "Bokeh's greatest strength is live-streaming interactive visualizations, not static web graphics",
+    "The ColumnDataSource keeps data synchronized between server and browser, handling all the websocket complexity automatically",
+    "Embedding Bokeh programmatically allows developers to integrate real-time diagnostics directly into their libraries",
+    "Bokeh works well with async applications like Tornado and Asyncio because it's built on Tornado"
+  ],
+  "money_quotes": [
+    "I find that Bokeh's true value is in serving live-streaming, interactive visualizations that update with real-time data.",
+    "I've found it incredibly useful and easy to deploy sophisticated and beautiful visualizations that help me understand the deep inner-workings of my system.",
+    "Doing this by hand generally means serializing your data on the server, figuring out how web sockets work, sending the data to the client/browser and then updating plots in the browser.",
+    "Bokeh handles this by keeping a synchronized table of data on the client and the server, the ColumnDataSource.",
+    "I've found the Bokeh server to be incredibly helpful in my work and also very approachable once you understand how to set one up."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Bokeh's ColumnDataSource abstraction eliminates the complexity of building real-time streaming visualizations by automatically synchronizing data between server and browser.",
+  "filename": "2017-06-28-simple-bokeh-server"
+}

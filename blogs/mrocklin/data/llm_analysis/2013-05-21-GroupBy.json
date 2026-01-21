@@ -1,0 +1,26 @@
+{
+  "summary": "Rocklin explores the challenge of where utility functions like groupby should live in the Python ecosystem. He argues that groupby is an underappreciated higher-order function that efficiently handles a large class of problems, yet Python's standard library lacks a proper implementation. After duplicating this function across multiple projects, he questions whether packages are the right abstraction at all, suggesting that perhaps we should manage functions directly rather than bundling them into artificial package groupings.",
+  "key_points": [
+    "Groupby is a fundamental higher-order function alongside map, filter, and reduce that efficiently partitions collections by a key function in a single pass",
+    "Python's standard library lacks a proper groupby implementation - itertools.groupby requires adjacent elements and doesn't satisfy the traditional interface",
+    "Code duplication of utility functions across projects is a common problem with no satisfying solution in current package management",
+    "The question of which package a function should belong to feels inherently subjective and artificial",
+    "Package management may not be the correct abstraction - managing functions directly could be a better approach"
+  ],
+  "money_quotes": [
+    "I believe that packages are an artificial abstraction.",
+    "Groupby efficiently handles another surprisingly large class of problems. You probably implement groupby relatively frequently without realizing it.",
+    "This is code duplication. Code duplication is bad.",
+    "In which project should groupby live?",
+    "To me this question is subjective and all answers I can come up with feel artificial.",
+    "At the moment my answer is that package management is not the correct abstraction. Instead perhaps the solution is to manage functions directly."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "reflective, technical, questioning",
+  "key_insight": "The difficulty of deciding where small utility functions should live in the package ecosystem reveals that packages themselves may be an artificial abstraction, and we might be better served by managing functions directly.",
+  "filename": "2013-05-21-GroupBy"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "This development log covers a week of work on Dask, focusing on performance improvements and benchmarking efforts. The team resolved load balancing issues that had degraded performance on messy workloads, returning bleeding-edge builds to full speed. A major breakthrough came from identifying that calculating the size of object dtype dataframes was causing 100ms+ gaps between worker tasks, which they fixed by using pessimistic estimates instead of accurate calculations. The author also began preliminary work on comparing Dask and Spark DataFrames, while thoughtfully considering how to conduct unbiased benchmarks in a competitive open source landscape.",
+  "key_points": [
+    "Load balancing cleanup restored performance for bleeding-edge users after disruptive scheduler and worker changes",
+    "Worker lag of 100ms+ was traced to size calculations on object dtype dataframes, fixed by using pessimistic guesses instead of accurate results",
+    "Shuffle overhead was reduced by a factor of two through the lag fix, though 10ms inter-task lag remains on some workloads",
+    "The author is planning Spark/Dask DataFrame comparisons but wants to collaborate with Spark devs to avoid biased benchmarks",
+    "Community members are building out benchmarks using airspeed velocity at dask-benchmarks"
+  ],
+  "money_quotes": [
+    "Often this is quite fast, for example for numpy arrays we can just multiply the number of elements by the dtype itemsize. However for object dtype arrays or dataframes (which are commonly used for text) it can take a long while to calculate an accurate result here.",
+    "While 10ms may not sound like a long time, when we perform very many very short tasks this can quickly become a bottleneck.",
+    "However in today's climate where open source software developers have a vested interest, benchmarks often focus on a projects' strengths and hide their deficiencies.",
+    "Even with the best of intentions and practices, a developer is likely to correct for deficiencies on the fly. They're much more able to do this for their own project than for others'.",
+    "Benchmarks end up looking more like sales documents than trustworthy research.",
+    "My tentative plan is to reach out to a few Spark devs and see if we can collaborate on a problem set and hardware before running computations and comparing results."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, transparent, reflective",
+  "key_insight": "Performance optimization often requires trading accuracy for speed, and honest benchmarking requires collaboration with competitors to avoid becoming sales documents.",
+  "filename": "2016-12-24-dask-dev-4"
+}

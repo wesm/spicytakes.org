@@ -1,0 +1,27 @@
+{
+  "summary": "The post explores how to symbolically represent computations that go beyond simple tree structures, proposing a bipartite directed acyclic graph (BiDAG) as a more general data structure. Rocklin introduces the Computation base type with inputs and outputs tuples, and a CompositeComputation type that collects multiple computations together. The approach emphasizes immutability and mathematical attributes over performance, with a deliberate separation between mathematics-based optimizations and infrastructure-based optimizations like inplace operations. This work is motivated by translating matrix expressions into BLAS/LAPACK operations, where mathematical pattern matching and inplace computation goals create tension that's resolved by handling them in separate phases.",
+  "key_points": [
+    "Trees are too restrictive for representing computations with multiple outputs, necessitating bipartite directed acyclic graphs (BiDAGs)",
+    "The Computation type provides inputs/outputs tuples instead of the standard args used for trees, enabling more flexible composition",
+    "Variables are assumed immutable and unique, defined entirely by their mathematical meaning rather than computational attributes",
+    "Inplace operations and copies require an explicit transition from mathematics-based to infrastructure-based optimization by pairing mathematical expressions with computational variables",
+    "The separation of mathematical pattern matching from inplace optimization allows solving complex matrix expression translation problems in stages"
+  ],
+  "money_quotes": [
+    "While trees are a convenient data structure they are also very restrictive.",
+    "A DAG is the next most restrictive graph subtype. In some sense this is the smallest generalization we can make.",
+    "All variables are assumed immutable and unique. The intention is that variables should be entirely defined by their mathematical meaning.",
+    "This approach has a focus on immutability and mathematical attributes rather than performance and computational attributes.",
+    "We make an explicit separation between mathematics-based optimizations and infrastructure-based optimizations (like inplace).",
+    "Inplace computations provide higher performance at the cost of memory safety.",
+    "These two goals of mathematical pattern matching and inplace computations are challenging to solve simultaneously for non-trivial expressions."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "distributed"
+  ],
+  "tone": "technical",
+  "key_insight": "Separating mathematical semantics from computational infrastructure (like inplace operations) allows complex optimization problems to be solved in tractable stages rather than all at once.",
+  "filename": "2012-11-21-Computations"
+}

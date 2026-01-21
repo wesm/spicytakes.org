@@ -1,0 +1,26 @@
+{
+  "summary": "This post benchmarks dask's out-of-core matrix multiplication capabilities, comparing performance between reference BLAS and OpenBLAS. The key finding is that reading large matrices from disk doesn't significantly hurt performance for compute-bound operations like matrix multiplication, achieving 18.9 GFLOPS from disk versus 6 GFLOPS in-memory with reference BLAS. However, combining dask's parallelization with OpenBLAS's multi-threading actually hurts performance, suggesting users should avoid using two parallelization mechanisms simultaneously. The post serves as an early proof-of-concept for dask's ability to handle datasets larger than memory.",
+  "key_points": [
+    "Matrix multiplication is compute-bound (n\u00b3 operations for n\u00b2 bytes read), making I/O relatively cheap compared to computation",
+    "Out-of-core dask achieved 18.9 GFLOPS versus 6 GFLOPS for in-memory NumPy with reference BLAS, due to parallel core utilization",
+    "OpenBLAS provides ~4x speedup over reference BLAS for in-memory operations",
+    "Combining dask parallelization with OpenBLAS multi-threading causes performance degradation rather than improvement",
+    "These results only apply to highly compute-bound operations and shouldn't be generalized to I/O-bound workloads"
+  ],
+  "money_quotes": [
+    "It's as if all of our hard drive just became memory.",
+    "When doing compute intensive work, don't worry about using disk, just don't use two mechanisms of parallelism at the same time.",
+    "We don't lose much by operating from disk in compute-intensive tasks.",
+    "When multiplying two n\u00d7n matrices we read n\u00b2 bytes but perform n\u00b3 computations. There are n computations to do per byte so, relatively speaking, I/O is cheap.",
+    "Dask doesn't benefit much from an optimized BLAS. This is sad and surprising."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "For compute-intensive operations, disk-based out-of-core computation can match or exceed in-memory performance through parallelization, but users must avoid layering multiple parallelization strategies.",
+  "filename": "2015-01-14-Towards-OOC-MatMul"
+}

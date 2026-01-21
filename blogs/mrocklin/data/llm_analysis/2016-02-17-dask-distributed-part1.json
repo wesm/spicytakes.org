@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin announces dask distributed, a new distributed memory scheduler that extends Dask's parallel computing capabilities from single machines to clusters of 10s to 100s of nodes. The post demonstrates the system by analyzing GitHub Archive data stored on S3 using a 72-worker EC2 cluster, showing how to filter, count, and analyze JSON records with interactive response times. The key insight is that Python can now handle distributed computing natively without relying on JVM-based systems like Hadoop or Spark. Rocklin emphasizes that while distributed systems are powerful for large datasets, users should 'eschew distributed systems and act locally' once data fits in memory, as local processing can be 20x faster.",
+  "key_points": [
+    "Dask distributed enables Python's parallel computing library to scale across clusters of 10s to 100s of nodes with a new distributed memory scheduler",
+    "The system achieves interactive response times (~200ms) for queries on filtered datasets, making distributed computing feel responsive for exploratory analysis",
+    "A pure Python stack for distributed computing offers advantages over JVM-based solutions: better stack traces, less serialization overhead, and Pythonic style",
+    "Once data is small enough to fit locally, single-machine processing can be 20x faster than distributed - knowing when to stop using distributed systems is important",
+    "The scheduler adds about 1ms overhead per task, making partition count a significant factor in total computation time"
+  ],
+  "money_quotes": [
+    "Downloading, decompressing, parsing, filtering, and counting JSON records is the new wordcount.",
+    "Here we have Python distributing Python; there are some usability gains to be had here like nice stack traces, a bit less serialization overhead, and attention to other Pythonic style choices.",
+    "The difference here is 20x, which is a good reminder that, once you no longer have a large problem you should probably eschew distributed systems and act locally.",
+    "A 200ms latency is not great if you're playing a video game, but it's decent for interactive computing.",
+    "Typically Python users rely on a JVM technology like Hadoop/Spark/Storm to distribute their computations.",
+    "By designing to support these more extreme cases we've nailed some common pain points in current distributed systems."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Dask distributed brings cluster computing to the Python ecosystem with a pure Python stack, offering interactive latencies and Pythonic ergonomics while reminding users that local processing remains dramatically faster when data fits in memory.",
+  "filename": "2016-02-17-dask-distributed-part1"
+}

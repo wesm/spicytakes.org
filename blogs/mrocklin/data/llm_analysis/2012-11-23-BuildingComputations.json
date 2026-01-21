@@ -1,0 +1,26 @@
+{
+  "summary": "This post describes a system for automatically compiling complex matrix expressions into optimized BLAS/LAPACK computations using unification and rewrite rules. The author demonstrates how pattern matching can transform high-level mathematical expressions into directed acyclic graphs of low-level linear algebra operations. The system handles inplace computation requirements by tracking memory locations and inserting copy operations where necessary. The author emphasizes that most of the technology is general-purpose and not specific to matrix computations, hoping it will enable other projects.",
+  "key_points": [
+    "Rewrite patterns using unification can transform complex matrix expressions into BLAS/LAPACK operations like SYMM, GEMM, and POSV",
+    "Computations are represented as directed acyclic graphs that can be visualized using DOT language",
+    "Inplace operations require a separate system to track memory locations and insert Copy operations to prevent dangerous overwrites",
+    "The combination of logic (patterns/assumptions) with control (exhaust/multiplex strategies) creates complete algorithms",
+    "The technology is intentionally kept general-purpose rather than specific to matrix computations"
+  ],
+  "money_quotes": [
+    "Thanks to unification rewrite patterns are easy to write. Someone who is familiar with BLAS/LAPACK but unfamiliar with compilers would be able to make these easily.",
+    "This function combines logic (patterns/assumptions) with control (exhaust/multiplex/input_crunch) to create a complete algorithm.",
+    "Each variable is now of the form Mathematical Expression @ memory location",
+    "The largest challenge is to build strategies for intelligent application of rewrite rules. Expressions are now large enough and the list of patterns is now long enough so that checking all possibilities is definitely infeasible.",
+    "Throughout this project I've tried to keep all of the technology as general as possible in hopes that others will make use of it.",
+    "Only a small fraction of my work has been specific to my application. I hope that this technology enables a variety of other unrelated projects."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Pattern matching and rewrite rules can compile high-level mathematical expressions into optimized low-level computations, with the key insight that separating logic from control enables building general-purpose compilation infrastructure.",
+  "filename": "2012-11-23-BuildingComputations"
+}

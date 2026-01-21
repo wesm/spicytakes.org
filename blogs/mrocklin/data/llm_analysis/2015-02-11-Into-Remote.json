@@ -1,0 +1,27 @@
+{
+  "summary": "Matt Rocklin announces that the 'into' data migration library now supports remote data sources including SSH, HDFS, and Hive metastore. The post explains how combining multiple data transfer steps (scp, hadoop commands, SQL) frustrates analysts, and how into's network approach simplifies this. He details the technical challenges solved: type modifiers for handling variants of file formats across locations, temporary file cleanup tied to Python's garbage collector, and growing keyword argument complexity. The post concludes with a call for community testing of the new remote functionality.",
+  "key_points": [
+    "into now handles SSH, HDFS, and Hive data transfers through a unified interface, eliminating multi-step data migration workflows",
+    "Type modifiers (SSH, HDFS, Directory) solve the combinatorial explosion of format+location subclasses by dynamically creating types like SSH(CSV)",
+    "Temporary files are managed through a Temp type modifier that ties cleanup to Python's garbage collector",
+    "Hive integration is complicated because Hive represents tables as directories of CSV files rather than having an internal format",
+    "The growing number of keyword arguments presents a documentation challenge since valid options depend on source and target types"
+  ],
+  "money_quotes": [
+    "While each of these steps may be relatively straightforward, their combination can be daunting to the casual analyst.",
+    "into is now a fancy scp.",
+    "I often erroneously think of HTTP as slow.",
+    "Hive is different from most databases in that it doesn't have an internal format. Instead, it represents tables as directories of CSV files.",
+    "This lets us tie the Python garbage collector to persistent data outside of the Python process. It's not fool-proof, but it is pretty effective.",
+    "The new behavior around ssh:// and hdfs:// and hive:// is new, error prone, and could really use play-testing."
+  ],
+  "themes": [
+    "python",
+    "distributed",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, candid",
+  "key_insight": "A network of simple pairwise data conversions can abstract away the complexity of multi-step data migration workflows across local and remote systems.",
+  "filename": "2015-02-11-Into-Remote"
+}

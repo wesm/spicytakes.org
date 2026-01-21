@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin documents his week-long optimization of dask.distributed's inter-node communication protocol, which was performing 50x slower than expected for large array transfers. Through systematic profiling, he identified and fixed seven distinct performance bottlenecks spanning Tornado's sentinel parsing, memory copies, unnecessary compression, pickle inefficiencies, and MsgPack limitations. The final protocol achieves 5 microsecond latency for small messages and 1-1.5 GB/s throughput for large transfers, fast enough to saturate most networks.",
+  "key_points": [
+    "Visual profiling tools (Dask's Web UI) were essential for identifying that 30MB transfers were taking 15 seconds instead of the expected 0.3 seconds",
+    "Tornado's sentinel-based message delimiting scans all buffered data for each message, causing catastrophic performance for large payloads - switching to length-prefixed messages with TCP_NODELAY improved bandwidth from 3MB/s to 20MB/s",
+    "Compression can hurt performance on incompressible data; the solution was sampling 5 random 10kB chunks before deciding whether to compress the full payload",
+    "CloudPickle unexpectedly runs 3x slower than standard Pickle because it uses Python's implementation rather than the C version",
+    "MsgPack doesn't handle bytestrings over 4GB and is inefficient for large strings, requiring special handling to strip out and send large bytestrings in separate frames"
+  ],
+  "money_quotes": [
+    "Very high performance isn't about doing one thing well, it's about doing nothing poorly.",
+    "Writing fast code isn't about writing any one thing particularly well, it's about mitigating everything that can get in your way.",
+    "As you approach peak performance, previously minor flaws suddenly become your dominant bottleneck.",
+    "My first lesson was how valuable visual profiling tools can be when they make performance issues glaringly obvious.",
+    "At 5 GB/s copying memory is cheap! Unfortunately this breaks down under either of the following conditions: you are sloppy enough to do this multiple times, or you find yourself on a machine with surprisingly low memory bandwidth.",
+    "Decompressing not-very-compressible data was surprisingly slow.",
+    "Success here depends on frequent profiling and keeping your mind open to unexpected and surprising costs."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Achieving high performance requires systematically identifying and eliminating every bottleneck through continuous profiling, because as you optimize, previously negligible costs become the new dominant constraint.",
+  "filename": "2016-04-14-dask-distributed-optimizing-protocol"
+}

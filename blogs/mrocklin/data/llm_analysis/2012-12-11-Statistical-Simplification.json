@@ -1,0 +1,26 @@
+{
+  "summary": "Matt Rocklin discusses the challenge of encoding expert mathematical knowledge into computational systems in a reusable way. He proposes multi-stage compilation as a solution, where each stage applies domain-specific simplifications. Using SymPy.stats as an example, he shows how the system fails to recognize that X\u00b2 of a normal distribution is Chi-squared, leading to intractable integrals. He suggests that Leemis's statistical distribution chart could be encoded as transformation rules, using unification and strategies modules to make SymPy.stats significantly smarter.",
+  "key_points": [
+    "Expert mathematical knowledge can accelerate computations by orders of magnitude, but collaboration between experts and implementers doesn't scale well",
+    "Multi-stage compilation allows each stage to apply domain-specific simplifications, creating reusable infrastructure",
+    "SymPy.stats currently lacks a simplification step for stochastic expressions, causing it to fail on problems any statistician would find trivial",
+    "Declarative knowledge bases like Leemis's distribution chart could be translated into functioning simplification code using unification and strategies"
+  ],
+  "money_quotes": [
+    "How do we reusably encode expert knowledge into computational systems?",
+    "Correct use of mathematical information can accelerate important computations by several orders of magnitude. Unfortunately the people who know the mathematics are not always the ones doing the computation. This results in substantial waste.",
+    "Collaboration rarely results in reusable infrastructure. Statistical chemistry projects are rarely applicable to statistical biology problems despite their shared interest in statistics.",
+    "Each stage within this pipeline presents us with the opportunity to simplify the expression with knowledge relevant to that stage.",
+    "Any statistician could tell you that the expression X\u00b2 has a Chi Squared distribution which has a simple and well understood density.",
+    "In this case knowing basic statistics would have turned an impossible problem into a trivial one.",
+    "This is the sort of project that really excites me but that I can't currently justify time-wise."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, reflective, enthusiastic",
+  "key_insight": "The gap between domain experts and computational systems can be bridged by encoding expert knowledge as declarative transformation rules in multi-stage compilation pipelines.",
+  "filename": "2012-12-11-Statistical-Simplification"
+}

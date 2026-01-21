@@ -1,0 +1,27 @@
+{
+  "summary": "This technical post demonstrates how to implement asynchronous optimization algorithms using Dask's distributed computing framework. The authors compare synchronous (blocking) ADMM with two asynchronous variants that update parameters continuously as results arrive. They show that asynchronous approaches enable better cluster utilization and faster initial convergence by allowing more frequent parameter updates. The experiments reveal that while asynchronous methods incur slightly higher 'cost of agreement' due to workers using slightly stale parameters, they achieve convergence much faster than synchronous approaches. The post provides complete code examples and visual profiling comparisons on a toy dataset.",
+  "key_points": [
+    "Asynchronous algorithms enable monitoring and adapting computations during execution, increasing information flow compared to lock-step batch-iterative approaches",
+    "Dask's concurrent.futures API with as_completed() allows building flexible asynchronous workflows where results are processed as they arrive",
+    "Batched asynchronous updates provide a natural defense against slow clients by processing all available results at once, smoothly transitioning back to synchronous behavior when overwhelmed",
+    "Asynchronous ADMM converges faster initially but incurs higher 'cost of agreement' because workers operate with slightly out-of-date parameter estimates",
+    "The client-side parameter update loop can become the bottleneck in large clusters, requiring batching strategies to maintain throughput"
+  ],
+  "money_quotes": [
+    "In a non-blocking or asynchronous algorithm we send out work and track results as they come in. We are still able to run commands locally while our computations run in the background.",
+    "This ability to monitor and adapt a computation during execution is one reason why people choose asynchronous algorithms.",
+    "Asynchronous algorithms enable increased flow of information around the cluster in comparison to more lock-step batch-iterative algorithms.",
+    "Rather than update our parameters one by one, we update them with however many results have come in so far. This provides a natural defense against a slow client.",
+    "The cost of agreement is higher for asynchronous algorithms, which makes sense because each worker is always working with a slightly out-of-date global parameter estimate, making consensus harder.",
+    "Blocked ADMM doesn't update at all until shortly after 5 seconds have passed, whereas async has already had time to converge."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Asynchronous distributed algorithms trade off perfect parameter consistency for dramatically faster convergence by enabling continuous information flow and adaptation during execution.",
+  "filename": "2017-04-19-dask-glm-2"
+}

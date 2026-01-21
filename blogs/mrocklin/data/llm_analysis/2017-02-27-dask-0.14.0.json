@@ -1,0 +1,27 @@
+{
+  "summary": "Dask version 0.14.0 introduces significant internal improvements focused on performance and flexibility. The release features structural sharing of graphs between collections, which dramatically reduces overhead when building repetitive computations\u2014a critical improvement for petabyte-scale climate science analyses. The communications system has been refactored to be pluggable, enabling future support for alternative transport mechanisms like MPI for supercomputing environments. Additional improvements include expanded DataFrame API coverage, better handling of categorical data, and various distributed system enhancements for multi-client workflows.",
+  "key_points": [
+    "Structural sharing of graphs reduces computation overhead by ~3.6x for repetitive operations, removing a blocker for petabyte-scale climate science analyses",
+    "The communications system is now pluggable, preparing Dask for exotic interconnects and potential MPI support in supercomputing environments",
+    "DataFrame improvements include fast categorical assignment without full data passes, groupby cumulative reductions, and Parquet append support",
+    "New DataFrame rendering shows metadata in a readable table format rather than cryptic internal representations",
+    "Distributed system gains scheduler-file option for easier deployment on shared network file systems common in academic institutions"
+  ],
+  "money_quotes": [
+    "Copying graph data structures with millions of nodes can take seconds and interrupt interactive workflows.",
+    "This was also one of the blockers identified by the climate science community stopping them from handling petabyte scale analyses.",
+    "This is especially important as dask gets used in institutions with faster and more exotic interconnects (supercomputers).",
+    "We've been asked a few times to support other transport mechanisms like MPI.",
+    "Because Dask.dataframes are lazy we don't have this data and so typically render some metadata about the dataframe."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Internal architectural improvements like structural sharing and pluggable communications may seem mundane, but they're often the critical enablers for scaling from toy problems to petabyte-scale scientific computing.",
+  "filename": "2017-02-27-dask-0.14.0"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "This release announcement details Dask version 0.17.2, highlighting several technical improvements including Tornado 5.0 integration enabling 3GB/s Infiniband bandwidth, a new HTTP file system for reading data from web servers, and a critical correctness bug fix in dataframe shuffles. The release also introduces a unified Cluster superclass that standardizes deployment interfaces across different resource managers, along with improved adaptive deployment logic that automatically scales clusters based on workload. The post acknowledges the collaborative nature of open source development by listing dozens of contributors across both the main dask and distributed repositories.",
+  "key_points": [
+    "Tornado 5.0's new IOStream.read_into method enables Dask to achieve full 3GB/s Infiniband bandwidth on high-performance computing systems with fewer memory copies",
+    "New HTTP/HTTPS file system support allows reading data directly from web servers with range query support for random access",
+    "A correctness bug in dataframe shuffle operations that dropped rows during joins and groupby-applies with many partitions was fixed",
+    "A unified Cluster superclass now provides consistent interfaces across Yarn, SGE, Kubernetes, PBS and other deployment systems",
+    "Adaptive deployments now include workload-based worker estimation, min/max limits, and hysteresis prevention"
+  ],
+  "money_quotes": [
+    "On the Cheyenne system, where we tested this, we were able to get the full 3GB/s bandwidth available through the Infiniband network with this change",
+    "Adaptive deployments allow clusters to scale themselves automatically based on current workload",
+    "If you have recently submitted a lot of work the scheduler will estimate its duration and ask for an appropriate number of workers to finish the computation quickly",
+    "Now that we have a consistent interface we have started to invest more in improving the interface and intelligence of these systems as a group",
+    "We identified and resolved a correctness bug in dask.dataframe's shuffle that resulted in some rows being dropped during complex operations"
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "open_source",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Standardizing deployment interfaces across different cluster managers enables the Dask project to invest in shared improvements like intelligent adaptive scaling that benefit all deployment environments simultaneously.",
+  "filename": "2018-03-21-dask-0.17.2"
+}

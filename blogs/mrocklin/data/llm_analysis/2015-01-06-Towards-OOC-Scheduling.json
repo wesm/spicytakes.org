@@ -1,0 +1,29 @@
+{
+  "summary": "This technical post explores multi-threaded task scheduling for out-of-core ND-array computations, demonstrating how to perform operations like transpose and dot product on arrays too large to fit in memory. The author presents two key techniques: function inlining to reduce memory footprint by trading computation for storage, and a greedy scheduling policy that prioritizes tasks which free data resources. Through animated examples, the post shows how this approach enables efficient memory-constrained computing for embarrassingly parallel and reduction operations, while acknowledging failure cases where the greedy strategy falls short. The author hints at future directions including on-disk caching and distributed scheduling across clusters.",
+  "key_points": [
+    "Function inlining trades redundant computation for reduced memory usage by not caching results of fast operations like transpose",
+    "The scheduler's key optimization is selecting tasks that immediately free data resources upon completion, enabling 'vertical' execution patterns",
+    "NumPy operations that release the GIL are highly amenable to multi-threading, bypassing Python's single-active-core limitation",
+    "Greedy scheduling fails in cases where globally important computations (like mean) get delayed, trapping intermediate results in cache",
+    "The dask graph abstraction separates computation specification from execution strategy, allowing different schedulers without changing the computation code"
+  ],
+  "money_quotes": [
+    "We trade computation for memory.",
+    "It replaces the elegant 20 line reference solution with a large blob of ugly code filled with locks and mutable state.",
+    "Moore's law is dead! Long live Moore's law!",
+    "NumPy programs do not suffer the single-active-core-per-process limitation of most Python code.",
+    "We'll never build a good enough scheduler. We need to be able to fall back to on-disk caching.",
+    "In this case our greedy solution was short sighted; a slightly more global solution would quickly select these large circles to run quickly.",
+    "Re-implementing all of NumPy is hard, re-implementing a few choice pieces of NumPy is relatively straightforward. Knowing what those few choices pieces are requires community involvement."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Effective out-of-core array computation requires both smart function inlining to minimize memory footprint and scheduling policies that prioritize freeing resources, though no greedy approach will be perfect and fallback mechanisms like disk caching remain essential.",
+  "filename": "2015-01-06-Towards-OOC-Scheduling"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "This development log covers a week of work on Dask's distributed scheduler, focusing on rebuilding load balancing algorithms after a major rewrite of the worker and scheduler components. The author explains the complexity of task assignment across millions of tasks and thousands of workers, requiring near-optimal placement in near-constant time. He also discusses switching development clusters from Amazon EC2 to Google Container Engine, weighing the tradeoffs of each platform. The post concludes with a brief note on successful testing of fastparquet with S3 data.",
+  "key_points": [
+    "Rewriting the scheduler and worker resulted in loss of load balancing algorithms, which had to be rebuilt from scratch while maintaining performance for power users",
+    "Dynamic load balancing must consider task runtime, data size and location, worker queue duration, and data locality\u2014all computed in near-constant time for millions of tasks",
+    "The team's testing strategy evolved from fine-grained unit tests to behavioral integration tests and strict runtime validation due to repeated internal rewrites",
+    "Google Container Engine offers advantages like minute-based billing and native Kubernetes support, but Amazon has better Python tooling for S3 access",
+    "Fastparquet and Dask.dataframe worked out of the box with S3 data, though performance tuning is still needed"
+  ],
+  "money_quotes": [
+    "Careful dynamic load balancing is essential to running atypical workloads (which are surprisingly typical among Dask users)",
+    "Because the number of tasks can grow into the millions and the number of workers can grow into the thousands, Dask needs to figure out a near-optimal placement in near-constant time, which is hard.",
+    "Generally working on the Dask distributed scheduler has taught me the brittleness of unit tests.",
+    "As we have repeatedly rewritten internals while maintaining the same external API our testing strategy has evolved considerably away from fine-grained unit tests to a mixture of behavioral integration tests and a very strict runtime validation system.",
+    "We're doing what we can to create isolated tests for every failure mode that we find to make future rewrites retain good behavior.",
+    "I was surprised that everything seemed to work out of the box."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, candid, pragmatic",
+  "key_insight": "Building a distributed scheduler that handles millions of tasks requires abandoning traditional unit testing in favor of behavioral integration tests and runtime validation, because performance-based metrics are inherently difficult to capture in isolated tests.",
+  "filename": "2016-12-18-dask-dev-3"
+}

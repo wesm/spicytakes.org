@@ -1,0 +1,27 @@
+{
+  "summary": "This post demonstrates how Dask DataFrames extend Pandas to handle big data across distributed clusters. Using the NYC Taxi dataset (60GB in memory), Rocklin walks through common operations including CSV reading, aggregations, groupbys, joins, shuffles, and time series analysis on an 8-node EC2 cluster with 64 cores. The post highlights that while distributed computing adds overhead compared to single-machine Pandas, Dask maintains familiar Pandas syntax while enabling analysis of datasets too large for a single computer. A key focus is the new Parquet support, which provides faster I/O and compatibility with Spark workflows.",
+  "key_points": [
+    "Dask DataFrames coordinate hundreds of small Pandas dataframes across a cluster, using standard Pandas functions under the hood with minimal overhead",
+    "Shuffles (resorting data across nodes) are expensive in distributed systems - the set_index operation took 25-40 seconds for 60GB, demonstrating why distributed tools should only be used when single-machine solutions fail",
+    "Once data is properly indexed by datetime, time series operations and row lookups become extremely fast (40ms round trip - faster than movie frame rates)",
+    "Parquet format support enables faster I/O, columnar queries, and interoperability between Dask and Spark ecosystems",
+    "The familiar Pandas API means users can leverage existing knowledge including keyword arguments like those in pd.read_csv"
+  ],
+  "money_quotes": [
+    "Pandas provides an intuitive, powerful, and fast data analysis experience on tabular data. However, because Pandas uses only one thread of execution and requires all data to be in memory at once, it doesn't scale well to datasets much beyond the gigabyte scale.",
+    "This operation is expensive, far more expensive than it was with Pandas when all of the data was in the same memory space on the same computer. This is a good time to point out that you should only use distributed tools like Dask.dataframe and Spark after tools like Pandas break down.",
+    "We should only move to distributed systems when absolutely necessary. However, when it does become necessary, it's nice knowing that Dask.dataframe can faithfully execute Pandas operations, even if some of them take a bit longer.",
+    "For reference, 40ms is the delay between two frames in a movie running at 25 Hz. This means that it's fast enough that human users perceive this query to be entirely fluid.",
+    "These little functions represented by the rectangles in these plots are just pandas functions.",
+    "Dataframes are nice, certainly, but Dask's main strength is its flexibility to move beyond just plain dataframe computations to handle even more complex problems."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Dask DataFrames enable scaling Pandas workflows to distributed clusters by coordinating many small Pandas operations, but distributed computing should only be adopted when single-machine tools genuinely cannot handle the data size.",
+  "filename": "2017-01-12-dask-dataframes"
+}

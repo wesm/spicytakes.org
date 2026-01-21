@@ -1,0 +1,27 @@
+{
+  "summary": "This post demonstrates Blaze's capability to seamlessly work with large datasets across different computational backends. Using Home Mortgage Disclosure Act data (10GB uncompressed), Rocklin shows how Blaze enables interactive exploration of data too large for memory, then migrating selected subsets to faster backends like SQLite and MongoDB. The key demonstration is performing identical queries across CSV, SQLite, and MongoDB backends with the same syntax, revealing that indexed MongoDB performs about twice as fast as indexed SQLite for this workload. The post emphasizes that Blaze abstracts away backend-specific syntax, letting users choose the right tool without learning new query languages.",
+  "key_points": [
+    "Blaze's Table object provides interactive NumPy/Pandas-like feel while maintaining lazy evaluation for large datasets",
+    "Migrating from CSV parsing (14 minutes) to SQLite (7 seconds) to indexed MongoDB (954ms) shows dramatic performance gains from choosing appropriate backends",
+    "Blaze enables backend comparison experiments without requiring users to learn each technology's specific syntax and setup procedures",
+    "Adding database indexes on frequently-queried fields provides significant speedups for selective queries",
+    "The same Blaze code works unchanged across CSV, SQLite, and MongoDB backends"
+  ],
+  "money_quotes": [
+    "Uncompressed this dataset is around 10GB on disk and so we don't want to load it up into memory with a modern commercial notebook.",
+    "It retains the abstract delayed-evaluation nature of Blaze with the interactive feel of NumPy and Pandas.",
+    "While robust for large files and decently fast, this backend parses the CSV file each time we do a full-data operation, and this parsing is very slow.",
+    "We just did a complex thing easily.",
+    "If we weren't familiar with MongoDB we would need to learn how to set up a database, how to migrate data from SQL to MongoDB, and finally how to perform queries. Blaze eased that process considerably.",
+    "Blaze enables you to investigate, transform, and migrate large data intuitively.",
+    "We hope that by lowering this barrier more users will use the right tool for the job."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "By providing a unified interface across computational backends, Blaze lets data practitioners focus on their analysis rather than learning database-specific syntaxes, making it trivial to experiment with different storage technologies to find the best fit.",
+  "filename": "2014-09-01-Blaze-HMDA"
+}

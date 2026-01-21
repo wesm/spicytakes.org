@@ -1,0 +1,26 @@
+{
+  "summary": "This post benchmarks various serialization methods for storing Pandas DataFrames to disk, finding that while numeric data has excellent options (pickle with protocol=2, msgpack), text data remains problematic due to NumPy's generic Object dtype. The author demonstrates that categorical dtypes offer a powerful solution for text-heavy data with repeated values, as converting to categoricals before serialization is actually faster than serializing raw text. The benchmarks were conducted for the dask.frame project, which needs efficient DataFrame I/O. The core conclusion is that combining good numeric serialization with categorical dtypes enables efficient DataFrame storage, though a proper string dtype in NumPy would be the ideal long-term fix.",
+  "key_points": [
+    "Using protocol=2 with pickle dramatically improves numeric serialization performance and should be standard practice (though Python 3 users get protocol=3 by default)",
+    "Text serialization is surprisingly difficult because NumPy stores strings as generic Python objects rather than having a dedicated string dtype",
+    "Categorical dtypes can rescue text performance by replacing repeated string values with numeric codes, making convert-then-serialize faster than direct serialization",
+    "MsgPack provides surprisingly competitive performance, especially for dumping text data quickly",
+    "For numeric data, both pickle with protocol=2 and msgpack dump raw bytes fast enough that disk I/O becomes the bottleneck, not serialization"
+  ],
+  "money_quotes": [
+    "We have good options for numeric data but not for text. This is unfortunate; serializing ASCII text should be cheap.",
+    "We lose here because we store text in a Series with the NumPy dtype 'O' for generic Python objects. We don't have a dedicated variable length string dtype. This is tragic.",
+    "Text should be easy to serialize. It's already text!",
+    "When our data is amenable to categories then it's cheaper to convert-then-serialize than it is to serialize the raw text.",
+    "Object dtype is bad for PyData. String dtypes would be nice.",
+    "You should not trust that what follows generalizes to your data. You should look at your own data and run benchmarks yourself. My benchmarks lie."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "The lack of a proper string dtype in NumPy forces PyData to use inefficient Object dtypes for text, but categorical dtypes provide an effective workaround that makes serialization faster than working with raw text data.",
+  "filename": "2015-03-16-Fast-Serialization"
+}

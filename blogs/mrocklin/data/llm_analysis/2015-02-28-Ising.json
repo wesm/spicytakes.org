@@ -1,0 +1,26 @@
+{
+  "summary": "The author documents their first hands-on experience with Numba, using the Ising model physics simulation as a test case. They implemented a grid-based spin simulation where points flip states based on neighbor interactions and random fluctuations. The Numba-compiled code achieved a 240x speedup (50ms vs 12s) on a 1000x1000 grid. The author emphasizes this was an out-of-the-box experience, not a polished demo, and highlights practical benefits like debuggability and clean separation between data management and computation.",
+  "key_points": [
+    "Numba achieved 240x speedup (12s to 50ms) for Ising model simulation with minimal effort",
+    "For-loop-heavy algorithms like Ising model updates are cleaner in imperative code than high-level array operations",
+    "Numba allows debugging by simply removing the @jit decorator",
+    "Type signatures are optional - Numba will JIT when it sees new signatures with minimal overhead",
+    "Data management (NumPy/dask.array) can be cleanly separated from computation (Numba)"
+  ],
+  "money_quotes": [
+    "I've never actually used Numba. Well that's not quite true; I've indirectly used Numba thousands of times because Blaze auto-generates numba ufuncs.",
+    "Numba takes a different approach and translates Python for loops to efficient LLVM code. This is all lower in the hardware stack than where I usually think.",
+    "For this kind of algorithm imperative for-loopy code is probably the most clear. You can do this with high-level array operations too (e.g. NumPy/Blaze/Theano), but it's a mess.",
+    "This wasn't a canned demo by an expert user / numba developer; this was just my out-of-the-box experience.",
+    "I can remove @numba.jit and use the Python debugger",
+    "Turns out the cost of not writing it down is that Numba will jit whenever it sees a new signature. For my application this is essentially free."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "dask"
+  ],
+  "tone": "technical, exploratory, pragmatic",
+  "key_insight": "Numba delivers dramatic performance gains for loop-heavy numerical code with minimal learning curve, and its design allows clean separation between data management and computation while preserving debuggability.",
+  "filename": "2015-02-28-Ising"
+}

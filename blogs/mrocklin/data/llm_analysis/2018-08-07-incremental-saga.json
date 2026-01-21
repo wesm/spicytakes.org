@@ -1,0 +1,29 @@
+{
+  "summary": "This post documents a collaborative sprint where Fabian Pedregosa and Matt Rocklin implemented the SAGA optimization algorithm for Dask arrays. They walked through a four-step process: starting with a Numpy/Numba implementation, refactoring it into pure functions operating on lists of arrays, applying dask.delayed decorators, and then diagnosing performance issues via the Dask dashboard. The collaboration revealed both the relative ease of adapting research algorithms to Dask and the learning curve around proper use of dask.delayed. A key discovery was that most execution time was spent on Numba compilation rather than actual computation, leading to an upstream fix.",
+  "key_points": [
+    "Converting a research algorithm to work with Dask requires restructuring code into pure functions that don't modify inputs or rely on global state",
+    "The dask.delayed decorator is easy to start using but requires experience to use well\u2014tracking which variables are delayed vs. not is crucial",
+    "Dashboard visualization is essential for diagnosing performance issues like excessive client-side computation (visible as white gaps between tasks)",
+    "Profiling revealed an unexpected bottleneck: Numba recompilation was consuming most of the execution time, not the actual algorithm",
+    "The entire implementation took only an afternoon, demonstrating that adapting algorithms to Dask is tractable for researchers who program well but lack Dask experience"
+  ],
+  "money_quotes": [
+    "Fabian is good example of a researcher who knows how to program well and how to design ML algorithms, but has no direct exposure to the Dask library.",
+    "Fabian did this at first in about five minutes and to our mutual surprise, things actually worked",
+    "However, they didn't work that well.",
+    "Dask delayed is trivial to start using, but does require some experience to use well.",
+    "It's important to keep track of which operations and variables are delayed and which aren't. There is some cost to mixing between them.",
+    "We're not getting any parallelism (this is just a sequential algorithm) but we don't have much dead space.",
+    "The tasks, which used to take seconds, now take tens of milliseconds, so we can process through many more chunks in the same amount of time."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Adapting research algorithms to Dask is surprisingly tractable when you follow a disciplined process of refactoring into pure functions, but mastering dask.delayed requires learning to diagnose performance issues through dashboard visualization and profiling.",
+  "filename": "2018-08-07-incremental-saga"
+}

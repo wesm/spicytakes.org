@@ -1,0 +1,28 @@
+{
+  "summary": "This post presents comprehensive benchmarks of Dask's distributed scheduler across various computational patterns, task durations, and cluster sizes up to 256 workers. The author tests embarrassingly parallel, tree reduction, nearest neighbor, and sequential workloads using tasks, arrays, and dataframes. Results show Dask handles 2000-3000 tasks per second with the scheduler, scales well to around 100 workers with naive settings, and can push tens of gigabytes per second. The post emphasizes that longer tasks scale better, and expert tuning (bigger workers, larger chunks) can significantly improve performance at scale.",
+  "key_points": [
+    "Dask's scheduler maxes out at around 3000 tasks per second, meaning 100ms tasks can saturate about 300 cores",
+    "Dependencies (reductions, nearest-neighbor) add minimal overhead as long as parallelism remains abundant",
+    "Complex operations like array rechunking and dataframe shuffles are more costly but still scale decently to hundreds of workers",
+    "Expert tuning with bigger workers (16-core vs 2-core) and larger chunks (10,000x10,000 vs 2,000x2,000) significantly improves scaling",
+    "The benchmarks were run with naive, untuned settings - expert use could yield 5-10x improvement"
+  ],
+  "money_quotes": [
+    "This is a technical document, not a marketing piece.",
+    "All that being said the author of this blogpost is paid to write this software and so you probably shouldn't trust him.",
+    "The longer your individual tasks take, the better Dask (or any distributed system) will scale.",
+    "Adding dependencies is generally free in modest cases such as in a reduction or nearest-neighbor computation. It doesn't matter what structure your dependencies take, as long as parallelism is still abundant.",
+    "We estimate that expert use would result in about a 5-10x scaling improvement over what we'll see.",
+    "Still though, even with naive settings we're routinely pushing through 10s of gigabytes a second on a modest cluster.",
+    "Like all tools it has limits, but even under normal settings Dask should scale well out to a hundred workers or so."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Dask scales well to hundreds of cores with naive settings, but understanding task duration, chunk size, and worker configuration is key to pushing into the thousands-of-cores range.",
+  "filename": "2017-07-03-scaling"
+}

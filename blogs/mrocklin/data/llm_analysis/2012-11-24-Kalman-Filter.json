@@ -1,0 +1,24 @@
+{
+  "summary": "This technical post demonstrates how to compute the Kalman Filter using BLAS/LAPACK routines, connecting earlier work on sympy.stats to matrix computations. Rocklin shows how statistical expressions can be compiled through multiple layers: from high-level sympy.stats to matrix expressions to computation DAGs to Fortran code. The post analyzes the resulting computation graph, noting both optimizations (shared subexpressions, symmetric positive definite detection) and inefficiencies (missed opportunities for fused multiply-add operations). The core philosophy is that specialized problems should be converted to general ones where richer tooling exists.",
+  "key_points": [
+    "The Kalman Filter is ubiquitous in computing, from smartphone GPS to climate simulations, running on everything from embedded devices to supercomputers",
+    "sympy.stats was designed with atomicity in mind, converting specialized uncertainty problems into general ones (integrals, sums, matrix expressions) where better tools exist",
+    "The computation graph successfully identifies symmetric positive definite matrices for more efficient POSV routines",
+    "A recurring inefficiency appears where separate GEMM and AXPY operations could be fused into a single alpha*A*B + beta*C operation",
+    "Different contexts may require different canonical forms for the same mathematical objects"
+  ],
+  "money_quotes": [
+    "The goal was to turn a specialized problem (uncertainty quantification) into a general one (integrals, sums, matrix expressions) under the assumption that tools are much richer to solve general problems than specific ones.",
+    "Matrix Expressions are an intermediate representation layer between sympy.stats and sympy.computations.matrices.",
+    "By composing these projects we compile high level statistical expressions of sympy.stats to intermediate level matrix expressions to the DAGs of sympy.computations and even down to low level Fortran code.",
+    "This is a case where there are multiple correct definitions of canonical."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Specialized computational problems should be transformed into general representations where richer tooling exists, enabling compilation from high-level statistical expressions all the way down to optimized low-level code.",
+  "filename": "2012-11-24-Kalman-Filter"
+}

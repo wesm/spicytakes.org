@@ -1,0 +1,29 @@
+{
+  "summary": "This technical post demonstrates how to build distributed optimization algorithms using Dask, showcasing both simple array-based parallelism and more customized approaches using dask.delayed. The authors walk through implementing gradient descent and ADMM (Alternating Direction Method of Multipliers) for convex optimization problems, showing how researchers familiar with NumPy can easily transition to distributed computing. They benchmark dask-glm against scikit-learn on both a laptop and an EC2 cluster with 800 million rows of data. The key finding is that Dask provides a good balance between flexibility for interesting algorithms and ease of use for researchers without distributed systems backgrounds.",
+  "key_points": [
+    "Dask enables researchers to write parallel algorithms using familiar NumPy syntax, requiring only minimal changes like using da.random instead of np.random and adding dask.compute calls",
+    "The dask.delayed API allows implementation of consensus-based distributed algorithms like ADMM through simple Python for loops and function calls",
+    "Dask-glm performs comparably to scikit-learn on single machines, but its real advantage is scaling to larger-than-memory datasets across clusters",
+    "Scheduler overhead becomes significant when individual tasks take only milliseconds, requiring careful chunk size selection",
+    "There's a gap in the community's understanding of optimization algorithms - many don't realize that different methods solve fundamentally different problems and aren't interchangeable"
+  ],
+  "money_quotes": [
+    "If you can write iterative array-based algorithms in NumPy, then you can write iterative parallel algorithms in Dask",
+    "Relatively few people understand both mathematical optimization theory and the details of distributed systems.",
+    "Creating distributed algorithms with Dask was surprisingly easy; there is still a small learning curve around when to call things like persist, compute, rebalance, and so on, but that can't be avoided.",
+    "If your problem fits in memory on a single machine you should continue to use Scikit-Learn and Statsmodels.",
+    "We've found that Dask provides a nice balance between being flexible enough to support interesting algorithms, while being managed enough to be usable by researchers without a strong background in distributed systems.",
+    "Working on algorithms in isolation is not nearly as fun as collaborating on them; please join the conversation and contribute!",
+    "There is a surprisingly large amount of misunderstanding in 'the community' surrounding what optimization algorithms do in the world of predictive modeling."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, educational, collaborative",
+  "key_insight": "Dask bridges the gap between mathematical optimization researchers and distributed systems experts by allowing NumPy-like code to scale seamlessly from laptops to clusters.",
+  "filename": "2017-03-22-dask-glm-1"
+}

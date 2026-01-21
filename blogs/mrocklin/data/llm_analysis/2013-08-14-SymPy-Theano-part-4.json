@@ -1,0 +1,25 @@
+{
+  "summary": "This post continues a series on integrating SymPy and Theano, introducing a new SymPyCCode operation that allows SymPy expressions to be used directly within Theano without manual translation. The author explains that this solves the problem of constantly adding new translations for operations that exist in both libraries, and handles exotic SymPy operations like factorial or Bessel functions that have no Theano analog. However, he cautions against overusing this approach since native Theano operations enable GPU support, automatic differentiation, and other optimizations. The post concludes by identifying the need to improve SymPy's code printers to cover more advanced mathematical operations.",
+  "key_points": [
+    "A new SymPyCCode operation was merged into Theano that allows describing scalar operations in SymPy and using them directly in Theano",
+    "This approach eliminates the need for constant manual translations between SymPy and Theano operations",
+    "SymPyCCode works by calling SymPy's C code printers to generate implementations that Theano can incorporate into its generated programs",
+    "Native Theano translation is still preferred when possible because it enables GPU use, automatic differentiation, and cross-expression optimization",
+    "Future work should focus on improving SymPy's code printers to handle advanced functions like Bessel functions and factorial"
+  ],
+  "money_quotes": [
+    "So we can describe scalar operations in SymPy and use them directly in Theano without having to translate anything.",
+    "Theano still handles memory, common sub-expressions, arrays, etc. but is now able to leverage SymPy to generate low-level kernels for mathematical operations.",
+    "Native translation enables Theano to use many additional optimizations like the use of the GPU, automatic differentiation, and common sub-expression elimination across many expressions.",
+    "The factorial of n can be computed as gamma(n+1), a fact rarely known by mainstream programmers.",
+    "These are cases where the numerical analysis community can concisely describe the 'right way' to compute many of these operations in isolation."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "By embedding SymPy's code generation capabilities directly into Theano as a black-box operation, developers can leverage SymPy's mathematical expressiveness for complex scalar operations while still benefiting from Theano's array handling and optimization infrastructure.",
+  "filename": "2013-08-14-SymPy-Theano-part-4"
+}

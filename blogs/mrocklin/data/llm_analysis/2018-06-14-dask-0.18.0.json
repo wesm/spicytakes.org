@@ -1,0 +1,28 @@
+{
+  "summary": "This release announcement details Dask version 0.18.0, a major release that begins the housecleaning process in preparation for a 1.0 release. The update introduces breaking changes including centralized configuration management, replacing the 'get=' keyword with 'scheduler=', and consolidating runtime options under dask.config.set. New features include transparent support for NumPy Generalized Universal Functions, automatic chunk sizing, new file format support (ORC, JSON, Zarr), and improvements to array algorithms like einsum and QR decomposition. The release emphasizes cleaner interfaces while acknowledging that heavy users may experience mild friction during the transition.",
+  "key_points": [
+    "Dask is preparing for a 1.0 release by cleaning up interfaces and consolidating configuration management across all subprojects",
+    "The new centralized configuration system unifies settings from config files, environment variables, and runtime code into dask.config module",
+    "Breaking changes replace generic 'get=' keyword with clearer 'scheduler=' keyword for selecting execution backends",
+    "New 'auto' chunking helps users achieve optimal chunk sizes without manual calculation",
+    "GUFunc support enables seamless interoperability with NumPy and Numba without any coordination between projects"
+  ],
+  "money_quotes": [
+    "The Dask core library is nearing a 1.0 release. Before that happens, we need to do some housecleaning.",
+    "As happens with any release that starts breaking things, many other smaller breaks get added on as well.",
+    "I'm personally very happy with this release because many aspects of using Dask now feel a lot cleaner, however heavy users of Dask will likely experience mild friction.",
+    "What I like about this is that Dask and Numba developers didn't coordinate at all on this feature, it's just that they both support the Numpy GUFunc protocol, so you get interactions like this for free.",
+    "To be clear, this doesn't support 'automatic chunking', which is a very hard problem in general. Users still need to be aware of their computations and how they want to chunk, this just makes it marginally easier to make good decisions.",
+    "We've found that different computing cultures like to specify configuration in several different ways."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Major version releases provide an opportunity to clean up accumulated technical debt and unify disparate subsystem interfaces, even if it causes short-term friction for existing users.",
+  "filename": "2018-06-14-dask-0.18.0"
+}

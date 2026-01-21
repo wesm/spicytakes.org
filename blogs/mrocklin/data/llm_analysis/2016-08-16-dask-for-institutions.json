@@ -1,0 +1,29 @@
+{
+  "summary": "Matt Rocklin addresses the gap between individual and institutional adoption of Dask, documenting common questions from universities, research labs, and companies trying to deploy Dask at scale. The post covers integration with existing job schedulers (SGE/LSF/Mesos), dynamic cluster scaling, software environment management, security concerns, scheduler resilience, and multi-datacenter deployment. Rocklin is refreshingly honest about Dask's limitations\u2014particularly its complete lack of security and single-point-of-failure scheduler\u2014while outlining potential solutions. He positions Dask as an 'all-terrain vehicle' for exploratory computing, distinct from database 'trains' and Spark 'automobiles,' serving users whose problems are too complex and heterogeneous for traditional big data tools.",
+  "key_points": [
+    "Institutions consistently struggle with underutilized clusters because existing job schedulers don't support the interactive, dynamic workloads that Python users need",
+    "Dask is 'incredibly insecure' by design, relying on external tools like Docker and network controls for security rather than building it in",
+    "The scheduler is a single point of failure with no backup mechanism, though clients can reconnect and resubmit after scheduler recovery",
+    "Dask targets a different niche than Spark: complex, heterogeneous, exploratory computing rather than ETL and database-like operations",
+    "Adoption is happening bottom-up, with individuals and small groups pushing interest up the organizational stack"
+  ],
+  "money_quotes": [
+    "Dask.distributed is incredibly insecure. It allows anyone with network access to the scheduler to execute arbitrary code in an unprotected environment.",
+    "I hesitate to jump into providing 'just a little bit of security' without going all the way for fear of providing a false sense of security.",
+    "You really should never trust an author of a project to give a fair and unbiased view of the capabilities of the tools in the surrounding landscape.",
+    "Dask is like an all-terrain-vehicle: it takes you out of town on rough ground that hasn't been properly explored before.",
+    "It turned out to be a harder problem than expected to design/build/maintain such a system in-house.",
+    "The people I talk to are people for whom Spark/Databases are clearly not an appropriate fit. They are tackling problems that are way more complex, more heterogeneous, and with a broader variety of users.",
+    "Culturally Dask has managed to simultaneously cater to both the open science crowd as well as the private-sector crowd."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "open_source",
+    "python",
+    "technical"
+  ],
+  "tone": "technical, candid, pragmatic",
+  "key_insight": "Institutional adoption of distributed Python computing is held back not by the core technology but by the surrounding infrastructure\u2014job scheduler integration, security, and resilience\u2014which open source projects must solve collaboratively rather than leaving each institution to build custom solutions.",
+  "filename": "2016-08-16-dask-for-institutions"
+}

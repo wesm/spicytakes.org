@@ -1,0 +1,27 @@
+{
+  "summary": "Matt Rocklin introduces 'chest', a dictionary-like data structure that automatically spills to disk when memory runs out, designed to prevent out-of-core array computations from crashing due to memory overflow. The post is part of a series on building out-of-core nd-arrays using NumPy, Blaze, and dask. Chest implements the MutableMapping interface, making it a drop-in replacement for Python dictionaries. Key improvements include LRU eviction, avoiding redundant disk writes, and thread safety. The tool serves as a safety net when the scheduler fails to minimize intermediate data storage, providing resilience rather than optimal performance.",
+  "key_points": [
+    "Chest is a dict-like object that automatically spills data to disk when memory limits are exceeded",
+    "It implements the standard MutableMapping interface, making it interchangeable with regular Python dicts",
+    "Supports pluggable serialization protocols (pickle, json, cbor, joblib) via dump/load interface",
+    "Key implementation features include LRU eviction, avoiding duplicate writes, and thread safety",
+    "Chest serves as a fallback for poor scheduling rather than a primary solution\u2014better scheduling is still preferred"
+  ],
+  "money_quotes": [
+    "We implement a dictionary that spills to disk when we run out of memory.",
+    "Sometimes we fail and our scheduler stores many large intermediate results. In these cases we want to spill excess intermediate data to disk rather than flooding local memory.",
+    "Frequent readers of my blog may know of my sadness at how this library serializes functions and the crippling effect on multiprocessing. That sadness does not extend to normal data.",
+    "Pickle is fine for data if you use the protocol= keyword to pickle.dump correctly.",
+    "Chest is only useful when we fail to schedule well.",
+    "Resilience is reassuring."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Building resilient systems means having fallback mechanisms like disk spilling for when optimal algorithms fail, even if using them indicates suboptimal performance.",
+  "filename": "2015-01-16-Towards-OOC-SpillToDisk"
+}

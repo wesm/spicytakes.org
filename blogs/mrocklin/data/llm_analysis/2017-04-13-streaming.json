@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin describes building an experimental Python streaming library as a learning exercise to understand systems like Storm, Flink, and Spark Streaming. The library provides a simple API for creating data pipelines with map/filter/reduce operations that push data through rather than pull with iterators. He demonstrates features like branching streams, back pressure handling via Tornado futures, and integration with Dask for distributed computing. While acknowledging the library lacks production features like fault tolerance and out-of-order element handling, Rocklin highlights its value as a lightweight, Pythonic alternative that's easy to understand and extend.",
+  "key_points": [
+    "Traditional Python iterators become awkward for streaming when you need non-blocking operations, multiple inputs/outputs, or time-based windowing",
+    "The library uses a push-based model with emit() instead of pull-based next(), trading 10x performance overhead for flexibility",
+    "Back pressure is handled through Tornado futures, allowing downstream consumers to signal when they're ready for more data",
+    "The system can integrate with Dask for distributed computing, offloading the complexity of cluster management",
+    "The entire codebase is just a few hundred lines, making it maintainable and easy to understand compared to Java/Scala-designed streaming systems"
+  ],
+  "money_quotes": [
+    "This was originally an exercise to help me understand streaming systems like Storm, Flink, Spark-Streaming, and Beam, but the end result of this experiment is not entirely useless, so I thought I'd share it.",
+    "We've accomplished the same result as our infinite iterator, except that rather than pulling data with next we push data through with source.emit. And we've done all of this at only a 10x slowdown over normal Python iterators :)",
+    "What is presented here is not in any way a competitor to existing systems like Flink for production-level data engineering problems.",
+    "There is no magic in the common case. Everything up until time-handling runs with tools that you learn in an introductory programming class.",
+    "All other streaming systems were originally designed for Java/Scala engineers. While they have APIs that are clearly well thought through they are sometimes not ideal for Python users or common Python applications.",
+    "I genuinely don't know if this project is worth pursuing. This blogpost is a test to see if people have sufficient interest to use and contribute to such a library."
+  ],
+  "themes": [
+    "python",
+    "dask",
+    "distributed",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, exploratory, self-deprecating",
+  "key_insight": "Building a minimal streaming library from scratch reveals that the core concepts are surprisingly simple, and a lightweight Pythonic implementation can provide real value even without production-grade features.",
+  "filename": "2017-04-13-streaming"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "This post demonstrates using Dask arrays to process a large electron microscopy dataset (10,000 images) distributed across an Amazon EC2 cluster. The workflow covers loading images lazily via scikit-image, persisting them across 10 worker nodes, recentering images using Numba-accelerated centroid calculations, and performing FFT analysis after rechunking the data from time-slice to pixel-based partitioning. The post emphasizes how Dask provides NumPy-like abstractions over distributed data while honestly documenting failures like faulty load-balancing and communication bottlenecks encountered during the analysis.",
+  "key_points": [
+    "Dask arrays can stitch thousands of lazy scikit-image calls into a single logical 3D array that distributes computation across a cluster",
+    "Numba's JIT compilation creates fast C-speed code that integrates seamlessly with Dask for distributed image processing",
+    "Rechunking from time-slice to pixel-based partitioning enables time-series operations like FFTs but requires expensive N-squared communication",
+    "The scheduler's load-balancing heuristics can fail when network bandwidth is unexpectedly slow, causing worse performance than letting busy workers finish",
+    "Real-world distributed computing involves communication bottlenecks, faulty heuristics, and I/O blocking issues that must be diagnosed and addressed"
+  ],
+  "money_quotes": [
+    "Electron microscopy may be generating the biggest ndarray datasets in the field - terabytes regularly.",
+    "We haven't done any actual work yet, we've just constructed a parallel array that knows how to get any particular slice of data by downloading the right image if necessary.",
+    "I looked up centroids in the Scikit-Image docs and came across a function that did way more than what I was looking for, so I just quickly coded up a solution in Pure Python and then JIT-ed it with Numba.",
+    "This shows how easy it is to create fast in-memory code with Numba and then scale it out with Dask.array. The two projects complement each other nicely, giving us near-optimal performance with intuitive code across a cluster.",
+    "Switching the chunk pattern back and forth like this is generally a very difficult operation for distributed arrays because every slice of the array contributes to every time-series. We have N-squared communication.",
+    "Inter-worker communication was around 100-300 MB/s (typical for Amazon's EC2) and CPU load remained high. We're using our hardware.",
+    "As always with all computationally focused blogposts we'll include a section on what went wrong and what we could have done better with more time."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Dask arrays provide a NumPy-like abstraction that lets you reason about distributed image data as a single logical array while handling the complexity of cluster communication, lazy evaluation, and parallel execution under the hood.",
+  "filename": "2017-01-17-dask-images"
+}

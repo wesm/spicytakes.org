@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin announces Pangeo, a proof-of-concept deployment combining JupyterHub, Dask, and XArray on Google Container Engine to enable atmospheric and oceanographic scientists to analyze large datasets in the cloud. The system allows users to log in, launch Jupyter notebooks, spin up Dask clusters, and process data stored in cloud storage without managing their own infrastructure. The project was built in just a few weeks through collaboration across multiple institutions, mixing academics, staff, and professional software developers. While still immature and experimental, the deployment has revealed important lessons about cloud file formats, environment customization, and the need for cross-community collaboration.",
+  "key_points": [
+    "The Pangeo system integrates JupyterHub, Dask, XArray, Kubernetes, and cloud storage to democratize access to distributed computing for scientists",
+    "Traditional HDF5/NetCDF file formats perform poorly on cloud storage due to many small reads; alternatives like Zarr show promise but lack established trust",
+    "The rapid development was possible because of cross-institutional collaboration mixing scientists, academic staff, and professional developers",
+    "Environment customization remains challenging when distributed workers need the same packages as notebook sessions",
+    "The cloud-agnostic approach using Kubernetes allows deployment across Google, AWS, and Azure"
+  ],
+  "money_quotes": [
+    "Libraries like Dask and XArray already solve this problem computationally if scientists have their own clusters, but we seek to expand access by deploying on cloud-based systems.",
+    "Notice the mix of academic and for-profit institutions. Also notice the mix of scientists, staff, and professional software developers. We believe that this mixture helps ensure the efficient construction of useful solutions.",
+    "The file formats used for this sort of data are pervasive, but not particularly convenient or efficient on cloud storage.",
+    "When we try new problems in new environments we often uncover new opportunities to improve Dask's internal scheduling algorithms.",
+    "We found that this project aligns well with current efforts from many government agencies to publish large datasets on cloud stores.",
+    "However it is also open, and instructions to deploy your own live here."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, collaborative, optimistic",
+  "key_insight": "Democratizing access to distributed computing for scientists requires not just technical integration of tools like Dask and Kubernetes, but also cross-institutional collaboration between academics, engineers, and open source communities.",
+  "filename": "2018-01-22-pangeo-2"
+}

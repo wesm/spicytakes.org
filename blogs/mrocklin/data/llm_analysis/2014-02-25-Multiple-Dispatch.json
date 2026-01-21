@@ -1,0 +1,26 @@
+{
+  "summary": "This post introduces a multiple dispatch system for Python that allows functions to be dispatched based on the types of all arguments, not just the first. Rocklin explains how this approach, common in languages like Julia, enables cleaner code for operations involving multiple types and facilitates interactions between different libraries without tight coupling. The post addresses three common concerns: performance overhead (manageable with caching), ambiguous type signatures (detectable statically), and namespace conflicts (safe if developers only define methods for types they manage). The multipledispatch library implements these ideas and is available on PyPI.",
+  "key_points": [
+    "Multiple dispatch selects function implementations based on all argument types, unlike Python's default single dispatch on self",
+    "The approach enables different projects to interact over shared abstract interfaces without embedding interaction code in core libraries",
+    "Ambiguous type signatures can be detected statically at function definition time by analyzing inheritance graphs",
+    "Namespace conflicts are manageable through the same social contract that makes Python's + operator work: don't monkey-patch types you don't own",
+    "Julia's elegant multiple dispatch system inspired this Python implementation"
+  ],
+  "money_quotes": [
+    "Multiple dispatch separates interaction code from core code. This opens and democratizes interaction, for better or for worse.",
+    "While this is slower than straight Python it's not *that* much slower. Don't forget that objects do this dynamic checking too.",
+    "Namespaces are one heck of a good idea.",
+    "Python already has globally dispatched operations. Consider +. People add implementations to + every day.",
+    "And yet no problems arise *as long as no one monkey patches*.",
+    "My opinion is that globally distributed dispatch is safe if we do not make broad claims."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, pedagogical, pragmatic",
+  "key_insight": "Multiple dispatch can work safely in Python's global namespace if developers follow the same social contract that already governs operator overloading: only define methods for types you control.",
+  "filename": "2014-02-25-Multiple-Dispatch"
+}

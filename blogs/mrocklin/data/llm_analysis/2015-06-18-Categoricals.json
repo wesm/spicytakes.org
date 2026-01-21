@@ -1,0 +1,25 @@
+{
+  "summary": "The post explains how Pandas Categoricals can dramatically improve performance on data with text categories by encoding them numerically. Rather than using Python's slow object dtype for repeated text values like stock symbols or gender, categoricals store data as a compact integer array with a separate index mapping. This allows Pandas to use fast C code instead of Python speeds, resulting in roughly an order of magnitude performance improvement. The author emphasizes that optimizing data representation is often more effective than reaching for parallelism.",
+  "key_points": [
+    "Object dtypes in Pandas run at Python speeds, not C speeds, making them a common culprit for slow code",
+    "Categoricals encode text data as compact integer arrays with a separate category-to-integer mapping",
+    "Converting to categoricals can yield ~10x speedup on common operations like groupby",
+    "Good choices in storage format, compression, and data representation are as important as parallelism but less hyped",
+    "The conversion is a one-time operation that benefits all subsequent computations on that column"
+  ],
+  "money_quotes": [
+    "The answer is usually just use pandas in a better way",
+    "You should look towards parallelism only after you've made sane choices about storage format, compression, data representation, etc.",
+    "This is a cheap and underused trick to get an order of magnitude speedup on common queries",
+    "This is a common culprit for slow code because object dtypes run at Python speeds, not at Pandas' normal C speeds",
+    "We see almost an order of magnitude speedup after we do the one-time-operation of replacing object dtypes with categories",
+    "Each of these choices is as important as parallelism but isn't overly hyped and so is often overlooked"
+  ],
+  "themes": [
+    "python",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, educational",
+  "key_insight": "Before reaching for parallelism to speed up data processing, optimize your data representation\u2014converting text columns to categoricals can deliver order-of-magnitude improvements with minimal effort.",
+  "filename": "2015-06-18-Categoricals"
+}

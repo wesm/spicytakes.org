@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin outlines several potential summer projects for students interested in contributing to the Scientific Python ecosystem, particularly around Dask. He establishes clear criteria for good projects: well-defined scope, achievable in months, useful but peripheral enough that core devs won't complete them first, interesting, skill-building, and leading to future work. The proposed projects span distributed GPU arrays, numerical simulations with Numba+Dask, blocked linear algebra, porting Dask to R/Julia, and symbolic NumPy optimizations. Rocklin explicitly notes he offers ideas and context but neither funding nor mentorship.",
+  "key_points": [
+    "Good summer projects should be well-scoped, completable in months, useful but peripheral, and teach valuable skills for future employment",
+    "Dask arrays can work with any NumPy-like interface, opening possibilities for distributed GPU computing via CuPy or Bohrium",
+    "Python with Numba and Dask may be competitive with C++/Fortran+MPI for numerical simulations if the performance gap is only ~10%",
+    "Dask's distributed scheduler is intentionally language-agnostic, making ports to R or Julia feasible by rewriting only client and worker code",
+    "A symbolic NumPy representation could enable optimizations, remote computation, visualization, and better memory/compute warnings"
+  ],
+  "money_quotes": [
+    "To be perfectly clear I'm only providing ideas and context here, I offer neither funding nor mentorship.",
+    "It's useful, but also peripheral. It has value to the ecosystem but is not critical enough that a core dev is likely to complete the task in the next few months, or be overly picky about the implementation.",
+    "Certainly fine-tuned C++/Fortran + MPI can out-perform Numba and Dask, but by how much? If the answer is only 10% or so then it could be that the lower barrier to entry of Numba, or the dynamic scaling of Dask, can make them competitive in fields where Python has not previously had a major impact.",
+    "For which kinds of problems is a dynamic JITted language almost-as-good as C++/MPI?",
+    "Presumably R and Julia user communities don't want exactly Pandas-style dataframe semantics anyway.",
+    "Projects like Numpy and Dask array compute what the user says, even if a more efficient solution exists."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "practical",
+  "key_insight": "The best open source summer projects are peripheral enough that maintainers won't be territorial, yet valuable enough to teach real skills and make meaningful ecosystem contributions.",
+  "filename": "2018-03-20-summer-projects"
+}

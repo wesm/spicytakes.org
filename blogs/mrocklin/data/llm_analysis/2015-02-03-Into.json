@@ -1,0 +1,25 @@
+{
+  "summary": "Matt Rocklin introduces the 'into' project, a tool that efficiently migrates data between various formats including in-memory structures like numpy arrays and pandas DataFrames, and persistent formats like CSV, JSON, and SQL databases. The key innovation is using a network of optimized pairwise conversions rather than routing everything through a common intermediate format. This approach leverages expert implementations for specific format pairs, achieving order-of-magnitude performance improvements. The post argues that data format choice strongly impacts performance and accessibility, yet many users avoid migration because they don't know how.",
+  "key_points": [
+    "Data format choice strongly impacts performance (10x is a good rule of thumb) and data accessibility",
+    "The into function provides a single unified API for migrating between any supported format pair, replacing scattered to_csv/from_sql methods",
+    "Using native PostgreSQL CSV loaders achieves 50,000+ records/second vs 2,000 with Python iterators - the difference between an overnight job and a cup of coffee",
+    "Expert pairwise conversions between formats like numpy.recarray and pandas.DataFrame can happen in-place without serialization",
+    "Many users don't migrate to efficient formats because they can't manage the particular migration process for their tools"
+  ],
+  "money_quotes": [
+    "Your choice of data format is important. It strongly impacts performance (10x is a good rule of thumb) and who can easily use and interpret your data.",
+    "Expert pairwise interactions are often an order of magnitude faster than generic solutions.",
+    "This is the difference between an overnight job and a cup of coffee.",
+    "Robust and efficient conversions between any two pairs of formats is fraught with special cases and bizarre libraries.",
+    "The bytes of data don't need to change, only the metadata surrounding them."
+  ],
+  "themes": [
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "A network of specialized pairwise data format conversions dramatically outperforms generic solutions that route through common intermediate formats.",
+  "filename": "2015-02-03-Into"
+}

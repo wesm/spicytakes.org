@@ -1,0 +1,26 @@
+{
+  "summary": "This is a release announcement for Dask version 0.15.2, focusing on stability improvements and bug fixes since the 0.15.0 release. The major changes include a reorganization of conda packages into dask-core, distributed, and dask metapackage to better serve both library developers and end users. The release also addresses deployment challenges in Docker environments with new address configuration options, fixes various resource leaks, and continues expanding the array and DataFrame APIs. The post also highlights cross-language development with Julia workers connecting to the Dask scheduler.",
+  "key_points": [
+    "New conda package organization separates dask-core (minimal dependencies) from the full dask metapackage, allowing downstream libraries to depend only on what they need",
+    "Improved deployment support for Docker and complex networking with separate contact and listen address options for workers",
+    "Memory, file descriptor, and process leaks have been identified and fixed through community collaboration",
+    "Julia developers are building workers and clients that interoperate with the Dask distributed scheduler, demonstrating cross-language extensibility",
+    "John Kirkham has been promoted to core contributor with commit rights to the Dask organization"
+  ],
+  "money_quotes": [
+    "This organization is designed to both allow downstream libraries to only depend on the parts of Dask that they need while also making the default behavior for users all-inclusive.",
+    "This is especially helpful when the perspective of ones network can shift dramatically.",
+    "We're grateful to all those who were able to provide very detailed case studies that demonstrated these issues and even more grateful to those who participated in resolving them.",
+    "There is undoubtedly more work to do here and we look forward to future collaboration."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "distributed",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Good package design balances the needs of downstream library developers who want minimal dependencies with end users who want comprehensive functionality out of the box.",
+  "filename": "2017-08-30-dask-0.15.2"
+}

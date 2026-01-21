@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin candidly examines how he initially produced misleading benchmarks showing Dask was 5x faster than Spark, when the reality was much closer. He identifies five systematic biases that plague software benchmarks: judging competitors by your own objectives, lacking expertise with competing software, gravitating toward favorable cases, improving your own code during testing, and omitting negative results. After collaboration with Spark experts and honest self-reflection, he found both projects perform within a factor of two in most cases. The post serves as both a confession and a guide for readers to be more critical of benchmark claims.",
+  "key_points": [
+    "Different projects optimize for different use cases\u2014Pandas/Dask excel at CSV (finance origins) while Spark excels at JSON (web origins), making apples-to-apples comparisons inherently difficult",
+    "Using 'default settings' for fairness backfires because defaults encode assumptions about deployment environments that may favor one project",
+    "The emotional pleasure of seeing your project win creates unconscious bias toward exploring and emphasizing those winning scenarios",
+    "Optimizing your code during benchmarking while not giving competitors the same opportunity is a form of dishonesty",
+    "The only real solution to experience bias is collaborating with someone who primarily uses the competing system"
+  ],
+  "money_quotes": [
+    "These results were wrong. They weren't wrong in a factual sense, and the experiments that I ran were clear and reproducible, but there was so much bias in how I selected, set up, and ran those experiments that the end result was misleading.",
+    "It often takes months of hands-on experience to understand a project well enough to definitely say that you're not doing things in a dumb way.",
+    "It feels great to see your project doing well. This emotional pleasure response is powerful. It's only natural that we pursue that feeling more.",
+    "There is no motivation to publish negative results.",
+    "Mixed numbers can be informative. They build trust and community.",
+    "Technical honesty goes a surprisingly long way towards implying technical proficiency.",
+    "My standard cluster configurations were biased towards Dask before I even considered running a benchmark."
+  ],
+  "themes": [
+    "dask",
+    "open_source",
+    "python",
+    "technical"
+  ],
+  "tone": "reflective, self-critical, instructive",
+  "key_insight": "Even well-intentioned developers systematically fool themselves when benchmarking their own software against competitors, making honest self-assessment and external collaboration essential for credible comparisons.",
+  "filename": "2017-03-09-biased-benchmarks"
+}

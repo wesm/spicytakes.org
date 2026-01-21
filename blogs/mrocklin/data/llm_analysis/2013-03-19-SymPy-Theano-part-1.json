@@ -1,0 +1,26 @@
+{
+  "summary": "The post demonstrates how SymPy (symbolic mathematics) and Theano (mathematical compilation) can be combined through a simple translation interface to generate efficient numeric code. Matt Rocklin shows that while SymPy excels at symbolic manipulation of physics equations, it can leverage Theano's code generation capabilities to produce performance comparable to or better than Fortran, especially when computing derivatives simultaneously. The key insight is that Theano's handling of common subexpressions allows it to scale favorably with computational complexity. The post argues for building focused projects with clean interfaces rather than comprehensive in-house solutions.",
+  "key_points": [
+    "SymPy excels at symbolic mathematics but is less effective at numeric computation, while Theano specializes in compiling mathematical expressions to efficient code",
+    "The SymPy-to-Theano translation interface requires only about a page of code compared to the more complex lambdify and autowrap modules",
+    "Theano's handling of common subexpressions allows it to compute derivatives with minimal additional runtime cost, outperforming both NumPy and Fortran solutions",
+    "Theano benefits from active development and can seamlessly compile to GPU, providing better long-term sustainability than SymPy's in-house solutions",
+    "Projects should focus on doing one thing well with clean interfaces rather than building comprehensive in-house solutions to foreign problems"
+  ],
+  "money_quotes": [
+    "No one is good at everything, that's why we have society.",
+    "No project is good at everything, that's why we have interfaces.",
+    "In-house solutions to foreign problems lack persistence.",
+    "As programmers within an ecosystem we should make projects that do one thing well and provide clean interfaces and simple data structures to encourage inter-project communication.",
+    "The Theano project is devoted to code generation at a level that exceeds the devotion of SymPy to this same topic. This is natural and prevalent.",
+    "When we combine the good parts of both projects we often achieve a better result than with an in-house solution"
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, collaborative",
+  "key_insight": "Projects should do one thing well and provide clean interfaces for interoperability, because combining specialized tools often produces better results than building comprehensive in-house solutions.",
+  "filename": "2013-03-19-SymPy-Theano-part-1"
+}

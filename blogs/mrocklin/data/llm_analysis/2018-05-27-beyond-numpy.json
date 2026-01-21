@@ -1,0 +1,29 @@
+{
+  "summary": "The post argues that Python's array computing ecosystem has organically grown to support GPUs, sparse arrays, and distributed computing through libraries like CuPy, Sparse, and Dask that implement the Numpy API. However, this decentralized growth has created a costly pair-wise integration problem where each library must build custom plugin systems to work with others. Rocklin proposes two solutions: either create a centralized 'arrayish' dispatch library or build dispatch protocols directly into Numpy itself. He favors the Numpy approach, citing the __array_ufunc__ protocol as precedent, though acknowledges Numpy's historically slow pace of change. The post concludes that transitioning from pair-wise to ecosystem-wide protocols is necessary and achievable, as the community has successfully done before with Numeric/Numarray consolidation and scikit-learn's fit/predict API.",
+  "key_points": [
+    "Libraries like CuPy, Sparse, and Dask implement the Numpy API for different hardware (GPUs, sparse data, distributed clusters), keeping the API alive even as implementations evolve",
+    "Current pair-wise plugin systems where each library must know about every other library create an expensive n\u00d7m maintenance burden that doesn't scale",
+    "Two solutions exist: a new centralized dispatch library ('arrayish') or building dispatch mechanisms into Numpy itself via protocols like __array_ufunc__",
+    "The Numpy protocol approach is preferable because everyone already aligns to Numpy's decisions and less code rewriting is needed",
+    "Python's array ecosystem needs to transition from decentralized organic growth to coordinated community-standard protocols"
+  ],
+  "money_quotes": [
+    "The Numpy API lives on in successor projects.",
+    "Building, maintaining, and extending these plugin mechanisms is costly.",
+    "Pair-wise plugin mechanisms make sense for a single project, but are not an efficient choice for the full ecosystem.",
+    "This reduces the big n by m cost of maintaining several plugin systems, to a more manageable n plus m cost of using a single plugin system in each library.",
+    "To solidify this growth and apply it across the ecosystem we now need to do some central planning to move from a pair-wise model where packages need to know about each other to an ecosystem model where packages can negotiate by developing and adhering to community-standard protocols.",
+    "The community has done this transition before (Numeric + Numarray -> Numpy, the Scikit-Learn fit/predict API, etc..) usually with surprisingly positive results.",
+    "I recommend that all Numpy-API compatible array projects implement the __array_ufunc__ protocol."
+  ],
+  "themes": [
+    "python",
+    "dask",
+    "open_source",
+    "distributed",
+    "technical"
+  ],
+  "tone": "technical, constructive, ecosystem-minded",
+  "key_insight": "Python's array computing ecosystem has outgrown pair-wise library integrations and needs community-standard protocols\u2014preferably built into Numpy\u2014to enable seamless interoperability between GPU, sparse, and distributed array implementations.",
+  "filename": "2018-05-27-beyond-numpy"
+}

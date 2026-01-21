@@ -1,0 +1,27 @@
+{
+  "summary": "SymPy has two assumption systems for managing mathematical attributes: 'old assumptions' where attributes are bound directly to variables, and 'new assumptions' where variables and attributes are maintained separately. The new system enables richer logical inference but creates a management burden of tracking two separate variables through function calls. Global variables offer one solution but risk pollution from forgotten cleanup. The post introduces 'assuming', a context manager that provides the convenience of global variables with side-effect free security through automatic cleanup.",
+  "key_points": [
+    "Old assumptions bind attributes directly to variables, weaving expression and attributes into the same object",
+    "New assumptions separate facts from expressions, enabling rich logical inference but requiring management of two variables",
+    "Global variables solve the management problem but risk polluting future computations when cleanup is forgotten",
+    "Context managers provide global-like convenience with automatic cleanup, avoiding side effects",
+    "The 'assuming' context manager makes knowledge pervasive within its block without requiring explicit passing through function calls"
+  ],
+  "money_quotes": [
+    "The separation of facts from expressions enables rich logical inference but it requires the management of two separate variables.",
+    "It is difficult to consistently pass the extra variable through all relevant function calls.",
+    "Unfortunately global variables often cause confusion.",
+    "We will invariably add an experimental fact to the global collection and then forget to clean up, polluting future computations.",
+    "This cleanup step is both crucial and forgettable. We can not trust ourselves to remember it.",
+    "Context managers provide the convenience of global variables with side-effect free security.",
+    "This knowledge is pervasive like a global variable but contained within the with assuming clause."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Context managers elegantly solve the tension between the convenience of global state and the safety of explicit parameter passing by providing automatic cleanup guarantees.",
+  "filename": "2013-02-05-Assuming"
+}

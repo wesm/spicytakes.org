@@ -1,0 +1,27 @@
+{
+  "summary": "This post announces Dask 0.16.0, a major release featuring the new Dask collection interface that allows any custom object to be treated as a first-class Dask collection by implementing specific protocols. The release includes significant infrastructure improvements including transactional work stealing to prevent duplicate task execution, task retry capabilities, and enhanced Parquet compatibility across Arrow and Fastparquet. Network bandwidth optimizations and Tornado 5 compatibility work are underway to support exotic hardware like Infiniband. The post also highlights the consolidation of machine learning functionality into dask-ml and improved coordination with XArray's 0.10.0 release.",
+  "key_points": [
+    "The new Dask collection interface formalizes protocols like __dask_graph__() and __dask_keys__() that enable any custom object to integrate seamlessly with all Dask schedulers, already adopted by XArray",
+    "Transactional work stealing prevents the same task from accidentally running on multiple workers simultaneously, critical for tasks with side effects",
+    "Task retry functionality addresses one of the most requested features, particularly valuable for users treating Dask as a task queue rather than just a dataframe/array library",
+    "Parquet compatibility has been extended to support both PyArrow and Fastparquet for reading and writing, though complete cross-library compatibility remains challenging",
+    "Nested compute calls now work within tasks, allowing .compute() inside delayed functions to invoke the distributed scheduler"
+  ],
+  "money_quotes": [
+    "Any object that implements the methods described in that document will interact with all Dask scheduler features as a first-class Dask object.",
+    "Now all XArray classes (DataSet, DataArray, Variable) are fully understood by all Dask schedulers. They are as first-class as dask.arrays or dask.dataframes.",
+    "It is still possible for the same task to run twice, but now this only happens in more extreme situations, such as when a worker dies or a TCP connection is severed, neither of which are common on standard hardware.",
+    "The variety of parquet reader/writers and conventions out there makes completely solving this problem difficult. It's nice seeing the various projects slowly converge on common functionality.",
+    "Doing this carefully proved to require a surprising degree of detail."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "By formalizing the Dask collection interface as a public protocol, any Python project can now create objects that integrate as first-class citizens with all Dask schedulers, enabling seamless distributed computing across the ecosystem.",
+  "filename": "2017-11-21-dask-0.16.0"
+}

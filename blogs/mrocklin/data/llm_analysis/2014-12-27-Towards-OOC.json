@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin proposes dask, a minimal task scheduling framework for out-of-core nd-array computations that uses simple Python dictionaries to represent computation graphs. The post explains how existing systems like Blaze handle simple chunked computations but fail for complex inter-block dependencies like matrix multiplication. Dask represents tasks as dictionary key-value pairs where values can be data or unevaluated function calls with dependencies on other keys. The deliberately 'low-tech' approach using plain dictionaries rather than formal class hierarchies is designed to minimize framework buy-in and maximize portability. A proof-of-concept demonstrates a 7GB out-of-core dot product completing in three minutes. The system is positioned as infrastructure for library writers rather than end users, with higher-level tools like Blaze providing the user interface.",
+  "key_points": [
+    "Blaze's simple chunk-apply-concatenate model fails for complex computations with inter-block dependencies like matrix multiplication",
+    "Dask uses plain Python dictionaries to represent computation DAGs, avoiding framework lock-in and enabling easy translation to other systems",
+    "The 'top' function enables expressing tensor operations using index notation that naturally extends to blocked versions",
+    "Out-of-core execution achieved by combining numpy-style indexing on HDF5/bcolz with lazy task graph evaluation",
+    "The system targets library writers as infrastructure, not end users who would use higher-level tools like Blaze"
+  ],
+  "money_quotes": [
+    "Why don't we build Task and Data classes and construct a Python framework to represent these things formally? Because people have to learn and buy in to that framework and that's hard to sell. Dictionaries are easier to sell.",
+    "This system is not appropriate for users; it's unPythonic, low-level, and LISP-y. However I believe that something like this would be an appropriate standard for infrastructural libraries.",
+    "We haven't done work yet. We only do work when we finally call dask.get on the appropriate key for one of the blocks.",
+    "There is a decent chance that, if you've made it this far in this blogpost, you already understand the spec.",
+    "I was able to write a reference implementation in a couple dozen lines.",
+    "Three minutes for a 7GB dot product."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Complex out-of-core array computations can be elegantly expressed using nothing more than Python dictionaries representing task dependency graphs, minimizing framework investment while maximizing interoperability.",
+  "filename": "2014-12-27-Towards-OOC"
+}

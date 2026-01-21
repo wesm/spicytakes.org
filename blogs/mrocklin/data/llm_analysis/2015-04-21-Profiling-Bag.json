@@ -1,0 +1,28 @@
+{
+  "summary": "This post benchmarks data throughput at each stage of processing semi-structured data (JSON) using dask.bag, revealing where performance bottlenecks occur. Rocklin measures bandwidth from disk I/O (100-500 MB/s) through decompression, deserialization (30-50 MB/s), and shuffling operations (5-50 MB/s). The key finding is that serialization and deserialization dominate costs, not computation. The central recommendation is to avoid communication-heavy operations on semi-structured data and transition to databases as early as possible. The post also compares dask.bag with PySpark and suggests that better data structures like DyND could make both tools obsolete for many use cases.",
+  "key_points": [
+    "Semi-structured data processing is bottlenecked by serialization/deserialization (30-50 MB/s), not by actual computation (2000 MB/s for in-memory operations)",
+    "Shuffling operations compound multiple slow steps together, dropping throughput to 5-50 MB/s",
+    "Parallelism can hide decompression costs but doesn't solve the fundamental serialization bottleneck",
+    "Creative alternatives like streaming grouping reductions can achieve 250 MB/s by avoiding shuffles entirely",
+    "Dynamic Python data structures (dicts, lists) are overkill for semi-structured data and inherit expensive serialization costs"
+  ],
+  "money_quotes": [
+    "Avoid communication-heavy operations on semi-structured data. Structure your data and load into a database instead.",
+    "Don't bother optimizing fast per-record code, especially if CyToolz has already done so for you.",
+    "The cost of compression and deserialization dominates actual computation time.",
+    "By the time you're grouping or joining datasets you probably have structured data that could fit into a dataframe or database.",
+    "Dynamic data structures (dicts, lists) are overkill for semi-structured data. We don't need or use their full power but we inherit all of their limitations.",
+    "Don't use groupby. You can often work around it with cleverness.",
+    "DataFrames and databases compactly represent data in formats that don't require serialization; this improves performance."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "When processing semi-structured data, serialization and deserialization costs dominate everything else, so the fastest path is converting to structured formats and databases as early as possible in your pipeline.",
+  "filename": "2015-04-21-Profiling-Bag"
+}

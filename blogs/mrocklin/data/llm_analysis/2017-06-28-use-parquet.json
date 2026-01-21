@@ -1,0 +1,26 @@
+{
+  "summary": "Matt Rocklin advocates for using Apache Parquet instead of CSV for dataframe computations, demonstrating the dramatic performance difference with the NYC taxi dataset. Using CSV, a simple aggregation took nearly 4 minutes, while the same operation on Parquet completed in just 2.8 seconds. The post walks through practical examples using Dask.dataframe, showing how to read both formats and convert existing CSV data to Parquet. Rocklin acknowledges that while CSV is human-readable, Parquet's binary columnar format is far more efficient for computer processing, especially for large datasets that don't fit in memory.",
+  "key_points": [
+    "CSV is convenient for humans to read but prohibitively slow for large-scale data processing, taking 4 minutes versus 3 seconds for the same computation on Parquet",
+    "Parquet's columnar storage allows reading only the columns you need without loading the entire dataset",
+    "Converting from CSV to Parquet is straightforward with Dask and yields immediate performance benefits even with default settings",
+    "Two Python libraries support Parquet: pyarrow (C++ bindings) and fastparquet (NumPy + Numba implementation), both capable for most use cases",
+    "Parquet enables efficient out-of-core computation, letting you work with datasets larger than available RAM without painful wait times"
+  ],
+  "money_quotes": [
+    "Same values, but now our computation happens in three seconds, rather than four minutes.",
+    "CSV is convenient, but slow",
+    "Parquet is faster",
+    "This lets us work from disk comfortably without worrying about how much memory we have.",
+    "So do yourself a favor and convert your data",
+    "We can read it directly... But computers are much more able to both read and navigate this data."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Switching from CSV to Parquet can reduce data processing times from minutes to seconds, making it practical to work with large datasets directly from disk.",
+  "filename": "2017-06-28-use-parquet"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin introduces a prototype project called streamz that handles continuous streaming tabular data using Pandas. The library addresses the challenge that traditional data analysis tools like NumPy and Pandas assume all data is known upfront, while real-world data from sources like financial feeds, IoT sensors, and web logs arrives continuously. Streamz provides a dataframe-like API that manages control flow, branching pipelines, and streaming algorithms while maintaining state for incremental computations. The post demonstrates integration with Jupyter notebooks for live-updating outputs and Bokeh for real-time plotting, while acknowledging significant gaps including parallel computing support, Kafka integration, and out-of-order data handling.",
+  "key_points": [
+    "Traditional data analysis libraries assume complete data upfront, but streaming data requires maintaining state for incremental updates",
+    "Streamz provides a Pandas-like API for streaming data that handles control flow, branching, joining, and back pressure automatically",
+    "Simple streaming operations become complex with for-loops when dealing with multiple streams, rate limiting, or buffering",
+    "Live Jupyter integration enables responsive feedback with updating outputs as new data arrives",
+    "The project is experimental with known gaps in parallel computing, Kafka ingestion, out-of-order data handling, and performance optimization"
+  ],
+  "money_quotes": [
+    "Some data never stops. It arrives continuously in a constant, never-ending stream.",
+    "It's still possible to use NumPy and Pandas, but you need to combine them with some cleverness and keep enough intermediate data around to compute marginal updates when new data comes in.",
+    "We don't have a single mean result, we have continuous stream of mean results that are each valid for the data up to that point.",
+    "When our computations are linear and straightforward like this a for loop suffices. However when our computations have several streams branching out or converging, possibly with rate limiting or buffering between them, this for-loop approach can grow complex and difficult to manage.",
+    "We're relying heavily on the Pandas library which wasn't designed with rapidly changing data in mind.",
+    "But most importantly this needs use by people with real problems to help us understand what here is valuable and what is unpleasant."
+  ],
+  "themes": [
+    "python",
+    "dask",
+    "open_source",
+    "technical",
+    "distributed"
+  ],
+  "tone": "technical",
+  "key_insight": "Streaming data analysis requires rethinking traditional batch-oriented tools by maintaining incremental state and managing complex pipeline control flow, which streamz addresses by providing a familiar Pandas-like API over continuous data streams.",
+  "filename": "2017-10-16-streaming-dataframes-1"
+}

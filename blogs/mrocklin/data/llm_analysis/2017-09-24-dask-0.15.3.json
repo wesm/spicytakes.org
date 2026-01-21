@@ -1,0 +1,25 @@
+{
+  "summary": "This release announcement covers Dask version 0.15.3, focusing on stability improvements and bug fixes since the previous release. The major additions include masked array support in dask.array, improved memory management for workers with multi-tiered thresholds, and a new statistical profiling feature for performance diagnostics. The memory management system now uses actual system memory monitoring in addition to tracking individual data pieces, providing more robust handling of memory pressure. The post also documents a breaking change in how the --memory-limit parameter is interpreted.",
+  "key_points": [
+    "Dask.array now supports masked arrays similar to NumPy, funded partly by the UK Met Office for the Iris project",
+    "Memory management has been overhauled to use system-level monitoring via psutil, with tiered responses at 60%, 70%, 80%, and 95% memory usage",
+    "A new statistical profiling feature polls worker threads every 10ms to track function usage, available through the diagnostic dashboard",
+    "The --memory-limit parameter meaning has changed from specifying the 60% threshold to specifying the full memory allocation"
+  ],
+  "money_quotes": [
+    "We dump data to disk if the process rises about 70% use, stop running new tasks if it rises above 80%, and restart the worker if it rises above 95%",
+    "Previously we only measured memory use by adding up the memory use of every piece of data produce by the worker. This could fail under a few situations",
+    "If you've never cared about this then you shouldn't start caring now",
+    "It provides information that is orthogonal, and generally more detailed than the typical task-stream plot"
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Robust distributed computing requires multiple layers of memory management that combine data-level tracking with system-level monitoring to handle both anticipated and unexpected memory pressure.",
+  "filename": "2017-09-24-dask-0.15.3"
+}

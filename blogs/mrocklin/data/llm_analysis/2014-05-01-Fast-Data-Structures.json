@@ -1,0 +1,26 @@
+{
+  "summary": "Matt Rocklin challenges the common assumption that Python is inherently slow, arguing that this only applies to cheap operations where Python's overhead dominates. For data structure-bound computations like frequency counting, Python performs surprisingly well\u2014within 2-5x of compiled languages. He demonstrates through benchmarks that toolz.frequencies in pure Python comes close to Pandas' C implementation, and that CyToolz (a Cython rewrite) actually matches or beats Java performance. The conclusion is that Python's data structure operations are fast enough for most practical purposes.",
+  "key_points": [
+    "Python's slowness reputation comes from numerical operations with many loops, not from data structure operations where overhead is relatively smaller",
+    "Pure Python frequency counting with toolz is only 2x slower than Pandas' C implementation\u2014far from the 10x-100x gap seen in numerical computing",
+    "The standard library's collections.Counter performs poorly compared to tuned alternatives like toolz.frequencies",
+    "CyToolz (Cython implementation of toolz) matches Java performance while maintaining Python's ergonomics",
+    "For data structure-bound work, the 2x performance cost is worth paying for Python's streaming data structures and low entry cost"
+  ],
+  "money_quotes": [
+    "Our intuition that Python is slow is often incorrect. Data structure bound Python computations are fast.",
+    "A Python dictionary assignment is about as fast as a Python add.",
+    "This represents an emerging class of problems that doesn't fit our performance intuition from our history with numerics.",
+    "This isn't the 10x-100x speedup that we expect from numerical applications.",
+    "For data structure bound computations, like frequency counting, Python is generally fast enough for me.",
+    "I'm willing to pay a 2x cost in order to gain access to Pure Python's streaming data structures and low entry cost.",
+    "Cython on raw Python data structures runs at Java speeds."
+  ],
+  "themes": [
+    "python",
+    "technical"
+  ],
+  "tone": "technical, myth-busting, pragmatic",
+  "key_insight": "Python's reputation for slowness comes from numerical computing benchmarks, but for data structure-bound operations, pure Python is fast enough that the ergonomic benefits outweigh the modest performance cost.",
+  "filename": "2014-05-01-Fast-Data-Structures"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Dask 0.15.0 introduces several significant improvements including native NumPy ufunc support, a cleaner async client API, and better multi-client coordination primitives. The release also includes breaking changes: the dask.async module was renamed to dask.local due to Python 3.5 keyword conflicts, Bag.map no longer auto-expands tuples (enabling multi-bag mapping instead), and the experimental ZMQ backend was removed. Performance optimizations, dashboard styling improvements, and Joblib pre-scattering for scikit-learn workloads round out the release. The post acknowledges contributions from dozens of community members across both core repositories.",
+  "key_points": [
+    "NumPy 1.13.0 ufuncs now work natively with Dask arrays, allowing seamless code that works with either array type",
+    "The async API was simplified: public methods like client.gather() now work in async contexts instead of requiring underscore-prefixed private methods",
+    "Breaking change: Bag.map removed auto-tuple expansion but gained the ability to map over multiple co-partitioned bags",
+    "New multi-client coordination primitives (Queues and Variables) enable better distributed workflows",
+    "Joblib/scikit-learn integration improved with pre-scattering to reduce repeated data transfer"
+  ],
+  "money_quotes": [
+    "Thanks to recent changes in NumPy 1.13.0, NumPy ufuncs now operate as Dask.array ufuncs.",
+    "This means that a non-trivial subset of the actual NumPy API works directly out-of-the box with dask.arrays.",
+    "This makes it easier to write code that seamlessly works with either array type.",
+    "While convenient, this behavior gave rise to corner cases and stopped us from being able to support multi-bag mapping functions.",
+    "This can significantly speed up some scikit-learn computations by reducing repeated data transfer.",
+    "As usual, a number of bugs were identified and resolved and a number of performance optimizations were implemented."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "Strategic breaking changes that remove convenient but limiting behaviors often enable more powerful capabilities, as demonstrated by removing tuple auto-expansion to enable multi-bag mapping.",
+  "filename": "2017-06-15-dask-0.15.0"
+}

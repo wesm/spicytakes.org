@@ -1,0 +1,29 @@
+{
+  "summary": "This post demonstrates how to use Dask to distribute Pandas dataframes for data wrangling, then seamlessly hand them off to XGBoost for distributed gradient boosted tree training. The example uses airline delay prediction on a 10-node cluster, showing familiar Pandas-like operations at scale. The key insight is that dask-xgboost is only 200 lines of code because it simply co-locates XGBoost workers within Dask workers, allowing zero-cost data sharing between systems. Rocklin argues this 'serve other libraries' approach lets Dask leverage the existing open source ecosystem rather than reimplementing algorithms, enabling weekend-level integration efforts with fully-featured distributed ML solutions.",
+  "key_points": [
+    "Dask-xgboost works by running XGBoost workers inside Dask worker processes, enabling zero-cost memory sharing between the two distributed systems",
+    "The entire dask-xgboost integration is only 200 lines of code and was built over a weekend, demonstrating the power of co-locating distributed systems",
+    "Dask's philosophy is to 'serve other libraries' rather than reimplement algorithms - Dask.arrays use NumPy, Dask.dataframes use Pandas, and distributed ML uses XGBoost",
+    "This same pattern was used for TensorFlow integration and could extend to MPI, Elemental, and other distributed systems",
+    "The familiar Pandas API means data scientists can work at cluster scale without learning entirely new tools"
+  ],
+  "money_quotes": [
+    "Dask has no need to make such an algorithm because XGBoost already exists, works well and provides Dask users with a fully featured and efficient solution.",
+    "Because both Dask and XGBoost can live in the same Python process they can share bytes between each other without cost, can monitor each other, etc.",
+    "These two distributed systems co-exist together in multiple processes in the same way that NumPy and Pandas operate together within a single process.",
+    "Sharing distributed processes with multiple systems can be really beneficial if you want to use multiple specialized services easily and avoid large monolithic frameworks.",
+    "We're only able to cover the breadth of functionality that we do today because we lean heavily on the existing open source ecosystem.",
+    "We get a fully featured solution that is maintained by other devoted developers, and the entire connection process was done over a weekend.",
+    "The point here isn't that we predicted airline delays well, it was that if you are a data scientist who knows Pandas and XGBoost, everything we did above seemed pretty familiar."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, enthusiastic",
+  "key_insight": "Co-locating multiple distributed systems in the same processes enables seamless data handoff and allows Dask to leverage specialized tools like XGBoost rather than building monolithic frameworks that reimplement everything.",
+  "filename": "2017-03-28-dask-xgboost"
+}

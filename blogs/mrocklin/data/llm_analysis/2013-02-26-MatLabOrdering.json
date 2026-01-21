@@ -1,0 +1,23 @@
+{
+  "summary": "The post demonstrates how parenthesis placement in matrix multiplication can cause performance differences spanning orders of magnitude in MatLab. Using a simple example with a 10000x1 vector, the author shows that (x*x')*x takes 0.34 seconds while x*(x'*x) takes under 0.001 seconds, because the former creates a massive 10000x10000 matrix while the latter produces a tiny 1x1 intermediate result. The author then tests whether MatLab automatically optimizes operation ordering and finds it does not\u2014it naively evaluates left-to-right, choosing the slow path.",
+  "key_points": [
+    "Matrix multiplication order can cause runtime differences spanning several orders of magnitude with identical results",
+    "Creating x*x' produces a 10000x10000 matrix while x'*x produces a 1x1 matrix",
+    "Compilers for C/Fortran struggle with this optimization because they'd need to analyze nested loops to see the bigger picture",
+    "NumPy cannot make this optimization because operation ordering is determined by Python's language semantics",
+    "MatLab, despite being interpreted and inspecting statements before execution, does not optimize operation ordering"
+  ],
+  "money_quotes": [
+    "Depending on where the parentheses are placed one either creates x*x', a large 10000 by 10000 rank 1 matrix, or x'*x, a 1 by 1 rank 1 matrix. Either way the result is the same.",
+    "The difference in runtimes however spans several orders of magnitude.",
+    "It is difficult to implement this optimization in compiler for C or Fortran. They would have to inspect sets of nested for loops to realize the larger picture.",
+    "Does Matlab choose wisely? ... no."
+  ],
+  "themes": [
+    "python",
+    "technical"
+  ],
+  "tone": "technical, wry",
+  "key_insight": "Mathematical associativity doesn't imply computational equivalence\u2014operation ordering in matrix math can make orders-of-magnitude performance differences that even sophisticated tools like MatLab fail to optimize automatically.",
+  "filename": "2013-02-26-MatLabOrdering"
+}

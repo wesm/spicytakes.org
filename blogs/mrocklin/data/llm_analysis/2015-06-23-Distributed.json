@@ -1,0 +1,27 @@
+{
+  "summary": "This post introduces dask.distributed, a new distributed memory scheduler for evaluating dask graphs across multiple machines. The system uses a centralized scheduler with ZeroMQ communication, where workers handle peer-to-peer data transfer while the scheduler coordinates task execution. Rocklin emphasizes that dask's separation of graph construction from evaluation enables experimentation with different schedulers. The post honestly acknowledges the scheduler's limitations, including lack of data locality optimization and immature deployment tooling, while inviting beta users to help improve it.",
+  "key_points": [
+    "Dask graphs (dictionaries of tasks) can be created either through high-level collections (Array, Bag, DataFrame) or by hand",
+    "The distributed scheduler uses centralized metadata with peer-to-peer data transfer between workers",
+    "Separating graph construction from evaluation allows iterating on scheduler implementations",
+    "Current limitations include no data locality awareness, suboptimal HDFS performance, and deployment challenges",
+    "The scheduler pairs well with S3 but isn't optimized for data-local filesystems like HDFS"
+  ],
+  "money_quotes": [
+    "We intentionally made the simplest and dumbest distributed scheduler we could think of.",
+    "Because dask separates graphs from schedulers we can iterate on this problem many times; building better schedulers after learning what is important.",
+    "While the scheduler centralizes metadata, the workers themselves handle transfer of intermediate data in a peer-to-peer fashion.",
+    "This current scheduler learns from our single-memory system but is the first dask scheduler that has to think about distributed memory.",
+    "Dask.distributed is new and is not battle-tested. Use at your own risk and adjust expectations accordingly."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical, pragmatic, transparent",
+  "key_insight": "Starting with the simplest possible distributed scheduler enables rapid iteration and learning about what actually matters in distributed computing.",
+  "filename": "2015-06-23-Distributed"
+}

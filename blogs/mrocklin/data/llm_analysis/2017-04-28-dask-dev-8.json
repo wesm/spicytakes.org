@@ -1,0 +1,27 @@
+{
+  "summary": "This development log covers a week of Dask-related project work, highlighting improvements to Joblib integration for accelerating Scikit-Learn code, new LogisticRegression estimators in dask-glm, Arrow-based Parquet support, and a new sparse array library. The post also discusses infrastructure improvements including better spill-to-disk behavior, AsyncIO client support, and TLS security features. A key theme emerges around making Dask work seamlessly with existing Python data science tools without requiring changes to those codebases. The post notably acknowledges that smarter algorithms often beat parallelism, as demonstrated when scikit-learn's improved algorithm outperformed dask-glm's parallel approach.",
+  "key_points": [
+    "Dask can now serve as a Joblib backend with pre-scattering of data, allowing Scikit-Learn's RandomForest to scale on clusters without code changes",
+    "New dask-glm LogisticRegression estimator provides scikit-learn compatible interface, though benchmark comparison showed better algorithms beat parallelism",
+    "Dask.dataframe now supports both fastparquet and Arrow engines for Parquet files, with switching from CSV to Parquet often more effective than parallel computing",
+    "A new sparse array library provides n-dimensional sparse arrays that work seamlessly with dask.array, enabling distributed sparse computations",
+    "NumPy's new __array_ufunc__ protocol allows generic array code to work across NumPy, dask.array, xarray, and other array libraries"
+  ],
+  "money_quotes": [
+    "This just goes to show you that being smarter about your algorithms is almost always a better use of time than adopting parallelism.",
+    "As a gentle reminder, you can typically get much faster query times by switching from CSV to Parquet. This is often much more effective than parallel computing.",
+    "This is particularly nice because it allows Dask and Scikit-Learn to play well together without having to introduce Dask within the Scikit-Learn codebase at all.",
+    "When performing machine learning computations (which are fairly heavy-weight) disk access is now fast enough that I don't notice it in practice and running out of memory doesn't significantly impact performance.",
+    "This is a big step towards writing generic array code that works both on NumPy arrays as well as other array projects like dask.array, xarray, bcolz, sparse, etc."
+  ],
+  "themes": [
+    "dask",
+    "distributed",
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "technical",
+  "key_insight": "The most effective performance improvements often come from smarter algorithms and better file formats rather than adding parallelism, though seamless integration between tools enables users to benefit from both approaches.",
+  "filename": "2017-04-28-dask-dev-8"
+}

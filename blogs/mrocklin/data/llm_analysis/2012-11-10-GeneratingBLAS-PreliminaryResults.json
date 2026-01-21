@@ -1,0 +1,26 @@
+{
+  "summary": "This post demonstrates a working system that automatically generates optimized Fortran BLAS/LAPACK code from mathematical expressions. By combining previously developed technologies\u2014logical descriptions of BLAS operations, unification for pattern matching, and branching strategies for control\u2014the system can transform expressions like (4XX^T + 2Z)^(-1)X into efficient Fortran code. The system automatically infers mathematical properties (like symmetric positive definiteness) to select appropriate specialized routines, and generates multiple possible solutions ranked by efficiency. The generated code integrates back into Python via F2PY while remaining usable in any Fortran project.",
+  "key_points": [
+    "The system combines four independent technologies (BLAS descriptions, unification, strategies, branching) to generate optimized Fortran code from mathematical expressions",
+    "Logical programming infers mathematical properties automatically, enabling selection of specialized routines like POSV for symmetric positive definite matrices over general GESV",
+    "The architecture separates BLAS/LAPACK definitions from pattern matching and control code, allowing independent development and declarative routine definitions",
+    "Generated code is in-place and efficient, with proper Fortran intent declarations, and can integrate back into Python via F2PY",
+    "Multiple valid computations are generated, allowing comparison and selection of the most efficient approach"
+  ],
+  "money_quotes": [
+    "Each of these rules can convert one kind of expression into a computation given certain conditions.",
+    "Internally we used a logical programming framework to infer that 4XX^T + 2Z is symmetric positive definite given the original mathematical assumptions.",
+    "This Fortran code is independent of Python or SymPy and can be used in any project.",
+    "The definition of BLAS/LAPACK is separated from the pattern matching code and the branching control code. This allows me (or other people) to develop one without thinking about the other.",
+    "All of the pieces are general, composable, and applicable to other ends. I hope that others are able to find some use for them.",
+    "For large matrix expressions the number of possible computations may stop us from inspecting all possible solutions. How can we ensure that the best solution is in the first few?"
+  ],
+  "themes": [
+    "technical",
+    "python",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "By combining logical programming, pattern matching, and modular code generation, mathematical expressions can be automatically compiled into optimized, portable Fortran code that selects specialized numerical routines based on inferred matrix properties.",
+  "filename": "2012-11-10-GeneratingBLAS-PreliminaryResults"
+}

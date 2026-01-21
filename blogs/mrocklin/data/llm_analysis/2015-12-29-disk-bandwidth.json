@@ -1,0 +1,24 @@
+{
+  "summary": "This technical post examines how disk read/write bandwidth varies dramatically based on block size, ranging from 10 MB/s to 500+ MB/s on commodity hardware. Through experimental benchmarking on a laptop SSD, Rocklin demonstrates that optimal performance requires reading/writing data in 1-100 MB chunks. The post explains how sophisticated file formats like column stores exploit this by organizing similar data consecutively. It also highlights the challenges of accurate disk benchmarking due to filesystem buffering and OS-level throttling.",
+  "key_points": [
+    "Disk bandwidth varies 50x or more depending on block size - large blocks (1-100 MB) achieve ~500 MB/s while small blocks can drop to 10 MB/s or less",
+    "SSDs particularly outperform spinning disks for small read/write operations",
+    "File systems buffer reads and writes in RAM, masking some of the worst small-write performance penalties",
+    "Column-oriented storage formats achieve better performance by storing similar data in contiguous large blocks",
+    "Operating system power management can significantly throttle disk speeds (30 MB/s cap on battery)"
+  ],
+  "money_quotes": [
+    "Disk read/write bandwidths on commodity hardware vary between 10 MB/s (or slower) to 500 MB/s (or faster on fancy hardware).",
+    "If we can arrange our data so that we consistently pull off larger blocks of data at a time then we can read through data quite quickly at 500 MB/s.",
+    "We can churn through a 30 GB dataset in one minute.",
+    "Sophisticated file formats take advantage of this by storing similar data consecutively.",
+    "It is worth remembering that your hard drive is a physical machine and not just a convenient abstraction."
+  ],
+  "themes": [
+    "technical",
+    "python"
+  ],
+  "tone": "technical",
+  "key_insight": "Disk I/O performance is fundamentally constrained by block size, and understanding this physical reality is essential for designing efficient data storage and processing systems.",
+  "filename": "2015-12-29-disk-bandwidth"
+}

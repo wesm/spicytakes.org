@@ -1,0 +1,26 @@
+{
+  "summary": "As major Python packages like NumPy, Pandas, and Scikit-Learn prepare to drop Python 2 support, many large institutions will face painful transitions. The post explores an unconventional solution: using Cython to compile Python 3 codebases into C extensions usable by Python 2. While technically feasible, this approach has limitations including incompatibility with Python 3-only libraries, semantic differences, and debugging difficulties. Rocklin ultimately suggests this could be a viable transitional tool, particularly as a commercial offering from companies like Anaconda or Enthought.",
+  "key_points": [
+    "Cython can compile Python 3 code (including type annotations and f-strings) into C extensions that work with Python 2",
+    "Large institutions face much harder Python 2-to-3 transitions than individual developers due to production codebase complexity",
+    "The approach has significant limitations: no asyncio support, semantic differences, difficult introspection, and import compatibility issues",
+    "A commercial conda channel of Cython-compiled Python 2-compatible packages could be a viable business opportunity",
+    "While technically possible, extending Python 2 support may only delay the inevitable transition institutions must make"
+  ],
+  "money_quotes": [
+    "Many popular Python packages are dropping support for Python 2 next month. This will be painful for several large institutions.",
+    "For most developers in the ecosystem this isn't a problem. However, for larger companies or government organizations it's often far harder to switch.",
+    "Just because we can support Python 2 in this way doesn't mean that we should.",
+    "Long term, institutions do need to drop Python 2 and either move on to Python 3 or to some other language. Tricks like using Cython only extend the inevitable.",
+    "For me personally, seeing Cython as an option to provide continued support makes me much more comfortable with dropping Python 2.",
+    "I also think that maintaining a conda channel of Cython-compiled Python-2-compatible packages would be an excellent effort for a for-profit company."
+  ],
+  "themes": [
+    "python",
+    "open_source",
+    "technical"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Cython offers a little-known escape hatch for institutions struggling with Python 2 migration, compiling Python 3 code into Python 2-compatible extensions, though this technical workaround shouldn't replace the fundamental need to modernize.",
+  "filename": "2018-11-28-python-2-and-cython"
+}

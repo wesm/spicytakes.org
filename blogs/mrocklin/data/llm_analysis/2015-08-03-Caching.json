@@ -1,0 +1,26 @@
+{
+  "summary": "The post argues that traditional LRU (Least Recently Used) caching policies are poorly suited for data science workloads because analytic computations vary dramatically in both computation time and storage cost\u2014unlike web applications where queries are relatively uniform. Rocklin proposes a new caching policy that scores cached items based on compute time, storage size, recency, and frequency of use. He introduces 'cachey', a small Python library implementing this policy, and discusses its potential integration with Dask to automatically cache task graph results. The key insight is that data science caching should favor results that are expensive to compute but cheap to store, rather than simply tracking recency.",
+  "key_points": [
+    "LRU caching fails for analytics because computation times and storage costs vary by orders of magnitude, unlike web applications where queries are relatively uniform",
+    "The proposed caching policy scores items by compute_time/nbytes with exponential decay for recency and linear amplification for frequency",
+    "A cheap-to-compute but large result (like x.T) shouldn't fill the cache, while an expensive-to-compute but tiny result (like x.std()) should persist",
+    "Dask's task graph structure makes it ideal for automatic caching since it can evaluate every sub-task for cache inclusion without explicit memoization",
+    "Exploratory data science inherently involves repetitive similar computations that share structure, making intelligent caching valuable"
+  ],
+  "money_quotes": [
+    "Consider the dataset that you've worked on most recently. How many times have you loaded it from disk into memory? How many times have you repeated almost the same computations on that data?",
+    "While most web application database queries take roughly the same amount of time (100ms-1000ms) and take up roughly the same amount of space to store (1-10kb), the computation and storage costs of analytic computations can easily vary by many orders of magnitude (spreads in the millions or billions are common.)",
+    "We don't want to keep this in our cache, even if it's very frequently requested; it takes up all of the space for other potentially more useful (and smaller) results and we can recompute it trivially anyway.",
+    "The caching policies around cachey really shine when they get to see all of our computations.",
+    "Similar computations (like mean and variance) often share sub-tasks."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "Data science caching should prioritize results that are expensive to recompute but cheap to store, requiring a fundamentally different policy than the recency-based approaches used in web applications.",
+  "filename": "2015-08-03-Caching"
+}

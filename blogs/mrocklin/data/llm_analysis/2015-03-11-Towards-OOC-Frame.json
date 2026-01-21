@@ -1,0 +1,28 @@
+{
+  "summary": "Matt Rocklin explores whether dask can be extended to support out-of-core DataFrames, similar to what dask.array achieved for NumPy. He explains that a naive approach of partitioning by block size only supports limited operations, while partitioning by index values enables joins, complex groupby operations, and rolling windows. The key challenge is re-indexing and shuffling data across partitions, which requires finding good partition values and efficiently moving data between blocks. He presents a working but slow implementation and candidly admits the approach has significant limitations including forced evaluation during operations, slow shuffling, and single-core constraints due to Python's GIL.",
+  "key_points": [
+    "Partitioning DataFrames by index values rather than block size enables complex operations like joins, groupby-apply, and rolling windows",
+    "Complex operations become easy when the logic aligns with the index, leading to a two-step pattern: re-index then compute",
+    "Re-indexing out-of-core data requires external sorting to find partition values, then shuffling data across all blocks",
+    "Unlike dask.array, dask.frame requires evaluating the computation graph during set_index operations rather than deferring all execution",
+    "The implementation works but faces significant performance challenges from DataFrame serialization, sorting complexity, and GIL limitations"
+  ],
+  "money_quotes": [
+    "Can we represent a large DataFrame as a sequence of in-memory DataFrames and perform most Pandas operations using task scheduling? I don't know. Lets try.",
+    "Complex operations are easy if the logic aligns with the index",
+    "Re-indexing and shuffling large data is difficult and expensive.",
+    "We can't just call DataFrame.sort because the entire data might not fit in memory and most of our sorting algorithms assume random access.",
+    "How feasible is it to frequently re-index a large amount of data? When do we reach the stage of 'just use a database'?",
+    "I know less about tables than about arrays. I'm ignorant of the literature and common solutions in this field. If anything here looks suspicious then please speak up."
+  ],
+  "themes": [
+    "dask",
+    "python",
+    "distributed",
+    "technical",
+    "open_source"
+  ],
+  "tone": "technical, exploratory, candid",
+  "key_insight": "Building out-of-core DataFrames is fundamentally harder than out-of-core arrays because complex tabular operations require data to be partitioned by index values, necessitating expensive shuffle operations that force eager evaluation.",
+  "filename": "2015-03-11-Towards-OOC-Frame"
+}
