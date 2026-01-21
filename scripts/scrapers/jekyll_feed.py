@@ -32,6 +32,10 @@ class JekyllFeedScraper(BaseScraper):
         self.base_url = self.config["scraper"]["baseUrl"].rstrip("/")
         self.feed_url = self.config["scraper"]["feedUrl"]
         self.homepage_url = self.config["scraper"].get("homepageUrl", self.base_url + "/blog/")
+        # URL pattern to identify blog posts (regex pattern)
+        self.url_pattern = self.config["scraper"].get("urlPattern", r"/\d{4}/\d{2}/\d{2}/")
+        # Whether posts are in <li><h3><a> (True) or just <li><a> (False)
+        self.posts_in_h3 = self.config["scraper"].get("postsInH3", True)
 
         # Headers to appear as a regular browser
         self.headers = {
@@ -98,21 +102,25 @@ class JekyllFeedScraper(BaseScraper):
             soup = BeautifulSoup(response.text, "html.parser")
 
             posts = []
-            # Posts are in <li> elements with <h3><a href="...">Title</a></h3>
+            # Posts are in <li> elements, possibly with <h3><a> or just <a>
             for li in soup.find_all("li"):
-                h3 = li.find("h3")
-                if not h3:
-                    continue
+                if self.posts_in_h3:
+                    h3 = li.find("h3")
+                    if not h3:
+                        continue
+                    link = h3.find("a")
+                else:
+                    # Direct <a> inside <li>
+                    link = li.find("a")
 
-                link = h3.find("a")
                 if not link:
                     continue
 
                 href = link.get("href", "")
                 title = link.get_text(strip=True)
 
-                # Only include posts with Jekyll URL pattern
-                if "/jekyll/update/" not in href:
+                # Only include posts matching the URL pattern
+                if not re.search(self.url_pattern, href):
                     continue
 
                 # Make URL absolute

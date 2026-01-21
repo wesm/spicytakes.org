@@ -1,0 +1,40 @@
+{
+  "id": "mrocklin",
+  "name": "Matt Rocklin",
+  "tagline": "Dask, open source, and startup life",
+  "description": "Exploring Matt's writings on distributed computing, open source sustainability, and building Coiled.",
+  "sourceUrl": "https://matthewrocklin.com/blog",
+  "sourceLabel": "matthewrocklin.com/blog",
+
+  "scraper": {
+    "type": "jekyll_feed",
+    "baseUrl": "https://mrocklin.github.io",
+    "feedUrl": "https://matthewrocklin.com/blog/atom.xml",
+    "homepageUrl": "https://matthewrocklin.com/blog/",
+    "urlPattern": "/blog/.*\\d{4}/\\d{2}/\\d{2}/",
+    "postsInH3": false
+  },
+
+  "themes": {
+    "dask": { "label": "Dask", "icon": "⚡" },
+    "open_source": { "label": "Open Source", "icon": "📖" },
+    "distributed": { "label": "Distributed Computing", "icon": "🌐" },
+    "python": { "label": "Python", "icon": "🐍" },
+    "startups": { "label": "Startups", "icon": "🚀" },
+    "career": { "label": "Career", "icon": "💼" },
+    "technical": { "label": "Technical", "icon": "⚙️" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Matt Rocklin, creator of Dask and founder of Coiled. He writes about distributed computing, Python, open source software development, and startup experiences.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Matt Rocklin is known for thoughtful takes on open source sustainability, distributed computing, and the realities of building developer tools and startups in the Python ecosystem."
+  }
+}
