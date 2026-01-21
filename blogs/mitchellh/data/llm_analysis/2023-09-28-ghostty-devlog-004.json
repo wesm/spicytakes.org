@@ -1,0 +1,28 @@
+{
+  "summary": "This devlog covers Ghostty's growth from 30 to 100 beta testers, with waves now adding 15-20 people as stability improves. The post details significant GUI improvements on both macOS and Linux, including native Wayland support. A major technical challenge emerged around terminal identification: Ghostty's attempt to use `TERM=ghostty` instead of `TERM=xterm-ghostty` exposed bugs in Vim and other programs that incorrectly hardcode terminal names rather than querying terminfo. The post also covers implementing XTGETTCAP (a protocol for querying terminal capabilities via escape sequences) using Zig's comptime for compile-time optimization, and adding variable font support\u2014a rare feature among terminal emulators.",
+  "key_points": [
+    "Ghostty's closed beta has grown to 100 users, with each wave now adding 15-20 people as the terminal becomes more stable",
+    "Native GUI improvements on macOS and Linux emphasize platform-idiomatic design, with full Wayland support now available",
+    "Attempting to use `TERM=ghostty` instead of `TERM=xterm-ghostty` revealed bugs in Vim and other programs that hardcode terminal names instead of properly querying terminfo",
+    "XTGETTCAP implementation uses Zig comptime to generate a compile-time optimized lookup table, making terminfo queries extremely fast with zero allocations",
+    "Variable font support allows fine-tuning of font weight and width axes, a feature rare among terminal emulators"
+  ],
+  "money_quotes": [
+    "A lot of naughty programs do string matching on TERM to determine if a terminal supports some set of functionality. This is wrong and very naughty, do not do this!",
+    "Terminfo is an extremely interesting (primarily because it is so cursed) topic on its own.",
+    "One of Ghostty's stated goals is to have native experiences that make it feel like Ghostty was purpose-built for the platform you're on.",
+    "XTGETTCAP performance doesn't really matter at all, but our XTGETTCAP implementation is stupid fast because it is a compile-time optimized lookup table.",
+    "I'm proud that Ghostty community have been not only reporting issues, but also providing fixes.",
+    "These types of features really let you fine tune your terminal to be exactly how you want it and make it feel just right.",
+    "I hope to write a dedicated blog post on terminfo one day."
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "devtools",
+    "systems"
+  ],
+  "tone": "enthusiastic, technical, community-focused",
+  "key_insight": "Building a proper terminal emulator means not just implementing features correctly, but also discovering and fixing bugs in the broader ecosystem where programs have accumulated bad assumptions over decades.",
+  "filename": "2023-09-28-ghostty-devlog-004"
+}

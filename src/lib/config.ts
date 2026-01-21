@@ -16,6 +16,7 @@ import geohotConfig from '../../config/geohot.json';
 import mrocklinConfig from '../../config/mrocklin.json';
 import criccominiConfig from '../../config/criccomini.json';
 import skamilleConfig from '../../config/skamille.json';
+import mitchellhConfig from '../../config/mitchellh.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -30,6 +31,7 @@ const configs: Record<string, BlogConfig> = {
   mrocklin: mrocklinConfig as BlogConfig,
   criccomini: criccominiConfig as BlogConfig,
   skamille: skamilleConfig as BlogConfig,
+  mitchellh: mitchellhConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'

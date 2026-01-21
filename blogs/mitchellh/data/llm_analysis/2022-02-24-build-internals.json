@@ -1,0 +1,27 @@
+{
+  "summary": "This post provides a deep dive into how Zig's built-in build system works internally. The key insight is that `zig build` actually compiles twice: first it compiles the `build.zig` file into a standalone build binary, then that binary orchestrates the actual project compilation by spawning subprocesses to the Zig compiler. The post walks through the entire pipeline, from how the build runner is located to how steps are defined declaratively and executed in dependency order. Mitchell demonstrates how to manually build and invoke the build binary to demystify the process, emphasizing that understanding these internals makes developers more productive.",
+  "key_points": [
+    "The `zig build` command works in two phases: first compiling build.zig into a build binary, then executing that binary to orchestrate the actual build",
+    "The build binary doesn't embed a Zig compiler\u2014it subprocesses back out to `zig build-exe` or similar commands, meaning you could theoretically point it at different Zig versions",
+    "Build steps are defined declaratively in the build function but executed later, which is a common source of confusion when developers try to read files that haven't been generated yet",
+    "The build system uses Zig's comptime capabilities to introspect function signatures, allowing flexible return types for the build function",
+    "Steps are executed in dependency order using a simple recursive approach with loop detection via flags rather than building a formal graph structure"
+  ],
+  "money_quotes": [
+    "Build systems are an extremely important detail of any software project. When they work, they can feel like magic: you execute a command, and after a series of potentially complicated steps, a working binary (or other artifact) is produced!",
+    "Understanding the internals of the build system are a way to remove that 'magic' and make it easier to get things done.",
+    "My primary takeaway from studying the internals of the Zig build system is that it's just Zig.",
+    "You can do anything you want in the build.zig file because it is compiled into a fully fledged executable for your current system.",
+    "I deeply believe that understanding the layer beneath the tools we use everyday makes us better tool users.",
+    "It eliminates any mystery by exposing the machines inner workings, and I tend to find the inner workings are always simpler than I expected.",
+    "Because the steps are declaratively defined, you must be thoughtful to understand when and where logic actually occurs."
+  ],
+  "themes": [
+    "zig",
+    "devtools",
+    "systems"
+  ],
+  "tone": "technical, educational, demystifying",
+  "key_insight": "The Zig build system's apparent magic dissolves when you understand it's just compiling your build.zig into an executable\u2014and knowing this internal structure makes you a more effective user of the tool.",
+  "filename": "2022-02-24-build-internals"
+}

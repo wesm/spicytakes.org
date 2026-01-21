@@ -1,0 +1,29 @@
+{
+  "summary": "Mitchell Hashimoto introduces Ghostty, a new terminal emulator written from scratch in Zig that aims to be fast, feature-rich, and native all at once\u2014a combination he argues existing terminals fail to achieve. The talk covers the project's architecture, including its cross-platform core with native GUI implementations (Swift/AppKit for macOS, GTK for Linux), and explores several Zig patterns that make this possible. Hashimoto positions Ghostty not just as another terminal, but as a potential modern platform for text application development, analogous to how browsers serve GUI apps. The project was in closed beta at the time of the talk, with plans for a 1.0 FOSS release in 2024.",
+  "key_points": [
+    "Existing terminals force a tradeoff between fast, feature-rich, and native\u2014Ghostty aims to achieve all three simultaneously",
+    "Zig's comptime interfaces enable platform-specific implementations with zero runtime overhead, allowing truly native experiences on each OS",
+    "The architecture uses comptime data tables and type generation to process configuration at compile-time, reducing binary size and eliminating runtime costs",
+    "Ghostty integrates with Swift for macOS by exporting a C API that Swift can call, enabling modern Apple frameworks while maintaining the Zig core",
+    "The vision extends beyond being 'just another terminal' to making terminals a modern platform for text application development with features like progress bars, drag-and-drop, and better security"
+  ],
+  "money_quotes": [
+    "You have fast terminals, feature rich terminals, and native terminals. You can pick at most two properties to have.",
+    "Fast, features, native feel is not mutually exclusive.",
+    "I want the terminal to be a modern platform for text application development, analogous to the browser being a modern platform for GUI application development.",
+    "Browsers ship dozens (hundreds?) of new features per year. They innovate fast and excite application developers. This may be a bit much, but I think terminals can innovate faster than they are.",
+    "Speculate all you want, I don't care for this question and I don't care to answer it. I chose Zig, I like Zig, let's move on.",
+    "The @Type builtin lets you create types at comptime. It is ridiculously powerful but also ridiculously scary.",
+    "Many projects often have shell, Python, or other scripts to do data generation. With Zig, you can do it all in comptime.",
+    "The first released version will be version 1.0 or at worst a 1.0 release candidate. The goal of this heavy testing program is that we can launch out of the gate with a stable, feature rich project."
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "devtools",
+    "systems"
+  ],
+  "tone": "technical, enthusiastic, pragmatic",
+  "key_insight": "By leveraging Zig's comptime capabilities for zero-cost abstractions and platform-specific implementations, you can build software that achieves properties previously thought to be mutually exclusive.",
+  "filename": "2023-09-12-ghostty-and-useful-zig-patterns"
+}

@@ -16,6 +16,7 @@ A multi-blog archive platform that uses LLM-powered analysis to generate summari
 | [mrocklin.spicytakes.org](https://mrocklin.spicytakes.org) | Matt Rocklin | Dask, open source, startups | 199 |
 | [criccomini.spicytakes.org](https://criccomini.spicytakes.org) | Chris Riccomini | Data infrastructure, Kafka, distributed systems | 63 |
 | [skamille.spicytakes.org](https://skamille.spicytakes.org) | Camille Fournier | Engineering management, leadership | 111 |
+| [mitchellh.spicytakes.org](https://mitchellh.spicytakes.org) | Mitchell Hashimoto | Ghostty, Zig, developer tools | 45 |
 
 ## Project Structure
 
@@ -172,6 +173,7 @@ The site is deployed to Vercel with separate projects for each subdomain.
 | mrocklin | spicy-takes-mrocklin |
 | criccomini | spicy-takes-criccomini |
 | skamille | spicy-takes-skamille |
+| mitchellh | spicy-takes-mitchellh |
 
 ## Adding a New Blog
 

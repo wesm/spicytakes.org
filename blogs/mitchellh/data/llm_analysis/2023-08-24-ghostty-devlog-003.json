@@ -1,0 +1,27 @@
+{
+  "summary": "This devlog covers major progress on Ghostty's keyboard input handling, which required solving the complex problem of supporting non-US keyboard layouts, dead key sequences, and unicode character input across platforms. Mitchell implemented support for multiple keyboard protocols (xterm modified keys, fixterms, and Kitty Keyboard Protocol), making Ghostty one of only a handful of terminals to support all of them. The Linux/GTK experience received significant improvements including single instance mode, primary clipboard support, and automatic shell integration. The post emphasizes how expanding the beta tester pool, particularly to non-US users and Linux users, exposed critical issues that led to these improvements.",
+  "key_points": [
+    "Keyboard input handling is surprisingly complex due to physical scancodes, logical key translation, dead key sequences, modifier consumption, and unicode character production - all of which must work cross-platform",
+    "Ghostty now implements xterm modified keys, fixterms, and Kitty Keyboard Protocol - making it one of only a few terminals (alongside iTerm, Foot, Kitty, and possibly WezTerm) to support all major keyboard protocols",
+    "Linux/GTK improvements include single instance mode for fast subsequent launches, primary (selection) clipboard support, and automatic shell integration via FHS directory layout detection",
+    "Physical key mapping is now optionally available via a 'physical:' prefix in keybindings, allowing users to bind based on physical key position rather than logical character output",
+    "Beta tester diversity (non-US keyboard users, Linux users) proved essential for exposing edge cases and driving quality improvements"
+  ],
+  "money_quotes": [
+    "I'm just a dumb US citizen typing on a dumb US-standard keyboard layout. On a US-standard keyboard, you type `a` and you get \"a\", you type `'` (apostrophe) and you get \"'\". You sit on a throne of lies.",
+    "When a person types a key on their keyboard, a few things happen. The keyboard sends a physical scancode. Software keyboard layout handling translates this scancode to an alternate scancode. The combination of modifiers and other keys may or may not then produce one or more characters.",
+    "I plan on writing an entire blog post dedicated to the eldritch horror that is keyboard layouts, input handling, terminal keyboard 'protocols', and OS-level APIs.",
+    "Ghostty not only has to handle these use cases (because it turns out non US-standard keyboard users exist) but Ghostty must also do this cross-platform.",
+    "Most terminals (Terminal.app, Windows Terminal, Alacritty, Warp) implement none of the keyboard protocols.",
+    "I really want Ghostty to be a top-tier GTK-based Linux terminal."
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical, self-deprecating, enthusiastic",
+  "key_insight": "Building a truly cross-platform terminal emulator requires solving the surprisingly complex problem of keyboard input handling, where the seemingly simple act of pressing a key involves layers of translation between physical scancodes, logical keys, and character output that vary dramatically across keyboard layouts and operating systems.",
+  "filename": "2023-08-24-ghostty-devlog-003"
+}

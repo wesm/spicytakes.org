@@ -1,0 +1,27 @@
+{
+  "summary": "This technical deep-dive explains how the Zig compiler's Sema (semantic analysis) stage transforms ZIR (Zig Intermediate Representation) into AIR (Analyzed Intermediate Representation). The post details how AIR is a fully-typed representation where comptime evaluation occurs, enabling generic types to be realized and compile-time optimizations to be performed. Through detailed code examples, Hashimoto walks through the anatomy of AIR instructions, the Value/Type/TypedValue system, and traces the step-by-step analysis of a simple addition function. The article demonstrates how comptime evaluation can pre-compute results and how the compiler handles both comptime-known and runtime values differently.",
+  "key_points": [
+    "AIR is generated per-function (not per-file like ZIR), and only for exported or referenced functions via lazy analysis",
+    "The Sema stage performs all comptime evaluation, which is necessary because fully typing a Zig program requires resolving generic types at compile time",
+    "Values in Zig's compiler are untyped until paired with a Type to form a TypedValue - and types themselves can be values with type 'type'",
+    "The compiler emulates target platform properties during comptime evaluation, making cross-compilation safe and predictable",
+    "Sema maintains a ZIR-to-AIR mapping (inst_map) that allows AIR instructions to reference resolved ZIR instructions"
+  ],
+  "money_quotes": [
+    "AIR, which stands for 'Analyzed Intermediate Representation' is a fully typed intermediate representation, whereas ZIR is an untyped intermediate representation.",
+    "One of the reasons ZIR is untyped is because fully typing a Zig program requires comptime evaluation so that generic types (amongst other things) can be fully realized. Therefore, Sema also performs all the comptime evaluation of Zig programs. This is where the magic happens!",
+    "A type can also be a value in Zig. For example, the statement `const c = u8` is completely valid Zig: you're assigning the type `u8` to the constant `c` which itself has the type `type`.",
+    "The source for Sema is in `src/Sema.zig`. It is a very large file (over 18,000 lines at the time of writing this) and is self-described as 'the heart of the Zig compiler.'",
+    "For comptime-evaluated code, the Zig compiler emulates the properties of the target platform when necessary. This is a critical feature that makes comptime-evaluation safe and possible within Zig.",
+    "This implements Zig's 'lazy analysis.' This means that certain errors will not produce compiler errors unless the declaration is referenced.",
+    "You can see that the comptime evaluation was done and our addition was done in this stage so that the result is already pre-known. When this eventually gets translated down to machine code, the actual addition result is already pre-computed."
+  ],
+  "themes": [
+    "zig",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical",
+  "key_insight": "Zig's semantic analysis stage is where comptime magic happens - transforming untyped intermediate representation into fully-typed AIR while evaluating compile-time expressions and emulating target platform properties.",
+  "filename": "2022-02-13-sema"
+}

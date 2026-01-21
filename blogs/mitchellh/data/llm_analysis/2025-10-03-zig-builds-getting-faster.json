@@ -1,0 +1,26 @@
+{
+  "summary": "Mitchell Hashimoto shares real-world build time improvements after upgrading Ghostty to Zig 0.15.1, demonstrating significant speedups across all build scenarios. The build script compilation dropped from 7 seconds to under 2 seconds, while full uncached builds improved from 41 to 32 seconds. Most impressively, libghostty-vt incremental builds now complete in under a second using Zig's self-hosted backend. These improvements come despite Ghostty still relying on LLVM for most builds and incremental compilation not yet being functional, suggesting even greater gains are coming.",
+  "key_points": [
+    "Build script compilation improved 4x faster (7sec to 1.7sec), directly impacting first-time builds from source",
+    "Full Ghostty builds dropped from 41 to 32 seconds even while still using LLVM backend",
+    "libghostty-vt achieves sub-second incremental builds using Zig's self-hosted x86_64 backend",
+    "Current improvements are just the beginning\u2014once LLVM is fully replaced and incremental compilation works, builds should reach millisecond-level speeds",
+    "The Zig team's multi-year investment in custom code generation, linkers, and compiler improvements is paying off"
+  ],
+  "money_quotes": [
+    "Andrew Kelley famously (or infamously, depending on your views) said 'the compiler is too damn slow, that's why we have bugs.'",
+    "A sub-second build time for a non-trivial library is amazing.",
+    "Previously, I might tab out to read an email between builds or tests, but now its so fast I can stay in flow in my terminal.",
+    "I've loved betting on Zig for Ghostty, and I love that they're focusing on compile times.",
+    "These improvements are real, and they're here now. And I suspect in the next couple years, the results posted today will look downright slow."
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "devtools",
+    "systems"
+  ],
+  "tone": "optimistic, technical, enthusiastic",
+  "key_insight": "Zig 0.15.1 delivers substantial build time improvements that are already transforming daily development workflows, even before the most impactful optimizations like incremental compilation are fully realized.",
+  "filename": "2025-10-03-zig-builds-getting-faster"
+}

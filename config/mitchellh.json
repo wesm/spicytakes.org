@@ -1,0 +1,38 @@
+{
+  "id": "mitchellh",
+  "name": "Mitchell Hashimoto",
+  "tagline": "Ghostty, Zig, and building developer tools",
+  "description": "Co-founder of HashiCorp, creator of Vagrant, Terraform, and Ghostty. Deep dives into systems programming, Zig, and building high-quality software.",
+  "sourceUrl": "https://mitchellh.com",
+  "sourceLabel": "mitchellh.com",
+
+  "scraper": {
+    "type": "rss_nextjs",
+    "baseUrl": "https://mitchellh.com",
+    "feedUrl": "https://mitchellh.com/feed.xml",
+    "contentSelector": "div.prose"
+  },
+
+  "themes": {
+    "ghostty": { "label": "Ghostty", "icon": "👻" },
+    "zig": { "label": "Zig", "icon": "⚡" },
+    "infrastructure": { "label": "Infrastructure", "icon": "🏗️" },
+    "devtools": { "label": "Developer Tools", "icon": "🛠️" },
+    "systems": { "label": "Systems Programming", "icon": "⚙️" },
+    "ai": { "label": "AI & LLMs", "icon": "🤖" },
+    "startups": { "label": "Startups", "icon": "🚀" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Mitchell Hashimoto, co-founder of HashiCorp (Vagrant, Terraform, Consul, Vault) and creator of Ghostty terminal emulator. He writes about systems programming, Zig, developer tools, and building high-quality software.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Mitchell Hashimoto is known for strong opinions on software quality, developer tools, and systems programming. He has deep expertise in infrastructure automation and terminal emulators."
+  }
+}

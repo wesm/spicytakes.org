@@ -1,0 +1,28 @@
+{
+  "summary": "Mitchell Hashimoto explains how to build truly native cross-platform GUIs by writing business logic in a systems language like Zig and platform-specific UI code separately. His terminal emulator achieves 93% shared Zig code with only 4% macOS-specific Swift code. The post walks through the technical pipeline: exporting C APIs from Zig, building static libraries, creating universal binaries with libtool and lipo, packaging as xcframeworks, and integrating with XCode. While the process involves many steps, each relies on decades-old, stable tooling that's unlikely to break. He also explains why Objective-C isn't viable\u2014Apple's future is clearly Swift and SwiftUI.",
+  "key_points": [
+    "Cross-platform apps can achieve native GUIs by separating business logic (Zig/Rust/C) from platform-specific UI code (SwiftUI/GTK)",
+    "Zig's 'export' keyword makes exposing C APIs trivial, enabling standard linking with any platform's native toolchain",
+    "The build pipeline requires libtool for bundling dependencies, lipo for universal binaries, and xcframework packaging for XCode integration",
+    "Each step uses decades-old, stable tools\u2014nothing cutting edge or brittle",
+    "Objective-C is not viable for modern macOS development; Apple clearly wants developers using Swift and SwiftUI"
+  ],
+  "money_quotes": [
+    "Nowadays, most people just *don't* and fallback to using a non-native experience such as Electron instead.",
+    "As of the current date writing this post, 93% of my repository is business logic in Zig and C, and 4% is macOS-specific GUI code in Swift.",
+    "As a result, my terminal emulator is truly native: you get native Mac windows, Mac GUI components (buttons, text fields), etc. It looks and feels great.",
+    "All of the steps are tried and true -- usually decades-old -- operations and tools for working with system libraries. They're unlikely to be brittle going forward.",
+    "The payoff is worth it: you can get a truly native GUI experience while keeping almost all of your application logic cross-platform.",
+    "It is painfully clear that the future of Apple device programming is Swift.",
+    "You'd be really fighting what Apple *wants* you to do."
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "devtools",
+    "systems"
+  ],
+  "tone": "technical, practical, instructive",
+  "key_insight": "Building truly native cross-platform applications is achievable by leveraging C ABI compatibility and decades-old system tooling, allowing 90%+ code sharing while delivering platform-native experiences.",
+  "filename": "2023-05-27-zig-and-swiftui"
+}

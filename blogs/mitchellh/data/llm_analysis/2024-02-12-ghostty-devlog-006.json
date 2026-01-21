@@ -1,0 +1,27 @@
+{
+  "summary": "This devlog details a series of performance optimizations that dramatically improved Ghostty's IO throughput. The improvements include SIMD-based parsing that processes plain text 7-16x faster, precomputed lookup tables for Unicode codepoint width calculation that eliminated 30% of character processing time, and optimized grapheme break detection that runs nearly 8x faster while using less than 1KB of memory. A community contributor also implemented CSI sequence fast-path parsing for control-sequence-heavy applications. The combined optimizations result in Ghostty being faster at reading plain text with full grapheme clustering than most terminals that don't perform grapheme detection at all.",
+  "key_points": [
+    "SIMD instructions allow processing 16-32 bytes simultaneously instead of one byte at a time, achieving near-memcpy speeds for parsing",
+    "Custom precomputed lookup tables for codepoint width are faster than even the simpler but incorrect libc wcwidth API",
+    "Terminal-specific preconditions (no control characters, ASCII filtering) enable grapheme break detection via a sub-1KB lookup table",
+    "Real-world improvements ranged from 2-5x faster plain text throughput depending on UTF-8 complexity",
+    "Community contributions, particularly CSI fast-path parsing, improved control-sequence-heavy workloads by 1.4-2x"
+  ],
+  "money_quotes": [
+    "SIMD is a rare scenario where hand-writing assembly (or near it) often results in significantly better performance over a state of the art optimizing compiler.",
+    "Our SIMD pipeline is reading and parsing text at roughly the same speed as simply reading the data into memory.",
+    "Through profiling efforts, we determined that 30% of the time taken for every printed character was spent calculating codepoint width.",
+    "We now get correct results faster than the simple broken libc API.",
+    "I realized if you add some additional preconditions a terminal can guarantee, you can eliminate enough conditionals such that computing a lookup table of every possible codepoint pair plus state takes up less than 1KB of memory.",
+    "In almost every case Ghostty is faster at reading plain text while doing grapheme break detection over terminals that read plain text while doing nothing.",
+    "Every CPU cycle counts."
+  ],
+  "themes": [
+    "ghostty",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical",
+  "key_insight": "By exploiting domain-specific constraints unique to terminal emulators\u2014like guaranteed absence of control characters in certain parsing stages\u2014you can achieve correctness and speed simultaneously, often outperforming simpler but less correct implementations.",
+  "filename": "2024-02-12-ghostty-devlog-006"
+}

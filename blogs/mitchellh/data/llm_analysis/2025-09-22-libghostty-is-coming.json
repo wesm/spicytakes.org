@@ -1,0 +1,27 @@
+{
+  "summary": "Mitchell Hashimoto announces libghostty, an embeddable library for terminal emulation that he first envisioned over two years ago. The first component, libghostty-vt, will be a zero-dependency library for parsing terminal sequences and maintaining terminal state, extracted from Ghostty's battle-tested core. The post argues that terminal emulation is a deceptively complex problem that hundreds of applications implement poorly with ad-hoc solutions. By providing a correct, fast, and portable C API, libghostty aims to eliminate this duplicated effort across the industry. The Zig API is available now for testing, with a C API coming soon and a stable release targeted within six months.",
+  "key_points": [
+    "Terminal emulation appears simple but is riddled with unexpected complexities\u2014even major products like JetBrains editors and Apple Terminal.app have significant bugs",
+    "libghostty-vt will be zero-dependency (not even libc), making it widely portable to macOS, Linux, Windows, embedded devices, and WASM",
+    "The library inherits Ghostty's real-world benefits: SIMD-optimized parsing, excellent Unicode support, fuzzing, and compatibility with protocols like Kitty Graphics",
+    "Future libghostty components will include input handling, GPU rendering, and complete GTK widgets and Swift frameworks",
+    "The project is seeking early adopters and feedback to help design the API before stabilization"
+  ],
+  "money_quotes": [
+    "Terminal emulation is a classic problem that appears simple on the surface but is riddled with unexpected complexities and edge cases.",
+    "Beyond correctness, implementing any form of terminal emulation is a waste of time for most developers.",
+    "Terminal emulation is not the core business of JetBrains, Visual Studio Code, GitHub, Vercel, Render, etc.",
+    "I've spent the better part of 3 years working on terminal emulation and we're still finding weird edge cases.",
+    "libghostty is the next frontier for Ghostty and I think it has the ability to make a far larger impact than Ghostty can as a standalone application itself.",
+    "The 'alpha' quality is with respect to the API itself. The core logic is shared with Ghostty and is extremely stable and proven in the real world."
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "devtools",
+    "systems"
+  ],
+  "tone": "enthusiastic, technical, pragmatic",
+  "key_insight": "By extracting Ghostty's battle-tested terminal emulation into a zero-dependency embeddable library, libghostty can have far greater industry impact than the standalone application by eliminating redundant, buggy implementations across hundreds of products.",
+  "filename": "2025-09-22-libghostty-is-coming"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Terminal emulators struggle with modern Unicode characters like complex emoji because they traditionally process individual bytes or codepoints rather than grapheme clusters. The farmer emoji '\ud83e\uddd1\u200d\ud83c\udf3e' is actually three Unicode codepoints joined together, causing terminals to report widths of 2, 4, 5, or 6 cells depending on implementation. Grapheme clustering\u2014the process of recognizing multiple codepoints as a single user-perceived character\u2014solves this problem but breaks compatibility with existing terminal programs that assume wcwidth behavior. Mode 2027 is a proposed standard that allows programs to opt into grapheme clustering support, enabling terminals and programs to agree on character widths. The author implemented mode 2027 in Ghostty after initially being disappointed that proper grapheme clustering broke fish shell's prompt rendering.",
+  "key_points": [
+    "Traditional terminals use wcwidth to determine character widths, which fails for multi-codepoint graphemes like emoji with Zero-Width Joiners",
+    "Grapheme clustering is stateful and requires tracking previous codepoints, making it non-trivial to add to existing programs",
+    "Mode 2027 is a proposal allowing programs to opt into grapheme clustering support, solving the compatibility problem",
+    "This isn't just about emoji\u2014proper grapheme clustering is essential for correctly handling languages like Arabic that use multiple codepoints per character",
+    "Terminal multiplexers like tmux compound the problem since they and the underlying terminal may disagree on character widths"
+  ],
+  "money_quotes": [
+    "Copy and paste '\ud83e\uddd1\u200d\ud83c\udf3e' in your terminal emulator. How many cells forward did your cursor move? Depending on your terminal emulator, it may have moved 2, 4, 5, or 6 cells.",
+    "It turns out that a single 32-bit value is not adequate to represent every user-perceived character in the world.",
+    "Even though it produces the wrong values for multi-codepoint graphemes, at least the wrong values are often consistently wrong across terminal emulators.",
+    "My shell assumed my terminal used wcwidth, and my terminal assumed programs didn't care. We both were wrong, so I disabled grapheme clustering...",
+    "The terminals reporting '5' and '6' are living a weird reality.",
+    "If tmux and the terminal don't match, the cursors become out of sync and the resulting bugs can be comical.",
+    "Implementing a terminal emulator was certainly eye-opening for me to see the complexities in text processing and the burden of legacy behaviors."
+  ],
+  "themes": [
+    "ghostty",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical, educational, pragmatic",
+  "key_insight": "Terminal emulators and programs must coordinate on character width calculations through standards like mode 2027, because the legacy wcwidth approach fundamentally cannot handle modern Unicode's multi-codepoint graphemes.",
+  "filename": "2023-10-02-grapheme-clusters-in-terminals"
+}

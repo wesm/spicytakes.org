@@ -1,0 +1,27 @@
+{
+  "summary": "Mitchell Hashimoto demonstrates how to use Zig's comptime features to create type-safe subsets of tagged unions, solving a real problem in Ghostty where keybind actions need to be handled separately by terminal and application code. The naive solutions\u2014using catch-all else clauses or explicitly listing ignored cases\u2014either sacrifice compiler safety or result in verbose, poorly self-documenting code. By leveraging comptime type generation with @typeInfo and @Type builtins, he creates a ScopedAction function that generates union types containing only actions belonging to a specific scope. The solution provides compile-time exhaustiveness checking, self-documenting function signatures, and zero runtime cost for the type generation itself.",
+  "key_points": [
+    "Tagged unions with catch-all else clauses lose compiler safety when new cases are added, but exhaustively listing ignored cases is verbose and doesn't express intent in the type signature",
+    "Zig's comptime allows generating new types at compile time by introspecting existing types with @typeInfo and reifying new ones with @Type",
+    "The scope() function that classifies actions doesn't need to know whether it runs at comptime or runtime\u2014comptime executes the full language",
+    "The inline else pattern in switch statements generates code for each unhandled case while providing the tag as a compile-time known value",
+    "This approach provides compiler-enforced exhaustiveness, self-documenting function signatures, and centralizes the scope classification in one maintainable location"
+  ],
+  "money_quotes": [
+    "The problem is that the Action union contains both terminal-specific actions and application-wide actions.",
+    "When there is a catch-all case, the compiler can't error if I add a new action to the Action union and forget to handle it.",
+    "Since Zig has comptime code execution, and comptime code execution is the full language, we can use functions that take parameters at comptime and return things like... types.",
+    "Note that our scope() function above has no idea if it is being executed in comptime or runtime. It doesn't care. It's just a normal function. Comptime is fucking cool that way.",
+    "All of this logic happens at compile time. There is no runtime cost to doing any of this.",
+    "I'm a type pragmatist. I believe leaning on the type system to enforce correctness is a powerful tool. At the same time, I believe some languages take this too far and make the type system a burden. Zig strikes a nice balance for me."
+  ],
+  "themes": [
+    "zig",
+    "ghostty",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical, pedagogical, enthusiastic",
+  "key_insight": "Zig's comptime enables generating specialized subset types from tagged unions at compile time, providing both type safety and self-documenting APIs without runtime overhead.",
+  "filename": "2024-09-23-zig-comptime-tagged-union-subset"
+}

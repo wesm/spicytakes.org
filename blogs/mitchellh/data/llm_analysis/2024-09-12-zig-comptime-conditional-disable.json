@@ -1,0 +1,26 @@
+{
+  "summary": "This post explains how Zig's comptime feature enables conditional code compilation using standard Zig syntax rather than preprocessor directives or build system complexity. Hashimoto contrasts this with C's preprocessor macros and Go's build tags, both of which require separate languages or external tooling. The key advantage is that comptime conditions can be mixed with runtime conditions in the same expression, allowing code to reference libraries or types that may not exist in certain build configurations without causing compiler errors. He demonstrates this with a real example from Ghostty that checks both build-time and runtime library versions. The post also covers important gotchas around function boundaries and the need for explicit comptime keywords or inlining.",
+  "key_points": [
+    "Comptime runs standard Zig code at compile time without a separate preprocessor language, making conditional compilation more natural and powerful",
+    "Unlike C preprocessors or Go build tags, Zig's comptime doesn't require external build systems to generate definitions or manage complexity",
+    "Comptime and runtime conditions can be mixed in the same expression, with the compiler smart enough to skip unreachable code paths entirely",
+    "Code referencing unavailable libraries or types won't cause compiler errors if protected by a comptime condition that evaluates to false",
+    "Comptime doesn't automatically cross function boundaries\u2014you need explicit comptime keywords or inline functions to maintain the optimization"
+  ],
+  "money_quotes": [
+    "I admit that when I first started looking into Zig, I thought this was a gimmick. 'How much could I possibly want to actually do at comptime, anyways?' I thought. Two years into using Zig for a non-trivial project, comptime is used all over and is by far my favorite feature about Zig.",
+    "The first thing to notice is the code is standard Zig. There is no preprocessor language or special syntax.",
+    "Importantly, this means I can use the library in the runtime conditions as well as the code block and I won't get compiler errors if the library isn't available or isn't the right version or if I reference types that only exist in newer versions of the library.",
+    "To drive the point home, let's consider how we might have done this in C. In C, we would have probably used a build system such as CMake that creates a one-time program and attempts to compile it to determine if it should define a preprocessor flag or not. Ugh.",
+    "It's a feature that I didn't know I needed until I had it, and one that I miss when I'm working in other languages.",
+    "I don't need a complex build system or external tools to manage my platform-specific code. I can just write Zig code and the compiler takes care of the rest."
+  ],
+  "themes": [
+    "zig",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical, enthusiastic, instructive",
+  "key_insight": "Zig's comptime eliminates the need for preprocessor languages and complex build systems by allowing conditional compilation to be expressed in standard Zig code that can seamlessly mix compile-time and runtime conditions.",
+  "filename": "2024-09-12-zig-comptime-conditional-disable"
+}

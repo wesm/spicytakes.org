@@ -1,0 +1,26 @@
+{
+  "summary": "Mitchell Hashimoto introduces the first devlog for Ghostty, a GPU-accelerated terminal emulator he's been building since 2021 using Zig. The post covers the technical stack (Zig, OpenGL/Metal, SwiftUI/GTK) and dives into two recent features: automatic shell integration injection that enables smoother prompt redrawing on resize, and auto-italicization of fonts that lack italic faces. Shell integration allows terminals and shells to communicate for better UX, though most developers don't have it configured. The font feature programmatically skews regular glyphs to create fake italics when the font doesn't provide them natively.",
+  "key_points": [
+    "Ghostty is written in Zig with platform-specific frontends (SwiftUI on macOS, GTK on Linux) and GPU acceleration via OpenGL/Metal",
+    "Shell integration enables powerful features like proper prompt redrawing on resize, working directory inheritance, and active process detection\u2014but most developers don't know about or use it",
+    "Ghostty now automatically injects shell integration configuration for fish and zsh, removing the need for manual setup",
+    "When fonts lack italic faces, Ghostty programmatically creates fake italics by applying a 15-degree skew transformation matrix during rasterization",
+    "Font fallback was fixed to try the regular style first before searching other fonts, preventing ugly mixed monospace/proportional rendering"
+  ],
+  "money_quotes": [
+    "Talking to at least my close circle of developer friends, most people do not know this and do not have this enabled or do not use a terminal emulator that supports it.",
+    "It won't look as good because it wasn't artisanally designed while sipping a single-origin pour-over but it'll... pass.",
+    "There are some complexities about drawing this glyph in a way that matches your configured font but this isn't about that -- just know those problems exist and figuring out the solution personally feels like some form of self-harm.",
+    "shell-specific (zsh code for zsh, fish code for fish, garbage for bash, etc.) configuration",
+    "Since Ghostty isn't public at the time of writing this, the terminal with the best shell integration today is Kitty."
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "devtools",
+    "systems"
+  ],
+  "tone": "casual, technical, self-deprecating",
+  "key_insight": "Modern terminal emulators can dramatically improve user experience through shell integration and smart font handling, but these capabilities remain unknown to most developers.",
+  "filename": "2023-07-13-ghostty-devlog-001"
+}

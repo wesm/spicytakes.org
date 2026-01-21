@@ -1,0 +1,26 @@
+{
+  "summary": "Mitchell Hashimoto presents comprehensive benchmarks comparing filesystem performance across different virtual machine configurations, focusing on VirtualBox, VMware, and NFS shared folders. The analysis reveals that VMware shared folders dramatically outperform VirtualBox for reads (sometimes by 70x), while NFS provides excellent read performance but terrible write performance due to network overhead. Interestingly, virtual machine filesystems often outperform the host machine's native filesystem because hypervisors buffer operations and lie about synced writes. The practical takeaway is to use NFS when possible for read-heavy workloads, move database files out of shared folders, and recognize that VMware's read performance advantage matters more than VirtualBox's marginal write advantage for typical development work.",
+  "key_points": [
+    "VMware shared folder read performance crushes VirtualBox (7 GB/s vs never above 100 MB/s for large random reads), suggesting VirtualBox has a fundamental bottleneck in their implementation",
+    "NFS provides incredible read performance due to read-ahead caching but suffers terrible write performance from network overhead requiring full round-trip acknowledgment",
+    "Virtual machine filesystems often outperform the host's native filesystem because hypervisors buffer operations and don't truly sync writes to disk",
+    "For development environments, read performance matters far more than write performance since compiling, testing, and loading pages are read-heavy operations",
+    "Moving database files out of shared filesystems and onto native VM storage can provide huge performance benefits"
+  ],
+  "money_quotes": [
+    "VirtualBox throughput never peaks above 100 MB/s. VMware, on the other hand, is peaking at 7 GB/s.",
+    "Because the deviation of the VirtualBox throughput is so small across various test cases, I theorize that there is a single hot path of code in the VirtualBox shared folder system limiting this. They're clearly doing something wrong.",
+    "fsync() in a virtual machine does not mean that the data was written on the host, only that it is committed within the hypervisor.",
+    "Hypervisor read/write performance is fantastic (because they cheat).",
+    "If you have the option to use NFS, use it. Again, the read performance is far more valuable than the write performance.",
+    "For years, the primary bottleneck for virtual machine based development environments with Vagrant has been filesystem performance."
+  ],
+  "themes": [
+    "infrastructure",
+    "devtools",
+    "systems"
+  ],
+  "tone": "technical, analytical, pragmatic",
+  "key_insight": "VMware dramatically outperforms VirtualBox for shared folder reads, NFS excels at reads but fails at writes, and hypervisors gain performance by lying about write synchronization\u2014making the choice of filesystem mechanism critical for development environment performance.",
+  "filename": "2014-01-10-comparing-filesystem-performance-in-virtual-machines"
+}

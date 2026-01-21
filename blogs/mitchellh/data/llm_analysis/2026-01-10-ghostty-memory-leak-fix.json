@@ -1,0 +1,29 @@
+{
+  "summary": "Ghostty had a significant memory leak that caused one user to experience 37 GB of memory consumption after 10 days of uptime. The leak stemmed from a bug in the terminal's PageList memory management system, specifically in a scrollback optimization that reused pages. When non-standard (larger than normal) memory pages were reused during scrollback pruning, their metadata was reset to standard size while the underlying mmap allocation remained large, causing munmap to never be called when freeing them. The bug was particularly triggered by Claude Code's output patterns, which frequently produced multi-codepoint grapheme outputs requiring non-standard pages. The fix simply prevents reusing non-standard pages during scrollback pruning, properly destroying them and allocating fresh standard pages instead.",
+  "key_points": [
+    "Ghostty uses a PageList data structure with a memory pool for standard-sized pages, while non-standard larger pages bypass the pool and require explicit munmap calls",
+    "A scrollback optimization that reuses the oldest page as the newest introduced a bug where non-standard page metadata was reset to standard size without resizing the actual memory allocation",
+    "The leak only manifested under specific conditions - Claude Code's multi-codepoint grapheme outputs created the perfect storm to trigger it at scale",
+    "VM tags on macOS Mach kernel proved instrumental in identifying and verifying the fix by allowing PageList allocations to be tracked separately",
+    "Despite comprehensive leak prevention measures including valgrind, Zig leak-detecting allocators, and macOS Instruments, this bug slipped through because tests didn't reproduce the specific triggering conditions"
+  ],
+  "money_quotes": [
+    "A few months ago, users started reporting that Ghostty was consuming absurd amounts of memory, with one user reporting 37 GB after 10 days of uptime.",
+    "The limited conditions that triggered the leak are what made it particularly tricky to diagnose.",
+    "Think of it like buying standard-sized shipping boxes: most things people ship fit in a standard box, and having a standard box comes with various efficiencies.",
+    "Eventually, we'd free the page under various circumstances. At that point, we'd see the page memory was within the standard size, assume it was part of the pool, and we would never call munmap on it. A classic leak.",
+    "The rise of Claude Code changed this. For some reason, Claude Code's CLI produces a lot of multi-codepoint grapheme outputs which force Ghostty to regularly use non-standard pages.",
+    "I want to be explicit that this bug is not Claude Code's fault. Claude Code is simply exercising Ghostty in a way that exposes this long-standing bug.",
+    "This has worked really well to date, but unfortunately it didn't catch this particular leak because it only triggers under very specific conditions that our tests didn't reproduce.",
+    "Remember that reproduction is the key to diagnosing and fixing memory leaks!"
+  ],
+  "themes": [
+    "ghostty",
+    "zig",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical, methodical, transparent",
+  "key_insight": "Memory management bugs often hide in optimization code paths that are only exercised under specific conditions, and even comprehensive testing strategies can miss them until real-world usage patterns evolve.",
+  "filename": "2026-01-10-ghostty-memory-leak-fix"
+}

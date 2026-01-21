@@ -1,0 +1,26 @@
+{
+  "summary": "This post explains how the Zig programming language's tokenizer works as the first step in the compiler pipeline. The tokenizer converts source code bytes into a stream of tokens without performing any heap allocations, operating on slices rather than streams. Each token consists of a tag (one of ~120 types) and a location (start/end indices into the source). The implementation uses a state machine that examines one character at a time, switching between states until it unambiguously determines each token. Importantly, tokenizers don't handle semantics\u2014they'll happily tokenize nonsensical code, leaving validation to the parser.",
+  "key_points": [
+    "Zig's tokenizer performs zero heap allocations, which is immediately apparent from its API since it doesn't take an Allocator parameter",
+    "Tokens store only a tag enum and start/end indices rather than copying strings\u2014a common efficiency trick",
+    "The tokenizer uses a state machine that looks at one character at a time without peeking forward or looking backward",
+    "Tokenizers are deliberately not concerned with semantics; invalid syntax like 'if while comptime' produces valid tokens",
+    "The implementation uses nested while loops and switch statements on both state and current character"
+  ],
+  "money_quotes": [
+    "Tokenizers usually don't handle semantics or whether a set of tokens are meaningful.",
+    "In systems programming, it's always useful to understand the memory usage and allocation properties of an API.",
+    "With Zig, this is immediately obvious since the Tokenizer doesn't take an Allocator as a parameter for anything.",
+    "Storing only the start and end is a common efficiency trick.",
+    "The tokenizer only looks at the state and the current character; it does not look backward, and it does not peek forward.",
+    "A tokenizer is not concerned with semantics, so non-sensical inputs such as 'if while comptime x = 7 { else }' produce a valid stream of tokens."
+  ],
+  "themes": [
+    "zig",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical",
+  "key_insight": "A well-designed tokenizer maintains strict separation of concerns\u2014it converts bytes to tokens without allocations or semantic validation, leaving meaning-making entirely to the parser.",
+  "filename": "2022-02-10-tokenizer"
+}

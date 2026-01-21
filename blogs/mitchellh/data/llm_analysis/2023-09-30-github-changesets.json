@@ -1,0 +1,25 @@
+{
+  "summary": "Mitchell Hashimoto argues that GitHub pull requests are fundamentally flawed because they treat branches as single mutable changesets, leading to chaos in code review. The current model causes reviews to become outdated mid-submission, loses context when contributors push changes during review, and makes it impossible to compare different states of a PR effectively. He proposes implementing versioned changesets where each PR version is immutable and feedback is attached to specific versions. This pattern, already proven in tools like Gerrit and Phabricator, would make reviews cleaner, safer, and more scalable for large projects.",
+  "key_points": [
+    "GitHub PRs currently function as a single mutable changeset tracking a branch, causing reviews to become outdated or partially invalidated when contributors push changes",
+    "Reviewers and contributors working simultaneously creates race conditions where feedback loses context or references now-hidden code",
+    "Changesets would make each PR version immutable with a monotonic version number, preserving the exact state feedback was given against",
+    "Contributors could defer publishing new changesets until they're ready, avoiding the visibility of work-in-progress commits",
+    "Reviewers could approve specific changesets, even choosing non-latest versions if they prefer an earlier approach"
+  ],
+  "money_quotes": [
+    "The lifecycle of a GitHub pull request today is effectively one giant mutable changeset. This is a mess!",
+    "A reviewer can leave a review for a previous state the PR was in and it can become immediately outdated because while the review was happening the contributor pushed changes.",
+    "A line comment may say 'same feedback as the previous comment' but the previous comment is now gone/hidden because the contributor pushed a change that moved those lines.",
+    "Work-in-progress commits towards addressing review feedback become visible as soon as the branch is pushed.",
+    "In the world of changesets, feedback is attached to a changeset. If a reviewer begins reviewing a changeset and a new changeset is published, that's okay because the review as an atomic unit is attached to the prior changeset.",
+    "The contributor can also post multiple changesets with differing approaches to a problem in a single PR and the maintainer can potentially choose a non-latest changeset as the set of changes they want to merge."
+  ],
+  "themes": [
+    "devtools",
+    "infrastructure"
+  ],
+  "tone": "opinionated, technical, constructive",
+  "key_insight": "GitHub's fundamental flaw is treating pull requests as mutable entities rather than versioned changesets, causing review feedback to constantly lose its context and making large-scale collaboration unnecessarily painful.",
+  "filename": "2023-09-30-github-changesets"
+}

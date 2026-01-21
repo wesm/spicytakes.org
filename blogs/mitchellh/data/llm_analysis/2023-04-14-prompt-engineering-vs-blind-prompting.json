@@ -1,0 +1,26 @@
+{
+  "summary": "Mitchell Hashimoto argues that prompt engineering is a legitimate engineering discipline, distinct from what he calls 'blind prompting'\u2014the crude trial-and-error approach most people use. He demonstrates a systematic methodology: define the problem, create a demonstration set with expected inputs/outputs, generate multiple prompt candidates, test them for accuracy across different approaches (zero-shot, few-shot), and choose based on cost-accuracy tradeoffs. The key insight is treating prompts like any other engineering artifact\u2014with testing, measurement, and continuous improvement based on real-world failures.",
+  "key_points": [
+    "Blind prompting (trial-and-error without testing) is fundamentally different from prompt engineering, which applies systematic experimental methodologies",
+    "Start simple: extract one piece of information, use literal text extraction rather than complex transformations, and let traditional programming handle deterministic tasks like date parsing",
+    "A demonstration set serves three purposes: measuring accuracy, specifying expected input/output shapes, and providing exemplars for few-shot prompts",
+    "Prompt selection is a cost vs. accuracy analysis\u2014sometimes a less accurate prompt with 50% fewer tokens is the right business decision",
+    "Verification and continuous improvement are essential: log failures, grow the demonstration set, and develop better prompts over time"
+  ],
+  "money_quotes": [
+    "A lot of people who claim to be doing prompt engineering today are actually just blind prompting.",
+    "Engineering starts with not using a method for the method's sake, but driven by the belief that it is the right method.",
+    "The simpler the output, the easier it will be to get higher accuracy.",
+    "Language models are not human, so we can't automatically expect equivalent performance.",
+    "Don't try to force the LLM to output exactly perfect formats to start. Performing too much 'output shaping' in the LLM early on makes it difficult to separate an LLM's ability to perform some core task from its ability to structure the output.",
+    "This isn't necessarily the most accurate prompt. This is a cost vs. accuracy analysis based on model used, tokens required, and accuracy presented.",
+    "Most importantly, you have the data to make an informed decision."
+  ],
+  "themes": [
+    "ai",
+    "devtools"
+  ],
+  "tone": "technical, opinionated, pedagogical",
+  "key_insight": "Prompt engineering becomes real engineering when you apply systematic testing, measurement, and cost-accuracy tradeoffs rather than relying on trial-and-error intuition.",
+  "filename": "2023-04-14-prompt-engineering-vs-blind-prompting"
+}
