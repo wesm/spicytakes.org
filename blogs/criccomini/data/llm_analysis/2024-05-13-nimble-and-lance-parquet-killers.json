@@ -1,0 +1,27 @@
+{
+  "summary": "Chris Riccomini examines two new columnar file formats\u2014Nimble from Meta and Lance V2 from LanceDB\u2014that aim to address Apache Parquet's limitations for AI/ML workloads. Parquet struggles with point lookups, large values, wide schemas, and limited encodings that make it poorly suited for machine learning data with long float arrays and multimedia content. Nimble takes an incremental approach with extensible encodings and FlatBuffers for metadata, while LV2 radically eliminates row groups entirely in favor of a minimal ~200 line spec with pluggable type systems. Both formats prioritize extensibility, though this risks fragmentation across implementations. The author concludes that while neither format is production-ready for general OLAP queries, LV2's integration with Arrow and thoughtful design make it particularly compelling for the future.",
+  "key_points": [
+    "Parquet's row group architecture creates problems for ML workloads: expensive point lookups, difficulty handling large values like feature vectors, and poor support for wide schemas with thousands of columns",
+    "Nimble maintains stripes but adds extensible encodings, FlatBuffers for selective metadata decoding, and flexible metadata storage\u2014Meta explicitly discourages reimplementations to prevent fragmentation",
+    "Lance V2 completely eliminates row groups, reducing the spec to ~200 lines of Protobuf with no built-in type system or encodings\u2014everything is pluggable",
+    "Extensibility is a double-edged sword: it enables innovation but causes fragmentation when different teams use encodings their colleagues' libraries don't support",
+    "LV2's unstated philosophy is that Arrow will dictate standards for types and encodings, which provides a practical path through the extensibility challenge"
+  ],
+  "money_quotes": [
+    "Engineers love to make things extensible. It's an escape hatch for bad decisions, the promise of flexibility, and an openness to new ideas. But extensibility causes fragmentation.",
+    "They're dreaming. It's not written in Rust, so that's going to happen. There will be others, too. Engineers just can't resist reimplementing specs in their native languages.",
+    "LV2 is so thin, the whole spec is a mere ~200 line Protobuf file.",
+    "And we're just talking about encodings. LV2's choice to ditch both encodings and type systems really freaked me out.",
+    "I've since realized that LV2 has adopted an unstated philosophy: Arrow will dictate the standard.",
+    "This is hell for data engineers. At least, that was my first reaction.",
+    "Given all this, it's obvious that the formats are not ready for prime-time yet. Most analytical use cases are still best suited for Parquet."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "engineering"
+  ],
+  "tone": "technical, analytical, cautiously optimistic",
+  "key_insight": "While Parquet's limitations for AI/ML workloads have spawned promising new formats in Nimble and Lance V2, their embrace of extensibility trades flexibility for fragmentation risk\u2014though LV2's implicit reliance on Arrow as the de facto standard offers a pragmatic path forward.",
+  "filename": "2024-05-13-nimble-and-lance-parquet-killers"
+}

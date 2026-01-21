@@ -1,0 +1,27 @@
+{
+  "summary": "Riccomini explores why there's no true cloud-hosted Prometheus, discovering that its single-node storage design is intentional rather than a limitation. This architecture prioritizes simplicity for getting started while offering flexibility through remote storage integrations when scaling becomes necessary. He then pivots to searching for an embedded time-series database purpose-built for metrics workloads, ultimately discovering FrostDB from PolarSignals. FrostDB uses an LSM tree structure with Apache Arrow and Parquet, designed specifically for high-write, immutable observability data with dynamic schemas.",
+  "key_points": [
+    "Prometheus deliberately uses single-node storage to simplify initial setup, deferring the complexity of distributed systems until users actually need to scale",
+    "The lack of true cloud-hosted Prometheus is by design\u2014users can choose from dozens of remote storage backends when scaling out",
+    "Metrics workloads have distinct characteristics (high writes, low reads, immutable data, wide/dynamic schemas) that general OLAP databases don't optimize for",
+    "FrostDB is an embeddable columnar database using an LSM tree structure with Arrow for hot data and Parquet for cold storage",
+    "Parca leverages FrostDB to provide continuous CPU profiling through a single eBPF filter"
+  ],
+  "money_quotes": [
+    "I was surprised to find that there isn't any Prometheus cloud hosting.",
+    "Prometheus is intentionally designed with only single-node storage.",
+    "Getting started is easy because you don't have to set up a distributed system. Users can defer the scaling decision until later.",
+    "This architecture is all about user choice. Kudos to the Prometheus designers.",
+    "OLAP DBs should work, but I was really looking for something purpose-built for common metric characteristics.",
+    "It's built exactly as I'd hoped\u2014a log-structured merge-tree (LSM). The first level stores Apache Arrow records. Data is then rewritten into Parquet for subsequent levels."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "cloud",
+    "distributed_systems"
+  ],
+  "tone": "exploratory, technical, appreciative",
+  "key_insight": "Prometheus's single-node architecture is a deliberate design choice that prioritizes simplicity and user choice over built-in distributed storage, enabling an ecosystem of remote backends rather than locking users into one scaling path.",
+  "filename": "2023-12-12-prometheus-architecture-frostdb-parca"
+}

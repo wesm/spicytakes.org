@@ -1,0 +1,26 @@
+{
+  "summary": "The post examines how ANSI SQL '92 database isolation levels are fundamentally broken, synthesizing recent research from Jepsen, Gwen Shapira, and others. The author argues that the 1992 standard left room for unspecified anomalies, and different databases implement isolation levels inconsistently. While some argue developers haven't noticed these issues, the author counters that these bugs are simply hard to detect and reproduce. Drawing from personal experience in payments processing, he emphasizes that database anomalies cause real harm through hours of debugging and unhappy customers. The takeaway is that developers should understand their database's actual behavior rather than trusting isolation level names.",
+  "key_points": [
+    "ANSI SQL '92 isolation levels have fundamental gaps that allow unspecified anomalies, even at the Serializable level",
+    "The same isolation level can mean different things in different databases, making 'Repeatable Read' an unreliable guarantee",
+    "Jepsen's MySQL analysis found violations of internal consistency and Monotonic Atomic View that go beyond spec ambiguity",
+    "Database anomalies are hard to detect because they occur rarely and are difficult to reproduce, leading developers to blame other causes",
+    "Standards bodies need to define more rigorous isolation specifications to address these long-standing issues"
+  ],
+  "money_quotes": [
+    "Different databases support different isolation levels, and the same isolation level can mean different things in different databases.",
+    "It took one of the greatest software minds of a generation to prove that one of the most popular databases of all time was broken.",
+    "Developers that are bitten by database anomalies often don't know.",
+    "Applications exhibit some weird anomaly, which developers can't reproduce. Engineers throw up their hands, shrug, and move on. They never even know the database was the culprit.",
+    "Jepsen is doing us a favor by showing us that the almighty OLTP database is in fact fallible.",
+    "Make sure you understand how your database behaves (as best you can) and act accordingly. Caveat emptor."
+  ],
+  "themes": [
+    "databases",
+    "distributed_systems",
+    "engineering"
+  ],
+  "tone": "technical, opinionated, cautionary",
+  "key_insight": "Database isolation levels are ambiguously defined and inconsistently implemented, causing subtle bugs that developers struggle to diagnose because they never suspect the database itself.",
+  "filename": "2023-12-22-database-isolation-is-broken-you-should-care"
+}

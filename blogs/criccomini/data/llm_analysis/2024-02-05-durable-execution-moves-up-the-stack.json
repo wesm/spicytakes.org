@@ -1,0 +1,26 @@
+{
+  "summary": "This newsletter covers three distinct topics: SQLite's nuanced type system with its storage classes, datatypes, and column affinities; the evolution of durable execution and workflow orchestration interfaces from GUIs to code-based SDKs; and HikariCP's impressive JDBC connection pool performance. Riccomini explains how SQLite's type system uses text-matching rules to determine column affinities, leading to sometimes surprising but generally practical behavior. He observes that durable execution frameworks are converging with workflow orchestration tools, with each adopting multiple interface paradigms to serve different users. The piece concludes with appreciation for HikariCP's meticulous performance optimization documentation.",
+  "key_points": [
+    "SQLite's type system comprises three layers: datatypes (disk format), storage classes (memory representation), and column affinities (coercion rules), with affinity determined by string matching in column type declarations",
+    "Durable execution and workflow orchestration tools are converging, with systems increasingly offering multiple interfaces: GUIs, config files, config-as-code, and full SDKs",
+    "Code-based APIs and SDKs are preferred for durable execution because they handle dynamic branching and loops better than rigid workflow definitions",
+    "HikariCP exemplifies extreme performance optimization in Java connection pooling, with documentation that serves as a masterclass in low-level optimization"
+  ],
+  "money_quotes": [
+    "SQLite ignores column types (unless STRICT is used). A value of any type can be written to any column.",
+    "If the declared type for a column contains any of the strings 'REAL', 'FLOA', or 'DOUB' then the column has REAL affinity.",
+    "APIs and SDKs work better for dynamic execution with branching and loops.",
+    "As durable execution systems move up the stack and workflow systems move down the stack, their addressable market (and competitors) will increase.",
+    "These different models exist because they are well suited for different users and use cases.",
+    "Their Down the Rabbit Hole post is a must-read for anyone fixated on Gunnar Morling's 1brc challenge."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "distributed_systems",
+    "engineering"
+  ],
+  "tone": "technical, informative, observational",
+  "key_insight": "SQLite's flexible type system and the convergence of durable execution with workflow orchestration both reflect the same engineering truth: different users need different interfaces to the same underlying capabilities.",
+  "filename": "2024-02-05-durable-execution-moves-up-the-stack"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Riccomini reflects on his experience creating Apache Samza at LinkedIn, explaining how the project's architectural decisions\u2014particularly its excessive pluggability and dependency on dynamic deployment systems like YARN\u2014hampered adoption despite technical merits. The challenges with Samza led to internal proposals that ultimately influenced the creation of Kafka Streams and Kafka Connect as separate, purpose-built tools. He argues that stream processing has three distinct use cases (production features, analytical queries, and ETL) with contradictory requirements, and that trying to serve all of them with one monolithic platform creates unnecessary complexity. This historical perspective informs his skepticism of Apache Flink, which he sees as repeating Samza's mistakes by layering on features to become an everything-platform. He advocates for smaller, purpose-built systems that can be swapped out independently when better alternatives emerge.",
+  "key_points": [
+    "Samza's pluggability and YARN dependency created onboarding friction that slowed adoption despite technical innovations in stateful stream processing",
+    "Stream processing has three distinct use cases\u2014production features, analytical queries, and ETL\u2014each with contradictory requirements that a single platform struggles to serve well",
+    "The internal proposals to simplify Samza directly influenced the creation of Kafka Streams and Kafka Connect as separate, focused tools",
+    "Flink has repeated Samza's mistake by becoming an everything-platform, adding orchestrators, SQL, checkpointing, and even a data lake platform at the cost of simplicity",
+    "Purpose-built systems allow you to swap out components independently\u2014if you don't like ksqlDB, use Materialize or RisingWave instead"
+  ],
+  "money_quotes": [
+    "State is the hardest part of stream processing.",
+    "Literally every part was pluggable. This was great for LinkedIn because we had proprietary implementations for many of these layers. For open source users it was a rats nest of configuration.",
+    "We preferred smaller, purpose-built systems rather than one giant monolithic platform.",
+    "As for Flink, I have to ask, what is Flink for? The answer seems to be, 'It's for everything!'",
+    "Flink is just buzzier.",
+    "Privately, Flink developers admit to me that even they think it's too complicated.",
+    "You could interpret Confluent's Immerok acquisition as a capitulation to monolithic platform architecture. Or you could interpret it as a sign that customers with deep pockets fell into the one-platform trap and now have to pay someone for help."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "distributed_systems",
+    "engineering"
+  ],
+  "tone": "reflective, opinionated, skeptical",
+  "key_insight": "Monolithic stream processing platforms that try to serve every use case sacrifice simplicity and user experience, while purpose-built systems for specific use cases offer easier adoption and the flexibility to swap components as better alternatives emerge.",
+  "filename": "2024-02-20-from-samza-to-flink-a-decade-of-stream"
+}

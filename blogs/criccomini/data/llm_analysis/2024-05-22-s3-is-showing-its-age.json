@@ -1,0 +1,26 @@
+{
+  "summary": "Chris Riccomini argues that S3, despite being an engineering marvel, is falling behind competitors due to missing critical features like compare-and-swap operations, multi-region buckets, and object appends. These gaps are becoming problematic as new infrastructure increasingly uses object storage as their primary persistence layer. S3 Express One Zone has proven disappointing with its directory bucket type, missing standard S3 features, and high storage costs. Developers face a choice: abandon S3 for competitors like GCS that have these features, or build workarounds using additional services like DynamoDB. The post concludes that understanding S3 as an object store rather than a file system, and embracing a separate metadata layer, may be the path forward.",
+  "key_points": [
+    "S3 is the only major object store without preconditions/compare-and-swap operations, forcing developers to use DynamoDB for transactional operations",
+    "S3 Express One Zone is underwhelming: twice the cost of EBS, missing standard S3 features, and requires manual quorum writes for availability",
+    "Unlike GCS, S3 lacks dual-region and multi-region bucket options for higher availability",
+    "Some companies like Turbopuffer are abandoning S3 entirely, betting that AWS will eventually add preconditions",
+    "The pragmatic path is recognizing S3 as an object store, not a file system, and embracing DynamoDB as a metadata layer"
+  ],
+  "money_quotes": [
+    "I'm squarely in the trough of disillusionment with S3.",
+    "S3 is the only object store that doesn't support preconditions.",
+    "Building a two-phase write between DynamoDB and S3 is not technically difficult, but it's annoying and leads to ugly abstractions.",
+    "S3E1Z looks more like an expensive EBS with a half-implemented S3 API.",
+    "The dream is that developers are offered an object store with all of these features: low latency, preconditions, dual-region/multi-region, and so on. But we live in reality.",
+    "The path to the slope of enlightenment is to recognize that S3 is an object store not a file system."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "cloud",
+    "distributed_systems"
+  ],
+  "tone": "critical, technical, pragmatic",
+  "key_insight": "S3's missing features like compare-and-swap operations are forcing developers to either abandon AWS's object store for competitors or architect around its limitations with additional metadata layers.",
+  "filename": "2024-05-22-s3-is-showing-its-age"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Chris Riccomini responds to Gunnar Morling's post about change data capture (CDC) and data contracts, arguing that while data contracts are indeed the right solution to CDC's encapsulation problems, the proposed implementations (outbox pattern and stream processing) don't actually deliver what's needed. He contends that developers need integrated tools that handle schema versioning, compatibility detection, and SLA management\u2014not a patchwork of separate tools. Riccomini emphasizes that the hardest part of data contracts isn't technical but cultural, involving complex cross-team coordination around data ownership and priorities. He concludes by advocating for purpose-built products like Gable that address these holistic challenges rather than just transformation mechanics.",
+  "key_points": [
+    "CDC exposes internal database schemas to downstream consumers, creating coupling problems including schema breakage, accidental PII leakage, and loss of transaction semantics",
+    "Outbox patterns and stream processors can transform data but don't implement true data contracts with compatibility rules, SLAs, and governance",
+    "Asking developers to cobble together Protobuf, Flink, schema registries, and governance tools feels like 'your data team is giving you the middle finger'",
+    "The hardest part of data contracts is organizational culture\u2014managing cross-team coordination around data ownership, priorities, and breaking changes",
+    "Purpose-built products that facilitate cross-team collaboration are needed, not just transformation tools"
+  ],
+  "money_quotes": [
+    "To an application developer, this feels like your data team is giving you the middle finger.",
+    "Engineers discovering their data is consumed downstream is but one gentle example of cross-team coordination complexity.",
+    "Throwing more tools at the problem without addressing culture is not going to help.",
+    "Application developers want an integrated solution that makes it easy to safely evolve schemas and maintain SLAs.",
+    "But the hardest part of data contracts aren't even the tools, it's managing the data culture at organizations.",
+    "Neither stream processors nor the outbox pattern do this."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "distributed_systems",
+    "engineering"
+  ],
+  "tone": "critical, opinionated, pragmatic",
+  "key_insight": "Data contracts solve CDC's encapsulation problems in theory, but implementing them requires integrated tooling and cultural change around cross-team data ownership\u2014not just stream processors and outbox tables.",
+  "filename": "2024-01-22-change-data-capture-still-breaks-db-encapsulatio"
+}

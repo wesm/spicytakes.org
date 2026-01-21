@@ -1,0 +1,27 @@
+{
+  "summary": "The post explores the long-standing challenge of creating a distributed filesystem with POSIX semantics, which would simplify building distributed systems by allowing them to treat remote storage like local files. While object storage like S3 provides the necessary scale and durability, it lacks POSIX compatibility, forcing developers to either integrate S3 directly into their systems or use imperfect FUSE/NFS wrappers. The growth of Kubernetes and AI workloads has intensified demand for such a solution. Riccomini highlights Regatta Storage as a promising contender that could bridge this gap with better POSIX support and built-in caching. He expects increased competition in this space, with enough market opportunity for multiple winners across different use cases.",
+  "key_points": [
+    "A distributed POSIX-compatible filesystem would allow stateless services to offload all storage, dramatically simplifying distributed system design",
+    "Current approaches either require rewriting storage layers for S3 integration or use FUSE/NFS wrappers that implement only partial POSIX semantics",
+    "Kubernetes adoption and AI workloads with multi-modal data have significantly increased demand for scalable, POSIX-compatible distributed filesystems",
+    "Regatta Storage represents a promising new approach with NFS-based access, generic caching, and files stored as normal objects rather than opaque blocks",
+    "The market is large enough to support multiple winners serving different use cases despite similar underlying technology"
+  ],
+  "money_quotes": [
+    "You know, we wouldn't need any of this if we had a distributed filesystem that worked.",
+    "A scalable remote filesystem with normal POSIX semantics would let us build distributed systems that were stateless services; we could use the distributed filesystem to store everything.",
+    "Object stores are still missing POSIX semantics, though. You can't take any old system that uses filesystem I/O libraries and use S3 as its storage layer.",
+    "Direct object storage integration makes sense for systems like databases, whose primary job is to store and query data. But for systems, frameworks, and libraries that just need to read and write files as part of a broader workload, rewriting the storage layer for object storage is too burdensome.",
+    "Kubernetes has made every system distributed.",
+    "I think we're finally getting to the point where we have both the technology and the demand to get us what we need: a distributed POSIX-compatible filesystem."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "distributed_systems",
+    "cloud",
+    "databases"
+  ],
+  "tone": "analytical, optimistic, technical",
+  "key_insight": "The convergence of mature object storage technology and growing demand from Kubernetes and AI workloads is finally making distributed POSIX-compatible filesystems achievable, even if complete compatibility remains elusive.",
+  "filename": "2024-12-05-the-quest-for-a-distributed-posix-fs"
+}

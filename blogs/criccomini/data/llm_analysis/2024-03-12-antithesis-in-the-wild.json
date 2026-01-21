@@ -1,0 +1,28 @@
+{
+  "summary": "This newsletter edition covers four major developments in data infrastructure. Antithesis has launched a deterministic simulation testing platform that works with any software by using a custom hypervisor, eliminating the need to rewrite code for determinism. Polar Signals has added distributed call trace support to Parca, unifying profiling and tracing in one system. Google Cloud Storage is responding to AWS S3 Express One Zone by planning 100x latency improvements. The post concludes with a highlight of CozoDB, an embedded database combining graph, vector, and relational capabilities with Datalog queries.",
+  "key_points": [
+    "Antithesis solves deterministic simulation testing for legacy code by emulating entire machines at the hypervisor level, removing the need to rewrite non-deterministic software",
+    "Polar Signals now combines distributed call tracing with CPU profiling, allowing developers to trace performance issues across entire microservice request chains",
+    "Google Cloud Storage is planning 1-2 orders of magnitude latency improvements to compete with AWS S3 Express One Zone",
+    "Low-latency object stores with optimistic concurrency control will fundamentally change how distributed data systems are built, potentially eliminating complex control planes",
+    "CozoDB combines graph, vector, and relational database paradigms with pluggable storage backends including distributed options like TiKV"
+  ],
+  "money_quotes": [
+    "Once software is deterministic it's much easier to test. And a test that fails once will always fail\u2014no more flaky tests!",
+    "Antithesis solved this problem by writing a custom hypervisor that emulates an entire machine. Software no longer needs to be deterministic in order to do deterministic simulation testing.",
+    "When failures happen, Antithesis can play back every instruction\u2014not just the application instructions, but all of the operating system ones as well.",
+    "Developers use distributed call tracing to figure out which microservices are causing the most latency for the frontend call. Once the bottleneck is found, a different set of tools\u2014profilers\u2014is used to figure out why the service is slow.",
+    "An object store with such characteristics will completely change how we build data systems.",
+    "The hard parts of distributed data infrastructure will be managed by the object store.",
+    "Graphs can be thought of as nearest-neighbor search where edges define explicit links to nearest neighbors. Conversely, nearest neighbor search can be thought of as graph traversal, where nearest neighbors define implicit edges in the graph."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "distributed_systems",
+    "cloud",
+    "databases"
+  ],
+  "tone": "informative, technical, forward-looking",
+  "key_insight": "Infrastructure tooling is converging\u2014simulation testing is becoming accessible to legacy systems, profiling and tracing are merging, and low-latency object stores may soon absorb the complexity of distributed data systems.",
+  "filename": "2024-03-12-antithesis-in-the-wild"
+}

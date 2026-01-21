@@ -1,0 +1,26 @@
+{
+  "summary": "Chris Riccomini argues that virtual machines, containers, and serverless technologies are undergoing significant improvements that will reshape cloud computing. He highlights three key areas of advancement: GPU checkpointing (notably NVIDIA's cuda-checkpoint), unikernels enabling faster cold starts, and VM migration tools like Loophole Labs' Architect. These developments address longstanding pain points around slow cold starts, incomplete state snapshots, and poor GPU support. Riccomini predicts these improvements will drive multi-cloud adoption and potentially allow serverless functions to supplant traditional service-oriented architectures.",
+  "key_points": [
+    "Current VMs, containers, and serverless models 'kind of work' for many use cases but truly work for few due to limitations in cold start times, snapshots, and GPU support",
+    "NVIDIA's open-source cuda-checkpoint tool solves the difficult problem of capturing GPU memory state during snapshots",
+    "Unikernels like Unikraft now offer single-digit millisecond boot times and fast snapshotting, dramatically improving serverless cold starts",
+    "Loophole Labs' Architect can migrate VM state faster than spot instance preemption occurs, enabling significant cost savings",
+    "These improvements will drive multi-cloud adoption as state becomes easier to migrate and GPU availability varies across providers"
+  ],
+  "money_quotes": [
+    "Until recently, these technologies have offered fairly generic features. Consequently, they kind of work for many use cases, but truly work for relatively few.",
+    "Moving your workload to a different machine (or cloud) could save money, unlock better GPUs, or speed up training and inference.",
+    "As developers execute operations on a GPU, the GPU's memory accumulates state. This GPU data is very difficult to read directly, which poses a problem if you wish to snapshot a machine's state.",
+    "Architect purports to migrate faster than a spot instance preemption occurs, which would allow for huge cost savings for many workloads.",
+    "We will, for example, see more multi-cloud adoption as state is easier to migrate and GPUs are harder to come by.",
+    "Serverless functions might supplant service oriented applications, too."
+  ],
+  "themes": [
+    "cloud",
+    "distributed_systems",
+    "data_infrastructure"
+  ],
+  "tone": "optimistic, technical",
+  "key_insight": "Recent advances in GPU checkpointing, unikernels, and VM migration are finally addressing the specific requirements of modern workloads, setting the stage for more flexible multi-cloud deployments and broader serverless adoption.",
+  "filename": "2024-10-23-virtual-machines-are-getting-better"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "This newsletter edition covers three major developments in data infrastructure: the growing adoption of S3 as a storage layer for streaming systems, an architectural analysis of Neon DB's innovative PostgreSQL design, and an introduction to SKDB as a novel reactive edge database. The post examines different architectural approaches to S3-based streaming including WarpStream's fully stateless model, tiered storage implementations like AutoMQ and RedPanda, and streaming data lakes like Paimon. Riccomini notes that Kafka finally added tiered storage in version 3.6.0 after Confluent kept it as a proprietary feature. The piece highlights Neon's elegant design that replaces PostgreSQL's storage layer with remote storage interfaces and praises SKDB's ground-up approach to building a concurrent, reactive database with materialized views and subscriptions.",
+  "key_points": [
+    "S3 is increasingly being adopted as a viable storage layer for streaming, with three distinct architectural approaches: S3 as source of truth (WarpStream), tiered storage (AutoMQ, RedPanda), and streaming data lakes (Paimon)",
+    "Neon DB elegantly separates PostgreSQL's storage into a remote WAL and page service atop S3, using Paxos over RAFT and QEMU over Firecracker for live migration support",
+    "Kafka finally released tiered storage in 3.6.0 as early-access, after Confluent had kept this capability as a paid proprietary feature",
+    "SKDB is a proof-of-concept reactive edge database rebuilt from scratch to support materialized views, subscriptions, and high concurrency\u2014distinct from SQLite forks"
+  ],
+  "money_quotes": [
+    "More and more people are buying into the idea that S3 is a good storage layer for streaming.",
+    "Neon is such an elegant project.",
+    "I had assumed this was already available, but it turns out Confluent was keeping it as a paid feature.",
+    "Neon takes PostgreSQL and replaces its storage layer with remote storage interfaces.",
+    "Unlike SQLite and libsql, SKDB is rebuilt from the ground up to support such use cases.",
+    "SKDB is a new kind of database: a reactive edge database that supports materialized views, table subscriptions, and diff'ing."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "databases",
+    "cloud",
+    "distributed_systems"
+  ],
+  "tone": "informative, enthusiastic, curated",
+  "key_insight": "The convergence of object storage like S3 with streaming and database systems is creating new architectural patterns that separate storage from compute in increasingly elegant ways.",
+  "filename": "2023-11-28-you-should-be-streaming-data-on-s3"
+}

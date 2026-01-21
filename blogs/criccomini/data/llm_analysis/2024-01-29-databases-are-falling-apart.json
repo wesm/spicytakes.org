@@ -1,0 +1,29 @@
+{
+  "summary": "The database industry is undergoing a fundamental shift toward disassembly, where monolithic databases are being broken into reusable components like query parsers, optimizers, and storage engines. This trend traces back to Hadoop's separation of compute, data, and control planes eighteen years ago, and continues today with projects like Apache Arrow's DataFusion providing complete database toolkits. PostgreSQL's robust extension API and storage layer have enabled similar disassembly in the RDBMS space, with projects like Neon making even the write-ahead log pluggable. The author predicts this will lead to commoditized data warehouses, unified OLTP/OLAP systems, and poses a serious threat to Kafka's data integration use case as systems converge on object stores.",
+  "key_points": [
+    "Hadoop pioneered database disassembly by separating compute (MapReduce), data (HDFS), and control planes (YARN) - an architecture that persists today with Spark, S3, and Kubernetes",
+    "Apache Arrow's DataFusion is emerging as a complete database toolkit that can be used as an integrated query engine or as composable libraries for individual layers",
+    "PostgreSQL's extension API and storage layer make it ideal for disassembly, with Neon taking this further by making the WAL pluggable with Paxos-based remote storage",
+    "Database performance and features will become commoditized as shared components make it easier to add, copy, or share capabilities across systems",
+    "Kafka faces an existential threat as OLTP and OLAP systems converge on object stores, eliminating the need for separate data integration infrastructure"
+  ],
+  "money_quotes": [
+    "Eighteen years ago, Hadoop broke the data warehouse into compute, data, and control planes\u2014a paradigm that persists to this day.",
+    "A specific database might spend the majority of its innovation tokens in just one layer; say, the optimizer.",
+    "Unlike the projects above, which focus on a single layer, DataFusion does everything. You can use it as an integrated query engine like Trino or DuckDB, or you can use it as a library for any one of the layers above. It's a complete database toolkit.",
+    "Developers are treating PostgreSQL almost like DuckDB\u2014an integrated query engine with a pluggable storage layer.",
+    "A world centered around object stores is a serious threat to Apache Kafka.",
+    "Kafka's primary use case is data integration\u2014moving data between systems. But if all of your data is on an object store from start (OLTP) to finish (OLAP, search, graph, etc.) what use have you for Kafka?",
+    "A world with purpose-built, low latency, high throughput, multi-region, multi-model, transactional databases is coming; it's just a matter of time."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "distributed_systems",
+    "kafka",
+    "cloud"
+  ],
+  "tone": "analytical, forward-looking, technical",
+  "key_insight": "Database disassembly into reusable components will commoditize both performance and features, ultimately threatening Kafka's relevance as OLTP and OLAP systems converge on shared object storage.",
+  "filename": "2024-01-29-databases-are-falling-apart"
+}

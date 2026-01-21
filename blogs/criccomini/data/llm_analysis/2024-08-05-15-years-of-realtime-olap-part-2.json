@@ -1,0 +1,27 @@
+{
+  "summary": "Riccomini chronicles his experience building fraud detection systems at WePay, revealing how this work deepened his understanding of realtime OLAP requirements. The fraud detection use case demanded sub-10-second data freshness and single-digit millisecond query responses\u2014far stricter than human-facing dashboards. After evaluating Druid and finding it insufficient for their latency needs, WePay built a custom pipeline using Kafka, BigQuery, Dataflow, and Bigtable. This experience led Riccomini to distinguish between 'human interaction' OLAP (flexible queries, hundreds of milliseconds acceptable) and 'machine interaction' OLAP (pre-defined queries, millisecond response times required). He observes that realtime OLAP appears across domains\u2014fraud, observability, logging, metrics\u2014each with overlapping but distinct requirements, and that these specialized systems are now converging.",
+  "key_points": [
+    "Fraud detection models require single-digit millisecond query latency and sub-10-second data freshness\u2014constraints that led WePay to build custom infrastructure rather than use Druid",
+    "The distinction between 'human interaction' and 'machine interaction' OLAP clarifies why different use cases demand different system architectures",
+    "Realtime OLAP patterns appear everywhere: observability dashboards, log analytics, metrics, and business intelligence are all variations on GROUP BY queries with different latency/freshness tradeoffs",
+    "The realtime OLAP landscape is converging: data warehouses are adding realtime ingest, OLAP systems are adding JOINs, and stream processors are satisfying fraud detection use cases"
+  ],
+  "money_quotes": [
+    "Fraudsters act quickly and often use scripts. We needed activity data to be available to the model on the order of seconds so we could detect fraudulent behavior as it was occurring.",
+    "I started calling the former 'human interaction' and the latter 'machine interaction'.",
+    "Human interaction OLAP with realtime slice-and-dice dashboards. Response times could take a few hundred milliseconds while the chart updated. Machine interaction, by contrast, had pre-defined queries but required much faster response times.",
+    "I started to see realtime OLAP everywhere.",
+    "The Kibana dashboards looked an awful lot like business analytics chart'n'graph dashboards to me. The data was just machine instances, CPUs, and disks.",
+    "Data warehouses, real-time OLAP systems, time series databases, and search engines might all converge.",
+    "We had a tight bound on the number of milliseconds that a transaction would wait for a fraud response. If the window passed, we had to decide whether to reject the transaction outright or risk allowing fraudulent transactions through."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "distributed_systems",
+    "databases"
+  ],
+  "tone": "reflective",
+  "key_insight": "Realtime OLAP is not a single problem but a spectrum of use cases with varying requirements for latency, freshness, and query flexibility\u2014and the systems built for each niche are now converging.",
+  "filename": "2024-08-05-15-years-of-realtime-olap-part-2"
+}

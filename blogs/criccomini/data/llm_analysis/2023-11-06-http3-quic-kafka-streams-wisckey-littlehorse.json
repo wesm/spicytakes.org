@@ -1,0 +1,27 @@
+{
+  "summary": "This newsletter issue covers four main topics: HTTP/3 and its underlying QUIC protocol, Responsive's new autoscaler for Kafka Streams, the WiscKey paper on SSD-optimized LSM storage, and LittleHorse as a durable execution framework. The author explains how QUIC reimagines TCP with built-in TLS, multiplexing, connection migration, and extensibility. He reflects on his own experience building Apache Samza and the problems with static resource allocation that Responsive's autoscaler addresses. The WiscKey discussion highlights how separating keys from values in LSM trees reduces write amplification for SSDs, an architecture now widely adopted.",
+  "key_points": [
+    "HTTP/3's improvements over HTTP/2 come almost entirely from QUIC, which is essentially a reimagined TCP running over UDP",
+    "Responsive's Kafka Streams autoscaler addresses the fundamental problem of static resource allocation by letting developers define scaling rules based on latency and throughput rather than physical resources",
+    "WiscKey's key insight is that SSD characteristics (cheap random reads, parallelism, write wear) justify separating keys and values in LSM trees to reduce write amplification",
+    "LittleHorse represents a unique blend of batch workflow systems, durable execution frameworks, and traditional business process automation",
+    "The author draws from personal experience building Apache Samza to contextualize why dynamic resource allocation matters"
+  ],
+  "money_quotes": [
+    "We've reimagined and implemented a much more advanced version of TCP and called it QUIC. And because we want to make QUIC easier to deploy, we run it over UDP.",
+    "Two things always annoyed me about the way I implemented job sizing in Samza: Jobs were defined by physical requirements (memory, cpu, disk, network). Resource requirements were static.",
+    "Both are undesirable because it's hard for application developers to guess physical requirements and because resource requirements change over time.",
+    "Since 2016, WiscKey's architecture has been widely adopted for LSM stores.",
+    "I think of it as a mashup between three different framework styles: Airflow/Prefect/Dagster-style workflows, Durable execution frameworks, Traditional business process modeling and automation."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "distributed_systems",
+    "databases",
+    "engineering"
+  ],
+  "tone": "technical, reflective, informative",
+  "key_insight": "Modern infrastructure increasingly benefits from separating concerns\u2014whether it's compute from state in stream processing, keys from values in storage engines, or protocol layers in networking\u2014to optimize for new hardware and deployment realities.",
+  "filename": "2023-11-06-http3-quic-kafka-streams-wisckey-littlehorse"
+}

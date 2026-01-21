@@ -1,0 +1,27 @@
+{
+  "summary": "This newsletter roundup covers several developments in database infrastructure, with a focus on SQLite's growing role in distributed systems. Bluesky is moving their Personal Data Server from PostgreSQL to a distributed SQLite implementation, signaling SQLite's increasing adoption. Nile launched a serverless Postgres-compatible database purpose-built for SaaS multi-tenancy. The author also explores buffer pool implementations after diving into research on mmap in databases, and highlights Tigris, an open-source serverless NoSQL database built on FoundationDB.",
+  "key_points": [
+    "Bluesky is migrating from monolithic PostgreSQL to distributed SQLite for their PDS servers, reflecting a broader trend of SQLite in distributed systems",
+    "Litestream and LiteFS enable SQLite replication by intercepting transactions through a virtual filesystem proxy",
+    "Nile's serverless Postgres database moves multi-tenancy concerns from application code to the database layer, eliminating the need for libraries like Rails's apartment",
+    "Buffer pools use LRU eviction strategies, with implementations like MySQL's InnoDB inserting pages into the middle of the pool in specific ways",
+    "Tigris is an open-source serverless NoSQL database based on Uber's Docstore, built on FoundationDB with strict serializability"
+  ],
+  "money_quotes": [
+    "SQLite is showing up more and more in distributed systems. I think this trend will continue.",
+    "LiteFS works by interposing a very thin virtual filesystem between your app and your on-disk database file. It's not a file system like ext4, but rather a pass-through. Think of it as a file system proxy.",
+    "This works particularly well for SaaS applications where each customer is isolated from one another.",
+    "Most people who've worked on SaaS immediately get why this database is a big deal.",
+    "With Nile, all of this moves to the database layer. Pretty slick.",
+    "Docstore is a general-purpose multi-model database that provides a strict serializability consistency model on a partition level and can scale horizontally to serve high volume workloads."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "distributed_systems",
+    "databases",
+    "cloud"
+  ],
+  "tone": "informative, conversational, enthusiastic",
+  "key_insight": "SQLite is increasingly being adopted in distributed systems architectures, while purpose-built databases like Nile are pushing multi-tenancy concerns from application code down to the database layer.",
+  "filename": "2023-11-02-sqlite-on-bluesky-nile-launch-buffer"
+}

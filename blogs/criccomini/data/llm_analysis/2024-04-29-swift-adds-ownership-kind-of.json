@@ -1,0 +1,25 @@
+{
+  "summary": "The author reflects on Swift's memory management approach compared to Rust's borrow checker after a friend suggested Rust should have adopted Swift's ARC model. Investigation reveals that Apple published an 'Ownership Manifesto' seven years ago proposing Rust-like ownership for Swift, and this work has now materialized in Swift 5.9 with noncopyable types, consume operators, and borrowing/consuming parameter modifiers. The author expresses ambivalence about these changes, appreciating Swift's simpler ARC model while acknowledging that deep infrastructure work requires the performance optimizations that ownership semantics provide.",
+  "key_points": [
+    "Swift uses automatic reference counting (ARC) which is generally fast and works well, though it has edge cases like cyclic references and performance overhead from reference counting",
+    "Apple's 'Ownership Manifesto' proposing Rust-like ownership was posted over 7 years ago, showing this direction has been long planned",
+    "Swift 5.9 introduces noncopyable structs/enums, consume operators, and borrowing/consuming parameter ownership modifiers",
+    "The tension exists between Swift's simpler memory model and the performance requirements of deep infrastructure development",
+    "Some in the community see Swift as a viable 'plan B' if Rust declines in popularity"
+  ],
+  "money_quotes": [
+    "Infrastructure developers could just get over themselves.",
+    "Reference counting provides deterministic performance in most cases, but that performance can still be complex to analyze and predict.",
+    "For current Rust users, if Rust kicks the bucket, Swift is a good plan B.",
+    "I'm torn on these changes. On the one hand, I like Swift's relatively simple memory management. On the other hand, I buy the argument that ARC can be slow in certain circumstances.",
+    "Some of ARC's edge cases happen to matter a lot when building deep infrastructure\u2014the kind of stuff you build with Rust.",
+    "Perhaps Swift has managed to thread the needle with their ownership semantics in a way that Rust hasn't."
+  ],
+  "themes": [
+    "engineering",
+    "distributed_systems"
+  ],
+  "tone": "reflective",
+  "key_insight": "Swift's evolution toward Rust-like ownership semantics in version 5.9 suggests that even languages with simpler memory models eventually need more explicit control for performance-critical infrastructure work.",
+  "filename": "2024-04-29-swift-adds-ownership-kind-of"
+}

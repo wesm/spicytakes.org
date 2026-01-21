@@ -1,0 +1,26 @@
+{
+  "summary": "Data lake catalogs have become a battleground as Snowflake launched Polaris, Databricks open-sourced Unity catalog, and Databricks acquired Tabular. Unlike traditional data catalogs focused on discovery and governance, these new catalogs serve as an information_schema for query engines like Flink, Spark, and Trino. Table formats alone are insufficient\u2014catalogs provide the crucial layer that tracks all databases, tables, and partitions. The strategic importance lies in catalogs being the integration point for query engines, making them a natural stepping stone for vendors to move up or down the stack to protect their positions.",
+  "key_points": [
+    "Data lake catalogs serve a different purpose than traditional data catalogs\u2014they're information_schema for query engines rather than discovery tools for analysts",
+    "Table formats (Iceberg, Hudi, Delta) are necessary but insufficient; catalogs sit above them and provide the entry point query engines need",
+    "Building companies around table formats alone seemed odd\u2014like building around Parquet or ORC\u2014which explains the upward movement into catalogs",
+    "A dominant catalog company could threaten existing vendors by moving up into the query engine layer, prompting defensive consolidation",
+    "The composable data stack has catalogs positioned between query engines above and table formats below"
+  ],
+  "money_quotes": [
+    "Table formats like Iceberg, Hudi, and Delta always struck me as an odd layer for companies to fight over.",
+    "The formats themselves are specifications that define a file, folder, and byte structure in a filesystem. It felt akin to building companies around storage formats like Parquet or ORC.",
+    "The layer above the table format\u2014the catalog\u2014is the more important layer; it's where query engines integrate.",
+    "An integrated catalog, table format, and file format is compelling. Such a product contains the entry point to the data plane and much of the data plane itself.",
+    "A dominant catalog company could represent a significant threat if the company chose to move up the stack by offering or even favoring a query engine.",
+    "Another vendor taking control of the data layer could be quite disruptive. So we see vendors moving down the stack to shore up their product offerings."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "cloud"
+  ],
+  "tone": "analytical",
+  "key_insight": "Catalogs, not table formats, are the strategic control point in the data lakehouse stack because they're where query engines integrate, making them the natural battleground for vendor consolidation.",
+  "filename": "2024-06-20-begun-the-catalog-wars-have"
+}

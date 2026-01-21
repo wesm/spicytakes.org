@@ -1,0 +1,27 @@
+{
+  "summary": "Chris Riccomini argues that the data lakehouse ecosystem should standardize on Apache Iceberg's REST API for core catalog functionality, with query engines like Trino and DataFusion driving its evolution rather than individual vendors. He distinguishes between 'core' functionality (metadata for query execution) and 'non-core' features (governance, lineage, discovery), suggesting vendors should compete on the latter. The post notes that major players like Databricks Unity, Snowflake Polaris, and Nessie are already adopting Iceberg's REST API. This standardization would allow query engines to deprecate fragmented integrations like Hive Metastore and AWS Glue catalog, creating a cleaner ecosystem.",
+  "key_points": [
+    "Core catalog functionality (query metadata) should standardize on Iceberg's REST API, while vendors compete on non-core features like governance and discovery",
+    "Query engines like Trino and DataFusion should drive the API's evolution, reducing control by any single vendor like Databricks or Snowflake",
+    "Major vendors are already converging on Iceberg REST: Databricks Unity, Snowflake Polaris, Nessie, and Apache Gravitino",
+    "Data lakehouse catalogs have found the 'must-have' wedge that traditional data catalogs like Alation and Datahub have struggled to achieve",
+    "LanceDB's approach of deferring to Arrow for types and encodings is a model for how the catalog space should defer to query engine needs"
+  ],
+  "money_quotes": [
+    "I would love to see everyone congregate around Apache Iceberg's REST API for core lakehouse catalog functionality.",
+    "I'd like to see query engines take a more active role in evolving the spec, particularly Apache DataFusion and Trino.",
+    "Reorienting the API evolution around the query engines it serves means more projects can take an active role, thereby reducing the control of one or two vendors.",
+    "Don't mistake 'non-core' for not valuable. Much of the functionality in this bucket is extremely valuable, if not required for enterprises.",
+    "Data lakehouse vendors have accidentally stumbled upon the wedge that traditional data catalogs have been struggling to find.",
+    "Traditional data catalogs have been unable to shift from nice-to-have to must-have in the enterprise; they remain a dusty tool that's often ignored once installed.",
+    "Data lakehouse catalogs are must-have for anyone running query engines on a data lake."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "cloud"
+  ],
+  "tone": "opinionated, pragmatic, forward-looking",
+  "key_insight": "The lakehouse ecosystem should let query engines drive catalog API evolution while vendors compete on enterprise features, turning infrastructure standards into a rising tide that lifts all boats.",
+  "filename": "2024-07-03-make-lakehouse-catalogs-boring-again"
+}

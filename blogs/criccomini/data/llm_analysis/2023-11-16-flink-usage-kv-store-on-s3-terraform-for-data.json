@@ -1,0 +1,29 @@
+{
+  "summary": "This roundup post covers four data infrastructure topics: the emergence of transactional key-value stores built on S3 for serverless OLTP databases, the surprisingly diverse production use cases for Apache Flink beyond analytics, a balanced rebuttal defending mmap for database storage, and Titan as a new Terraform-like tool for data warehouse configuration. Riccomini argues the industry needs more open source transactional KV stores on S3 to serve as building blocks for serverless databases. He notes his expectation that Flink would be mostly SQL and CDC workloads was wrong\u2014it's used for real-time ads, bot detection, and safety systems. The post also highlights the tension between pragmatic and academic approaches to database design through the mmap debate.",
+  "key_points": [
+    "OLTP databases like Neon and TiDB are successfully using S3 as primary storage through various approaches: KV-based APIs with consensus protocols, WAL-based APIs, read-through caches, and write-back caches",
+    "Flink's production usage is more diverse than expected\u2014extending well beyond analytics engineering and SQL to include real-time ads, bot detection, pricing, and safety applications at companies like Uber, Yelp, and Reddit",
+    "The mmap debate reveals a tension between pragmatic engineering (letting the OS handle caching, concurrency, eviction) and academic critique\u2014both perspectives have merit",
+    "Titan bridges a gap in the data ecosystem by providing Terraform-like declarative configuration for data warehouse objects, which analytics engineers find more accessible than traditional infrastructure-as-code tools",
+    "Durable execution frameworks are proliferating rapidly, with over a dozen options now available for building fault-tolerant workflows"
+  ],
+  "money_quotes": [
+    "We need more open source transactional key-value stores on S3 with a variety of consensus protocols, APIs, and features.",
+    "Serverless databases could use these stores as a building block.",
+    "I expected Flink usage to mostly be analytics engineering use cases and SQL. My hypothesis was born of the deluge of Flink SQL and change data capture (CDC) content lately.",
+    "To my surprise, Flink's usage is quite diverse!",
+    "It's great to see such a well written and fair response. It's also nice to contrast pragmatic and academic perspectives.",
+    "For more complex use cases (especially in the data warehouse), data engineers are forced into dbt, Python scripts, templating languages, and custom tools.",
+    "Other data warehouse users\u2014analytics engineers\u2014often lack Terraform experience."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "distributed_systems",
+    "cloud",
+    "databases"
+  ],
+  "tone": "informative",
+  "key_insight": "The data infrastructure ecosystem is evolving toward S3-based transactional storage and declarative configuration tools, while production streaming workloads are far more diverse than the industry's content focus on SQL and CDC would suggest.",
+  "filename": "2023-11-16-flink-usage-kv-store-on-s3-terraform-for-data"
+}

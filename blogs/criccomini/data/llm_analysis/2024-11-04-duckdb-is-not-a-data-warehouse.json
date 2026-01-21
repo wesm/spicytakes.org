@@ -1,0 +1,28 @@
+{
+  "summary": "Riccomini argues that despite DuckDB's popularity among data engineers for its portability, speed, and ability to query remote storage, it fundamentally cannot serve as an enterprise data warehouse. The deployment model of installing DuckDB on individual laptops and granting bucket access is untenable for organizations where everyone from PMs to finance needs data access. While most queries are small, the most valuable enterprise queries\u2014financial reconciliation, recommendations, advertising\u2014require scale DuckDB cannot provide. MotherDuck is building the centralized deployment and scaling layer DuckDB needs, but this essentially makes them another cloud data warehouse competing with giants like Snowflake and Databricks. DuckDB excels as middleware, similar to SQLite, but enterprises should view it as a tool rather than a warehouse replacement.",
+  "key_points": [
+    "DuckDB's deployment model doesn't work for enterprises\u2014you can't install it on every laptop and grant everyone bucket access",
+    "While most queries are small, the most valuable queries in an organization are large and drive revenue, which DuckDB can't handle",
+    "MotherDuck is building centralized deployment and scaling, making them effectively another cloud warehouse that happens to use DuckDB",
+    "The switching cost from existing data warehouses is high; it's often cheaper to optimize your current warehouse than migrate",
+    "DuckDB is excellent middleware (like SQLite for columnar data) but shouldn't be mistaken for a data warehouse product"
+  ],
+  "money_quotes": [
+    "DuckDB is essentially SQLite for columnar data.",
+    "It's untenable to install DuckDB on everyone's laptop, grant everyone access to data lake buckets, and ask them to run queries from the CLI.",
+    "What they don't say is that the most valuable queries in an organization are large: financial reconciliation, recommendation systems, advertising, and others. These are the revenue drivers.",
+    "They might comprise a minority of all the queries an organization runs, but they make the money.",
+    "As much as MotherDuck would like to be the DuckDB vendor, they're a cloud data warehouse that just happens to use DuckDB.",
+    "It's often easier to cut costs in your existing data warehouse by auditing queries and data retention.",
+    "MotherDuck has picked a fight with some of the nastiest apex predators out there: Snowflake, BigQuery, and Databricks.",
+    "It's amazing middleware, much like SQLite. I don't see it as a data warehouse, though."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "cloud"
+  ],
+  "tone": "analytical, skeptical, opinionated",
+  "key_insight": "DuckDB is excellent middleware for columnar analytics, but its deployment model and scalability limitations mean it cannot replace enterprise data warehouses\u2014the most valuable queries require scale that only centralized cloud solutions can provide.",
+  "filename": "2024-11-04-duckdb-is-not-a-data-warehouse"
+}

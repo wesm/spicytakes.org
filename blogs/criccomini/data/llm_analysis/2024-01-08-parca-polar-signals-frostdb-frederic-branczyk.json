@@ -1,0 +1,21 @@
+{
+  "summary": "Chris Riccomini interviews Frederic Branczyk, founder of Polar Signals, about their always-on, zero-instrumentation profiler. The discussion covers Polar Signals's architecture, particularly Parca and FrostDB. Parca achieves minimal invasiveness by using an eBPF filter that samples the entire OS stack at 19hz. The collected data is stored in FrostDB, an embedded storage engine built on Datafusion and Parquet. The interview also references several influential papers on profiling and optimization from Google.",
+  "key_points": [
+    "Polar Signals offers always-on, zero-instrumentation profiling through Parca",
+    "Parca uses eBPF filters to sample the entire OS stack at 19hz for minimal invasiveness",
+    "FrostDB is an embedded storage engine built on Datafusion and Parquet",
+    "The architecture draws inspiration from Google's continuous profiling research"
+  ],
+  "money_quotes": [
+    "Parca is able to achieve its minimally invasive profiling claims by using an eBPF filter that samples the entire OS's stack at 19hz",
+    "FrostDB, an embedded storage engine built on Datafusion and Parquet"
+  ],
+  "themes": [
+    "data_infrastructure",
+    "distributed_systems",
+    "cloud"
+  ],
+  "tone": "technical",
+  "key_insight": "Modern continuous profiling can be achieved with minimal overhead by combining eBPF sampling with columnar storage engines built on Datafusion and Parquet.",
+  "filename": "2024-01-08-parca-polar-signals-frostdb-frederic-branczyk"
+}

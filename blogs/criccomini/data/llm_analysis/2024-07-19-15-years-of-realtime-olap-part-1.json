@@ -1,0 +1,27 @@
+{
+  "summary": "Chris Riccomini traces the evolution of realtime OLAP systems through his personal experience at LinkedIn, starting with the Who's Viewed My Profile feature 15 years ago. The initial solution, Avatara, used pre-materialized views stored in Voldemort but suffered from rigid query patterns, high write amplification, and data staleness. This led to the development of Apache Druid by Eric Tschetter at MetaMarkets and Apache Pinot by Kishore Gopalakrishna at LinkedIn, both solving these problems through columnar storage combined with in-memory buffering for recent data. The post explains how these systems enable millisecond-latency queries on fresh data without the limitations of pre-computation, setting the stage for a future discussion of ClickHouse.",
+  "key_points": [
+    "Traditional data warehouses couldn't serve user-facing analytics due to slow response times (seconds to minutes) and lack of real-time data freshness",
+    "Avatara's pre-materialization approach created three key problems: rigid query patterns, high write amplification, and stale data",
+    "Druid and Pinot solved these problems by combining columnar storage for historical data with in-memory buffering for recent ingestion",
+    "Pinot introduced star-tree indexes to give operators a tuning knob between storage space and query latency",
+    "The fundamental challenge is serving OLAP-style aggregation queries to external users at millisecond latencies with fresh data"
+  ],
+  "money_quotes": [
+    "It was a classic vanity metric. Naturally, the product was popular and drove considerable subscriber revenue.",
+    "OLAP developed many fancy concepts\u2014cubes, dimensions, measures, and so on. But it's really just SELECT COUNT(*) FROM \u2026 GROUP BY queries.",
+    "Data warehouses are built to handle queries on large data sets but with slower response times (seconds to minutes). WVMP requires millisecond response times since end-users are waiting for the page to load.",
+    "A single profile view resulted in one write (or increment) for each combination of dimensions\u2014high write amplification.",
+    "Druid had a clever solution to the batch-write problem: store recently ingested in-memory as well.",
+    "Data could be ingested through Kafka topics in realtime because writes simply went to memory. Ingested data was immediately available for reads."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "distributed_systems",
+    "databases",
+    "kafka"
+  ],
+  "tone": "technical, reflective, educational",
+  "key_insight": "Realtime OLAP systems evolved from rigid pre-materialized views to flexible columnar stores with in-memory buffering, enabling millisecond-latency user-facing analytics without sacrificing query flexibility or data freshness.",
+  "filename": "2024-07-19-15-years-of-realtime-olap-part-1"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "This newsletter roundup covers three main infrastructure topics: AWS's S3 Express One Zone, zero-downtime VM live migrations, and Google's HighwayHash. Riccomini aggregates community opinions on S3 Express, expressing skepticism about its pricing despite acknowledging it as a useful building block. He highlights Felicitas Pojtinger's standing-ovation Kubecon talk on stateful VM migrations using network block device protocol, which enables microVMs like Firecracker to support live migrations. The post also spotlights HighwayHash, a SIMD-optimized hashing library that achieves 5.2x speedup over SipHash.",
+  "key_points": [
+    "S3 Express One Zone offers low latency (<10ms) in a single AZ, but the community consensus is the pricing undermines its value proposition",
+    "Despite S3 Express's capabilities, we still need caches and write-ahead logs in front of S3 for cost reduction and high availability",
+    "Zero-downtime live migration of stateful VMs is now possible for microVMs like Firecracker through Loophole Labs' r3map and architekt tools",
+    "ML/AI process migration is increasingly important as GPUs and compute become scarce, with companies like Microsoft and Facebook already having this capability",
+    "HighwayHash achieves 5.2x speedup over SipHash using SIMD multiply and permute instructions, though it lacks formal cryptographic proofs"
+  ],
+  "money_quotes": [
+    "Personally, I'm speedrunning the hype cycle wave and living in the trough of disillusionment right now.",
+    "Express is a helpful building block, but it doesn't change storage architectures much. We still need caches and write-ahead logs (WALs) in front of S3 to reduce cost and keep high availability.",
+    "I've been cheerleading S3-as-primary-storage for a while now. It's great to see AWS show some love to this use case.",
+    "With r3map, microVMs like Firecracker and gVisor can now support live migrations just like heavier-weight VMs.",
+    "ML/AI process migration is of particular interest to me. Microsoft and Facebook have had this technology for a while. GPUs and compute are hard to come by.",
+    "We are not experienced cryptographers, and do not see a way to reduce the HighwayHash algorithm to provably secure constructions."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "cloud",
+    "distributed_systems"
+  ],
+  "tone": "curated, pragmatic, skeptical",
+  "key_insight": "S3 Express represents AWS's acknowledgment of S3-as-primary-storage use cases, but its pricing means fundamental storage architectures requiring caches and WALs won't change anytime soon.",
+  "filename": "2023-12-04-s3-express-kubecon-google-highwayhash"
+}

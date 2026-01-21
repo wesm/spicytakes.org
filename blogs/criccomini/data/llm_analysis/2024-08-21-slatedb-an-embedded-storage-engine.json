@@ -1,0 +1,27 @@
+{
+  "summary": "Riccomini announces the open-source release of SlateDB, an embedded storage engine built as an LSM tree directly on object storage like S3. The project emerged from his earlier writing about cloud storage tradeoffs and attracted collaborators from companies like Responsive and Jam Socket. SlateDB targets use cases in stateful stream processing, serverless functions, and durable execution where bottomless storage capacity and durability matter more than raw latency. The project is explicitly non-commercial with an Apache 2.0 license and a CNCF sandbox application pending.",
+  "key_points": [
+    "SlateDB is an embedded key-value storage engine that writes all data to object storage, trading latency for unlimited capacity and high durability",
+    "The project fills a gap in the ecosystem\u2014existing solutions like RocksDB weren't purpose-built for object storage",
+    "Built collaboratively by engineers from Responsive, Azure, and Jam Socket over four months before open-sourcing",
+    "Riccomini explicitly commits to no commercial plans\u2014just building a successful open source project under Apache 2.0",
+    "Major features still in development include caching, compaction, snapshots, garbage collection, transactions, and range queries"
+  ],
+  "money_quotes": [
+    "Object storage allows SlateDB to provide bottomless storage capacity, high durability, and easy replication.",
+    "We built SlateDB because we felt an open source LSM on object storage would be useful for stateful stream processing, serverless functions, durable execution, and more.",
+    "Companies like WarpStream and Turbopuffer set zero disk architecture on the map.",
+    "We couldn't find an LSM that was purpose-built for object storage. So we built it.",
+    "I am explicitly not going to do anything with SlateDB other than help make it a successful open source project.",
+    "I am not going to start a company around it or try and monetize it in any way."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "cloud",
+    "databases",
+    "distributed_systems"
+  ],
+  "tone": "enthusiastic, transparent, community-oriented",
+  "key_insight": "The rise of object storage has created a gap for purpose-built storage engines that embrace its tradeoffs rather than treating it as a drop-in disk replacement.",
+  "filename": "2024-08-21-slatedb-an-embedded-storage-engine"
+}

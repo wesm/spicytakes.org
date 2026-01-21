@@ -1,0 +1,28 @@
+{
+  "summary": "Chris Riccomini argues that S3-based data lakes are becoming the modern equivalent of SFTP for sharing data with external customers. Drawing from his experience at WePay, he describes how customer data sharing requests are ubiquitous but historically under-invested in by SaaS companies. He highlights emerging startups like Prequel that focus on exporting customer data to S3 in Parquet format, enabling customers to query their data using modern lakehouse tools. Riccomini suggests this pattern could drive broader lakehouse adoption and give analytics engineers revenue-generating work.",
+  "key_points": [
+    "Customer data sharing is a common but neglected need across SaaS companies, with customers wanting their data in various formats from APIs to CSV dumps",
+    "Modern data lakehouses built on S3, Iceberg, and Parquet provide SFTP-like benefits (fast transfers, atomic uploads, central access control) with added advantages of strong typing and native query engine support",
+    "Startups like Prequel are emerging to solve the 'data export platform' problem that SaaS vendors have historically rolled their own solutions for",
+    "Customer data lakes could be a driving force for lakehouse adoption as companies initially adopt these tools to access SaaS data, then expand to their own data",
+    "Schema evolution and data contracts remain challenges, but companies like Gable.ai and Vakamo are working on solutions"
+  ],
+  "money_quotes": [
+    "I hit the roof: our data pipeline (and team) wasn't built for this.",
+    "Despite all this demand, 'reporting', as we called it, was rarely invested in.",
+    "Customers want data from their SaaS vendors. Yet, for the past decade (longer, really), SaaS vendors have been left to roll their own solutions.",
+    "Offering customers data in a data lake format maintains some of the benefits that SFTP has historically provided: data transfers are very fast, access can be managed centrally in the catalog, and files can be atomically exposed to customers.",
+    "Customer data lakes might actually end up being a driving force for lakehouse adoption.",
+    "Giving a customer's analysts DuckDB and pointing them at an S3 bucket is pretty compelling.",
+    "These lakehouses could also give analytics engineers something to do\u2014something that drives revenue."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "cloud",
+    "databases",
+    "engineering"
+  ],
+  "tone": "reflective, practical, optimistic",
+  "key_insight": "S3-based data lakehouses are emerging as the modern, standardized way for SaaS companies to share data with customers, potentially driving broader lakehouse adoption while finally addressing a long-neglected but universal customer need.",
+  "filename": "2024-12-16-s3-is-the-new-sftp"
+}

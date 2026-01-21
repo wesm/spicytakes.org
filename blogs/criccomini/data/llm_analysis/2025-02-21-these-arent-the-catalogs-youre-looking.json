@@ -1,0 +1,27 @@
+{
+  "summary": "Riccomini argues that the data ecosystem has fractured into too many specialized catalogs\u2014schema registries, service catalogs, information_schema, and traditional data catalogs\u2014that all fundamentally manage metadata about data. Drawing from his experience building Recap, he observes these systems are 80% the same despite serving different use cases. He points to emerging convergence as evidence: Backstage expanding beyond microservices, Datahub adopting Iceberg's REST API, and Confluent's Tableflow speaking Iceberg. While hopeful that Iceberg's REST API could become the lingua franca, he pragmatically predicts we'll end up with catalog gateways instead of true unification.",
+  "key_points": [
+    "Schema registries, service catalogs, information_schema, and data discovery tools all fundamentally manage metadata about data\u2014they're 80% the same despite different names",
+    "Each catalog type has distinct requirements: registries need low latency and schema compatibility tracking, OLTP metadata needs speed, OLAP metadata prioritizes lineage and access controls",
+    "Convergence is already happening: Backstage expanded beyond microservices, Datahub is adopting Iceberg REST API, LakeKeeper added data contracts",
+    "After 10-15 years of data integration, pipelines are now supply chains flowing through OLTP, streaming, batch, and warehouse systems\u2014separate catalogs no longer make sense",
+    "Iceberg's REST API might become the unifying standard, but catalog gateways are the more likely outcome"
+  ],
+  "money_quotes": [
+    "I began to realize that these systems were all data catalogs. Some called themselves registries, others were information_schema, and many called themselves catalogs. But they were all handling metadata about your data; they seemed 80% the same.",
+    "I'm not convinced that each of these use cases deserves its own distinct catalog. Each use case has separate requirements, but it seems to me that one system could service them all.",
+    "We spent the last 10-15 years doing data integration. Data pipelines are supply chains now.",
+    "All of our data (and metadata) flows through OLTP, streaming systems, batch, and data warehouse systems. It no longer makes sense to have a separate catalog for each use case.",
+    "The optimist in me hopes the convergence continues; 'data catalog' should mean only one thing.",
+    "If Iceberg's REST API evolves fast enough, it might become the lingua franca that we need. The realist in me knows that this is unlikely. Instead, we'll probably end up with catalog gateways or proxies."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "distributed_systems",
+    "databases"
+  ],
+  "tone": "analytical, pragmatic, observational",
+  "key_insight": "The proliferation of specialized data catalogs\u2014registries, service catalogs, information schemas, and discovery tools\u2014is an artificial fragmentation of what should be a unified metadata layer, and market forces are already driving convergence around standards like Iceberg's REST API.",
+  "filename": "2025-02-21-these-arent-the-catalogs-youre-looking"
+}

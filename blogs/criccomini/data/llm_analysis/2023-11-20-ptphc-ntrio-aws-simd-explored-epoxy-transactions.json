@@ -1,0 +1,27 @@
+{
+  "summary": "This newsletter roundup covers four infrastructure topics: AWS Time Sync Service's new microsecond-level accuracy via hardware clocks on the Nitro platform, an introduction to SIMD (Single Instruction, Multiple Data) and its applications from vector search to LLMs, and the Epoxy paper which presents a protocol for distributed transactions across heterogeneous data stores without requiring XA protocol support. The author connects AWS's precision timing improvements to Google Spanner's TrueTime concept, while noting SIMD's growing relevance for AI workloads. Epoxy offers both isolation and atomicity for cross-database transactions through a shim-based architecture.",
+  "key_points": [
+    "AWS Time Sync Service now provides double-digit microsecond accuracy via PTP Hardware Clocks on the Nitro platform, enabling better distributed system coordination similar to Google's TrueTime",
+    "SIMD enables CPUs to perform operations on multiple data points simultaneously, which is increasingly important for vector search, LLM inference, and common array operations",
+    "Epoxy protocol improves on X/Open XA by providing transactional isolation (not just atomicity) across heterogeneous data stores without requiring the stores themselves to implement any protocol",
+    "AWS Nitro provides modular building blocks for assembling hardware profiles with strong security and isolation guarantees"
+  ],
+  "money_quotes": [
+    "Reasoning about time globally is really helpful for distributed systems.",
+    "Time Sync now runs with double-digit microsecond accuracy.",
+    "Matrix operations are useful\u2014something I wish I knew when taking Linear Algebra in college\u2014particularly for vector search and running LLMs on CPUs.",
+    "Nearly every modern video game console since 1998 has incorporated a SIMD processor somewhere in its architecture.",
+    "Epoxy is a protocol for providing transactions across heterogeneous data stores.",
+    "Unlike X/Open XA, Epoxy provides transactional isolation, not just atomicity.",
+    "Epoxy isn't without tradeoffs, though."
+  ],
+  "themes": [
+    "distributed_systems",
+    "cloud",
+    "databases",
+    "data_infrastructure"
+  ],
+  "tone": "technical",
+  "key_insight": "Precision timing, SIMD parallelism, and cross-database transaction protocols represent foundational infrastructure capabilities that enable increasingly sophisticated distributed systems and AI workloads.",
+  "filename": "2023-11-20-ptphc-ntrio-aws-simd-explored-epoxy-transactions"
+}

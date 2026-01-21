@@ -1,0 +1,27 @@
+{
+  "summary": "Chris Riccomini explores three interconnected topics in data infrastructure. First, he celebrates ParadeDB's pg_lakehouse extension, which turns PostgreSQL into a data lake query engine using Apache DataFusion and OpenDAL. Second, he examines approaches for serving lakehouse data back to production systems, favoring simple caching services like ROAPI over heavier databases like StarRocks or SingleStore. Finally, he discusses the aging Kafka Connect platform and the need for improvements around connector isolation and scheduling, noting that competitors like Bento and Redpanda Connect are presenting healthy alternatives.",
+  "key_points": [
+    "pg_lakehouse demonstrates that composable data systems built on reusable components like DataFusion and OpenDAL are not just theoretical but already shipping",
+    "Serving analytics data back to production requires a caching layer in front of data lakes\u2014something ROAPI lacks but databases like Rockset and StarRocks provide",
+    "The pattern of pre-computing data in warehouses and pushing to production remains unchanged since LinkedIn's Hadoop-to-Voldemort days, only the systems have evolved",
+    "Kafka Connect is showing its age, with teams at Twitter and WePay having to bypass its built-in cluster management and HTTP API to operate at scale",
+    "Competition from Bento and Redpanda Connect is healthy for the connector ecosystem, even if standardization would be ideal"
+  ],
+  "money_quotes": [
+    "pg_lakehouse is proof that composable data systems are not only possible, but are already here.",
+    "Systems have changed but the pattern remains the same.",
+    "What I want is a cache that sits in front of warehouse data and exposes it through a low-latency API.",
+    "The 'Connect-as-a-Service' part of Connect was completely absent.",
+    "We had to dumb-down Connect's cluster management features and bypass the HTTP API in order to achieve our goals.",
+    "I do think it's healthy for competitors like Bento and Redpanda Connect to present alternatives."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "kafka",
+    "databases",
+    "cloud"
+  ],
+  "tone": "reflective, technical, opinionated",
+  "key_insight": "The future of data infrastructure lies in composable systems built from reusable components like DataFusion, while established platforms like Kafka Connect need modernization to remain relevant.",
+  "filename": "2024-06-13-musings-on-data-lakes-and-kafka-connect"
+}

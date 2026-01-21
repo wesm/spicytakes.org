@@ -1,0 +1,25 @@
+{
+  "summary": "This newsletter edition covers three main topics: Apple's L4S protocol for reducing network latency in realtime applications, terminal-based benchmarking tools surfaced by the 1brc challenge, and Zed's unified data model compared to Recap. L4S works by having clients signal congestion notification support and servers report queued packets, allowing clients to throttle their send rate. The benchmarking section highlights hyperfine, poop, and flameshow as useful performance analysis tools. Riccomini expresses validation that Zed's data model independently arrived at similar design choices as his Recap project, while noting Zed is more ambitious with its full ecosystem including serialization formats and query languages.",
+  "key_points": [
+    "L4S reduces network queuing and packet loss by having clients and servers communicate congestion state through explicit notification bits, benefiting realtime video and gaming",
+    "The 1brc challenge has surfaced useful terminal benchmarking tools including hyperfine (cross-platform with statistical analysis), poop (Linux-only with hardware counters), and flameshow (terminal flamegraph viewer)",
+    "Zed's data model unifies JSON and relational models similarly to Recap, validating independent design choices made by both projects",
+    "Zed offers a complete ecosystem (serialization, query language, table formats) while Recap focuses narrowly on schema reading, writing, and conversion with slightly more robust type support"
+  ],
+  "money_quotes": [
+    "L4S is based on the insight that the root cause of queuing delay is in the capacity-seeking congestion controllers of senders, not in the queue itself.",
+    "Realtime applications\u2014video and gaming\u2014are an important part of our lives. These applications don't do well when their network path is congested.",
+    "Since L4S sits low in the network stack\u2014in both layer 3 (IP) and layer 4 (TCP/UDP) of the OSI model\u2014your code should automatically benefit without any changes.",
+    "Zed is a new data model that unifies the JSON and relational models to make data as easy as ever.",
+    "I am happy to see that Zed's data model is very similar to Recap's. We both made the same design choices independently. This is validating and bodes well for both projects.",
+    "Recap is much slimmer; it deliberately limits itself to reading, writing, and converting between service, event, and database schemas."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "distributed_systems",
+    "engineering"
+  ],
+  "tone": "informative, curated, validating",
+  "key_insight": "Independent convergence on similar data model designs between Zed and Recap suggests these unified schema approaches are solving real problems in the right way.",
+  "filename": "2024-01-16-the-internet-gets-faster-with-l4s"
+}

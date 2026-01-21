@@ -1,0 +1,26 @@
+{
+  "summary": "This newsletter edition surveys the resurgence of Viewstamped Replication, a consistency algorithm predating Paxos and Raft, highlighting a new Go implementation alongside existing Zig and Rust versions. Riccomini connects this to the broader theme of deterministic simulation testing, examining approaches from Dropbox, TigerBeetle, and FoundationDB. Dropbox's sync engine rewrite demonstrates how single-threaded control flow enables serialized, reproducible tests. TigerBeetle advocates reducing variability in both IO and time to improve debugging, testing, and runtime performance. FoundationDB's Simulation framework introduces techniques like 'swizzle-clogging' to find deep edge cases. The core takeaway is that stamping out non-determinism and using seeded pseudo-random testing enables reproducible failures.",
+  "key_points": [
+    "Viewstamped Replication is experiencing renewed interest as an alternative to Paxos and Raft, with new implementations appearing in Go, Rust, and Zig",
+    "Dropbox achieved deterministic testing by running nearly all code on a single control thread and serializing async operations",
+    "TigerBeetle recommends reducing variability in both space (IO) and time (clocks) for easier debugging and better performance",
+    "FoundationDB's 'swizzle-clogging' technique randomly clogging and unclogging network connections finds rare edge-case bugs",
+    "The pattern across all systems: eliminate non-determinism and use seeded pseudo-random numbers for reproducible test failures"
+  ],
+  "money_quotes": [
+    "Viewstamped Replication is a consistency algorithm that predates Paxos and Raft.",
+    "Say goodbye to flaky tests! This single-threaded design is the key to the determinism and reproducibility of our randomized testing systems.",
+    "Alex recommends reducing variability in both space (IO) and time (clocks).",
+    "To swizzle-clog, you first pick a random subset of nodes in the cluster. Then, you 'clog' (stop) each of their network connections one by one over a few seconds.",
+    "This pattern seems to be particularly good at finding deep issues that only happen in the rarest real-world cases.",
+    "This is harder than it sounds, hence all of this wonderful content."
+  ],
+  "themes": [
+    "distributed_systems",
+    "databases",
+    "engineering"
+  ],
+  "tone": "technical, curated, instructive",
+  "key_insight": "Deterministic simulation testing\u2014achieved by eliminating non-determinism and using seeded pseudo-random execution\u2014is the gold standard for testing distributed systems, as demonstrated by Dropbox, TigerBeetle, and FoundationDB.",
+  "filename": "2023-11-09-viewstamped-replication-deterministic-simulation"
+}

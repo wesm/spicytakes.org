@@ -1,0 +1,27 @@
+{
+  "summary": "This newsletter covers three main developments in data infrastructure: Apache Arrow's addition of new formats (StringView, ListView, REE) to improve interoperability with Meta's Velox execution engine, the emerging edge database ecosystem with players like Ditto, SKDB, and ElectricSQL, and a UUID performance benchmark comparing storage strategies in PostgreSQL. Riccomini expresses enthusiasm for Arrow and its ecosystem while questioning the necessity of Velox given DataFusion's broader functionality. He highlights ElectricSQL's achievement of running PostgreSQL in the browser as particularly noteworthy for simplifying client-server schema synchronization. The piece concludes with a personal anecdote about UUID storage mistakes and excitement about UUID v7's inclusion in PostgreSQL 17.",
+  "key_points": [
+    "Arrow's new StringView format uses indirection to improve memory locality by encoding small strings directly in the view layer, enabling better interoperability with Meta's Velox",
+    "DataFusion appears to be a superset of Velox's functionality, making Velox most useful only for teams replacing execution engines in existing query systems like Presto or Spark",
+    "Edge databases are gaining momentum with Ditto (resilient networking via BLE/WiFi/LAN), SKDB (Firebase integration), and ElectricSQL (PostgreSQL in the browser)",
+    "Lexicographically sortable UUIDs (v7, ULIDs, Snowflake IDs) solve B-tree index performance problems caused by random insertion patterns",
+    "Arrow and its subprojects could be as impactful as Hadoop was a decade ago in reshaping database architecture"
+  ],
+  "money_quotes": [
+    "I believe they will be as impactful as Hadoop was a decade ago.",
+    "Frankly, I see little reason to use Velox.",
+    "DataFusion is a superset of Velox's functionality.",
+    "ElectricSQL with PostgreSQL on both the client and server simplifies a lot.",
+    "This ended up being a bad idea for a variety of reasons; it caused performance and ETL problems.",
+    "Non-time-ordered UUIDs values generated in succession are not sequential. The randomly generated values will not be clustered to each other in a database index.",
+    "I'm excited about UUID v7."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "distributed_systems"
+  ],
+  "tone": "informative, opinionated, enthusiastic",
+  "key_insight": "Arrow's ecosystem (DataFusion, Ballista, Comet) is positioned to become the dominant composable database infrastructure, making alternatives like Velox largely redundant except for specific migration use cases.",
+  "filename": "2024-02-26-arrow-and-velox-play-nice"
+}

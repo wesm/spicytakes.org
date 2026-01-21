@@ -1,0 +1,27 @@
+{
+  "summary": "This interview features Philippe No\u00ebl, CEO of ParadeDB, discussing how they're building Elasticsearch alternatives as PostgreSQL extensions. ParadeDB offers pg_search for BM25 full-text search and pg_analytics/pg_lakehouse for columnar analytics, allowing users to avoid ETL pipelines to separate search infrastructure. No\u00ebl explains that PostgreSQL's extensibility allows it to stay current with data innovations while maintaining core stability. He discusses the recently announced pg_duckdb project, expressing cautious optimism but concern that MotherDuck may be too DuckDB-centric. The company is currently focused on commercial licenses and self-hosted deployments, with plans for BYOC solutions and Postgres platform partnerships.",
+  "key_points": [
+    "ParadeDB builds Elasticsearch functionality (full-text search, analytics) as PostgreSQL extensions, eliminating the need for separate ETL pipelines",
+    "PostgreSQL's extension ecosystem enables innovation without compromising core stability - extensions can move fast while core maintains quality",
+    "Search and analytics use cases are fundamentally similar from the customer perspective: enabling users to filter data for insights or actions",
+    "The pg_duckdb project is promising but No\u00ebl worries MotherDuck may not have sufficient Postgres expertise to build it correctly",
+    "Building analytics properly in Postgres is extremely difficult - harder than what ParadeDB or most companies can currently achieve"
+  ],
+  "money_quotes": [
+    "In my view Postgres isn't having a renaissance but is rather 'coming of age'. The last 30 years of smart design decisions have slowly made it the best open-source RDBMS.",
+    "Extensions enable Postgres to stay current with innovations in the data space while also maintaining extreme care to keep core as small and robust as possible.",
+    "We believe customers should pick a product by thinking about their business need(s) rather than about the infrastructure of the product itself.",
+    "Building analytics in Postgres is really hard. Doing it properly is much harder than what ParadeDB could do today.",
+    "I am worried that MotherDuck, who seems to be the primary company driving this, does not care enough about Postgres to really make the project what it needs to be.",
+    "Hacking on Postgres is really hard. It's hard to find developers who know Postgres core.",
+    "The clear separation of work granted by extensions allow Postgres to uniquely accomplish the best of both worlds: Stay relevant while being rock-solid."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "engineering"
+  ],
+  "tone": "technical, candid, pragmatic",
+  "key_insight": "PostgreSQL's extension architecture enables the database to innovate rapidly in areas like search and analytics while preserving the stability and reliability that made it dominant.",
+  "filename": "2024-09-03-search-on-postgresql-building-extensions"
+}

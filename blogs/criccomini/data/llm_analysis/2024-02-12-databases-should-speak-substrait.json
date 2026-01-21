@@ -1,0 +1,27 @@
+{
+  "summary": "Riccomini proposes that databases should accept Substrait query plans directly instead of text-based SQL, arguing this would eliminate an unnecessary translation layer. Currently, ORMs and query builders generate SQL text that databases must parse back into an intermediate representation\u2014a roundabout process. By allowing applications to send structured query plans directly, databases could support multiple query languages, eliminate parsing overhead, and make programmatic access a first-class citizen. While this approach is gaining traction in data warehousing (DuckDB, Spark Connect), the OLTP space has surprisingly little adoption, presenting an opportunity for someone to build PostgreSQL support.",
+  "key_points": [
+    "SQL is designed for humans to write, but machines communicating with databases would be better served by structured query formats",
+    "The current ORM-to-SQL-to-IR pipeline involves unnecessary serialization to text and back",
+    "Substrait adoption would enable databases to support multiple query frontends (SQL, PRQL, Malloy, natural language)",
+    "Data warehousing tools like DuckDB and Spark Connect already support direct query plan interfaces",
+    "The OLTP database ecosystem has surprisingly ignored this approach despite ORMs being a natural fit"
+  ],
+  "money_quotes": [
+    "SQL is built for humans. Machines are much better at generating structured messages.",
+    "Under the hood, query builders are all generating text SQL right now. I've always found this strange.",
+    "ORMs and query builders should be able to go straight to the IR.",
+    "Programmatic database access would become a first-class citizen.",
+    "It's silly to have applications generate text-based SQL; they should be allowed to pass query plans to the database.",
+    "Imagine if PostgreSQL had a from_substrait() extension.",
+    "Surprisingly, I haven't found any support for substrait in the OLTP space."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "databases",
+    "distributed_systems"
+  ],
+  "tone": "opinionated, technical, forward-looking",
+  "key_insight": "The translation from programmatic query builders to SQL text and back to query plans is an unnecessary indirection that Substrait could eliminate, making databases truly machine-friendly.",
+  "filename": "2024-02-12-databases-should-speak-substrait"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Chris Riccomini argues that the Model Context Protocol (MCP) is an unnecessary new standard when existing solutions like OpenAPI, gRPC, and CLIs already serve the same purpose of teaching LLMs to interact with software systems. He finds MCP's categorization of resources, prompts, and tools arbitrary and confusing, noting that the same flight search example appears in their documentation as both a tool and a resource. While acknowledging arguments about context window limitations and poor documentation, he's skeptical these justify a new protocol, especially as context windows expand rapidly. He concludes that developers should focus on building better tools using existing standards rather than adopting MCP.",
+  "key_points": [
+    "MCP's categories (resources, prompts, tools) are arbitrary and confusing\u2014the same functionality can be represented multiple ways",
+    "Existing standards like OpenAPI, gRPC, and CLIs already accomplish what MCP does, and LLMs are already proficient at using them",
+    "Context window limitations that justify MCP are temporary\u2014models have grown from 1 million to 2 million tokens in a year",
+    "The argument that MCP fixes poor documentation is flawed: the same developers who wrote bad OpenAPI specs will write bad MCP specs",
+    "Benchmarks show MCP vs CLI is essentially a wash, with both achieving 100% success rates"
+  ],
+  "money_quotes": [
+    "This begs the question: why do we need MCP for tool definitions? We already have OpenAPI, gRPC, and CLIs.",
+    "ChatGPT is actually better at CLIs than most humans\u2014just watch Codex fly through sed, awk, and grep commands.",
+    "Viewed from this lens, MCP seems like a temporary kludge.",
+    "The argument seems to be that the same people that wrote the bad OpenAPI specs are going to write good MCP specs. I don't buy it.",
+    "There's no law that LLMs need a new protocol to interact with software.",
+    "The protocol is just plumbing. What matters is whether your tool helps or hinders the agent's ability to complete tasks.",
+    "MCP is a victim of its own success."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "engineering"
+  ],
+  "tone": "critical, skeptical, pragmatic",
+  "key_insight": "MCP is a solution in search of a problem\u2014existing standards like OpenAPI and CLIs already enable LLMs to interact with software systems, making a new protocol unnecessary overhead.",
+  "filename": "2025-09-11-mcp-server-could-have-been-json-file"
+}
