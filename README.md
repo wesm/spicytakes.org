@@ -14,6 +14,7 @@ A multi-blog archive platform that uses LLM-powered analysis to generate summari
 | [jessfraz.spicytakes.org](https://jessfraz.spicytakes.org) | Jess Frazelle | Containers, security, hardware | 75 |
 | [geohot.spicytakes.org](https://geohot.spicytakes.org) | George Hotz | AI, tinygrad, contrarian takes | 98 |
 | [mrocklin.spicytakes.org](https://mrocklin.spicytakes.org) | Matt Rocklin | Dask, open source, startups | 199 |
+| [criccomini.spicytakes.org](https://criccomini.spicytakes.org) | Chris Riccomini | Data infrastructure, Kafka, distributed systems | 63 |
 
 ## Project Structure
 
@@ -168,6 +169,7 @@ The site is deployed to Vercel with separate projects for each subdomain.
 | jessfraz | spicy-takes-jessfraz |
 | geohot | spicy-takes-geohot |
 | mrocklin | spicy-takes-mrocklin |
+| criccomini | spicy-takes-criccomini |
 
 ## Adding a New Blog
 
