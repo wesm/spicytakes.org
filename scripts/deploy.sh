@@ -113,7 +113,7 @@ deploy_blog() {
     vercel link --yes --project="$project_name"
 
     # Deploy (builds on Vercel servers using VITE_BLOG_ID from project env vars)
-    vercel $PROD_FLAG --yes
+    vercel ${PROD_FLAG:+"$PROD_FLAG"} --yes
 
     echo "Done: $blog_id"
     echo ""

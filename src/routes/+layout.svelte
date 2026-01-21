@@ -10,11 +10,11 @@
   let { children, data }: { children: any; data: LayoutData } = $props();
 
   // Initialize stores from server data synchronously (runs during SSR and hydration)
-  $effect(() => {
-    if (data.blogData) {
-      initializeData(data.blogData);
-    }
-  });
+  // Note: data.blogData is set once by SvelteKit and doesn't change, so synchronous access is safe
+  // svelte-ignore state_referenced_locally
+  if (data.blogData) {
+    initializeData(data.blogData);
+  }
 
   const title = isLandingMode ? `${landing.title} - ${landing.tagline}` : `${config?.name} - ${config?.tagline}`;
   const description = isLandingMode ? landing.description : config?.description;
