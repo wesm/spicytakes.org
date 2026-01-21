@@ -105,12 +105,12 @@ deploy_blog() {
     echo "Mode:      ${PROD_FLAG:-preview}"
     echo "========================================"
 
-    # Build
-    echo "Building..."
-    VITE_BLOG_ID="$blog_id" npm run build --silent
+    # Link to the correct Vercel project
+    echo "Linking to project..."
+    vercel link --yes --project="$project_name"
 
-    # Deploy using --name to specify the project
-    vercel deploy $PROD_FLAG --yes --name="$project_name"
+    # Deploy (builds on Vercel servers using VITE_BLOG_ID from project env vars)
+    vercel $PROD_FLAG --yes
 
     echo "Done: $blog_id"
     echo ""
