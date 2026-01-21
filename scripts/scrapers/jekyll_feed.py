@@ -36,6 +36,9 @@ class JekyllFeedScraper(BaseScraper):
         self.url_pattern = self.config["scraper"].get("urlPattern", r"/\d{4}/\d{2}/\d{2}/")
         # Whether posts are in <li><h3><a> (True) or just <li><a> (False)
         self.posts_in_h3 = self.config["scraper"].get("postsInH3", True)
+        # Optional: additional articles page (e.g., MkDocs Material site)
+        self.articles_url = self.config["scraper"].get("articlesUrl")
+        self.articles_base_url = self.config["scraper"].get("articlesBaseUrl", "")
 
         # Headers to appear as a regular browser
         self.headers = {
@@ -141,6 +144,64 @@ class JekyllFeedScraper(BaseScraper):
             print(f"  Error fetching homepage: {e}")
             return []
 
+    def fetch_articles_page(self) -> list[dict]:
+        """Fetch articles from a separate articles page (e.g., MkDocs Material site)."""
+        if not self.articles_url:
+            return []
+
+        try:
+            response = requests.get(self.articles_url, timeout=30, headers=self.headers)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            posts = []
+            # MkDocs Material articles: look for links with dates in text
+            # Format: "Title YYYY-MM-DD description..."
+            for link in soup.find_all("a", href=True):
+                href = link.get("href", "")
+                text = link.get_text(strip=True)
+
+                # Skip navigation/non-article links
+                if not href.startswith("../") and not href.startswith("/"):
+                    continue
+                if href in ["../", "/", "../articles/", "#"]:
+                    continue
+
+                # Look for date pattern in text (YYYY-MM-DD)
+                date_match = re.search(r"(\d{4}-\d{2}-\d{2})", text)
+                if not date_match:
+                    continue
+
+                pub_date = date_match.group(1)
+
+                # Extract title (text before the date)
+                title = text[:date_match.start()].strip()
+                if not title:
+                    continue
+
+                # Build absolute URL
+                if href.startswith("../"):
+                    url = self.articles_base_url + "/" + href[3:].rstrip("/") + "/"
+                elif href.startswith("/"):
+                    url = self.articles_base_url + href
+                else:
+                    url = href
+
+                # Normalize URL
+                url = url.rstrip("/") + "/"
+
+                posts.append({
+                    "title": title,
+                    "url": url,
+                    "pub_date": pub_date,
+                    "content_html": None
+                })
+
+            return posts
+        except Exception as e:
+            print(f"  Error fetching articles page: {e}")
+            return []
+
     def fetch_post_page(self, url: str) -> str | None:
         """Fetch a single post page and extract HTML content."""
         try:
@@ -148,8 +209,14 @@ class JekyllFeedScraper(BaseScraper):
             response.raise_for_status()
             soup = BeautifulSoup(response.text, "html.parser")
 
-            # Find main content - Jekyll blogs typically use <article> or <main>
-            content_elem = soup.find("article") or soup.find("main")
+            # Find main content - try various selectors
+            content_elem = None
+
+            # MkDocs Material uses md-content__inner
+            content_elem = soup.find("div", class_="md-content__inner")
+            if not content_elem:
+                # Jekyll blogs typically use <article> or <main>
+                content_elem = soup.find("article") or soup.find("main")
             if not content_elem:
                 # Try finding post-content div
                 content_elem = soup.find("div", class_="post-content")
@@ -352,6 +419,13 @@ class JekyllFeedScraper(BaseScraper):
         homepage_posts = self.fetch_homepage_posts()
         print(f"  Found {len(homepage_posts)} posts on homepage")
 
+        # Fetch from articles page if configured (e.g., MkDocs Material site)
+        articles_posts = []
+        if self.articles_url:
+            print("\nFetching articles page...")
+            articles_posts = self.fetch_articles_page()
+            print(f"  Found {len(articles_posts)} posts on articles page")
+
         # Merge: use feed content when available, otherwise fetch from page
         all_post_metas = []
         seen_urls = set()
@@ -363,6 +437,12 @@ class JekyllFeedScraper(BaseScraper):
 
         # Then add homepage posts not in feed
         for post in homepage_posts:
+            if post["url"] not in seen_urls:
+                all_post_metas.append(post)
+                seen_urls.add(post["url"])
+
+        # Then add articles posts not already seen
+        for post in articles_posts:
             if post["url"] not in seen_urls:
                 all_post_metas.append(post)
                 seen_urls.add(post["url"])
