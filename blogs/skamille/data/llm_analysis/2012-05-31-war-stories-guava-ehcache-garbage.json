@@ -1,0 +1,25 @@
+{
+  "summary": "The author describes a production incident that occurred after migrating business logic from Drupal to Java backend services. While the release successfully reduced page load times by 3 seconds, it caused severe garbage collection issues due to an interaction between Guava's lazy Lists.transform function and Ehcache. The team discovered that caching the result of Lists.transform doesn't actually cache the transformed data\u2014it caches the lazy transformer object along with references to the original data. The fix was simple: wrap the transform result in Lists.newArrayList to force eager evaluation before caching.",
+  "key_points": [
+    "Guava's Lists.transform is lazy\u2014it returns a wrapper that applies transformations on-demand rather than immediately",
+    "Caching lazy-evaluated collections can cause memory leaks because you're caching the transformer and original data, not the results",
+    "JVM monitoring tools (jstat, jmap, MAT) are essential for diagnosing production memory issues",
+    "The incident became a learning opportunity to teach the team about garbage collection fundamentals",
+    "Cloud infrastructure allowed quick mitigation by resizing machines while investigating the root cause"
+  ],
+  "money_quotes": [
+    "Yes, that's right, three seconds per page load.",
+    "After digging into the references via one of the worst user interfaces known to man, I finally got to the bottom of an element, and saw something strange.",
+    "Which is great for saving a bit of time up front, but absolutely terrible if you're caching the result to save yourself memory.",
+    "We are even lazier than Guava in our evaluation.",
+    "Now at least one other member of my team understands some of the fundamentals of the garbage collector, and we've learned a hard lesson about Guava and caching that we won't soon forget."
+  ],
+  "themes": [
+    "technical",
+    "teams",
+    "leadership"
+  ],
+  "tone": "technical, candid, educational",
+  "key_insight": "Lazy evaluation and caching are fundamentally at odds\u2014if you cache a lazily-evaluated collection, you're storing the computation rather than its result, which can cause severe memory issues.",
+  "filename": "2012-05-31-war-stories-guava-ehcache-garbage"
+}

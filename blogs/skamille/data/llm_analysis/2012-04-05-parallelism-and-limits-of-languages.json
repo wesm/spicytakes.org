@@ -1,0 +1,24 @@
+{
+  "summary": "The post argues that while functional languages like Clojure and Scala offer convenient parallelism primitives, they break down when you need fine-grained performance tuning across diverse workloads. Drawing from experience parallelizing code for Azul's many-core systems, Fournier explains that real-world parallel computing requires careful tuning of batch sizes, thread pools, and task prioritization that generic language abstractions cannot provide. She argues that the next major breakthrough in programming will be VMs that handle threading automatically, just as the JVM revolutionized memory management with garbage collection. The goal should be making manual thread management as archaic as manual memory management.",
+  "key_points": [
+    "Generic parallelism primitives like pmap are great for learning but insufficient for production workloads requiring fine-grained control over batch sizes, thread pools, and task prioritization",
+    "Real parallel optimization must account for processor cache lines, different hardware configurations across dev/test/prod environments, and task interdependencies",
+    "The true breakthrough in parallelism will come from VMs that observe system behavior and automatically tune threading, not just from language features that encourage parallel thinking",
+    "Just as garbage collection freed developers from manual memory management, we need similar VM-level automation for thread management",
+    "Functional languages help developers think about applying logic over data, but cannot solve automated parallelism without underlying VM support"
+  ],
+  "money_quotes": [
+    "When you're forced into parallelism at that level of detail, you quickly realize how difficult it is to have a generic way of doing it.",
+    "If you need to eke out every ounce of performance, you want every computation to be tuned to the right batch size and the right number of threads.",
+    "I've always thought that the next truly big leap in VMs and languages will be those that can do smart things with threading without making developers sweat too much.",
+    "It's not Java itself that enables you to write code without worrying about deleting references only when they are truly not being used, but rather the VM that watches all objects and knows how to find the live ones.",
+    "Languages can force developers to think about applying logic over their data, but they will never solve the problem of automated parallelism without the VM to tune it in the background.",
+    "I can't wait for the day when calling submit feels as archaic as calling malloc."
+  ],
+  "themes": [
+    "technical"
+  ],
+  "tone": "technical, reflective, forward-looking",
+  "key_insight": "True automated parallelism requires VM-level intelligence that observes and tunes system behavior dynamically, not just language features that make parallel code easier to write.",
+  "filename": "2012-04-05-parallelism-and-limits-of-languages"
+}

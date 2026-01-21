@@ -1,0 +1,23 @@
+---
+title: "In Defense of the Repetitive Business Book"
+date: 2016-02-22
+url: https://www.elidedbranches.com/2016/02/in-defense-of-repetitive-business-book.html
+word_count: 760
+---
+
+Over a recent vacation, I finally read
+[Mindset](http://amzn.to/24loW66)
+, by Carol Dweck. For those of you unfamiliar with the book, I'll recap quickly. Have you heard that you shouldn't praise your children for being smart, but instead praise them for working hard? That is probably the most popular trend coming out of this book, which discusses at length and in almost excruciating detail why a "growth mindset," that is, one that believes that people can get better at whatever they choose, that effort and exploration are the keys to success, is preferable to a "fixed mindset" that believes that you are as smart, athletic, musical, etc, at birth as you will ever be, and effort is secondary to your measure of natural talent.
+[Mindset](http://amzn.to/24loW66)
+is a deeply repetitive book. You are treated to story upon story upon story of the successful (and happy, and well-adjusted, and sustaining) person who exhibited the growth mindset. You're treated to many contrasting stories of the successful but less-than-they-could-have-been (and unhappy, and maladjusted, and burned out) person with the fixed mindset. You also get a good dose of research to back up the observations of the behaviors of people who both put themselves in various mindsets and people in experimental conditions who are put into the two mindsets. It ends with some situations that you might face, a parent with a fixed mindset child being one, and suggestions for how to approach them with a growth mindset.
+
+### I would absolutely recommend that you read it.
+
+You may be surprised, given the faint praise I have given so far. It's repetitive, deeply so. If you get the concept, then, why read the book? You could probably get the gist with a blog post or short article, or maybe a TED talk. What's the value of a book on the topic, beyond lining the author's pockets?
+I think that sometimes I fall victim to this fallacy that if I am familiar with the general outline of a concept, and I agree with the concept, that I understand this concept. I see this play out especially in non-technical topics. If I can roughly explain it to someone, I understand it, right?
+Of course, there is a huge separation between understanding a concept and putting it into action. Many of the concepts introduced in pop psychology or business books are pretty easy to understand. The problem is putting them into practice. Remembering to do them. Most people understand that the first step to losing weight for most people is to get more exercise and eat better, and yet, putting that simple practice into place is hard. It's hard because breaking habits is hard, forming new habits is hard. Changing the way you react to things is hard.
+[Mindset](http://amzn.to/24loW66)
+is in some ways just a rehash of concepts of Buddhism. Let go of your notion of "self." Be open, relaxed, curious, willing to believe that you can grow. The only inevitability in this life is change, nothing is fixed. That means that, yes, success is ephemeral, but it also means that you are capable of changing, learning, and growing, all the time. Many leadership, pop psychology and business books end up sounding like a rediscovery of parts of the dharma. No one is surprised when you say that, as a philosophical, spiritual, or religious person, you are still learning the meaning of your particular path, and learning every day how to walk that path. It is no surprise that it takes a lifetime of study. So, too, does learning the concepts of leadership, creativity, interacting with fellow humans, and growth. Whether or not it is a spiritual path, it is not something that most of us find natural, and not something that will sink in with an article, or even a book. But it helps to get a prolonged exposure to the idea, to work through some of its nuance, to spend 5 hours with it instead of just 15 minutes.
+So, read
+[Mindset](http://amzn.to/24loW66)
+. Think about your own mindset. I can say that personally I have moved slowly from fixed mindset to growth mindset over the years. It has been hard. I still fall back in places to the fixed mindset. Why am I moving? Mostly because it's just more fun to grow. To learn new things. To believe that you can change. I kept meeting these people that seemed so light, so free, so creative, and they just seemed so willing to learn and fail and learn some more. Why not me? Why not all of us?

@@ -1,0 +1,23 @@
+---
+title: "Ask the CTO: Navigating the hands-on to hands-off transition"
+date: 2016-04-12
+url: https://www.elidedbranches.com/2016/04/ask-cto-navigating-hands-on-to-hands.html
+word_count: 775
+---
+
+
+## I'm writing a new series for managers on [oreilly.com](https://www.oreilly.com/people/b0050-camille-fournier). Here is a teaser for my first post!
+
+The problem: I’m a new manager and I’m overwhelmed
+
+*A few months ago, I was given the opportunity to run a new team in a growing area of my organization. The company thought I was ready for a bigger leadership role, and I agreed. I think I have a good track record that prepared me well for this: I've been a successful tech lead, had a couple of direct reports, and created some great software. I was excited to grab this chance to lead a large team and set the technical direction for part of the business, so I gladly took the job.*
+*But lately, I've begun to realize that instead of having a few hours of meetings a week, more than half of my time is booked before the week begins. I have regular 1-1s, touchbases with peers across tech, and meetings with the product team for planning, interviews, and strategy sessions, and the list goes on. I was excited to write some code for the new systems my team is building, and I've tried to, but the only time I can find is in the mornings before everyone arrives, or at night after I've eaten dinner. I'm totally stressed out trying to balance all of this, and my team is starting to complain that I am canceling my meetings so I can have more time to code. So, my question is: how do I learn to balance my days so I have time for all these meetings and management tasks, but also time to write code?*
+
+## The solution: Think of management as real work
+
+Let me ask you a question, before I begin. Do you believe that management is real work? Do you believe it is work that is just as valuable as coding, architecture, and other hands-on technical tasks?
+We start with that because if you do not think that management is real work, you will continue to treat it like an unfortunate burden to be dealt with so you can get to the fun stuff. Which, sadly, is the attitude that many managers in tech seem to take. I say that this is sad because it causes not only suffering on the part of the manager, but a lot of damage to the team as well. Your team needs you to be there as a manager for them, and it is almost impossible to show up fully for a role that you don't think is valuable. Management is work, and it is important that you put your management priorities front and center.
+Great managers know that their value comes from the ways in which they create functioning teams, focused on the right work. When you can do that job well, you will almost always create greater value to the organization than you would as an engineer; yes, even a 10X engineer. If you shortchange your role as manager by fighting for code to write and technical work to deliver, it's likely that you will end up, at best, totally stressed out, and at worst, slowing down your team.
+Sometimes we managers feel that we have to keep writing code because otherwise things won't get done. However, if your team isn't getting enough work done, your job is not to do the work yourself. Your job as a manager is to figure out how to help the team get more done. It is incredibly hard to make the overall team stronger and spend half your time focused on doing the work yourself, especially when half your time is actually overtime. Yes, immersing yourself in the technical details may give you some insights into the day-to-day challenges of your team, but you can also get many of those insights by training your team to notice them, and helping your team know what to tell you.
+Going hands-off is hard, even if you do value the work of management, because you no longer have a simple, easily measurable thing to look at. Experienced engineers get frequent strings of wins as they write code, fix bugs, and see new features come to life. The feedback loop as a manager is much, much slower. There's no red-green-refactor for guiding humans. It's okay to mourn the loss of that endorphin hit. You spent years getting good at the job of being an engineer, and now you have to do something that you probably aren't as good at yet. It will get better, but it will not be the same.
+*[Answer continued with practical advice and more on oreilly.com](https://www.oreilly.com/ideas/ask-the-cto-new-manager-has-a-fear-of-losing-a-technical-edge)*

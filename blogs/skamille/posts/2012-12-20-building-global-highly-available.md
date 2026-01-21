@@ -1,0 +1,35 @@
+---
+title: "Building a Global, Highly Available Service Discovery Infrastructure with ZooKeeper"
+date: 2012-12-20
+url: https://www.elidedbranches.com/2012/12/building-global-highly-available.html
+word_count: 1108
+---
+
+This is the written version of a presentation I made at the ZooKeeper Users Meetup at Strata/Hadoop World in October, 2012 (
+[slides available here](https://docs.google.com/presentation/d/185bmCPNMVmVEwjEx_yjxUYpNy-BZAG6G4tHByZd5kYI/edit)
+). This writeup expects some knowledge of ZooKeeper.
+**The Problem:**
+Create a "dynamic discovery" service for a global company. This allows servers to be found by clients until they are shut down, remove their advertisement, or lose their network connectivity, at which point they are automatically de-registered and can no longer be discovered by clients. ZooKeeper ephemeral nodes are used to hold these service advertisements, because they will automatically be removed when the ZooKeeper client that made the node is closed or stops responding.
+This service should be available globally, with expected "service advertisers" (servers advertising their availability, aka, writers) able to scale to the thousands, and "service clients" (servers looking for available services, aka, readers) able to scale to the tens of thousands. Both readers and writers may exist in any of three global regions: New York, London, or Asia. Each region has two datacenters with a fat pipe between them, and each region is connected to each other region, but these connections are much slower and less tolerant for piping large quantities of data.
+This service should be able to withstand the loss of any one entire data center.
+As creators of the infrastructure, we control the client that connects to this service. While this client wraps the ZooKeeper client, it does not have to support all of the ZooKeeper functionality.
+**Implications and Discoveries:**
+ZooKeeper requires a majority (n/2 + 1) of servers to be available and able to communicate with each other in order to form a quorum, and thus you cannot split a quorum across two data centers and guarantee that the quorum will be available with the loss of any one data center (because at least one data center will fail to have a pure majority of servers). To sustain the loss of a datacenter therefore you must split your cluster across 3 data centers.
+Write speed dramatically decreases when the quorum must wait for votes to travel over the WAN. We also want to limit the number of heartbeats that must travel across the WAN. This means that both a ZooKeeper cluster with nodes spread across the globe is undesirable (due to write speed), and a ZooKeeper cluster with members only in one region is also undesirable (because writing clients outside of that region would have to continue to heartbeat over the WAN). Even if we decided to have a cluster in only one region, we would have to solve the problem that no region has more than 2 data centers, and we need 3 data centers to handle the loss/network partition of an entire data center.
+**Solution:**
+Create 3 regional clusters to support discovery for each region. Each cluster has N-1 nodes split across the 2 local data centers, with the final node in the nearest remote data center.
+By splitting the nodes this way, we guarantee that there is always availability if any one data center is lost or partitioned from the rest of the data centers. We also minimize the affects of the WAN on write speed by ensuring that the remote quorum member is never made into the leader node, and the general effect of the majority of nodes being local means that voting can complete (thus allowing writes to finish) without waiting for the vote from the WAN node in normal operating conditions.
+**3 Separate Global Clusters, One Global Service:**
+Having 3 separate global clusters works well for infrastructural reasons mentioned above, but it has the potential to be a headache for the users of the service. They want to be able to easily advertise their availability, and discover available servers preferably by those servers available first in their local region, and secondly in other remote regions if no local servers are available.
+To do this, we wrapped our ZooKeeper client in such a way as to support the following paradigm:
+Advertise Locally
+Lookup Globally
+Operations requiring a continuous connection to the ZooKeeper, such as advertise (which writes an ephemeral node) or watch are only allowed on the local discovery cluster. Using a virtual IP address we automatically route connections to the discovery service address of the local ZooKeeper cluster and write our ephemeral node advertisement here.
+Lookups do not require a continuous connection to the ZooKeeper, and so we can support global lookups. Using the same virtual IP address we can connect to the local cluster to find local servers, and failing that use a deterministic fallback to remote ZooKeeper clusters to discover remote servers. The wrapped ZooKeeper client will automatically close its connection to the remote clusters after a period of client inactivity, so as to limit WAN heartbeat activity.
+**Lessons learned:**
+ZooKeeper as a Service (a shared ZooKeeper cluster maintained by a centralized infrastructure team to support many different clients) is a risky proposition. It is easy for a misbehaving client to take down an entire cluster by flooding it with requests or making too many connections and without a working hard quota enforcement system clients can easily push too much data into ZooKeeper. Since ZooKeeper keeps all of its nodes in memory, a client writing huge numbers of nodes with a lot of data in each can cause ZooKeeper to garbage collect or run out of memory, bringing down the entire cluster.
+ZooKeeper has a few hard limits. Memory is a well-known limit, but another limit is the number of sockets for a server process (configured via the ulimit in *nix). If a node runs out of sockets due to too many client connections, it will basically cease to function without necessarily crashing. This is not surprising for anyone that has experienced this problem in other Java servers, but it is worth noting when scaling your cluster.
+Folks using ZooKeeper to do this sort of dynamic discovery platform should note that if the services you are advertising are Java services, a long full GC pause can cause their session to the ZooKeeper cluster to time out and thus their advertisement will be deleted. This is generally probably a good thing, because a server that is doing a long-running full GC won't respond to client requests to connect, but it can be surprising if you are not expecting it.
+Finally, I often get the question of how to set the heartbeats, timeouts, etc, to optimize a ZooKeeper cluster, and the answer is really that it depends on your network. I really recommend playing with Patrick Hunt's
+[zk-smoketest](https://github.com/phunt/zk-smoketest)
+in your data centers to figure out sensible limits for your cluster.

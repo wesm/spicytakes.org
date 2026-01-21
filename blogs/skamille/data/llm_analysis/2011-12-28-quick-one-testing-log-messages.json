@@ -1,0 +1,21 @@
+{
+  "summary": "The post shares a technique for testing log messages in unit tests, learned from the ZooKeeper codebase. The approach involves creating a custom appender that writes to a ByteArrayOutputStream, attaching it to the logger, running the test, then scanning the output for expected patterns. While acknowledging this is not an ideal testing approach, the author argues it can be useful when log output is the only indication that a certain condition occurred. The post was updated to clarify that this should be a last resort, not a common practice.",
+  "key_points": [
+    "Log message testing can be achieved by attaching a custom WriterAppender to capture output to a ByteArrayOutputStream",
+    "This technique should be used sparingly - only when there's no other way to verify a condition happened",
+    "The approach represents a pragmatic tradeoff between test coverage and code refactoring effort",
+    "Sometimes it's better to test a log statement than to either skip testing entirely or do major refactoring just to expose internal state"
+  ],
+  "money_quotes": [
+    "You probably don't want to rely too heavily on log messages for testing, but sometimes it's the only indication you have that a certain condition happened.",
+    "Some folks have found this cringe-worthy. I agree.",
+    "This is not a testing method that should be common in any code base, and for goodness sakes if you can find a different way to ensure something happened, do so.",
+    "I'd rather write a test to validate a log statement then just make the change and observe the log, or refactor the code base to expose some fact that the conditions causing the log were met in order to be able to test it."
+  ],
+  "themes": [
+    "technical"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Testing log messages is a cringe-worthy but sometimes necessary pragmatic compromise when you need test coverage but refactoring to expose internal state isn't worth the effort.",
+  "filename": "2011-12-28-quick-one-testing-log-messages"
+}

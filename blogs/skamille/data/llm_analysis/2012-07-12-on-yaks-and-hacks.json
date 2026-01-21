@@ -1,0 +1,26 @@
+{
+  "summary": "The author recounts two contrasting software development experiences: a supposedly quick feature that spiraled into extensive yak-shaving due to dependency management issues and missing abstractions, versus a bug fix that was elegantly solved by asking end users how they handled the problem manually. The 'quick' feature required updating four projects, refactoring user modeling, and fixing serialization issues before finally working. The bug fix was resolved by simply converting two accented characters to plain text, as the marketing team had always done. The post illustrates how sometimes the right choice is to embrace necessary refactoring (yak shaving), while other times a simple hack is the wiser path.",
+  "key_points": [
+    "A 'half-day' feature estimate ballooned into multiple days due to dependency chain issues, missing data serialization, and inadequate abstractions",
+    "Dependency management systems, while useful, often cause the most time-consuming yak-shaving incidents",
+    "Sometimes asking end users how they solved a problem manually reveals a simple hack that avoids over-engineering",
+    "Yak shaving, while frustrating, can yield benefits: better code structure, more data, and surfacing architectural problems that need addressing",
+    "The key skill is recognizing when to embrace necessary refactoring versus when a simple hack is the appropriate solution"
+  ],
+  "money_quotes": [
+    "I sold it to the head of analytics and myself as a quick feature to spin up, half a day's dev work for me.",
+    "Dependency management systems have caused the biggest yaks I've ever shaved, and those couple of hours of annoyance are a small drop in the bucket.",
+    "After going through the irritation of changing 4 projects for 1 line of code, he understood my earlier cursing.",
+    "Before he sits down to write this re-encoding of everything, we ask our email marketers how they did this in the past.",
+    "I couldn't hack the dependency problems, and hacking the code restructuring would have resulted in threading an arbitrary parameter through a bunch of unrelated code just to avoid thinking about the right solution.",
+    "The upside of the yak shaving was more data, a better code base for making such changes in the future, and a recognition of a serious dependency structure problem that we need to address."
+  ],
+  "themes": [
+    "technical",
+    "teams",
+    "organizational"
+  ],
+  "tone": "reflective, self-deprecating, practical",
+  "key_insight": "Knowing when to embrace necessary yak-shaving for long-term code health versus when to apply a simple hack requires judgment that comes from understanding both the technical debt and the actual problem being solved.",
+  "filename": "2012-07-12-on-yaks-and-hacks"
+}

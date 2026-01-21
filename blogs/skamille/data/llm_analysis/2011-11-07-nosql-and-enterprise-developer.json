@@ -1,0 +1,25 @@
+{
+  "summary": "Fournier examines what NoSQL databases need to become viable for enterprise and financial services adoption. She highlights multi-datacenter replication and configurable consistency as critical features, drawing from her experience using Cassandra for business continuity requirements. The post explains why enterprises struggle with quorum-based systems\u2014most only have two data centers per region, making true high-availability difficult. She suggests cloud providers and regulatory pressure may eventually solve the data center limitation problem, but warns NoSQL vendors that meeting business continuity and regulatory requirements is essential for enterprise adoption.",
+  "key_points": [
+    "Business continuity is a major concern for financial enterprises, traditionally addressed through expensive, slow solutions like SRDF disk mirroring",
+    "Configurable read/write coherence in NoSQL systems enables both high availability and data loss protection across data centers",
+    "Most enterprises only have 2 data centers per region, making quorum-based systems impractical without cross-WAN writes",
+    "Cloud providers could serve as a third data center to enable proper quorum-based systems",
+    "NoSQL vendors must prioritize business continuity and regulatory compliance to move beyond niche adoption in enterprise"
+  ],
+  "money_quotes": [
+    "A major concern for the financials is business continuity. If a data center goes down, you had better be able to keep the critical parts of your business running.",
+    "It satisfies certain regulatory requirements, and it satisfies the basic needs of business continuity, but rarely in a clean and easy to use fashion.",
+    "Here's a tricky point quorum-based system designers should know: Many enterprises don't have data centers set up to support quorum-based systems in a local region.",
+    "To a distributed systems programmer, this is agony.",
+    "If only I had 3 data centers available in-region the possibilities for quorum-based systems to keep my data safe while still having relatively fast writes becomes so much more!",
+    "There's desire out there for what you are selling, but if it isn't easy to meet business continuity and regulatory requirements, you will never gain more than a niche position at these firms."
+  ],
+  "themes": [
+    "technical",
+    "organizational"
+  ],
+  "tone": "technical, pragmatic, advisory",
+  "key_insight": "NoSQL systems offer compelling distributed data capabilities, but enterprise adoption hinges on meeting real-world constraints like two-datacenter architectures and regulatory requirements that most vendors haven't adequately addressed.",
+  "filename": "2011-11-07-nosql-and-enterprise-developer"
+}

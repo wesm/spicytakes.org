@@ -1,0 +1,16 @@
+---
+title: "Revisiting ideas: Promotion from Within"
+date: 2014-05-28
+url: https://www.elidedbranches.com/2014/05/revisiting-ideas-promotion-from-within.html
+word_count: 484
+---
+
+Ages ago a friend of mine wrote a rather seminal post on
+["promotion from within"](http://algeri-wong.com/yishan/engineering-management-internal-promotion.html)
+. It is interesting to go back and read this post through the lens of hiring and leading a team for a few years. It is a great post, but I think that one major point often gets overlooked, and this point causes many companies who follow its advice to fail. That point is this:
+
+> 2) Using either the few experienced managers you've been able to internally promote or failing that, outside executive coaches, intensely mentor your more inexperienced managers to develop their skills. Typically, because many of your management candidates were less than fully-qualified, they will demonstrate potential but still be unsure in their new roles. Until they are comfortable and practiced in their roles, both they, their peers, and their teams will exist in a state of some distress.
+
+This is problem I have seen both at my own company and also observed at others': We promote from within, but provide no mentoring or guidance to those so promoted. Great managers are truly not born. They are made, and usually made through both being sat down and patiently taught the ways to effectively lead projects and people, but also through observing both successes and failures.  They are also made by being called to task on their own personal failures, something that many startups are unwilling or unable to do. The cult of personality around founders and early employees can work against the one thing necessary to make "promote from within" successful: some form of external help.
+Most of us in the startup world are working amongst people that have very little experience managing. And we've taken these ideas that Yishan so eloquently voiced, that culture is paramount, and elevated them to high status, while forgetting that there is a lot to learn to be a successful manager. I know that I came into this job two years ago thinking that given my natural willingness to be in charge and my strong technical skills I would be a great manager. Haha! Truthfully I'm only now getting to the point where I have an inkling of all the things I don't know, and a large part of that is thanks to a ton of coaching. I would not be able to lead my team successfully without coaching, and even with my own coach, I need a coach to help the managers that report to me.
+So, promote from within. But don't cheap out on the process by forgetting that these new managers and leaders need help, need training, need to be held responsible for both the good and the bad that they will inevitably produce in their first months and years as managers. Otherwise you might as well hire experienced external managers, because my hunch is that the payoff is actually equivalent, risking culture vs risking unguided learning.

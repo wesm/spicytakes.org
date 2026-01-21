@@ -1,0 +1,26 @@
+{
+  "summary": "Fournier explains her decision to abandon the Play framework for new services after three months of use at Rent the Runway. Her faith eroded in three stages: first, the development team ignored her bug fix contribution, signaling the 1.X branch was effectively abandoned. Then mysterious platform bugs cost her team days of lost development time on Mac and Windows. Finally, an inexplicable thread-hanging issue in a HashMap operation proved impossible to debug, even for an experienced Java developer. She concludes that a framework with undebuggable issues and an uncommitted support community is unsuitable for production applications.",
+  "key_points": [
+    "The Play team's inability to review even small pull requests indicated the 1.X branch was effectively abandoned",
+    "Platform bugs caused unexplainable failures across Mac and Windows that cost days of development time",
+    "A thread hanging in RUNNABLE state inside HashMap.get with no locks or resource contention was impossible to diagnose",
+    "The combination of mysterious bugs and absent community support makes a framework unusable for production",
+    "Even a lightweight, easy-to-use framework isn't worth the risk when you can't debug its failures"
+  ],
+  "money_quotes": [
+    "If the project team's bandwidth is so limited that they can't even afford to look at small fixes like this, it seems like the project is basically abandoned.",
+    "By this point, I had lost faith in the community, so I didn't see the point in going to them for help.",
+    "The thread was in RUNNABLE state, and it was in a HashMap method (either get or put) and it was just sitting there. Not doing anything.",
+    "I can debug just about anything you can throw at me in Java, but I had absolutely nowhere to start looking to debug this issue.",
+    "That is a dealbreaker, ladies and gents.",
+    "I can't use a product that I know has issues even I can't debug, and a team I don't trust to maintain the product to the standards my team needs to confidently use it in production."
+  ],
+  "themes": [
+    "technical",
+    "teams",
+    "leadership"
+  ],
+  "tone": "frustrated, analytical, decisive",
+  "key_insight": "A framework's debuggability and community responsiveness matter more than its ease of use\u2014when you can't diagnose issues or get support, no amount of convenience justifies the production risk.",
+  "filename": "2012-03-08-why-im-moving-away-from-play-framework"
+}

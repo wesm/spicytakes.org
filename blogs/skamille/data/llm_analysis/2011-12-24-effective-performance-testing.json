@@ -1,0 +1,25 @@
+{
+  "summary": "The post advocates for proactive performance testing as a critical practice for maintaining application speed in rapidly evolving systems. Fournier argues that while premature optimization should be avoided, developers need systematic ways to detect performance problems before they affect users. She outlines a practical approach starting with capturing endpoint runtimes, then building automated performance tests that compare trunk code against production using realistic data sets. The key is establishing baseline measurements and tracking trends over time, which provides confidence that performance regressions won't slip into production unnoticed.",
+  "key_points": [
+    "Profiling tools are seductive but dangerous - only use them when you already know you have a specific problem to solve",
+    "Basic performance testing requires production-like data and automated comparison of trunk vs yesterday's trunk or trunk vs production",
+    "Starting early with performance monitoring makes setup easier and influences better system design for deployment and automation",
+    "Comparing production to trunk code serves double duty as both performance monitoring and regression testing",
+    "Complex monitoring tools cannot replace the security that a good automated performance testing suite provides"
+  ],
+  "money_quotes": [
+    "In the land of e-commerce web apps, performance is even more essential. The bounce rate may double when a result takes 4 seconds vs 1 second, which means dollars we will never realize.",
+    "Profiling is devilish work that should only be undertaken when you know you have a problem to solve.",
+    "You need something that you can look at quickly, that you can keep around for a long time, and that will warn you in advance if something is going to cause you problems.",
+    "A really slow change is not likely to slip into your codebase unnoticed.",
+    "As with pretty much all good software engineering, the earlier you start running automated performance monitoring, the easier it is likely to be to set up.",
+    "I have found that all these complex tools cannot make up for the feeling of security and tracking that a good performance testing suite provides."
+  ],
+  "themes": [
+    "technical",
+    "teams"
+  ],
+  "tone": "practical, instructive, experienced",
+  "key_insight": "Automated performance testing against production-like data, run continuously and compared over time, is the most reliable way to catch performance regressions before they affect users.",
+  "filename": "2011-12-24-effective-performance-testing"
+}

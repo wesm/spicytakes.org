@@ -1,0 +1,26 @@
+---
+title: "On Charm, Skills and Management"
+date: 2014-08-10
+url: https://www.elidedbranches.com/2014/08/on-charm-skills-and-management.html
+word_count: 892
+---
+
+I had a great twitter conversation today with
+[Julia Grace](https://twitter.com/jewelia)
+on the topic of hiring managers, which you can see in pieces
+[here](https://twitter.com/skamille/status/498610903399804928)
+. The outcome was a hard look at the past couple of years of my own management experience.
+*TL;DR: Being a manager is **nothing at all **like being a tech lead, and hiring managers on the basis of their strength as individual contributors is not the guaranteed way to great technical leadership.*
+I got into engineering leadership because, first off, I wanted to have more impact and responsibility, but secondly, because I was the most senior engineer on the team, and a good communicator to boot. This actually worked out fine for quite a while. I could inspire people to work for me largely because they believed that I had things to teach them, and when I had the time to sit individually with engineers I did teach them many things. When I was hands-on, I could easily identify problems with our process, bottlenecks in our systems, and features that we should push back on, and I did all of that and more. In short, I was a really great tech lead.
+But tech lead stopped being my job long before I learned how to truly manage well (
+*nb: I may not yet know how to manage well*
+). When you're not actually able to spend lots of 1-1 time with engineers, and you aren't so deep in the code that it's easy for you to see how the process is frustrating, suddenly those bits of management that you could get away with being bad at become more important. The bits like "making time for 1-1s", and "identifying systemic issues via second-hand reports" and "talking about the status of projects that you haven't actually written any of the code for yourself."
+If you wonder why you see so few great managers in startup land, I think the answer is obvious: most of us got to our position by being great tech leads, and we haven't all figured out how to make the leap from tech lead to manager. For me, it's taken a ton of coaching from both a general executive coach and a CTO coach provided by my company. On top of that, I am fortunate enough to have gotten some training while I was still at my finance job, and to have seen effective managers do their thing, so I have a general idea of what good management looks like. And even with all that, I've made pretty much every mistake in the book.
+Truthfully, if your company doesn't provide you with a ton of structure and guidance or experienced managers to learn from, you've got a long road ahead of you if you want to become a great manager. Because it is not just about charm and engineering skills, and that is probably how you got here. When you want to hire
+*and retain*
+great engineers, they need someone they can learn from, and what do you do when you don't have the time to be that person? How do you hire the people that can teach and inspire in your place? How do you grow the engineers you have now into the great tech lead you once were? You thought you were good at recruiting when you had someone else sourcing and closing all the candidates, but now that person is you. Oh, and have you ever justified hiring plans? For a team whose code you've never actually written?
+Beyond recruiting: You can identify process bottlenecks, but can you identify them when you are not personally impacted by them? You've heard that clear goal setting is the key to strong leadership, but do you know how to do it? No, really, are you prepared to spend your Sunday evening writing quarterly goals,
+which is what I'm supposed to be doing right now
+? Have you ever measured engineering efficiency? Do you know what that is? Made a strategic multi-year roadmap? While worrying about preparing a deck for a team meeting where you'll be explaining why your team should care about these goals at all, and writing mid-year reviews to boot?
+I've hired and promoted various engineering managers since becoming the head of a growing team. Some have been experienced managers, some have been great tech leads looking to make the jump to becoming managers. They've all had ups and downs, but make no mistake, I've had to spend lots of time creating structures for all of them to be successful. The great tech leads may have an easier time winning over the engineers, but they still need to be taught the basics of structured management, and they won't all be successful or happy in that role. There's no silver bullet to creating a great leadership team except for putting in a structure that makes their responsibilities clear, for their sake and yours.
+So, if you're a great tech lead who's moving into management, congrats! Just be aware, the only useful thing that gives you to take into future leadership is a general sense of best practices and hopefully the ability to communicate to other engineers and non-engineers. Engineering management is not just being the tech lead of bigger and bigger teams, and the faster you realize that, the better off your team will be.

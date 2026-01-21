@@ -1,0 +1,20 @@
+---
+title: "Engineering Productivity"
+date: 2018-09-22
+url: https://www.elidedbranches.com/2018/09/engineering-productivity.html
+word_count: 659
+---
+
+I’m often asked about the characteristics of great engineering managers. This is a question that almost always has a long answer that involves “well, she’s good at X, and he’s good at Y, and then there’s Z…” Every management role is slightly different, and a great engineering team will have managers who reflect a set of complimentary skill sets (such as operations, people management and coaching, product-focus) that are aligned with what their subgroup most needs.
+However, for most of us, there is one characteristic that is not optional or debatable, which is that a great engineering manager is capable of creating a highly productive engineering team. This is one of the distinguishing characteristics of the management side of engineering. Call it what you will — drive for results, goal-oriented — if you are not great at getting your team to be productive, this is a critical growth opportunity.
+How do I know this is important? Ask any engineering manager at a startup what one of their most dreaded questions is, and they will almost certainly mention “why isn’t it done yet?” Engineering productivity is a hard thing to measure, but most of us know intuitively what it feels like to be on a productive team. We’re shipping things, we’re focused, we feel like we know what we’re doing and why it is important.
+So what are the management skills that are needed to achieve this result? At the first level of management, they look like:
+1. Breaking down the scope of projects to help your team ship frequently. An eye for the MVP, for sequencing work and for predicting likely risks and bottlenecks for project completion are the skills here. This is why I think project management is such an important part of engineering leadership development, and why I hate to hand it off to professional project managers for work that doesn’t cross teams or organizations.
+2. Balancing that product delivery with sustaining engineering so that you don’t end up with code that can’t be maintained in the future. The amount you will invest here depends on the future certainty (baby startup? Probably not so much!), but there’s a reason we call it “technical debt” and that is because it inevitably comes due, unless you declare bankruptcy.
+3. Prioritizing, prioritizing, prioritizing. Implicit in the first two skills is the ability to figure out what is important, and prioritize it. If you overprioritize shipping, you might get a lot done for a while, and then slow down as the debt you’ve accumulated comes due. Overprioritize sustaining engineering and you don’t ship product. You may not start out with these instincts, but they can be developed, so don’t be afraid to start making judgment calls now and learning from the results.
+
+Managers who fail in these three areas quickly show why this is such an important skillset. Teams who don’t ship are usually disengaged and rarely get the positive feedback of seeing their work come to fruition. Teams who don’t ever clean up their tech debt end up burning out on the difficulty for supporting their software and the challenges building new features. And when teams don’t prioritize effectively, they end up burning cycles on things that are ultimately not that important which often contributes to a sense of purposelessness.
+This is not the only thing that is important in engineering management, but without a focus on delivery, you are letting your team down in a critical way. So while you’re learning how to have good 1–1s, listen to people, create psychologically safe teams, and think about people’s careers, don’t forget that if your team isn’t shipping, you’re not doing your job. Nurturing a safe and healthy team helps your team do their best work, and helping them identify and deliver that best work is a key part of keeping them healthy.
+*Enjoy this post? You might like my book,*
+[The Manager’s Path](http://amzn.to/2nw1QN5)
+*, available on Amazon and Safari Online!*

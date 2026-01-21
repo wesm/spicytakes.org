@@ -1,0 +1,24 @@
+{
+  "summary": "The author recounts her struggles with networking bugs in Java, describing two specific incidents: a ZooKeeper monitoring issue caused by improper socket handling, and a mysterious socket leak in a Play service that turned out to be a cloud vendor configuration problem. She reflects on the difficulty of networking code and the subtle bugs that can hide for years before surfacing. The post emphasizes that networking is uniquely challenging because bugs often only manifest under specific conditions like slow networks or high load. She concludes with practical advice: use established libraries like Netty rather than rolling your own socket code, and learn Unix socket monitoring tools.",
+  "key_points": [
+    "Networking bugs can hide for years because they only surface under specific conditions like slow networks or large data transfers",
+    "The ZooKeeper monitoring bug involved unsafe assumptions about closing half a socket while expecting data to flow through the other half",
+    "Socket leaks showed as ESTABLISHED connections on one end but not the other, suggesting infrastructure-level issues",
+    "Use battle-tested libraries like Netty instead of writing custom socket handling code",
+    "System architects need proficiency with Unix socket monitoring tools like lsof, netstat, and ss"
+  ],
+  "money_quotes": [
+    "Networking code is HARD.",
+    "Of all the things not to reinvent yourself, I would put networking at the top of the list with a bullet.",
+    "It's hard, and requires the kind of deep expertise that you can't fake.",
+    "And, when you fake it, you may end up with something like our ZooKeeper monitoring, that seems to work for years while hiding small but significant bugs.",
+    "The guarantees around so_linger etc change kernel to kernel.",
+    "How are they ESTABLISHED with no partner? It's an ongoing mystery."
+  ],
+  "themes": [
+    "technical"
+  ],
+  "tone": "reflective, technical, candid",
+  "key_insight": "Networking is one of the hardest areas to get right in systems programming, and the bugs you introduce by rolling your own solutions can hide for years before surfacing in production.",
+  "filename": "2012-02-22-networking-woes-in-java"
+}

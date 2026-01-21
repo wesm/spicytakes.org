@@ -1,0 +1,22 @@
+{
+  "summary": "The author describes implementing Coda Metrics to monitor request times in a Play framework application. After initially overcomplicating the solution by trying to track histograms in a ConcurrentHashMap, she discovered that the MetricsRegistry already handles metric deduplication automatically based on MetricName. The post walks through leveraging Play's request object to capture controller and method information for per-endpoint monitoring. The final solution was embarrassingly simple, taking three revisions to realize how little code was actually needed.",
+  "key_points": [
+    "Coda Metrics histograms provide a cleaner alternative to parsing log files for request timing data",
+    "Play's request object contains useful metadata including controller class and action method names",
+    "MetricsRegistry automatically deduplicates metrics with the same MetricName, eliminating need for manual caching",
+    "Simple solutions often emerge after over-engineering attempts - the author needed three revisions to simplify",
+    "Integrating metrics into a base controller class provides automatic monitoring for all endpoints"
+  ],
+  "money_quotes": [
+    "We have a service about to go into production that we've been monitoring through the oh-so-elegant method of 'writing log messages'.",
+    "I'm not much of a scripter.",
+    "As long as the 'MetricName' that would be generated for your metric is the same, the same metric will be used for the monitoring. Now THAT is the kind of clever code I like to see.",
+    "The resulting code is embarrassingly simple. So simple, in fact, I wanted to make it more complicated and it took me 3 revisions to realize how little code I actually needed."
+  ],
+  "themes": [
+    "technical"
+  ],
+  "tone": "casual, practical, self-deprecating",
+  "key_insight": "Good libraries like Coda Metrics handle common concerns like metric deduplication automatically, often making the simplest solution the correct one.",
+  "filename": "2012-02-09-quick-wins-monitoring-request-times-in"
+}

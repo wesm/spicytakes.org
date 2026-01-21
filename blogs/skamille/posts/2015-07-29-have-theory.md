@@ -1,0 +1,16 @@
+---
+title: "Have a Theory"
+date: 2015-07-29
+url: https://www.elidedbranches.com/2015/07/have-theory.html
+word_count: 515
+---
+
+There is a phrase I find myself employing pretty frequently at work, when discussing new features or products. While I am not a product manager, I am responsible for making sure that we implement features well, and thinking strategically about what we are spending our precious time implementing. So, when I am asked about my thoughts on a new product or feature, I usually have one and only one question:
+**"What is your theory?"**
+In this day and age we sometimes get lazy about thoughtfulness, and rely on data and experimentation to hill-climb our way through the world around us. Or at least we
+**say**
+that we rely on data and experimentation to drive our features. But the reality is that we're working in such complex multivariate environments that we cannot possibly test all permutations of even the simplest change. We do make choices about what features we build, and these choices are not entirely data-driven.
+So, given that our choices cannot be entirely perfectly data-driven, how then do we decide what to build? The only way that we can make sane choices in a complex world is by actually being thoughtful about the choices we are making, creating a theory, and creating experiments that actually test that theory.
+For example, in my current world of e-commerce, we often are faced with the mandate to implement a new feature that will make the customer feel better about the product in some nebulous way (it's cooler! it's more high fashion! millennials will love it! whatever). This feature, while it might not cause customers to immediately buy more up front, should cause them to be more loyal over time. Sometimes, this is the right instinct. But beware: if you're going to try to get second or third order effects from a feature, you'd better have a really solid theory of the chain of events that leads to those second or third order impacts. And you need to figure out what you can measure to validate the chain of events. Don't just look at the number of people buying the product and hope it goes up. What does making the look and feel "cooler" DO for your customer? Do they visit more often? Spend more time? Tell more friends? Have a theory!
+Failing to have a theory, and a solid experimentation plan for proving that theory, leaves you open to all kinds of irrational outcomes. The worst of these is the "you just didn't implement it well enough" outcome. The original idea was good, but you implemented it poorly, and that's why it failed. And that could very well be true! But it's impossible to prove or disprove without anticipating the question ahead of time, thinking through the logical conclusions of the theory, and setting up a good test to understand its outcome.
+So the next time you are building a feature, ask yourself: Do we have a theory? What is it? Are we measuring the immediate expected effects of the theory, or are we just measuring the same stuff we always measure and hoping that it changes?

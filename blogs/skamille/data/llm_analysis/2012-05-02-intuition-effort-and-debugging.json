@@ -1,0 +1,26 @@
+{
+  "summary": "The post explores how debugging distributed systems is one of the most cognitively demanding tasks in software engineering, drawing on concepts from 'Thinking Fast and Slow' about intuitive vs. attention-based thinking. Fournier argues that while writing code requires sustained attention, debugging distributed systems multiplies this difficulty due to the need to reconstruct event sequences across multiple machines with potentially misaligned clocks. She uses her experience debugging a ZooKeeper bug as a case study, noting how poor log formatting forces developers into tedious manual reconstruction. The post advocates for better logging practices\u2014including structured formats like JSON and machine-parseable output\u2014to enable partial automation of debugging and reduce cognitive load.",
+  "key_points": [
+    "Debugging distributed systems requires reconstructing event sequences across multiple machines, making it exponentially harder than single-system debugging",
+    "Poor log formatting (hidden events, long hex identifiers, non-scannable output) forces developers into attention-heavy manual processes",
+    "Logging decisions made during development have enormous downstream impact on debuggability",
+    "There's a tradeoff between human-readable and machine-parseable logs, but structured logging (like JSON) enables automation",
+    "The field lacks mature tooling for distributed debugging despite the growing prevalence of distributed systems"
+  ],
+  "money_quotes": [
+    "Writing correct code requires a level of sustained attention that none of us possesses 100% of the time, which is why testing (particularly automated testing) is such an essential part of quality software development.",
+    "By far the most attention-straining thing I do on a regular basis is debugging distributed systems.",
+    "A debugger is often of no help, at least not initially, because you have to get a series of events to happen in a particular way to trigger the bug.",
+    "When you're writing a distributed system, think hard about what you log.",
+    "To debug problems I have to rely on pen/paper or notepad records of what session id goes with what machine and what the actual series of events was on each of the quorum peers.",
+    "Ideally, we want to partially automate debugging. To do this, the logs have to be written in a form that an automated system could parse and reason about.",
+    "We might as well think ahead about how we can work with our intuitive systems instead of against them."
+  ],
+  "themes": [
+    "technical",
+    "teams"
+  ],
+  "tone": "reflective, technical, pragmatic",
+  "key_insight": "The logging decisions you make when building distributed systems directly determine whether future debugging will be a manageable task or an exhausting exercise in attention depletion.",
+  "filename": "2012-05-02-intuition-effort-and-debugging"
+}

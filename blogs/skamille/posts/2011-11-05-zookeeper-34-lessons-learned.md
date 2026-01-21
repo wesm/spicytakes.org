@@ -1,0 +1,20 @@
+---
+title: "ZooKeeper 3.4: Lessons Learned"
+date: 2011-11-05
+url: https://www.elidedbranches.com/2011/11/zookeeper-34-lessons-learned.html
+word_count: 690
+---
+
+After several months on the planning block, it looks like ZooKeeper 3.4 is finally almost ready to be released. (Edit: Hooray! As of 11/22,
+[release 3.4](http://zookeeper.apache.org/releases.html)
+is available!) I can say with confidence that all of the committers for the project have learned a lot from the course of this release. And most of it is in the form of "ouch, lessons learned".
+**First lesson: Solidify your new feature set early.**
+Going through the Jira, the earliest new feature for the 3.4 release is the uplift of the ZAB protocol to ZAB1.0. No small feature, to be sure, we were still debugging minor issues with it through the very end stages of our 3.4 work. We also added multi transactions, kerberos support, a read-only zookeeper, netty, windows support for C, and certainly others I'm forgetting. Some of these features were pretty simple uplifts, but some of them caused us build instability for months and a great deal of distraction. Many of these were added as "just one more feature". But many other features were neglected because "we're almost ready for 3.4" (as it turned out, often not actually the case). If we had decided early what new major features we were pushing for with 3.4, we could have concentrated our efforts more effectively and delivered much sooner.
+**Second lesson: When it's time to push, push.**
+Giving birth requires a period of concentrated pushing. If you think you can push a little now, then put it off for a few days, then a bit now, then a few weeks off... the baby will never come, and neither will the release. It took several attempts before the community finally rallied behind the efforts to get a release out, and we ended up losing a lot of momentum in the process.
+We didn't have a solid and pre-agreed-upon features to know when we were done, so things just kept getting in the way. When the attention on the release was off, a minor bug or feature request would come in and it just seemed so small, what was the harm?
+**Third lesson: Prioritize as a community, and stick to those priorities**
+This falls in with setting up a feature list early, but it goes beyond that. Our community was split between those who were very interested in seeing 3.4 released, and those who were working on major new changes or refactorings against trunk. As a result we all ended up feeling shortchanged. Contributors with new features did not get the attention their features needed, and many still sit in unreviewed patch form. Users that were hungry for the 3.4 release were frustrated with our lack of attention to getting it out. We had some massive new refactoring efforts that continued to happen on trunk during the course of the release process, which resulted in a frustrated committer base stuck backporting or forwardporting patches between increasingly divergent branches. These efforts found bugs, but not without some cost. Having unclear priorities divided the community, caused some tension, and ultimately slowed the whole release process down.
+**Fourth lesson: You can always do more releases, it doesn't all have to happen now**
+This is perhaps my own biggest takeaway from this process. I wish we had done much less, done it much faster, and been willing to release a 3.4 that was quickly followed by 3.4.1, 3.5, etc, as needed. Proponents of agile development and release practices have a good point; the more often you release, the less there is to go wrong and the easier it will be to fix if and when it does. It becomes a self-fulfilling prophecy. We don't release frequently so people want to cram as many new features in as possible, which slows down the releases, which results in pushes for more new features, which results in more bugs and slowed down releases, and on and on.
+These lessons may seem obvious in retrospect, but they came at the price of many people's time and effort. I'm proud of our community for pulling together in the end, but I also hope that 3.5 will be a different and less arduous journey.

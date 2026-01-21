@@ -1,0 +1,24 @@
+{
+  "summary": "This post introduces Java's command-line monitoring tools (the 'j' series) for debugging production applications when you only have SSH access. The author walks through jps, jinfo, jstack, jstat, and jmap, explaining practical uses for each. The focus is on jstat -gc for monitoring garbage collection in real-time, which can reveal why applications become unresponsive. While these tools aren't a replacement for proper monitoring, they're essential for quick debugging before restarting a troubled process.",
+  "key_points": [
+    "The JDK includes powerful but often overlooked command-line monitoring tools (jps, jinfo, jstack, jstat, jmap) that every Java developer should know",
+    "jstat -gc is invaluable for diagnosing garbage collection issues - high FGC counts and times indicate your application is spending too much time stopped for collection",
+    "A dangerous GC pattern occurs when there's not enough survivor/eden space for transient data, causing endless full-GCs with minimal progress",
+    "jstack can identify deadlocks and is safer than kill -QUIT for teaching newcomers to get stack traces",
+    "jmap -histo and jmap -dump are powerful but risky on running processes - save them for when you're ready to restart anyway"
+  ],
+  "money_quotes": [
+    "It's 10pm, you have a production java application on a box you can only ssh into, and it's in distress.",
+    "They hide away in the jdk bin directory, but they can be your best friend when you are stuck with nothing but a console and a prayer.",
+    "Stack traces are the bread and butter of figuring out what's wrong with a process.",
+    "Remember, your app is essentially dead when FGC is running, so a high number of FGCs is a bad sign.",
+    "The result will be neverending full-gcs while your process moves slightly forward, does a full GC, moves forward again.",
+    "None of these tools are an answer for proper monitoring of your JVM, but they're great for a quick and dirty debug before you restart a troubled process."
+  ],
+  "themes": [
+    "technical"
+  ],
+  "tone": "practical, instructional, conversational",
+  "key_insight": "Every Java developer should master the JDK's built-in command-line monitoring tools as essential debugging weapons for production emergencies when proper monitoring isn't available.",
+  "filename": "2012-03-22-java-console-monitoring-basics-j-series"
+}

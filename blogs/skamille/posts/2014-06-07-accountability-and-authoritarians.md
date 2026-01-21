@@ -1,0 +1,15 @@
+---
+title: "Accountability and authoritarians"
+date: 2014-06-07
+url: https://www.elidedbranches.com/2014/06/accountability-and-authoritarians.html
+word_count: 536
+---
+
+A not-so-secret aspect of my personality is that I have no problem with the policing aspects of leadership. I have a law and order side to me, if I believe in a rule/practice, and I see people breaking it, I have no problem being the one to call them to task.
+This habit actually works out ok in a room full of peers; it doesn't exactly endear me to people but it means that, eg, the build doesn't stay broken for long. Unfortunately as I have gone up in the management chain, it has become a problem. Why does having a peer that holds you day-to-day accountable work, but having a boss that does so fail?
+First, it seems that having me hold individuals accountable ends up causing some individuals to stop holding each other accountable. It is viewed as the thing I do, the boss' responsibility. If it's important, the boss will care, and she will come down and call us out. This is obviously far from ideal.
+[A high performing team will hold each other accountable](http://blogs.hbr.org/2014/05/the-best-teams-hold-themselves-accountable/)
+; after all, you want feedback to come as quickly and naturally as possible, and that can only happen when individual team members call out each other.
+Second, I have come to discover that it is rather demoralizing for team members to be called out be me. I know, I know, why is this a surprise? It is still hard to get used to the idea that I am not just one of the team, and that everything I do is amplified and taken in ways I don't always anticipate. In fact, I think that it is important that most negative/corrective feedback from me go to my direct reports instead of farther down the chain. That doesn't mean that I can't offer suggestions on architectural improvements or process tweaks, but it is demoralizing for me to ask a developer why the build is broken. In fact, it is important that I'm seen as an inspirational figure to my team, someone they look up to and look forward to interacting with, and not vice-versa.
+Finally, I'm actually pretty far away from the impact of the rules these days. What might have made sense when I was in a team writing code may not be ideal for the current team, the current environment. The only true best practice out there is to let your team take a concept or process and iterate on it until it takes on a form that works effectively for them. It simply doesn't make sense for me to make and enforce the rules myself; it is my job to provide the high-level goals (such as "creating a Cinderella experience for our customers and ourselves") and to push the team to find the right ways to implement those goals.
+So, what is the takeaway here? I'm getting out of the business of being the rule maker and rule enforcer. Instead, I'm setting goals and very high-level guidelines, and giving the power to create policies and practices to the members of my team. I want to work myself out of a job, after all, and the best ideas don't come from me, so why should the policing?

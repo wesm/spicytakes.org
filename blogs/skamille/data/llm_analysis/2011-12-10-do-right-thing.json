@@ -1,0 +1,26 @@
+{
+  "summary": "Two weeks into startup life, Fournier recounts two costly mistakes made during a major system rewrite: not setting up automated builds from day one, and not thoroughly testing framework behavior. The lack of CI revealed timezone bugs that were likely causing production issues, while untested assumptions about the Play framework's @Required annotation led to database corruption and site instability during the busiest month. Both problems cost significant developer time and business impact that could have been prevented with upfront discipline. The post argues that even in crunch mode, skimping on testing fundamentals is never worth the downstream cost.",
+  "key_points": [
+    "Automated builds should be set up from day zero of any project, not added later when problems have already accumulated",
+    "Tests passing locally but failing in CI revealed timezone bugs that were likely affecting production systems running on UTC",
+    "Never assume framework behavior without writing explicit tests to verify it - the Play framework's @Required annotation didn't work as expected",
+    "Technical debt incurred by skipping 'boring' testing fundamentals compounds quickly and costs far more to fix later",
+    "Site instability during peak business periods has both direct developer costs and harder-to-measure business costs"
+  ],
+  "money_quotes": [
+    "If our tests are failing on our UTC build box, what do you think our code is doing on our production UTC machines? Bad things, probably.",
+    "But this wouldn't have cost a day and a half of developer time if it had been set up from day 0 of the project.",
+    "Don't skimp on your testing, even in crunch mode, even for the boring parts of the system. It's just not worth the cost.",
+    "Doing the right thing up front would have cost very little time, and saved us probably 10s of developer hours of work, not to mention the quite likely business cost incurred by site instability during our busiest month.",
+    "We assumed that @Required meant that any call that didn't have that parameter would fail. But we never bothered to write a test for this fact.",
+    "As per my zealotry, I started writing a test that would actually POST to the framework without the parameters, expecting it to be a quick matter of verifying the failure."
+  ],
+  "themes": [
+    "technical",
+    "teams",
+    "leadership"
+  ],
+  "tone": "instructive, pragmatic, self-deprecating",
+  "key_insight": "The small upfront cost of proper testing infrastructure and verifying framework assumptions is always dwarfed by the compounding costs of fixing problems discovered in production.",
+  "filename": "2011-12-10-do-right-thing"
+}

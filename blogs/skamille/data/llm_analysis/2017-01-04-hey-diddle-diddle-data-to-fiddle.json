@@ -1,0 +1,24 @@
+{
+  "summary": "The post introduces the concept of 'diddling' data - temporarily modifying a subset of pre-computed results without persisting changes back to the source. Fournier explains how this pattern, learned from finance systems, applies elegantly to personalization challenges like search results. Rather than personalizing across an entire massive dataset, you can apply transformations only to the top results that users will actually see. This approach balances the need for pre-computed efficiency with real-time customization, recognizing that humans only process a tiny surface area of any dataset at once.",
+  "key_points": [
+    "Diddling means temporarily changing data within a limited scope to explore scenarios without persisting changes",
+    "Personalization can be framed as an enhancement layer on top of pre-computed results, not a fundamental recomputation",
+    "You only need to personalize the human-visible surface area, not the entire dataset",
+    "The pattern separates what must be indexed at scale from what can be computed on-the-fly",
+    "Pre-calculation handles the expensive work; diddling handles the customization cheaply"
+  ],
+  "money_quotes": [
+    "There are times when what you want to do is take persistent data, make a small change to it on the fly, and use the results of that change without necessarily persisting it back to the original data set.",
+    "Just because you have a list of thousands as your first pass of results doesn't mean you need to personalize across that whole data set to get the best results for the end user.",
+    "Personalization is often an enhancement on an underlying set of computed data, not the fundamental computation itself.",
+    "When your data gets in front of a human end-user, they are going to operate on only the tiny surface area they, as a human, can process at any one time.",
+    "You can apply different patterns on the fly to the human-visible surface area that would be too expensive to apply to the entire data set at large.",
+    "If your goal is to get the most personally relevant of the most generally relevant, you probably want to operate on the top of the generally-ordered list."
+  ],
+  "themes": [
+    "technical"
+  ],
+  "tone": "reflective, technical, exploratory",
+  "key_insight": "You can achieve effective personalization by applying lightweight transformations only to the visible surface of pre-computed results, rather than trying to personalize the entire dataset.",
+  "filename": "2017-01-04-hey-diddle-diddle-data-to-fiddle"
+}

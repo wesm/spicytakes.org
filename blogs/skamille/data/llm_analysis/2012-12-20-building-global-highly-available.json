@@ -1,0 +1,25 @@
+{
+  "summary": "This post describes the architecture for building a globally distributed service discovery system using ZooKeeper. The core challenge is creating a system that spans three global regions (New York, London, Asia) while maintaining high availability even if an entire data center fails. The solution involves creating three regional ZooKeeper clusters, each with nodes split across local data centers plus one node in the nearest remote region to ensure quorum availability. The client wrapper implements 'Advertise Locally, Lookup Globally' - writes happen only to local clusters while reads can fall back to remote clusters. The post also covers operational lessons about running ZooKeeper as a shared service, including risks from misbehaving clients and resource limits.",
+  "key_points": [
+    "ZooKeeper requires n/2+1 nodes for quorum, so surviving a data center loss requires splitting across 3 data centers minimum",
+    "Write speed degrades significantly when quorum votes must travel over WAN, making global clusters impractical",
+    "The solution uses 3 regional clusters with N-1 local nodes plus 1 remote node, ensuring the remote node never becomes leader",
+    "Client wrapper enables local writes (ephemeral nodes) with global reads (automatic fallback to remote clusters)",
+    "ZooKeeper as a shared service is risky - misbehaving clients can take down entire clusters through floods, memory exhaustion, or socket exhaustion"
+  ],
+  "money_quotes": [
+    "ZooKeeper requires a majority (n/2 + 1) of servers to be available and able to communicate with each other in order to form a quorum, and thus you cannot split a quorum across two data centers and guarantee that the quorum will be available with the loss of any one data center.",
+    "Write speed dramatically decreases when the quorum must wait for votes to travel over the WAN.",
+    "ZooKeeper as a Service (a shared ZooKeeper cluster maintained by a centralized infrastructure team to support many different clients) is a risky proposition.",
+    "It is easy for a misbehaving client to take down an entire cluster by flooding it with requests or making too many connections.",
+    "A long full GC pause can cause their session to the ZooKeeper cluster to time out and thus their advertisement will be deleted.",
+    "I often get the question of how to set the heartbeats, timeouts, etc, to optimize a ZooKeeper cluster, and the answer is really that it depends on your network."
+  ],
+  "themes": [
+    "technical",
+    "organizational"
+  ],
+  "tone": "technical",
+  "key_insight": "Building globally distributed coordination systems requires carefully balancing quorum requirements, network latency, and failure domains - often solved by regional clusters with cross-region quorum members rather than a single global cluster.",
+  "filename": "2012-12-20-building-global-highly-available"
+}

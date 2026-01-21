@@ -1,0 +1,13 @@
+---
+title: "There Is No Number"
+date: 2012-06-14
+url: https://www.elidedbranches.com/2012/06/there-is-no-number.html
+word_count: 472
+---
+
+Is it time to quit your longtime job? It's pretty easy to tell. Have you gone out and interviewed? Gotten job offers? Seriously considered them? Then you should quit. It's that simple. Not quitting now is delaying the inevitable and robbing yourself of the opportunity to grow.
+I've seen this time and again, and gone through it myself. It's hard to leave a longtime job, especially when you are treated holistically well. Great perks, good pay, a big network, lots of friends. You may hate how things are done but you know how to get them done. It's scary to think about leaving that comfort zone. And when you bring up the possibility of leaving, either speculatively or actively trying to resign, it's likely that your boss will promise you up and down that they will move mountains for you. A new project! More responsibility! Leadership opportunities! Your pick of teams! Maybe even the biggest enticement out there: more money.
+Take a lesson from Peggy Olsen. For those Mad Men fans out there, you know that Don will never change. What made him a great boss for her, a mentor, a leader, was also keeping her boxed in. He wasn't changing, and she needed to grow. Your Don could be your actual manager, but more likely it's the company culture and dynamics that are beyond the ability for one person to change. Be real: will more money make you excited to get out of bed in the morning? Will it make you feel like your contributions are truly important? Will it make you feel like you're actually growing and learning new things?
+Sometimes, there is no number.
+If that isn't enough to get you moving, here's one more the thing about leaving a long-time job, especially one at a big company: if you are leaving on good terms, there's a very good chance you can go back if things don't work out. A friend of mine recently did just that. After leaving her job at a larger tech company due to malaise with the work and a bad fit with her team, she went to a very small startup to do mobile development in a related genre. When she realized that the startup was just not managed well enough to succeed she reached out to her old employer and was hired back, happier than ever having both learned some new tricks and gotten into a new team.
+Throw back your drink, and do the deed. It will probably feel like breaking up with a long-term partner, and it may be one of the most stressful things you've ever done, but it's also a good bet that you will end up better off in the long run. If nothing else, when the deed is done, I bet you will leave with a smile.

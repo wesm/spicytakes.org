@@ -1,0 +1,15 @@
+---
+title: "Interviewing for Judgement"
+date: 2011-12-04
+url: https://www.elidedbranches.com/2011/12/interviewing-for-judgement.html
+word_count: 486
+---
+
+One of the things that occurs to me after my first week of startup work is how essential it is to hire people with good judgement. In an environment where even the interns have huge amounts of responsibility and everyone is under a lot of time pressure, the judgement to not only know how to make good technical choices but also to know when to ask for help is essential. Is the right fix to this bug to hack around it, or to take a moment to write a bit more scaffolding and fix it everywhere for good? Which schema changes require another set of eyes, and which are trivial? As a manager you're also a contributor, and you probably don't have the time to micromanage decision making, nor would you want to. But when you discover in code review that a feature you thought would be simple required several schema changes and some sketchy queries, you regret not having insight sooner in the process.
+Hiring for judgement is hard. It's easy to hire for technical chops. We know how to screen out people that can't write code, and if you follow the general best-practices of technical hiring (make them write code, at least pseudocode, a few times), you're unlikely to hire candidates that can't produce anything. But the code-heavy interview process does little to ferret out developers with judgement problems, the ones that can't prioritize work, and don't know when to ask for help. If you're hiring for a company the size of Google it doesn't matter that much, you can always put a manager or tech lead in between that person and a deadline. Small companies don't have this luxury, and it is that much important that the screening process captures more than just sheer technical ability.
+I was hoping as I wrote this that I would come up with some ideas for hiring for judgement. But I have never had to hire for judgement until now. Judgement was something I had the luxury of teaching, or simply guessing at and hoping for the best. The internet suggests questions like
+
+> *Tell me about a time when you encountered a situation where you had to decide whether it was appropriate for you to handle a problem yourself, of escalate it to your manager.  What were the circumstances?  How did you handle it?  Would you handle the same situation the same way again or would you do it differently this time?*
+
+This seems to me better than nothing, but not amazing.
+So, over the next few months I'm going to experiment with questions like these and see how they play out. There's no way to do a rigorous study but at least I can start to get a feel for which questions can even tease out interesting answers. And if you have any questions you like, or thoughts on the matter, leave me a comment.

@@ -1,0 +1,27 @@
+{
+  "summary": "The author describes the challenge of scaling a legacy Drupal-based e-commerce system at Rent the Runway while keeping the business running. Unlike greenfield scaling stories, she must untangle years of technical debt where business logic is entangled with view logic in PHP. The first major effort\u2014extracting reservation logic into a Java service\u2014proved far harder than expected due to untested PHP code and the need for all-at-once migration. A subsequent iterative approach using MongoDB for product metadata proved much more successful, enabling rapid feature delivery. The key insight is that scaling developer productivity and feature velocity matters as much as scaling for user traffic.",
+  "key_points": [
+    "Scaling a legacy system while maintaining business operations is fundamentally different from scaling a fresh codebase\u2014you 'replace the jet engine one bolt at a time, all while flying over the Atlantic Ocean'",
+    "The original sin was building on Drupal as an e-commerce platform, creating untestable business logic entangled with view logic",
+    "The first big rewrite attempt (Java reservation service) failed because they underestimated complexity and left PHP code untested throughout development",
+    "Iterative replacement using MongoDB succeeded where the big-bang rewrite struggled, enabling three features in three weeks",
+    "Feature velocity scaling matters as much as user scaling\u2014you can't scale by 'throwing money at database servers' if developers can't ship code"
+  ],
+  "money_quotes": [
+    "So we replace the jet engine one bolt at a time, all while flying over the Atlantic Ocean.",
+    "Even if we could scale our site by throwing money at database servers, we can't scale our feature velocity in such a system.",
+    "Have you ever been tempted to say, this won't be too hard to rewrite, only to eat your words? We ate our words several times over in this project.",
+    "We made the fatally stupid mistake of letting it remain untested throughout the development process.",
+    "When you have fast and easy access to your data, and you can release whenever you feel good about your testing, you turn your feature scaling from being throttled by your platform to being throttled by your own creativity and developer hours.",
+    "The end result of all of this is a rat king of PHP, SQL, and CSS/JS."
+  ],
+  "themes": [
+    "technical",
+    "leadership",
+    "teams",
+    "organizational"
+  ],
+  "tone": "reflective, candid, pragmatic",
+  "key_insight": "Scaling isn't just about handling more users\u2014it's equally about enabling developers to ship features faster, which requires systematic extraction of logic from legacy systems through iterative, well-tested migrations.",
+  "filename": "2012-04-26-scaling-in-small"
+}

@@ -1,0 +1,16 @@
+---
+title: "Get Better Faster"
+date: 2012-10-14
+url: https://www.elidedbranches.com/2012/10/get-better-faster.html
+word_count: 536
+---
+
+I heard a very interesting piece of advice this week from my CEO, addressing a group of college students that were visiting our office. Her words went something like this:
+
+> "Most days you have 100 things on your to-do list. Most people, when faced with such a list, will find the 97 that are obvious and easy and knock them off before worrying about the 3 big hairy things on the list. Don't do that. The 97 aren't worth your time, it's the 3 big hairy things that matter."
+
+I've been thinking about that bit of wisdom ever since I heard it. It seems counter-intuitive in a way. Anyone that has ever suffered from procrastination knows that sometimes you feel better, more able to tackle problems when you break them down into a todo list. You get little things done and make yourself feel accomplished. But the more I think about the advice from my CEO, the more I agree with it. Especially in an entrepreneurial setting, or in a setting where you are suddenly given far more responsibilities than you are used to having. Why? It all boils down to three little words: Get Better Faster.
+Get better faster. That's what I've spent my last year trying to do. I went to a startup to grow, to stretch in ways that I couldn't stretch in the confines of a big company. And when I suddenly found myself running the whole engineering team, this learning doubled its speed overnight. Being an ok manager and a great engineer is no longer enough for me to do my job. I need to be an excellent manager, an inspirational leader, a great strategist and a savvy planner. And the engineer can't totally slack off, but she needs to be saved for the really nasty bugs, not implementing fun new features.
+This has all taught me a difficult lesson: you get better faster by tackling the hardest problems you have and ignoring the rest. Delegate the things that are easy for you (read: the little things you do to feel good about your own productivity) to someone who still needs to learn those skills. Immerse yourself in your stretch areas. For me, this mostly means that I have to delegate coding and design details to the engineers working for me, I have to delegate the ownership of my beloved projects and systems to someone with the time to care for them. This is PAINFUL. I would call the last 3 months being mostly out of coding and in planning/management/recruiting land to be some of the hardest of my career.
+And yet, I'm doing it. I'm getting better. And it's not just me who is getting better. It's every member of my team that has had to step up, to fill in the empty positions of leadership, to take over the work I can't do, or the work that the person who took work from me can't do.
+You'll never get better doing the easy stuff, checking off the small tasks. A savvy entrepreneur knows that the easy stuff can always be done by someone else, so let someone else do it. The hard problems are the problems that matter.
