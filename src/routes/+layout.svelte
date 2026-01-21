@@ -10,9 +10,11 @@
   let { children, data }: { children: any; data: LayoutData } = $props();
 
   // Initialize stores from server data synchronously (runs during SSR and hydration)
-  if (data.blogData) {
-    initializeData(data.blogData);
-  }
+  $effect(() => {
+    if (data.blogData) {
+      initializeData(data.blogData);
+    }
+  });
 
   const title = isLandingMode ? `${landing.title} - ${landing.tagline}` : `${config?.name} - ${config?.tagline}`;
   const description = isLandingMode ? landing.description : config?.description;
