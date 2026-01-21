@@ -1,0 +1,25 @@
+{
+  "summary": "Hotz recounts comma.ai's seven-year journey to solve behavioral cloning for self-driving cars. The naive approach of predicting steering angles from images fails because small errors accumulate over time, causing the car to drift. Their initial fix used lane detection as a correction factor, but this broke the end-to-end paradigm\u2014a compromise they call comma's 'original sin.' The core insight is that prediction errors must be anti-correlated (not just uncorrelated) to prevent unbounded drift. After years of progress removing hand-coded components, they believe they've found a solution to end-to-end behavioral cloning, though Hotz leaves the specifics as an exercise to the reader.",
+  "key_points": [
+    "Simple imitation learning (predict action from state) fails in practice because errors accumulate over time\u2014the model never sees the corrupted states it creates",
+    "The train/test distribution mismatch is fundamental: during training, images are ground truth; during deployment, each image reflects accumulated errors from previous predictions",
+    "Uncorrelated errors aren't enough\u2014you need anti-correlated errors that cancel out, making the sum converge to zero",
+    "Lane detection served as a correction function but required hand-labeled ground truth, breaking the end-to-end learning paradigm",
+    "After seven years, comma believes they've solved end-to-end ground truthing of the correction function"
+  ],
+  "money_quotes": [
+    "This turns out not to work, it couldn't even drive straight on highways.",
+    "We referred to lanes as the 'original sin' of comma, and tried really hard to remove them.",
+    "This model is easy to train, and can achieve very low losses on a holdout set. However, it won't drive a car.",
+    "Are the \u03b5 correlated? In the best case they aren't, but in practice they almost always are.",
+    "You need them to be anti-correlated. You need the limit of that sum to be 0.",
+    "The billion dollar question, how do you end-to-end ground truth f_correction?"
+  ],
+  "themes": [
+    "ai_ml",
+    "startups"
+  ],
+  "tone": "technical, reflective, pedagogical",
+  "key_insight": "Behavioral cloning fails not because models can't predict actions accurately, but because even small errors compound when predictions alter future inputs\u2014solving this requires anti-correlated corrections, not just accurate predictions.",
+  "filename": "2023-11-18-imitation-learning"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "George Hotz argues that tinygrad can win the ML framework competition, but acknowledges it's a much harder battle than comma.ai faced with self-driving cars. Unlike comma's competitors who were 'playing the wrong game,' tinygrad's rivals (PyTorch, JAX, MLIR) are competent and open source. His thesis is that the entire ML software stack is solving the same scheduling problem at different scales, but current frameworks use completely different codebases for each scale. If tinygrad can expose this underlying search problem in a simple, complete formulation and apply massive compute to optimize it, they can win with under 25k lines of code versus millions in competing frameworks.",
+  "key_points": [
+    "tinygrad at 14,556 lines is 1-2 orders of magnitude smaller than competitors (PyTorch ~3.3M, MLIR ~950k, JAX ~400k), and this difference may be meaningful",
+    "The ML ecosystem repeatedly solves the same scheduling problem at different scales (multi-machine, multi-GPU, multi-SM, multi-ALU) with completely different codebases",
+    "For tinygrad to win requires something fundamental to be wrong about software development in general, not just domain-specific assumptions",
+    "The bitter lesson (more compute beats clever engineering) applies to software development itself, not just ML models",
+    "AMD contract to train LLaMA 405B as fast as NVIDIA within a year will be the key test of whether the bet is paying off"
+  ],
+  "money_quotes": [
+    "This is not going to be a cakewalk like self driving cars.",
+    "For tinygrad to win, it requires something much deeper to be wrong about software development in general.",
+    "tinygrad includes every single piece of code needed to drive an AMD RDNA3 GPU except for LLVM, and we plan to remove LLVM in a year or two as well.",
+    "I think the bitter lesson also applies to software.",
+    "The goal of the tinygrad project is to abstract away everything except the absolute core problem in the cleanest way possible.",
+    "A model for the hardware is simple compared to a model for CUDA.",
+    "GPT-5 scale training job to MMIO on the PCIe bus!",
+    "Of course, it's a big if, this isn't like comma where it was hard to lose. But if it wins\u2026"
+  ],
+  "themes": [
+    "tinygrad",
+    "ai_ml",
+    "startups",
+    "philosophy"
+  ],
+  "tone": "reflective, confident, intellectually honest",
+  "key_insight": "The entire ML software stack is solving the same scheduling problem at different scales, and by exposing this unified abstraction in minimal code and applying massive compute to search, tinygrad can beat frameworks with 100x more lines.",
+  "filename": "2025-07-06-can-tinygrad-win"
+}

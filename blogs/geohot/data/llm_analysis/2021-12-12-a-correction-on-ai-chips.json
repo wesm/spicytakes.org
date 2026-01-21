@@ -1,0 +1,28 @@
+{
+  "summary": "Hotz corrects his previous skepticism about AI chip startups and VLIW architectures. He explains that neural networks are fundamentally DSPs where all loads and stores can be statically computed, unlike CPUs or GPUs. This makes specialized architectures and fancy compilers actually good ideas for deep learning. He acknowledges that AI chip startups fail not due to bad technical tradeoffs but because of economic dysfunction - 'they make shares, not chips.' He concedes that Google's TPU and even Cerebras got the tradeoffs mostly right.",
+  "key_points": [
+    "Neural networks are DSPs where everything except data is known at compile time, unlike CPU or GPU workloads",
+    "VLIW and fancy compilers are good ideas for deep learning because Rice's theorem doesn't apply - the exact same operations run every time",
+    "AI chip startups don't fail due to bad technical decisions; they fail because they 'make shares, not chips'",
+    "Data locality is the key to chip power efficiency - moving data costs power",
+    "Google's TPU got most tradeoffs correct, and Cerebras's big chip approach is sound despite being unavailable"
+  ],
+  "money_quotes": [
+    "They don't make chips, they make shares.",
+    "Neural networks are DSPs. All the loads and stores can be statically computed, which isn't even possible for GPU workloads, never mind CPU ones.",
+    "Rice's theorem doesn't apply here. In both training and inference, the exact exact same operations are run every time. It's only the data that changes.",
+    "I assumed that the startups didn't ship because of bad technical tradeoffs; I was primed to believe this from my experience with self driving.",
+    "Having to move data costs power.",
+    "As much as I hate to admit it, Cerebras seems good."
+  ],
+  "themes": [
+    "ai_ml",
+    "tinygrad",
+    "hardware",
+    "startups",
+    "economics"
+  ],
+  "tone": "reflective, self-critical, technical",
+  "key_insight": "Neural networks are fundamentally different from general-purpose compute - they're DSPs where everything is known except the data - which validates specialized chip architectures that Hotz previously dismissed.",
+  "filename": "2021-12-12-a-correction-on-ai-chips"
+}

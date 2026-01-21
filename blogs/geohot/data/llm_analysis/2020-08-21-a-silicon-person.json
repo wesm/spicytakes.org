@@ -1,0 +1,26 @@
+{
+  "summary": "George Hotz breaks down what it would take to build a silicon equivalent of a human brain using current GPU technology. He estimates the brain has 100 trillion synapses operating at 20 PFLOPS, which would require approximately 40,000 A100 GPUs to simulate. The total cost comes to about $20 million in hardware plus $1,600 per hour in electricity. The analysis treats neurons as simple multiply-accumulate operations, arguing that while brains exhibit complex behavior, the computational substrate is straightforward to understand.",
+  "key_points": [
+    "The brain can be modeled as 100 billion neurons with 100 trillion synapses, roughly 1000x larger than GPT-3's 175 billion weights",
+    "Brain compute is estimated at 20 PFLOPS, with processing going through 20-100 serial layers at 200Hz max firing rate",
+    "GPU RAM bandwidth (1.6 TB/s), not raw compute (312 TFLOPS), is the actual limiting factor for brain simulation",
+    "The retail cost of 40,000 A100 GPUs would be $500 million, but actual chip + RAM cost is closer to $20 million",
+    "Running a silicon brain would cost $1,600 per hour at 16 MW power consumption"
+  ],
+  "money_quotes": [
+    "A neuron is an accumulator, and a synapse is a multiplier. Multiply-accumulate. Sound familiar?",
+    "Each synapse is both a FLOP and a weight.",
+    "GPT-3 has 175 gigaweights, so this brain is ~1000x bigger.",
+    "Unless you are weight sharing, you'll run into the RAM bandwidth limit of 1.6 TB/s long before that.",
+    "Remember also, that the brain is always learning, so it needs to be doing forward and backward passes.",
+    "$20 million + $1600 an hour"
+  ],
+  "themes": [
+    "ai_ml",
+    "hardware",
+    "philosophy"
+  ],
+  "tone": "technical, analytical, matter-of-fact",
+  "key_insight": "Building a silicon equivalent of a human brain is achievable with current technology for around $20 million in hardware, with the main constraint being memory bandwidth rather than raw compute power.",
+  "filename": "2020-08-21-a-silicon-person"
+}

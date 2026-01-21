@@ -1,0 +1,30 @@
+{
+  "summary": "Hotz provides a critical analysis of the AI chip startup landscape, arguing that most companies are wildly overcapitalized with no actual products to sell, while NVIDIA maintains dominance despite overpricing. He systematically dismantles the technical approaches of major players like Graphcore, Groq, Cerebras, and Google TPU, identifying recurring architectural mistakes like VLIW and complex multicore designs that push too much burden to compilers. The post concludes with a detailed proposal for 'Cherry Computer,' his own AI chip company that would use a simple RISC-V core with wide decode paths and a 32x32x32 matrix multiply unit. He argues this approach would be 10x faster and 10x cheaper than NVIDIA because it would be easy to program in hardware rather than requiring complex software optimization.",
+  "key_points": [
+    "Most AI chip startups have raised hundreds of millions but have no product you can actually buy, hiding behind 'contact us' forms and NDAs",
+    "VLIW architectures and fancy multicore designs consistently fail because they push complexity to software/compilers instead of making chips people love to program",
+    "NVIDIA dominates because you can buy their products, but the A100 is 5x overpriced and tensor cores can't actually be kept fed from memory",
+    "A single RISC-V core with wide decode path and out-of-order support would be simpler to program and more practical than exotic architectures",
+    "The proposed three-stage Cherry Computer plan would go from FPGA proof-of-concept to a $2,000 card that outperforms a $199k DGX A100"
+  ],
+  "money_quotes": [
+    "Unless it's a from company with a track record like Apple, secrecy is just cover for 'we don't have shit'",
+    "If a company has a contact us form gating sales, it means that their product isn't actually competitive in the market if you did the research yourself, but they are hoping a sales guy will wrongly convince you otherwise.",
+    "WE MAKE BIG CHIP! CHIP REALLY BIG! BIG MUST BE GOOD BECAUSE BIG! BIG CHIP MEAN BIG INVESTMENT!",
+    "This push it to static software strategy has never worked in the history of computer architecture.",
+    "You have to make a chip people love to program in hardware! Otherwise, you push it to software and it never happens.",
+    "The problem is obvious on the first page of report, the same mistake as Itanium.",
+    "How is that Itanium compiler coming along?",
+    "ROCm = please use kernel version 5.4.1.4.12.44.1 and only 5.4.1.4.12.44.1 aka unusable in practice."
+  ],
+  "themes": [
+    "ai_ml",
+    "tinygrad",
+    "hardware",
+    "startups",
+    "economics"
+  ],
+  "tone": "critical, technical, opinionated, sardonic",
+  "key_insight": "AI chip startups keep repeating the same architectural mistakes by pushing complexity to software and compilers, when the winning strategy is to build simple hardware that's easy to program.",
+  "filename": "2021-06-13-a-breakdown-of-ai-chip-companies"
+}

@@ -12,6 +12,7 @@ import wesmConfig from '../../config/wesm.json';
 import danluuConfig from '../../config/danluu.json';
 import bcantrillConfig from '../../config/bcantrill.json';
 import jessfrazConfig from '../../config/jessfraz.json';
+import geohotConfig from '../../config/geohot.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -22,6 +23,7 @@ const configs: Record<string, BlogConfig> = {
   danluu: danluuConfig as BlogConfig,
   bcantrill: bcantrillConfig as BlogConfig,
   jessfraz: jessfrazConfig as BlogConfig,
+  geohot: geohotConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -106,6 +108,14 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
   if (config.scraper.type === 'hugo_homepage') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${config.sourceUrl}/post/${slug}/`;
+  }
+  // For jekyll_feed blogs (geohot), URL is /blog/jekyll/update/YYYY/MM/DD/slug.html
+  if (config.scraper.type === 'jekyll_feed') {
+    const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
+    if (match) {
+      const [, year, month, day, slug] = match;
+      return `${config.sourceUrl}/blog/jekyll/update/${year}/${month}/${day}/${slug}.html`;
+    }
   }
   return config.sourceUrl;
 }
