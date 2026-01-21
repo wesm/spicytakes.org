@@ -13,27 +13,28 @@
 
 set -e
 
-# ============================================================
-# CONFIGURATION: Map blog IDs to Vercel project names
-# Update these to match your actual Vercel project names!
-# ============================================================
-declare -A PROJECTS=(
-    [landing]="spicytakes.org"
-    [benn]="spicy-takes-benn"
-    [armin]="spicy-takes-armin"
-    [wesm]="spicy-takes-wesm"
-    [danluu]="spicy-takes-danluu"
-    [bcantrill]="spicy-takes-bcantrill"
-    [jessfraz]="spicy-takes-jessfraz"
-    [geohot]="spicy-takes-geohot"
-    [mrocklin]="spicy-takes-mrocklin"
-)
+# Map blog ID to Vercel project name
+get_project_name() {
+    case "$1" in
+        landing)   echo "spicytakes.org" ;;
+        benn)      echo "spicy-takes-benn" ;;
+        armin)     echo "spicy-takes-armin" ;;
+        wesm)      echo "spicy-takes-wesm" ;;
+        danluu)    echo "spicy-takes-danluu" ;;
+        bcantrill) echo "spicy-takes-bcantrill" ;;
+        jessfraz)  echo "spicy-takes-jessfraz" ;;
+        geohot)    echo "spicy-takes-geohot" ;;
+        mrocklin)  echo "spicy-takes-mrocklin" ;;
+        *)         echo "" ;;
+    esac
+}
 
-# ============================================================
+ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin"
 
 PROD_FLAG=""
 DEPLOY_ALL=false
 LIST_ONLY=false
+BLOG_ID=""
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -73,9 +74,9 @@ done
 # List blogs
 if [ "$LIST_ONLY" = true ]; then
     echo "Available blogs:"
-    for blog in "${!PROJECTS[@]}"; do
-        echo "  $blog -> ${PROJECTS[$blog]}"
-    done | sort
+    for blog in $ALL_BLOGS; do
+        echo "  $blog -> $(get_project_name $blog)"
+    done
     exit 0
 fi
 
@@ -89,7 +90,8 @@ fi
 
 deploy_blog() {
     local blog_id="$1"
-    local project_name="${PROJECTS[$blog_id]}"
+    local project_name
+    project_name=$(get_project_name "$blog_id")
 
     if [ -z "$project_name" ]; then
         echo "Error: Unknown blog ID '$blog_id'"
@@ -107,11 +109,10 @@ deploy_blog() {
     echo "Building..."
     VITE_BLOG_ID="$blog_id" npm run build --silent
 
-    # Deploy
-    # Use --name to specify the project, --yes to skip prompts
+    # Deploy using --name to specify the project
     vercel deploy $PROD_FLAG --yes --name="$project_name"
 
-    echo "✓ Deployed $blog_id"
+    echo "Done: $blog_id"
     echo ""
 }
 
@@ -119,7 +120,7 @@ deploy_blog() {
 if [ "$DEPLOY_ALL" = true ]; then
     echo "Deploying ALL blogs..."
     echo ""
-    for blog in "${!PROJECTS[@]}"; do
+    for blog in $ALL_BLOGS; do
         deploy_blog "$blog" || echo "Warning: Failed to deploy $blog"
     done
     echo "Done deploying all blogs!"
