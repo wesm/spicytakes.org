@@ -3,6 +3,18 @@
 
   // Pepper emoji for brand
   const pepper = '🌶️';
+
+  // Shuffle blogs randomly on each page load
+  function shuffle<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  const visibleBlogs = shuffle(landing.blogs.filter(b => !b.hidden));
 </script>
 
 <div class="min-h-screen bg-gradient-to-b from-stone-50 to-white">
@@ -22,7 +34,7 @@
   <!-- Blog Cards Grid -->
   <section class="max-w-5xl mx-auto px-6 pb-20">
     <div class="grid gap-6 md:grid-cols-2">
-      {#each landing.blogs.filter(b => !b.hidden) as blog}
+      {#each visibleBlogs as blog}
         <a
           href="https://{blog.subdomain}"
           class="group block bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden hover:shadow-lg hover:border-stone-300 transition-all duration-200 p-5"
