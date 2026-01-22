@@ -1,0 +1,21 @@
+{
+  "summary": "This is a guest post by Sander O'Neil (likely Cathy's son) presenting a JavaScript-based clock/map/star chart that tracks the sun's position relative to Earth. The project combines orbital mechanics with geographic visualization, showing the sun's current and future positions on both a polar star chart and an equirectangular world map. The implementation uses Wikipedia-sourced orbital dynamics data and iteratively solves for Earth's position using mean anomaly calculations. The post explains each visual element and the mathematical principles behind the simulation, including handling Earth's elliptical orbit and axial tilt.",
+  "key_points": [
+    "The clock displays the sun's position using two visualizations: a polar star chart showing angular distance from zenith, and a world map showing the subsolar point",
+    "The implementation models Earth's actual elliptical orbit rather than using simplified circular approximations",
+    "Mean anomaly calculations require iterative estimation since there's no closed-form solution for position from mean anomaly",
+    "Various orbital corrections account for misalignments between Earth's orbit, rotation, and calendar (e.g., apoapsis being 182 days from New Year)"
+  ],
+  "money_quotes": [
+    "This is a star chart, but just for the sun.",
+    "The way I have actually gotten these positions is basically the most complicated possible method.",
+    "This is technically not an exact solution for the earths location in orbit but it gets 5 times more accurate with each correction so its indiscernible after 10 corrections",
+    "You will see odd corrections here, some constants thrown in. This is because the orbit and rotation of the earth are not all aligned."
+  ],
+  "themes": [
+    "math"
+  ],
+  "tone": "technical",
+  "key_insight": "Accurately tracking the sun's position requires modeling Earth's elliptical orbit with iterative numerical methods rather than simple circular approximations.",
+  "filename": "2024-08-12-clock"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Anthony Tockar demonstrated how supposedly anonymized NYC taxicab data could be de-anonymized to track celebrities and ordinary citizens, revealing their destinations and tipping habits. The post examines differential privacy as a proposed solution but raises serious concerns about its practical implementation. O'Neil argues that the mathematical complexity of proper anonymization creates a chain of trust problems, where non-experts must rely on third parties who may be incompetent, untrustworthy, or lazy. She concludes that while differential privacy is theoretically sound, it's likely too expensive and complex for routine data releases unless privacy culture changes dramatically.",
+  "key_points": [
+    "Anonymized datasets often aren't truly anonymous - Tockar tracked celebrities and a strip club patron using NYC taxi data",
+    "Differential privacy adds mathematical noise to protect individuals but is too complex for most data handlers to understand or implement",
+    "The complexity creates dangerous trust dependencies: FOIL officers must rely on third parties they can't evaluate",
+    "Implementation errors are likely because mapping data types to proper methodology requires expertise most won't have",
+    "Proper anonymization will likely remain expensive and rare, reserved only for the most sensitive datasets"
+  ],
+  "money_quotes": [
+    "We should not assume that 'anonymized' datasets actually protect privacy.",
+    "It means that most people, for example the person in charge of fulfilling FOIL requests, will not actually understand the algorithm.",
+    "That means that, if there's a requirement that such a procedure is used, that person will have to use and trust a third party to implement it.",
+    "The third party may not be trustworthy and may have created a backdoor.",
+    "Or they just might get it wrong, or do something lazy that doesn't actually work, and they can get away with it because, again, the user is not an expert and cannot accurately evaluate their work.",
+    "Altogether I'm imagining that this is at best an expensive solution for very important datasets, and won't be used for your everyday FOIL requests like taxicab rides unless the culture around privacy changes dramatically."
+  ],
+  "themes": [
+    "algorithms",
+    "ethics",
+    "math"
+  ],
+  "tone": "skeptical, analytical, pragmatic",
+  "key_insight": "The mathematical sophistication required for true data anonymization creates a trust problem where those responsible for protecting privacy cannot verify whether the protection actually works.",
+  "filename": "2014-10-17-de-anonymizing-what-used-to-be-anonymous-nyc-taxicabs"
+}

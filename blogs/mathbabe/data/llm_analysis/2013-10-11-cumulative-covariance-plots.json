@@ -1,0 +1,25 @@
+{
+  "summary": "The post describes a data visualization technique called cumulative covariance plotting, which reveals how correlations between variables evolve over time. O'Neil explains the mathematical basis: plotting the running sum of products of demeaned variables shows upward trends for positive correlations and downward trends for negative ones. She shares a case study where a U-shaped plot revealed biased data at the beginning and end of her dataset. After removing the contaminated data, she discovered a positive correlation that the overall summary statistic had incorrectly shown as negative.",
+  "key_points": [
+    "Cumulative covariance plots show the numerator of correlation computed over time, revealing how relationships evolve",
+    "A U-shaped cumulative plot can indicate data bias at the start and end of a time series",
+    "In financial modeling, this technique doubles as a cumulative PnL plot showing model performance over time",
+    "Summary statistics like correlation can be misleading when data contains temporal biases",
+    "Visual inspection of data over time often reveals problems that single numbers hide"
+  ],
+  "money_quotes": [
+    "Lots of things change over time \u2013 relationships between variables, for example \u2013 and it's often crucial to get deeply acquainted with how exactly that works with your in-sample data.",
+    "If you plot the cumulative sum, you get an upwards trend if things are positively correlated and downwards trend if things are negatively correlated.",
+    "It tells you how much money your model is making.",
+    "After getting rid of the biased data at the beginning and the end, I concluded that I had a positive correlation here, even though if I'd trusted the overall 'dirty' correlation I would have thought it was negative.",
+    "It's always better to visualize data over time than it is to believe one summary statistic like correlation."
+  ],
+  "themes": [
+    "math",
+    "finance",
+    "algorithms"
+  ],
+  "tone": "technical",
+  "key_insight": "Visualizing correlations as cumulative sums over time reveals temporal dynamics and data quality issues that summary statistics completely obscure.",
+  "filename": "2013-10-11-cumulative-covariance-plots"
+}

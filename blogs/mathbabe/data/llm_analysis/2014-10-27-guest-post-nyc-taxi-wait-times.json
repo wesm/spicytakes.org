@@ -1,0 +1,23 @@
+{
+  "summary": "This guest post describes NYCTaxi.info, a web app that predicts taxi availability in NYC using the 2013 taxi trips dataset of 173 million trips. The authors developed a custom clustering algorithm to identify high-density pickup/dropoff areas, then built regression models to predict hourly taxi activity at each cluster. The methodology involves four stages: data extraction and cleaning, clustering locations into density hotspots, modeling activity with spatial-temporal smoothing, and visualization on Google Maps. The tool aims to help New Yorkers find taxis more efficiently by showing predicted activity levels.",
+  "key_points": [
+    "The app treats pickups and dropoffs equivalently since both indicate an available taxi at that location",
+    "Standard clustering algorithms like K-means proved unsuitable; they developed a custom heatmap-based approach to find density centroids",
+    "The regression model smooths across neighboring clusters and time periods to filter out one-time events like weather or special occasions",
+    "Predictions are mapped from 2013 to 2014 by matching each 2014 hour to its most similar 2013 hour",
+    "Visualization uses black body radiation colors because the ordering of change is perceptually intuitive"
+  ],
+  "money_quotes": [
+    "We make no distinction between pickups and dropoffs, since both of these events imply an available taxicab at that location.",
+    "We are seeking centroids of areas of high density rather than cluster membership per se.",
+    "This regression serves to smooth estimates across time and space, smoothing out effects of special events or weather in the prior year that don't repeat this year.",
+    "It required some tricky choices on arranging and aligning the various data elements; not technically difficult or maybe even interesting, but nevertheless likely better part of an hour at a whiteboard to explain. In other words, typical data science."
+  ],
+  "themes": [
+    "algorithms",
+    "math"
+  ],
+  "tone": "technical",
+  "key_insight": "Predicting real-time taxi availability requires not just analyzing historical patterns but smoothing across both space and time to filter out non-repeating anomalies.",
+  "filename": "2014-10-27-guest-post-nyc-taxi-wait-times"
+}

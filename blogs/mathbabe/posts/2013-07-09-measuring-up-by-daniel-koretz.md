@@ -1,0 +1,51 @@
+---
+title: "Measuring Up by Daniel Koretz"
+date: 2013-07-09
+url: https://mathbabe.org/2013/07/09/measuring-up-by-daniel-koretz/
+word_count: 1615
+---
+
+
+*This is a guest post by Eugene Stern.*
+
+
+Now that I have kids in school, I’ve become a lot more familiar with high-stakes testing, which is the practice of administering standardized tests with major consequences for students who take them (you have to pass to graduate), their teachers (who are often evaluated based on standarized test results), and their school districts (state funding depends on test results). To my great chagrin, New Jersey, where I live, is in the process of putting such a teacher evaluation system in place (for a lot more detail and criticism, see [here](https://mathbabe.org/2013/05/28/new-jersey-at-risk-of-implementing-untested-vam-like-teacher-evaluation-model)).
+The excellent [John Ewing](http://www.mathforamerica.org/web/guest/about-us/staff/John-Ewing) pointed me to a pretty comprehensive survey of standardized testing called [“Measuring Up,”](http://www.amazon.com/Measuring-Up-Educational-Testing-Really/dp/0674035216) by Harvard Ed School prof Daniel Koretz, who teaches a course there about this stuff. If you have any interest in the subject, the book is very much worth your time. But in case you don’t get to it, or just to whet your appetite, here are my top 10 takeaways:
+
+
+Believe it or not, most of the people who write standardized tests aren’t idiots. Building effective tests is a difficult measurement problem! Koretz makes an analogy to political polling, which is a good reminder that a test result is really a sample from a distribution (if you take multiple versions of a test designed to measure the same thing, you won’t do exactly the same each time), and not an absolute measure of what someone knows. It’s also a good reminder that the way questions are phrased can matter a great deal.
+
+
+The reliability of a test is inversely related to the standard deviation of this distribution: a test is reliable if your score on it wouldn’t vary very much from one instance to the next. That’s a function of both the test itself and the circumstances under which people take it. More reliability is better, but the big trade-off is that increasing the sophistication of the test tends to decrease reliability. For example, tests with free form answers can test for a broader range of skills than multiple choice, but they introduce variability across graders, and even the same person may grade the same test differently before and after lunch. More sophisticated tasks also take longer to do (imagine a lab experiment as part of a test), which means fewer questions on the test and a smaller cross-section of topics being sampled, again meaning more noise and less reliability.
+
+
+A complementary issue is bias, which is roughly about people doing better or worse on a test for systematic reasons outside the domain being tested. Again, there are trade-offs: the more sophisticated the test, the more extraneous skills beyond those being tested it may be bringing in. One common way to weed out such questions is to look at how people who score the same on the overall test do on each particular question: if you get variability you didn’t expect, that may be a sign of bias. It’s harder to do this for more sophisticated tests, where each question is a bigger chunk of the overall test. It’s also harder if the bias is systematic across the test.
+
+
+Beyond the (theoretical) distribution from which a single student’s score is a sample, there’s also the (likely more familiar) distribution of scores across students. This depends both on the test and on the population taking it. For example, for many years, students on the eastern side of the US were more likely to take the SAT than those in the west, where only students applying to very selective eastern colleges took the test. Consequently, the score distributions were very different in the east and the west (and average scores tended to be higher in the west), but this didn’t mean that there was bias or that schools in the west were better.
+
+
+The shape of the score distribution across students carries important information about the test. If a test is relatively easy for the students taking it, scores will be clustered to the right of the distribution, while if it’s hard, scores will be clustered to the left. This matters when you’re interpreting results: the first test is worse at discriminating among stronger students and better at discriminating among weaker ones, while the second is the reverse.
+
+
+The score distribution across students is an important tool in communicating results (you may not know right away what a score of 600 on a particular test means, but if you hear it’s one standard deviation above a mean of 500, that’s a decent start). It’s also important for calibrating tests so that the results are comparable from year to year. In general, you want a test to have similar means and variances from one year to the next, but this raises the question of how to handle year-to-year improvement. This is particularly significant when educational goals are expressed in terms of raising standardized test scores.
+
+
+If you think in terms of the statistics of test score distributions, you realize that many of those goals of raising scores quickly are deluded. Koretz has a good phrase for this: the myth of the vanishing variance. The key observation is that test score distributions are very wide, on all tests, everywhere, including countries that we think have much better education systems than we do. The goals we set for student score improvement (typically, a high fraction of all students taking a test several years from now are supposed to score above some threshold) imply a great deal of compression at the lower end of this distribution – compression that has never been seen in any country, anywhere. It sounds good to say that every kid who takes a certain test in four years will score as proficient, but that corresponds to a score distribution with much less variance than you’ll ever see. Maybe we should stop lying to ourselves?
+
+
+Koretz is highly critical of the recent trend to report test results in terms of standards (e.g., how many students score as “proficient”) instead of comparisons (e.g., your score is in the top 20% of all students who took the test). Standards and standard-based reporting are popular because it’s believed that American students’ performance as a group is inadequate. The idea is that being near the top doesn’t mean much if the comparison group is weak, so instead we should focus on making sure every student meets an absolute standard needed for success in life. There are three (at least) problems with this. First, how do you set a standard – i.e., what does proficient mean, anyway? Koretz gives enough detail here to make it clear how arbitrary the standards are. Second, you lose information: in the US, standards are typically expressed in terms of just four bins (advanced, proficient, partially proficient, basic), and variation inside the bins is ignored. Third, even standards-based reporting tends to slide back into comparisons: since we don’t know exactly what proficient means, we’re happiest when our school, or district, or state places ahead of others in the fraction of students classified as proficient.
+
+
+Koretz’s other big theme is score inflation for high-stakes tests: if everyone is evaluated based on test scores, everyone has an incentive to get those scores up, whether or not that actually has much correlation with learning. If you remember anything from the book or from this post, remember this phrase: sawtooth pattern. The idea is that when a new high-stakes standardized test appears, average scores start at some base level, go up quickly as people figure out how to game the test, then plateau. If the test is replaced with another, the same thing happens: base, rapid growth, plateau. Repeat ad infinitum. Koretz and his collaborators did a nice experiment in which they went back to a school district in which one high-stakes test had been replaced with another and administered the first test several years later. Now that teachers weren’t teaching to the first test, scores on it reverted back to the original base level. Moral: score inflation is real, pervasive, and unavoidable, unless we bite the bullet and do away with high-stakes tests.
+
+
+While Koretz is sympathetic toward test designers, who live the complexity of standardized testing every day, he is harsh on those who (a) interpret and report on test results and (b) set testing and education policy, without taking that complexity into account. Which, as he makes clear, is pretty much everyone who reports on results and sets policy.
+
+
+**Final thoughts**
+If you think it’s a good idea to make high-stakes decisions about schools and teachers based on standardized test results, Koretz’s book offers several clear warnings.
+First, we should expect any high-stakes test to be gamed. Worse yet, the more reliable tests, being more predictable, are probably easier to game (look at the SAT prep industry).
+Second, the more (statistically) reliable tests, by their controlled nature, cover only a limited sample of the domain we want students to learn. Tests trying to cover more ground in more depth (“tests worth teaching to,” in the parlance of the last decade) will necessarily have noisier results. This noise is a huge deal when you realize that high-stakes decisions about teachers are made based on just two or three years of test scores.
+Third, a test that aims to distinguish “proficiency” will do a worse job of distinguishing students elsewhere in the skills range, and may be largely irrelevant for teachers whose students are far away from the proficiency cut-off. (For a truly distressing example of this, see [here](http://eyeoned.org/content/the-worst-eighth-grade-math-teacher-in-new-york-city_326/).)
+With so many obstacles to rating schools and teachers reliably based on standardized test scores, is it any surprise that we see results like [this](http://garyrubinstein.teachforus.org/2012/02/28/analyzing-released-nyc-value-added-data-part-2/)?

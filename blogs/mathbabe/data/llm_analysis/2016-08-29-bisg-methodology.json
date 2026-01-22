@@ -1,0 +1,26 @@
+{
+  "summary": "O'Neil explains the BISG (Bayesian Improved Surname Geocoding) methodology, which uses last names and zip codes to estimate racial probabilities via Bayes' rule, relying on America's persistent residential segregation. She addresses Republican criticism that called it 'junk science' when the CFPB used it to detect racial discrimination in auto lending. O'Neil argues the methodology could be improved by updating priors with auto lending population distributions, which would address the technical complaints. She suggests the real opposition isn't statistical but political\u2014similar to voter fraud concerns where rare errors are used to justify inaction on systemic problems. The post includes Python code implementing BISG as a practical resource for researchers.",
+  "key_points": [
+    "BISG methodology exploits American residential segregation and distinctive surnames to estimate race probabilities using Bayesian updating",
+    "Republican 'junk science' criticism centers on the methodology using general population data rather than auto-lending-specific distributions\u2014a fixable technical issue",
+    "The real political objection parallels voter fraud rhetoric: highlighting rare false positives (white people receiving discrimination restitution) to justify ignoring widespread true positives",
+    "Bayes' rule allows for updating priors with domain-specific data, which would technically satisfy critics but likely wouldn't change their opposition",
+    "O'Neil provides open-source Python implementation because existing tools were only in expensive proprietary software"
+  ],
+  "money_quotes": [
+    "The methodology critically relies on the fact that segregation is widespread in this country, especially among whites and blacks, and that Asian and Hispanic last names are relatively well-defined.",
+    "Minorities basically have less wealth, due to a bunch of historical racist reasons, but the upshot is that this methodology assumes a random sampling of the U.S. population but what we actually see in auto financing isn't random.",
+    "Which begs the question, why don't we update the probabilities with the known distribution of auto lending? That's the thing about Bayes Law, we can absolutely do that. And once we did that, the Republican's complaint would disappear.",
+    "I think the real gripe is something along the lines of the so-called voter fraud problem, which is not really a problem statistically but since examples can be found of mistakes, we might imagine they're widespread.",
+    "In this case, the 'mistake' is a white person being offered restitution for racist auto lending practices, which happens, and is a strange problem to have, but needs to be compared to not offering restitution to a lot of people who actually deserve it."
+  ],
+  "themes": [
+    "algorithms",
+    "ethics",
+    "politics",
+    "math"
+  ],
+  "tone": "technical, skeptical, pragmatic",
+  "key_insight": "Technical criticisms of algorithmic fairness tools often mask political opposition to addressing discrimination, as the methodology's limitations are fixable but the will to fix them requires actually wanting to find bias.",
+  "filename": "2016-08-29-bisg-methodology"
+}

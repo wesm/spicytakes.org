@@ -1,0 +1,38 @@
+{
+  "id": "mathbabe",
+  "name": "Cathy O'Neil",
+  "tagline": "Algorithms, math, and data ethics",
+  "description": "Author of 'Weapons of Math Destruction' and data scientist. Sharp critiques of algorithmic bias, AI hype, and the intersection of math with society.",
+  "sourceUrl": "https://mathbabe.org",
+  "sourceLabel": "mathbabe.org",
+
+  "scraper": {
+    "type": "wordpress",
+    "baseUrl": "https://mathbabe.org",
+    "feedUrl": "https://mathbabe.org/feed/",
+    "excludeTitlePatterns": ["podcast", "AI Skeptics"]
+  },
+
+  "themes": {
+    "algorithms": { "label": "Algorithms", "icon": "🔢" },
+    "ai": { "label": "AI & ML", "icon": "🤖" },
+    "ethics": { "label": "Data Ethics", "icon": "⚖️" },
+    "finance": { "label": "Finance", "icon": "💰" },
+    "politics": { "label": "Politics", "icon": "🏛️" },
+    "education": { "label": "Education", "icon": "🎓" },
+    "math": { "label": "Math", "icon": "📐" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Cathy O'Neil, author of 'Weapons of Math Destruction' and a data scientist known for her sharp critiques of algorithmic bias and AI hype. She writes about the intersection of math, algorithms, and society.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Cathy O'Neil is known for her sharp, contrarian takes on algorithms, AI, and tech. She's the author of 'Weapons of Math Destruction' and isn't afraid to call out powerful institutions and challenge mainstream narratives."
+  }
+}

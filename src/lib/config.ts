@@ -17,6 +17,8 @@ import mrocklinConfig from '../../config/mrocklin.json';
 import criccominiConfig from '../../config/criccomini.json';
 import skamilleConfig from '../../config/skamille.json';
 import mitchellhConfig from '../../config/mitchellh.json';
+import mathbabeConfig from '../../config/mathbabe.json';
+import nayafiaConfig from '../../config/nayafia.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -32,6 +34,8 @@ const configs: Record<string, BlogConfig> = {
   criccomini: criccominiConfig as BlogConfig,
   skamille: skamilleConfig as BlogConfig,
   mitchellh: mitchellhConfig as BlogConfig,
+  mathbabe: mathbabeConfig as BlogConfig,
+  nayafia: nayafiaConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -124,6 +128,19 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
       const [, year, month, day, slug] = match;
       return `${config.sourceUrl}/blog/jekyll/update/${year}/${month}/${day}/${slug}.html`;
     }
+  }
+  // For wordpress blogs (mathbabe), URL is /YYYY/MM/DD/slug/
+  if (config.scraper.type === 'wordpress') {
+    const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
+    if (match) {
+      const [, year, month, day, slug] = match;
+      return `${config.sourceUrl}/${year}/${month}/${day}/${slug}/`;
+    }
+  }
+  // For jekyll_static blogs (nadia.xyz), URL is just /slug
+  if (config.scraper.type === 'jekyll_static') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${config.sourceUrl}/${slug}`;
   }
   return config.sourceUrl;
 }

@@ -1,0 +1,65 @@
+---
+title: "Nadia Asparouhova"
+date: 2017-03-23
+url: https://nadia.xyz/the-games-we-play
+word_count: 421
+---
+
+
+# [Nadia Asparouhova](https://nadia.xyz/)
+
+- [projects](https://nadia.xyz/projects)
+- [notes](https://nadia.xyz/notes)
+- [newsletter](https://nayafia.substack.com/)
+- [twitter](https://twitter.com/nayafia)
+
+[<-- home](https://nadia.xyz/)
+
+# The games we play
+
+
+March 23, 2017
+
+
+Today the Drupal world is up in arms because a longtime leader, Larry Garfield, was [quietly expelled from the community](https://www.garfieldtech.com/blog/tmi-outing) after months of harassment and bullying, due to his private kink lifestyle.
+
+
+The decision [was made by Drupal’s founder](http://dri.es/tag/living-our-values), Dries Buytaert, and the response has been appropriately horrified. Kicking someone out based on their sexual beliefs seems antithetical to the title of Dries’s post, *“Living our values”*.
+
+
+And yet, I’m not upset at Dries. (Disappointed, maybe.) I’m upset at the political climate that led Dries to make what he believed was the right decision.
+
+
+As Larry points out in his post, BDSM practitioners have been shamed, ostracized, lost their jobs and even their children for their beliefs. None of that is new. What’s different is Dries’s justification for this ban.
+
+
+It wasn’t because Dries found the practice of BDSM to be inherently abhorrent. In fact, he makes a point to say, *“I don’t take any offense to the role-playing activities or sexual preferences of Larry’s alternative lifestyle.”*
+
+
+Rather, Dries expelled Larry because, *“The Gorean philosophy promoted by Larry is based on the principle that women are evolutionarily predisposed to serve men and that the natural order is for men to dominate and lead.”*
+
+
+In the past, Dries might’ve kicked Larry out because *“BDSM is a threat to family values”*. Today, leaders like Dries kick Larry out because *“BDSM is a threat to gender equality”*. Unfortunately, the end result is the same.
+
+
+So if you’re upset about Dries’s decision (and it seems that many are), just remember: you created this. I created this, too, by not standing up for others in situations where I felt someone was unfairly taken down for their beliefs.
+
+
+Beliefs are not actions. We cannot persecute people for what they believe, no matter how much it disgusts us, and simultaneously maintain a free and open democracy.
+
+
+We are all responsible for the increasingly alarming practice of coercion masquerading as equality, in which someone like Larry can be persecuted, in which nuance is overlooked because *“it’s a moral question”*, in which diversity is starting to look a lot more like conformity.
+
+
+If diversity is our dogma, call me *“spiritual, not religious”*. I still pray for the same things as you, but I won’t be at the witch trials.
+
+
+*([Cross-posted from Medium](https://medium.com/@nayafia/the-games-we-play-8229bd1e565f).)*
+
+
+---
+
+
+*For future updates, subscribe via [newsletter](https://nayafia.substack.com/) or [RSS](https://nadia.xyz/feed.xml). Get in touch via [Twitter](https://twitter.com/nayafia).*
+
+Google tag (gtag.js)

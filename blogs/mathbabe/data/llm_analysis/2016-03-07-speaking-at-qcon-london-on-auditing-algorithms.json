@@ -1,0 +1,24 @@
+{
+  "summary": "O'Neil announces her upcoming talk at QCon London on algorithm auditing, using recidivism modeling as a timely case study. She notes the irony that the talk preceding hers will discuss the very type of algorithmic system that desperately needs auditing. The post surveys current tools for algorithmic auditing, including the FairTest toolkit, while highlighting a critical gap: these tools struggle when protected attributes like race and income aren't explicitly included in datasets. She suggests proxy methods using zip codes and names to infer race, but acknowledges the significant limitations.",
+  "key_points": [
+    "Recidivism algorithms that influence sentencing decisions urgently need auditing given systemic racism and class bias in the justice system",
+    "Current auditing tools like FairTest can detect bias but require explicit protected attributes (race, income) to function properly",
+    "When protected attributes are missing from datasets, auditors must resort to proxy inference methods using zip codes and surnames",
+    "The technical challenge of auditing algorithms is compounded by data availability problems that many modelers face"
+  ],
+  "money_quotes": [
+    "Given how deeply racist and anti-poor our justice system is, it's a big question whether or how data-driven studies or algorithms can improve it.",
+    "The need for auditing algorithms could not be more front and center.",
+    "If you have a dataset showing the history of a bunch of prisoners, their recidivism scores, and their subsequent sentencing lengths, you'd like to know whether the algorithms was biased against blacks or against poor people.",
+    "But if you don't have the column 'race' or 'income,' it's a lot harder to do that analysis.",
+    "Not all modelers even have that, so it gets tricky pretty fast."
+  ],
+  "themes": [
+    "algorithms",
+    "ethics",
+    "politics"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Auditing algorithms for bias is technically possible but practically constrained by the frequent absence of protected attributes in the very datasets we need to examine.",
+  "filename": "2016-03-07-speaking-at-qcon-london-on-auditing-algorithms"
+}

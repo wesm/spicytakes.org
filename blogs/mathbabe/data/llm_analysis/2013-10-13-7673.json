@@ -1,0 +1,23 @@
+{
+  "summary": "O'Neil works through a probability problem about inferring an unknown parameter from sample data drawn from a uniform distribution. Given n draws from a uniform distribution [0, \u03b8], she shows how to estimate \u03b8 using only the maximum observed value. By reframing the problem as asking where the rightmost dart lands when throwing n darts at [0,1], she derives through integration that the expected maximum is n/(n+1). The solution involves recognizing symmetry, using induction from simple cases, and computing n-fold integrals to arrive at an elegant 'plumping factor' of (n+1)/n to multiply the observed maximum.",
+  "key_points": [
+    "The problem reduces to finding the expected value of the maximum of n uniform random variables on [0,1]",
+    "Symmetry allows assuming one variable is the maximum, then multiplying by n to account for all orderings",
+    "The expected maximum of n uniform draws is n/(n+1), approaching 1 as n grows",
+    "To estimate the true parameter \u03b8, multiply the observed maximum by the 'plumping factor' (n+1)/n",
+    "Building from n=1 case (answer: 1/2) helps develop intuition before tackling the general proof"
+  ],
+  "money_quotes": [
+    "Someone asked me a math question the other day and I had fun figuring it out.",
+    "In other words, given n what's your best guess for \u03b8?",
+    "Because I'm a basically violent person, I like to think of as throws of a dart.",
+    "It's obvious from this phrasing that, as n goes to infinity, you can expect a dart to get closer and closer to 1.",
+    "Take the maximum value in your collection of draws and multiply it by the plumping factor (n+1)/n to get a best estimate of the parameter."
+  ],
+  "themes": [
+    "math"
+  ],
+  "tone": "playful, technical, pedagogical",
+  "key_insight": "When estimating the upper bound of a uniform distribution from n samples, multiply the observed maximum by (n+1)/n to correct for the systematic underestimation inherent in using sample maxima.",
+  "filename": "2013-10-13-7673"
+}

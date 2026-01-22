@@ -1,0 +1,28 @@
+{
+  "summary": "O'Neil continues her exploration of fairness in algorithmic scoring systems, demonstrating that while you cannot simultaneously achieve calibration, equal false positive rates, and equal false negative rates across groups with different base rates, you can achieve any two of these three criteria. Using a visual example with simplified groups, she shows how adjusting for equal false positive rates necessarily creates unequal false negative rates when the model remains well-calibrated. She argues that in recidivism scoring, prioritizing equal false positive rates may be the better tradeoff since the harm of incorrectly imprisoning someone longer is more severe than letting someone off earlier.",
+  "key_points": [
+    "A well-calibrated model cannot have both equal false positive and false negative rates across groups with different base rates",
+    "You can choose to optimize for two out of three fairness criteria, forcing a deliberate tradeoff",
+    "Different base rates between populations mathematically guarantee that mislabeling rates will differ",
+    "In criminal justice contexts, equalizing false positive rates may be preferable because wrongful imprisonment is more harmful than early release",
+    "O'Neil questions whether recidivism algorithms should be used at all, or are even constitutional"
+  ],
+  "money_quotes": [
+    "You cannot simultaneously ask for a model to be well-calibrated, to have equal false positive rates for blacks and whites, and to have equal false negative rates unless you are in the presence of equal 'base rates' or a perfect predictor.",
+    "The good news is that you can ask for two out of three of these.",
+    "Because we are assuming the model is well-calibrated, every time we have one kind of mistake we have to make up for that mistake with exactly one of the other type.",
+    "What we've done is sacrificed some false negative rate balance for a perfect match on the false positive rate, while keeping the model well-calibrated.",
+    "The harm that comes from unequal false positive rate \u2013 sending someone to jail for longer \u2013 is arguably more toxic than an unequal false negative rate, which means certain groups are let off the hook more often than the others.",
+    "I'm not even sure why their use is constitutional, to tell the truth.",
+    "Given that they are in use, I think it makes sense to try to make them as good as possible, and to investigate what 'good' means in this context."
+  ],
+  "themes": [
+    "algorithms",
+    "ethics",
+    "math",
+    "politics"
+  ],
+  "tone": "technical, pragmatic, critical",
+  "key_insight": "Algorithmic fairness requires choosing which type of unfairness to accept, and in criminal justice, we should prioritize not wrongly punishing people over not wrongly releasing them.",
+  "filename": "2017-01-12-two-out-of-three-fairness-criteria-can-be-satisfied"
+}

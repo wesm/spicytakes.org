@@ -1,0 +1,24 @@
+{
+  "summary": "The post explores what precipitation forecasts actually mean and how to evaluate their accuracy. O'Neil proposes a rigorous method using 101 bins (0-100% probability) to collect forecast-outcome pairs over time, then measuring accuracy by comparing predicted probabilities against actual rain frequencies. She argues that squared error is the ideal penalty metric because it's minimized when forecasts match true probabilities and rewards models that commit to confident predictions near 0% or 100% rather than hedging at 50%. The analysis reveals that a 'dumb' forecast using historical averages would score poorly despite being technically accurate within its single bin, while the ideal forecast would only use bins 0 and 100.",
+  "key_points": [
+    "A 37% rain forecast should mean that 37 out of 100 times with identical conditions, measurable precipitation occurs",
+    "Squared error is the optimal penalty metric because it's minimized when bin labels perfectly match actual rain frequencies",
+    "The 50% bin represents maximum uncertainty and accumulates the highest penalty regardless of outcome",
+    "Models improve by either making bin predictions more accurate or by moving forecasts closer to 0% or 100% certainty",
+    "Geographic averaging across land masses distorts forecasts, but pinpointed location apps are making this obsolete"
+  ],
+  "money_quotes": [
+    "The ideal forecast would always just be 1 or 0: it's either going to rain or it's not.",
+    "Putting an hourly forecast into the '50' bin is like giving up \u2013 you're going to get a big penalty no matter what, because again, it's either going to rain or it isn't.",
+    "There's a forecast out there that we want to make sure is deeply shamed by any self-respecting scoring system.",
+    "This is a super dumb forecast, and we want to make sure it doesn't score as well as God or mother nature, and thankfully it doesn't.",
+    "If there's an 80% chance that precipitation will occur over half the land mass and a 0% chance it will occur over the other half, the forecast will read 40%."
+  ],
+  "themes": [
+    "math",
+    "algorithms"
+  ],
+  "tone": "technical, pedagogical, playful",
+  "key_insight": "Good probability forecasts should be judged not just on accuracy but on their willingness to make confident predictions, since hedging at 50% is mathematically the worst possible strategy.",
+  "filename": "2015-12-28-forecasting-precipitation"
+}

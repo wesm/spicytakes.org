@@ -28,11 +28,13 @@ get_project_name() {
         criccomini) echo "spicy-takes-criccomini" ;;
         skamille) echo "spicy-takes-skamille" ;;
         mitchellh) echo "spicy-takes-mitchellh" ;;
+        mathbabe) echo "spicy-takes-mathbabe" ;;
+        nayafia) echo "spicy-takes-nayafia" ;;
         *)         echo "" ;;
     esac
 }
 
-ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh"
+ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh mathbabe nayafia"
 
 PROD_FLAG=""
 DEPLOY_ALL=false
