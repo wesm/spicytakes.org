@@ -1,10 +1,11 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { landing } from '$lib/config';
 
   // Pepper emoji for brand
   const pepper = '🌶️';
 
-  // Shuffle blogs randomly on each page load
+  // Shuffle blogs randomly on each page load (client-side only to avoid hydration mismatch)
   function shuffle<T>(array: T[]): T[] {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -14,7 +15,12 @@
     return shuffled;
   }
 
-  const visibleBlogs = shuffle(landing.blogs.filter(b => !b.hidden));
+  const blogs = landing.blogs.filter(b => !b.hidden);
+  let visibleBlogs = $state(blogs);
+
+  onMount(() => {
+    visibleBlogs = shuffle(blogs);
+  });
 </script>
 
 <div class="min-h-screen bg-gradient-to-b from-stone-50 to-white">
