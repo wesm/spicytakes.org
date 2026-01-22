@@ -1,0 +1,358 @@
+#!/usr/bin/env python3
+"""
+Spicy Takes CLI - Master orchestration tool for blog updates.
+
+Usage:
+    ./scripts/spicy status              # Show status of all blogs
+    ./scripts/spicy status <blog_id>    # Show status of specific blog
+    ./scripts/spicy update [blog_id]    # Update one blog (scrape -> analyze -> grade)
+    ./scripts/spicy update --all        # Update all blogs sequentially
+    ./scripts/spicy update --new        # Only update blogs where scraper finds new content
+    ./scripts/spicy sync-stats          # Regenerate landing.json stats from actual data
+
+Requirements:
+    pip install click rich
+"""
+
+import json
+import os
+import subprocess
+import sys
+from datetime import datetime
+from pathlib import Path
+
+try:
+    import click
+    from rich.console import Console
+    from rich.table import Table
+    from rich.progress import Progress, SpinnerColumn, TextColumn
+except ImportError:
+    print("Missing dependencies. Install with:")
+    print("  pip install click rich")
+    sys.exit(1)
+
+
+# Constants
+PROJECT_DIR = Path(__file__).parent.parent
+CONFIG_DIR = PROJECT_DIR / "config"
+BLOGS_DIR = PROJECT_DIR / "blogs"
+SCRIPTS_DIR = PROJECT_DIR / "scripts"
+
+# Scraper type to script mapping
+SCRAPERS = {
+    "substack": "substack.py",
+    "github_markdown": "github_markdown.py",
+    "quarto_blog": "quarto_blog.py",
+    "static_html": "static_html.py",
+    "hugo_rss": "hugo_rss.py",
+    "hugo_homepage": "hugo_homepage.py",
+    "jekyll_feed": "jekyll_feed.py",
+    "jekyll_static": "jekyll_static.py",
+    "blogger": "blogger.py",
+    "rss_nextjs": "rss_nextjs.py",
+    "wordpress": "wordpress.py",
+}
+
+console = Console()
+
+
+def discover_blogs() -> list[dict]:
+    """Discover all blogs from config files."""
+    blogs = []
+    for config_file in sorted(CONFIG_DIR.glob("*.json")):
+        if config_file.name == "landing.json":
+            continue
+        try:
+            with open(config_file) as f:
+                config = json.load(f)
+            blogs.append({
+                "id": config["id"],
+                "name": config["name"],
+                "scraper_type": config["scraper"]["type"],
+                "source_url": config.get("sourceUrl", ""),
+            })
+        except (json.JSONDecodeError, KeyError) as e:
+            console.print(f"[yellow]Warning: Could not parse {config_file.name}: {e}[/yellow]")
+    return blogs
+
+
+def get_blog_stats(blog_id: str) -> dict:
+    """Get stats for a specific blog."""
+    blog_dir = BLOGS_DIR / blog_id / "data"
+    stats = {
+        "posts": 0,
+        "analyzed": 0,
+        "quotes": 0,
+        "last_updated": None,
+    }
+
+    # Read posts_index.json
+    posts_index = blog_dir / "posts_index.json"
+    if posts_index.exists():
+        try:
+            with open(posts_index) as f:
+                data = json.load(f)
+            stats["posts"] = data.get("total_posts", len(data.get("posts", [])))
+            stats["last_updated"] = data.get("last_updated")
+        except (json.JSONDecodeError, KeyError):
+            pass
+
+    # Count analyzed files
+    llm_analysis_dir = blog_dir / "llm_analysis"
+    if llm_analysis_dir.exists():
+        stats["analyzed"] = len(list(llm_analysis_dir.glob("*.json")))
+
+    # Read spicy_quotes.json
+    spicy_quotes = blog_dir / "spicy_quotes.json"
+    if spicy_quotes.exists():
+        try:
+            with open(spicy_quotes) as f:
+                data = json.load(f)
+            stats["quotes"] = data.get("total", len(data.get("quotes", [])))
+        except (json.JSONDecodeError, KeyError):
+            pass
+
+    return stats
+
+
+def format_date(iso_date: str | None) -> str:
+    """Format ISO date string for display."""
+    if not iso_date:
+        return "-"
+    try:
+        dt = datetime.fromisoformat(iso_date.replace("Z", "+00:00"))
+        return dt.strftime("%Y-%m-%d")
+    except (ValueError, AttributeError):
+        return iso_date[:10] if iso_date else "-"
+
+
+def run_scraper(blog_id: str, scraper_type: str) -> tuple[bool, int]:
+    """Run the scraper for a blog. Returns (success, new_post_count)."""
+    scraper_script = SCRAPERS.get(scraper_type)
+    if not scraper_script:
+        console.print(f"[red]Unknown scraper type: {scraper_type}[/red]")
+        return False, 0
+
+    scraper_path = SCRIPTS_DIR / "scrapers" / scraper_script
+
+    # Get current post count before scraping
+    stats_before = get_blog_stats(blog_id)
+    posts_before = stats_before["posts"]
+
+    env = os.environ.copy()
+    env["BLOG_ID"] = blog_id
+
+    result = subprocess.run(
+        ["python3", str(scraper_path)],
+        env=env,
+        cwd=str(PROJECT_DIR),
+        capture_output=True,
+        text=True,
+    )
+
+    if result.returncode != 0:
+        console.print(f"[red]Scraper failed:[/red]\n{result.stderr}")
+        return False, 0
+
+    # Get new post count
+    stats_after = get_blog_stats(blog_id)
+    posts_after = stats_after["posts"]
+    new_posts = posts_after - posts_before
+
+    return True, new_posts
+
+
+def run_llm_analyze(blog_id: str) -> bool:
+    """Run LLM analysis for a blog."""
+    env = os.environ.copy()
+    env["BLOG_ID"] = blog_id
+
+    result = subprocess.run(
+        ["bash", str(SCRIPTS_DIR / "llm_analyze.sh")],
+        env=env,
+        cwd=str(PROJECT_DIR),
+        capture_output=True,
+        text=True,
+    )
+
+    return result.returncode == 0
+
+
+def run_grade_spiciness(blog_id: str) -> bool:
+    """Run spiciness grading for a blog."""
+    env = os.environ.copy()
+    env["BLOG_ID"] = blog_id
+
+    result = subprocess.run(
+        ["bash", str(SCRIPTS_DIR / "grade_spiciness.sh")],
+        env=env,
+        cwd=str(PROJECT_DIR),
+        capture_output=True,
+        text=True,
+    )
+
+    return result.returncode == 0
+
+
+@click.group()
+def cli():
+    """Spicy Takes CLI - Master orchestration tool for blog updates."""
+    pass
+
+
+@cli.command()
+@click.argument("blog_id", required=False)
+def status(blog_id: str | None):
+    """Show status of all blogs or a specific blog."""
+    blogs = discover_blogs()
+
+    if blog_id:
+        # Filter to specific blog
+        blogs = [b for b in blogs if b["id"] == blog_id]
+        if not blogs:
+            console.print(f"[red]Blog not found: {blog_id}[/red]")
+            console.print("Available blogs:", ", ".join(b["id"] for b in discover_blogs()))
+            sys.exit(1)
+
+    table = Table(title="Spicy Takes - Blog Status")
+    table.add_column("Blog", style="cyan")
+    table.add_column("Type", style="dim")
+    table.add_column("Posts", justify="right")
+    table.add_column("Analyzed", justify="right")
+    table.add_column("Quotes", justify="right")
+    table.add_column("Last Updated", style="green")
+
+    total_posts = 0
+    total_quotes = 0
+
+    for blog in blogs:
+        stats = get_blog_stats(blog["id"])
+        total_posts += stats["posts"]
+        total_quotes += stats["quotes"]
+
+        # Color analyzed column based on completion
+        analyzed_str = str(stats["analyzed"])
+        if stats["analyzed"] < stats["posts"]:
+            analyzed_str = f"[yellow]{stats['analyzed']}[/yellow]"
+
+        table.add_row(
+            blog["id"],
+            blog["scraper_type"],
+            str(stats["posts"]),
+            analyzed_str,
+            str(stats["quotes"]),
+            format_date(stats["last_updated"]),
+        )
+
+    console.print(table)
+    console.print(f"\n[bold]Total:[/bold] {len(blogs)} blogs, {total_posts} posts, {total_quotes} quotes")
+
+
+@cli.command()
+@click.argument("blog_id", required=False)
+@click.option("--all", "update_all", is_flag=True, help="Update all blogs sequentially")
+@click.option("--new", "only_new", is_flag=True, help="Only update blogs where scraper finds new content")
+def update(blog_id: str | None, update_all: bool, only_new: bool):
+    """Update one or all blogs (scrape -> analyze -> grade)."""
+    blogs = discover_blogs()
+
+    if blog_id:
+        # Single blog
+        blogs = [b for b in blogs if b["id"] == blog_id]
+        if not blogs:
+            console.print(f"[red]Blog not found: {blog_id}[/red]")
+            console.print("Available blogs:", ", ".join(b["id"] for b in discover_blogs()))
+            sys.exit(1)
+    elif not update_all:
+        console.print("[red]Specify a blog_id or use --all to update all blogs[/red]")
+        sys.exit(1)
+
+    total_new_posts = 0
+    total_new_quotes = 0
+
+    for blog in blogs:
+        bid = blog["id"]
+        scraper_type = blog["scraper_type"]
+
+        console.print(f"\n[bold cyan][{bid}][/bold cyan] Scraping ({scraper_type})...")
+
+        success, new_posts = run_scraper(bid, scraper_type)
+        if not success:
+            console.print(f"  [red]Failed to scrape[/red]")
+            continue
+
+        if new_posts > 0:
+            console.print(f"  [green]Found {new_posts} new post(s)[/green]")
+            total_new_posts += new_posts
+        else:
+            console.print(f"  [dim]No new posts[/dim]")
+            if only_new:
+                continue
+
+        # Run LLM analysis
+        console.print(f"[bold cyan][{bid}][/bold cyan] Analyzing...")
+        quotes_before = get_blog_stats(bid)["quotes"]
+
+        if run_llm_analyze(bid):
+            console.print(f"  [green]Analysis complete[/green]")
+        else:
+            console.print(f"  [yellow]Analysis skipped or failed[/yellow]")
+
+        # Run spiciness grading
+        console.print(f"[bold cyan][{bid}][/bold cyan] Grading...")
+        if run_grade_spiciness(bid):
+            quotes_after = get_blog_stats(bid)["quotes"]
+            new_quotes = quotes_after - quotes_before
+            if new_quotes > 0:
+                console.print(f"  [green]Graded {new_quotes} new quote(s)[/green]")
+                total_new_quotes += new_quotes
+            else:
+                console.print(f"  [dim]No new quotes[/dim]")
+        else:
+            console.print(f"  [yellow]Grading skipped or failed[/yellow]")
+
+    console.print(f"\n[bold]Summary:[/bold] {total_new_posts} new posts, {total_new_quotes} new quotes")
+
+
+@cli.command("sync-stats")
+def sync_stats():
+    """Regenerate landing.json stats from actual data."""
+    landing_file = CONFIG_DIR / "landing.json"
+
+    if not landing_file.exists():
+        console.print("[red]landing.json not found[/red]")
+        sys.exit(1)
+
+    with open(landing_file) as f:
+        landing = json.load(f)
+
+    updated_count = 0
+    for blog_entry in landing.get("blogs", []):
+        bid = blog_entry["id"]
+        stats = get_blog_stats(bid)
+
+        old_posts = blog_entry.get("stats", {}).get("posts", 0)
+        old_quotes = blog_entry.get("stats", {}).get("quotes", 0)
+
+        if stats["posts"] != old_posts or stats["quotes"] != old_quotes:
+            blog_entry["stats"] = {
+                "posts": stats["posts"],
+                "quotes": stats["quotes"],
+            }
+            console.print(
+                f"[cyan]{bid}:[/cyan] posts {old_posts} -> {stats['posts']}, "
+                f"quotes {old_quotes} -> {stats['quotes']}"
+            )
+            updated_count += 1
+
+    if updated_count > 0:
+        with open(landing_file, "w") as f:
+            json.dump(landing, f, indent=2)
+            f.write("\n")
+        console.print(f"\n[green]Updated {updated_count} blog(s) in landing.json[/green]")
+    else:
+        console.print("[dim]All stats already up to date[/dim]")
+
+
+if __name__ == "__main__":
+    cli()

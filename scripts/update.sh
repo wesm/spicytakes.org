@@ -39,16 +39,45 @@ SCRAPER_TYPE=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['s
 
 # Step 1: Scrape new posts (based on scraper type)
 echo "Step 1/4: Checking for new posts..."
-if [[ "$SCRAPER_TYPE" == "substack" ]]; then
-    BLOG_ID="$BLOG_ID" python3 scripts/scrapers/substack.py
-elif [[ "$SCRAPER_TYPE" == "github_markdown" ]]; then
-    BLOG_ID="$BLOG_ID" python3 scripts/scrapers/github_markdown.py
-elif [[ "$SCRAPER_TYPE" == "quarto_blog" ]]; then
-    BLOG_ID="$BLOG_ID" python3 scripts/scrapers/quarto_blog.py
-else
-    echo "Unknown scraper type: $SCRAPER_TYPE"
-    exit 1
-fi
+case "$SCRAPER_TYPE" in
+    substack)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/substack.py
+        ;;
+    github_markdown)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/github_markdown.py
+        ;;
+    quarto_blog)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/quarto_blog.py
+        ;;
+    static_html)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/static_html.py
+        ;;
+    hugo_rss)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/hugo_rss.py
+        ;;
+    hugo_homepage)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/hugo_homepage.py
+        ;;
+    jekyll_feed)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/jekyll_feed.py
+        ;;
+    jekyll_static)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/jekyll_static.py
+        ;;
+    blogger)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/blogger.py
+        ;;
+    rss_nextjs)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/rss_nextjs.py
+        ;;
+    wordpress)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/wordpress.py
+        ;;
+    *)
+        echo "Unknown scraper type: $SCRAPER_TYPE"
+        exit 1
+        ;;
+esac
 echo ""
 
 # Step 2: Run LLM analysis on new posts
