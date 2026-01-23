@@ -18,6 +18,9 @@
 
   const title = isLandingMode ? `${landing.title} - ${landing.tagline}` : `${config?.name} - ${config?.tagline}`;
   const description = isLandingMode ? landing.description : config?.description;
+
+  declare const __GIT_HASH__: string;
+  const gitHash = __GIT_HASH__;
 </script>
 
 <svelte:head>
@@ -32,6 +35,7 @@
     </main>
     <footer class="border-t border-stone-200 py-8 text-center text-sm text-stone-500">
       <p class="text-stone-400">Curated archives with LLM-powered analysis</p>
+      <p class="mt-2 text-stone-300 text-xs">{gitHash}</p>
     </footer>
   </div>
 {:else}
@@ -45,6 +49,7 @@
       <p class="mt-2 text-stone-400">
         Made with <span class="text-red-500">❤️</span> by <a href="https://wesmckinney.com" target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-red-500 transition-colors">Wes McKinney</a>
       </p>
+      <p class="mt-2 text-stone-300 text-xs">{gitHash}</p>
     </footer>
   </div>
   <Modal />
