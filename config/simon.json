@@ -1,0 +1,42 @@
+{
+  "id": "simon",
+  "name": "Simon Späti",
+  "tagline": "Data engineering patterns and practices",
+  "description": "Exploring Simon's writings on data engineering, data platforms, and the modern data stack.",
+  "sourceUrl": "https://www.ssp.sh",
+  "sourceLabel": "ssp.sh",
+
+  "scraper": {
+    "type": "rss_generic",
+    "feedUrl": "https://www.ssp.sh/index.xml",
+    "baseUrl": "https://www.ssp.sh",
+    "urlFilter": "/blog/",
+    "archivePattern": "/posts/page/{page}/",
+    "archiveStartPage": 2,
+    "maxArchivePages": 10
+  },
+
+  "themes": {
+    "data_engineering": { "label": "Data Engineering", "icon": "\ud83d\udee0\ufe0f" },
+    "data_platforms": { "label": "Data Platforms", "icon": "\ud83c\udfd7\ufe0f" },
+    "data_modeling": { "label": "Data Modeling", "icon": "\ud83d\uddc2\ufe0f" },
+    "tools_products": { "label": "Tools & Products", "icon": "\ud83e\uddf0" },
+    "ai_llms": { "label": "AI & LLMs", "icon": "\ud83e\udd16" },
+    "career_reflections": { "label": "Career & Life", "icon": "\ud83d\udcad" },
+    "writing_learning": { "label": "Writing & Learning", "icon": "\u270d\ufe0f" },
+    "industry_observations": { "label": "Industry", "icon": "\ud83d\udd0d" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Simon Späti, a data engineer and author of 'Data Engineering Design Patterns'. He writes about data engineering practices, data platforms, tooling, and the evolving data ecosystem. He has practical, hands-on perspectives on building data systems.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Simon is a practitioner who writes about data engineering with a focus on practical patterns and real-world experience. He has opinions on data platform design and tooling choices."
+  }
+}
