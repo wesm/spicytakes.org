@@ -33,6 +33,67 @@ class SubstackScraper(BaseScraper):
         self.substack_url = self.config["scraper"]["substackUrl"]
         self.urls_file = self.data_dir / "post_urls.json"
 
+    def discover_post_urls(self) -> list[str]:
+        """Discover all post URLs from the Substack archive API."""
+        all_urls = []
+        offset = 0
+        limit = 50  # Substack API limit
+
+        print(f"Discovering posts from {self.substack_url}...")
+
+        while True:
+            api_url = f"{self.substack_url}/api/v1/archive?sort=new&offset={offset}&limit={limit}"
+            try:
+                response = requests.get(api_url, timeout=30, headers={
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+                })
+                response.raise_for_status()
+                posts = response.json()
+
+                if not posts:
+                    break
+
+                for post in posts:
+                    if "canonical_url" in post:
+                        all_urls.append(post["canonical_url"])
+                    elif "slug" in post:
+                        all_urls.append(f"{self.substack_url}/p/{post['slug']}")
+
+                print(f"  Found {len(all_urls)} posts so far...")
+                offset += limit
+                time.sleep(REQUEST_DELAY)
+
+            except requests.RequestException as e:
+                print(f"  Error fetching archive at offset {offset}: {e}")
+                break
+
+        return all_urls
+
+    def update_urls_file(self, urls: list[str]):
+        """Update the post URLs file with newly discovered URLs."""
+        existing_urls = self.load_urls()
+        existing_set = set(existing_urls)
+        new_urls = [u for u in urls if u not in existing_set]
+
+        if new_urls:
+            print(f"Found {len(new_urls)} new post(s)")
+
+        # Merge: new discovered URLs + existing URLs not in discovered (preserves old posts)
+        discovered_set = set(urls)
+        old_only = [u for u in existing_urls if u not in discovered_set]
+        all_urls = urls + old_only  # New first, then any old posts not in API
+
+        data = {
+            "source": self.substack_url,
+            "scraped_at": datetime.now().strftime("%Y-%m-%d"),
+            "total_posts": len(all_urls),
+            "posts": all_urls
+        }
+        with open(self.urls_file, "w") as f:
+            json.dump(data, f, indent=2)
+
+        return new_urls
+
     def load_urls(self) -> list[str]:
         """Load post URLs from the JSON file."""
         if not self.urls_file.exists():
@@ -222,8 +283,13 @@ class SubstackScraper(BaseScraper):
 
     def scrape(self) -> list[dict]:
         """Scrape all posts from the Substack."""
+        # First, discover any new posts from the Substack API
+        discovered_urls = self.discover_post_urls()
+        if discovered_urls:
+            self.update_urls_file(discovered_urls)
+
         urls = self.load_urls()
-        print(f"Found {len(urls)} posts to scrape")
+        print(f"Found {len(urls)} total posts")
 
         existing_slugs = self.get_existing_slugs()
         urls_to_scrape = [u for u in urls if u.split("/p/")[-1].rstrip("/") not in existing_slugs]
