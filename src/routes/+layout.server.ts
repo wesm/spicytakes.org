@@ -88,12 +88,19 @@ export const load: LayoutServerLoad = async () => {
   );
 
   // Build title lookup from posts_index.json
-  // Index by both with and without .md extension for compatibility
+  // Index by filename (with/without .md) and by slug for compatibility
   const titleLookup: Record<string, string> = {};
   for (const p of postsIndex.posts || []) {
-    if (p.filename && p.title) {
-      titleLookup[p.filename] = p.title;
-      titleLookup[p.filename.replace(/\.md$/, '')] = p.title;
+    if (p.title) {
+      if (p.filename) {
+        titleLookup[p.filename] = p.title;
+        titleLookup[p.filename.replace(/\.md$/, '')] = p.title;
+      }
+      // Also index by slug (for Substack blogs where posts_index uses slug)
+      const slug = (p as any).slug;
+      if (slug) {
+        titleLookup[slug] = p.title;
+      }
     }
   }
 
@@ -111,7 +118,9 @@ export const load: LayoutServerLoad = async () => {
       const dateStr = parseDate(post.filename);
       const year = parseInt(dateStr.split('-')[0], 10);
       // Use real title from posts_index.json, fall back to formatTitle if not found
-      const title = titleLookup[post.filename] || formatTitle(post.filename);
+      // Try filename first, then extract slug from filename (for Substack: 2021-02-02-slug -> slug)
+      const slug = post.filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+      const title = titleLookup[post.filename] || titleLookup[slug] || formatTitle(post.filename);
       return {
         ...post,
         dateStr,
