@@ -17,6 +17,7 @@ A multi-blog archive platform that uses LLM-powered analysis to generate summari
 | [criccomini.spicytakes.org](https://criccomini.spicytakes.org) | Chris Riccomini | Data infrastructure, Kafka, distributed systems | 63 |
 | [skamille.spicytakes.org](https://skamille.spicytakes.org) | Camille Fournier | Engineering management, leadership | 111 |
 | [mitchellh.spicytakes.org](https://mitchellh.spicytakes.org) | Mitchell Hashimoto | Ghostty, Zig, developer tools | 45 |
+| [ssp.spicytakes.org](https://ssp.spicytakes.org) | Simon Späti | Data engineering, data platforms | 81 |
 
 ## Project Structure
 
@@ -90,6 +91,7 @@ BLOG_ID=mrocklin python scripts/scrapers/jekyll_feed.py
 # - hugo_rss.py         Hugo blogs with RSS
 # - hugo_homepage.py    Hugo blogs scraped from homepage
 # - jekyll_feed.py      Jekyll/Atom feed blogs (geohot, mrocklin)
+# - rss_generic.py      Generic RSS feed blogs (ssp)
 ```
 
 ### 2. LLM Analysis
@@ -174,6 +176,7 @@ The site is deployed to Vercel with separate projects for each subdomain.
 | criccomini | spicy-takes-criccomini |
 | skamille | spicy-takes-skamille |
 | mitchellh | spicy-takes-mitchellh |
+| ssp | spicy-takes-ssp |
 
 ## Adding a New Blog
 

@@ -20,6 +20,7 @@ import mitchellhConfig from '../../config/mitchellh.json';
 import mathbabeConfig from '../../config/mathbabe.json';
 import nayafiaConfig from '../../config/nayafia.json';
 import joereisConfig from '../../config/joereis.json';
+import sspConfig from '../../config/ssp.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -38,6 +39,7 @@ const configs: Record<string, BlogConfig> = {
   mathbabe: mathbabeConfig as BlogConfig,
   nayafia: nayafiaConfig as BlogConfig,
   joereis: joereisConfig as BlogConfig,
+  ssp: sspConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -143,6 +145,11 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
   if (config.scraper.type === 'jekyll_static') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${config.sourceUrl}/${slug}`;
+  }
+  // For rss_generic blogs (ssp.sh), URL is /blog/slug/
+  if (config.scraper.type === 'rss_generic') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${config.sourceUrl}/blog/${slug}/`;
   }
   return config.sourceUrl;
 }
