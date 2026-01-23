@@ -1,0 +1,27 @@
+{
+  "summary": "This tutorial extends a local FinOps project to cloud-native infrastructure using ClickHouse Cloud and Rill Cloud for multi-cloud cost analytics. Building on a previous local Parquet-based solution, Sp\u00e4ti demonstrates how dlt's destination flexibility makes switching from local files to ClickHouse trivial with just an environment variable change. The article walks through ingesting AWS CUR, GCP cost, and Stripe data, deploying interactive dashboards to Rill Cloud, and automating the pipeline with GitHub Actions. The hardest challenges weren't the tools themselves but the coordination work: SQL dialect differences between DuckDB and ClickHouse, hard-coded table names, and data anonymization requirements.",
+  "key_points": [
+    "dlt's destination abstraction makes switching from local Parquet to ClickHouse Cloud as simple as changing an environment variable",
+    "FinOps is about maximizing business value through cloud spending visibility, not just cost cutting",
+    "The declarative data stack approach keeps all configuration in code, making automation and reuse much easier than UI-locked cloud configurations",
+    "SQL dialect differences between databases (like date functions) remain a persistent data engineering pain point requiring templating workarounds",
+    "AI coding assistants help with glue code but tend to add rather than refactor, requiring careful human oversight to prevent project bloat"
+  ],
+  "money_quotes": [
+    "The goal of FinOps is to maximize revenue or business value through the cloud. It isn't to save money per se, but it certainly helps with that too.",
+    "That's it. That was the whole magic. Thanks to dlt, this is a piece of cake.",
+    "The SQL dialects are not aligned, and every database has a little different flavour of date and other functions.",
+    "Once we have that figured out, Claude Code and others can help us a ton. But also, typically they make the project much larger. They tend to add code instead of refactoring as they are afraid to break existing code.",
+    "In the first version, you are happy it works, then you start optimizing speed, then security and ultimately you share it with others to make it reusable.",
+    "That's one advantage that makes this project so powerful. With Rill and dlt, we have everything locally in the repo, in our control to automate and configure from one place."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "ai_llms"
+  ],
+  "tone": "technical",
+  "key_insight": "A declarative, code-first data stack with tools like dlt and Rill provides the flexibility to easily switch between local and cloud deployments while keeping full control over configuration and automation.",
+  "filename": "2025-12-04-finops-dlt-clickhouse-rill"
+}

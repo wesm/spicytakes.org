@@ -1,0 +1,27 @@
+{
+  "summary": "Simon Sp\u00e4ti examines why traditional OLAP cubes, particularly Microsoft Analysis Services, are becoming obsolete and explores modern alternatives. He identifies key limitations including lack of Azure cloud support, data size constraints, and the complexity of MDX query language. The post categorizes replacements into four groups: pure OLAP technologies (Druid, ClickHouse), cloud data warehouses (Snowflake, BigQuery), data virtualization tools (Dremio), and serviced cloud analytics (Looker, Sisense). He emphasizes that the choice depends on specific requirements around response time, data volume, and architecture goals, while also highlighting the critical importance of orchestrators and cluster-computing frameworks to complete the modern data architecture.",
+  "key_points": [
+    "Microsoft Analysis Services cubes face fundamental limitations: no Azure cloud support for multidimensional models, data size constraints, and the difficult MDX query language",
+    "Four categories of OLAP replacements exist: pure OLAP technologies, cloud DWHs, data virtualization, and serviced cloud analytics - each with different tradeoffs",
+    "Cloud data warehouses can eliminate the cube layer entirely, saving development and maintenance time at the cost of query latency",
+    "Orchestrators like Airflow are 'one of the most critical tasks that gets forgotten most of the time' in modern data architectures",
+    "Data Lakes serve different purposes than OLAP - good for data scientists exploring data without sub-second response requirements"
+  ],
+  "money_quotes": [
+    "These cubes are a compelling and fast way to aggregate and pre-calculate all of your corporate-related data and makes it available to your operational business users.",
+    "One reason is that nowadays are countless persons wish to make use of data, that's why you might want to make it available to all of them.",
+    "The idea is to speed up your DWH and skip the layer of cubes. This way you save much time in development, processing and maintaining of cubes.",
+    "Without a clear sense of data lineage, accountability issues can arise, and operational metadata can be lost.",
+    "The building blocks of DAGs are data pipelines or following processes where the output from one process becomes the input for the next.",
+    "This is one of the most critical tasks that gets forgotten most of the time."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, pragmatic, advisory",
+  "key_insight": "Traditional OLAP cubes are hitting their limits in the cloud and big data era, and organizations must choose from four distinct replacement strategies based on their specific requirements for query speed, data volume, and architectural complexity.",
+  "filename": "2018-11-23-olap-whats-coming-next"
+}

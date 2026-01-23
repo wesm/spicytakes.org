@@ -1,0 +1,28 @@
+{
+  "summary": "Simon Sp\u00e4ti argues that data orchestration is shifting from task-centric pipeline thinking to data product-centric approaches. Traditional orchestrators like Airflow focus on modeling task dependencies, but modern tools like Dagster and Prefect enable declarative, data-aware pipelines where data assets are first-class citizens defined ahead of runtime. This shift aligns with Data Mesh principles by making pipelines understandable to business users through a Data Product Graph that shows upstream dependencies and business logic. The post compares orchestration approaches, explains key abstractions (jobs, tasks, resources, triggers), and positions this evolution as essential for managing increasingly complex data environments.",
+  "key_points": [
+    "Data orchestration is evolving from task-dependency modeling to data product-centric approaches where assets are declared ahead of runtime",
+    "Declarative pipelines offer advantages over imperative ones: faster developer cycles, better stability, compile-time optimization, and pre-runtime understanding",
+    "Modern orchestrators provide key abstractions (resources, tasks, triggers, data products) that enable code reuse and battle-tested implementations across complex cloud environments",
+    "The Data Product Graph represents the convergence of these trends - showing business users upstream dependencies and logic rather than technical pipeline details",
+    "Dagster excels at higher-level data engineering problems with data integrity focus, while Prefect offers fast, dynamic orchestration with simpler scaling"
+  ],
+  "money_quotes": [
+    "A Data Orchestrator models dependencies between different tasks in heterogeneous environments end-to-end.",
+    "In the end, all data must come from somewhere and go somewhere. Modern data orchestrators are the layer that interconnects all those tools, data, practitioners, and stakeholders.",
+    "A data asset is typically a database table, a machine learning model, or a report \u2013 a persistent object that captures some understanding of the world.",
+    "Similar to how DevOps changed how software gets deployed with Kubernetes and descriptive YAML, the exact same should happen with data pipelines.",
+    "Declarative approaches appeal because they make systems easier to debug and automate.",
+    "Abstractions let you use data pipelines as a microservice on steroids.",
+    "We have seen the same story over and over again. Products start small, in time, add adjacent verticals and functionality to their offerings, and become a platform."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical",
+  "key_insight": "The future of data orchestration lies in treating data products as first-class declarative objects that business users can understand, rather than focusing on the technical details of task dependencies and pipeline execution.",
+  "filename": "2022-06-14-data-orchestration-trends"
+}

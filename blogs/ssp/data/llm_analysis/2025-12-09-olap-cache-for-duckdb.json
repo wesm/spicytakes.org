@@ -1,0 +1,28 @@
+{
+  "summary": "The post explores how DuckDB and its extensions offer a simpler alternative to traditional OLAP cubes for caching analytical workloads. Simon traces the history of BI caching from data warehouses through OLAP cubes to modern zero-copy approaches, arguing that DuckDB's lightweight binary and transparent caching extensions like QuackStore and cache_httpfs can dramatically speed up dashboards without requiring separate ingestion pipelines. He demonstrates practical examples showing 10-15x query speedups and introduces the concept of 'Frozen DuckLake' for immutable reference data. The core thesis is that the database itself can now serve as the cache, eliminating traditional cache invalidation complexity.",
+  "key_points": [
+    "Caching compensates for imperfect data architectures by providing fast query responses without re-architecting the entire data flow",
+    "DuckDB's ecosystem offers transparent read-through caching via extensions (QuackStore, cache_httpfs) that require minimal configuration - just install and set a path",
+    "The history of BI caching shows a pendulum swing from server-side to client-side and back, with DuckDB representing a convergence of simplicity and performance",
+    "Immutable data patterns like Frozen DuckLake sidestep cache invalidation entirely - the database becomes the cache",
+    "Practical benchmarks show query times dropping from ~50 seconds to ~3 seconds with local caching enabled"
+  ],
+  "money_quotes": [
+    "What we want is simplicity of a database, but the speed of a cache.",
+    "You can compensate for an initial bad architecture and still get quick response times and make the frontend more valuable.",
+    "OLAP cubes are essentially a cache too. But what we want is a cache that takes us less effort to build.",
+    "The cache becomes the database. Or rather, the database becomes the cache.",
+    "Sometimes the best cache pattern is no pattern at all, just well-defined principles or a simple extension that can be installed easily.",
+    "In times where everyone is vibe coding and not really architecting data applications, at least not in the beginning, the problem of slow result sets and dashboards will appear near instantly.",
+    "Caching means constantly duplicating data, storing it optimally, and updating data in case the source changes."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, pragmatic, tutorial-oriented",
+  "key_insight": "DuckDB's lightweight caching extensions offer a pragmatic middle ground between slow uncached queries and the operational complexity of traditional OLAP systems, letting the database itself serve as the cache.",
+  "filename": "2025-12-09-olap-cache-for-duckdb"
+}

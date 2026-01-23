@@ -1,0 +1,27 @@
+{
+  "summary": "The post examines when organizations should move beyond Postgres for analytical workloads and explores the landscape of specialized analytical databases. It distinguishes between cloud data warehouses (Snowflake, BigQuery) optimized for scale but with higher latency, and real-time analytical databases (ClickHouse, Pinot, Druid) that co-locate compute and storage for sub-second queries. The author traces the evolution from early OLAP cubes through modern systems, noting that the industry has come 'full circle' in balancing performance with flexibility. The piece provides decision frameworks and migration guidance for choosing between these categories based on query patterns, cost constraints, and latency requirements.",
+  "key_points": [
+    "Postgres is excellent for transactions but hits fundamental limits for analytics\u2014extensions have diminishing returns since it's architecturally an OLTP database",
+    "Cloud data warehouses trade latency for scale through decoupled storage/compute, introducing seconds of 'incompressible latency' per query",
+    "Real-time analytical databases achieve sub-second performance by co-locating compute and storage, returning to principles that made early OLAP cubes successful",
+    "The evolution of analytical systems is cyclical rather than linear\u2014modern systems address the same fundamental challenge of balancing performance with flexibility",
+    "Choosing requires weighing cost-per-TB-stored versus seconds-per-TB-scanned, with hybrid architectures often combining multiple approaches"
+  ],
+  "money_quotes": [
+    "Postgres is the Swiss Army knife of databases, and for many applications, it's more than sufficient.",
+    "Cloud data warehouses are built \u2013 like physical warehouses in the real world \u2013 to enable storage and retrieval at massive scales with efficiency. However, in order to achieve these efficiencies, they rely on an architecture that separates storage and compute, introducing seconds of incompressible latency for every query.",
+    "While the technical evolution of analytical systems appears to be a linear progression, it is cyclical, addressing the same fundamental challenge: balancing performance with flexibility.",
+    "Early OLAP systems achieved incredible speed through pre-aggregation but sacrificed flexibility. Modern systems return to OLAP principles with dynamic rather than static aggregation, enabled by hardware advances that early OLAP architects could only dream of.",
+    "The significant difference between these analytical databases is the trade-off between cost (dollars-per-TB-stored) and performance (seconds-per-TB-scanned).",
+    "At the end of the day, engineers need to choose an analytics database technology based on trade-offs across cost, performance, scale, and complexity\u2014which ultimately only our business use cases can determine."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, practical, historical",
+  "key_insight": "The analytical database landscape has come full circle\u2014modern real-time databases return to OLAP principles of co-located compute and pre-aggregation, but with dynamic flexibility enabled by hardware advances, offering a compelling alternative to cloud data warehouses when sub-second latency matters more than infinite scale.",
+  "filename": "2025-03-11-scaling-beyond-postgres"
+}

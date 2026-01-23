@@ -1,0 +1,28 @@
+{
+  "summary": "Simon Sp\u00e4ti presents a comprehensive tutorial for building a multi-cloud cost analytics dashboard that unifies AWS, GCP, and Stripe revenue data into a single view. The project uses dlt for data extraction, DuckDB/Parquet for storage, and Rill for visualization. He documents the unexpected complexity of cloud cost exports\u2014AWS requires S3 bucket setup, GCP needs BigQuery configuration\u2014before data can even be extracted. The end result is a composable, code-first solution that calculates margins by combining cloud costs with revenue, giving businesses visibility they typically lack. He also demonstrates how AI coding agents excel with declarative data stacks where everything is local and code-defined.",
+  "key_points": [
+    "Cloud cost visibility across providers is surprisingly difficult because each vendor (AWS, GCP) requires manual portal configuration before any API access works",
+    "The project combines three data sources via dlt pipelines: AWS CUR exports from S3, GCP billing from BigQuery, and Stripe revenue via API",
+    "Dimensional modeling unifies disparate cost schemas around common dimensions (region, service, time, provider) and facts (amount, revenue, margin)",
+    "The declarative, code-first architecture makes the project ideal for AI agents since data is local Parquet files and all configuration is in YAML/Python",
+    "The FOCUS Specification provides a FinOps standard for common taxonomy across cloud billing datasets that could further unify multi-cloud analysis"
+  ],
+  "money_quotes": [
+    "What's missing is the combination of income and cost with a recurring margin board.",
+    "Companies often use multiple platforms simultaneously: Lovable for apps, OpenAI and Claude for AI, AWS and GCP for infrastructure. Tracking costs across these services becomes nearly impossible without a unified dashboard.",
+    "After I got started, I quickly noticed that wasn't going to be that easy. You need to set up a Cost export report within the portal of AWS, store the data in an S3 bucket, and then from there you can download the data in the appropriate format.",
+    "This project started with what seemed like a simple idea: pull costs from a few APIs, throw them in a dashboard, done. But cloud cost data doesn't work that way.",
+    "Everything is made composable, meaning you can add extra extraction with dlt or query and visualize additional data with Rill without spinning up infrastructure.",
+    "Python is the language of data and Claude understands it better than I do.",
+    "If you want, you can vibe code new data sources into the project."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, practical, tutorial-oriented",
+  "key_insight": "Building multi-cloud cost visibility requires navigating each provider's unique export mechanisms before any real analytics work can begin, but a composable stack of dlt, DuckDB, and Rill makes the unified dashboard achievable and extensible.",
+  "filename": "2025-11-21-cost-analyzer-aws-gcp"
+}

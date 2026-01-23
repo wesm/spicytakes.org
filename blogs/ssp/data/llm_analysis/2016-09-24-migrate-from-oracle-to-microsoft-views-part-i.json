@@ -1,0 +1,21 @@
+{
+  "summary": "This technical guide documents the challenges of migrating Oracle database views to Microsoft SQL Server, focusing on function compatibility differences between the two platforms. The author provides a comprehensive reference table mapping Oracle functions to their SQL Server equivalents, highlighting cases where direct translations don't exist. Special attention is given to numeric conversion pitfalls, particularly how TO_NUMBER, CONVERT, and CAST handle decimal rounding differently. The post includes practical SQL examples demonstrating these differences and provides custom SQL Server functions that replicate Oracle behavior for TO_CHAR, TO_NUMBER, MOD, INSTR, and SUBSTR.",
+  "key_points": [
+    "Oracle and SQL Server have different built-in functions, requiring careful translation during migration (e.g., TO_NUMBER becomes CAST or CONVERT, NVL becomes ISNULL)",
+    "Decimal rounding behavior differs significantly between Oracle's TO_NUMBER (rounds at 16th decimal) and SQL Server's CONVERT with float (rounds at 3rd precision) or numeric (converts to integer)",
+    "Some Oracle functions like TRUNC, GREATEST/LEAST, INITCAP, and LPAD/RPAD have no direct SQL Server equivalents",
+    "Custom user-defined functions can bridge the gap, replicating Oracle behavior in SQL Server for functions like INSTR and SUBSTR with their full parameter support"
+  ],
+  "money_quotes": [
+    "The first thing you figure out is, that there's not the same built in functions on both sides.",
+    "It sounds like a very easy translation, but you have to be careful, for instance when it comes to decimals.",
+    "The built-in TO_NUMBER() function rounds at the 16th decimal place and if you use CONVERT, the behavior is a bit different."
+  ],
+  "themes": [
+    "data_engineering",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "Database migrations between Oracle and SQL Server require careful attention to function behavior differences, especially around numeric precision and rounding, where seemingly equivalent functions can produce different results.",
+  "filename": "2016-09-24-migrate-from-oracle-to-microsoft-views-part-i"
+}

@@ -1,0 +1,21 @@
+{
+  "summary": "This technical post addresses the challenge of dynamically generating partitions for SSAS (SQL Server Analysis Services) Cubes, which lacks built-in easy partition management. The author presents a SQL-based solution that uses a linked server to execute XMLA statements from T-SQL, enabling automated monthly partition creation. The approach involves creating stored procedures that generate and execute XMLA commands to delete and recreate partitions based on date ranges. This allows for programmatic cube partition management without relying on SSIS packages.",
+  "key_points": [
+    "SSAS lacks native easy partition generation, requiring either SSIS packages or custom SQL scripts",
+    "Creating a linked server enables executing XMLA statements through relational T-SQL",
+    "The solution uses stored procedures to dynamically generate monthly partitions with configurable date ranges",
+    "The script handles both initial 'before' partitions and iterative month-by-month partition creation",
+    "XMLA commands are constructed as XML strings and executed against the Analysis Services linked server"
+  ],
+  "money_quotes": [
+    "There is no easy way to generate partition for SSAS Cubes by default",
+    "The trick is, to create a linked server, that you can execute XMLA statements with relational T-SQL"
+  ],
+  "themes": [
+    "data_engineering",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "A linked server bridging T-SQL and XMLA enables automated SSAS cube partition management that would otherwise require complex SSIS packages.",
+  "filename": "2015-10-09-ssas-cubes-dynamic-generation-of-partition"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "This post demonstrates how to use Dagster's Python-based configuration to dynamically create Airbyte data integration pipelines, contrasting it with static YAML configurations via Octavia CLI. Simon builds a demo that scrapes GitHub repository links from an 'Awesome Data Engineering' list using Beautiful Soup, then uses Dagster to programmatically configure Airbyte sources, destinations, and connections to track stargazer trends. The key advantage is handling dynamic, event-driven scenarios where configurations depend on external factors that change over time. The post walks through the complete stack: Airbyte for data integration, dbt for transformations, Dagster for orchestration, and Metabase for visualization.",
+  "key_points": [
+    "Dagster's Python-based Airbyte configuration enables dynamic, event-driven data integration that static YAML configs cannot handle",
+    "The approach supports multi-tenancy, evolving APIs (like Notion), and metadata-driven pipeline provisioning",
+    "Software-Defined Assets in Dagster treat destination tables as Data Products with full lineage and metadata visibility",
+    "The dagster-airbyte CLI provides check and apply commands similar to infrastructure-as-code tools like Terraform",
+    "Everything becomes versioned and testable, bringing traditional software engineering practices to data integration"
+  ],
+  "money_quotes": [
+    "These features open instrumental use cases for data integration as code.",
+    "What now if you are dependent on incoming metadata that can change? If the configs are not hard coded, you'd need a script on top to generate the configurations dynamically.",
+    "Imagine you need to provision Airbyte, have multi-tenancy requirements for teams or customers, or read from a dynamic API.",
+    "Based on these configs, you can automatically apply new sync based on the latest status. Everything is versioned, which leads to changes with confidence.",
+    "The Pythonic definition of all Airbyte components opened the pandora box for more event-based use cases orchestrated by Dagster.",
+    "Software-Defined Asset in Dagster treats each of our destination tables from Airbyte as a Data Product."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "Python-based configuration of data integration tools like Airbyte enables dynamic, event-driven pipelines that can adapt to changing metadata and external inputs, bringing infrastructure-as-code principles to data engineering.",
+  "filename": "2022-12-19-data-integration-as-code-airbyte-dbt-python-dagster"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Simon Sp\u00e4ti explores the architectural decisions required to build a declarative data stack engine (DDSE) that can generate entire data pipelines from configuration files. Drawing from his experience with data warehouse automation tools, he argues that separating business logic from technical implementation enables faster iteration, better testing, and maintainable data stacks. The article compares imperative versus template-driven approaches through code examples, examines whether existing orchestrators like Dagster could serve as the foundation, and surveys existing open-source tools in this space. He concludes that the path forward involves focusing on open standards and modular adapters rather than monolithic engines.",
+  "key_points": [
+    "A declarative data stack separates business logic (what) from technical implementation (how), enabling config-driven pipeline generation that can be tested before production",
+    "The DDSE consists of three components: configuration (YAML defining sources, transforms, dashboards), engine (compiler that generates code), and declarative code output (Git-managed artifacts)",
+    "Data warehouse automation tools from 10 years ago achieved similar goals - prototype in days, iterate based on feedback, deploy instantly - and modern DDSEs should match this velocity",
+    "There's tension between parametric approaches (flexible but complex black boxes) and template-oriented approaches (forkable but you're on your own), suggesting a hybrid is needed",
+    "Modern orchestrators like Dagster already provide many DDSE features through annotations and could serve as one implementation path alongside Rust-based engines"
+  ],
+  "money_quotes": [
+    "Tools that lack these declarative code paths are difficult to automate, because code generation is almost impossible (imagine trying to auto-generate Tableau dashboards or Informatica pipelines).",
+    "Essentially, designing a compiler/makefile for the data stack declared from a single function or config file.",
+    "The business logic and technical logic are all mixed up. It's harder to read already with this simple example, but the more significant our project, the more unreadable such imperative code gets.",
+    "Everything a developer interacts with should be declarative, including infrastructure, runtime, type evolution, CDC logic, credentials, and schedules.",
+    "We developers shouldn't make imperative decisions about scope and execution; the engine should handle that.",
+    "When users fix an issue, they improve the engine's templates rather than modifying generated code, benefiting all future deployments.",
+    "Open standards form the foundation for openness and integration, decoupling the data stack, which is also crucial for creating a DDS engine."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, exploratory, practical",
+  "key_insight": "A truly declarative data stack requires treating the entire pipeline as a compiler problem - configuration in, tested artifacts out - where fixes improve templates rather than generated code.",
+  "filename": "2024-12-20-designing-a-declarative-data-stack"
+}

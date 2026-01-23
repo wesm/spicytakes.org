@@ -1,0 +1,28 @@
+{
+  "summary": "This comprehensive guide explains the differences between data lakes, data lakehouses, and data warehouses, focusing on how open-source table formats (Delta Lake, Apache Iceberg, Apache Hudi) transform simple cloud storage into powerful analytical platforms. The post details the three-layer architecture: storage layer (S3, Azure Blob, GCS), file formats (Parquet, Avro, ORC), and table formats that provide database-like features. Sp\u00e4ti argues that data lake table formats are essential because they add ACID transactions, schema evolution, time travel, and unified batch/streaming capabilities to distributed files. The piece arrives at a particularly heated market moment, with Databricks open-sourcing Delta Lake 2.0 and Snowflake announcing Iceberg integration.",
+  "key_points": [
+    "Data lake table formats (Delta Lake, Iceberg, Hudi) solve the fundamental problem of managing hundreds of distributed files by bundling them into queryable tables with database features",
+    "The lakehouse architecture combines data lake flexibility and cost-efficiency with data warehouse features, eliminating the need for Lambda Architecture's separate batch and streaming pipelines",
+    "All three major table formats share core features: ACID transactions, schema evolution, time travel, partitioning, compaction, and unified batch/streaming support",
+    "Delta Lake has the most GitHub stars and maturity after 2.0 release, Hudi has been open-source longest with most features, and Iceberg supports the most file format integrations",
+    "Without proper data governance, a data lake quickly becomes a data swamp with orphaned files and no structure"
+  ],
+  "money_quotes": [
+    "A data lake also removes the need to go through a proprietary format that traditional BI tools had done to transform the data.",
+    "With a data lake, data becomes increasingly available, and early adopters discovered that they could extract insight through new applications built to serve the business.",
+    "Imagine inserting into hundreds of files at once. They are the key and usually relay on one of the above, open-source data lake file formats that optimize columnar storage and are highly compressed.",
+    "These data lake table formats are the engine of the data lake file format.",
+    "Unified batch and streaming mean the Lambda Architecture is obsolete. No need to differentiate your data architecture in batch and streaming\u2014they end both in the same tables with less complexity and more speed.",
+    "A lakehouse is more open (open-formats) and more difficult as more DIY and patching different tools together, supporting more ML/DS/AI use cases whereas a data warehouse is more closed (mostly closed-source), build for BI, fully managed, and more expensive to scale.",
+    "There is a big run for data lake table formats; every big vendor is either having one themself or searching for the perfect open-source one."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, comprehensive, educational",
+  "key_insight": "Data lake table formats are the critical missing layer that transforms cheap, chaotic cloud storage into governed, queryable analytical platforms with database-like capabilities.",
+  "filename": "2022-08-25-data-lake-lakehouse-guide"
+}

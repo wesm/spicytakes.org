@@ -1,0 +1,27 @@
+{
+  "summary": "This practical guide explores enterprise-level data orchestration using Kestra, dlt, and Snowflake. The post demonstrates how to build production-ready data pipelines with proper separation of concerns, secret management, and multi-tenancy. Sp\u00e4ti emphasizes the 'universal orchestrator' concept where visual UI interfaces generate version-controlled YAML code, making pipelines accessible to both engineers and analysts. The article also covers AI integration through MCP (Model Context Protocol), arguing that YAML-based orchestration is uniquely suited for LLM collaboration because the code artifacts serve as shared context between humans and AI models.",
+  "key_points": [
+    "Universal orchestrators bridge technical complexity and practical usability by combining visual interfaces with generated YAML and Git synchronization",
+    "Business logic should be separated from orchestration code - use subflows for reusable components and plugins to abstract technical complexity",
+    "Enterprise deployments require proper secret management (HashiCorp Vault, AWS Secrets Manager) rather than hardcoded credentials",
+    "YAML-based pipelines are ideal for AI collaboration because they provide an 'in-memory RAM' intermediate stage where both LLMs and humans can build larger context together",
+    "MCP integration allows AI agents to work autonomously on pipeline creation and maintenance within IDEs like Cursor or Neovim"
+  ],
+  "money_quotes": [
+    "Moving from orchestration theory to the enterprise level is a real challenge. How do you handle secrets across environments? Where does your business logic actually live?",
+    "In the old days, we put it into stored procedures\u2014custom code that databases had like PL/SQL in Oracle and T-SQL in Microsoft SQL Server. In the world of composable data stacks, the business logic is usually in SQL statements, Python, or YAML.",
+    "Think of it as a resource that data engineers build, which less technical people can reuse.",
+    "Why are code artifacts such as YAML the perfect setup for AI? Because AI has a very limited context window, but if you give it an intermediate stage, think of it like in-memory RAM that both the LLM and the human can work together on.",
+    "Data orchestration is becoming more accessible, but the underlying complexity hasn't disappeared. Tools like Kestra handle that complexity so teams can focus on what their data should accomplish rather than how to move it around.",
+    "Unlike many other orchestrators, you do not need to know how to code or have a technical background."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "ai_llms"
+  ],
+  "tone": "technical, practical, instructional",
+  "key_insight": "YAML-based orchestration creates an ideal collaboration layer between humans and AI models, serving as shared context that enables both parties to iteratively build and maintain complex data pipelines.",
+  "filename": "2025-06-17-enterprise-universal-data-orchestrator-in-action"
+}

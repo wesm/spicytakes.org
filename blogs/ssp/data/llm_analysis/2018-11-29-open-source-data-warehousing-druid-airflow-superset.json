@@ -1,0 +1,27 @@
+{
+  "summary": "Simon Sp\u00e4ti explores building a complete open-source data warehouse architecture using Apache Druid for storage, Apache Superset for visualization, and Apache Airflow for orchestration. He explains why Druid's column-oriented, distributed design excels at OLAP workloads despite SQL join limitations. The post advocates for moving transformation logic into code-based orchestrators like Airflow rather than traditional ETL tools. He concludes that while these open-source tools work well together, enterprise users may still want to invest in commercial visualization tools since that's what end users actually see.",
+  "key_points": [
+    "Druid provides sub-second OLAP queries and real-time streaming ingestion with a scalable cluster architecture of Middle-Manager, Historical, and Broker nodes",
+    "Apache Airflow represents a paradigm shift from traditional ETL tools by keeping transformation logic in code (Python DAGs) rather than encapsulated in proprietary tools",
+    "The combination of Druid, Airflow, and Superset creates a viable open-source alternative to commercial data warehouse stacks",
+    "Druid's main limitation is poor support for SQL joins and advanced SQL capabilities",
+    "Enterprise adoption of open-source orchestration naturally follows when companies start using open-source data technologies"
+  ],
+  "money_quotes": [
+    "Instead of encapsulating your critical transformation logic somewhere in a tool, you place it where it belongs to inside the Orchestrator.",
+    "In more modern architectures, these tools aren't enough anymore. Moreover, code and data transformation logic are much more valuable to other data-savvy people in the company.",
+    "My experience so far is that Druid is bloody fast and a perfect fit for OLAP cube replacements in a traditional way, but still needs a more relaxed startup to install clusters, ingest data, view logs etc.",
+    "Apache Airflow and its features as an orchestrator are something which has not happened much yet in traditional Business Intelligence environments.",
+    "I believe this change comes very naturally when you start using open-source and more new technologies.",
+    "As an enterprise company, you might want to spend some money in that category because that is what the users can see at the end of the day."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, practical, instructive",
+  "key_insight": "Modern data architectures benefit from separating concerns across specialized open-source tools\u2014columnar storage for speed, code-based orchestration for maintainability, and lightweight visualization for accessibility\u2014rather than relying on monolithic proprietary ETL platforms.",
+  "filename": "2018-11-29-open-source-data-warehousing-druid-airflow-superset"
+}

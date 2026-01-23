@@ -1,0 +1,28 @@
+{
+  "summary": "Simon argues that GraphQL can serve as the foundation for a unified 'Analytics API' that abstracts away heterogeneous data stores and provides a single interface for all data consumers. He outlines five key components: a GraphQL gateway/query engine, a metrics store (Headless BI), a data catalog, an orchestration layer, and a SQL connector. The post addresses how different stakeholders\u2014ML engineers, BI users, power users, internal pipelines, and external customers\u2014all need data access but through different interfaces. By centralizing metrics definitions and using GraphQL's built-in type validation, self-documentation, and schema decoupling, teams can avoid duplicating business logic across tools while maintaining flexibility to swap underlying data stores.",
+  "key_points": [
+    "GraphQL solves for data engineering what it solved for microservices: unifying multiple backend systems into a single, intelligent endpoint instead of many dumb ones",
+    "The Metrics Store (Headless BI) centralizes calculated measures and dimensions that are typically locked inside proprietary BI tools like Tableau or Power BI",
+    "API schema decoupling from database schemas creates a semantic layer that allows swapping backends without breaking downstream consumers",
+    "Different stakeholders (ML engineers, BI users, power users, pipelines, customers) have fundamentally different data access needs that a unified API must serve",
+    "Built-in type validation, self-documentation through introspection, and standardized specification make GraphQL hard to avoid for complex data architectures"
+  ],
+  "money_quotes": [
+    "Essentially, GraphQL is SQL on steroids for APIs.",
+    "Instead of defining the metrics such as distinctUsers in various places, we store it once and apply it to all systems. No need to worry if you got the latest version or if anyone changed the calculation.",
+    "See it as certain business logic, critical code or metadata implemented once centrally following the DRY principles.",
+    "Despite how far we came with all data tools and frameworks, people are still running around and matching up correct numbers, and fighting who's once are correct.",
+    "Instead of having multiple dumb endpoints, you have a single intelligent endpoint that can take in complex queries.",
+    "The Jinja SQL logic is hard to re-use across different database engines and gets messy quickly if you start nesting these queries.",
+    "It is Google Search but for metadata with a handy interface for your metrics store."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, optimistic, exploratory",
+  "key_insight": "The next evolution in data engineering is building a unified Analytics API with GraphQL that centralizes metrics definitions, decouples API schemas from databases, and serves all stakeholders through one intelligent endpoint instead of fragmenting business logic across tools.",
+  "filename": "2022-01-22-analytics-api-with-graphql-the-next-level-of-data-engineering"
+}

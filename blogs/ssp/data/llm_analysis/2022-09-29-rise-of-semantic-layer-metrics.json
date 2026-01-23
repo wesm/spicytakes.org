@@ -1,0 +1,29 @@
+{
+  "summary": "The semantic layer is a translation layer between data and business users that defines metrics once and syncs them across multiple tools (BI, notebooks, data apps). Unlike transformation layers that pre-calculate data, semantic layers operate at query time, offering flexibility without storing multiple table versions. The concept dates back to SAP BusinessObjects in 1991 but has resurged with modern tools like Cube.js, MetricFlow, and dbt Metrics. While it promises centralized business logic, reduced duplication, and better lineage, it adds operational complexity and maintenance costs. The semantic layer intersects with OLAP cubes, data virtualization, data mesh, and data catalogs, each serving related but distinct purposes.",
+  "key_points": [
+    "Semantic layers define metrics once in YAML/code and sync across BI tools, notebooks, and data apps, avoiding siloed metric definitions",
+    "Unlike transformation layers (dbt) that pre-calculate at ETL time, semantic layers transform at query time, enabling ad-hoc flexibility without storing multiple table versions",
+    "The concept originated with SAP BusinessObjects in 1991, evolved through OLAP cubes and LookML, and resurged in 2021 with tools like Cube.js, MetricFlow, and dbt Metrics",
+    "Key benefits include centralized definitions, DRY principles across tools, data lineage, and performance optimization through caching",
+    "Major challenges include integration complexity, learning curve, maintenance costs, and potential for faulty SQL generation across different dialects"
+  ],
+  "money_quotes": [
+    "Instead of re-creating siloed metrics in each app, we want to define them once, open in a version-controlled way and sync them into each visualization tool.",
+    "Because everyone has different definitions of 'active' users or 'paying' customers, the semantic layer allows you to define these discrepancies once company-wide.",
+    "A semantic layer transforms/joins data at query time, whereas the transformation layer does during the transform (T) step of ETL/ELT, meaning it's pre-calculated.",
+    "Suppose we would push all metric logic into the transformation layer, with dbt, for example. In that case, we'd lose this agility and store multiple versions of each table with different granularities.",
+    "With the fast-rising complexity of data and its ecosystem, you also need better abstractions!",
+    "The cost of maintaining and creating such a layer is high.",
+    "It's still easier to maintain copies of data sets and re-do the metrics repetitively inside a BI dashboard."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "data_modeling",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, educational, balanced",
+  "key_insight": "The semantic layer's resurgence stems from the explosion of data tools creating metric silos, and while it promises centralized, version-controlled business logic, organizations must weigh this against the operational complexity of adding another critical layer to their stack.",
+  "filename": "2022-09-29-rise-of-semantic-layer-metrics"
+}

@@ -1,0 +1,19 @@
+{
+  "summary": "This brief technical post highlights a subtle but important difference between Oracle and Microsoft SQL Server: the ORDER BY clause behaves differently due to database collation settings. The author demonstrates that identical text data sorted in Oracle versus SQL Server produces different results unless you explicitly specify a compatible collation. By using SQL_Latin1_General_CP850_BIN2 collation in SQL Server, the ordering can be made to match Oracle's behavior.",
+  "key_points": [
+    "ORDER BY behavior differs between Oracle and Microsoft SQL Server due to collation settings",
+    "The same text data will sort differently between the two databases by default",
+    "Using SQL_Latin1_General_CP850_BIN2 collation in SQL Server aligns ordering with Oracle"
+  ],
+  "money_quotes": [
+    "Like you would think ORDER BY is the same in Oracle as in the Microsoft environment, it isn't.",
+    "It depends on the Collation of the database."
+  ],
+  "themes": [
+    "data_engineering",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "Database collation settings cause ORDER BY to behave differently between Oracle and SQL Server, a subtle gotcha when migrating between platforms.",
+  "filename": "2015-09-19-order-by-oracle-vs-microsoft-sql"
+}

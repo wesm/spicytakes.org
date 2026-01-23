@@ -1,0 +1,29 @@
+{
+  "summary": "This final installment of Simon Sp\u00e4ti's data modeling series examines how data architecture patterns influence modeling decisions, from the enduring staging-cleansing-core-mart layers (rebranded by Databricks as bronze-silver-gold) to specialized patterns like batch vs streaming, lakehouse vs warehouse, and semantic layers. The post surveys data modeling tools across commercial and open-source options, explores whether AI can automate data modeling (concluding it cannot replace human domain understanding), and introduces frameworks like ADAPT and BEAM for structured modeling approaches. Sp\u00e4ti argues that despite tool proliferation and AI hype, the core challenge remains translating business semantics into data structures\u2014work that requires deep domain knowledge and human judgment.",
+  "key_points": [
+    "The foundational data warehouse architecture (staging\u2192cleansing\u2192core\u2192mart) from 2016 remains highly relevant today, just rebranded as medallion architecture with bronze/silver/gold layers",
+    "Streaming is still mostly optional for analytics\u2014hourly batching satisfies most business needs, and real-time adds significant complexity with limited recovery options",
+    "AI cannot automate data modeling because it requires understanding business semantics and domain knowledge, not just pattern recognition\u2014the hard part is translating code to real-world meaning",
+    "The semantic layer represents a significant architectural choice, potentially replacing logical models by storing queries in declarative YAMLs executed at runtime rather than persisted physically",
+    "Start with simplicity in architecture decisions\u2014you can always add complexity later, but premature optimization toward streaming, microservices, or data mesh often backfires"
+  ],
+  "money_quotes": [
+    "Isn't it amazing that something from 2016 is still so current? That's why data modeling is getting into vogue again, as it has never been entirely outdated.",
+    "Still, to this day, streaming is primarily optional. Suppose you tell the business team you can achieve near real-time with hourly batching; they will be happy.",
+    "As smart as ChatGPT might be, it would need to understand the semantics of how these IDs coalesce into something meaningful to automate any step of modeling or ETL.",
+    "If there is a place where you do not want to use automation, then it would be in data modeling and the overall data architecture.",
+    "A data engineer will always be needed to assess the outcome, understand and make sense of the data in front of him and understand the overall data flow of the organization.",
+    "Whatever you choose, start with simplicity. You can always add complexity later when the product and solution mature.",
+    "The essence of data modeling is simplicity, no matter how complex the underlying data might be."
+  ],
+  "themes": [
+    "data_modeling",
+    "data_platforms",
+    "tools_products",
+    "ai_llms",
+    "industry_observations"
+  ],
+  "tone": "technical, pragmatic, optimistic",
+  "key_insight": "Data modeling remains fundamentally about translating business semantics into data structures\u2014a task requiring human domain expertise that AI cannot automate, despite advances in generative AI.",
+  "filename": "2023-05-26-data-modeling-for-data-engineering-architecture-pattern-tools-future"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "This comprehensive guide catalogs 15+ companies using DuckDB in production across five key categories: zero-copy virtualized SQL, lightweight single-node compute, pipeline processing, embedded interactive apps, and enterprise security. The post demonstrates DuckDB's versatility through concrete case studies showing dramatic performance improvements, from Watershed's 10x faster analytics to FinQore's pipeline reduction from 8 hours to 8 minutes, and Okta's processing of 7.5 trillion security records. The author argues that DuckDB's simplicity, embedded nature, and performance make it uniquely positioned to simplify data architectures across diverse use cases, from browser-based analytics via WebAssembly to replacing expensive cloud data warehouses.",
+  "key_points": [
+    "DuckDB excels in five distinct categories: zero-copy data virtualization, lightweight compute, pipeline processing, embedded interactive apps, and enterprise-grade security handling",
+    "Production implementations show dramatic performance gains: Watershed achieved 10x faster queries, FinQore reduced 8-hour pipelines to 8 minutes, and Hex saw 5-10x speedups in notebook execution",
+    "The zero-copy capability enables querying APIs, Hugging Face datasets, and data lakes directly without moving data, fundamentally changing data architecture patterns",
+    "Enterprise adoption is proven at scale: Okta processes 7.5 trillion records across 130 million files with thousands of concurrent DuckDB instances, handling data spikes from 1.5 TB to 50 TB daily",
+    "WebAssembly integration enables browser-based analytics, powering tools like Evidence, Rill, and government climate dashboards without server-side processing"
+  ],
+  "money_quotes": [
+    "Modern computers are powerful enough that many organizations can effectively run their analytics workloads on a single machine, making DuckDB an attractive option for those seeking a more straightforward, more maintainable data stack without sacrificing performance or features.",
+    "In six months, their defensive cyber operations team processed 7.5 trillion records across 130 million files using thousands of concurrent DuckDB instances, handling data spikes from 1.5 TB to 50 TB per day without infrastructure changes.",
+    "This approach dramatically reduced their data processing costs from $2,000/day with Snowflake while maintaining system robustness and security.",
+    "DuckDB's ability to efficiently handle Parquet files on S3 makes it particularly powerful for data lake architectures.",
+    "When writing queries in Python, DuckDB returns a 'relation' object (an abstract representation of the query) rather than immediately materializing the total result. This relation can be stored in a variable and used in subsequent queries, making SQL more composable.",
+    "Testing locally, 100 times a day, before going into production can save much money and speed up testing cycles.",
+    "The best way to understand is through hands-on experience. Import a CSV, wrangle some data, execute some queries, visualize a large local data set, or read distributed files from S3."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, comprehensive, optimistic",
+  "key_insight": "DuckDB has evolved from a lightweight embedded database into a production-ready analytics engine that dramatically simplifies data architectures while delivering order-of-magnitude performance improvements across diverse enterprise use cases.",
+  "filename": "2024-11-12-duckdb-in-production"
+}

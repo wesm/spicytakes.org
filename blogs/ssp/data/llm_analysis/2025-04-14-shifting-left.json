@@ -1,0 +1,29 @@
+{
+  "summary": "This article explains 'shifting left' in data engineering\u2014moving data quality checks, business logic, and transformations earlier in the data lifecycle rather than handling them downstream in BI tools. Simon traces the concept from software testing origins through DevSecOps to modern data practices. He argues that declarative, code-first approaches have made shifting left more practical by enabling logic to move simply from one config file to another. The key benefits include earlier error detection, reduced compute costs through pre-materialization, centralized business logic, and enabling domain experts to contribute to data quality upstream.",
+  "key_points": [
+    "Shifting left moves data quality checks and business logic closer to the source/ingestion phase rather than handling them downstream in BI tools or at consumption",
+    "Declarative code-first approaches enable shifting logic by simply moving YAML configuration between tools, which was impossible with GUI-first approaches",
+    "The local development loop with tools like SQLMesh, DuckDB, and SQL transpilers allows catching bugs during development before they reach production",
+    "ELT (extract-load-transform) can be seen as an anti-pattern of shifting left since it moves validations and transformations to the right",
+    "Shifting left is also an organizational change\u2014defining that models are centrally managed and business analysts reuse existing aggregations rather than duplicating logic"
+  ],
+  "money_quotes": [
+    "The strategic decision to move data quality checks, business logic, transformations, and governance processes earlier in the data lifecycle\u2014closer to the source or ingestion phase\u2014rather than handling these concerns downstream in BI tools or at the point of consumption.",
+    "We don't need to invest massive effort in exporting large SQL or code from our BI tool, or worse, hugely generated code, and trying to convert that to our low-code ETL anymore. We can move descriptive business logic simply from one config file to another.",
+    "Errors identified and fixed earlier (more to the left) are less expensive and typically easier to debug. This was not possible with GUI-first approaches; code-first tools open up new possibilities.",
+    "Most data quality problems are code quality problems.",
+    "Data quality isn't a data team's problem; it's clearly defined best practices that everyone in the organization understands and can follow.",
+    "If 100% of issues were caught during development, data quality would never be a concern.",
+    "We save compute by moving code from the BI dashboard, which is executed every time a user clicks on the dashboard, to a pipeline where the query is pre-materialized and only paid for once."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "data_modeling",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, explanatory, practical",
+  "key_insight": "Declarative code-first approaches have fundamentally changed what's possible with shifting left\u2014enabling data teams to move business logic upstream simply by copying configuration between tools, catching errors during development rather than in production, and making data quality a collective organizational responsibility rather than an afterthought.",
+  "filename": "2025-04-14-shifting-left"
+}

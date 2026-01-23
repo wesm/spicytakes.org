@@ -1,0 +1,29 @@
+{
+  "summary": "This comprehensive guide explains how to model data effectively in ClickHouse for real-time analytics, moving from theory to a practical implementation using NOAA weather data. The author argues that ClickHouse can serve as both storage and transformation engine, eliminating traditional ETL bottlenecks. Key strategies covered include denormalization, materialized views, partitioning, and pre-aggregation using MergeTree engines. The post demonstrates a complete data pipeline from S3 ingestion through ClickHouse transformation to Rill visualization, all configured in a single YAML file. The fundamental principle is minimizing joins at query time while choosing where in the pipeline to handle complexity based on performance and freshness requirements.",
+  "key_points": [
+    "ClickHouse achieves sub-second queries on billions of rows through column-oriented storage, sparse indexing, and vectorized execution - performance that would take minutes in traditional warehouses",
+    "Real-time analytics involves a fundamental tradeoff between data freshness and accuracy; the moment data is loaded it's outdated, but consistency across tables must be maintained",
+    "MergeTree engines transform ClickHouse into 'local ETL without needing an ETL tool' - data gets ingested, transformed, and optimized automatically",
+    "Unlike traditional OLAP cubes that pre-process measures, ClickHouse allows query-time flexibility without reprocessing, though it lacks a logical modeling layer",
+    "Data sketches and sampling strategies can reduce storage by 90-99% while maintaining 99%+ accuracy, dramatically cutting costs and improving query speed"
+  ],
+  "money_quotes": [
+    "Querying billions of weather records and getting results in under 200 milliseconds isn't theory; it's what real-time analytics solutions provide.",
+    "If we have the best tools but a bad data flow, it's not worth much.",
+    "The moment the data is loaded, it is outdated.",
+    "ClickHouse doesn't only serve as storage but can handle much of the transformation and aggregation work directly, eliminating traditional ETL bottlenecks.",
+    "The fundamental principle underlying all these approaches is minimizing joins at query time.",
+    "MergeTree engines are specifically designed for high data ingest rates and massive data volumes.",
+    "Data sketches use clever algorithms to deliver 99%+ accuracy for 1% of the cost and storage.",
+    "ClickHouse lets us handle powerful use cases without the need for expensive ETL pipelines or an additional semantic layer."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "data_modeling",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "ClickHouse can serve as both your transformation engine and storage layer, handling complex aggregations at ingestion time rather than requiring traditional ETL pipelines, while its modeling strategies let you explicitly choose where in the pipeline to handle complexity based on your specific performance and freshness requirements.",
+  "filename": "2025-09-05-practical-data-modeling-clickhouse"
+}

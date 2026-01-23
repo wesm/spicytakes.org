@@ -1,0 +1,27 @@
+{
+  "summary": "Simon Sp\u00e4ti argues that the data stack is evolving toward declarative, code-first approaches where entire pipelines\u2014from ingestion to visualization\u2014can be defined in configuration files rather than imperative code. He traces declarative computing's history from Fortran to SQL to Kubernetes, showing how abstracting the 'how' empowers non-programmers while maintaining software engineering best practices. The post introduces a conceptual framework where a complete data stack could be recreated from a single function like `run_stack(serve(transform(ingest)))`, separating stateless configurations from stateful data assets. Sp\u00e4ti acknowledges this unified declarative stack doesn't fully exist today but sees tools like Dagster, SQLMesh, and Rill as moving in this direction.",
+  "key_points": [
+    "Declarative systems abstract implementation details, letting users specify 'what' they want rather than 'how' to achieve it\u2014enabling non-programmers to build data infrastructure",
+    "YAML has become the lingua franca of declarative configuration because it's less verbose than XML/JSON and optimized for human readability",
+    "The ideal declarative data stack separates stateless configuration (reproducible) from stateful data assets (the actual data), enabling confident reproducibility",
+    "Tools like SQLMesh advance beyond dbt by actually parsing SQL semantically, enabling data-aware operations like automatic backfill detection",
+    "A 'Maslow's hierarchy of state' progresses from basic declarations to self-actualizing systems that can dynamically adapt to changes"
+  ],
+  "money_quotes": [
+    "Call it Infrastructure as Code, Visualization as Code, BI as Code, or anything as code. YAML engineering, or DSL\u2014no matter what, it's the way the data stack evolved to empower non-programmers to create data pipelines and infrastructure without losing the benefits of SW engineering best practices through declarative methods.",
+    "A declarative data stack cleanly separates semantics from implementation, decoupling the business code from technical implementation, the how is rendered by the data stack engine.",
+    "As dbt doesn't know anything about its SQLs, it just runs them; it's limited to doing anything data-aware.",
+    "Also, if you are declarative, you can make the code work for a very long time. For example, the browser runs the code from Craigslist from 1995, and it's only possible to this day because HTML is declarative.",
+    "Think of Markdown. It is universally portable, and almost every application can render it with its various engines.",
+    "Once you have a declarative data stack, you essentially have your low-code or no-code platform, as you can build an API/UI on top of your configs."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, visionary, instructive",
+  "key_insight": "A truly declarative data stack would allow the entire pipeline to be recreated from configuration files alone, treating infrastructure like source code while cleanly separating the unchanging logic from the ever-changing data.",
+  "filename": "2024-10-16-rise-of-declarative-data-stack"
+}

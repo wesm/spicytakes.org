@@ -1,0 +1,22 @@
+{
+  "summary": "This technical post concludes a three-part series on migrating views from Oracle to SQL Server, focusing specifically on testing methodologies. The author demonstrates how to verify both performance and data correctness after migration using SQL scripts. For performance testing, he recommends SELECT COUNT(*) queries with cache clearing, providing a script to auto-generate these statements. For content comparison, he explains using linked servers and EXCEPT queries to identify discrepancies between Oracle and SQL Server view outputs.",
+  "key_points": [
+    "Performance testing requires clearing cache before each run and using COUNT(*) queries across all views",
+    "Database linked servers enable direct comparison between Oracle and SQL Server views",
+    "EXCEPT queries can identify content differences between source and target databases",
+    "Auto-generating comparison scripts saves time when testing multiple views",
+    "Both performance and content accuracy must be validated in database migrations"
+  ],
+  "money_quotes": [
+    "When I implemented all about 20 views from Oracle to SQL Server, I had to test the performance and not least important, the content of the views if their still contain the same.",
+    "Don't forget to clear the cache before each run.",
+    "If you have only a few comparison you easily create EXCEPT-SELECT-Query and compare your Oracle Views over the database link to your Microsoft Views."
+  ],
+  "themes": [
+    "data_engineering",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "Successful database view migrations require systematic validation of both performance metrics and data content accuracy using automated comparison scripts.",
+  "filename": "2016-09-24-migrate-from-oracle-to-microsoft-views-part-iii"
+}

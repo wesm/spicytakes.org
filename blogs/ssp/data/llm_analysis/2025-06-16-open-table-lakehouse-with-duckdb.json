@@ -1,0 +1,29 @@
+{
+  "summary": "Simon Sp\u00e4ti explores the open lakehouse architecture built on affordable object storage combined with open table formats like Iceberg, Delta Lake, and Hudi. He argues that these formats bring database-like features (ACID transactions, versioning, SQL interfaces) to distributed files without expensive SSD storage. The article demonstrates practical examples using DuckDB and MotherDuck to query Iceberg tables directly from S3, and introduces DuckDB as a lightweight catalog layer using views. Sp\u00e4ti positions this as the next evolution of the Databricks Lakehouse concept, emphasizing modularity and vendor independence through interchangeable compute engines and open catalogs like Polaris and Unity Catalog. He concludes that while open data platforms trade some performance for flexibility, they enable truly composable data ecosystems without lock-in.",
+  "key_points": [
+    "Open table formats bundle distributed files into manageable tables with database-like features (ACID, versioning, time travel) on cheap object storage",
+    "The open data platform architecture has four interchangeable layers: storage, file format, table format, and catalog - with compute engines as the connecting force",
+    "DuckDB can serve as a lightweight catalog by creating small databases with views pointing to remote data, enabling SQL access without complex infrastructure",
+    "The battle for data platform control has shifted from compute engines and table formats to the catalog layer, where vendor lock-in remains a challenge",
+    "AI-powered workflows using MCP enable natural language querying of Iceberg tables, though human interpretation remains essential for understanding results"
+  ],
+  "money_quotes": [
+    "Open Table Format bundles distributed files into manageable tables with database-like features. Newer features enhance and facilitate access and data governance, similar to a lakehouse.",
+    "The compute layer is responsible for creating files on S3, creating an Iceberg table, or managing the request for the number of tables sent to the catalog via API.",
+    "Open Standards over Silos - instead of loading data into proprietary formats of cloud vendors and getting locked in, we work directly with open standards.",
+    "This tremendously simplifies the work we have to do on the data engineering side; we can avoid creating denormalization pipelines and data duplication solely for reporting purposes.",
+    "No matter how good GenAI or GenBI is, humans are still irreplaceable in interpreting the results and understanding the domain.",
+    "It also shows that the English language is not always precise enough. That's why SQL is sometimes better to use or to explain to an LLM, so we communicate exactly what we want.",
+    "We might even see a decline in dashboard use per se, as self-service analytics is now possible for the first time via chat with the analytics backend."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "ai_llms",
+    "industry_observations"
+  ],
+  "tone": "technical, practical, optimistic",
+  "key_insight": "Open table formats and lightweight compute engines like DuckDB are democratizing the lakehouse architecture, enabling database-like capabilities on cheap storage while avoiding vendor lock-in through interchangeable, standards-based components.",
+  "filename": "2025-06-16-open-table-lakehouse-with-duckdb"
+}

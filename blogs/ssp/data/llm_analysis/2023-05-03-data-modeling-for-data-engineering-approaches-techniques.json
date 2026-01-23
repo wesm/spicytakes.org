@@ -1,0 +1,27 @@
+{
+  "summary": "This second part of a data modeling series explores the approaches and techniques essential for structuring data effectively. The post contrasts top-down approaches (starting with conceptual models from business requirements) with bottom-up approaches (starting from existing physical data sources), recommending a combination of both. It surveys key modeling techniques including dimensional modeling (still highly relevant despite being from 1996), data vault modeling for handling big data and changing connections, anchor modeling for schema flexibility, and bitemporal modeling for historical data tracking. The author emphasizes that poor data modeling decisions manifest as problems in the 'last mile' of analytics, making early attention to modeling critical for project success.",
+  "key_points": [
+    "Top-down and bottom-up approaches to data modeling serve different purposes: top-down works best with clear business requirements, bottom-up is beneficial for legacy systems or unclear requirements",
+    "Dimensional modeling remains highly relevant today because it forces data engineers to consider critical questions about granularity, entities, and metrics upfront",
+    "Data Vault modeling addresses modern challenges of big data and fast-changing data by combining 3NF and Star Schema methodologies into a more flexible structure",
+    "Common data modeling problems include embedded business rules causing cascade changes, incorrect entity identification leading to duplication, and lack of standardization preventing data sharing",
+    "Pain from poor data modeling decisions appears in the last mile of analytics, but the root causes originate in the first part of the data cycle"
+  ],
+  "money_quotes": [
+    "Data literacy is the ability to derive meaningful information from data, just as literacy, in general, is the ability to derive information from the written word\u2014or, said differently, extrapolating the business value from the data given.",
+    "Is dimensional modeling still needed within data engineering compared to its popularity way back? The answer is a resounding yes\u2014perhaps even more so than before.",
+    "By incorporating a robust dimensional model at the core of every data project, data engineers are compelled to consider critical questions related to granularity, entities, metrics, and more.",
+    "Data modeling is easy to neglect; assessing the consequences can take time and effort.",
+    "If you initially ignore poor data modeling and architecture decisions, you'll likely notice problems in the last mile, thinking they might be due to the tools or insights.",
+    "The benefit of a conceptual model in a larger enterprise organization of sufficient complexity gives you a great framework to order the logical and physical models around, decoupled from the source systems."
+  ],
+  "themes": [
+    "data_modeling",
+    "data_engineering",
+    "data_platforms",
+    "tools_products"
+  ],
+  "tone": "technical, educational, practical",
+  "key_insight": "Dimensional modeling remains essential in modern data engineering because it forces teams to address fundamental questions about business value, granularity, and entities upfront\u2014problems that will otherwise surface as mysterious failures in the analytics layer.",
+  "filename": "2023-05-03-data-modeling-for-data-engineering-approaches-techniques"
+}

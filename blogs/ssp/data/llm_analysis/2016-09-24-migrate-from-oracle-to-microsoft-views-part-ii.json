@@ -1,0 +1,23 @@
+{
+  "summary": "This post continues a series on migrating from Oracle to Microsoft SQL Server, focusing specifically on performance challenges with recursive queries. The author encountered significant issues translating Oracle's optimized SYS_CONNECT_BY_PATH function to SQL Server CTEs, especially in complex nested views. The solution involved using inline user-defined functions and temp tables to dramatically improve query response times from non-responsive to 1-5 seconds. The approach maintained transparency for end users and applications by wrapping functions in views.",
+  "key_points": [
+    "Oracle's SYS_CONNECT_BY_PATH is highly optimized and has no direct SQL Server equivalent, causing major performance issues during migration",
+    "CTE views work for simple recursive queries but fail with complex nested scenarios",
+    "Inline user-defined functions with temp tables can solve recursive query performance issues",
+    "Storing complex queries in temp tables before recursive operations simplifies the optimizer's work",
+    "The solution maintains user transparency by wrapping functions in views"
+  ],
+  "money_quotes": [
+    "This function is well know by the Oracle optimizer which makes this function unbelievable fast and there is no similar function on SQL Server",
+    "I had good performance measures on an easy simple query but invinitive response with more complex",
+    "In my case it solve the performance issue from not responding to 1-5 second each view",
+    "I stored this complex query to a temp table and queried recursively on this temp-table. With this the complexity for the recursive query disappeared"
+  ],
+  "themes": [
+    "data_engineering",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "When migrating Oracle recursive queries to SQL Server, inline user-defined functions with temp tables can overcome the performance limitations of CTEs for complex nested views.",
+  "filename": "2016-09-24-migrate-from-oracle-to-microsoft-views-part-ii"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Simon Sp\u00e4ti presents a comprehensive hands-on data engineering project using a real estate web scraping use case to demonstrate a modern open-source data stack. The project combines web scraping with Beautiful Soup, S3 storage via MinIO, Delta Lake for ACID transactions and schema evolution, Apache Druid for OLAP, Superset for visualization, and Dagster for orchestration\u2014all running on Kubernetes. The post serves as both a practical tutorial and an architectural guide, showing how these tools fit together in the Databricks Lakehouse paradigm. He emphasizes cloud-agnostic design and provides all code in public GitHub repositories for others to learn from.",
+  "key_points": [
+    "Web scraping can treat any website as a database, and checking for open APIs via browser dev tools can simplify data extraction significantly",
+    "Delta Lake provides database-like features (ACID transactions, schema evolution, time travel, MERGE operations) on top of distributed files in S3",
+    "MinIO provides an S3-compatible gateway that enables cloud-agnostic object storage, allowing easy switching between AWS, Azure, and GCP",
+    "Dagster's high-level abstraction separates business logic in solids from technical code in resources, with elegant mode switching between dev/test/production environments",
+    "Kubernetes has become the de-facto standard for cloud-native data applications, enabling infrastructure as data via YAML rather than infrastructure as code"
+  ],
+  "money_quotes": [
+    "Starting with web scraping gives you the power to treat every website as a database.",
+    "To get database alike features on top of your S3 files, you simply need to create a Delta Lake table.",
+    "Data pipelines start simple and straight-forward, but often they end up vastly heterogeneous with various APIs, Spark, cloud data warehouse, and multi-cloud-providers.",
+    "Dagster lets you focus on building your data pipelines. It is made for data-flows and with it to pass data between the solids.",
+    "You have an elegant way of separating business logic in solids and technical code within resources.",
+    "Kubernetes has become the de-facto standard for your cloud-native apps to (auto-) scale-out and to deploy your open-source zoo fast, cloud-provider-independent.",
+    "Testing data is very hard and nothing compared to software testing as data is and even tools and framework is dynamic and can change every output of your transformation."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products"
+  ],
+  "tone": "technical",
+  "key_insight": "A modern data engineering project can be built entirely with open-source tools\u2014from scraping to visualization\u2014running cloud-agnostic on Kubernetes, with Delta Lake providing the database features needed on distributed files and Dagster orchestrating the heterogeneous components.",
+  "filename": "2021-03-09-data-engineering-project-in-twenty-minutes"
+}

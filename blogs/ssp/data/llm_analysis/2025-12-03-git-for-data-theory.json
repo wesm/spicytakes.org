@@ -1,0 +1,28 @@
+{
+  "summary": "The post explores applying Git-like version control workflows to data management, addressing the challenge of testing and rolling back data pipelines in production environments. Simon argues that while Git revolutionized code versioning, data presents unique constraints: tables must remain consistent across relationships, production datasets are massive, and copying data for testing is slow and expensive. The solution lies in leveraging metadata catalogs and zero-copy cloning through technologies like Prolly Trees, which enable instant branching of production data without physical duplication. The article establishes a data movement efficiency spectrum from metadata-based versioning (most efficient) to full data copying (least efficient), setting up a Part 2 that will examine specific tools implementing these concepts.",
+  "key_points": [
+    "Git doesn't work for data because it was designed for small text-based code changes, not large binary files or datasets with schemas and relationships",
+    "The efficiency spectrum for data versioning runs from metadata/catalog-based versioning (no data movement) through zero-copy, delta-based approaches, to full 1:1 copying (least efficient)",
+    "Branching for data differs from code: you don't merge test branches back to production, you test prod data on dev then roll out code changes",
+    "Prolly Trees (Merkle Trees) enable Git-like versioning for databases by splitting data into hash-based chunks where identical content produces identical fingerprints",
+    "Software engineers can mock data easily while data engineers have hard dependencies on production data, requiring heavy compute in development rather than production"
+  ],
+  "money_quotes": [
+    "Remember the 2 AM on-call duty when a recent data pipeline broke the production environment? A data pipeline you've never touched just corrupted customer records.",
+    "But what if you could branch your data like you branch code? Test on real data, discard changes instantly, and deploy with confidence.",
+    "Data might be stored on a data lake, maybe on a database, or a key-value store like Redis. The data might be huge, containing the full CRM or all sales transactions over the last years.",
+    "With code, different features can be developed independently and then merged into the main branch at the end. With data, it's more about testing prod data on dev and then rolling out the code changes to prod.",
+    "Instead of moving data, we just create one new or many new pointers. The result is creating new datasets instantly, as it's just a metadata process, and not an actual data transfer.",
+    "The key insight is that no matter how you modify data, identical content always produces identical fingerprints.",
+    "Git for data is harder than version control for code because we're not just tracking changes but managing state, often at a massive scale."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, educational, optimistic",
+  "key_insight": "Git-like workflows for data require metadata-based zero-copy cloning rather than physical data duplication, enabling instant branching of production datasets for testing without the time and cost of traditional environment setup.",
+  "filename": "2025-12-03-git-for-data-theory"
+}
