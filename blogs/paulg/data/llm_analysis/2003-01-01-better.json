@@ -1,0 +1,24 @@
+{
+  "summary": "Paul Graham argues that Bayesian spam filtering can be far more effective than early research suggested when you use more data, include headers, and tune for false positives rather than treating it as generic text classification. He details practical improvements in tokenization, probability handling, and evaluation that raise filtering rates to ~99.75% with very low false positives, while outlining future challenges as spammers adapt.",
+  "key_points": [
+    "Early Bayesian spam results underperformed due to small corpora, ignoring headers, and naive probability choices.",
+    "Better tokenization (case, punctuation, headers, URLs) and selective feature use dramatically improves accuracy.",
+    "False positives should be treated as bugs and minimized separately from optimizing spam catch rates.",
+    "HTML handling and token degeneration need balanced approaches to avoid overfitting or missing signals.",
+    "Personalized filters are more robust and slow spammers\u2019 adaptation cycles."
+  ],
+  "money_quotes": [
+    "There is a lesson here for filter writers: don't ignore data.",
+    "Spam filtering is not just classification, because false positives are so much worse than false negatives that you should treat them as a different kind of error.",
+    "Filtering is an optimization problem, and the key to optimization is profiling.",
+    "False positives seem to me a different kind of error from false negatives.",
+    "The kind of filters I'm optimistic about are ones that calculate probabilities based on each individual user's mail."
+  ],
+  "themes": [
+    "programming",
+    "ideas_thinking"
+  ],
+  "tone": "analytical, reflective, pragmatic",
+  "key_insight": "Treat spam filtering as a domain-specific, data-driven optimization problem\u2014especially biased against false positives\u2014and the results improve dramatically.",
+  "filename": "2003-01-01-better"
+}
