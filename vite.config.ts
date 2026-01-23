@@ -2,7 +2,15 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import { execSync } from 'child_process';
 
-const gitHash = execSync('git rev-parse --short HEAD').toString().trim();
+// Get git hash - use Vercel env var if available, otherwise run git command
+let gitHash = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || 'unknown';
+if (gitHash === 'unknown') {
+	try {
+		gitHash = execSync('git rev-parse --short HEAD').toString().trim();
+	} catch {
+		// Not in a git repo (e.g., Vercel build without VERCEL_GIT_COMMIT_SHA)
+	}
+}
 
 export default defineConfig({
 	plugins: [sveltekit()],
