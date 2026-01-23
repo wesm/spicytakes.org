@@ -17,6 +17,12 @@ interface RawPost {
   error?: boolean;
 }
 
+interface PostIndexEntry {
+  filename: string;
+  title: string;
+  subtitle?: string;
+}
+
 interface SpicyQuote {
   quote: string;
   filename: string;
@@ -75,6 +81,22 @@ export const load: LayoutServerLoad = async () => {
     { quotes: [] }
   );
 
+  // Load posts index for real titles
+  const postsIndex = loadJson<{ posts: PostIndexEntry[] }>(
+    join(dataDir, 'posts_index.json'),
+    { posts: [] }
+  );
+
+  // Build title lookup from posts_index.json
+  // Index by both with and without .md extension for compatibility
+  const titleLookup: Record<string, string> = {};
+  for (const p of postsIndex.posts || []) {
+    if (p.filename && p.title) {
+      titleLookup[p.filename] = p.title;
+      titleLookup[p.filename.replace(/\.md$/, '')] = p.title;
+    }
+  }
+
   // Build spiciness lookup
   const spicyLookup: Record<string, number> = {};
   for (const q of spicyData.quotes || []) {
@@ -88,10 +110,12 @@ export const load: LayoutServerLoad = async () => {
     .map(post => {
       const dateStr = parseDate(post.filename);
       const year = parseInt(dateStr.split('-')[0], 10);
+      // Use real title from posts_index.json, fall back to formatTitle if not found
+      const title = titleLookup[post.filename] || formatTitle(post.filename);
       return {
         ...post,
         dateStr,
-        title: formatTitle(post.filename),
+        title,
         year
       };
     })

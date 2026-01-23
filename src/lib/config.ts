@@ -19,6 +19,7 @@ import skamilleConfig from '../../config/skamille.json';
 import mitchellhConfig from '../../config/mitchellh.json';
 import mathbabeConfig from '../../config/mathbabe.json';
 import nayafiaConfig from '../../config/nayafia.json';
+import joereisConfig from '../../config/joereis.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -36,6 +37,7 @@ const configs: Record<string, BlogConfig> = {
   mitchellh: mitchellhConfig as BlogConfig,
   mathbabe: mathbabeConfig as BlogConfig,
   nayafia: nayafiaConfig as BlogConfig,
+  joereis: joereisConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
