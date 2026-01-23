@@ -2,14 +2,23 @@
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
   import { postsStore } from '$lib/stores';
-  import { getSpicyColor } from '$lib/types';
+  import { getSpicyColor, type Post } from '$lib/types';
   import { THEME_LABELS, getSourceUrl, config } from '$lib/config';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();
 
-  // Find the post by filename
-  let post = $derived($postsStore.find(p => p.filename === data.filename));
+  // Convert server post data to Post type with Date object
+  function toPost(serverPost: any): Post | undefined {
+    if (!serverPost) return undefined;
+    return {
+      ...serverPost,
+      date: new Date(serverPost.dateStr)
+    };
+  }
+
+  // Use server-loaded post for SSR, fall back to store for client navigation
+  let post = $derived(data.post ? toPost(data.post) : $postsStore.find(p => p.filename === data.filename));
 
   let highlightedQuote: number | null = $state(null);
   let copiedQuote: number | null = $state(null);
