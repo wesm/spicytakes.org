@@ -1,8 +1,6 @@
-import { readFileSync, existsSync } from 'fs';
-import { join } from 'path';
 import type { LayoutServerLoad } from './$types';
 
-const blogId = process.env.VITE_BLOG_ID || 'benn';
+const blogId = import.meta.env.VITE_BLOG_ID || 'benn';
 const isLandingMode = blogId === 'landing';
 
 interface RawPost {
@@ -29,13 +27,18 @@ interface SpicyQuote {
   spiciness: number;
 }
 
-function loadJson<T>(path: string, defaultValue: T): T {
-  try {
-    if (existsSync(path)) {
-      return JSON.parse(readFileSync(path, 'utf-8'));
+// Import all blog data files at build time using Vite's glob import
+// This bundles the data into the serverless function
+const llmQuotesModules = import.meta.glob<{ posts: RawPost[] }>('/blogs/*/data/llm_quotes.json', { eager: true });
+const spicyQuotesModules = import.meta.glob<{ quotes: SpicyQuote[] }>('/blogs/*/data/spicy_quotes.json', { eager: true });
+const postsIndexModules = import.meta.glob<{ posts: PostIndexEntry[] }>('/blogs/*/data/posts_index.json', { eager: true });
+
+function getBlogData<T>(modules: Record<string, T>, blogId: string, defaultValue: T): T {
+  const key = `/blogs/${blogId}/data/${Object.keys(modules)[0]?.split('/').pop()}`;
+  for (const [path, module] of Object.entries(modules)) {
+    if (path.includes(`/blogs/${blogId}/`)) {
+      return module;
     }
-  } catch (e) {
-    console.error(`Failed to load ${path}:`, e);
   }
   return defaultValue;
 }
@@ -69,23 +72,9 @@ export const load: LayoutServerLoad = async () => {
     return { blogData: null };
   }
 
-  const dataDir = join(process.cwd(), 'blogs', blogId, 'data');
-
-  const rawData = loadJson<{ posts: RawPost[] }>(
-    join(dataDir, 'llm_quotes.json'),
-    { posts: [] }
-  );
-
-  const spicyData = loadJson<{ quotes: SpicyQuote[] }>(
-    join(dataDir, 'spicy_quotes.json'),
-    { quotes: [] }
-  );
-
-  // Load posts index for real titles
-  const postsIndex = loadJson<{ posts: PostIndexEntry[] }>(
-    join(dataDir, 'posts_index.json'),
-    { posts: [] }
-  );
+  const rawData = getBlogData(llmQuotesModules, blogId, { posts: [] });
+  const spicyData = getBlogData(spicyQuotesModules, blogId, { quotes: [] });
+  const postsIndex = getBlogData(postsIndexModules, blogId, { posts: [] });
 
   // Build title lookup from posts_index.json
   // Index by filename (with/without .md) and by slug for compatibility
