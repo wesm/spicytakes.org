@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="pepperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4500"/>
+      <stop offset="50%" style="stop-color:#DC143C"/>
+      <stop offset="100%" style="stop-color:#8B0000"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7F50;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="stemGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#228B22"/>
+      <stop offset="100%" style="stop-color:#32CD32"/>
+    </linearGradient>
+    <linearGradient id="flameOuter" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF4500;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#FF8C00;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="flameInner" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6347;stop-opacity:0.5"/>
+      <stop offset="60%" style="stop-color:#FFA500;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#FFFF00;stop-opacity:0.15"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="245" fill="#FFF5F0"/>
+
+  <!-- Flames behind pepper -->
+  <!-- Outer flame left -->
+  <path d="M 150 450
+           C 130 400, 120 340, 140 280
+           C 155 230, 180 190, 170 140
+           C 165 110, 190 150, 200 200
+           C 215 270, 200 340, 190 400
+           C 185 440, 170 470, 150 450
+           Z"
+        fill="url(#flameOuter)"/>
+
+  <!-- Outer flame right -->
+  <path d="M 380 470
+           C 410 420, 430 350, 420 280
+           C 410 210, 380 150, 400 100
+           C 415 60, 360 120, 350 180
+           C 335 260, 360 340, 370 410
+           C 375 450, 365 480, 380 470
+           Z"
+        fill="url(#flameOuter)"/>
+
+  <!-- Inner flame center-left -->
+  <path d="M 180 460
+           C 160 410, 155 350, 175 290
+           C 190 240, 210 200, 195 150
+           C 185 115, 220 160, 230 210
+           C 245 280, 225 350, 215 410
+           C 210 445, 195 475, 180 460
+           Z"
+        fill="url(#flameInner)"/>
+
+  <!-- Inner flame center-right -->
+  <path d="M 350 465
+           C 375 415, 385 350, 370 285
+           C 355 225, 330 175, 350 125
+           C 365 90, 315 140, 310 195
+           C 300 270, 325 345, 335 410
+           C 340 445, 335 480, 350 465
+           Z"
+        fill="url(#flameInner)"/>
+
+  <!-- Curved chili pepper body - emoji style curved shape -->
+  <path d="M 200 95
+           C 260 100, 310 140, 340 200
+           C 380 280, 390 360, 370 420
+           C 355 465, 310 480, 280 450
+           C 250 420, 260 370, 270 320
+           C 285 250, 280 180, 240 140
+           C 210 110, 175 100, 165 105
+           C 155 112, 170 92, 200 95
+           Z"
+        fill="url(#pepperGrad)"/>
+
+  <!-- Highlight/shine -->
+  <path d="M 210 110
+           C 250 115, 290 145, 315 195
+           C 345 260, 355 320, 345 375
+           C 342 390, 335 388, 335 375
+           C 340 330, 330 270, 305 210
+           C 280 155, 245 125, 210 115
+           C 200 112, 200 108, 210 110
+           Z"
+        fill="url(#shine)"/>
+
+  <!-- Green stem/calyx -->
+  <path d="M 175 105
+           C 160 95, 140 80, 125 70
+           C 115 63, 108 65, 112 75
+           C 120 90, 140 100, 165 108
+           Z"
+        fill="url(#stemGrad)"/>
+  <path d="M 185 100
+           C 175 85, 170 65, 175 50
+           C 178 40, 188 42, 190 55
+           C 193 70, 190 88, 188 102
+           Z"
+        fill="url(#stemGrad)"/>
+  <path d="M 195 98
+           C 210 85, 230 75, 250 72
+           C 262 70, 265 78, 255 85
+           C 240 93, 218 98, 198 102
+           Z"
+        fill="url(#stemGrad)"/>
+</svg>
