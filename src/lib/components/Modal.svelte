@@ -77,6 +77,17 @@
         <!-- Title -->
         <h2 class="font-serif text-2xl font-semibold text-stone-900 mb-4 pr-8">
           {$selectedPost.title}
+          <a
+            href="/post/{$selectedPost.filename}"
+            onclick={close}
+            class="inline-flex items-center gap-1 ml-2 px-2 py-0.5 rounded bg-stone-100 text-stone-400 hover:bg-stone-200 hover:text-stone-600 transition-colors text-sm font-sans font-medium align-middle"
+            title="Open permalink page"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+            </svg>
+            Permalink
+          </a>
         </h2>
 
         <!-- Themes -->
@@ -111,12 +122,21 @@
         <!-- Money Quotes -->
         {#if $selectedPost.money_quotes?.length}
           <div class="mb-6">
-            <h3 class="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">Money Quotes</h3>
+            <h3 class="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">
+              Spicy Quotes
+              <span class="text-stone-300 font-normal normal-case">(click to share)</span>
+            </h3>
             <ul class="space-y-3">
-              {#each $selectedPost.money_quotes as quote}
-                <li class="relative pl-4 py-3 bg-stone-50 rounded-lg">
-                  <span class="absolute left-3 top-2 text-2xl text-blue-200 font-serif">"</span>
-                  <p class="font-serif text-stone-700 pl-4">{quote}</p>
+              {#each $selectedPost.money_quotes as quote, i}
+                <li>
+                  <a
+                    href="/post/{$selectedPost.filename}#quote-{i}"
+                    onclick={close}
+                    class="block relative pl-4 py-3 bg-stone-50 rounded-lg hover:bg-stone-100 hover:shadow-md transition-all cursor-pointer"
+                  >
+                    <span class="absolute left-3 top-2 text-2xl text-blue-200 font-serif">"</span>
+                    <p class="font-serif text-stone-700 pl-4">{quote}</p>
+                  </a>
                 </li>
               {/each}
             </ul>
