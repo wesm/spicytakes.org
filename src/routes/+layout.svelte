@@ -1,3 +1,7 @@
+<script module lang="ts">
+  declare const __GIT_HASH__: string;
+</script>
+
 <script lang="ts">
   import '../app.css';
   import Header from '$lib/components/Header.svelte';
@@ -19,7 +23,6 @@
   const title = isLandingMode ? `${landing.title} - ${landing.tagline}` : `${config?.name} - ${config?.tagline}`;
   const description = isLandingMode ? landing.description : config?.description;
 
-  declare const __GIT_HASH__: string;
   const gitHash = __GIT_HASH__;
 </script>
 
