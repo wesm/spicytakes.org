@@ -2,17 +2,9 @@
   import type { Quote } from '$lib/types';
   import { getSpicyColor } from '$lib/types';
   import { selectedPost } from '$lib/stores';
+  import { formatDate } from '$lib/config';
 
   let { quote }: { quote: Quote } = $props();
-
-  function formatDate(date: Date | undefined): string {
-    if (!date) return '';
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  }
 
   function openPost() {
     selectedPost.set(quote.post);
@@ -33,7 +25,7 @@
       </blockquote>
       <div class="flex items-center gap-3 text-sm">
         <span class="font-medium text-stone-700">{quote.post.title}</span>
-        <span class="text-stone-400">{formatDate(quote.date)}</span>
+        <span class="text-stone-400">{formatDate(quote.date, 'short')}</span>
       </div>
     </div>
   </div>

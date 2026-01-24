@@ -1,7 +1,7 @@
 <script lang="ts">
   import { selectedPost } from '$lib/stores';
   import { getSpicyColor } from '$lib/types';
-  import { THEME_LABELS, getSourceUrl, config } from '$lib/config';
+  import { THEME_LABELS, getSourceUrl, config, formatDate } from '$lib/config';
 
   function close() {
     selectedPost.set(null);
@@ -9,15 +9,6 @@
 
   function handleKeydown(e: KeyboardEvent) {
     if (e.key === 'Escape') close();
-  }
-
-  function formatDate(date: Date | undefined): string {
-    if (!date) return '';
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
   }
 </script>
 

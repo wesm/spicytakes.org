@@ -2,17 +2,8 @@
   import { filteredPosts, selectedPost, yearsStore } from '$lib/stores';
   import { filterPosts } from '$lib/filter';
   import { getSpicyColor } from '$lib/types';
-  import { THEME_LABELS } from '$lib/config';
+  import { THEME_LABELS, formatDate } from '$lib/config';
   import type { Post } from '$lib/types';
-
-  function formatDate(date: Date | undefined): string {
-    if (!date) return '';
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  }
 
   function openPost(post: Post) {
     selectedPost.set(post);
@@ -139,7 +130,7 @@
                         {post.summary}
                       </p>
                       <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-                        <span class="text-stone-400">{formatDate(post.date)}</span>
+                        <span class="text-stone-400">{formatDate(post.date, 'short')}</span>
                         {#if post.themes?.length}
                           <div class="flex gap-1">
                             {#each post.themes.slice(0, 2) as theme}
@@ -192,7 +183,7 @@
                       {post.summary}
                     </p>
                     <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-                      <span class="text-stone-400">{formatDate(post.date)}</span>
+                      <span class="text-stone-400">{formatDate(post.date, 'short')}</span>
                       {#if post.themes?.length}
                         <div class="flex gap-1">
                           {#each post.themes.slice(0, 2) as theme}

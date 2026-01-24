@@ -3,7 +3,7 @@
   import { browser } from '$app/environment';
   import { postsStore } from '$lib/stores';
   import { getSpicyColor, type Post } from '$lib/types';
-  import { THEME_LABELS, getSourceUrl, config } from '$lib/config';
+  import { THEME_LABELS, getSourceUrl, config, formatDate } from '$lib/config';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();
@@ -22,15 +22,6 @@
 
   let highlightedQuote: number | null = $state(null);
   let copiedQuote: number | null = $state(null);
-
-  function formatDate(date: Date | undefined): string {
-    if (!date) return '';
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  }
 
   function updateHighlight() {
     if (!browser) return;

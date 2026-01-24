@@ -73,6 +73,25 @@ export const THEME_ICONS: Record<string, string> = config?.themes
   ? Object.fromEntries(Object.entries(config.themes).map(([key, value]) => [key, value.icon]))
   : {};
 
+// Date precision: "day" (default), "month", or "year"
+export const datePrecision: 'day' | 'month' | 'year' = (config as any)?.datePrecision || 'day';
+
+// Shared date formatter that respects config precision
+export function formatDate(date: Date | undefined, monthFormat: 'long' | 'short' = 'long'): string {
+  if (!date) return '';
+
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: monthFormat,
+  };
+
+  if (datePrecision === 'day') {
+    options.day = 'numeric';
+  }
+
+  return date.toLocaleDateString('en-US', options);
+}
+
 // Helper to get source URL for a post
 // For transcripts, pass the post object to get video_url if available
 // Returns empty string if transcript has no video_url (caller should hide link)

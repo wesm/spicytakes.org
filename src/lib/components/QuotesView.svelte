@@ -2,20 +2,12 @@
   import { filteredQuotes, selectedPost, yearsStore } from '$lib/stores';
   import { getSpicyColor } from '$lib/types';
   import { filterQuotes } from '$lib/filter';
+  import { formatDate } from '$lib/config';
   import type { Quote } from '$lib/types';
 
   let sortBy = $state<'date' | 'spiciness'>('date');
   let selectedYear = $state<number | null>(null);
   let minSpiciness = $state(1);
-
-  function formatDate(date: Date | undefined): string {
-    if (!date) return '';
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  }
 
   function openPost(quote: Quote) {
     selectedPost.set(quote.post);
@@ -119,7 +111,7 @@
                       </blockquote>
                       <div class="flex items-center gap-3 text-sm">
                         <span class="font-medium text-stone-700">{quote.post.title}</span>
-                        <span class="text-stone-400">{formatDate(quote.date)}</span>
+                        <span class="text-stone-400">{formatDate(quote.date, 'short')}</span>
                       </div>
                     </div>
                   </div>
@@ -154,7 +146,7 @@
                 </blockquote>
                 <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
                   <span class="font-medium text-stone-700">{quote.post.title}</span>
-                  <span class="text-stone-400">{formatDate(quote.date)}</span>
+                  <span class="text-stone-400">{formatDate(quote.date, 'short')}</span>
                   {#if quote.themes.length > 0}
                     <div class="flex gap-1">
                       {#each quote.themes.slice(0, 2) as theme}
