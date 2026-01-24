@@ -81,8 +81,12 @@ def get_site_url(blog_id: str) -> str:
     return url_map.get(blog_id, f"https://{blog_id}.spicytakes.org")
 
 
-def generate_tweet_text(analysis: dict, metadata: dict | None, blog_id: str, filename: str) -> str:
-    """Generate tweet text from post analysis."""
+def generate_tweet_text(analysis: dict, metadata: dict | None, blog_id: str, filename: str) -> tuple[str, bool]:
+    """Generate tweet text from post analysis.
+
+    Returns:
+        tuple: (tweet_text, is_truncated)
+    """
     config = load_config(blog_id)
     author_name = config.get("name", blog_id)
 
@@ -102,12 +106,22 @@ def generate_tweet_text(analysis: dict, metadata: dict | None, blog_id: str, fil
     site_url = get_site_url(blog_id)
     permalink = f"{site_url}/post/{filename}"
 
+    # Twitter t.co shortens all URLs to 23 chars
+    URL_LENGTH = 23
+    TWEET_MAX = 280
+    # Available chars for hook: 280 - 23 (URL) - 2 (newlines)
+    max_hook_length = TWEET_MAX - URL_LENGTH - 2
+
+    is_truncated = False
+    if len(hook) > max_hook_length:
+        # Truncate hook with ellipsis
+        hook = hook[:max_hook_length - 1] + "…"
+        is_truncated = True
+
     # Compose tweet
-    # Format: Hook + newline + permalink
-    # Keep under 280 chars (Twitter limit), accounting for image attachment
     tweet = f"{hook}\n\n{permalink}"
 
-    return tweet
+    return tweet, is_truncated
 
 
 def capture_screenshot(blog_id: str, filename: str, output_path: Path, use_local: bool = False) -> bool:
@@ -212,13 +226,15 @@ def main():
     metadata = load_post_metadata(blog_id, filename)
 
     # Generate tweet text
-    tweet_text = generate_tweet_text(analysis, metadata, blog_id, filename)
+    tweet_text, is_truncated = generate_tweet_text(analysis, metadata, blog_id, filename)
 
     print("\n📝 Tweet text:")
     print("-" * 40)
     print(tweet_text)
     print("-" * 40)
     print(f"Length: {len(tweet_text)} chars")
+    if is_truncated:
+        print("⚠️  Tweet was truncated to fit 280 char limit")
 
     # Capture screenshot
     tweets_dir = get_project_dir() / "blogs" / blog_id / "data" / "tweets"
@@ -233,9 +249,11 @@ def main():
         print(f"   Image: {screenshot_path}")
 
         # Output JSON for programmatic use
+        # Use repo-relative path for portability
+        relative_screenshot_path = screenshot_path.relative_to(get_project_dir())
         output = {
             "tweet_text": tweet_text,
-            "screenshot_path": str(screenshot_path),
+            "screenshot_path": str(relative_screenshot_path),
             "permalink": f"{get_site_url(blog_id)}/post/{filename}",
             "filename": filename,
             "blog_id": blog_id

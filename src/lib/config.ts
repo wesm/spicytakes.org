@@ -167,10 +167,11 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${config.sourceUrl}/${slug}`;
   }
-  // For rss_generic blogs (ssp.sh), URL is /blog/slug/
+  // For rss_generic blogs, use sourcePostPath from config or default to /blog/{slug}/
   if (config.scraper.type === 'rss_generic') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${config.sourceUrl}/blog/${slug}/`;
+    const postPath = (config.scraper as any).sourcePostPath || '/blog/{slug}/';
+    return `${config.sourceUrl}${postPath.replace('{slug}', slug)}`;
   }
   // For paulgraham essays, URL is /slug.html
   if (config.scraper.type === 'paulgraham') {

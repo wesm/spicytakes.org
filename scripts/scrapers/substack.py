@@ -48,14 +48,19 @@ class SubstackScraper(BaseScraper):
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
                 })
                 response.raise_for_status()
-                posts = response.json()
+                try:
+                    posts = response.json()
+                except (ValueError, json.JSONDecodeError) as e:
+                    print(f"  Error parsing JSON at offset {offset}: {e}")
+                    break
 
                 if not posts:
                     break
 
                 for post in posts:
                     if "canonical_url" in post:
-                        all_urls.append(post["canonical_url"])
+                        url = post["canonical_url"].rstrip("/")
+                        all_urls.append(url)
                     elif "slug" in post:
                         all_urls.append(f"{self.substack_url}/p/{post['slug']}")
 
@@ -71,16 +76,20 @@ class SubstackScraper(BaseScraper):
 
     def update_urls_file(self, urls: list[str]):
         """Update the post URLs file with newly discovered URLs."""
+        # Normalize URLs by stripping trailing slashes for consistent comparison
+        def normalize(url: str) -> str:
+            return url.rstrip("/")
+
         existing_urls = self.load_urls()
-        existing_set = set(existing_urls)
-        new_urls = [u for u in urls if u not in existing_set]
+        existing_normalized = {normalize(u) for u in existing_urls}
+        new_urls = [u for u in urls if normalize(u) not in existing_normalized]
 
         if new_urls:
             print(f"Found {len(new_urls)} new post(s)")
 
         # Merge: new discovered URLs + existing URLs not in discovered (preserves old posts)
-        discovered_set = set(urls)
-        old_only = [u for u in existing_urls if u not in discovered_set]
+        discovered_normalized = {normalize(u) for u in urls}
+        old_only = [u for u in existing_urls if normalize(u) not in discovered_normalized]
         all_urls = urls + old_only  # New first, then any old posts not in API
 
         data = {
