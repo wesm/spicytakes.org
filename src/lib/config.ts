@@ -154,12 +154,19 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${config.sourceUrl}/post/${slug}/`;
   }
-  // For jekyll_feed blogs (geohot), URL is /blog/jekyll/update/YYYY/MM/DD/slug.html
+  // For jekyll_feed blogs, URL pattern is configurable via sourcePostPath
+  // Default: /blog/jekyll/update/{year}/{month}/{day}/{slug}.html (geohot)
+  // Uncle Bob uses: /uncle-bob/{year}/{month}/{day}/{slug}.html
   if (config.scraper.type === 'jekyll_feed') {
     const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
     if (match) {
       const [, year, month, day, slug] = match;
-      return `${config.sourceUrl}/blog/jekyll/update/${year}/${month}/${day}/${slug}.html`;
+      const postPath = (config.scraper as any).sourcePostPath || '/blog/jekyll/update/{year}/{month}/{day}/{slug}.html';
+      return `${config.sourceUrl}${postPath
+        .replace('{year}', year)
+        .replace('{month}', month)
+        .replace('{day}', day)
+        .replace('{slug}', slug)}`;
     }
   }
   // For wordpress blogs (mathbabe), URL is /YYYY/MM/DD/slug/

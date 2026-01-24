@@ -60,6 +60,8 @@ test.describe('Filtering and Search', () => {
       // Results should not change immediately (before debounce)
       await blog.page.waitForTimeout(50);
       const countBeforeDebounce = await blog.postCards.count();
+      // Before debounce completes, results should still show initial count
+      expect(countBeforeDebounce).toBe(initialCount);
 
       // After debounce period, results should update
       await blog.waitForDebounce();
@@ -94,43 +96,60 @@ test.describe('Filtering and Search', () => {
       expect(filteredCount).toBeLessThan(initialCount);
     });
 
-    test('high spiciness threshold reduces results', async () => {
+    test('high spiciness threshold reduces results', async ({ skip }) => {
       const initialCount = await blog.postCards.count();
+      // Skip if dataset is too small to meaningfully filter
+      if (initialCount < 10) {
+        skip();
+        return;
+      }
 
       await blog.setMinSpiciness(9);
       await blog.page.waitForTimeout(100);
 
       const filteredCount = await blog.postCards.count();
-      // High spiciness threshold should reduce results (some posts won't have scores >= 9)
-      expect(filteredCount).toBeLessThanOrEqual(initialCount);
+      // High spiciness threshold should reduce results (not all posts have scores >= 9)
+      expect(filteredCount).toBeLessThan(initialCount);
     });
   });
 
   test.describe('Year Filter', () => {
-    test('filters by specific year', async () => {
+    test('filters by specific year', async ({ skip }) => {
       const initialCount = await blog.postCards.count();
 
-      // Get a year dynamically from the dropdown (skip "All Years" option)
+      // Get a year dynamically from the dropdown (skip "All Years" and "Undated" options)
       const yearOptions = await blog.yearSelect.locator('option').allTextContents();
-      const specificYear = yearOptions.find(y => y !== 'All Years' && /^\d{4}$/.test(y));
-      expect(specificYear).toBeDefined();
+      const yearOnlyOptions = yearOptions.filter(y => /^\d{4}$/.test(y));
 
-      await blog.selectYear(specificYear!);
+      // Skip if there's only one year (filtering won't reduce results)
+      if (yearOnlyOptions.length < 2) {
+        skip();
+        return;
+      }
+
+      const specificYear = yearOnlyOptions[0];
+      await blog.selectYear(specificYear);
       await blog.page.waitForTimeout(100);
 
       const filteredCount = await blog.postCards.count();
-      expect(filteredCount).toBeLessThanOrEqual(initialCount);
+      // With multiple years, filtering to one should reduce results
+      expect(filteredCount).toBeLessThan(initialCount);
       expect(filteredCount).toBeGreaterThan(0);
     });
 
-    test('All Years option shows all posts', async () => {
+    test('All Years option shows all posts', async ({ skip }) => {
       // Get a year dynamically from the dropdown
       const yearOptions = await blog.yearSelect.locator('option').allTextContents();
-      const specificYear = yearOptions.find(y => y !== 'All Years' && /^\d{4}$/.test(y));
-      expect(specificYear).toBeDefined();
+      const yearOnlyOptions = yearOptions.filter(y => /^\d{4}$/.test(y));
+
+      // Skip if there's only one year
+      if (yearOnlyOptions.length < 2) {
+        skip();
+        return;
+      }
 
       // First filter to a year
-      await blog.selectYear(specificYear!);
+      await blog.selectYear(yearOnlyOptions[0]);
       await blog.page.waitForTimeout(100);
       const filteredCount = await blog.postCards.count();
 
@@ -139,23 +158,28 @@ test.describe('Filtering and Search', () => {
       await blog.page.waitForTimeout(100);
       const allCount = await blog.postCards.count();
 
-      expect(allCount).toBeGreaterThanOrEqual(filteredCount);
+      expect(allCount).toBeGreaterThan(filteredCount);
     });
 
-    test('year filter works in Quotes view', async () => {
+    test('year filter works in Quotes view', async ({ skip }) => {
       await blog.switchToView('quotes');
       const initialCount = await blog.quoteCards.count();
 
-      // Get a year dynamically from the dropdown
+      // Get a year dynamically from the dropdown (skip "All Years" and "Undated" options)
       const yearOptions = await blog.yearSelect.locator('option').allTextContents();
-      const specificYear = yearOptions.find(y => y !== 'All Years' && /^\d{4}$/.test(y));
-      expect(specificYear).toBeDefined();
+      const yearOnlyOptions = yearOptions.filter(y => /^\d{4}$/.test(y));
 
-      await blog.selectYear(specificYear!);
+      // Skip if there's only one year
+      if (yearOnlyOptions.length < 2) {
+        skip();
+        return;
+      }
+
+      await blog.selectYear(yearOnlyOptions[0]);
       await blog.page.waitForTimeout(100);
 
       const filteredCount = await blog.quoteCards.count();
-      expect(filteredCount).toBeLessThanOrEqual(initialCount);
+      expect(filteredCount).toBeLessThan(initialCount);
     });
   });
 
