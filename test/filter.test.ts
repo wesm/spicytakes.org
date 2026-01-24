@@ -12,7 +12,7 @@ describe('filterPosts', () => {
   ];
 
   it('filters by minSpiciness', () => {
-    const res1 = filterPosts(posts, 4, null);
+    const res1 = filterPosts(posts, 4, 'all');
     // Should include: 1 (5), 3 (8)
     // Should exclude: 2 (3), 4 (undefined -> 1), 5 (NaN -> 1)
     expect(res1.length).toBe(2);
@@ -38,7 +38,7 @@ describe('filterPosts', () => {
   });
 
   it('includes posts with missing/NaN spiciness when minSpiciness=1', () => {
-    const res = filterPosts(posts, 1, null);
+    const res = filterPosts(posts, 1, 'all');
     // All posts should be included: missing/NaN treated as 1
     expect(res.length).toBe(5);
     expect(res.find(p => p.filename === '4')).toBeDefined(); // undefined spiciness
@@ -57,7 +57,7 @@ describe('filterQuotes', () => {
   ];
 
   it('filters by minSpiciness (handles NaN/missing)', () => {
-    const res = filterQuotes(quotes, 4, null);
+    const res = filterQuotes(quotes, 4, 'all');
     // Includes q1(5), q3(8)
     // Excludes q2(2), q4(NaN->1), q5(undefined->1)
     expect(res.length).toBe(2);
