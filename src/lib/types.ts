@@ -11,7 +11,7 @@ export interface Post {
   // Computed fields
   date?: Date;
   title?: string;
-  year?: number;
+  year?: number | null;
   spiciness?: number | null;
 }
 
@@ -21,7 +21,7 @@ export interface Quote {
   themes: string[];
   spiciness: number;
   date?: Date;
-  year?: number;
+  year?: number | null;
 }
 
 export interface ThemeData {

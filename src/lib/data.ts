@@ -12,9 +12,9 @@ interface ServerPost {
   key_insight: string;
   video_url?: string;
   content_type?: string;
-  dateStr: string;
+  dateStr: string | null;
   title: string;
-  year: number;
+  year: number | null;
   spiciness?: number;
 }
 
@@ -23,15 +23,15 @@ interface ServerQuote {
   filename: string;
   themes: string[];
   spiciness: number;
-  dateStr: string;
-  year: number;
+  dateStr: string | null;
+  year: number | null;
 }
 
 interface ServerBlogData {
   posts: ServerPost[];
   quotes: ServerQuote[];
   spicyLookup: Record<string, number>;
-  years: number[];
+  years: (number | null)[];
   stats: {
     totalPosts: number;
     totalQuotes: number;
@@ -50,7 +50,7 @@ export function initializeData(blogData: ServerBlogData) {
   // Convert server posts to client Post type with Date objects
   const posts: Post[] = blogData.posts.map(p => ({
     ...p,
-    date: new Date(p.dateStr),
+    date: p.dateStr ? new Date(p.dateStr) : undefined,
   }));
 
   // Build a lookup map for posts by filename
@@ -65,7 +65,7 @@ export function initializeData(blogData: ServerBlogData) {
     post: postsByFilename[q.filename],
     themes: q.themes,
     spiciness: q.spiciness,
-    date: new Date(q.dateStr),
+    date: q.dateStr ? new Date(q.dateStr) : undefined,
     year: q.year
   }));
 

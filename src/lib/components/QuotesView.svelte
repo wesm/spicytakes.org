@@ -6,7 +6,7 @@
   import type { Quote } from '$lib/types';
 
   let sortBy = $state<'date' | 'spiciness'>('date');
-  let selectedYear = $state<number | null>(null);
+  let selectedYear = $state<number | null | 'all'>('all');
   let minSpiciness = $state(1);
 
   function openPost(quote: Quote) {
@@ -26,12 +26,13 @@
     return result;
   });
 
-  // Get spiciest per year (respects minSpiciness filter)
+  // Get spiciest per year (respects minSpiciness filter, including undated)
   let spiciestByYear = $derived.by(() => {
-    const result: Record<number, Quote[]> = {};
+    const result: Record<string, Quote[]> = {};
     for (const year of $yearsStore) {
+      const yearKey = year === null ? 'undated' : String(year);
       const yearQuotes = filterQuotes($filteredQuotes, minSpiciness, year);
-      result[year] = [...yearQuotes].sort((a, b) => b.spiciness - a.spiciness).slice(0, 5);
+      result[yearKey] = [...yearQuotes].sort((a, b) => b.spiciness - a.spiciness).slice(0, 5);
     }
     return result;
   });
@@ -59,9 +60,9 @@
         bind:value={selectedYear}
         class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
       >
-        <option value={null}>All Years</option>
+        <option value={'all'}>All Years</option>
         {#each $yearsStore as year}
-          <option value={year}>{year}</option>
+          <option value={year}>{year === null ? 'Undated' : year}</option>
         {/each}
       </select>
     </div>
@@ -85,14 +86,15 @@
   </div>
 
   <!-- Year-by-Year Spiciest (when no year selected) -->
-  {#if !selectedYear && sortBy === 'spiciness'}
+  {#if selectedYear === 'all' && sortBy === 'spiciness'}
     <div class="space-y-8">
       {#each $yearsStore as year}
-        {@const yearSpicy = spiciestByYear[year]}
-        {#if yearSpicy.length > 0}
+        {@const yearKey = year === null ? 'undated' : String(year)}
+        {@const yearSpicy = spiciestByYear[yearKey]}
+        {#if yearSpicy && yearSpicy.length > 0}
           <section>
             <h3 class="text-xl font-bold text-stone-900 mb-4 pb-2 border-b-2 border-stone-900">
-              {year}
+              {year === null ? 'Undated' : year}
               <span class="text-sm font-normal text-stone-500 ml-2">Top 5 Spiciest</span>
             </h3>
             <div class="space-y-3">

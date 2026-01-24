@@ -11,7 +11,7 @@ export const statsStore = writable<{
   yearRange: string;
   hasSpiciness: boolean;
 }>({ totalPosts: 0, totalQuotes: 0, yearRange: '', hasSpiciness: false });
-export const yearsStore = writable<number[]>([]);
+export const yearsStore = writable<(number | null)[]>([]);
 
 // Active view
 export const activeView = writable<'timeline' | 'quotes' | 'themes'>('timeline');

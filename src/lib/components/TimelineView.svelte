@@ -10,12 +10,12 @@
   }
 
   let sortBy = $state<'date' | 'spiciness'>('date');
-  let selectedYear = $state<number | null>(null);
+  let selectedYear = $state<number | null | 'all'>('all');
   let minSpiciness = $state(1);
 
   // Filter and sort posts
   let displayPosts = $derived.by(() => {
-    let result = filterPosts($filteredPosts, minSpiciness, selectedYear);
+    let result = filterPosts($filteredPosts, minSpiciness, selectedYear === 'all' ? 'all' : selectedYear);
 
     if (sortBy === 'spiciness') {
       result = [...result].sort((a, b) => (b.spiciness || 0) - (a.spiciness || 0));
@@ -26,27 +26,33 @@
     return result;
   });
 
-  // Group posts by year for chronological view
+  // Group posts by year for chronological view (null = undated)
   function getPostsByYear(posts: Post[]) {
-    const byYear: Record<number, Post[]> = {};
+    const byYear: Record<string, Post[]> = {};
     posts.forEach(post => {
-      const year = post.year || new Date().getFullYear();
-      if (!byYear[year]) byYear[year] = [];
-      byYear[year].push(post);
+      const yearKey = post.year === null || post.year === undefined ? 'undated' : String(post.year);
+      if (!byYear[yearKey]) byYear[yearKey] = [];
+      byYear[yearKey].push(post);
     });
+    // Sort: years descending, 'undated' at the end
     return Object.entries(byYear)
-      .sort(([a], [b]) => Number(b) - Number(a))
-      .map(([year, posts]) => ({ year: Number(year), posts }));
+      .sort(([a], [b]) => {
+        if (a === 'undated') return 1;
+        if (b === 'undated') return -1;
+        return Number(b) - Number(a);
+      })
+      .map(([year, posts]) => ({ year: year === 'undated' ? null : Number(year), posts }));
   }
 
   let groupedPosts = $derived(getPostsByYear(displayPosts));
 
-  // Get spiciest posts per year
+  // Get spiciest posts per year (including undated)
   let spiciestByYear = $derived.by(() => {
-    const result: Record<number, Post[]> = {};
+    const result: Record<string, Post[]> = {};
     for (const year of $yearsStore) {
+      const yearKey = year === null ? 'undated' : String(year);
       const yearPosts = displayPosts.filter(p => p.year === year);
-      result[year] = [...yearPosts].sort((a, b) => (b.spiciness || 0) - (a.spiciness || 0)).slice(0, 5);
+      result[yearKey] = [...yearPosts].sort((a, b) => (b.spiciness || 0) - (a.spiciness || 0)).slice(0, 5);
     }
     return result;
   });
@@ -74,9 +80,9 @@
         bind:value={selectedYear}
         class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
       >
-        <option value={null}>All Years</option>
+        <option value={'all'}>All Years</option>
         {#each $yearsStore as year}
-          <option value={year}>{year}</option>
+          <option value={year}>{year === null ? 'Undated' : year}</option>
         {/each}
       </select>
     </div>
@@ -100,14 +106,15 @@
   </div>
 
   <!-- Year-by-Year Spiciest (when no year selected and sorting by spiciness) -->
-  {#if !selectedYear && sortBy === 'spiciness'}
+  {#if selectedYear === 'all' && sortBy === 'spiciness'}
     <div class="space-y-8">
       {#each $yearsStore as year}
-        {@const yearSpicy = spiciestByYear[year]}
-        {#if yearSpicy.length > 0}
+        {@const yearKey = year === null ? 'undated' : String(year)}
+        {@const yearSpicy = spiciestByYear[yearKey]}
+        {#if yearSpicy && yearSpicy.length > 0}
           <section>
             <h3 class="text-xl font-bold text-stone-900 mb-4 pb-2 border-b-2 border-stone-900">
-              {year}
+              {year === null ? 'Undated' : year}
               <span class="text-sm font-normal text-stone-500 ml-2">Top 5 Spiciest</span>
             </h3>
             <div class="space-y-3">
@@ -160,7 +167,7 @@
       {#each groupedPosts as { year, posts }}
         <section>
           <h3 class="text-xl font-bold text-stone-900 mb-4 pb-2 border-b-2 border-stone-900">
-            {year}
+            {year === null ? 'Undated' : year}
             <span class="text-sm font-normal text-stone-500 ml-2">{posts.length} posts</span>
           </h3>
           <div class="space-y-3">

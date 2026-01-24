@@ -43,13 +43,14 @@ function getBlogData<T>(modules: Record<string, T>, blogId: string, defaultValue
   return defaultValue;
 }
 
-function parseDate(filename: string): string {
+function parseDate(filename: string): string | null {
   const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (match) {
     // Use noon UTC to avoid timezone issues (midnight UTC shows as previous day in US timezones)
     return `${match[1]}-${match[2]}-${match[3]}T12:00:00Z`;
   }
-  return new Date().toISOString().split('T')[0] + 'T12:00:00Z';
+  // Return null for undated posts
+  return null;
 }
 
 function formatTitle(filename: string): string {
@@ -105,7 +106,7 @@ export const load: LayoutServerLoad = async () => {
     .filter(p => !p.error)
     .map(post => {
       const dateStr = parseDate(post.filename);
-      const year = parseInt(dateStr.split('-')[0], 10);
+      const year = dateStr ? parseInt(dateStr.split('-')[0], 10) : null;
       // Use real title from posts_index.json, fall back to formatTitle if not found
       // Try filename first, then extract slug from filename (for Substack: 2021-02-02-slug -> slug)
       const slug = post.filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
@@ -117,7 +118,13 @@ export const load: LayoutServerLoad = async () => {
         year
       };
     })
-    .sort((a, b) => b.dateStr.localeCompare(a.dateStr));
+    // Sort: dated posts by date descending, undated posts at the end
+    .sort((a, b) => {
+      if (a.dateStr && b.dateStr) return b.dateStr.localeCompare(a.dateStr);
+      if (a.dateStr && !b.dateStr) return -1;
+      if (!a.dateStr && b.dateStr) return 1;
+      return a.title.localeCompare(b.title); // Sort undated alphabetically
+    });
 
   // Compute post-level spiciness
   posts.forEach(post => {
@@ -144,11 +151,21 @@ export const load: LayoutServerLoad = async () => {
         year: post.year
       };
     })
-  ).sort((a, b) => b.dateStr.localeCompare(a.dateStr));
+  ).sort((a, b) => {
+    // Sort: dated quotes by date descending, undated quotes at the end
+    if (a.dateStr && b.dateStr) return b.dateStr.localeCompare(a.dateStr);
+    if (a.dateStr && !b.dateStr) return -1;
+    if (!a.dateStr && b.dateStr) return 1;
+    return 0;
+  });
 
-  const years = [...new Set(posts.map(p => p.year))].sort((a, b) => b - a);
-  const minYear = years.length > 0 ? Math.min(...years) : new Date().getFullYear();
-  const maxYear = years.length > 0 ? Math.max(...years) : new Date().getFullYear();
+  // Extract years, keeping null (undated) separate
+  const datedYears = [...new Set(posts.map(p => p.year).filter((y): y is number => y !== null))].sort((a, b) => b - a);
+  const hasUndated = posts.some(p => p.year === null);
+  // years array: dated years descending, then null at the end for "Undated"
+  const years: (number | null)[] = hasUndated ? [...datedYears, null] : datedYears;
+  const minYear = datedYears.length > 0 ? Math.min(...datedYears) : new Date().getFullYear();
+  const maxYear = datedYears.length > 0 ? Math.max(...datedYears) : new Date().getFullYear();
 
   return {
     blogData: {
