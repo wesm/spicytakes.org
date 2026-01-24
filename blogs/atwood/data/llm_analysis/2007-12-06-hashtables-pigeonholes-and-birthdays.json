@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores the inner workings of hash tables, explaining why they're a programmer's go-to data structure despite their fundamental limitations. He demonstrates that hash functions cannot truly provide unique digital fingerprints by invoking the pigeonhole principle\u2014with only 4.3 billion possible 32-bit hash values, you can't uniquely identify 6.6 billion people. Using the birthday paradox, he shows that collisions occur far sooner than intuition suggests: a 32-bit hash has a 50% collision chance after just 77,000 entries, not billions. The post concludes that while hashes are technically a 'lie,' they remain a convenient and practical tool when used with awareness of their limitations.",
+  "key_points": [
+    "Hash tables offer O(1) lookup performance and are rarely a bad choice, but their effectiveness depends entirely on the quality of the hash function",
+    "The pigeonhole principle mathematically guarantees that a 32-bit hash cannot uniquely identify more than 4.3 billion items\u2014fewer than Earth's population",
+    "The birthday paradox reveals that collision probability grows much faster than expected: 23 people give a 50% chance of shared birthdays among 365 possibilities",
+    "A 32-bit hash has a 50% collision probability after only ~77,000 entries, far from the theoretical 4 billion capacity",
+    "Hash functions work well for hash tables (where some collisions are acceptable) but fail as reliable unique identifiers"
+  ],
+  "money_quotes": [
+    "It may not be the optimal choice, but unlike so many things in computer science, it's rarely a bad choice.",
+    "Hash tables do have one crucial weakness: they are only as good as the hash function driving them.",
+    "The idea of the hash as a unique digital fingerprint for every chunk of data in the entire world is a fascinating one. It's a fingerprint that cleverly fits into a mere 32 bits of storage, yet is somehow able to uniquely identify any set of data ever created. Of course, this is a lie.",
+    "If you try to put 6 pigeons in 5 holes, one will inevitably be left out in the cold.",
+    "Birthdays are effectively a tiny 365 value hash function.",
+    "When using a 32-bit hash value, we have a 50% chance that a collision exists after about 77 thousand entries \u2013 a pretty far cry from the 4 billion possible values.",
+    "The hashing functions behind our precious hashtables may be a lie. But they're a convenient lie."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "educational, conversational, gently provocative",
+  "key_insight": "Hash functions are a convenient lie\u2014they work well enough for practical purposes, but understanding the pigeonhole principle and birthday paradox reveals why they can never truly guarantee uniqueness.",
+  "filename": "2007-12-06-hashtables-pigeonholes-and-birthdays"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores how poorly-constructed regular expressions can cause catastrophic performance problems, triggered by a Microsoft Hotmail developer's warning about regex pitfalls during their .NET 2.0 upgrade. He demonstrates with a simple pattern (x+x+)+y that exhibits exponential time growth, showing how a 25-character string takes over 25 seconds to process. The post explains that this 'catastrophic backtracking' occurs when the regex engine tries an exponential number of futile possibilities on non-matching input. The solution is to write patterns where there's only one way to match any given string, being as specific as possible with character classes.",
+  "key_points": [
+    "Regular expressions can exhibit exponential CPU time growth with each additional input character, causing severe performance bottlenecks",
+    "Catastrophic backtracking often strikes on non-matching input - a regex that works fine on expected strings can go haywire on erroneous ones",
+    "The .NET regex engine lacks built-in throttling or exception handling for runaway expressions, unlike more advanced tools like RegexBuddy",
+    "The fix is ensuring there's only one way to match any given string by using specific character classes instead of greedy wildcards",
+    "This is a real production concern - Hotmail took 'several hotfixes' for regex performance issues during their .NET upgrade"
+  ],
+  "money_quotes": [
+    "RegExes are so handy, but devs really need to understand how they work; we've gotten bitten by them.",
+    "It's entirely possible to formulate regular expression patterns that consume exponentially more CPU time for each additional input character.",
+    "A Regex that works well when the input matches can still go nuts trying to match a non-matching string, consuming an exponential amount of time trying an exponential number of futile backtracking possibilities.",
+    "I'm definitely guilty of this. When I throw a regex together, I never worry about performance.",
+    "Looks like n-squared behavior to me.",
+    "When nesting repetition operators, make absolutely sure that there is only one way to match the same match."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "performance"
+  ],
+  "tone": "technical, cautionary, practical",
+  "key_insight": "Regular expressions can become performance time bombs not on expected input, but on malformed or non-matching strings, where backtracking engines try exponentially many futile combinations.",
+  "filename": "2006-01-12-regex-performance"
+}

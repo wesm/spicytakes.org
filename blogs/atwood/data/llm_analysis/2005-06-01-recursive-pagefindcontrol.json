@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood shares a recursive implementation of Page.FindControl for ASP.NET 2.0, addressing a gap in Microsoft's framework. Despite improvements in VS.NET 2005 over its predecessor, he notes that Microsoft still hasn't provided a built-in recursive option for finding nested controls. The post provides a simple recursive function by Oddur Magnusson that traverses the control hierarchy. Atwood also reveals an undocumented feature allowing colon-separated paths to locate controls directly.",
+  "key_points": [
+    "Microsoft's Page.FindControl lacks a recursive overload, making it difficult to find nested controls",
+    "A simple recursive function can traverse the control hierarchy to find controls within containers like DataView or DataList",
+    "An undocumented feature allows using colon-separated paths (e.g., 'DataList1:_ctl0:TextBox3') to locate controls directly",
+    "VS.NET 2005 represents a significant improvement over VS.NET 2003, but still has gaps"
+  ],
+  "money_quotes": [
+    "I was mildly surprised to find that Microsoft still hasn't added a recursive overload for Page.FindControl.",
+    "This makes life much easier when you're trying to get to controls that are themselves contained within other containers.",
+    "Would it have killed Microsoft to add an overloaded, recursive version of this?",
+    "One interesting semi-undocumented feature of Page.FindControl: you can specify a full 'path' to a control using colons as separators."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "practical, mildly frustrated",
+  "key_insight": "Simple utility functions that framework vendors neglect to include often become necessary workarounds that developers must implement and share themselves.",
+  "filename": "2005-06-01-recursive-pagefindcontrol"
+}

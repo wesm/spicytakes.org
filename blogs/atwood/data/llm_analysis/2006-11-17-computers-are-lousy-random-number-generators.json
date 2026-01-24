@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores the fundamental limitation that computers, being deterministic machines, cannot produce truly random numbers. He compares .NET's two random number generators\u2014System.Random (algorithmic) and System.Security.Cryptography.RandomNumberGenerator (which incorporates environmental factors)\u2014and visualizes their output. The post explains that true randomness requires sampling the analog world through sources like radioactive decay, atmospheric noise, or even lava lamps. Atwood traces the history of random number generation from coin tosses to Rand Corporation's famous book of random digits, emphasizing that understanding this digital-analog divide is crucial to avoiding security vulnerabilities.",
+  "key_points": [
+    "Computers are physically incapable of true randomness because they operate on deterministic algorithms",
+    "Cryptographic random number generators incorporate environmental factors (process IDs, timestamps, CPU counters) but are still ultimately pseudo-random",
+    "True randomness requires external entropy sources like radioactive decay, atmospheric noise, or lava lamps",
+    "Even seemingly random user input like mouse movements can be predictable due to OS buffering",
+    "Environmental entropy sources have practical limits\u2014they must be harvested over time and may not keep up with high server loads"
+  ],
+  "money_quotes": [
+    "These cannot be random numbers because they're produced by a computer algorithm; computers are physically incapable of randomness.",
+    "A perfect set of encrypted data is indistinguishable from random data.",
+    "To have any hope of producing truly random data, you must reach outside the computer and sample the analog world.",
+    "Computers are great number crunchers, but they're lousy random number generators.",
+    "The world is random. Computers aren't.",
+    "Randomness is really, really hard for computers."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "educational, accessible, technically curious",
+  "key_insight": "True randomness is impossible for deterministic computers to generate internally\u2014achieving it requires bridging the gap between the digital and analog worlds by sampling real-world entropy sources.",
+  "filename": "2006-11-17-computers-are-lousy-random-number-generators"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood debunks the TV/movie trope of 'enhancing' low-resolution images to reveal hidden detail, explaining that bitmaps fundamentally don't scale well. He compares three interpolation methods\u2014nearest neighbor, bilinear, and bicubic filtering\u2014demonstrating that while each produces different visual results, none can actually create detail that wasn't in the original image. The post notes that even high-powered video cards don't bother with bicubic filtering, suggesting the improvement over bilinear is marginal. Atwood concludes that the real solution is abandoning bitmaps for vector graphics entirely.",
+  "key_points": [
+    "The 'enhance' trope in movies where low-res images reveal infinite detail is pure fiction\u2014bitmaps don't scale well",
+    "Bilinear filtering produces blurry but smoother results compared to chunky nearest-neighbor scaling",
+    "Bicubic filtering is sharper than bilinear but introduces artifacts like halation at color borders, and video cards don't implement it despite having transistors to spare",
+    "All interpolation methods are just guessing at missing pixels\u2014the detail simply isn't there to extract",
+    "Vector graphics are the only true solution to the scaling problem"
+  ],
+  "money_quotes": [
+    "I don't know what kind of crazy infinite-detail fractal images these scriptwriters think we have.",
+    "Here in the real world, bitmaps don't scale worth a damn.",
+    "If bicubic is only offered by paint programs, you have to wonder, is it really worth it?",
+    "Either way you're interpolating, it's just a question of how sharp you like your simulated pixels to be.",
+    "The best solution of all is to move to a vector representation and give up on bitmaps \u2013 and interpolation \u2013 entirely."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "technical, sardonic, practical",
+  "key_insight": "No amount of clever interpolation can create image detail that never existed\u2014the 'enhance' button is a Hollywood fantasy, and the only real solution is using vector graphics from the start.",
+  "filename": "2005-08-18-the-myth-of-infinite-detail-bilinear-vs-bicubic"
+}

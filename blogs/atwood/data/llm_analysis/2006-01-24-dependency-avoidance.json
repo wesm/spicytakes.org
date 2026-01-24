@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood argues for minimizing third-party dependencies in software projects, drawing inspiration from the Excel team's famous motto 'Find the dependencies \u2013 and eliminate them.' He criticizes developers who compulsively adopt every new third-party control and framework, noting that deployment becomes a nightmare of license files and version management. While acknowledging the .NET Framework as a comprehensive base, he warns against stacking additional dependencies without clear justification. He balances this view by noting the Lava Flow anti-pattern but dismisses it as a non-issue for developers willing to aggressively delete unused code.",
+  "key_points": [
+    "Third-party dependencies create deployment complexity through license management, version conflicts, and vendor inconsistencies",
+    "The Excel team's dependency-averse culture enabled them to ship on time with high-quality code and even build their own cross-platform compiler",
+    "Code outside the base framework should be 'guilty until proven innocent' \u2013 adopted only when offering significant, proven benefit",
+    "Aggressive code deletion prevents the Lava Flow anti-pattern where legacy code accumulates because no one understands it",
+    "The goal isn't zero dependencies but the smallest practical dependency stack"
+  ],
+  "money_quotes": [
+    "I think anything outside the base framework is guilty until proven innocent.",
+    "My code may suck, but it's a constant level of sucking that I can plan around.",
+    "Find the dependencies \u2013 and eliminate them.",
+    "When you're working on a really, really good team with great programmers, everybody else's code, frankly, is bug-infested garbage, and nobody else knows how to ship on time.",
+    "When you're a cordon bleu chef and you need fresh lavender, you grow it yourself instead of buying it in the farmers' market.",
+    "I am pathologically addicted to deleting code.",
+    "I don't care if it woulda, coulda, shoulda been used \u2013 is it being used right now? No? Then it's gone.",
+    "Strive to make your dependency stack as small as you possibly can."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Every dependency you adopt is a liability you must maintain, so treat external code as guilty until proven innocent and keep your dependency stack as minimal as possible.",
+  "filename": "2006-01-24-dependency-avoidance"
+}

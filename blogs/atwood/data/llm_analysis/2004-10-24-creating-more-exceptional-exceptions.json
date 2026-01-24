@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explores the proper use of exception classes in .NET, lamenting the lack of a comprehensive reference for built-in exception types. He discovers that Microsoft's own ApplicationException class was a design mistake that adds unnecessary hierarchy depth. The post pivots to discuss the significant performance cost of throwing exceptions, revealing they can be nearly three orders of magnitude slower than normal code paths. Despite this cost, Atwood concludes that exceptions remain the right choice when used properly\u2014sparingly and not for control flow.",
+  "key_points": [
+    "Microsoft admits ApplicationException was a design mistake and recommends deriving new exceptions from Exception instead",
+    "Throwing exceptions is extremely expensive\u2014nearly 1000x slower than normal code paths, even slower than database calls",
+    "The cost is only incurred when exceptions are thrown, not from try/catch blocks themselves",
+    "Using VS.NET's 'Break on all exceptions' can reveal hidden performance problems like controls throwing exceptions on every paint",
+    "Exceptions are still preferable to error codes because they're more powerful, expressive, and less prone to abuse"
+  ],
+  "money_quotes": [
+    "Well-designed exception hierarchies are wide, not very deep, and contain only those exceptions for which there is a programmatic scenario for catching.",
+    "You should not define new exception classes derived from ApplicationException; use Exception instead.",
+    "Bear in mind that this has nothing to do with try/catch blocks: you only incur the cost when the actual exception is thrown.",
+    "Throwing an exception is literally slower than making a database call.",
+    "The code path through the exception throwing route took almost 3 orders of magnitude longer than the raw code.",
+    "If you are using exceptions properly, they should rarely be occurring and therefore any performance cost is moot.",
+    "They are more powerful, more expressive, and less prone to abuse than error codes."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical, exploratory, pragmatic",
+  "key_insight": "Exceptions carry severe performance costs when thrown but remain the right architectural choice over error codes\u2014the key is ensuring they stay exceptional rather than becoming control flow.",
+  "filename": "2004-10-24-creating-more-exceptional-exceptions"
+}

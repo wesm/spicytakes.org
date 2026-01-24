@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood comments on Apple's announced switch to Intel chips, noting the irony given the dominance of x86 architecture after Windows NT shed support for other architectures. He highlights that beyond the CPU switch, macOS has serious performance problems of its own, citing AnandTech benchmarks showing Apache and MySQL running 5-10 times slower on macOS than Linux on identical hardware. The post suggests these issues stem from macOS's hybrid kernel architecture that prevents applications from accessing kernel-level threads effectively.",
+  "key_points": [
+    "Apple's switch to Intel marks another victory for x86 architecture dominance, following NT's abandonment of MIPS, Alpha, and PPC",
+    "macOS server performance was shown to be 5-10x slower than Linux on identical hardware for Apache and MySQL workloads",
+    "The performance problems stem from macOS's awkward hybrid kernel design combining Mach microkernel with FreeBSD in a way that limits threading access",
+    "The x86 architecture may become so dominant that future architectures will need to emulate it"
+  ],
+  "money_quotes": [
+    "After seeing NT slowly shed its MIPS, Alpha, and PPC versions, you have to wonder: will our children be using architectures that emulate some form of x86?",
+    "Apple's OSX has some performance issues of its own to resolve",
+    "The whole 'multi-threaded Mach microkernel trapped inside a monolithic FreeBSD cocoon with several threading wrappers and coarse-grained threading access to the kernel,' with a 'backwards compatibility' millstone around its neck sounds like a bad fusion recipe for performance."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "skeptical",
+  "key_insight": "Apple's switch to Intel highlights x86's growing dominance, but the CPU change won't fix macOS's deeper architectural performance problems.",
+  "filename": "2005-06-06-x86-uber-alles"
+}

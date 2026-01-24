@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines Microsoft's Windows Error Reporting data revealing that 70% of Windows crashes come from device drivers, and more importantly, that fixing just 20% of top-reported bugs could solve 80% of customer issues. He argues that most applications fail to collect crash data from users, leaving developers blind to the real problems their software causes. The post advocates for implementing global exception handling to automatically gather error reports, emphasizing that silent exceptions represent willfully discarded opportunities to improve user experience. Atwood provides practical resources for .NET exception handling and suggests the approach is so valuable he plans to build reusable components for it.",
+  "key_points": [
+    "70% of Windows crashes are caused by device drivers, which run in privileged kernel mode where exceptions are irrecoverable",
+    "Microsoft's error reporting data shows fixing 20% of top bugs solves 80% of customer issues, and addressing just 1% would fix 50%",
+    "Most applications have 'silent exceptions' that never report back to developers, wasting valuable diagnostic data",
+    "Kernel-mode code offers performance benefits but at the cost of stability - crashes bring down the entire OS rather than just one application",
+    "Global exception handling frameworks exist in .NET that can capture and report errors without requiring application changes"
+  ],
+  "money_quotes": [
+    "Seventy percent of Windows crashes involve one particular kind of software: device drivers.",
+    "Fixing 20 percent of the top-reported bugs can solve 80 percent of customer issues.",
+    "Addressing 1 percent of the bugs would address 50 percent of the customer issues.",
+    "If your exceptions are 'silent,' you are willfully throwing away data that could improve your application for everyday users by eighty percent.",
+    "Just because I trust Microsoft to write stable kernel-mode code, that doesn't mean I trust J. Random Taiwanese Device Driver Coder \u2013 or myself \u2013 to.",
+    "Do your applications tell you when users encounter an error?",
+    "These are real problems encountered in the wild by actual users, arguably the most important kinds of fixes."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "practical, persuasive, data-driven",
+  "key_insight": "Automatic error reporting from production applications provides irreplaceable data about real user problems, and ignoring this feedback loop means willfully accepting a dramatically worse user experience.",
+  "filename": "2004-10-10-are-your-exceptions-silent"
+}

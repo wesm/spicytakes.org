@@ -1,0 +1,29 @@
+{
+  "summary": "Jeff Atwood challenges Eric Raymond's 'Linus's Law' that open source code is inherently more secure due to many eyeballs reviewing it, using the Heartbleed vulnerability as a stark counterexample. Despite OpenSSL being critical infrastructure used by millions of servers, a catastrophic bug went unnoticed for two years. Atwood argues that most 'eyeballs' are users not developers, writing code is easier than reviewing it, and few programmers have security expertise. The industry response has been bug bounty programs, but Atwood expresses unease about this monetization of security research, noting it can create perverse incentives like hoarding exploits for bigger paydays and excluding projects without budgets from quality security review.",
+  "key_points": [
+    "The Heartbleed bug disproved Linus's Law by demonstrating that even critical open source infrastructure can harbor severe vulnerabilities for years despite being theoretically open to review",
+    "There's a fundamental asymmetry between writing code and reviewing it - the volume of code produced far exceeds the capacity of qualified security reviewers",
+    "Bug bounty programs introduce problematic incentives: researchers may hoard bugs for bigger paydays, security becomes a 'me' goal instead of 'us' goal, and projects without money get ignored",
+    "The distinction between 'usage eyeballs' and 'development eyeballs' is crucial - most people using open source never look at the actual code",
+    "Low-quality bug reports from bounty seekers create additional work burden and adversarial dynamics between reporters and maintainers"
+  ],
+  "money_quotes": [
+    "Given enough eyeballs, all bugs are shallow.",
+    "OpenSSL, the library with this bug, is one of the most critical bits of Internet infrastructure the world has.",
+    "This should be some of the most well-reviewed code in the world. What happened to our eyeballs, man?",
+    "The act of writing (or cut-and-pasting) your own code is easier than understanding and peer reviewing someone else's code.",
+    "If we can't naturally get enough eyeballs on OpenSSL, how does any other code stand a chance?",
+    "Am I now obligated, on top of providing a completely free open source project to the world, to pay people for contributing information about security bugs that make this open source project better?",
+    "A ransomware culture of 'pay me or I won't tell you about your terrible security bug' does not feel very far off, either.",
+    "I am concerned that we may be slowly moving toward a world where given enough money, all bugs are shallow."
+  ],
+  "themes": [
+    "software_engineering",
+    "communities",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "reflective, critical, pragmatic",
+  "key_insight": "The economics of software security are broken: open source's theoretical advantage of many reviewers fails in practice, and while bug bounties fill the gap, they introduce perverse incentives that may ultimately harm the collaborative spirit that made open source valuable.",
+  "filename": "2015-04-03-given-enough-money-all-bugs-are-shallow"
+}

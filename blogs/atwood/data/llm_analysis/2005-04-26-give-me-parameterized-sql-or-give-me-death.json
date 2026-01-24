@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood makes an emphatic case for always using parameterized SQL instead of concatenated SQL strings. He presents two compelling arguments: concatenated SQL creates massive SQL injection vulnerabilities that string escaping cannot fully protect against, and parameterized SQL offers significant performance benefits including pre-compiled execution plans and reduced network overhead. The post references Steve Friedl's detailed SQL injection attack examples as evidence of the security risks. Atwood concludes by comparing non-parameterized SQL to the infamous GoTo statement\u2014a practice so harmful it should be universally avoided.",
+  "key_points": [
+    "Concatenated SQL strings create gaping SQL injection vulnerabilities that escaping alone cannot fix",
+    "Parameterized SQL enables database query plan caching and pre-compilation for better performance",
+    "Parameterized queries reduce string concatenation overhead and network traffic",
+    "The security and performance benefits make parameterized SQL a non-negotiable best practice",
+    "Developers should actively ensure their coworkers also follow this practice"
+  ],
+  "money_quotes": [
+    "Give me parameterized SQL, or give me death.",
+    "You should never, ever use concatenated SQL strings in your applications.",
+    "Code like this opens your app to SQL injection attacks, and it's a huge, gaping vulnerability.",
+    "I know what you're thinking. No, escaping the strings doesn't protect you.",
+    "A more generic query form is presented to db, so it's likely already hashed and stored as a pre-compiled execution plan.",
+    "Non-parameterized SQL is the GoTo statement of database programming.",
+    "Don't do it, and make sure your coworkers don't either."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, emphatic, technical",
+  "key_insight": "Parameterized SQL is not merely a best practice but an absolute requirement\u2014it simultaneously eliminates SQL injection vulnerabilities and improves database performance.",
+  "filename": "2005-04-26-give-me-parameterized-sql-or-give-me-death"
+}

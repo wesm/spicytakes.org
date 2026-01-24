@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines the common programmer obsession with micro-optimizing string concatenation, using real benchmarks from Stack Overflow development to prove his point. While acknowledging that naive string concatenation in loops causes genuine performance problems (the 'Shlemiel the painter' problem), he demonstrates that outside of loops, the differences between various string-building techniques are negligible. His benchmarks show only 391 milliseconds difference across 100,000 iterations between the worst and best methods. The post argues that obsessing over such micro-optimizations distracts developers from what actually matters: writing maintainable, readable code.",
+  "key_points": [
+    "String concatenation in loops is genuinely problematic due to quadratic performance, but outside loops the choice of technique barely matters",
+    "Benchmarks across five different string-building methods showed minimal real-world difference (587-979ms over 100,000 iterations)",
+    "Absolute rules like 'never use += concatenation' are red flags that indicate cargo-cult thinking rather than practical engineering",
+    "The general consensus is that concatenation only becomes a concern around 10+ strings, but even this varies by context",
+    "Micro-optimization obsession actively harms code quality by diverting attention from readability and maintainability"
+  ],
+  "money_quotes": [
+    "Every decent programmer knows that string concatenation, while fine in small doses, is deadly poison in loops.",
+    "It. Just. Doesn't. Matter!",
+    "The minute you begin worrying about tiny little optimizations, you've already gone down the wrong path.",
+    "Any time you see 'don't ever do X,' alarm bells should be going off.",
+    "You should be more worried about the maintainability and readability of your code than its performance.",
+    "That is perhaps the most tragic thing about letting yourself get sucked into micro-optimization theater \u2013 it distracts you from your real goal: writing better code."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "satirical, pragmatic, opinionated",
+  "key_insight": "Micro-optimization is seductive but ultimately theatrical\u2014it makes programmers feel productive while distracting them from the harder, more valuable work of writing clear and maintainable code.",
+  "filename": "2009-01-29-the-sad-tragedy-of-micro-optimization-theater"
+}

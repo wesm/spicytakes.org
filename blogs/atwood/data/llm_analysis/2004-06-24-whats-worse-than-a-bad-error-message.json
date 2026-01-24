@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood argues that misleading error messages are far worse than obviously bad ones. He recounts a frustrating debugging experience where a well-formatted exception stack trace pointed to a server-side Oracle DLL issue, when the actual problem was a missing dependency on the client side. Despite the error message being detailed and professional-looking, it sent the team on a wild goose chase for an entire day. The experience illustrates how confident, informative-looking error messages can be more dangerous than cryptic ones because developers trust them implicitly.",
+  "key_points": [
+    "Well-formatted, detailed error messages that point to the wrong cause are worse than obviously cryptic or broken ones",
+    "The trust developers place in professional-looking stack traces can lead them astray for hours or days",
+    "Remoting and distributed systems can make error origins particularly deceptive, as exceptions may appear to come from the server when the issue is client-side",
+    "Even when logic suggests an alternative explanation, developers often refuse to believe it because the error message seems authoritative",
+    "Debugging requires questioning even the most confident-looking diagnostic information"
+  ],
+  "money_quotes": [
+    "But as bad as those are, they pale in comparison to what is, hands down, the worst kind of error message: a beautiful, well-formatted, informative, incorrect error message.",
+    "Just what you want to do in a production system, make sweeping changes in the back end soon after deployment.",
+    "Intellectually, I knew there was no way I could be getting different results from a server call than any other client.",
+    "But I still refused to believe this.",
+    "I've probably spent more time chasing down erroneous error messages than the time I've spent on all other error messages combined.",
+    "Evidently computers, like people, are big fat stinkin' liars!"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "frustrated, sardonic, instructive",
+  "key_insight": "A polished, detailed error message that points you in the wrong direction will waste more of your time than an obviously broken one, because you'll trust it.",
+  "filename": "2004-06-24-whats-worse-than-a-bad-error-message"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood recounts a security vulnerability his team introduced by using ECB cipher mode in their .NET encryption code. While the code appeared to encrypt data properly, ECB mode encrypts each block independently without chaining, allowing attackers to substitute and rearrange encrypted blocks without detection. This flaw in their login state management could have enabled data tampering attacks. The post serves as a cautionary tale about the dangers of using encryption libraries without fully understanding the underlying cryptographic concepts.",
+  "key_points": [
+    "ECB (Electronic Codebook) mode is a dangerous cipher mode because it encrypts blocks independently, making identical plaintext blocks produce identical ciphertext",
+    "Even experienced developers can miss critical security flaws when using encryption libraries they don't fully understand",
+    "The best approach to protecting secrets is to never send them to the client in the first place",
+    "Encryption code that appears to work correctly may still be fundamentally insecure",
+    "Block chaining modes are essential for secure symmetric encryption to prevent block substitution attacks"
+  ],
+  "money_quotes": [
+    "It's as true in life as it is in client-server programming: the only secret that can't be compromised is the one you never revealed.",
+    "Sure it's encrypted! It says Encrypt() right there in the method name, right? Wrong.",
+    "CipherMode.ECB? More like CipherMode.Fail!",
+    "It isn't encryption until you've taken the time to fully understand the concepts behind the encryption code.",
+    "If it doesn't have to be sent to the client, then don't!",
+    "I'm no Bruce Schneier, but I have a reasonable grasp of encryption concepts. And I still completely missed this problem."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "self-deprecating, educational, cautionary",
+  "key_insight": "Using encryption libraries without understanding the underlying cryptographic concepts can give you a false sense of security while leaving your application vulnerable to attack.",
+  "filename": "2009-05-17-why-isnt-my-encryption-encrypting"
+}

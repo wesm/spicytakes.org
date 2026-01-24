@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood follows up on his previous post about .NET exception classes by sharing a solution to enumerate all of them. After a reader pointed him to the wincv.exe utility in the .NET SDK, he found it limiting and wrote his own console application using reflection to search for and list all exception types. The app scans major framework assemblies and uses regex matching to find classes ending in 'Exception'. He discovers 141 built-in exception classes, arguing this comprehensive list eliminates any excuse for throwing generic System.Exception when a more specific type likely exists.",
+  "key_points": [
+    "The .NET SDK includes wincv.exe for browsing types, but it lacks sorting and copy functionality",
+    "Using reflection and regex, you can programmatically enumerate all exception types across framework assemblies",
+    ".NET 1.1 contains 141 distinct exception classes across various namespaces",
+    "Developers should use specific exception types rather than generic System.Exception",
+    "When no built-in exception fits, creating a custom exception is preferable to using the generic base class"
+  ],
+  "money_quotes": [
+    "Now there's really no reason to throw generic System.Exception, because one of these likely to be a better match \u2013 or, failing that, a custom Exception.",
+    "After reflecting on this a bit, I generated the following console app",
+    "p.s. I really am lazy."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "The .NET framework provides 141 specific exception types, so developers should never resort to throwing generic System.Exception when a more semantically appropriate option exists or can be created.",
+  "filename": "2004-10-26-creating-even-more-exceptional-exceptions"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that the debate over string concatenation performance in HTML generation misses the point entirely\u2014the real problem is the fundamental approach. While templating engines are the conventional 'right' answer to replace string building, they quickly devolve into unreadable 'tag soup' when logic gets complex. Atwood proposes that instead of poking holes in HTML to insert code, we should treat HTML as code itself, allowing seamless mixing of markup and programming logic. He points to VB XML Literals as an existing example of this approach, suggesting the industry has been thinking about the code/markup divide incorrectly.",
+  "key_points": [
+    "The performance debate about string concatenation is a red herring\u2014the entire framing of the question is wrong",
+    "Traditional HTML templating starts clean but inevitably degrades into unreadable mixes of code and markup",
+    "The Pragmatic Programmer lesson applies: ask 'Does it have to be done this way?' before optimizing",
+    "The real solution is treating HTML as a first-class citizen in code, not as a separate thing requiring escape sequences",
+    "Languages like VB with XML Literals already demonstrate that code and markup can coexist naturally"
+  ],
+  "money_quotes": [
+    "The performance characteristics of building small string fragments isn't just a red herring \u2013 no, it's far, far worse. The entire question is wrong.",
+    "When faced with an impossible problem, identify the real constraints. Ask yourself: 'Does it have to be done this way? Does it have to be done at all?'",
+    "If your HTML templates can't be kept simple, they're not a heck of a lot better than the procedural string building code they're replacing.",
+    "Rather than poking holes in HTML to insert code, we should simply treat HTML as code.",
+    "Templating tends to break down because it forces you to treat code and markup as two different and fundamentally incompatible things.",
+    "We spend all our time awkwardly switching between markup-land and code-land using escape sequences. They're always fighting each other \u2013 and us.",
+    "We've all been doing it wrong."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "provocative, revelatory, self-critical",
+  "key_insight": "The debate over how to build HTML strings efficiently is asking the wrong question\u2014the real insight is that code and markup shouldn't be treated as fundamentally separate things requiring awkward bridging.",
+  "filename": "2009-02-04-youre-doing-it-wrong"
+}

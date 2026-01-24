@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood examines the RegexOptions.Compiled flag in .NET, which he had been using mindlessly assuming it would improve performance. He discovers that compilation trades an order of magnitude slower startup time for only 30% better runtime performance, while also consuming significant memory that can't be reclaimed. The alternative Regex.CompileToAssembly avoids dynamic compilation pitfalls but locks expressions in stone. Atwood concludes that unless you're in tight loops or processing huge strings, the tradeoffs rarely justify using compiled regex.",
+  "key_points": [
+    "RegexOptions.Compiled takes 10x longer to start up but only yields 30% better runtime performance",
+    "The regular expression engine already caches all expressions in memory, so non-compiled regex avoids reparsing overhead automatically",
+    "Compiled regex uses Reflection.Emit which loads lots of code and memory that can't be freed (fixed in Whidbey)",
+    "Regex.CompileToAssembly avoids dynamic compilation pitfalls but makes expressions unchangeable at runtime",
+    "Performance optimizations that sound good on paper often have hidden costs that outweigh the benefits"
+  ],
+  "money_quotes": [
+    "It says 'compiled' so it must be faster, right? Well, like so many other things, that depends.",
+    "Compilation takes about an order of magnitude longer to startup, but yields 30% better runtime performance.",
+    "You should only use this mode for a finite set of expressions which you know will be used repeatedly.",
+    "The second time you build your non-compiled Regex, no additional interpreting overhead is incurred. And you get that for free.",
+    "Even though it sounds faster and all, you probably don't want to use RegexOptions.Compiled.",
+    "Only 30% faster? I'd want some actual benchmark numbers from my application before I could justify the loss of flexibility and the additional file dependency."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "performance"
+  ],
+  "tone": "reflective, practical, self-deprecating",
+  "key_insight": "Performance flags that sound impressive often have hidden costs that outweigh their benefits\u2014always measure before optimizing and understand the tradeoffs you're making.",
+  "filename": "2005-03-03-to-compile-or-not-to-compile"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explores the limitations of regular expressions when parsing complex code structures. While acknowledging his love for regex and their effectiveness for common parsing tasks, he demonstrates how edge cases like nested tags and escaped characters can overwhelm even clever regex solutions. The post highlights Drazen Dotlic's work using the CoCo-R parser to colorize C# code, illustrating how full-blown parsers understand code in ways regex cannot. Atwood concludes that developers must sometimes abandon regex complexity and embrace proper parsing tools for challenging problems.",
+  "key_points": [
+    "Regular expressions excel at solving day-to-day parsing problems cost-effectively, but full programming languages cannot be parsed with regex alone",
+    "Edge cases like nested HTML tags, escaped quotes, and improperly escaped characters expose fundamental regex limitations",
+    "Increasing regex complexity to handle edge cases eventually paints you into a corner",
+    "Parsers truly understand code structure while regex only matches patterns",
+    "CoCo-R and similar compiler-compiler tools provide a path forward when regex isn't enough"
+  ],
+  "money_quotes": [
+    "While you can hack around these problems with more and more regular expression cleverness, you eventually paint yourself into a corner with complexity.",
+    "Regular expressions don't truly understand the code that they are colorizing \u2013 but parsers do.",
+    "Depending on the problem you're attacking, at some point you have to bite the bullet and utilize a full-blown parser.",
+    "Because parsing is hard.",
+    "A full-blown programming language cannot be parsed with regular expressions.",
+    "There is an immensely bigger amount of common problems and small parsing needs that are very cost-effectively solved with regular expressions."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Know when to abandon increasingly clever regex solutions and embrace proper parsing tools \u2013 regex matches patterns, but parsers understand structure.",
+  "filename": "2005-04-01-parsing-beyond-regex"
+}

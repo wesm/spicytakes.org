@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood documents a frustrating bug in the .NET framework where customizing the wsdlHelpGenerator to sort web service methods alphabetically works fine in subfolders but fails with a configuration error when deployed to a root URL. The post walks through the simple four-step process of replacing the default help generator, then reveals the deployment gotcha. Despite searching extensively, Atwood cannot find any workaround and expresses frustration that this bug persisted into .NET 1.1 SP1.",
+  "key_points": [
+    "The default .NET web service help page displays methods in random hash order rather than alphabetically",
+    "Customizing the wsdlHelpGenerator requires only a simple one-line code change from Hashtable to SortedList",
+    "The customization works in subfolders but breaks completely when deployed to a root URL",
+    "The bug persisted across .NET versions including 1.1 SP1 with no documented workaround"
+  ],
+  "money_quotes": [
+    "Why are the smallest bugs in the .NET framework always the most disproportionately frustrating?",
+    "you want to replace the default crappy, random hash sorted list of Web Service methods with one that's (shock!) in alphabetical order",
+    "I know, it's crazy talk, but bear with me.",
+    "This makes deploying to production a lot more, uh, thrilling than it would otherwise be.",
+    "This egregious bug in the .NET framework really pisses me off, particularly since it has persisted into 1.1 SP1.",
+    "I can find lots of people complaining about this in Google Groups, but I can't find one single workaround."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "frustrated, sardonic, technical",
+  "key_insight": "Small, obscure framework bugs that block straightforward customizations are disproportionately frustrating because they waste developer time on problems that shouldn't exist.",
+  "filename": "2005-04-07-custom-wsdlhelpgenerator-webroot-error"
+}

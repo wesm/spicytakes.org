@@ -1,0 +1,29 @@
+{
+  "summary": "Jeff Atwood argues against excessive logging practices in software development, sharing a cautionary tale from Stack Overflow where overzealous logging actually caused production deadlocks. The team spent days trying to diagnose the problem by adding more logging, which made things worse, until memory dump analysis revealed that logging itself was the culprit. Atwood outlines five major problems with logging: it adds code clutter, has performance costs, buries useful information that should be in the UI, creates noise that obscures real issues, and suffers from inconsistent severity definitions. Stack Overflow ultimately removed all general logging and relied exclusively on exception logging, a decision Atwood doesn't regret.",
+  "key_points": [
+    "Excessive logging caused actual production deadlocks at Stack Overflow through a recursive locking bug between logging and database operations",
+    "Adding more logging to debug a logging problem is a trap that makes diagnosis harder, not easier",
+    "Valuable diagnostic information deserves to be surfaced in the application UI, not buried in log files",
+    "The more you log, the harder it becomes to find meaningful signals in the noise",
+    "Start with minimal logging (exception-only) and add more only when specific, verifiable needs arise"
+  ],
+  "money_quotes": [
+    "Why not log as much as you can whenever you can? Even if you're not planning to use it today, who knows, it might be useful for troubleshooting tomorrow. Heck, just log everything! What could it possibly hurt?",
+    "We spent days troubleshooting these deadlocks by... wait for it... adding more logging! Which naturally made the problem worse and even harder to figure out.",
+    "Visible logging code is clutter \u2013 like excessive comments, it actively obscures the code that's doing the real work in the application.",
+    "If it's worth saving to a logfile, it's worth showing in the user interface.",
+    "The more you log, the less you can find.",
+    "I am not anti-logging. I am anti-abusive-logging.",
+    "Resist the tendency to log everything. Start small and simple, logging only the most obvious and critical of errors.",
+    "We've since removed all logging from Stack Overflow, relying exclusively on exception logging. Honestly, I don't miss it at all."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "cautionary, opinionated, self-deprecating",
+  "key_insight": "Logging has a seductive appeal that leads developers to over-log, but excessive logging creates more problems than it solves\u2014including obscuring real issues, adding code clutter, and in extreme cases, causing the very bugs you're trying to diagnose.",
+  "filename": "2008-12-03-the-problem-with-logging"
+}

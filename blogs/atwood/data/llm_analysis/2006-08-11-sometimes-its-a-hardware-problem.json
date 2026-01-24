@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood recounts troubleshooting a dual Opteron server experiencing spontaneous reboots after being repurposed for Virtual Server duties. After updating BIOS and drivers resolved one error but not the reboots, he turned to hardware diagnostics using Prime95 and Memtest86+. The testing revealed intermittent memory problems that only manifested with all 8GB installed. The solution was reducing memory speed from 200MHz to 166MHz in BIOS, allowing the full memory complement to operate stably. The post serves as both a troubleshooting guide and a reminder that software isn't always to blame.",
+  "key_points": [
+    "Updating BIOS and drivers should be the first troubleshooting step for hardware issues - the equivalent of 'take two aspirin and call in the morning'",
+    "Prime95 is an excellent stability test that will error out almost immediately if CPUs or memory are unstable, making it efficient for troubleshooting",
+    "For multi-CPU systems, you must run multiple Prime95 instances to properly stress all processors",
+    "Memtest86+ and Prime95 complement each other - Memtest86+ found rare intermittent errors while Prime95 consistently failed immediately on blend tests",
+    "Sometimes reducing memory speed (200MHz to 166MHz) can resolve stability issues when removing memory isn't an option"
+  ],
+  "money_quotes": [
+    "If your PC can't pass an overnight Prime95 run, it absolutely, positively has a hardware problem.",
+    "This is always a good first troubleshooting step \u2013 it's the hardware equivalent of taking two Aspirins and calling in the morning.",
+    "Although software is notoriously unreliable, we can't always blame the software. Sometimes you really do have a hardware problem.",
+    "In my experience, Prime95 will error out almost immediately if your CPUs or memory are unstable. This is great for troubleshooting because you know quickly if there's a problem or not.",
+    "CPUs are almost never defective; it's usually a heat or power supply related failure.",
+    "You can troubleshoot hardware stability quite effectively with the right software: Memtest86+ and Prime95."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering"
+  ],
+  "tone": "technical, practical, instructive",
+  "key_insight": "Hardware problems can masquerade as software issues, but with the right diagnostic tools like Prime95 and Memtest86+, you can definitively identify and resolve stability problems that no amount of software debugging would fix.",
+  "filename": "2006-08-11-sometimes-its-a-hardware-problem"
+}

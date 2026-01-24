@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood presents the CWE/SANS Top 25 Most Dangerous Programming Errors list, providing condensed explanations of each security vulnerability from buffer overflows to SQL injection. He argues that while none of these mistakes are new, their relative priorities have shifted as web applications dominate computing. The post serves as an awareness-raising exercise, comparing it to McConnell's list of classic development mistakes. Atwood admits that even knowing about these vulnerabilities doesn't guarantee avoiding them, confessing he's made some of these errors himself.",
+  "key_points": [
+    "The Top 25 list covers vulnerabilities ranging from input validation failures to cryptographic weaknesses, with injection attacks and improper access controls featuring prominently",
+    "Web application security issues like XSS, CSRF, and SQL injection have risen in priority as web apps dominate mainstream computing",
+    "Awareness alone doesn't prevent mistakes - even security-conscious developers commit these errors",
+    "Many vulnerabilities stem from trusting user input or client-side security checks that attackers can bypass",
+    "Buffer overflows affect even 'safe' languages since interpreters, native code, and OS APIs are often written in C"
+  ],
+  "money_quotes": [
+    "Grow-your-own cryptography is a welcome sight to attackers. Cryptography is hard. If brilliant mathematicians and computer scientists worldwide can't get it right \u2013 and they're regularly obsoleting their own techniques \u2013 then neither can you.",
+    "Don't require your customers to secure your software for you! Try to be secure by default, out of the box.",
+    "Ignorance is the biggest software project killer of them all.",
+    "Hard-coding a secret account and password into your software is extremely convenient \u2013 for skilled reverse engineers.",
+    "Cross-site request forgery is like accepting a package from a stranger \u2013 except the attacker tricks a user into activating a HTTP request 'package' that goes to your site.",
+    "You may think that you're completely immune to buffer overflows because you write your code in higher-level languages instead of C. But what is your favorite 'safe' language's interpreter written in?",
+    "Obfuscating traffic using schemes like Base64 and URL encoding offers no protection."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "instructive, pragmatic, self-deprecating",
+  "key_insight": "Knowing about common security vulnerabilities is necessary but not sufficient - awareness must be paired with deliberate practice and humility about one's own fallibility.",
+  "filename": "2009-01-12-top-25-most-dangerous-programming-mistakes"
+}

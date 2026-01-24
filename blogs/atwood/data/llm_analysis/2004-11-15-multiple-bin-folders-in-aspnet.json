@@ -1,0 +1,21 @@
+{
+  "summary": "This brief technical post shares a tip from Scott Hanselman about deploying multiple /bin folders in ASP.NET applications. Jeff Atwood confirms he tested the technique and it works, demonstrating how to add a pre-compiled utility to an existing website by placing it in a subfolder with its own binaries. The key is modifying the parent app's Web.config to set up the probing path for child assemblies, plus a small modification to the child .aspx page header. This approach enables a pseudo plugin architecture for ASP.NET websites.",
+  "key_points": [
+    "Multiple /bin folders can be deployed in ASP.NET by configuring assembly probing paths in Web.config",
+    "This technique enables a pseudo plugin architecture for existing ASP.NET websites",
+    "Pre-compiled utilities can be dropped into subfolders with their own binaries",
+    "The child .aspx page header requires an Assembly directive modification that can be made permanent in the source"
+  ],
+  "money_quotes": [
+    "What's really cool about this is that it lets you build a pseudo plugin architecture into your existing ASP.NET website.",
+    "Scott documents it perfectly; I'm here to tell you that I tried it, and it works.",
+    "If you don't do this, you'll get 'Assembly not found' exceptions."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "ASP.NET's assembly probing path configuration allows you to create a simple plugin architecture by deploying pre-compiled components in subfolders with their own /bin directories.",
+  "filename": "2004-11-15-multiple-bin-folders-in-aspnet"
+}

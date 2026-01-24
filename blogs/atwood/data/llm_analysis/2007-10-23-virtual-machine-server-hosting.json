@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explains his decision to move Coding Horror from employer-hosted infrastructure to a dedicated virtual machine server shared with Phil Haack. The migration was remarkably simple thanks to virtualization\u2014just shut down, compress, transfer, and boot. He advocates strongly for 64-bit servers and virtualization technology, highlighting the flexibility to run multiple isolated environments and even different operating systems. The post also addresses the technical challenge of sharing IP addresses between virtual machines, explaining how ISA Server can route HTTP traffic based on host headers to multiple backend machines.",
+  "key_points": [
+    "Virtualization makes server migrations trivially easy\u2014the entire process was shut down, compress, transfer, boot, change IP",
+    "64-bit servers offer huge performance benefits and nobody should build 32-bit servers anymore",
+    "Virtual machines provide complete isolation between users sharing physical hardware\u2014each can reboot, install software, or format without affecting others",
+    "Sharing public IP addresses between VMs requires clever solutions like ISA Server's web rules for host header routing",
+    "The growing scarcity of IPv4 addresses makes IP-sharing techniques increasingly important as virtual servers become commonplace"
+  ],
+  "money_quotes": [
+    "Nobody in their right mind should build up a 32-bit server today.",
+    "That's the easiest server migration I've ever experienced, all thanks to virtualization.",
+    "That's what I love most about virtualization \u2013 the freedom.",
+    "We're completely isolated from each other's peculiarities and weirdnesses: nothing we do (well, almost nothing) can affect the other person's virtual machine.",
+    "Phil and I don't share our wives, so why would we share a server?",
+    "I like you, Phil... but not that much.",
+    "That's one way you can host fifty websites, all running on fifty different machines, with a single public IP address."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware",
+    "productivity"
+  ],
+  "tone": "enthusiastic, practical, humorous",
+  "key_insight": "Virtualization transforms server management from a painful hardware migration into a simple file transfer operation while providing the flexibility to run isolated environments with complete independence.",
+  "filename": "2007-10-23-virtual-machine-server-hosting"
+}

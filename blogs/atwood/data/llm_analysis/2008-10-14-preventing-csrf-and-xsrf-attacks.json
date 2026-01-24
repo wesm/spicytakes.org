@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explains Cross-Site Request Forgery (CSRF/XSRF) attacks and how to prevent them, building on his previous post about the vulnerability. He clarifies that XSRF exploits the fact that websites verify requests came from an authorized user's browser, not that the user actually initiated the action. Citing recent discoveries of XSRF vulnerabilities in major sites like ING Direct, YouTube, MetaFilter, and The New York Times, he emphasizes that even well-resourced companies make these mistakes. He presents two prevention methods: the 'double-submitted cookie' approach requiring no server state, and a stronger server-side token generation method used by Stack Overflow.",
+  "key_points": [
+    "Websites typically verify that requests come from an authorized user's browser, not that the user themselves initiated the action - this is the core XSRF vulnerability",
+    "Attackers exploit XSRF by gambling that users have validated login cookies stored, then tricking browsers into making requests on their behalf",
+    "Major websites including ING Direct, YouTube, MetaFilter, and The New York Times were found vulnerable to XSRF attacks, showing how pervasive the problem is",
+    "The 'double-submitted cookie' method prevents XSRF by requiring form submissions to include a pseudorandom value that matches a cookie value",
+    "A stronger approach generates and tracks unique random keys for every HTML form, which Stack Overflow implements"
+  ],
+  "money_quotes": [
+    "The key to understanding CSRF attacks is to recognize that websites typically don't verify that a request came from an authorized user. Instead they verify only that the request came from the browser of an authorized user.",
+    "Attackers are gambling that users have a validated login cookie for your website already stored in their browser.",
+    "If major public facing websites are falling prey to these serious XSRF exploits, how confident do you feel that you haven't made the same mistakes?",
+    "I'm saying this as a developer who has already made these same mistakes on his own website. I'm just as guilty as anyone.",
+    "It's our job to make sure future developers don't repeat the same stupid mistakes we made \u2013 at least not without a fight.",
+    "If you want to audit a website for XSRF vulnerabilities, start by asking this simple question about every single HTML form you can find: 'where's the XSRF value?'"
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "communities"
+  ],
+  "tone": "urgent, educational, self-deprecating",
+  "key_insight": "XSRF vulnerabilities persist because developers mistakenly assume browser authentication equals user authorization, and the fix requires deliberately validating that each form submission was intentionally initiated by the user.",
+  "filename": "2008-10-14-preventing-csrf-and-xsrf-attacks"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood describes using GREP tools to filter through verbose, error-filled log files from a problematic third-party application. He demonstrates both GUI-based PowerGREP and command-line grep, providing practical syntax examples for common use cases. The post details his automated solution using batch files to grep logs, filter results, and email daily error reports. Along the way, he takes sharp jabs at the third-party vendor's code quality, noting they couldn't even implement a 1982 email standard correctly.",
+  "key_points": [
+    "GUI GREP tools like PowerGREP provide accessible ways to apply regular expressions to filesystem searches",
+    "Command-line grep requires careful attention to escaping rules on top of regex escaping - using files for complex patterns is easier",
+    "A simple three-line batch file (GREP, GREP, BLAT) can create an automated daily error monitoring system",
+    "Third-party software quality is often disappointingly poor despite the assumption that vendors should write better code than internal teams",
+    "When debugging, sometimes you need to go back to basics like RFC standards from 1982"
+  ],
+  "money_quotes": [
+    "It's enough to make you almost appreciate UNIX. Almost.",
+    "If I wanted slow, buggy, and crash-prone, I would have written it myself.",
+    "It's sort of assumed that third party vendors are writing code of higher quality than we do internally. That is, after all, why they're in the software business, and we're not.",
+    "If using third party software instills a strong desire to rewrite the application, that's a damning indictment.",
+    "When you start typing complicated regular expressions at the command line, beware truly mind-melting command line escaping rules! And that's on top of the Regex escaping rules.",
+    "Way to adhere to the very first command in a standard written in 1982, people!"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "sardonic, practical, frustrated",
+  "key_insight": "Simple Unix tools like grep, combined with automation, can transform an unmanageable debugging situation into a sustainable daily workflow - though dealing with poor third-party code quality remains an eternal frustration.",
+  "filename": "2005-02-11-gettin-greppy-wit-it"
+}

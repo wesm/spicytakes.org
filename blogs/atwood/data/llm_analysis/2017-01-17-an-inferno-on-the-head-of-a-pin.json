@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores the challenges of cooling high-performance CPUs in constrained server form factors, specifically 1U rack servers. After discovering that Intel's TDP ratings significantly understate actual power consumption (a 6-core Xeon drew 250W despite a 140W TDP rating), he systematically tests solutions: upgrading from aluminum to copper heatsinks, improving thermal interface material, and adding air ducting. The combination of all three changes allows the server to run stable under maximum load. He concludes by questioning whether his stress testing methodology (MPrime with AVX2 instructions) represents realistic workloads, acknowledging that real-world usage rarely hits these thermal extremes.",
+  "key_points": [
+    "Intel's TDP ratings can be misleading - the 6-core E5-1650 drew 250W under load despite a stated 140W TDP, causing throttling in a 1U server",
+    "Copper heatsinks provide meaningful cooling improvement over aluminum in space-constrained environments (7\u00b0C difference in identical form factors)",
+    "Pre-applied thermal interface material on heatsinks is surprisingly poor quality; replacing it significantly delayed thermal throttling",
+    "Fan ducts/shrouds provide more cooling benefit than expected, enabling stable operation when combined with other improvements",
+    "MPrime's use of AVX2 instructions since 2011 creates artificially extreme heat loads that may not represent real-world server workloads"
+  ],
+  "money_quotes": [
+    "Modern CPU design is the delicate art of placing an inferno on the head of a pin.",
+    "When I get stressed out, when I feel the world weighing heavy on my shoulders and I don't know where to turn\u2026 I build servers. It's therapeutic.",
+    "I am here to tell you that Intel's TDP figure of 140 watts for the 6 core version of this CPU is a terrible, scurrilous lie!",
+    "If your PC's so marginal that a CPU running three or four degrees Celsius warmer will crash it, the solution is not to try to edge away from the precipice with better thermal compound. It's to make a big change to the cooling system.",
+    "Sometimes you get so involved with solving the problem at hand that you forget to consider whether you are, in fact, solving the right problem.",
+    "Tiny infernos in our pockets, each and every one."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical, playful, methodical",
+  "key_insight": "Effective thermal management in constrained spaces requires addressing multiple factors systematically, but equally important is questioning whether your stress tests actually represent real-world conditions.",
+  "filename": "2017-01-17-an-inferno-on-the-head-of-a-pin"
+}

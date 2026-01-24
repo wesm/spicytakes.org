@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explains why anti-aliasing matters for digital displays and explores the evolution of AA techniques from expensive SSAA/MSAA to the revolutionary FXAA algorithm. Traditional anti-aliasing methods cost about 25% of framerate, making them impractical for modern games. FXAA takes a fundamentally different approach by analyzing pixels on screen rather than polygons, achieving superior results at a fraction of the performance cost. The technique works by detecting artificial edges in the final rendered image and smoothing them in a single shader pass. Atwood argues FXAA makes other full-screen anti-aliasing methods obsolete and uses it as an example of how reframing problems can lead to breakthrough solutions.",
+  "key_points": [
+    "Traditional anti-aliasing (MSAA) costs approximately 25% of framerate, which is prohibitively expensive for most games",
+    "FXAA ignores polygons entirely and instead analyzes pixels on screen to detect and smooth artificial edges",
+    "FXAA runs in about 1.3 milliseconds per frame with only 12-13% performance cost while providing comparable or better results than 4x MSAA",
+    "Unlike MSAA, FXAA smooths edges everywhere including inside alpha-blended textures and pixel shader effects",
+    "The technique demonstrates how attacking problems from a different angle can solve computationally difficult problems faster and better than conventional approaches"
+  ],
+  "money_quotes": [
+    "Think of it this way \u2013 a line has infinite resolution, but our digital displays do not.",
+    "Adding motion amplifies the aliasing effects of all those crawling lines that make up the edges of the scene.",
+    "FXAA is an even more clever hack than MSAA, because it ignores polygons and line edges, and simply analyzes the pixels on the screen.",
+    "If you have an FXAA option in your game, you should enable it immediately and ignore any other AA options.",
+    "FXAA is an excellent example of the power of simple hacks and heuristics.",
+    "Attacking programming problems from a different angle can enable you to solve computationally difficult problems faster and arguably better than anyone thought possible.",
+    "It is a hack, but as hacks go, it's pretty darn effective."
+  ],
+  "themes": [
+    "programming",
+    "hardware",
+    "software_engineering"
+  ],
+  "tone": "technical, enthusiastic, accessible",
+  "key_insight": "Reframing a problem\u2014analyzing pixels instead of polygons\u2014can produce solutions that are both faster and more effective than conventional approaches that seem more 'correct.'",
+  "filename": "2011-12-07-fast-approximate-anti-aliasing-fxaa"
+}

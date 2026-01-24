@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood presents a custom TraceListener implementation that provides IIS-style cyclic logging for .NET console applications. The solution leverages the built-in Trace infrastructure to automatically log application output without requiring console redirection. By using Trace.WriteLine instead of Console.WriteLine, applications can log their own output transparently. The implementation supports configurable file size thresholds, file count limits, timestamps, and process/thread IDs, all controllable via code or config files.",
+  "key_points": [
+    "Custom TraceListener enables applications to be responsible for logging their own output rather than relying on external console redirection",
+    "The cyclic logging approach automatically manages log file rotation based on size and count thresholds",
+    "Configuration can be done either in code or declaratively through the app.config file's System.Diagnostics section",
+    "Log entries include timestamps, process/thread IDs, and calling method information for debugging context",
+    "Using Trace.WriteLine instead of Console.WriteLine provides logging behavior 'for free' with post-deployment configurability"
+  ],
+  "money_quotes": [
+    "I wanted the app to be responsible for logging its own output.",
+    "The neat thing is that we get this behavior for free \u2013 as long as I use Trace.WriteLine instead of Console.WriteLine, my console app logs its own output.",
+    "I can easily modify the logging behavior post-deployment by editing the .config file."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Building on .NET's TraceListener infrastructure allows applications to transparently manage their own logging with zero runtime overhead when disabled and full configurability when needed.",
+  "filename": "2005-03-06-logging-tracelistener"
+}

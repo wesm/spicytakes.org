@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood compares Microsoft's Remote Desktop with VNC-based remote access solutions, explaining the trade-offs between each approach. Remote Desktop offers superior speed but has limitations including forced separate user sessions, no multi-monitor support, and artificial session limits. VNC, particularly TightVNC with its video hook driver, provides a viable alternative that shows the actual screen content rather than creating new sessions. The post serves as a practical guide for developers choosing between these remoting technologies circa 2005.",
+  "key_points": [
+    "Remote Desktop is the fastest remoting protocol but is intentionally limited by Microsoft to one session on XP and two on server editions",
+    "VNC follows an older model of showing actual screen content rather than creating separate user sessions, which has both security implications and practical benefits",
+    "TightVNC's video hook driver dramatically improves performance over traditional polling-based VNC implementations",
+    "Neither solution handles multiple monitors well, leaving users with only the primary display",
+    "Hardware-level remote desktop solutions exist that can even display BIOS screens and Blue Screens of Death"
+  ],
+  "money_quotes": [
+    "Over a fast network, you can *almost* convince yourself that you're using the local machine.",
+    "In fine Microsoft tradition, it's intentionally crippled.",
+    "I suppose this is to keep us from setting up our own OS/360 timeshare boxes.",
+    "If you're both trying to use the computer at the same time, it's even more fun!",
+    "Why poll for changes when the video driver can tell you what the changes were?",
+    "If you ever used VNC in the past and were disappointed with how slow and CPU intensive it was, you should try again with TightVNC and the video hook driver.",
+    "You'll get the primary monitor, and you'll like it."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "practical, slightly sardonic, informative",
+  "key_insight": "The best remote access solution depends on whether you need speed and isolation (Remote Desktop) or shared screen access to an existing session (VNC), with both having frustrating limitations that Microsoft and open source communities have only partially addressed.",
+  "filename": "2005-07-11-vnc-vs-remote-desktop"
+}

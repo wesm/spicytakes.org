@@ -1,0 +1,20 @@
+{
+  "summary": "Jeff Atwood addresses a common regex puzzle: how to exclude specific words from matches rather than include them. He explains that while regular expressions excel at matching what you want, expressing what you don't want is trickier. The post presents two solutions using lookahead and lookbehind assertions, noting that negative lookahead has broader compatibility across regex implementations. He recommends specific tools for testing these expressions.",
+  "key_points": [
+    "Regular expressions are designed for matching, not excluding, making exclusion patterns counterintuitive",
+    "Negative lookbehind provides one solution but has limited support and restrictions across regex flavors",
+    "Negative lookahead offers better compatibility and can achieve the same exclusion goal",
+    "The character class negation syntax [^'fox'] doesn't work for word exclusion because it operates on individual characters, not strings"
+  ],
+  "money_quotes": [
+    "Stating a regex in terms of what you don't want to match is a bit harder.",
+    "Regular expressions are great at matching. It's easy to formulate a regex using what you want to match."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Regular expressions are fundamentally built around inclusion rather than exclusion, so excluding matches requires creative use of lookahead or lookbehind assertions rather than intuitive negation syntax.",
+  "filename": "2005-10-23-excluding-matches-with-regular-expressions"
+}

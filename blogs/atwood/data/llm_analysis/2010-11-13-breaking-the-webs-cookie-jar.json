@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explains how Firesheep, a Firefox add-in, exposes a fundamental vulnerability in how the web handles authentication through cookies. The tool simply listens to unencrypted WiFi traffic and captures session cookies that are broadcast in plain text, allowing anyone to impersonate logged-in users. While this vulnerability has existed since cookies were invented in 1994, the convergence of ubiquitous public WiFi, increased online identity investment, and better tools has made it a pressing concern. Rather than encrypting all web traffic, Atwood suggests we need a better identity protocol, while offering practical advice: use encrypted WiFi, always access email via HTTPS, and pressure websites to adopt HTTPS.",
+  "key_points": [
+    "HTTP cookies broadcast your unique session identifier in plain text on every click, making them trivially interceptable on unencrypted networks",
+    "Firesheep isn't a sophisticated hack\u2014it's more of an art project that packages well-known vulnerabilities into a point-and-click tool",
+    "The vulnerability has existed since 1994 but became critical due to ubiquitous public WiFi, increased online identity investment, and better interception tools",
+    "Encrypting all web traffic is a 'boil the sea' solution; a better identity protocol would be preferable",
+    "Email is the skeleton key to online identity\u2014if your webmail doesn't support HTTPS, switch providers immediately"
+  ],
+  "money_quotes": [
+    "To a website, that's your fingerprint, DNA, and social security number all rolled into one.",
+    "This is the way the entire internet has worked since 1994.",
+    "It's more of an art project and PR stunt than an actual hack of any kind.",
+    "If your webmail provider does not support secure http, they are idiots.",
+    "Encrypting everything just to protect that one lousy cookie header seems like a whole lot of overkill to me.",
+    "Email is the de-facto skeleton key to your online identity. When your email is compromised, all is lost.",
+    "Firesheep may indeed have broken the web's cookie jar. But it was kind of an old, beat up, cracked cookie jar in the first place."
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "explanatory, pragmatic, mildly alarmed",
+  "key_insight": "The web's fundamental authentication mechanism has been insecure since its invention, and Firesheep's real contribution was making this invisible risk visible to average users at exactly the moment when public WiFi and online identity made it matter.",
+  "filename": "2010-11-13-breaking-the-webs-cookie-jar"
+}

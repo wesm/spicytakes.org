@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood uses a workplace network performance issue to illustrate the value of back-of-the-envelope calculations in software engineering. Drawing from Programming Pearls, he shares Bob Martin's story of using simple arithmetic to expose a fatally flawed Olympic communication system design. Atwood then demonstrates practical application by establishing baseline measurements for network throughput, revealing that gigabit ethernet realistically delivers only 2-3x improvement over 100baseT due to various bottlenecks. His workplace investigation ultimately found the problem wasn't with the suspected desktop at all, but with server-side limitations affecting everyone.",
+  "key_points": [
+    "Back-of-the-envelope calculations are standard engineering practice but too often neglected in computing",
+    "Loopback testing establishes absolute upper bounds before investigating network issues",
+    "Real-world gigabit ethernet delivers roughly 30 MB/sec, not the theoretical 125 MB/sec - about 2-3x improvement over 100baseT",
+    "Methodical baseline testing often reveals the problem isn't where you initially suspected",
+    "Simple arithmetic can expose fundamental design flaws before they become expensive failures"
+  ],
+  "money_quotes": [
+    "His calculations were just as simple as those about the Mississippi River and much more revealing. They showed that, under generous assumptions, the proposed system could work only if there were at least a hundred and twenty seconds in each minute.",
+    "That was Bob Martin's wonderful (if eccentric) way of introducing the engineering technique of 'back-of-the-envelope' calculations. The idea is standard fare in engineering schools and is bread and butter for most practicing engineers. Unfortunately, it is too often neglected in computing.",
+    "This is helpful because it establishes an absolute upper bound on network performance.",
+    "Bottlenecks elsewhere kept the overall throughput lower than I had hoped.",
+    "Even with those real world caveats, gigabit ethernet still offers 2 to 3 times the performance of 100baseT, which isn't exactly chopped liver, either."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "practical, instructive, methodical",
+  "key_insight": "Simple back-of-the-envelope calculations and systematic baseline measurements can quickly expose where performance problems actually lie, saving engineers from chasing the wrong solutions.",
+  "filename": "2005-07-12-gigabit-ethernet-and-back-of-the-envelope-calculations"
+}

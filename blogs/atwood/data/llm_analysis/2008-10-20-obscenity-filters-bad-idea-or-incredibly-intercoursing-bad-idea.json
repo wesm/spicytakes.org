@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines the recurring failure of automated obscenity filters, using the infamous 'clbuttic' example where naive text replacement turned 'classic' into 'clbuttic' by replacing 'ass' with 'butt'. He traces similar disasters including Yahoo's 2001 JavaScript security filter that transformed 'medieval' into 'medireview' and 'evaluation' into 'reviewuation'. The post argues that these failures stem from inexperienced developers implementing overly simplistic solutions without considering word boundaries or context. Atwood concludes that obscenity filtering is fundamentally unsolvable through code alone, comparing such filters to blacklists that admit failure before even starting.",
+  "key_points": [
+    "Naive string replacement without word boundaries creates absurd artifacts like 'clbuttic' (classic), 'consbreastution' (constitution), and 'medireview' (medieval)",
+    "Even 'smarter' regex solutions with word boundaries fail because language is contextual - legitimate words like 'Great Tits' (the bird) get caught",
+    "Obscenity filters share the fundamental flaw of blacklists: they're reactive approaches that can never anticipate all edge cases",
+    "The pattern of inexperienced developers reinventing failed solutions repeats across generations - 'every day a brand new software developer is born and immediately begins repeating all the same mistakes'",
+    "Yahoo's JavaScript exploit filter demonstrates that even well-intentioned security measures can cause widespread collateral damage when implemented naively"
+  ],
+  "money_quotes": [
+    "Every day a brand new software developer is born and immediately begins repeating all the same mistakes we made years ago.",
+    "Obscenity filters are like blacklists; using one is tantamount to admitting failure before you've even started.",
+    "I'm doubtful it will ever be possible to solve this particular problem through code alone.",
+    "Oh, great, an inexperienced developer had a problem, and thought they would use regular expressions. Now they have two problems.",
+    "Replacing one thing with another, when it comes to human beings and written language, is an activity that is fraught with peril even in the best possible circumstances.",
+    "Bad ideas are just plain bad ideas, regardless of language or implementation choices."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "satirical, critical, witty",
+  "key_insight": "Automated text filtering for obscenity or security is a fundamentally flawed approach because human language is too contextual and nuanced to be safely manipulated through simple pattern matching.",
+  "filename": "2008-10-20-obscenity-filters-bad-idea-or-incredibly-intercoursing-bad-idea"
+}

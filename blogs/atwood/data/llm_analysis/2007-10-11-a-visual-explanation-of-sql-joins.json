@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood builds on Ligaya Turmelle's idea of using Venn diagrams to explain SQL joins, refining the concept to accurately match SQL syntax behavior. He walks through inner joins, full outer joins, left outer joins, and variations that exclude matching records, providing concrete examples with two simple tables. Each join type is paired with its corresponding Venn diagram representation and actual SQL output. The post also briefly covers cross joins, noting they can't be represented as Venn diagrams and warning about their potential danger with large datasets.",
+  "key_points": [
+    "Venn diagrams are a natural fit for explaining SQL joins because joins are fundamentally set-based operations",
+    "Inner joins return only records that exist in both tables, represented by the intersection of two circles",
+    "Left outer joins return all records from the left table plus matching records from the right, with nulls for non-matches",
+    "Adding WHERE clauses to outer joins can isolate records unique to one or both tables",
+    "Cross joins produce cartesian products that can't be visualized as Venn diagrams and are dangerous on large tables"
+  ],
+  "money_quotes": [
+    "Since SQL joins appear to be set-based, the use of Venn diagrams to explain them seems, at first blush, to be a natural fit.",
+    "Inner join produces only the set of records that match in both Table A and Table B.",
+    "Full outer join produces the set of all records in Table A and Table B, with matching records from both sides where available.",
+    "To produce the set of records only in Table A, but not in Table B, we perform the same left outer join, then exclude the records we don't want from the right side via a where clause.",
+    "This joins 'everything to everything,' resulting in 4 x 4 = 16 rows, far more than we had in the original sets.",
+    "If you do the math, you can see why this is a very dangerous join to run against large tables."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "educational",
+  "key_insight": "SQL joins map directly to set theory operations, and Venn diagrams provide an intuitive visual framework for understanding which records each join type will return.",
+  "filename": "2007-10-11-a-visual-explanation-of-sql-joins"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood argues that developers should use dashes instead of underscores when substituting for spaces in filenames and URLs. Spaces cause practical problems: they must be quoted at the command line and get encoded as %20 in URLs. While underscores seem like a natural substitute, Google treats underscored phrases as single words, hurting searchability. The regex word character class (\\w) also includes underscores but not dashes, reinforcing that underscores join words while dashes separate them. Atwood concludes that following established conventions is wiser than inventing personal standards.",
+  "key_points": [
+    "Spaces in filenames require quoting at command line and become %20 encoded in URLs, making them inconvenient",
+    "Google treats underscored terms as single words, so 'kw1_kw2' won't match searches for 'kw1' or 'kw2' individually",
+    "The regex \\w operator considers underscore a word character but not dash, meaning 'this_is' is one word while 'this-is' is multiple",
+    "Following established conventions beats inventing personal standards, even when the convention isn't perfect"
+  ],
+  "money_quotes": [
+    "I try to avoid using spaces in filenames and URLs. They're great for human readability, but they're remarkably inconvenient in computer resource locators.",
+    "The correct character to substitute for space is the dash.",
+    "If you use an underscore '_' character, then Google will combine the two words on either side into one word.",
+    "`This_is_a_single_word`, but `this-is-multiple-words`.",
+    "Like NutraSweet and Splenda, neither is really an acceptable substitute for a space, but we might as well follow the established convention instead of inventing our own.",
+    "That's how we ended up with the backslash as a path separator."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "pragmatic, instructive, slightly wry",
+  "key_insight": "Use dashes rather than underscores to separate words in filenames and URLs because search engines and regex conventions treat underscores as word joiners, not word separators.",
+  "filename": "2006-04-26-of-spaces-underscores-and-dashes"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Atwood explores the challenge of storing private encryption keys when both encryption and decryption happen on the same machine. While cross-machine scenarios are straightforward\u2014keep the private key on a server, distribute public keys to clients\u2014local-only encryption presents a fundamental security problem: users have physical control of their machines. He shares a reader's detailed response outlining storage options (machine store, user store, registry, smart cards) and warns against storing keys in regular strings due to .NET's garbage collection. His conclusion is sobering: true security requires keeping private keys on separate hardware, and local storage can only make key discovery 'inconvenient,' not impossible.",
+  "key_points": [
+    "Cross-machine encryption is inherently more secure because the private key never leaves the server",
+    "When both keys must exist on the same machine, complete security is theoretically impossible since users have physical control",
+    "Storage options include machine key store, user key store, registry with ACLs, or smart cards\u2014each with different security tradeoffs",
+    "Never store keys in regular .NET strings because garbage collection doesn't properly clear them from memory",
+    "Hardware-based solutions like smart cards or embedded keys (Xbox 360 style) provide the strongest local protection"
+  ],
+  "money_quotes": [
+    "I had the luxury of keeping my private key on a different physical server. I had never even considered the problem of private key storage on the same machine!",
+    "How in the world do you keep the private key away from the prying eyes of the local user?",
+    "It seems like an insoluble problem to me, since users have complete physical control over their own machines.",
+    "Remember, never store an instance of your keys or passwords in a string! The .NET GC does not clear these values very well, and they are visible in the string table memory for anyone to steal!",
+    "The only way to keep a private key truly private is to store it on a completely different machine.",
+    "If you must store the private key on the same machine, some vulnerability is inevitable. You can only make it inconvenient for a user to find the private key through software protection.",
+    "This is another reason why the user comments are the best part of a blog."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "communities"
+  ],
+  "tone": "technical, collaborative, pragmatic",
+  "key_insight": "Local private key storage is fundamentally a losing battle against determined users with physical machine access\u2014you can only raise the difficulty bar, never eliminate the vulnerability.",
+  "filename": "2006-02-03-keeping-private-keys-private"
+}

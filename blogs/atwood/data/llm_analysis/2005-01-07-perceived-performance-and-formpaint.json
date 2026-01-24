@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood demonstrates a simple technique for improving perceived application performance by moving initialization work from Form.Load to Form.Paint. By showing the form immediately and then doing work after the first paint, users perceive the application as faster even though the actual execution time is identical. He argues this three-line code change delivers better user experience than more complex threading solutions for minimal effort.",
+  "key_points": [
+    "Moving work from Form.Load to Form.Paint makes applications feel faster without changing actual performance",
+    "The IsFirstPaint flag with DoEvents combo provides maximum benefit for minimum coding effort",
+    "Perceived performance matters more to users than actual performance",
+    "Proper threading would be technically superior but requires significantly more development effort",
+    "Showing UI immediately before doing work creates a better user experience"
+  ],
+  "money_quotes": [
+    "Perceived performance is more important than actual performance.",
+    "The amount of time is the same in both cases, but guess which one users will tell you is \"faster?\"",
+    "I guarantee that'll take a lot more work than three lines of code!",
+    "That's why I love the IsFirstPaint and DoEvents combo: maximum benefit for minimum effort."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "productivity"
+  ],
+  "tone": "practical, instructional, pragmatic",
+  "key_insight": "Users judge application speed by when they see the UI, not by when work completes\u2014so show the interface immediately and do heavy lifting afterward.",
+  "filename": "2005-01-07-perceived-performance-and-formpaint"
+}

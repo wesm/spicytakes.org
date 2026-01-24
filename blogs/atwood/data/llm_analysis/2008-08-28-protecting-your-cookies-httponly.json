@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood uses a thinly-veiled personal anecdote about 'a friend' to explain how XSS vulnerabilities can lead to cookie theft and session hijacking. He demonstrates how malicious JavaScript injected through inadequate HTML sanitization can steal authentication cookies and allow attackers to impersonate users with administrative privileges. The post advocates for HttpOnly cookies as a simple but effective defense mechanism that prevents client-side JavaScript from accessing sensitive cookie data. While acknowledging that HttpOnly isn't a complete solution due to browser inconsistencies (particularly Firefox's XMLHttpObject bug), Atwood argues it significantly raises the security bar against common XSS attacks.",
+  "key_points": [
+    "XSS has become the most common publicly reported security vulnerability, surpassing classic threats like buffer overflows and SQL injection",
+    "Cookies are the 'keys to the kingdom' for user identity - stealing them allows complete impersonation of that user",
+    "Writing custom HTML sanitizers is dangerous because clever attackers can construct malformed input that slips through",
+    "HttpOnly flag tells browsers to restrict cookie access to server-side only, blocking document.cookie access from JavaScript",
+    "While not perfect (Firefox had bugs allowing header access via XMLHttpObject), HttpOnly cookies are a 'set it and forget it' defense that makes cookie theft significantly harder"
+  ],
+  "money_quotes": [
+    "XSS is now the most common of all publicly reported security vulnerabilities \u2013 dwarfing old standards like buffer overruns and SQL injection.",
+    "Once someone has your browser cookies for a given website, they essentially have the keys to the kingdom for your identity there.",
+    "It's sort of ironic that the HttpOnly flag was pioneered by Microsoft in hoary old Internet Explorer 6 SP1, a browser which isn't exactly known for its iron-clad security record.",
+    "HttpOnly cookies don't make you immune from XSS cookie theft, but they raise the bar considerably.",
+    "It's practically free, a 'set it and forget it' setting that's bound to become increasingly secure over time.",
+    "If you develop web applications, or you know anyone who develops web applications, make sure they know about HttpOnly cookies."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "communities"
+  ],
+  "tone": "instructive, self-deprecating humor, cautionary",
+  "key_insight": "HttpOnly cookies are a simple, nearly free security measure that dramatically reduces the impact of XSS vulnerabilities by preventing JavaScript from accessing authentication tokens.",
+  "filename": "2008-08-28-protecting-your-cookies-httponly"
+}

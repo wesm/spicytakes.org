@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood shares Discourse's approach to security by actively testing their own password hashing defenses against modern GPU-powered cracking attacks. After implementing multiple layers of protection including admin password requirements, backup logging, and single-use download tokens, the team still assumed attackers would eventually get database access. They benchmarked their PBKDF2-HMAC-SHA256 hashes with 64k iterations against a GTX 1080 Ti and hired a penetration tester who cracked only 39 of nearly 12,000 hashes over three weeks. The exercise revealed their security was reasonable but identified room for improvement by switching to slower algorithms like bcrypt.",
+  "key_points": [
+    "Defense in depth means assuming attackers will eventually get your database, so password hash resistance becomes your last line of defense",
+    "The two critical factors for password hash security are the algorithm (should be slow, especially on GPUs) and the work factor/iterations (as high as possible without enabling DoS attacks)",
+    "A professional penetration tester with sophisticated wordlists cracked only 39 out of 11,997 Discourse password hashes over three weeks using a GTX 1080 Ti",
+    "Nation-state attackers with thousands of GPUs could crack even 10-character alphanumeric passwords in hours, making algorithm choice critical for high-security scenarios",
+    "GPU cracking power increases dramatically between generations - the 1080 Ti achieved 40% higher hash rates than the 1080"
+  ],
+  "money_quotes": [
+    "That's why, if you know (or even suspect!) your database was exposed, the very first thing you should do is reset everyone's password.",
+    "The reality is that you probably won't know when your database has been exposed, at least not until it's too late to do anything about it.",
+    "You bet your sweet ASCII a full database download is what hackers start working toward the minute they gain any kind of foothold in your system. It's the ultimate prize.",
+    "In a single video card generation the attack hash rate has increased nearly 40 percent. Ponder that.",
+    "If we want Discourse to be nation state attack resistant, clearly we'll need to do better.",
+    "The only real protection you can offer your users is just how resistant to attack your stored password hashes are.",
+    "Don't wait around for hackers to attack you \u2013 hacker, hack thyself!"
+  ],
+  "themes": [
+    "software_engineering",
+    "communities",
+    "industry_criticism"
+  ],
+  "tone": "technical, pragmatic, educational",
+  "key_insight": "The best way to understand your security posture is to actively attack your own systems with the same tools and techniques real adversaries would use.",
+  "filename": "2017-06-02-hacker-hack-thyself"
+}

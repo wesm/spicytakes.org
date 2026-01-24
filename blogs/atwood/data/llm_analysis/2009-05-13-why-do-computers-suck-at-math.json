@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explores why computers produce seemingly incorrect mathematical results, from Google's calculator errors to Excel's multiplication bugs. He explains that floating-point arithmetic requires approximating infinitely many real numbers with finite bits, leading to precision issues especially in subtraction operations. The post references the classic paper 'What Every Computer Scientist Should Know About Floating-Point Arithmetic' to explain how rounding errors are inherent to floating-point computation. Atwood concludes that these aren't really computer failures but rather programmer failures to properly handle the limitations of numerical representation.",
+  "key_points": [
+    "Floating-point numbers have roughly 16 decimal places of precision, which sounds like a lot but can be lost entirely through subtraction of similar values",
+    "Squeezing infinitely many real numbers into finite bits requires approximation\u2014rounding error is the characteristic feature of floating-point computation",
+    "While addition, multiplication, and division are very accurate, subtraction can lose precision catastrophically when two numbers agree to n figures",
+    "Real-world consequences can be severe: the Ariane 5 rocket exploded due to a floating-point to integer conversion overflow",
+    "These 'computer math errors' are really programmer errors\u2014failures to understand and handle numerical representation limitations"
+  ],
+  "money_quotes": [
+    "Squeezing infinitely many real numbers into a finite number of bits requires an approximate representation.",
+    "Computers are awesome, yes, but they aren't infinite... yet.",
+    "The best we can do is work with approximations at varying levels of precision that are 'good enough' where 'good enough' depends on what you're doing, and how you're doing it.",
+    "Subtraction can be anywhere from exact to completely inaccurate. If two numbers agree to n figures, you can lose up to n figures of precision in their subtraction.",
+    "I'm starting to believe that it's not the computers that suck at math, but the people programming those computers."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "educational, self-deprecating, accessible",
+  "key_insight": "Computers don't suck at math\u2014programmers suck at understanding that finite representations of infinite numbers require careful handling of approximation and precision.",
+  "filename": "2009-05-13-why-do-computers-suck-at-math"
+}

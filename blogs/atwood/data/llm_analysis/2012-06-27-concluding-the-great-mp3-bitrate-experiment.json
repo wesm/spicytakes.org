@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood reveals the results of his crowdsourced blind listening test comparing MP3 files at various bitrates against raw CD audio. Over 3,500 participants rated five audio samples (all using the same Starship song), and the data shows that only the 128kbps CBR sample was distinguishably worse than the others. The 160kbps sample anomalously scored highest, likely due to position bias from appearing first. Statistical analysis confirms that beyond 128kbps, listeners cannot reliably distinguish between compressed MP3s and uncompressed CD audio, validating the LAME encoder's default 192kbps VBR setting as the optimal quality-to-size tradeoff.",
+  "key_points": [
+    "Only 128kbps CBR was statistically distinguishable as lower quality compared to higher bitrates and raw CD audio",
+    "The 160kbps sample scoring highest despite lower bitrate suggests position bias contaminated results",
+    "192kbps VBR showed only a 'wafer thin' statistical difference from raw CD audio at the 95% confidence level",
+    "The experiment cost $103.72 for 800GB of data across 200k requests via Amazon CloudFront",
+    "FLAC compression could reveal bitrates by file size, providing an unintentional verification method"
+  ],
+  "money_quotes": [
+    "I've maintained for a long, long time that typical 128kbps MP3s are not acceptable quality. Even for the worst song ever.",
+    "Give us VBR at an average bitrate higher than 128kbps, or give us death!",
+    "More fuel for the argument that people can't hear a difference at bitrates above 128kbps, and even if they do, they're probably imagining it.",
+    "If we didn't throw out this result, we'd have to conclude that the 160kbps sample was somehow superior to the raw CD audio, which is\u2026 clearly insane.",
+    "I'm talking absolutely wafer thin here.",
+    "Even dogs won't be able to hear the difference between 192kbps VBR MP3 tracks and the original CD."
+  ],
+  "themes": [
+    "hardware",
+    "human_factors",
+    "productivity"
+  ],
+  "tone": "playful, empirical, triumphant",
+  "key_insight": "Beyond 128kbps, the perceived difference between MP3 compression and CD-quality audio is largely imaginary, making 192kbps VBR the practical sweet spot for audio encoding.",
+  "filename": "2012-06-27-concluding-the-great-mp3-bitrate-experiment"
+}

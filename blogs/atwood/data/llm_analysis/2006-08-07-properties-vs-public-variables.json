@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood argues against the common practice of wrapping simple public variables in property accessors when no additional logic is needed. He advocates for starting with the simplest solution (public variables) and refactoring to properties only when necessary, while acknowledging valid counterarguments from commenters about reflection, databinding, and breaking changes. The post also criticizes using case alone to distinguish between private fields and public properties, calling it 'borderline irresponsible.' Atwood further distinguishes between properties and methods, arguing that properties should be lightweight and any significant work should be refactored into explicit methods.",
+  "key_points": [
+    "Trivial property wrappers around public variables are meaningless code that should be avoided in favor of starting simple",
+    "Valid reasons for trivial properties exist: reflection behavior, databinding requirements, and avoiding breaking changes",
+    "Using case sensitivity alone (name vs Name) to distinguish private fields from public properties is poor practice",
+    "Properties should be lightweight; if they do significant work, they should be methods instead",
+    "The language could benefit from syntax like 'public property int Name' to reduce friction between variables and properties"
+  ],
+  "money_quotes": [
+    "When is a property not a property? When it's a glorified public variable.",
+    "Why waste everyone's time with a bunch of meaningless just-in-case wrapper code?",
+    "Start with the simplest thing that works \u2013 a public variable.",
+    "It's a shame there's so much meaningless friction between variables and properties; most of the time they do the exact same thing.",
+    "Couldn't we ditch variables entirely in favor of properties?",
+    "The difference between name and Name is subtle at best.",
+    "Using case to distinguish between variables is borderline irresponsible programming.",
+    "The really important thing to take away here is to avoid writing code that doesn't matter."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "opinionated, pragmatic, slightly exasperated",
+  "key_insight": "Don't write ceremonial code that adds no value\u2014start with the simplest solution and only add complexity when you have a concrete reason for it.",
+  "filename": "2006-08-07-properties-vs-public-variables"
+}

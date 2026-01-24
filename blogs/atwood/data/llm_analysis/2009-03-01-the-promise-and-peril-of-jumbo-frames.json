@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explores jumbo frames as a way to boost local network throughput for users transferring large media files over gigabit ethernet. He explains that the original 1,518-byte ethernet frame size was designed for an era of high error rates and low speeds, making it inefficient for modern gigabit networks. After enabling jumbo frames on his home network, he achieved a 20% throughput improvement in benchmarks. However, he cautions that jumbo frames require end-to-end support from all network devices, and incompatible equipment will simply drop oversized packets. The post serves as both a practical guide and a warning about the pitfalls of deviating from default network settings.",
+  "key_points": [
+    "The original 1,518-byte ethernet MTU was designed for high-error, low-speed networks and is inefficient for modern gigabit transfers",
+    "Enabling jumbo frames reduced CPU utilization and increased throughput by approximately 20% in real-world testing",
+    "Jumbo frames require consistent support across all network devices - switches, routers, and NICs must all agree on frame size",
+    "Network equipment that doesn't support jumbo frames will silently drop packets, potentially causing mysterious failures",
+    "Large packets can negatively impact latency for real-time applications like gaming and VoIP"
+  ],
+  "money_quotes": [
+    "If the frame size is increased, the same amount of data can be transferred with less effort. This reduces CPU utilization (mostly due to interrupt reduction) and increases throughput by allowing the system to concentrate on the data in the frames, instead of the frames around the data.",
+    "There's a reason jumbo frames are never enabled by default: some networking equipment can't deal with the non-standard frame sizes.",
+    "Like all deviations from default settings, it is absolutely possible to make your networking worse by enabling jumbo frames, so proceed with caution.",
+    "Switches that don't support jumbo frames will drop jumbo frames.",
+    "If the size of the data payload can't be negotiated due to firewalls, the data will be dropped with no warning, or 'blackholed.'",
+    "Bigger isn't always better."
+  ],
+  "themes": [
+    "hardware",
+    "productivity"
+  ],
+  "tone": "technical, practical, cautionary",
+  "key_insight": "Jumbo frames can provide meaningful throughput gains for large file transfers, but the requirement for end-to-end device support and the silent failure modes make them a tweak that requires careful consideration.",
+  "filename": "2009-03-01-the-promise-and-peril-of-jumbo-frames"
+}

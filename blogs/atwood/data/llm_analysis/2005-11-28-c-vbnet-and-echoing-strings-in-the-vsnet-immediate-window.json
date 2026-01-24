@@ -1,0 +1,23 @@
+{
+  "summary": "Jeff Atwood highlights an annoying inconsistency between C# and VB.NET in Visual Studio 2003's Immediate Window: when printing strings containing newlines, VB.NET displays them as actual line breaks while C# shows the raw escape notation (\\r\\n). Despite his general agnosticism about the C# vs VB.NET debate, he finds this C# behavior counterintuitive and difficult to work with, especially since even variable tooltips exhibit the same issue. He explores potential workarounds but notes their limitations.",
+  "key_points": [
+    "C# displays newlines as literal \\r\\n notation in the Immediate Window, while VB.NET renders them as actual line breaks",
+    "This inconsistency extends to variable tooltips in the C# IDE",
+    "The System.Diagnostics.Debug.WriteLine workaround exists but isn't always practical due to scope limitations",
+    "Sometimes VB.NET handles things more sensibly than C#, contrary to common assumptions"
+  ],
+  "money_quotes": [
+    "I've become rather agnostic on the whole topic of C# versus VB.NET, but there are still those annoying little differences that sneak up behind you and rabbit-punch you in the kidneys.",
+    "Usually VB.NET is guilty of handling things in odd and unexpected ways, but this time it's C#.",
+    "I expect newlines to appear in the immediate window as, oh, I don't know... NEW LINES?",
+    "It's a bit difficult to read text filled with a bunch of \\r\\n notation instead of human readable whitespace."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "frustrated, practical, humorous",
+  "key_insight": "Developer tools should prioritize human readability over technical accuracy when displaying debug output, since the whole point of debugging is to help developers understand what's happening.",
+  "filename": "2005-11-28-c-vbnet-and-echoing-strings-in-the-vsnet-immediate-window"
+}

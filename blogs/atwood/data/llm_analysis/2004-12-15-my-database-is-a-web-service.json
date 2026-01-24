@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that the traditional database 'data layer' should be implemented as a web service rather than through stored procedures, binary remoting, or other tightly-coupled approaches. He builds on Rocky Lhotka's service-oriented architecture principles, emphasizing that services define trust boundaries and provide contractual interfaces. Drawing from painful personal experience with a .NET remoting implementation, Atwood demonstrates how choosing the wrong abstraction leads to developer friction, API bloat, and architectural debt. He contends that web services offer true platform independence, longevity, and force developers toward simpler, more maintainable APIs. The post also warns against the temptation to move business logic into the database, even with managed code support in SQL Server.",
+  "key_points": [
+    "Web services provide genuine platform and technology independence that no other API abstraction offers - you could swap databases or operating systems without breaking clients",
+    "HTTP and SOAP are durable technologies that will outlive proprietary alternatives like COM+, making them safer long-term investments for formal APIs",
+    "Database performance is typically the bottleneck anyway, so the additional latency of a web service layer is negligible compared to query execution time",
+    "Binary remoting and tightly-coupled APIs create developer friction, reduce visibility, and lead to duplicate or inconsistent implementations",
+    "Moving business logic into the database (even with managed code) creates scalability challenges through increased resource consumption, locking issues, and GC pressure"
+  ],
+  "money_quotes": [
+    "A web service is the only level of abstraction that really buys you anything.",
+    "HTTP and SOAP are the cockroaches of platform technology. They'll probably outlive us both.",
+    "A web service forces you to keep your API methods simple and abstract. A good API is difficult to get right, and easy to overcomplicate.",
+    "Database performance is almost always the bottleneck anyway. Adding a web service to the mix doesn't cost you anything.",
+    "On a recent code review, I found three methods that all did the same thing. All of them had completely different names, of course.",
+    "Now we've committed the ultimate sin: we're repeating ourselves.",
+    "Give yourself options by choosing the right architecture early on."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, experiential, cautionary",
+  "key_insight": "Abstracting your data layer as a web service provides true platform independence and forces architectural discipline, while tightly-coupled alternatives inevitably accumulate painful technical debt.",
+  "filename": "2004-12-15-my-database-is-a-web-service"
+}

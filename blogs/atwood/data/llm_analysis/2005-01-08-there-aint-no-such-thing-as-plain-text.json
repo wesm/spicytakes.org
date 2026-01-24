@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood recounts his realization that he had been naively handling text encoding in his code, assuming all text could be treated as plain UTF-8. Drawing heavily from Joel Spolsky's famous Unicode article, he explains that every string must have a known encoding or it cannot be correctly interpreted. He shares his journey from ignorance to understanding, including the practical code he wrote to properly detect character encodings from HTTP headers and HTML meta tags. The post is a humble admission of a common programming blind spot among English-speaking developers.",
+  "key_points": [
+    "There is no such thing as 'plain text' - every string has an encoding that must be known to interpret it correctly",
+    "Most encoding schemes share the same values for characters 32-127, which allows basic ASCII parsing before determining the actual encoding",
+    "Encoding information can come from HTTP Content-Type headers or HTML meta tags, and both should be checked",
+    "Defaulting to UTF-8 when no encoding is specified is considered a best practice in .NET",
+    "Many bugs only appear in edge cases - code can seem correct until it encounters non-English content"
+  ],
+  "money_quotes": [
+    "I had an ugly American view of strings.",
+    "There ain't no such thing as plain text.",
+    "If you have a string, in memory, in a file, or in an email message, you have to know what encoding it is in or you cannot interpret it or display it to users correctly.",
+    "I was doing a na\u00efve, blanket UTF-8 conversion of this byte data.",
+    "It is right most of the time, which can lull you into a false sense of correctness.",
+    "A lot of things are like that in software; you think you have it right, but you just haven't hit the edge conditions yet.",
+    "I apologize to all the non-English speaking users of my CodeProject articles \u2013 I'm fixing it!"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "humble, self-deprecating, educational",
+  "key_insight": "English-speaking programmers often develop a dangerous blind spot about text encoding because their code appears to work until it encounters non-ASCII characters.",
+  "filename": "2005-01-08-there-aint-no-such-thing-as-plain-text"
+}

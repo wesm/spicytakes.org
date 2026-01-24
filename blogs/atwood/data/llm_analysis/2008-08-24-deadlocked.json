@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood recounts his frustrating experience debugging database deadlocks during the early development of Stack Overflow. Despite being a read-heavy web application with minimal writes, SQL Server 2005's pessimistic locking strategy caused frequent deadlocks between simple read queries and rare write operations. After investigating the NOLOCK hint and consulting experienced developers, he ultimately solved the problem by enabling 'read committed snapshot' mode, which uses copy-on-write snapshots instead of heavy locking. The post critiques SQL Server's enterprise-oriented defaults as poorly suited for typical web application workloads.",
+  "key_points": [
+    "SQL Server's default pessimistic locking strategy assumes banking-level data integrity needs, which is overkill for most web applications",
+    "Simple read queries were being deadlocked by rare write operations, a counterintuitive behavior that violated reasonable expectations",
+    "The NOLOCK hint (dirty reads) works fine in practice for simple read-only queries despite theoretical concerns from database purists",
+    "Read committed snapshot mode provides a better balance for read-heavy web applications by using data snapshots instead of locks",
+    "MySQL's web-native heritage likely makes it less prone to these issues out of the box compared to SQL Server"
+  ],
+  "money_quotes": [
+    "It's as if one of the dining philosophers happened to glance over at another philosopher's plate, and the other philosopher, seeing this, screamed 'meal viewing deadlock!' and quickly covered his plate with his hands.",
+    "In theory there is no difference between theory and practice. In practice there is.",
+    "You'll find no shortage of database architecture astronauts who start dropping ACID science on you and all but pull the building fire alarm when you tell them you want to try nolock.",
+    "I'm deeply uncomfortable with errors I don't fully understand. This is the kind of stuff that quite literally keeps me up at night.",
+    "With nolock / read uncommitted / dirty reads, data may be out of date at the time you read it, but it's never wrong or garbled or corrupted in a way that will crash you.",
+    "I'm a little disappointed that SQL Server treats our silly little web app like it's a banking application.",
+    "It ain't rocket surgery."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "frustrated, pragmatic, self-deprecating",
+  "key_insight": "Database systems designed for enterprise transaction processing often have pessimistic defaults that create unnecessary problems for read-heavy web applications, and practical experience should guide when to relax theoretical purity.",
+  "filename": "2008-08-24-deadlocked"
+}

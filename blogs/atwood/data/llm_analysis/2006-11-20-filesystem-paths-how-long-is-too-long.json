@@ -1,0 +1,26 @@
+{
+  "summary": "Atwood investigates the Windows MAX_PATH limitation of 260 characters after encountering path length issues during a source code migration. He writes a C# utility to find the longest paths on his system and discovers that while NTFS technically supports 32,000 character paths, Windows APIs enforce the 260 character limit. Through exploring the technical constraints and historical context, he concludes that the real problem isn't the path limit itself but rather the human tendency to create unnecessarily deep hierarchical structures. He draws on Edward Tufte's critique of Sun Microsystems' documentation system to argue that excessive hierarchy is a human organizational failure, not a technical one.",
+  "key_points": [
+    "Windows enforces a MAX_PATH limit of 260 characters despite NTFS supporting 32,000 character paths",
+    "There's a Unicode workaround using the '\\\\?\\' prefix to access extended-length paths, but it has significant limitations",
+    "Microsoft's own Windows 8.1 installation creates paths up to 273 characters, exceeding what Explorer can handle",
+    "Edward Tufte criticized Sun's 8+ level documentation hierarchy when Dr. Spock's Baby Care manual only needed two levels",
+    "Deep path hierarchies are a symptom of poor human organization rather than a legitimate technical need"
+  ],
+  "money_quotes": [
+    "I think 260 characters of path is more than enough rope to hang ourselves with.",
+    "If you're running into path length limitations, the real problem isn't the operating system, or even the computers. The problem is the deep, dark pit of hierarchies the human beings have dug themselves into.",
+    "Dr Spock's Baby Care is a best-selling owner's manual for the most complicated 'product' imaginable \u2013 and it only has two levels of headings.",
+    "The NTFS filesystem supports paths of 32,000 characters, but it's largely irrelevant because the majority of Windows APIs you'd use to get to those paths only accept paths of MAX_PATH or smaller.",
+    "It is possible to create a path with the API that the shell UI cannot handle."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "exploratory, pragmatic, humorous",
+  "key_insight": "Path length limitations are rarely a technical problem\u2014they're a symptom of humans creating unnecessarily deep hierarchies that shouldn't exist in the first place.",
+  "filename": "2006-11-20-filesystem-paths-how-long-is-too-long"
+}

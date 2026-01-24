@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood recounts his successful adoption of POPFile's Bayesian spam filtering, achieving nearly 99% accuracy after two months. He credits Paul Graham's 2002 essay for popularizing the statistical approach to spam fighting, explaining why it works better than rule-based systems. The post examines how Bayesian filters handle evolving spam tactics like image-only emails and spoofed text. Atwood also evaluates whitelist-based alternatives like SpamArrest, which achieve near-100% effectiveness by requiring human verification, but concludes he's not a fan of burdening senders with verification steps.",
+  "key_points": [
+    "Bayesian filtering assigns actual probabilities rather than arbitrary scores, making the system's decisions transparent and mathematically grounded",
+    "The technique considers both spam indicators and innocent words, so legitimate emails containing suspicious terms aren't automatically flagged",
+    "Early researchers dismissed Bayesian filtering because they failed to parse headers and HTML, missing crucial spam signals",
+    "Whitelist systems with CAPTCHA verification can achieve near-100% spam blocking but impose friction on legitimate senders",
+    "Spammers' attempts to defeat content filters (image-only messages, random word insertion) are still detectable through header and HTML analysis"
+  ],
+  "money_quotes": [
+    "It discovered, of course, that terms like 'virtumundo' and 'teens' were good indicators of spam. But it also discovered that 'per' and 'FL' and 'ff0000' are good indicators of spam.",
+    "The problem with a 'score' is that no one knows what it means. The user doesn't know what it means, but worse still, neither does the developer of the filter.",
+    "Nonhackers don't often realize this, but most hackers are very competitive.",
+    "This type of whitelist delivers damn near 100% effective spam blocking, with no training period required. There's simply no way a machine can pass this test.",
+    "Putting the burden of verification on the sender seems kind of onerous to me.",
+    "Bayes will always let some spam slip through, so it is arguably the only way to get an ironclad '100 percent' effective spam blocking."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "human_factors"
+  ],
+  "tone": "technical, practical, exploratory",
+  "key_insight": "Bayesian spam filtering succeeds because it measures actual probabilities rather than arbitrary scores, making the system's reasoning transparent and allowing it to weigh all evidence\u2014both for and against\u2014when classifying messages.",
+  "filename": "2004-09-19-some-plans-for-spam"
+}

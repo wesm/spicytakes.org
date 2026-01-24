@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that application developers should never create files or folders in users' personal Documents folders without explicit permission. He compares the user space folder structures in Windows XP and Vista, noting how Vista's cleaner approach mirrors Unix conventions. Citing Apple's developer guidelines as a model, he emphasizes that user directories should only be modified by users themselves. Applications should store their files in designated AppData or Application Support directories instead. The post is a call to action for developers to respect the boundary between system/application space and personal user space.",
+  "key_points": [
+    "User space (Documents folder) should be sacred territory that only the user modifies",
+    "Applications should store their files in AppData or Application Support directories, not in user documents",
+    "Vista's folder structure represents an improvement over XP, moving closer to Unix conventions",
+    "Apple's developer guidelines explicitly prohibit polluting user space and provide a good model to follow",
+    "Even sample files or clip art should go in Library/Application Support, not user directories"
+  ],
+  "money_quotes": [
+    "Keep your dirty, filthy paws out of my personal user space!",
+    "Applications should never create or modify anything in your documents folder without your permission.",
+    "Those who do not understand Unix are condemned to reinvent it, poorly.",
+    "We should be mad as hell, and we shouldn't take it any more.",
+    "These directories should only be modified by the user.",
+    "It is our obligation as programmers to let the user's folders belong to the user.",
+    "Do the responsible thing and store your application files in an appropriate location, not as virtual litter amongst the user's other files."
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, indignant, instructive",
+  "key_insight": "Applications that dump files into users' personal folders are violating a fundamental trust boundary, and developers have an ethical obligation to store application data in designated system locations instead.",
+  "filename": "2008-01-08-dont-pollute-user-space"
+}

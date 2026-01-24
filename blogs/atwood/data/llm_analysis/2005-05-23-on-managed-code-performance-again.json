@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood analyzes a performance comparison between C# managed code and C++ for a dictionary reader application. While the optimized C++ version eventually runs 2x faster, achieving this required extensive custom implementations of file I/O, string handling, memory allocation, and internationalization. Atwood argues that the managed code achieved excellent results with minimal effort, while the C++ optimizations required a top Microsoft developer to essentially rewrite core functionality. He concludes that when you factor in development time, the C++ 'victory' is pyrrhic, and the cases where such optimization tradeoffs make sense are shrinking.",
+  "key_points": [
+    "Managed C# code performed competitively against C++ with far less development effort",
+    "The C++ version required custom implementations of file I/O, strings, allocators, and internationalization to achieve its 2x speedup",
+    "Diminishing returns set in well before the C++ version achieved maximum performance advantage",
+    "Development time should be factored into performance comparisons, not just execution time",
+    "The applications requiring native code optimization represent an increasingly small portion of software development"
+  ],
+  "money_quotes": [
+    "The managed code achieved a very good result for hardly any effort.",
+    "It's a pyrrhic victory once you divide the execution time by the development time of a top Microsoft C++ coder.",
+    "Now, for certain applications at the very tip of the development pyramid, this tradeoff may still make sense. But that list of apps gets shorter and shorter with every passing day.",
+    "Raymond Chen, who has 'fixed more Windows bugs than you've had hot dinners.'"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "pragmatic, analytical, slightly provocative",
+  "key_insight": "Raw performance wins are meaningless if you ignore the development cost required to achieve them\u2014managed code's 'slower' execution is often the smarter engineering choice.",
+  "filename": "2005-05-23-on-managed-code-performance-again"
+}

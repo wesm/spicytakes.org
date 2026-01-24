@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood explains how he solved the problem of remotely waking his sleeping home theater PC using Wake-on-LAN technology. His HTPC automatically sleeps after 25 minutes to save electricity, but this became problematic when he needed to access files from his desk. After discovering his motherboard supported Wake-on-LAN (indicated by blinking ethernet LEDs during sleep), he found the right Windows settings in Device Manager and successfully used a command-line utility to send 'magic packets' that wake the machine. He humorously concludes that spending two hours automating something is preferable to walking 20 feet.",
+  "key_points": [
+    "Keeping a PC running 24/7 costs real money\u2014even 60 watts idle adds up to ~$80/year in electricity",
+    "Wake-on-LAN capability can be detected by checking if ethernet LEDs blink while the PC is asleep",
+    "WoL requires the target PC's MAC address (not IP address) to send the magic packet",
+    "Windows requires enabling Wake-on-LAN in two places: the network adapter's Advanced tab and Power Management tab",
+    "The programmer's instinct to automate trivial tasks often leads to disproportionate time investment"
+  ],
+  "money_quotes": [
+    "A sleeping PC can be incredibly annoying when I'm sitting at my desk and I need to access that machine remotely.",
+    "Put your computer to sleep, then take a look at the ethernet port and see if the transmit and receive LEDs are still blinking.",
+    "You have to identify the target PC by MAC address, not IP address.",
+    "Why get out of your chair and walk 20 feet when you can spend two hours figuring out how to do it without moving at all?",
+    "It's a symbolic victory for lazy people everywhere."
+  ],
+  "themes": [
+    "hardware",
+    "productivity"
+  ],
+  "tone": "practical, self-deprecating, humorous",
+  "key_insight": "The programmer's drive to automate even minor inconveniences\u2014spending hours to avoid a 20-foot walk\u2014is both absurd and deeply relatable.",
+  "filename": "2007-02-09-remotely-waking-up-your-pc"
+}

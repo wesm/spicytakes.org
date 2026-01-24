@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explores why PC clocks are notoriously unreliable timekeepers, discovering that PCs with wildly inaccurate clocks outnumber accurate ones 2:1. He traces the problem to cost-cutting by manufacturers who opt for 'good enough' real-time clock hardware, and shares his journey through Windows registry settings to increase NTP synchronization frequency. The post catalogs various software bugs, exploits, and failures that stem from clock inaccuracies, from Kerberos authentication failures to game cheating hacks. Atwood concludes that while we think of time as absolute, inside a PC it's surprisingly malleable\u2014something developers often forget until it bites them.",
+  "key_points": [
+    "PCs with clocks more than 8 minutes off outnumber those within 5 seconds of correct time by roughly 2:1",
+    "Manufacturers deliberately use cheap real-time clocks because accurate timekeeping isn't necessary for basic PC function\u2014it's a cost/benefit tradeoff",
+    "Windows provides no visible UI to change time sync frequency; fixing it requires registry hacking",
+    "AC power problems (like daisy-chained UPSes) can cause dramatic clock drift of minutes per day",
+    "Clock inaccuracies create an entire class of bugs and exploits, from authentication failures to game speed hacks"
+  ],
+  "money_quotes": [
+    "PCs aren't very accurate timekeepers.",
+    "You certainly won't mistake PCs for atomic clocks any time soon.",
+    "However, servers tend to be synchronized much more aggressively with authoritative time sources.",
+    "This fix only addresses the symptom, not the problem itself. Why are PC clocks so inaccurate?",
+    "The real-time clock (RTC) built into most machines is far from reliable.",
+    "There is an entire class of software problems, bugs, and exploits involving the system clock.",
+    "We tend to think of time as an absolute, a universal interval that is the same everywhere. But inside the PC, time is a malleable material."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "technical, curious, slightly exasperated",
+  "key_insight": "Time inside a computer is far less reliable and absolute than we assume, creating a hidden source of bugs and security vulnerabilities that developers routinely overlook.",
+  "filename": "2007-01-02-keeping-time-on-the-pc"
+}

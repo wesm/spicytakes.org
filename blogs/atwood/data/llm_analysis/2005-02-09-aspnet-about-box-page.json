@@ -1,0 +1,21 @@
+{
+  "summary": "Jeff Atwood shares an ASP.NET web version of his Windows Forms About Box utility, responding to reader requests. The page displays assembly information with expandable details showing all loaded assemblies and their attributes. The implementation uses an HTML template that can be customized without recompilation, pulling data automatically from assembly attributes. Atwood emphasizes the importance of properly populating AssemblyInfo attributes since that's where the About page derives its information.",
+  "key_points": [
+    "The ASP.NET About Page mirrors the functionality of the Windows Forms version, showing loaded assemblies and their attributes",
+    "The HTML template approach allows visual customization without recompilation",
+    "Assembly attributes can be displayed using named properties or arbitrary attribute keys",
+    "Properly populating AssemblyInfo is essential since it's the data source for the About page"
+  ],
+  "money_quotes": [
+    "Oh, and populate your damn assembly attributes, because that's where all this information is automatically derived from",
+    "The main page is a HTML template; you can make it look however you want by modifying the markup \u2013 no recompilation required",
+    "Clicking details will provide a dump of all loaded assemblies in summary form, with links to the full list of the attributes for each assembly"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "practical",
+  "key_insight": "Reusable About pages should pull information automatically from assembly metadata, making proper AssemblyInfo population a prerequisite for useful application diagnostics.",
+  "filename": "2005-02-09-aspnet-about-box-page"
+}

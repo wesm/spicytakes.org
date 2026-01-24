@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood critiques the frustrating practice of web session timeouts, explaining the technical reasons behind them (HTTP's stateless nature, performance concerns, and security considerations) while arguing that developers can and should do better. He acknowledges that servers need to manage memory and protect against session hijacking, but points out that solutions exist\u2014like Gmail's approach of using JavaScript heartbeats to keep sessions alive. The post ultimately calls on developers to prioritize user experience over their own convenience, noting that users have lives beyond any single web application.",
+  "key_points": [
+    "HTTP is stateless by design, requiring cookies to maintain session state between requests",
+    "Servers expire sessions primarily for performance (memory/database management) and security (limiting session hijacking windows)",
+    "Technical constraints don't excuse poor user experience\u2014solutions like JavaScript heartbeats and HTTPS exist",
+    "Gmail demonstrates that indefinite sessions are technically achievable for mainstream web applications",
+    "Developers should test their applications for session timeout issues and design with realistic user behavior in mind"
+  ],
+  "money_quotes": [
+    "Every individual request your browser sends to a web server is a newborn babe, cruelly born into a world that is utterly and completely oblivious to its existence.",
+    "The browser definitely isn't the forgetful party here.",
+    "As a user, I can say pretty unequivocally that session expiration sucks.",
+    "Despite all rumors to the contrary, your users will not be dedicating their entire lives to using your web application in a punctual and timely manner.",
+    "Is it really fair to kick users all the way out of your web application, or worse, blindly reject data they've submitted \u2013 just because they were impudent enough to wait a few hours since their last supplication to the web server gods?",
+    "In most web apps, the penance is awfully severe for such a common sin."
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "productivity"
+  ],
+  "tone": "opinionated, accessible, user-advocacy",
+  "key_insight": "Technical constraints like session management exist to serve users, not punish them\u2014developers should invest in solutions that maintain security without sacrificing user experience.",
+  "filename": "2008-04-15-your-session-has-timed-out"
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood provides a practical roundup of techniques for managing ASP.NET viewstate, a notoriously problematic feature that bloats page sizes with Base64-encoded data. He covers four main strategies: disabling viewstate when possible, moving it to the bottom of pages for better SEO, compressing it for marginal size reduction, and storing it server-side. The post also highlights ASP.NET 2.0's improvements including ControlState separation and a new formatter that halves viewstate size. It's a concise, link-heavy resource post typical of mid-2000s technical blogging.",
+  "key_points": [
+    "The first rule of viewstate is to turn it off whenever possible",
+    "Moving viewstate to page bottom improves Google indexing since Google only indexes the first N bytes",
+    "Compressing viewstate yields marginal benefits compared to plain text compression",
+    "Server-side viewstate storage (Session, Application, or Cache) is an alternative to client-side",
+    "ASP.NET 2.0 introduced ControlState and ObjectStateFormatter, significantly improving viewstate handling"
+  ],
+  "money_quotes": [
+    "The first rule of thumb, of course, is to turn it off whenever you can.",
+    "if you have 12 kb of Base64 encoded schmutz in your header, that isn't exactly helping people find your pages via Google searches",
+    "Here's to progress. Now pardon me while I crack my bullwhip."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "practical, informal, curated",
+  "key_insight": "ASP.NET viewstate is a necessary evil that requires active management through disabling, relocating, compressing, or moving server-side to avoid SEO penalties and performance issues.",
+  "filename": "2005-10-12-wrangling-aspnet-viewstate"
+}

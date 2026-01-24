@@ -1,0 +1,23 @@
+{
+  "summary": "Jeff Atwood describes building his own multi-city Craigslist search tool after being frustrated with the site's city-by-city limitation and an existing solution's poor performance. He explains how he achieved dramatically faster perceived performance through HTTP compression and progressive rendering using Response.Write and Response.Flush. The post critiques ASP.NET's architecture for not supporting progressive page rendering, forcing developers to work around the framework. He also shares a technical workaround for disabling IIS6 dynamic compression on a per-folder basis to make Response.Flush work correctly.",
+  "key_points": [
+    "Craigslist's per-city search limitation creates friction for users wanting national searches",
+    "Progressive rendering dramatically improves perceived performance even when actual load time is identical",
+    "ASP.NET's architecture fundamentally prevents progressive page rendering, requiring workarounds",
+    "IIS6 dynamic compression must be disabled for Response.Flush to work as expected",
+    "HTTP compression combined with progressive output provides the best user experience for long-running queries"
+  ],
+  "money_quotes": [
+    "There's no way to do any kind of progressive page rendering using the ASP.NET architecture.",
+    "There's a huge psychological difference between seeing immediate, if partial, results, and waiting the same amount of time looking at a blank screen.",
+    "I always try my best to design for progressive rendering, even in Windows Forms."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "technical, practical, opinionated",
+  "key_insight": "Perceived performance matters as much as actual performance\u2014users prefer seeing partial results immediately over waiting for complete results, even when the total time is identical.",
+  "filename": "2005-03-31-searching-all-craigslistorg-cities"
+}

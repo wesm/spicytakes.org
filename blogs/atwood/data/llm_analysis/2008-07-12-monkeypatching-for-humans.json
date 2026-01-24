@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood explores the progression from simple helper functions to C# extension methods to full dynamic language monkeypatching, using the example of adding a Left() method to the String class. While extension methods offer an elegant way to add functionality to existing classes, dynamic languages like Ruby, Python, and JavaScript allow developers to completely redefine core classes\u2014a power that Atwood argues is frequently abused. He cites examples of subtle, hard-to-debug problems caused by monkeypatching in Ruby plugins and argues that most programmers lack the skill to responsibly redesign language fundamentals. The post concludes that monkeypatching should be treated as a last resort, not a first tool, and that such power should inspire humility rather than hubris.",
+  "key_points": [
+    "C# extension methods provide a safe way to add functionality to classes without the ability to override or replace existing behavior",
+    "Dynamic languages like Ruby allow full monkeypatching, which can redefine fundamental class behaviors and lead to subtle, combinatoric bugs",
+    "Most code is statistically bad, so giving average programmers the power to redesign languages is a recipe for incomprehensible, difficult-to-debug systems",
+    "Language design is a specialized skill\u2014there's a reason the most respected computer scientists become language designers",
+    "Monkeypatching should be a last resort, with developers preferring safer alternatives like mixins or locally extending individual objects"
+  ],
+  "money_quotes": [
+    "Try to imagine a world where every programmer you know is a wannabe language designer, bent on molding the language to their whims.",
+    "When I close my eyes and imagine it, I have a vision of the apocalypse, a perfect, pitch-black storm of utterly incomprehensible, pathologically difficult to debug code.",
+    "I know enough about programmers \u2013 myself absolutely included \u2013 to know the vast majority of us have absolutely no business whatsoever re-designing a programming language.",
+    "Is there anything more pure and godlike than programming your own programming language?",
+    "But if wielding that power doesn't scare and humble you a little, too, then maybe you should leave the monkeypatching to the really smart monkeys.",
+    "Patches interact in unpredictable, combinatoric ways. And by their nature, bugs caused by monkey patches are more difficult to track down than those introduced by more traditional classes and methods.",
+    "Monkeypatching should mean reaching for the meta-hammer as infrequently as humanly possible."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "cautionary, opinionated, self-deprecating humor",
+  "key_insight": "The power to dynamically modify programming languages should inspire humility and restraint, not enthusiasm\u2014most programmers, including ourselves, lack the expertise to responsibly redesign language fundamentals.",
+  "filename": "2008-07-12-monkeypatching-for-humans"
+}

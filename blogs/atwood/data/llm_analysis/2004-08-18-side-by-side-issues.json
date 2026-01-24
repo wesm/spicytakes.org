@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood addresses the challenges of running .NET 1.0 and 1.1 side-by-side on the same development machine, a practice Microsoft was already trying to phase out in 2004. He recommends specific utilities for binding IIS websites to different .NET versions and converting Visual Studio solutions between 2002 and 2003 formats. The post also highlights some problematic .NET APIs that developers should avoid, sourced from another developer's blog. Atwood warns that .NET assemblies loaded via HTML object tags will always bind to the latest runtime version, making side-by-side deployment impossible for that scenario.",
+  "key_points": [
+    "Microsoft was actively trying to make developers forget .NET 1.0 existed, even though side-by-side compatibility was still needed",
+    "Consumer Windows versions ran a 'crippleware' IIS limited to one website and 10 connections, while Server editions had no such restrictions",
+    "VS.NET 2002 and 2003 projects were largely interchangeable due to minimal language changes between .NET 1.0 and 1.1",
+    "Several .NET APIs were problematic enough to be considered 'blacklisted' by experienced developers, including Application.DoEvents()",
+    ".NET assemblies loaded via HTML object tags cannot run side-by-side and always bind to the latest runtime"
+  ],
+  "money_quotes": [
+    "Microsoft is doing their level best to pretend that .NET 1.0 doesn't exist any more",
+    "As a developer you're very likely to be running the crippleware version of IIS",
+    "Application.DoEvents() - The call of the devil",
+    "I had no idea high school seniors were this smart",
+    "There is no concept of side by side for assemblies loaded this way. Shocking, but true",
+    "I would strongly advise against building object tag 'deployed' .NET apps for anything non-trivial"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "practical, sardonic, informative",
+  "key_insight": "Platform vendors often abandon backward compatibility faster than enterprise developers can migrate, forcing developers to maintain workarounds and tribal knowledge about version-specific quirks.",
+  "filename": "2004-08-18-side-by-side-issues"
+}

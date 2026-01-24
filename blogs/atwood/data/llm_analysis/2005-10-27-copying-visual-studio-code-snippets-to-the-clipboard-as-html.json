@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood addresses the frustrating limitation that Visual Studio copies code to the clipboard in RTF format rather than HTML, making it difficult to paste formatted code into web-based editors. He presents an improved macro solution that converts highlighted code to clean HTML while preserving syntax highlighting colors and indentation. The macro works across multiple Visual Studio versions (2002, 2003, 2005) and includes a feature to dynamically remove excessive indentation from copied snippets. He provides the downloadable macro along with step-by-step installation instructions.",
+  "key_points": [
+    "Visual Studio copies code with RTF formatting instead of HTML, making web publishing difficult",
+    "The FormatToHtml macro converts RTF-formatted code to clean, span-colored HTML wrapped in a div",
+    "The macro dynamically removes excessive indentation from code snippets for cleaner output",
+    "The solution works across Visual Studio 2002, 2003, and 2005",
+    "Background colors are lost because VS doesn't include them in the RTF clipboard data"
+  ],
+  "money_quotes": [
+    "Copying code to your clipboard in Visual Studio is often an exercise in futility if you want anything more than plain vanilla text.",
+    "VS copies code to the clipboard with bizarro-world RTF formatting instead of the sane, simple HTML markup you might expect.",
+    "That's extra clean, well-formatted <span> colored HTML wrapped in a simple <div>.",
+    "This is how VS.NET 2005's CTRL+C copy functionality should behave.",
+    "The macro now dynamically removes excessive indenting from copied code."
+  ],
+  "themes": [
+    "programming",
+    "productivity",
+    "software_engineering"
+  ],
+  "tone": "practical",
+  "key_insight": "Developer tools should respect common workflows like web publishing, and when they don't, it's worth building solutions to fill the gaps.",
+  "filename": "2005-10-27-copying-visual-studio-code-snippets-to-the-clipboard-as-html"
+}

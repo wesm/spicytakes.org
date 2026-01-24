@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood examines a fundamental weakness in Bayesian spam filtering: spoofed emails that closely mimic legitimate correspondence from services like PayPal and eBay. Despite achieving 99.8% accuracy with his POPFile setup, these phishing emails slip through because they copy real email templates word-for-word. The core problem is mathematical: Bayesian filters learn from your inbox, so any attacker who knows what legitimate emails look like can craft messages guaranteed to pass. Atwood concludes that popular web services can no longer safely communicate with customers via email, pointing to eBay's shift toward on-site message centers as the inevitable response.",
+  "key_points": [
+    "Bayesian filtering achieves high accuracy (99.8%) but has an exploitable weakness against spoofed emails that mimic legitimate correspondence",
+    "Phishing emails work by copying real email templates from services like PayPal, making them statistically indistinguishable from legitimate messages",
+    "The vulnerability is fundamental to how Bayesian filtering works: knowledge of valid email content allows attackers to craft messages that will pass",
+    "Major services like eBay are abandoning email communication entirely in favor of on-site message centers",
+    "The arms race between spam filters and spammers has reached a point where email itself is becoming unreliable for commercial communication"
+  ],
+  "money_quotes": [
+    "Bayesian filtering is useless against this type of spam; if the spammer knows what any email in your actual inbox looks like, he can construct one that will beat any Bayesian filter.",
+    "This is a strict requirement at the very heart of Bayesian filtering itself; any knowledge of valid contents (e.g., things that 'get through') has to be strictly eliminated.",
+    "Popular web-based services can no longer communicate via email with their customers.",
+    "That's like giving spoofers a free pass; once they have the 'template' email they can copy and paste it into a spoof email that is almost guaranteed to get past Bayesian filtering for users of that service.",
+    "I can't say I blame them; what other choice do they have?"
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "analytical, pragmatic, resigned",
+  "key_insight": "Bayesian spam filtering contains an inherent mathematical vulnerability: any attacker who knows what legitimate emails look like can craft phishing messages that are statistically guaranteed to pass, forcing major services to abandon email communication entirely.",
+  "filename": "2005-06-30-bayesian-kryptonite-spoofed-email"
+}

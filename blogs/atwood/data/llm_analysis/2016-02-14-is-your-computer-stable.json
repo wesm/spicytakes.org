@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that while building computers has become trivially easy, the real challenge is proving that a newly built system is actually stable. He walks through a comprehensive testing regimen covering memory (Memtest86), OS installation, CPU stress testing (mprime/Prime95), disk health (badblocks, SMART, bonnie++), and network throughput (iperf). The post emphasizes that commodity parts may work individually but fail together under specific workloads, making systematic testing essential before deployment.",
+  "key_points": [
+    "Building modern computers has become so simple that it's easier than assembling Lego kits, but booting successfully proves nothing about long-term stability",
+    "Memory testing with Memtest86 should be the first step since it works before any OS is installed and any errors whatsoever indicate instability",
+    "CPU torture testing with mprime/Prime95 running overnight in maximum heat mode is the gold standard for proving processor stability",
+    "Disk testing should include badblocks scans, SMART diagnostics, and benchmarks to verify both health and expected performance",
+    "The entire testing process is about catching faulty components in the lab before they become liabilities in production"
+  ],
+  "money_quotes": [
+    "Everyone breathes a sigh of relief when their newly built computer boots up for the first time, no matter how many times they've done it before. But booting is only the beginning of the story.",
+    "Yeah, it boots, great. Color me unimpressed. What we really need to know is whether that computer is stable.",
+    "There's no guarantee all those parts will work reliably together, in your particular environment, under your particular workload.",
+    "Because we're rational scientists, we test stuff in our native environment, and collect data to prove our computer is stable.",
+    "If you get any errors at all, anything whatsoever other than a clean 100% pass, your computer is not stable.",
+    "The bad news is that it's extremely rare to have any kind of practical, real world workload remotely resembling the stress that Mersenne lays on your CPU. The good news is that if your system can survive the onslaught of Mersenne overnight, it's definitely ready for anything.",
+    "I've identified faulty CPUs (once), faulty RAM, faulty disks, and insufficient case airflow early on so that I could deal with them in the lab, before they became liabilities in the field."
+  ],
+  "themes": [
+    "hardware",
+    "programming",
+    "productivity"
+  ],
+  "tone": "practical, methodical, authoritative with dry humor",
+  "key_insight": "A computer that boots is merely a computer that exists; only systematic stress testing of every component can prove it's actually ready for real work.",
+  "filename": "2016-02-14-is-your-computer-stable"
+}

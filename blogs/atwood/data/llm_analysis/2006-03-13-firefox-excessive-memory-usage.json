@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood documents his frustration with Firefox's memory management, showing it consuming over 900 megabytes after a few days of normal browsing. He identifies the core problem: Firefox never releases memory until all instances are closed. Despite implementing a commonly suggested workaround involving the session history setting, the problem persists. The post serves as an early critique of Firefox's memory issues that would plague the browser for years.",
+  "key_points": [
+    "Firefox consumed over 900MB of memory in a single non-tabbed instance after a few days of use",
+    "The browser never releases memory until all instances are completely closed",
+    "The commonly suggested about:config workaround (browser.sessionhistory.max_total_viewers) proved ineffective",
+    "The author notes this wasn't a problem with IE6, despite preferring Firefox for its add-on ecosystem"
+  ],
+  "money_quotes": [
+    "That's over 900 megabytes of memory for a single, non-tabbed instance of Firefox.",
+    "Firefox never seems to release any of the memory it uses \u2013 until you close all instances of Firefox.",
+    "If you spend enough time browsing the web, and never close Firefox completely, you'll consume nearly a gigabyte of memory!",
+    "I'll look at Task Manager and Firefox will regularly be gobbling up over 400 megabytes. This isn't uncommon. It's normal.",
+    "I can close all instances of Firefox and reduce memory usage back to zero, but why should I have to?"
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism",
+    "productivity"
+  ],
+  "tone": "frustrated, matter-of-fact, diagnostic",
+  "key_insight": "Software that users love for its features can still fail them through poor resource management, and popular workarounds don't always solve fundamental architectural problems.",
+  "filename": "2006-03-13-firefox-excessive-memory-usage"
+}

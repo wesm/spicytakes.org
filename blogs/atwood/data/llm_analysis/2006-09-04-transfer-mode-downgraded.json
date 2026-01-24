@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood investigates why burning a Vista RC1 DVD took nearly an hour and made his PC sluggish. He discovers that Windows had automatically downgraded his IDE transfer mode from Ultra DMA to PIO mode after detecting CRC errors. While this safety mechanism makes sense for hard drives with actual hardware problems, for optical drives it often triggers simply from reading scratched discs. After manually resetting the transfer mode, his burn time dropped from 56 minutes to just 4 minutes.",
+  "key_points": [
+    "Windows automatically downgrades IDE/ATA transfer mode after detecting six CRC errors, displaying a yellow alert in Device Manager",
+    "CRC errors on hard drives indicate serious hardware problems, but on optical drives they often just mean a scratched disc was read",
+    "The transfer mode can be reset through Device Manager by selecting 'Let BIOS select transfer mode' or by uninstalling and redetecting the channel",
+    "PIO mode is dramatically slower than DMA mode - in this case, 56 minutes vs 4 minutes for the same DVD burn"
+  ],
+  "money_quotes": [
+    "I began to suspect something was awry with the IDE controller that the DVD-R drive is connected to.",
+    "This behavior is, of course, by design.",
+    "CRC errors are very dangerous for a hard drive \u2013 that means you've got some serious hardware problems. But for a DVD or CD drive, it probably just means you tried to read a scratched disc.",
+    "Don't worry, uninstalling won't cause any problems. Just reboot and the channel will be redetected with default settings.",
+    "Friends don't let friends use Programmed I/O Mode."
+  ],
+  "themes": [
+    "hardware"
+  ],
+  "tone": "technical, helpful, slightly exasperated",
+  "key_insight": "Windows' automatic IDE transfer mode downgrade is a well-intentioned safety feature that can severely cripple optical drive performance due to false positives from scratched discs.",
+  "filename": "2006-09-04-transfer-mode-downgraded"
+}

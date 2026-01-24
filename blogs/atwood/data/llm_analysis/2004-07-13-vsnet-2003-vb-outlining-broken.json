@@ -1,0 +1,23 @@
+{
+  "summary": "Jeff Atwood documents a frustrating bug in Visual Studio .NET 2003 where VB code outlining features are completely broken, despite working correctly in VS.NET 2002. The standard menu options for toggling outlining do nothing, and even disabling outlining mode in settings has no effect. Rather than waiting for Microsoft to patch the issue, Atwood shares a community-sourced workaround: a VB macro that manually expands and collapses #Region blocks by searching through the document. The post serves as both a bug report and a practical solution for developers affected by this issue.",
+  "key_points": [
+    "VS.NET 2003 broke VB code outlining that worked perfectly in the 2002 version, with both menu commands and settings toggles failing to work",
+    "The bug makes working with #Region blocks essentially impossible for teams that rely heavily on code organization",
+    "A community member created a macro-based workaround that searches for #region tags and toggles their expansion state",
+    "The solution requires manual installation through the Macros IDE and custom keyboard shortcut assignment",
+    "Microsoft had not released a patch for this significant regression despite it being a known issue"
+  ],
+  "money_quotes": [
+    "Evidently the VB code outlining support is completely broken in VS.NET 2003. Why hasn't this gotten more publicity?",
+    "I can't believe this hasn't been fixed yet in a patch for VS.NET 2003, because it makes working with #Region \u2013 which we use a lot \u2013 pretty much impossible.",
+    "While it's not a fix, per se, it does add support for #Region outlining at the very least."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "frustrated, practical, community-oriented",
+  "key_insight": "When major vendors ship broken features, the developer community often has to create their own workarounds rather than wait for official fixes.",
+  "filename": "2004-07-13-vsnet-2003-vb-outlining-broken"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood documents his alarming discovery that a barely-trafficked WordPress blog was consuming excessive CPU resources, with the PHP FastCGI process running at unsustainable levels. He found that WordPress performs twenty database queries on every page load even when nothing has changed, which he considers fundamentally irresponsible design. The problem is so widespread that an entire ecosystem of caching plugins exists to fix it. Atwood argues that WP-Cache functionality should have been built into WordPress core years ago, comparing it unfavorably to ASP.NET's built-in caching solutions. He expresses relief that his own Coding Horror blog uses Movable Type's static rendering approach instead. The post concludes with an update noting that Matt Mullenweg provided MySQL optimization tips and that a Google Summer of Code project was finally addressing the issue.",
+  "key_points": [
+    "A default WordPress install queries the database twenty times per page refresh, even when nothing has changed",
+    "The CPU usage problem is so common that a cottage industry of caching plugins (WP-Cache, WP-Super-Cache, Bad Behavior) has emerged to address it",
+    "Other frameworks like ASP.NET have had page output caching built in for years, making WordPress's omission inexcusable",
+    "Matt Mullenweg's dismissive response to the caching issue demonstrates poor prioritization by WordPress leadership",
+    "Static rendering approaches like Movable Type's, though derided as outdated, are far more resilient to traffic spikes"
+  ],
+  "money_quotes": [
+    "A default WordPress install will query the database twenty times every time you refresh the page, even if not one single element on that page has changed. Doesn't that strike you as a bad idea?",
+    "I think it's absolutely irresponsible that WP-Cache like functionality isn't already built into WordPress.",
+    "I cannot accept that a default, bare-bones WordPress install hasn't the first clue how to cache and avoid expensive, redundant trips to the database.",
+    "Their classic static rendering blog engine approach may be derided today, but I shudder to think of the number of times the Coding Horror webserver would have been completely incapacitated over the years by the na\u00efve \u2013 no, that's too tame \u2013 brainlessly stupid dynamic rendering approach WordPress uses.",
+    "Yes, the easiest path, the path of least resistance, is to mindlessly query the database every time you're building a page.",
+    "For a bare-bones blog which is doing approximately nothing, this is a completely unacceptable result. It's appalling."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism",
+    "programming"
+  ],
+  "tone": "critical, frustrated, opinionated",
+  "key_insight": "Popular software that prioritizes ease of development over sensible defaults creates systemic problems that shouldn't require third-party fixes to achieve basic acceptable performance.",
+  "filename": "2008-04-22-behold-wordpress-destroyer-of-cpus"
+}

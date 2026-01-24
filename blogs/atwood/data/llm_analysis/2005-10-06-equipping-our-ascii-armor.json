@@ -1,0 +1,23 @@
+{
+  "summary": "Atwood explores the challenge of fitting a 128-bit GUID into a 20-character ASCII string for an e-commerce transaction ID. He explains why raw bytes won't work (control characters like carriage return and null are problematic), then systematically compares encoding schemes: hex (32 bytes), UUEncode (25 bytes), Base64 (22 bytes), and ASCII85 (20 bytes). ASCII85 wins by using the largest practical character set (85 printable characters), barely fitting the GUID into the constraint. The post demonstrates practical problem-solving while teaching encoding fundamentals.",
+  "key_points": [
+    "Raw byte values can't be transmitted as text because ASCII includes non-printable control characters (null, carriage return, etc.)",
+    "The trade-off in ASCII armor is clear: fewer available characters means longer encoded strings",
+    "Hex encoding is simple but inefficient (32 chars), while ASCII85 is complex but optimal (20 chars)",
+    "Base64's trailing '==' is padding, not content, making its effective length 22 characters",
+    "Sometimes the 'latest and greatest' solution (ASCII85) is necessary when constraints are tight"
+  ],
+  "money_quotes": [
+    "So the question is, how do we represent a 128-bit integer in a plain text string that fits in 20 characters?",
+    "But wait a minute. ASCII 13 is carriage return! And good luck sending ASCII 0 (aka null) to anyone.",
+    "We're forced to use only printable ASCII characters. Which means we'll have to use more bytes to represent the same data; it's unavoidable.",
+    "So it is possible to fit a complete GUID in 20 printable ASCII characters using the latest and greatest ASCII Armor. But just barely!"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical, methodical, conversational",
+  "key_insight": "When encoding binary data as text, your character set size directly determines your efficiency\u2014more printable characters means shorter strings, with ASCII85 being the practical maximum at 85 characters.",
+  "filename": "2005-10-06-equipping-our-ascii-armor"
+}

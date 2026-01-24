@@ -1,0 +1,23 @@
+{
+  "summary": "This technical post documents the author's solution to handling HTTP deflate compression in .NET's WebClient class, which lacks built-in compression support. After a reader pointed out that his previous gzip-only solution failed for deflate-compressed responses, Atwood hunted down a fix using SharpZipLib. The post provides working VB.NET code that handles both gzip and deflate decompression, with the key insight being that the Inflater class needs a specific constructor parameter for raw deflate streams. Atwood notes that deflate compression is extremely rare on the web, making working code samples hard to find.",
+  "key_points": [
+    "The .NET WebClient class lacks native HTTP compression support, requiring manual decompression",
+    "Deflate compression is extremely rare on the open internet compared to gzip",
+    "SharpZipLib's InflaterInputStream requires passing True to the Inflater constructor for HTTP deflate streams",
+    "A third HTTP compression type called 'compress' exists but is essentially unused",
+    "Community forums proved essential for solving the edge case when documentation was lacking"
+  ],
+  "money_quotes": [
+    "This is case of be careful what you ask for.",
+    "For whatever reason, deflate compression is extremely rare on the open internet.",
+    "In desperation \u2013 my OCD prohibits me from letting that last 1% case go \u2013 I turned to the only relevant Google result I could find.",
+    "There is also a mysterious, third kind of HTTP compression, compress. Ok, it's not all that mysterious, but nobody seems to use it. What's up with that?"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "When dealing with edge cases in HTTP compression, community knowledge often fills the gaps that official documentation leaves empty.",
+  "filename": "2005-01-12-net-webclient-and-deflate"
+}

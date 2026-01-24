@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explains the importance of anisotropic filtering in 3D graphics, contrasting it with simpler techniques like bilinear filtering and mip-mapping. While mip-mapping intentionally reduces detail at distance to prevent noisy images, standard filtering loses too much detail when textures are viewed at angles. Anisotropic filtering preserves significantly more detail on angled surfaces, which represents most polygons in typical 3D scenes. ATI pioneered performance optimizations for anisotropic filtering that trade perfect accuracy at uncommon angles for better performance, a tradeoff now standard across GPU vendors.",
+  "key_points": [
+    "Standard bilinear filtering and mip-mapping lose excessive detail when texture-mapped polygons are rotated away from the viewer",
+    "Mip-mapping is necessary to prevent noisy images at distance, but simple implementations are too aggressive in detail reduction",
+    "Anisotropic filtering has a profound impact on image quality because most polygons in 3D scenes are viewed at angles",
+    "ATI introduced optimizations that prioritize common viewing angles (floors, walls, ceilings) over edge cases, trading perfect filtering for performance",
+    "These angle-based optimizations are now standard across both ATI and nVidia hardware"
+  ],
+  "money_quotes": [
+    "As you rotate a texture-mapped polygon away from the viewer, simple bilinear filtering and mip-mapping cause the texture to lose detail as the angle increases",
+    "Some detail loss with distance is intentional",
+    "That's what anisotropic filtering does",
+    "Because you're typically viewing most of the polygons in the world at an angle at any given time, anisotropic filtering has a profound impact on image quality",
+    "Anisotropic filtering is the most important single image quality setting available on today's 3D hardware",
+    "It's like Freedom Rock: make sure you've turned it up, man!"
+  ],
+  "themes": [
+    "hardware",
+    "programming"
+  ],
+  "tone": "technical, enthusiastic, accessible",
+  "key_insight": "Anisotropic filtering is the single most impactful graphics quality setting because it preserves texture detail on angled surfaces, which represent the majority of what you see in any 3D scene.",
+  "filename": "2006-01-08-anisotropic-filtering"
+}

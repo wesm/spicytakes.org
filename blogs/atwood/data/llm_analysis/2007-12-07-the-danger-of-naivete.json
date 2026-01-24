@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines why a seemingly reasonable 'na\u00efve' shuffle algorithm produces biased results that would be exploitable in a real card game. The na\u00efve approach of swapping each card with a random position creates 27 possible paths for a 3-card deck, but only 6 actual combinations exist, causing uneven distribution. The correct Knuth-Fisher-Yates algorithm avoids this by progressively reducing the swap range. Atwood emphasizes that the two algorithms differ by only a few characters of code, yet produce dramatically different statistical outcomes. The post serves as a warning that simple, intuitive code can be subtly and profoundly wrong, and that thorough testing is essential even for straightforward implementations.",
+  "key_points": [
+    "The na\u00efve shuffle algorithm creates n^n possible paths but only n! valid combinations, making even distribution mathematically impossible",
+    "More shuffling actually produces worse results, not better - a counterintuitive finding that contradicts physical card shuffling intuition",
+    "The Knuth-Fisher-Yates algorithm fixes the bias by reducing the random range at each step, producing exactly n! paths",
+    "The bug is invisible without statistical testing - a few manual runs would never reveal the bias",
+    "The difference between correct and broken code is minuscule: just changing the random range parameter"
+  ],
+  "money_quotes": [
+    "The na\u00efve shuffle algorithm is biased and fundamentally broken.",
+    "Once it gets checked in, this code is a landmine waiting to explode.",
+    "More shuffling results in worse, not better, results.",
+    "It's a minute difference in the code, but a profound difference in results.",
+    "It is possible for the code to be both simple and wrong.",
+    "No matter how simple your code may be, there's no substitute for testing it to make sure it's actually doing what you think it is.",
+    "27 is not evenly divisible by six."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "educational, analytical, cautionary",
+  "key_insight": "Intuitive simplicity in code is no guarantee of correctness; subtle algorithmic flaws can hide in plain sight and require rigorous statistical testing to uncover.",
+  "filename": "2007-12-07-the-danger-of-naivete"
+}

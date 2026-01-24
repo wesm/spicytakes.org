@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood examines the deceptively complex problem of detecting and auto-linking URLs in text. While a naive regex approach seems simple, it fails when users enclose URLs in parentheses\u2014a common practice\u2014because parentheses are actually valid URL characters per the spec. Sites like Wikipedia and MSDN frequently generate URLs containing parentheses, making it impossible to simply ignore trailing parens. Atwood presents a more sophisticated regex solution with a whitelist of valid characters and post-processing logic, but ultimately concludes that website creators should avoid using unusual characters in URLs they generate.",
+  "key_points": [
+    "Simple URL detection regex fails when users wrap URLs in parentheses, which is extremely common behavior",
+    "Parentheses are perfectly legal URL characters per RFC 1738, creating an ambiguity problem",
+    "Allowing arbitrary characters in URLs creates XSS vulnerability risks",
+    "A whitelist approach for URL characters combined with post-processing logic handles most cases",
+    "The real solution is for website creators to avoid generating URLs with unusual characters"
+  ],
+  "money_quotes": [
+    "URLs are simple things. Or so you'd think.",
+    "What's truly aggravating is that parens in URLs are perfectly legal.",
+    "You could force users to escape the parens, but that's sort of draconian, and it's a little unreasonable to expect your users to know how to escape characters in the URL.",
+    "Allowing arbitrary random characters in URLs is setting yourself up for XSS exploits, and I can tell you that from personal experience.",
+    "That's a whole lot of extra work, just because the URL spec allows parens.",
+    "Avoid using parens (or any unusual characters, for that matter) in URLs you create. They're annoying to use, and rarely handled correctly by auto-linking code."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "technical, pragmatic, mildly frustrated",
+  "key_insight": "URL parsing is a perfect example of how seemingly simple problems become complex when specs collide with real-world user behavior, and sometimes the best solution is to avoid creating the problem in the first place.",
+  "filename": "2008-10-29-the-problem-with-urls"
+}

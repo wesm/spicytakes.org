@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that XCopy deployment\u2014installing software by simply copying files to a folder\u2014represents the gold standard for .NET application architecture. He contrasts this with the dependency hell of VB6, where OCX controls and registry entries made deployment nightmarish. While acknowledging that users still expect traditional installers for conveniences like Start menu icons and Add/Remove Programs integration, he maintains that developers should always minimize dependencies and work toward the simplest possible deployment model.",
+  "key_points": [
+    "XCopy deployment was impossible in VB6 due to complex OCX and runtime dependencies, but .NET finally enables it",
+    "Projects that can't support XCopy deployment should be examined for architectural problems",
+    "Users aren't ready for XCopy deployment\u2014they expect installers to handle icons, shortcuts, and program registration",
+    "Keeping project dependencies minimal should be a constant goal, even if full XCopy deployment isn't practical",
+    "The ability to run from a USB drive is a good litmus test for dependency management"
+  ],
+  "money_quotes": [
+    "XCopy is the gold standard for correctly architected .NET software projects.",
+    "If the design of your .NET project precludes XCopy deployment, take a long, hard look at what you're doing.",
+    "Don't just treat the symptoms of the disease.",
+    "I'm not sure users are ready for XCopy deployment. Do we really expect users to be able to unzip an archive to a folder?",
+    "Honestly, do you really think your program would end up in the Program Files folder if you left it up to the user? I'll tell you where it would go \u2013 on the desktop.",
+    "The installer is a distraction, but a necessary one for users' sanity.",
+    "Can your app run from a USB keychain?"
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "human_factors"
+  ],
+  "tone": "opinionated, practical, slightly sardonic",
+  "key_insight": "The complexity of your deployment process is a direct reflection of your architectural decisions\u2014strive for XCopy simplicity even when you need an installer for user convenience.",
+  "filename": "2005-03-19-make-mine-xcopy"
+}

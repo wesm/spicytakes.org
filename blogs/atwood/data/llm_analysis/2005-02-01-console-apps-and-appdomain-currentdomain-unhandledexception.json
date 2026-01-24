@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood documents a puzzling behavior change in .NET console applications where the AppDomain.CurrentDomain.UnhandledException handler no longer properly captures exceptions on the main thread. Despite registering an unhandled exception handler, applications display the standard .NET crash dialog first, only invoking the custom handler after the dialog is dismissed. He suspects this behavior changed with .NET 1.1 SP1 or XP SP2 but cannot confirm it. The post includes sample code and references to reproduce the issue, and notes that the only workaround disables crash dialogs for all .NET applications.",
+  "key_points": [
+    "Unhandled exception handlers in .NET console apps show the crash dialog before invoking custom handlers, contrary to expected behavior",
+    "The behavior appears consistent across all machines tested, ruling out development environment quirks",
+    "MSDN documentation and sample code imply the expected behavior should work, but it doesn't",
+    "The only known workaround is a global setting that affects all .NET applications",
+    "The author suspects a regression introduced in .NET 1.1 SP1 or Windows XP SP2"
+  ],
+  "money_quotes": [
+    "you'll get the standard .NET crash dialog in a console app, even if you've registered an unhandled exception handler for your AppDomain",
+    "The compiled .exe behaves in the same way on every machine I tried it on",
+    "That's... not exactly the order I had in mind",
+    "it's also treating the symptoms rather than the disease: why can't we catch unhandled exceptions in console apps any more?",
+    "the MSDN sample code certainly implies that it's possible \u2013 but good luck getting that sample to print the expected output"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "frustrated, investigative, technical",
+  "key_insight": "Framework updates can silently break expected behavior in ways that contradict official documentation, leaving developers to discover regressions through painful trial and error.",
+  "filename": "2005-02-01-console-apps-and-appdomain-currentdomain-unhandledexception"
+}

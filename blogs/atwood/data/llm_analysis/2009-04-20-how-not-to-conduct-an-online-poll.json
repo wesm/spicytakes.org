@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood dissects the gaming of Time Magazine's 2009 World's Most Influential People poll, revealing a cascade of basic security failures. The poll launched with no authentication, no input validation, and easily bypassed rate limiting. Time's attempts to fix the vulnerabilities were equally amateur, hiding a 'secret' salt in client-side Flash code. The result was hackers not only putting 4chan founder moot at the top but spelling out a message with the first letters of the top 21 names. Atwood argues this wasn't impressive hacking\u2014it was shooting fish in a barrel against incompetent developers.",
+  "key_points": [
+    "Time's poll launched without authentication, validation, or even range checking on vote values\u2014basic web security 101 failures",
+    "Their attempted fix hid the authentication salt in client-side Flash, which hackers quickly extracted",
+    "The 13-second IP throttling could be bypassed by simply cycling through different candidates",
+    "The 'hackers' spelled out 'marblecake also the game' using the first letters of the top 21 names",
+    "Atwood dismisses this as not a real hack, contrasting it with genuinely impressive exploits like the Black Sunday hack"
+  ],
+  "money_quotes": [
+    "This isn't high security; this is web 101.",
+    "Any programmer with even a rudimentary understanding of how the web works would have thought of these exploits immediately.",
+    "When good is dumb, evil will always triumph.",
+    "Is it really a precision hack when your adversaries are incompetent?",
+    "Time eventually responded \u2013 with all the skill and expertise of... a team who put together the world's most insecure online poll.",
+    "So-called secret poorly hidden on the client: check!",
+    "I'm not sure they come any dumber than these clowns."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "satirical, critical, dismissive",
+  "key_insight": "Exploiting a system with no security isn't hacking\u2014it's walking through an open door, and the real failure belongs to developers who ignore basic web security principles.",
+  "filename": "2009-04-20-how-not-to-conduct-an-online-poll"
+}

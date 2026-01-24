@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explores the hierarchy of software failures, arguing that data loss and corruption are far worse than crashes. He examines the tension between 'fail fast' development philosophy and user-friendly error recovery, noting that while failing fast helps developers find bugs, it frustrates users. However, attempting to silently recover from errors can lead to catastrophic data corruption. The solution is a balanced approach: fix problems when safely possible, but always prioritize protecting user data above all else.",
+  "key_points": [
+    "Software failures exist on a spectrum from minor crashes to catastrophic data loss, with data corruption being the worst possible outcome",
+    "The 'fail fast' philosophy benefits developers but frustrates users who just want to get work done",
+    "Attempting to automatically recover from errors can mask problems and lead to worse failures later",
+    "Protecting user data is a 'sacred trust' that affects not just individual programs but the credibility of the entire software industry",
+    "Developers must balance being helpful (fixing problems automatically) with being safe (never risking data integrity)"
+  ],
+  "money_quotes": [
+    "A system that fails fast does exactly the opposite: when a problem occurs, it fails immediately and visibly. Failing fast is a nonintuitive technique: 'failing immediately and visibly' sounds like it would make your software more fragile, but it actually makes it more robust.",
+    "Computers are spectacularly unforgiving, so it's only natural for developers to reflect that masochism directly back on users.",
+    "Attempting to help the user by fixing the error could make things worse by leading to subtle and catastrophic failures down the road.",
+    "Protecting the user's data is a sacred trust.",
+    "If you harm that basic contract of trust between the user and your program, you're hurting not only your credibility \u2013 but the credibility of the entire software industry as a whole.",
+    "Once they've been burned by data loss or corruption, users don't soon forgive.",
+    "The guiding principle here, as always, should be to respect your users."
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "programming"
+  ],
+  "tone": "pragmatic, user-focused, advisory",
+  "key_insight": "When software fails, protecting user data must always take precedence over avoiding error messages\u2014crashes are recoverable, but lost data destroys trust forever.",
+  "filename": "2007-08-02-whats-worse-than-crashing"
+}

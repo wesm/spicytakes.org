@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines the fundamental disconnect between how filesystems work and how users think about their documents, drawing on observations from Jef Raskin and Alan Cooper. The post argues that most users find filesystems bewildering because they violate basic mental models\u2014users imagine documents like physical papers that exist in one place, not as copies shuttled between disk and memory. Raskin proposed eliminating filesystems entirely in favor of full-text search, which he actually implemented in products like the Canon Cat. Cooper offered a less radical solution: hide the filesystem completely through automatic saving and versioning. Both experts agree that the traditional file/save paradigm forces implementation details onto users who shouldn't need to care about them. The core message is that filesystems are an engineering necessity, not a user feature.",
+  "key_points": [
+    "Users mentally model documents as single physical objects they own, but filesystems create confusing dual copies between disk and memory",
+    "File naming is cognitively burdensome\u2014users must invent unique, memorable names during moments when naming isn't their actual focus",
+    "Full-text search could replace hierarchical file organization since content is more memorable than arbitrary filenames",
+    "The 'Save' dialog asking whether to keep changes is absurd from a user's perspective\u2014they just made changes, of course they want to keep them",
+    "Jef Raskin shipped filesystem-free products in the 1980s that were critically successful, proving the concept was viable"
+  ],
+  "money_quotes": [
+    "To them, file open or file save dialog is where the files go. My Documents? It's just an icon they never touch.",
+    "Creating names is an onerous task: you are required to invent, on the spot and in a few moments, a name that is unique, memorable, and within the naming conventions of the filesystem you are using.",
+    "An unlimited length file name is a file. The content of a text file is its own best name.",
+    "The implementation model of the file system runs contrary to the mental model almost all users bring to it.",
+    "It's as if the shelf were to speak up, asking him if he really wants to keep those changes!",
+    "Disks are a hack, not a design feature.",
+    "Just because us programmers are stuck with the annoying two-copy filesystem model doesn't mean we have to mindlessly subject users to it."
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "critical, analytical, advocacy",
+  "key_insight": "Filesystems expose implementation details that contradict how humans naturally think about documents, and good software design should hide this complexity rather than forcing users to understand it.",
+  "filename": "2006-01-02-filesystems-arent-a-feature"
+}

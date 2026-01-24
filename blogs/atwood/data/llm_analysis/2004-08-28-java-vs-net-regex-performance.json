@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood investigates claims that .NET regex performance is '20 times slower than Java' by running his own benchmarks. After downloading the Java JDK and converting the test code to VB.NET, he finds the opposite result: .NET actually performs about 40% faster than Java. He notes methodological issues with the original benchmark, including timer resolution limitations and a potential bug in the timing loop. Atwood concludes that hardware improvements over the 6-month period may be the real story, as his Java code ran three times faster than the original benchmark on newer hardware.",
+  "key_points": [
+    "The claim that .NET regex is 20x slower than Java was too extreme to be credible and warranted independent verification",
+    ".NET actually benchmarked 40% faster than Java in Atwood's controlled test",
+    "The original Java benchmark had methodological issues including 10ms timer resolution limitations and a timing loop bug",
+    "Hardware improvements over just 6 months produced a 3x speedup, dwarfing any language differences",
+    "Accurate benchmarking requires attention to details like debugger attachment, timer precision, and consistent methodology"
+  ],
+  "money_quotes": [
+    "First of all, them's fightin' words, and second, those results are just too crazy to really make sense.",
+    "Why would C# be over an order of magnitude slower than Java at a classic computer science problem like a regular expression parser? I don't believe it.",
+    "So... yeah. I don't know what kind of crack the guys at manageability.org are smoking, but I can't seem to find a local vendor.",
+    "Even though .NET appears to perform almost 40 percent faster than Java in this test, it's still interesting that in only 6 months since that Java benchmark was run (813ms), I can produce Java code that runs over three times as fast (266ms)!",
+    "So before we put our language war hats on, consider that perhaps the real winner here is the hardware."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "skeptical, empirical, playfully combative",
+  "key_insight": "Extraordinary performance claims demand independent verification, and often the real story lies in methodology flaws or external factors like hardware improvements rather than language differences.",
+  "filename": "2004-08-28-java-vs-net-regex-performance"
+}

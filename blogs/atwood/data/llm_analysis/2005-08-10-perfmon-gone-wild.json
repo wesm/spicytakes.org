@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood addresses the challenge of using Windows Performance Monitor (perfmon) for server diagnostics, noting that while Task Manager suffices for basic bottleneck identification, deeper analysis requires perfmon's overwhelming array of counters. He critiques Microsoft's performance monitor wizard for producing traces with far too much information, then provides a curated list of essential performance counters covering CPU, memory, disk, and network metrics. The post serves as a practical guide for developers who need to diagnose server issues without drowning in data, recommending CSV export and LogParser for more advanced analysis needs.",
+  "key_points": [
+    "Task Manager is the first-line diagnostic tool for identifying whether bottlenecks are CPU, disk, network, or memory related",
+    "Microsoft's perfmon wizard produces overwhelming amounts of data that obscures rather than illuminates performance issues",
+    "A focused set of about 10 key counters across processor, memory, disk, and network is sufficient for general bottleneck diagnosis",
+    "For deeper analysis, exporting to CSV and using LogParser allows SQL-like querying and graphing of performance data"
+  ],
+  "money_quotes": [
+    "using perfmon is like trying to sip from a fire hose: there are a zillion performance counters that produce veritable mountains of data",
+    "I always resist doing this for as long as I can",
+    "It's perfmon gone wild!",
+    "This is way, way, WAY too much information",
+    "Those counters should be enough to give you a general sense of whether you're dealing with a disk, memory, CPU, or network bottleneck \u2013 without being too overwhelming",
+    "that's usually enough to get a rough idea of where we are in the bottleneck shell game"
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "hardware"
+  ],
+  "tone": "practical",
+  "key_insight": "Effective performance monitoring isn't about collecting all available data, but about identifying the minimal set of metrics that actually answer your diagnostic questions.",
+  "filename": "2005-08-10-perfmon-gone-wild"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood argues that the most critical factor for virtual machine performance is running VMs from a separate physical hard drive rather than the same drive as your operating system. The disk I/O bottleneck is by far the biggest performance penalty in virtualization, as VM disk images routinely grow to multiple gigabytes. He recommends desktop users adopt a two-drive approach: a fast 10,000 rpm drive for the OS and a separate data drive for VMs. For laptop users, external USB 2.0 or eSATA enclosures provide a practical alternative that delivers noticeable real-world performance improvements.",
+  "key_points": [
+    "Disk I/O is the primary performance bottleneck in virtual machines by a wide margin, not CPU or memory",
+    "Running VMs on the same drive as your OS forces them to compete for disk access, significantly degrading performance",
+    "A two-drive desktop setup with a fast OS drive and separate data drive is ideal for VM performance",
+    "External USB 2.0 enclosures with 7,200 rpm drives can outperform internal 5,400 rpm laptop drives for VM workloads",
+    "eSATA connections offer native SATA speeds and are becoming more common on motherboards"
+  ],
+  "money_quotes": [
+    "The primary performance bottleneck in virtual machines, by a very wide margin, is the hard drive.",
+    "Making the VM fight with your OS and swap disk makes this issue much, much worse.",
+    "It shouldn't be too surprising that the disk subsystem has a disproportionately large impact on overall virtual machine performance.",
+    "The real-world performance improvement gained from running a VM on an external USB 2.0 drive is quite noticeable.",
+    "It's also a good way to segregate your operating system and data in case you need to do a complete wipe of your operating system."
+  ],
+  "themes": [
+    "hardware",
+    "productivity",
+    "software_engineering"
+  ],
+  "tone": "technical, practical, advisory",
+  "key_insight": "Virtual machine performance is dominated by disk I/O, so physically separating your VM storage from your OS drive eliminates the contention that causes the biggest slowdowns.",
+  "filename": "2006-10-27-the-single-most-important-virtual-machine-performance-tip"
+}

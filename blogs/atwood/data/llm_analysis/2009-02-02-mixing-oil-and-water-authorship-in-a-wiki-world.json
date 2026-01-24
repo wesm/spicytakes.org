@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explores the tension between wiki-style collaborative editing and traditional authorship on Stack Overflow. He examines competing research on Wikipedia contributions, noting that while insiders make most edits, outsiders contribute most actual content. Stack Overflow deliberately mixes both models: reputation and signatures provide authorship accountability, while wiki-style editing allows trusted users to improve content communally. Atwood describes implementing a diff-based algorithm to track authorship across revisions, ensuring that even heavily-edited posts properly attribute their original authors. The solution uses line-based comparison rather than character-level Levenshtein distance for performance reasons.",
+  "key_points": [
+    "Jimmy Wales claimed 0.7% of Wikipedia users made 50% of edits, but Aaron Swartz's study measuring actual contributed letters showed the opposite: outsiders provide most content while insiders just make frequent small edits",
+    "Stack Overflow intentionally combines opposing paradigms: blog-style authorship with reputation systems alongside wiki-style communal editing",
+    "Knowing who wrote something fundamentally changes how we respond to it - authorship provides context about background, skills, and credibility",
+    "Implementing authorship tracking across revisions required abandoning character-level Levenshtein distance (too slow) for line-based diff algorithms",
+    "The system gives a 2x bonus multiplier to original authors and reports the highest percentage of authorship in the final revision"
+  ],
+  "money_quotes": [
+    "Insiders account for the vast majority of the edits. But it's the outsiders who provide nearly all of the content.",
+    "Authorship and wiki are fundamentally opposing goals.",
+    "Communal ownership is all well and good, but sometimes you still need to know Who Wrote This Crap.",
+    "How do you balance self-interest (vote for me) with selflessness (vote for this content)?",
+    "If you knew this question was from Turing Award winning computer scientist Alan Kay, would it change the way you reacted to it? Of course it would!",
+    "How can you possibly form a community when everyone is a random, anonymous contributor?",
+    "Wiki posts by Alan Kay look like they're from Alan Kay."
+  ],
+  "themes": [
+    "software_engineering",
+    "communities",
+    "human_factors"
+  ],
+  "tone": "technical, reflective, pragmatic",
+  "key_insight": "Successful community platforms must balance the wiki ideal of content over ego with the human need for authorship and accountability, because knowing who wrote something fundamentally shapes how we engage with it.",
+  "filename": "2009-02-02-mixing-oil-and-water-authorship-in-a-wiki-world"
+}

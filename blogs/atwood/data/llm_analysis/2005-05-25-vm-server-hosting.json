@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood shares his experience hosting his website on a Microsoft Virtual Server during his move to California. Despite having a Xeon 2.8GHz server, he finds VM performance disappointing, with the system performing like hardware half as powerful. He notes that even without CPU emulation, the overhead of emulating motherboard hardware\u2014especially disk and video\u2014is substantial. The post concludes with practical advice: invest in fast dedicated disks and sufficient memory, though there's no silver bullet for VM performance issues.",
+  "key_points": [
+    "VM performance overhead is much higher than expected, effectively halving the apparent CPU speed",
+    "Hardware emulation costs are substantial even when not emulating the x86 processor itself",
+    "Disk and video emulation are particularly expensive operations",
+    "Standard optimization advice applies: fast dedicated disks and adequate memory",
+    "The convenience of VMs comes with a significant performance tradeoff"
+  ],
+  "money_quotes": [
+    "I am disappointed with VM performance",
+    "Under actual use, it performs more like a 1.4ghz Pentium 4 \u2013 the older version with only 512kb L2 cache!",
+    "VMs are great for convenience, but the performance cost is quite a bit higher than I expected it to be \u2013 on both client and server.",
+    "Even if you aren't emulating the x86 processor, the cost of emulating the motherboard hardware is clearly substantial.",
+    "No silver bullet there; get the fastest disks you can afford, dedicate them to VMs, and make sure you have enough memory."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Virtual machine convenience comes at a steep performance cost, with hardware emulation overhead cutting effective performance roughly in half even on capable server hardware.",
+  "filename": "2005-05-25-vm-server-hosting"
+}

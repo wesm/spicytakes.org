@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that programmers should avoid manipulating thread priorities, using a real-world example where setting a thread to BelowNormal priority caused a program to hang for over two minutes on single-processor machines. He references Joe Duffy's expertise on threading to explain how priority manipulation can cause priority inversion and thread starvation. The post notes that nearly all processes run at Normal priority for good reason, and that dual-core CPUs essentially serve as a hardware workaround for poorly written threaded code. Atwood concludes that developers should trust the operating system's scheduler rather than trying to outsmart it.",
+  "key_points": [
+    "Setting thread priorities can cause unexpected starvation where higher-priority threads block lower-priority ones from ever completing their work",
+    "Nearly all processes on any system run at Normal priority, with only essential system processes elevated - this uniformity exists for good reason",
+    "Dual-core processors act as protection against poorly written threaded programs by providing a spare CPU when one gets pegged at 100%",
+    "The operating system scheduler is written by experts and attempting to outsmart it with priority tweaks almost always backfires",
+    "Even explicit Sleep calls don't help when priority starvation occurs - the lower priority thread simply never gets scheduled"
+  ],
+  "money_quotes": [
+    "Programmers love to futz around with thread priorities. As if programming with threads wasn't already dangerous enough, we've got to get in there and tweak thread priorities to make things run... er... 'better.'",
+    "This little threading demo highlights one of the reasons a dual-core computer is so desirable \u2013 it protects you from poorly written programs.",
+    "Hardware fixes to software problems are never pretty.",
+    "Messing with thread priorities is actually a very dangerous practice, and this is only one illustration of what can go wrong.",
+    "The consumer will just spin forever and unless a free CPU opens up, the producer will never produce. Oops!",
+    "Set up your threads at normal priority and let the operating system deal with scheduling them.",
+    "No matter how brilliant a programmer you may be, I can practically guarantee you won't be able to outsmart the programmers who wrote the scheduler in your operating system."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "cautionary, slightly sarcastic, technical",
+  "key_insight": "Thread priority manipulation is a dangerous optimization that typically backfires, and developers should trust the operating system's scheduler rather than attempting to outsmart it.",
+  "filename": "2006-08-29-thread-priorities-are-evil"
+}

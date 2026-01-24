@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explores the tension between implementing Finalize methods in .NET and their actual utility. He cites Brent Rector's argument that Finalize methods rarely provide real benefit since in worst-case scenarios (abnormal process termination) they won't run anyway, while imposing significant performance penalties. However, he notes that Microsoft's best practice recommends implementing both IDisposable and a Finalizer when wrapping unmanaged resources. Atwood finds this guidance contradictory and leaves the question somewhat unresolved.",
+  "key_points": [
+    "Finalize methods have a large performance penalty in .NET",
+    "In the worst-case scenario of abnormal termination, Finalize never runs anyway",
+    "Microsoft recommends implementing both IDisposable and Finalize as a safety net",
+    "The pattern uses GC.SuppressFinalize to skip finalization when Dispose is called properly",
+    "The official guidance and practical advice are contradictory"
+  ],
+  "money_quotes": [
+    "In a worst-case scenario, your object's Finalize method won't run until your process terminates gracefully.",
+    "Actually, the real worst case is that it never runs at all because the process terminates abnormally.",
+    "The Finalize method served no real purpose other than to keep the application from running as fast as it otherwise could.",
+    "Just say No to Finalize methods!",
+    "In a true worst case scenario \u2013 unhandled exception time \u2013 you won't get any benefit from Finalize.",
+    "It's all rather contradictory."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical, questioning, pragmatic",
+  "key_insight": "The supposed safety net of Finalize methods may not be worth their performance cost, since they fail precisely when you need them most\u2014during abnormal process termination.",
+  "filename": "2004-07-26-just-say-no-to-finalization"
+}

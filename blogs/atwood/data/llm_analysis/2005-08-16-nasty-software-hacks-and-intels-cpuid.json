@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood recounts the story of Intel's CPUID hack, where the Pentium 4 was assigned family code 15 instead of the logical 8 due to a bug in Windows NT 4.0. The NT code only examined three bits of the CPU family field, causing it to interpret family 8 as family 0, which crashed the system. Intel couldn't use family 7 either since that was already assigned to Itanium. The workaround of using 15 (binary 1111) ensured NT would read it as family 7, avoiding the crash while maintaining backward compatibility.",
+  "key_points": [
+    "Before CPUID, detecting processor types required elaborate workarounds involving illegal opcodes and known processor bugs",
+    "Windows NT 4.0 only examined the first three bits of the CPU family code, a shortcut that worked fine until family codes exceeded 7",
+    "Intel chose family code 15 for Pentium 4 because its binary representation (1111) would appear as family 7 to the buggy NT code",
+    "Hardware decisions are sometimes dictated by the need to work around legacy software bugs rather than logical engineering choices",
+    "The hack demonstrates how technical debt in one system can propagate constraints across an entire industry"
+  ],
+  "money_quotes": [
+    "The worst hacks are always in software, but those software hacks have an insidious tendency to seep into the hardware, too.",
+    "These methods involved checking for illegal opcodes, using known bugs in prior processors, a voodoo doll of Charles Babbage, and a Ouija board.",
+    "The NT code only looks at the first three bits of the CPU family when configuring the system.",
+    "Windows NT goes wacko when it sees a CPU family zero. Serious wacko. Jack with an axe at the end of The Shining wacko.",
+    "This hack is nasty enough to make even Raymond Chen, the patron saint of nasty software hacks, blanch.",
+    "On the other hand, it is an instant upgrade from processor family 8 to processor family 15! Gee, thanks Windows NT 4.0!"
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "satirical",
+  "key_insight": "Software bugs don't just affect software\u2014they can permanently alter hardware design decisions, as Intel had to change the Pentium 4's family code to work around a three-bit limitation in Windows NT.",
+  "filename": "2005-08-16-nasty-software-hacks-and-intels-cpuid"
+}

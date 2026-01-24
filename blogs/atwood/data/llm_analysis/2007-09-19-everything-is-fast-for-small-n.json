@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that developers consistently fail to test their applications with realistic data volumes, leading to performance disasters after deployment. He illustrates this with a real-world example of a JavaScript sort routine that worked fine in testing but crawled with just 100 items in production. The post explains Big O notation and demonstrates through charts how algorithm complexity causes execution times to explode as data grows\u2014from milliseconds to centuries. The core message is that testing with 'toy data sets' masks algorithmic bottlenecks that only reveal themselves when real users with real data arrive.",
+  "key_points": [
+    "Developers routinely test with unrealistically small datasets, missing performance problems that only emerge at scale",
+    "Algorithm complexity (Big O) determines whether your app runs in seconds or centuries as data grows",
+    "A poorly-chosen algorithm can make a prehistoric TRS-80 outperform a modern DEC Alpha",
+    "Even seemingly modest data sizes (4,096 items) can cause serious performance problems with quadratic or worse algorithms",
+    "The only reliable way to catch algorithmic bottlenecks is testing with realistic data volumes"
+  ],
+  "money_quotes": [
+    "Everything is fast for small n.",
+    "Developers test with tiny toy data sets, assume all is well, and then find out the hard way.",
+    "Having a big O notation bottleneck in your app is a one-way ticket in the performance Wayback Machine to 1997 \u2013 or worse. Much worse.",
+    "The modern DEC Alpha takes a month to do what a prehistoric TRS-80 can accomplish in a few hours.",
+    "By the time you get to 4,096 items you're talking about some serious CPU time. Beyond that, I used dash as shorthand for 'forever.'",
+    "Neglect to index one little field in your database and you're suddenly back in TRS-80 land.",
+    "You can be in a world of performance pain \u2013 and much sooner than you could have possibly imagined."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "cautionary, instructive, conversational",
+  "key_insight": "Algorithm complexity doesn't matter until it suddenly matters catastrophically\u2014and by then your users have already turned on you.",
+  "filename": "2007-09-19-everything-is-fast-for-small-n"
+}

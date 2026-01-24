@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood recounts the origin story of SkiFree, the beloved Windows Entertainment Pack game, as told by its creator Chris Pirih. Pirih wrote the game in C on his home computer for personal education and entertainment, only to have a Microsoft program manager spot him playing it at work and license it for a trivial one-time fee. The post explores the technical challenges of achieving smooth sprite animation on 386-era hardware with slow ISA bus video I/O, and traces SkiFree's lineage back to a VAX text-mode skiing game and Activision's Atari 2600 Skiing cartridge. Atwood notes with amusement that these old games now have detailed Wikipedia pages.",
+  "key_points": [
+    "SkiFree was created as a personal project and licensed to Microsoft for approximately 100 shares of stock with no royalties",
+    "The technical challenge was minimizing video I/O over the slow ISA bus, requiring clever algorithms to combine overlapping sprites and blit minimal regions",
+    "The game achieved flicker-free animation even on 286/EGA machines through preprocessing on the CPU rather than brute-force rendering",
+    "SkiFree evolved from an earlier text-mode VAX skiing game and was influenced by Activision's Atari 2600 Skiing cartridge"
+  ],
+  "money_quotes": [
+    "I wrote SkiFree in C on my home computer, entirely for my own education and entertainment.",
+    "Microsoft licensed it from me and paid me some trivial one-time fee (something like 100 shares of MSFT stock, no royalties) for its use.",
+    "The Microsoft marketroids hated that and decided, for inscrutable marketroidal reasons, to call it SkiFree.",
+    "In those days there wasn't even any such thing as a 'video accelerator' \u2013 the VGA was just a dumb pixel buffer hanging off the excruciatingly slow ISA bus.",
+    "I discovered that it was worth almost any amount of preprocessing (on the 'fast' 386 CPU) to reduce the amount of video I/O.",
+    "The infinite monkeys have been busy!"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "hardware",
+    "industry_criticism"
+  ],
+  "tone": "nostalgic, technical, amused",
+  "key_insight": "Great software often starts as personal projects created for the joy of learning, and the technical constraints of older hardware forced developers to write clever, efficient algorithms that modern abundance has made unnecessary.",
+  "filename": "2005-12-18-the-story-of-skifree"
+}

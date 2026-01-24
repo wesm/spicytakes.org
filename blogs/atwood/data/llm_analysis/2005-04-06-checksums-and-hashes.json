@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explains the evolution from simple CRC checksums to cryptographic hash algorithms, drawing from his early experience with 300 baud file transfers. He distinguishes between checksums (fast but insecure) and security-oriented hashes (slower but cryptographically sound), noting that CRCs can be easily manipulated while maintaining the same checksum value. The post surveys the hash algorithms available in .NET's System.Security.Cryptography namespace and explains when to use each type. He concludes that for simple comparison tasks, basic hash methods suffice, while security applications demand proper cryptographic hashes.",
+  "key_points": [
+    "CRC checksums are designed for speed, not security, and can be intentionally manipulated without changing the checksum value",
+    "The pigeonhole principle explains why smaller hash sizes lead to collisions - an 8-bit CRC only has 256 possible values",
+    "For cryptographic hashes, bigger is better: each extra bit doubles possible keys and halves collision probability",
+    "Simple comparison tasks don't require security-grade hashes - basic methods like GetHashCode are sufficient",
+    ".NET provides several security-oriented hash algorithms including MD5, SHA variants, and MACTripleDes"
+  ],
+  "money_quotes": [
+    "I also learned a little bit about the pigeonhole principle when I downloaded a file with a matching CRC that was corrupt!",
+    "CRCs cannot be safely relied upon to verify data integrity (that no changes whatsoever have occurred), since it's extremely easy to intentionally change data without modifying its CRC.",
+    "Checksums are somewhat analogous to filesystem 'fingerprints'\u2013 no two should ever be alike, and any modification to the file should change the checksum.",
+    "That's probably because CRC is a simple algorithm designed for speed \u2013 not security.",
+    "If all you need to do is tell two things apart, you don't need fancy security hashes."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "security"
+  ],
+  "tone": "technical, educational, nostalgic",
+  "key_insight": "Choose your hash algorithm based on your actual needs: simple comparison tasks only need basic hashes, while security applications require cryptographic algorithms where every additional bit of hash size meaningfully improves protection.",
+  "filename": "2005-04-06-checksums-and-hashes"
+}

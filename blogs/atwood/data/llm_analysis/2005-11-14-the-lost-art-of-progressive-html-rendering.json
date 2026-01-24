@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood criticizes ASP.NET's page model for rendering entire web pages in memory before sending any content to the browser, eliminating the possibility of progressive HTML rendering. He notes that progressive rendering has been a core browser capability since Netscape 1.0 in 1994, providing significant psychological benefits to users who can see content loading rather than staring at blank pages. While workarounds exist using Response.Write and Response.Flush, they bypass the normal ASP.NET page lifecycle. Atwood argues this represents a regression in user experience caused by framework abstraction choices.",
+  "key_points": [
+    "ASP.NET renders entire pages in memory before sending any bytes to the browser, preventing progressive rendering",
+    "Progressive HTML rendering has existed since Netscape 1.0 (1994) and provides documented psychological benefits to users",
+    "A blank page during 15-second database queries creates a poor user experience compared to showing partial content",
+    "Workarounds exist (Response.Write/Flush) but require abandoning the normal ASP.NET page lifecycle",
+    "Framework abstractions can inadvertently eliminate valuable browser capabilities that users depend on"
+  ],
+  "money_quotes": [
+    "One thing I dislike about ASP.NET is that it renders the entire web page in memory before sending one single byte of that page to the browser.",
+    "A blank page is a disappointing user experience.",
+    "What's even more galling is that HTML was originally designed to render progressively as content is received.",
+    "There's no opportunity for the browser to start displaying data to the user while the server is still chugging away on the data.",
+    "The user is stuck staring at a blank web page for the full 15 seconds until the operation completes on the server.",
+    "Regardless, it still sucks for users."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "critical, frustrated, practical",
+  "key_insight": "Framework abstractions that prioritize developer convenience can inadvertently destroy fundamental web capabilities that existed for good user experience reasons.",
+  "filename": "2005-11-14-the-lost-art-of-progressive-html-rendering"
+}

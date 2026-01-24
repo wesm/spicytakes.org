@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood explores Google's Zopfli compression algorithm, which produces 3-8% smaller files than even highly optimized PNG compression, while remaining fully backwards compatible with standard deflate decompression. He demonstrates impressive results on emoji sets (27% smaller than default) and other test cases, but reveals the significant tradeoff: Zopfli is approximately 80 times slower than standard gzip compression. Atwood argues this makes Zopfli ideal for pre-compiled resources that are compressed once and served millions of times, but unsuitable for user-uploaded content. He shares a practical example from Discourse's avatar system, where heavily optimized small images saw negligible gains, demonstrating that results vary by use case.",
+  "key_points": [
+    "Zopfli achieves 3-8% better compression than PNGout while maintaining full backwards compatibility with standard decompression",
+    "The compression is approximately 80 times slower than gzip, making it impractical for on-the-fly compression",
+    "Zopfli works best for pre-compiled static assets that are compressed once and downloaded millions of times",
+    "Ultra compression levels in most tools offer diminishing returns with exponentially increasing CPU time",
+    "Already heavily optimized small images may see minimal gains from Zopfli"
+  ],
+  "money_quotes": [
+    "Take any random PNG of unknown provenance, apply PNGout, and you're likely to see around a 10% file size savings, possibly a lot more.",
+    "This is free bandwidth, people! It doesn't get much better than this!",
+    "But there is a catch, because there's always a catch \u2013 it's also 80 times slower. No, that's not a typo. Yes, you read that right.",
+    "You decide if that whopping 0.1% compression ratio difference between gzip -7 and gzip -9 is worth the doubling in CPU time.",
+    "You fall off an algorithmic cliff pretty fast, so stick with the middle or the optimal part of the curve, which tends to be the default compression level.",
+    "The first server to try Zopfli-ing a 10k \u00d7 10k PNG image is in for a hell of a surprise.",
+    "You probably only want to use Zopfli on pre-compiled resources, which are designed to be compressed once and downloaded millions of times.",
+    "The great thing about Zopfli is that, assuming you are OK with the extreme up front CPU demands, it is a 'set it and forget it' optimization step that can apply anywhere and will never hurt you."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "hardware"
+  ],
+  "tone": "enthusiastic, practical, technical",
+  "key_insight": "Zopfli offers genuinely free bandwidth savings for static assets, but its 80x slower compression time means it should only be applied to resources that are compiled once and served millions of times, not user-uploaded content.",
+  "filename": "2016-01-02-zopfli-optimization-literally-free-bandwidth"
+}

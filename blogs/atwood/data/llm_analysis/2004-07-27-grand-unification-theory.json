@@ -1,0 +1,23 @@
+{
+  "summary": "Jeff Atwood explores the practical challenges of mixing .NET 1.0 and 1.1 assemblies in a single application after his team upgraded to VS.NET 2003. He discovers that the CLR's 'unification policy' automatically redirects references from older framework assemblies to newer versions, preventing dangerous mix-and-match scenarios. The post explains this as a pragmatic solution to what would otherwise be an explosive matrix of testing combinations. Atwood also criticizes Microsoft for treating the 1.0 runtime as a second-class citizen, making it nearly impossible to get bug fixes backported from 1.1.",
+  "key_points": [
+    "Referenced assemblies are forced to run under the same runtime as the main application, regardless of which version they were compiled against",
+    "Unification policy is a hard-coded binding redirect that automatically routes v1.0 framework references to v1.1 equivalents",
+    "Microsoft explicitly avoided testing mixed v1.0/v1.1 configurations due to the exponential growth in test cases",
+    "The .NET 1.0 runtime receives poor support from Microsoft, with hotfixes only being developed for 1.1"
+  ],
+  "money_quotes": [
+    "The only thing that makes sense is that these referenced assemblies are forced to run under the same runtime as the main application, even though they were compiled under 1.0.",
+    "Side-by-side testing naturally results in an explosive matrix of test cases, and because of this, there was no explicit testing done for mixing and matching v1.0 and v1.1 frameworks assemblies.",
+    "It's disgraceful the way the 1.0 runtime is treated like a third class citizen at Microsoft.",
+    "Just try getting a hotfix for a 1.1 bug back-ported into the 1.0 runtime."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "technical, pragmatic, mildly frustrated",
+  "key_insight": "Framework version unification is a necessary compromise that trades theoretical flexibility for practical stability, but it comes with the hidden cost of older versions being abandoned by their creators.",
+  "filename": "2004-07-27-grand-unification-theory"
+}

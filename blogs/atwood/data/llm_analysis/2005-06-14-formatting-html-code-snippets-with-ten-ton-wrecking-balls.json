@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood tackles the frustrating problem of copying code from Visual Studio .NET, which uses Rich Text Format instead of HTML. He explores existing workarounds using Word automation to convert clipboard content, but finds the resulting HTML unacceptably bloated and broken. Rather than accept this heavyweight solution, he builds his own RTF-to-HTML converter that directly parses the clipboard content. Along the way, he discovers that VS.NET's RTF clipboard format inexplicably omits background color information entirely, explaining a long-standing limitation.",
+  "key_points": [
+    "Visual Studio .NET copies code to clipboard in RTF format rather than HTML, causing formatting issues when pasting elsewhere",
+    "Word automation can convert RTF to HTML but produces bloated, non-standard markup with artifacts like empty <o:p> tags",
+    "Building a custom RTF-to-HTML converter using regex parsing proved more effective than relying on Word's 'filtered' HTML output",
+    "VS.NET's RTF clipboard format contains background color formatting codes but no actual color table entries for them, a puzzling oversight",
+    "The solution involves parsing RTF color tables and converting RTF formatting tags to equivalent HTML span styles"
+  ],
+  "money_quotes": [
+    "If you were expecting something like standard HTML, think again, bucko!",
+    "Why use a hammer when you can use a frickin' ten ton wrecking ball?!",
+    "If this is Word's idea of 'filtered' HTML, I'd hate to see the unfiltered version.",
+    "I'm all for using ten ton wrecking balls, but not when they er... wreck stuff!",
+    "Why not convert the native RTF on the clipboard to HTML myself and cut out the middleman?",
+    "The actual background formatting codes are there, but there are absolutely no entries in the RTF color table for them. Weird."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "humorous, pragmatic, frustrated",
+  "key_insight": "When standard tools produce unacceptable output, sometimes the best solution is to understand the underlying format and build something simpler yourself.",
+  "filename": "2005-06-14-formatting-html-code-snippets-with-ten-ton-wrecking-balls"
+}

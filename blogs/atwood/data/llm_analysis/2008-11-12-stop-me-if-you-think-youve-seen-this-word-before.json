@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood examines the concept of stop words in search engines\u2014common words like 'the' and 'of' that are typically ignored during searches. He compares the surprisingly different stop word lists used by SQL Server, Oracle, and MySQL, then shares his 2004 experiment where he searched Google for 110,000 English words to measure their frequency. The post questions whether stop words remain relevant in modern computing, noting that Google has moved away from using them and now tries to determine when seemingly common words are actually meaningful to a query. Atwood suggests stop words may be a relic of early 90's computing limitations that powerful modern systems no longer need.",
+  "key_points": [
+    "Stop words are common words that search engines traditionally ignore, but different databases have surprisingly inconsistent stop word lists with no clear rationale for their differences",
+    "In 2004, Atwood scraped Google for 110,000 English words to measure their frequency, finding 'the' had 522 million hits\u2014now it returns 13.4 billion, showing 25x growth",
+    "Google appears to have abandoned traditional stop words, instead using algorithms to determine when common words are actually meaningful (e.g., 'the' in 'The Matrix')",
+    "Stop words can cause real problems when searching for things like the band 'The The' or phrases like 'to be or not to be'",
+    "Modern computing power may have made stop words obsolete\u2014server farms can now handle the large result sets that stop words were designed to avoid"
+  ],
+  "money_quotes": [
+    "Stop words are words so common they are typically ignored for search purposes.",
+    "'The' is one of the most common words in the English language, so a na\u00efve search for 'The The' rarely ends well.",
+    "You'd think a pure count of frequency, how often the word occurs, would be enough to make a common group of words 'stop words,' but apparently not everyone agrees.",
+    "I ended up with a MySQL database of 110,000 English words and their frequency in Google as of late summer 2004.",
+    "Indeed, I wonder if classic search stop words are relevant in modern computing; perhaps they're a relic of early 90's computing that we haven't quite left behind yet.",
+    "Sometimes words and phrases that might be considered stopwords or stop-phrases may actually be meaningful or important.",
+    "Apparently, at least to Google, stop word warnings are a thing of the past."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "curious, analytical, questioning",
+  "key_insight": "Stop words may be an outdated optimization from an era of limited computing power, and modern search engines are better served by contextually determining when common words are actually meaningful.",
+  "filename": "2008-11-12-stop-me-if-you-think-youve-seen-this-word-before"
+}

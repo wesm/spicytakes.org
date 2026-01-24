@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores image resizing algorithms beyond the standard bicubic and bilinear options, testing Genuine Fractals' fractal-based approach against traditional methods. He establishes practical guidelines: use bicubic for shrinking (sharpening effect) and bilinear for enlarging (smoothing effect). His 500% enlargement test shows fractal algorithms producing superior results with sharper edges and fewer artifacts, though with watercolor-like tradeoffs. The core message is pragmatic: reducing images is safe and straightforward, but enlarging is inherently risky since interpolated pixels can never match real ones. When forced to enlarge, understanding algorithm tradeoffs helps you choose the least bad option.",
+  "key_points": [
+    "Bicubic works best for shrinking images (natural sharpening), bilinear for enlarging (natural smoothing)",
+    "Specialized algorithms like 2xSAI dramatically outperform standard methods for specific use cases like pixel art",
+    "Fractal-based resizing produces noticeably better results than bicubic at extreme enlargements, though with watercolor-like artifacts",
+    "Reducing images is safe (just discarding information), but enlarging is fundamentally risky since you're synthesizing fake pixels",
+    "Finding a higher-resolution source is almost always better than algorithmic upscaling"
+  ],
+  "money_quotes": [
+    "Enlarging images is risky. Beyond a certain point, enlarging images is a fool's errand; you can't magically synthesize an infinite number of new pixels out of thin air.",
+    "Interpolated pixels are never as good as real pixels.",
+    "Reducing images is a completely safe and rational operation. You're simply reducing precision and resolution by discarding information.",
+    "When you can't avoid enlarging an image, that's when it pays to know the tradeoffs between bicubic, bilinear, and more advanced resizing algorithms.",
+    "At least arm yourself with enough knowledge to pick the best of the bad options you have.",
+    "It'd be smarter to find a higher resolution scan or picture of whatever you need than it would be to upsize it in software."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical, practical, conversational",
+  "key_insight": "Image enlargement is fundamentally a lossy operation where no algorithm can truly create detail that doesn't exist, so the best strategy is avoiding enlargement entirely or understanding algorithm tradeoffs to minimize the damage.",
+  "filename": "2007-07-05-better-image-resizing"
+}

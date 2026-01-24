@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explains how to block bandwidth theft from hotlinking by using URL rewriting to check HTTP referer headers. After noticing his images being embedded on MySpace pages without permission, he implemented an ISAPI rewrite filter on IIS that serves a 'stop stealing bandwidth' placeholder image to unauthorized requests. The solution whitelists legitimate referrers while blocking others, all handled at the ISAPI level for universal URL coverage. He notes this functionality is standard in Apache but requires third-party tools for IIS 6, though IIS 7 promises native support.",
+  "key_points": [
+    "Hotlinking steals bandwidth by serving images from your server to someone else's visitors",
+    "The HTTP referer header can be checked to verify if image requests come from authorized sources",
+    "URL rewriting rules can redirect unauthorized requests to a placeholder image or 404",
+    "Apache has native URL rewriting support while IIS 6 requires third-party ISAPI filters",
+    "Proper implementation should whitelist known domains and allow blank referers"
+  ],
+  "money_quotes": [
+    "I like to periodically watch the HTTP traffic on my server. I can see what I'm actually serving up over the wire, and how much bandwidth I'm using.",
+    "Every time I visit myspace, I feel a little bit stupider.",
+    "I have no idea why myspace is so popular. I guess the best I can hope for is that those damn kids stay off my lawn.",
+    "Take that, 26 zillion myspace users.",
+    "Unlike the cheesy ASP.NET 'URL rewriting' solutions, it also works on generic URLs, not just URLs that end in .aspx or some other extension."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "sardonic, practical, tutorial-style with humorous tangents",
+  "key_insight": "Monitoring your server traffic reveals abuse you didn't know was happening, and URL rewriting provides an elegant solution to block bandwidth theft at the HTTP level.",
+  "filename": "2006-04-06-blocking-image-bandwidth-theft-with-url-rewriting"
+}

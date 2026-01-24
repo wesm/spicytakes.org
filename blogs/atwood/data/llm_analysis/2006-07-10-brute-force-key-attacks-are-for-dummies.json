@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood argues that brute force attacks against modern cryptographic keys are mathematically impossible due to the exponential growth of key spaces. Using Jon Callas's vivid illustration, he explains that cracking a 128-bit key would require a planet covered in computers working for 1,000 years. He supports this with real-world data from the RC5 distributed computing project, which has spent years cracking progressively larger keys. The conclusion is that smart attackers focus on easier vulnerabilities like social engineering and keyloggers rather than wasting time on mathematically futile brute force attempts.",
+  "key_points": [
+    "A 128-bit key would take a planet covered in grain-of-sand-sized computers 1,000 years to crack, even testing keys at the speed of light",
+    "Each additional bit doubles the time needed for brute force attacks, making the growth exponential and quickly unmanageable",
+    "The RC5 distributed computing project cracked a 56-bit key in 250 days but estimates 1,040 years remaining for a 72-bit key",
+    "Despite 88x faster key testing over 10 years, the mathematical ceiling remains insurmountable for modern key lengths",
+    "Smart attackers exploit rootkits, social engineering, keyloggers, and password attacks on private key files instead"
+  ],
+  "money_quotes": [
+    "Imagine a computer that is the size of a grain of sand that can test keys against some encrypted data. Also imagine that it can test a key in the amount of time it takes light to cross it. Then consider a cluster of these computers, so many that if you covered the earth with them, they would cover the whole planet to the height of 1 meter. The cluster of computers would crack a 128-bit key on average in 1,000 years.",
+    "And of course, there are always 256-bit keys, if you worry about the possibility that government has a spare planet that they want to devote to key-cracking.",
+    "It is very easy to underestimate the power of exponentials.",
+    "If we want to double the amount of time the brute force attack will take, all we need to do is tack on one teeny, tiny little bit to our key.",
+    "It's painfully clear that a brute force attack on even a 128 bit key is a fool's errand. Even if you're using a planet covered with computers that crack keys at the speed of light.",
+    "If you're a smart attacker, you already know that brute force key attacks are strictly for dummies with no grasp of math or time."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "educational, confident, pragmatic",
+  "key_insight": "Modern cryptographic keys are so secure against brute force that smart attackers don't waste time on mathematical impossibilities\u2014they exploit human and system vulnerabilities instead.",
+  "filename": "2006-07-10-brute-force-key-attacks-are-for-dummies"
+}

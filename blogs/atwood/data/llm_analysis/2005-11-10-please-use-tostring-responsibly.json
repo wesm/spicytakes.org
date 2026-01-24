@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood argues that developers should use Exception.ToString() instead of Exception.Message when handling errors, as the former provides crucial debugging information like stack traces. He extends this principle to a broader design guideline: every object should implement a meaningful ToString() method that provides useful information rather than just echoing the class name. Using DataSet as a prime example of poor ToString() implementation, he demonstrates how the default behavior returns useless output when it could display the actual data in a readable format.",
+  "key_points": [
+    "Exception.Message loses valuable debugging context like stack traces; Exception.ToString() should be the default choice",
+    "Every custom object should implement a meaningful ToString() that represents what the object actually contains",
+    "Microsoft's own DataSet class violates this principle by returning just 'System.Data.DataSet' instead of its contents",
+    "Good ToString() implementations require extra work but provide debugging value that should have been built-in"
+  ],
+  "money_quotes": [
+    "Unless there's some compelling reason you need an ultra-terse version of the error, it's almost always better to use the provided Exception.ToString() method.",
+    "Any object you build should have a meaningful .ToString() method.",
+    "I expect a proper string representation of what you are, not a meaningless echo of your class name!",
+    "Seems perfectly logical to me, but you'll have to write your own custom ToString() implementation to get the behavior that should have been there in the first place."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "opinionated, practical, slightly exasperated",
+  "key_insight": "A well-implemented ToString() method that reveals an object's actual state is essential for debugging and should be a standard practice, not an afterthought.",
+  "filename": "2005-11-10-please-use-tostring-responsibly"
+}

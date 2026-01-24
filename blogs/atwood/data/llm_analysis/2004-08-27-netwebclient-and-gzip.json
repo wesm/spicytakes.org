@@ -1,0 +1,19 @@
+{
+  "summary": "This brief technical post documents a workaround for the .NET WebClient class's lack of native HTTP compression support. Atwood shows how to add gzip/deflate headers to requests and then decompress the response using the third-party SharpZipLib library. The post serves as a quick how-to for developers needing to reduce bandwidth usage in their .NET applications. It's a straightforward code snippet post typical of early technical blogging.",
+  "key_points": [
+    "Net.WebClient doesn't natively support HTTP compression despite being able to request it",
+    "Google specifically requires a User-Agent header before it will gzip responses",
+    "SharpZipLib provides an easy workaround for decompressing gzipped responses",
+    "Network sniffers are useful for verifying compression is actually working"
+  ],
+  "money_quotes": [
+    "The Net.WebClient class doesn't support HTTP compression",
+    "And voila, the bandwidth, you have saved eet!"
+  ],
+  "themes": [
+    "programming"
+  ],
+  "tone": "technical",
+  "key_insight": "When framework classes lack features you need, third-party libraries can fill the gap with minimal additional code.",
+  "filename": "2004-08-27-netwebclient-and-gzip"
+}

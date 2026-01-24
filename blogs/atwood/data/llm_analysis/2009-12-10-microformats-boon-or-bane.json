@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood shares his experience implementing microformat support for Stack Overflow Careers CVs, finding the official documentation unhelpful and the implementation frustrating. While simple microformats like rel-tag and rel-me were easy to add, the hResume format proved ambiguous, fragile, and poorly designed. The core problem is that microformats overload CSS class attributes to carry data semantics, creating conflicts with existing styles and making the markup impossible to maintain without specialized knowledge. Despite his criticisms, Atwood concludes that microformats are still worth implementing because they're easy enough to add and Google's rich search results provide tangible user benefits while waiting for HTML5 data attributes.",
+  "key_points": [
+    "Microformats overload CSS class attributes with dual meanings (styling and data), creating semantic ambiguity and potential naming conflicts with existing stylesheets",
+    "The hResume specification is surprisingly ambiguous despite claiming to be simple, requiring extensive interpretation and multiple implementation attempts to get right",
+    "Microformats handle unstructured, freeform data poorly, demanding rigidly structured fields that don't match how real-world web applications store information",
+    "There's no visual indication in code that a CSS class is a microformat field, making maintenance fragile and onboarding new developers difficult",
+    "Despite significant flaws, microformats provide enough practical value through Google's rich search results to justify implementation as a pragmatic hack"
+  ],
+  "money_quotes": [
+    "So you want me to take the ambiguous, crappy 'HTML' markup we already have and layer some ambiguous, crappy 'microformat' markup on top of it? And that's... a solution?",
+    "The minute you introduce a microformat into your HTML, the semantics of the class attribute have been permanently altered.",
+    "If you hire a new developer, how can they possibly be expected to know that 'postal-code' isn't just an arbitrarily chosen CSS class name, it's a gosh darned officially blessed microformat?",
+    "I'm theoretically competent, and if I can't implement hResume without wanting to cut myself and/or writing snarky blog posts like this, how can we expect everyone else to?",
+    "Maybe I have a particular aversion to getting my chocolate data structure mixed up with my peanut butter layout structure, but it totally skeeves me out.",
+    "While you could argue this is no different than the web and HTML in general \u2013 a giant wobbly teetering tower of nasty, patched-together hacks \u2013 something about it fundamentally bothers me.",
+    "I still think microformats are useful and worth implementing, if for no other reason than it's too easy not to."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "satirical, frustrated, pragmatic",
+  "key_insight": "Microformats are a fundamentally flawed hack that mixes data semantics with presentation markup, but their practical benefits and low implementation cost make them worth using despite their problems.",
+  "filename": "2009-12-10-microformats-boon-or-bane"
+}

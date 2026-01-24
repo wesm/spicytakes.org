@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood revisits his controversial stance that quad-core CPUs are wasteful for most users, acknowledging that software developers may be an exception. He argues that while benchmark data shows limited benefits from more than two cores for typical applications, developers have legitimate reasons to want many-core systems: testing parallelized code, compiling C++ projects faster, and simulating server workloads. However, he notes that managed code compilation in .NET doesn't show dramatic multi-core improvements, and points out that most modern developers write web applications in interpreted languages that achieve concurrency through different means entirely.",
+  "key_points": [
+    "Dual-core CPUs provide meaningful benefits including protection from runaway processes, but quad-core advantages only appear in specific workloads like video encoding, 3D rendering, and scientific simulations",
+    "C++ developers see compelling compilation time improvements with quad-core CPUs, but managed code (.NET) compilation shows minimal benefit from additional cores",
+    "Software developers aren't typical users and may need multi-core systems to properly test and debug parallelized applications",
+    "Most mainstream developers write web applications in interpreted languages that achieve concurrency without threading, making desktop core count less relevant to their actual production code",
+    "The multitasking argument for quad-core is weak because scenarios that truly stress more than two cores border on the absurd for typical usage"
+  ],
+  "money_quotes": [
+    "Dual-core CPUs protect you from badly written software; if a crashed program consumes all possible CPU time, all it can get is 50% of your CPU.",
+    "The amount of multitasking required to seriously load more than two CPU cores borders on the absurd.",
+    "Software developers aren't typical users. Indeed, you can make a reasonable case that software developers are almost by definition edge conditions.",
+    "If you're a C++ developer, you need a quad-core CPU yesterday. Demand it.",
+    "I suggest starting with a goal of scaling well to two cores, as that appears to be the most challenging part of the journey.",
+    "Everything I've ever read on the topic of writing scalable, concurrent software goes out of its way to explain in excruciating detail how hellishly difficult this kind of code is to write.",
+    "Most developers aren't writing desktop applications today. They're writing web applications... this code somehow achieves massive levels of concurrency, scales to huge workloads, and drives some of the largest websites on the internet. All that, without thinking one iota about concurrency, threading, or reentrancy."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "programming",
+    "productivity"
+  ],
+  "tone": "analytical, pragmatic, self-correcting",
+  "key_insight": "The value of many-core CPUs for developers depends entirely on what they're building\u2014C++ developers need them desperately, while web developers using interpreted languages achieve concurrency through architecture rather than threads.",
+  "filename": "2008-04-18-should-all-developers-have-manycore-cpus"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood examines the 2009 Twitter hack where an 18-year-old compromised multiple high-profile accounts, including Barack Obama's, by running an automated password guesser against Twitter's login system. The attack succeeded because Twitter allowed unlimited rapid-fire login attempts, and a support staff member had chosen 'happiness' as their password. Atwood argues that while brute force attacks remain impractical (taking centuries per user), dictionary attacks can try every word in the Oxford English Dictionary in under two days. He advocates for login throttling as a basic security measure\u2014either through exponential delays or CAPTCHAs after failed attempts\u2014and warns that fast modern hardware and broadband connections have made web applications newly vulnerable to attacks that were once mainly a desktop concern.",
+  "key_points": [
+    "Twitter's failure to limit login attempts enabled an 18-year-old to compromise high-profile accounts through simple dictionary attacks",
+    "Brute force attacks remain impractical (8 billion attempts needed for a weak 8-character password), but dictionary attacks can exhaust 171,000 words in under two days",
+    "Login throttling through exponential delays or CAPTCHAs is basic security that prevents practical dictionary attacks",
+    "Modern fast hardware and broadband connections have created ideal conditions for web-based dictionary attacks that were once mainly a desktop threat",
+    "Even if you secure your own systems, you're only as safe as the weakest website where you've reused credentials"
+  ],
+  "money_quotes": [
+    "Cracking the site was easy, because Twitter allowed an unlimited number of rapid-fire log-in attempts.",
+    "Limiting the number of login attempts per user is security 101.",
+    "All it takes is one user with a weak password to provide attackers a toehold in your system.",
+    "At one attempt per second, we could try every word in the Oxford English Dictionary in slightly less than two days.",
+    "You better hope they're all smart enough to throttle failed logins \u2013 and that you're careful to use unique credentials on every single website you visit.",
+    "If you thought of dictionary attacks as mostly a desktop phenomenon, perhaps it's time to revisit that assumption."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "educational, cautionary, practical",
+  "key_insight": "Login throttling is such basic security that its absence at Twitter\u2014combined with one employee's weak password\u2014was enough to compromise the President-Elect's account, illustrating how fundamental security oversights create systemic vulnerabilities.",
+  "filename": "2009-01-07-dictionary-attacks-101"
+}

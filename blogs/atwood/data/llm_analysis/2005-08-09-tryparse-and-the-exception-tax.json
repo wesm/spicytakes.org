@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores the performance difference between Parse and TryParse methods in .NET, noting that TryParse avoids throwing exceptions which makes it faster. After updating a demo application from 2003 and fixing numerous bugs, he found the performance difference was less dramatic than originally claimed but still significant. He agrees with Alex Papadimoulis that while exceptions should generally be avoided in primary code paths, using them for business rule validation across application tiers is a reasonable trade-off when the context (like web requests across multiple tiers) makes the nanosecond cost negligible.",
+  "key_points": [
+    "TryParse was extended to all basic datatypes in .NET 2.0, previously only available for Double in 1.1",
+    "The original demo app showing dramatic performance differences had significant bugs that overstated the gap",
+    "Exceptions are slower but not catastrophically so - the general rule of avoiding them in primary code paths still applies",
+    "Using exceptions for business rule validation across tiers is a reasonable architectural choice despite the performance cost",
+    "Context matters when evaluating performance trade-offs - nanoseconds don't matter in the context of a multi-tier web request"
+  ],
+  "money_quotes": [
+    "So, yeah, parsing with exceptions is quite a bit slower, but not 'did someone just downgrade my computer to a 486?' slower.",
+    "The general rule of avoiding exceptions in your primary code paths still applies.",
+    "Less code, less mess. Nanoseconds slower? Probably. A big deal in the context of a web request going through three physical tiers? Not at all.",
+    "As long as you're aware of the cost, this is a perfectly reasonable thing to do.",
+    "An iron-clad adherence to the 'avoid all exceptions' rule would be a net loss.",
+    "I think that there's a general consensus out there that Exceptions should be limited to exceptional circumstances. But 'exceptional' is a rather subjective adjective, so there's a bit of a gray area."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical, pragmatic, myth-busting",
+  "key_insight": "Performance rules like 'avoid exceptions' should be understood and applied thoughtfully based on context, not followed dogmatically - sometimes the cleaner code is worth the nanosecond tax.",
+  "filename": "2005-08-09-tryparse-and-the-exception-tax"
+}

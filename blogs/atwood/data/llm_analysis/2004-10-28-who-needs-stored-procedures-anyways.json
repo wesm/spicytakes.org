@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood challenges the conventional wisdom that stored procedures should be the default approach for database access. He argues that while stored procedures are often mandated for theoretical benefits like performance, security, and maintainability, these advantages rarely materialize in practice. Instead, developers suffer through archaic languages, poor debugging experiences, cryptic error messages, and hidden business logic. He concludes that stored procedures should be treated as 'database assembly language'\u2014reserved only for the most performance-critical situations\u2014while parameterized SQL offers a more practical and maintainable alternative.",
+  "key_points": [
+    "Stored procedures force developers to work in archaic languages (PL/SQL, T-SQL) that are painful compared to modern alternatives",
+    "Debugging stored procedures requires context-switching between completely different IDEs and development environments",
+    "The commonly cited benefits of stored procedures (performance, security, maintainability, abstraction) are largely theoretical and don't hold up in real-world practice",
+    "Business logic hidden in stored procedures becomes invisible and unverifiable from the application layer",
+    "Modern database query plan caching has largely eliminated the performance advantages stored procedures once offered"
+  ],
+  "money_quotes": [
+    "Have you ever worked on a system where someone decreed that all database calls must be Stored Procedures, and SQL is strictly verboten?",
+    "These so-called languages are archaic, and full of the crazy, incoherent design choices that always result from the torturous evolution of ten years of backwards compatibility.",
+    "For context, JavaScript is a giant step up from PL/SQL or T-SQL.",
+    "Inline SQL may not be pretty, but at least I can see it in context, alongside the other business logic.",
+    "However, there's one small problem: none of these things are true in practice.",
+    "The benefits are marginal, but the pain is substantial.",
+    "Stored Procedures should be considered database assembly language: for use in only the most performance critical situations."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, pragmatic, contrarian",
+  "key_insight": "The theoretical benefits of stored procedures rarely justify the practical pain they inflict on development workflows, making parameterized SQL a better default choice for most applications.",
+  "filename": "2004-10-28-who-needs-stored-procedures-anyways"
+}

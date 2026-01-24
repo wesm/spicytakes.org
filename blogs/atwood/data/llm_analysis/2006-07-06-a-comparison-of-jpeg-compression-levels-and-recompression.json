@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood shares his empirical testing of JPEG compression levels using the classic Lena reference image, concluding that a compression factor of 15 provides the optimal balance between quality and file size. He demonstrates through visual examples how quality degrades at higher compression factors, with 50 being the practical upper limit. The post also investigates the effects of repeatedly recompressing the same JPEG, finding surprisingly minimal degradation through the first few generations. By generation five, artifacts become noticeable, and by generation ten, quality suffers significantly, though file size remains constant throughout.",
+  "key_points": [
+    "JPEG compression factor 15 offers the best quality-to-filesize tradeoff for photographic images",
+    "Beyond 50% compression factor, image quality falls off a cliff and becomes unacceptable",
+    "Recompressing a JPEG once, twice, or even three times produces very little visual penalty",
+    "File size remains virtually constant through multiple recompression generations",
+    "Significant artifacts only emerge around generation 5, with serious degradation by generation 10"
+  ],
+  "money_quotes": [
+    "Over the years, I've standardized on a JPEG compression factor of 15; I find that generally provides the best compromise between image quality and file size for most photographic images.",
+    "Beyond 50 percent compression factor, quality falls off a cliff, so I won't bother displaying anything higher.",
+    "I was quite surprised to find that there's very little visual penalty for recompressing a JPEG once, twice, or even three times.",
+    "By generation five, you can see a few artifacts emerge in the image, and by generation ten, you're definitely in trouble.",
+    "There's virtually no effect at all on file size, which stays constant at 30-31 kilobytes even through generation 15."
+  ],
+  "themes": [
+    "programming",
+    "productivity",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "JPEG compression factor 15 hits the sweet spot for quality versus size, and contrary to common fears, recompressing a JPEG a few times causes surprisingly little additional degradation.",
+  "filename": "2006-07-06-a-comparison-of-jpeg-compression-levels-and-recompression"
+}

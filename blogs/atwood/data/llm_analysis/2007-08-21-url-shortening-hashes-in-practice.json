@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores the mechanics behind URL shortening services, prompted by Twitter's 140-character limit and its automatic use of TinyURL. He compares various shortening services and discovers they achieve remarkably compact 3-character codes. The post examines why traditional hash functions like MD5 or CRC32 are impractical for this use case, as even 16-bit hashes would cause collisions after just 256 URLs. Atwood concludes that these services likely use simple sequential assignment across character permutations rather than true hashing, allowing roughly 238,000 unique three-character URLs using alphanumeric characters.",
+  "key_points": [
+    "Twitter's 140-character constraint makes URL shortening essential, with services reducing 54-character URLs to as few as 19 characters",
+    "Traditional hash functions are unsuitable for URL shortening because even short hashes produce too many characters, and the birthday paradox means collisions occur after 2^(n/2) items",
+    "URL shortening services face real risks: service shutdowns break all links permanently, opaque URLs provide no content hints, and the services attract spammers",
+    "The math reveals that 3-character alphanumeric codes (62^3) can only represent about 238,000 unique URLs before requiring longer codes",
+    "Google would be an ideal candidate to run such a service given their existing URL index and reliability, yet they don't offer one"
+  ],
+  "money_quotes": [
+    "My philosophy is, when in doubt, make it public, and Twitter is essentially public instant messaging.",
+    "What if the URL redirection service goes belly up? All your previous hyperlinks are instantly and forever broken.",
+    "The URL no longer contains any hints whatsoever as to the content of the URL. It's completely opaque. The only way to find out what's behind that hyperlink is to actually click on it.",
+    "I often wonder why Google doesn't offer an URL redirection service, as they already keep an index of every URL in the world.",
+    "URL shortening services are a perfect embodiment of a classical computer science concept \u2013 the hash table.",
+    "It's pretty clear that URL shortening services can't rely on traditional hashing techniques, at least not if they want to produce competitively small URLs."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "communities"
+  ],
+  "tone": "technical, exploratory, practical",
+  "key_insight": "URL shortening services appear to use hash tables but actually can't rely on traditional hashing algorithms due to collision mathematics, instead using simple sequential character permutation assignment.",
+  "filename": "2007-08-21-url-shortening-hashes-in-practice"
+}

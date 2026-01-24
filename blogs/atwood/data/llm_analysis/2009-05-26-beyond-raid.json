@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood provides a practical primer on RAID configurations for server environments, explaining the fundamental RAID levels (0, 1, 5, 6) and their trade-offs between performance, redundancy, and storage efficiency. Drawing from his hands-on experience building Stack Overflow's servers, he advocates for RAID 10 as the superior choice that combines mirroring's redundancy with striping's speed. He emphasizes that RAID is not a backup solution but rather a tool for improved uptime. The post culminates in exploring ZFS's RAID-Z technology, which offers self-healing data capabilities and eliminates the traditional RAID write hole without requiring special hardware.",
+  "key_points": [
+    "RAID serves two primary goals: increased data reliability and increased I/O performance, with different levels offering different trade-offs",
+    "RAID 10 (nested striping + mirroring) combines the best of both worlds and may completely obviate the need for RAID 5",
+    "RAID is absolutely not a substitute for backups\u2014it's about uptime and survivability, not data protection",
+    "ZFS's RAID-Z represents a next-generation approach with self-healing data, 256-bit checksums, and no need for special hardware",
+    "The economics of cheap commodity drives make it sensible to use many disks for both performance and reliability gains"
+  ],
+  "money_quotes": [
+    "I've always been leery of RAID on the desktop. But on the server, RAID is a definite must.",
+    "RAID is in no way a substitute for a sane backup regimen, but rather a way to offer improved uptime and survivability for your existing systems.",
+    "Some would say that RAID 10 is so good it completely obviates any need for RAID 5, and I for one agree with them.",
+    "Hard drives are cheap and getting cheaper every day \u2013 why not use a whole slew of the things to get better performance and better reliability for your servers?",
+    "Hard drives may be (mostly) dumb hunks of spinning rust, but it's downright amazing what you can do when you get a whole bunch of them working together.",
+    "With RAID-Z, ZFS makes good on the original RAID promise: it provides fast, reliable storage using cheap, commodity disks."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "programming"
+  ],
+  "tone": "technical, educational, practical",
+  "key_insight": "While RAID provides essential redundancy and performance benefits for servers, it's not a backup solution\u2014and modern software-based approaches like ZFS's RAID-Z are pushing beyond traditional hardware RAID with self-healing capabilities and smarter data integrity checking.",
+  "filename": "2009-05-26-beyond-raid"
+}

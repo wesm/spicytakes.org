@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood responds to criticism about inefficient string comparison in his code by benchmarking four different methods for checking empty strings in .NET. While s.Length = 0 is indeed 5-10x faster than s = \"\" or s = String.Empty, Atwood demonstrates that even the 'slowest' method takes only 30 milliseconds for a million comparisons. He argues that such micro-optimizations are meaningless in practice and that developers should focus on writing readable, maintainable code instead. The post concludes by invoking Eric Lippert's wisdom that understandable code is inherently more performant because it can be properly analyzed and maintained.",
+  "key_points": [
+    "String.Length = 0 is 5-10x faster than string equality comparisons, but neither handles null strings",
+    "The actual performance difference is ~30ms over one million iterations on slow hardware",
+    "Micro-optimization debates distract from more important concerns like readability and maintainability",
+    "Code that makes sense to humans can be better analyzed and optimized than clever but obscure code",
+    "Developers often obsess over trivial performance differences that have no real-world impact"
+  ],
+  "money_quotes": [
+    "If I had a nickel every time someone told me that, I could have retired years ago.",
+    "We're still talking about a difference of 30 milliseconds, on the slowest computer I own, over a MILLION string comparisons!",
+    "It just doesn't matter! It just doesn't matter!",
+    "Arguments about which method results in code that is easier to read and easier to maintain will be gladly entertained. Arguments about speed will not.",
+    "Stop micro-optimizing and start macro-optimizing: per Lippert, code that makes sense is code which can be analyzed and maintained, and that makes it performant."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "satirical, dismissive, pragmatic",
+  "key_insight": "Obsessing over micro-optimizations that save nanoseconds per operation is a waste of developer time; readable, maintainable code is ultimately more performant because it can be properly understood and improved.",
+  "filename": "2005-01-15-micro-optimization-and-meatballs"
+}

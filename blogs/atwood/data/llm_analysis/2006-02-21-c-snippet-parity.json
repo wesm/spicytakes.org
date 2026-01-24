@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood addresses Microsoft's release of C# code snippets for Visual Studio 2005, which finally brings C# to feature parity with VB.NET. However, he criticizes Microsoft's poor installation process that requires manually adding each snippet folder through the Snippet Manager. After investigating, he discovers that snippet paths are confusingly stored in both an XML file and the Windows registry, with only the registry actually being used. He solves the problem by packaging the snippets with a proper registry file for easy installation, and recommends 7zip for compression and WinRAR for decompression.",
+  "key_points": [
+    "Microsoft released 295 C# code snippets but provided a frustrating installation process requiring manual folder additions",
+    "The snippet configuration is confusingly duplicated between an XML index file and the registry, with only the registry being functional",
+    "Atwood created a packaged solution combining the snippets with a registry file for one-step installation",
+    "7zip compression dramatically outperforms ZIP for small files (56KB vs 229KB)",
+    "WinRAR won the DonationCoder archive tool roundup and handles multiple formats including 7zip"
+  ],
+  "money_quotes": [
+    "I loves me some snippets, but this is unacceptable!",
+    "Why they chose to store this stuff in the registry *and* in an XML file is beyond me.",
+    "You can go from tired... to wired... in no time at all.",
+    "Now you can quickly get the snippets installed on your system without running a pointless installer that does virtually nothing for you."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "practical, frustrated, helpful",
+  "key_insight": "When developer tools ship with poor installation experiences, the community will step up to create better solutions\u2014even when the fix is as simple as a properly configured registry file.",
+  "filename": "2006-02-21-c-snippet-parity"
+}

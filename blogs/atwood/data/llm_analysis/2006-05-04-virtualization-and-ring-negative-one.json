@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explains how hardware virtualization works and why the x86 architecture struggles with it. The core problem is that both the virtual machine manager (VMM) and guest operating systems need to run in Ring 0 privileged mode, forcing expensive software emulation. Intel and AMD's new hardware virtualization support creates a 'Ring -1' super-privileged mode exclusively for the VMM, eliminating the emulation penalty. Atwood predicts that virtualization will become ubiquitous, with everyone eventually running inside virtual machines by default.",
+  "key_points": [
+    "The x86 architecture fails to meet the Popek and Goldberg virtualization requirements, making efficient virtualization difficult",
+    "Traditional virtualization requires the VMM to intercept and emulate problematic instructions because both VMM and guest OS compete for Ring 0 privileges",
+    "Hardware virtualization creates Ring -1, a super-privileged mode that gives the VMM unique control without software emulation",
+    "Future hardware may enable hot-swapping CPUs and memory without server shutdown",
+    "Atwood sees hardware virtualization support as a crucial step toward a future where we always run in virtual machines"
+  ],
+  "money_quotes": [
+    "In a virtual machine, you don't want that kernel and driver code, or the interrupt handlers, to really have full control over the hardware; you need the VMM to be able to transparently manage the system.",
+    "The VMM is constantly monitoring the execution of the virtual machines, interceding to redirect memory, storage and I/O requests to the specific allocated resources.",
+    "In effect, they create a super privileged mode (sometimes referred to as 'Ring -1'), which can only be used by the VMM.",
+    "The x86 architecture is not well suited to virtualization because it doesn't meet something called the Popek and Goldberg virtualization requirements.",
+    "I firmly believe that, in the not too distant future, we'll always be running in a virtual machine."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "programming"
+  ],
+  "tone": "technical, forward-looking, explanatory",
+  "key_insight": "Hardware virtualization support creates a 'Ring -1' privilege level that finally gives hypervisors the architectural authority they need to manage virtual machines efficiently without costly software emulation.",
+  "filename": "2006-05-04-virtualization-and-ring-negative-one"
+}

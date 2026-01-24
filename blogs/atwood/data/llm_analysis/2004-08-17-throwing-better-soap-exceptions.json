@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood explores the challenge of implementing global exception handling for .NET web services, finding that unlike WinForms or ASP.NET apps, there's no elegant solution. After reviewing the unsatisfying options (try-catch on every method, Facade pattern, or custom SOAP extensions), he discovers that .NET's default SOAP exceptions are unhelpfully minimal. He presents a solution that re-throws exceptions with additional data to populate the SOAP detail element, resulting in much more informative error responses that include exception type, message, and stack trace.",
+  "key_points": [
+    "Application_Error never fires for .NET web services, leaving no good generic exception handling option",
+    "The available workarounds (try-catch everywhere, Facade pattern, custom HttpModule) are all problematic",
+    "Default .NET SOAP exceptions provide minimal information with an empty detail element",
+    "Re-throwing exceptions as SoapException with custom XML detail nodes provides much richer error information",
+    "The improved exception includes exception type, message, and stack trace in the SOAP fault response"
+  ],
+  "money_quotes": [
+    "According to my research, there really is no good way to generically handle unhandled exception in .NET web services.",
+    "Put a try...catch around every WebService method. These methods tend to be wrappers around other classes, so this isn't quite as bad as it sounds, but it's still not good.",
+    "Write a custom SOAP Extension or HttpModule. This sounds reasonable but... hard. If it's such a cool, important extension or HttpModule, wouldn't someone have written it already?",
+    "By default, .NET doesn't throw very good SOAP Exceptions!",
+    "You need to re-throw exceptions with some additional data to get the 'optional,' but quite helpful, SOAP <detail> error element populated."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical, pragmatic, slightly frustrated",
+  "key_insight": "Framework defaults often provide minimal error information, and investing effort to enrich exception details pays dividends in debuggability.",
+  "filename": "2004-08-17-throwing-better-soap-exceptions"
+}

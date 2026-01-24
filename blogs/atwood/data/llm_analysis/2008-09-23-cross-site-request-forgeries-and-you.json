@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explains cross-site request forgery (CSRF/XSRF), a web vulnerability that exploits how browsers automatically send credentials with requests. Unlike XSS which requires developer mistakes, CSRF exploits the fundamental design of the web itself. The attack works by tricking authenticated users into unknowingly submitting requests to target sites, using techniques like hidden image tags or auto-submitting forms. Atwood walks through why simple fixes like requiring POST requests aren't sufficient, and presents three mitigation strategies: referrer checking (which he dismisses), secret hidden form tokens, and double-submitted cookies. He admits to previously underestimating CSRF and urges developers to verify their protections before attacks occur.",
+  "key_points": [
+    "CSRF exploits how browsers automatically include cookies and credentials with every request, making it impossible for servers to distinguish legitimate requests from forged ones",
+    "Simple mitigations like requiring POST instead of GET are insufficient because attackers can create auto-submitting forms on malicious pages",
+    "The most reliable defenses involve server-generated tokens (hidden form values tied to sessions) or double-submitted cookies verified via JavaScript",
+    "Major sites including Gmail, Digg, and Wikipedia have been successfully attacked via CSRF, showing even sophisticated teams miss this vulnerability",
+    "Unlike XSS which stems from developer error, CSRF vulnerability exists 'simply because of how the whole Web is designed to work'"
+  ],
+  "money_quotes": [
+    "Since XSS gets all the limelight, few developers pay much attention to another form of attack that's equally destructive and potentially far easier to exploit.",
+    "Your application can be vulnerable to cross-site request forgery (CSRF) attacks not because you the developer did something wrong, but simply because of how the whole Web is designed to work. Scary!",
+    "From the webserver's perspective, there is no difference whatsoever between a real user initiated browser request and the above image URL retrieval.",
+    "With XSRF, malicious users can initiate any arbitrary action they like on a target website.",
+    "I thought we had our website vulnerabilities licked with XSS. I was wrong.",
+    "Don't make the same mistake I did! Understand how XSRF works and ensure you're protected before it becomes a problem."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming"
+  ],
+  "tone": "educational, self-deprecating, urgent",
+  "key_insight": "CSRF is particularly insidious because it exploits the web's fundamental trust model rather than developer mistakes, making it easy to overlook even for security-conscious teams.",
+  "filename": "2008-09-23-cross-site-request-forgeries-and-you"
+}

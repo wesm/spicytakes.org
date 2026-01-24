@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood shares a Stopwatch class he created for .NET 1.1 that mirrors the one Microsoft later shipped in .NET 2.0. The class uses Windows QueryPerformanceCounter API to provide high-resolution timing for performance testing. He modified his original implementation to match Microsoft's API exactly, enabling seamless migration between framework versions. The post emphasizes the importance of precise measurement in performance testing and provides a complete, production-ready code implementation.",
+  "key_points": [
+    "Performance testing requires repeated, precise measurement - measure, then measure again, then measure one more time",
+    "The custom Stopwatch class uses Win32 QueryPerformanceCounter API for near-nanosecond timing accuracy",
+    "Matching Microsoft's .NET 2.0 API design allows code portability with only a namespace change",
+    "High-resolution timers may not be available on all CPUs, requiring proper error handling"
+  ],
+  "money_quotes": [
+    "The first rule of performance testing is to measure, then measure again, then measure one more time just to be sure.",
+    "I went ahead and made the minor modifications necessary to make my Stopwatch class identical to Microsoft's.",
+    "This way you can use the object in .NET 1.1 and port your code as-is to .NET 2.0 with only a namespace change."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical",
+  "key_insight": "When building utility classes, matching the API of established or upcoming framework implementations enables seamless code migration and reduces future technical debt.",
+  "filename": "2005-12-06-a-stopwatch-class-for-net-11"
+}

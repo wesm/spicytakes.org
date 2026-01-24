@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood argues against relying solely on Akismet for blog spam protection, despite its effectiveness as a community-powered blacklist service. He explains the fundamental concepts of whitelists, blacklists, and greylists, noting that each approach has inherent weaknesses including false positives and whitelist attacks. The post emphasizes that depending on any single external service creates dangerous dependencies\u2014if Akismet goes down, blogs are either flooded with spam or unable to accept comments. Atwood advocates for defense in depth, combining CAPTCHA to verify human commenters with Akismet as a secondary filter for human-entered spam.",
+  "key_points": [
+    "Blacklists, whitelists, and greylists each have distinct weaknesses\u2014blacklists generate false positives, whitelists can be exploited by spammers using legitimate URLs, and greylists still require human moderation time",
+    "Relying on a single external service creates unacceptable dependencies: downtime means either spam floods or disabled comments",
+    "Akismet struggles with edge cases like compliment spam, gibberish from spammers testing algorithms, and human-crafted contextual spam messages",
+    "Defense in depth is essential\u2014CAPTCHA validates human presence while Akismet catches human-entered spam, addressing different attack vectors",
+    "The scale problem is real: with 75 spam trackbacks per hour on one blog, expecting any single service to handle the entire internet's spam is unreasonable"
+  ],
+  "money_quotes": [
+    "The core problem is relying on a single method of defense against spam.",
+    "I hate dependencies, and I always strive to keep the number of dependencies I accept to an absolute minimum.",
+    "If you consider Akismet a success because you ignore the moderation queue entirely, have you really succeeded?",
+    "Abandoning CAPTCHA in favor of Akismet is unforgivable.",
+    "Anti-spam security starts at home.",
+    "For best results, use defense in depth and combine local anti-spam measures, such as CAPTCHA, with Akismet as a backup."
+  ],
+  "themes": [
+    "software_engineering",
+    "communities",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, practical, cautionary",
+  "key_insight": "Never outsource your entire defense against any threat to a single external service\u2014true security requires layered, independent protection mechanisms you control.",
+  "filename": "2006-10-30-whitelist-blacklist-greylist"
+}

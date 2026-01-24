@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explains the surprisingly complex requirements for successfully sending email through code, arguing that simply calling an SMTP library is nowhere near sufficient. He walks through three critical infrastructure steps: configuring reverse PTR records with your ISP, implementing DomainKeys Identified Mail (DKIM) for cryptographic signing, and setting up SPF/SenderID DNS records. The post emphasizes that email's decades of abuse by spammers has created an ecosystem of anti-spam countermeasures that will silently drop messages that don't meet these requirements. Atwood provides practical verification methods using Gmail headers and Port25's email testing service to confirm proper configuration.",
+  "key_points": [
+    "Sending email programmatically requires far more than just SMTP code - most emails will be silently dropped without proper infrastructure configuration",
+    "Reverse PTR records are the most critical requirement; without them, a huge percentage of emails never arrive",
+    "DKIM uses public-key cryptography to sign emails, proving they actually came from your domain",
+    "SPF/SenderID records document which IP addresses are authorized to send mail for your domain",
+    "Gmail's 'show original' feature and Port25's email verifier service are essential tools for debugging email delivery"
+  ],
+  "money_quotes": [
+    "Email is the cockroach of communication mediums: you just can't kill it.",
+    "Just because you send an email doesn't mean it will arrive.",
+    "Email is a well that has been truly and thoroughly poisoned \u2013 the digital equivalent of a superfund cleanup site.",
+    "The ecosystem around email is a dank miasma of half-implemented, incompletely supported anti-spam hacks and workarounds.",
+    "Don't even bother reading any further until you've verified that your ISP has correctly configured the reverse PTR record for the server that will be sending email.",
+    "By the time I've reached the point where I am forced to write code to send out email, I really, really want those damn emails to arrive.",
+    "And for those who are the unfortunate recipients of these emails: my condolences."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "sardonic, practical, frustrated",
+  "key_insight": "The gap between 'I wrote code that sends email' and 'my emails actually arrive' is vast, requiring DNS configuration, cryptographic signing, and ISP coordination that most developers never consider.",
+  "filename": "2010-04-21-so-youd-like-to-send-some-email-through-code"
+}

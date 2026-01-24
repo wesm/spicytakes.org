@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood makes a case for Microsoft's often-overlooked Indexing Service, a free content indexing engine bundled with Windows since 2000. He provides a detailed walkthrough of setting up a catalog, indexing documents, and querying custom metadata through .NET code. The post demonstrates how HTML meta tags can be indexed and queried, transforming Indexing Service from a basic full-text search into a flexible metadata-aware search engine. Atwood concludes with practical gotchas he discovered through experimentation, including permission issues with ASP.NET and pagination limitations.",
+  "key_points": [
+    "Indexing Service's main advantage is being completely free and pre-installed on Windows 2000, XP Pro, and Server 2003",
+    "Standard HTML meta tags like author, keywords, and subject automatically map to built-in Index Server properties",
+    "Custom metadata properties require explicit caching and GUID mapping before they can be queried",
+    "Properties marked as 'primary storage' can be returned directly in search results, offering performance benefits",
+    "ASP.NET queries only return documents the process account has permissions to access - a non-obvious security consideration"
+  ],
+  "money_quotes": [
+    "Microsoft's ancient circa-1997 Indexing Service gets no respect. And that's a shame, because it's a surprisingly decent content indexing engine that supports arbitrary metadata.",
+    "Indexing Service's saving grace is that it's completely free.",
+    "Ok, full text search works. That's not very exciting... until you add some custom metadata to the mix!",
+    "The ability to query arbitrary metadata along with full-text search makes index server much more flexible and powerful than I had ever realized.",
+    "A set of custom generated HTML could easily index entirely database-driven websites, in tandem with the rich Indexing Service query language.",
+    "If you are querying Indexing Services from ASP.NET, bear in mind that your queries will only return documents that the ASP.NET process account has permissions to!"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical, practical, advocacy",
+  "key_insight": "Free, overlooked tools like Windows Indexing Service can become surprisingly powerful when you discover their hidden capabilities for custom metadata indexing.",
+  "filename": "2005-12-12-getting-started-with-indexing-service"
+}

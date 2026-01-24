@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood analyzes Microsoft's whitepaper comparing .NET Remoting and ASP.NET Web Services performance, breaking down the tradeoffs between TCP vs HTTP, Windows Service vs IIS hosting, and binary vs SOAP serialization. While TCP remoting in a Windows service is technically fastest, Atwood argues the practical advantages of HTTP, IIS, and SOAP (ubiquity, tooling, transparency) outweigh minor performance gains. He uses a real-world example of a developer sending 85,000 rows to a client to illustrate that architectural decisions matter far more than protocol choices. His conclusion favors Web Services or IIS-hosted remoting with SOAP for maintainability.",
+  "key_points": [
+    "TCP remoting is fastest but HTTP's ubiquity, proxy support, and compression capabilities make it worth the small performance cost",
+    "IIS hosting provides free scalability features like web farms that justify its minor overhead compared to vanilla Windows services",
+    "The DataSet object's broken binary serialization (always outputs XML regardless of settings) is a significant gotcha that affects all approaches",
+    "Real-world performance problems are rarely caused by protocol choice\u2014they're caused by poor API design like sending 85,000 rows to a client",
+    "Web Services provide a truly generic, future-proof HTTP interface that outlasts proprietary technologies like COM or CORBA"
+  ],
+  "money_quotes": [
+    "A well designed API will win every time, no matter what protocol or interface it is using.",
+    "A lot of hand wringing over minor performance differences \u2013 tied to what are really implementation details \u2013 doesn't buy you much when your bottleneck is elsewhere.",
+    "This isn't a COM or CORBA flash in the pan.",
+    "It's trivial to switch to binary protocol later; just flick a switch in your .config files.",
+    "You should pick the interface that is easiest to troubleshoot and maintain."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "productivity"
+  ],
+  "tone": "pragmatic, technical, opinionated",
+  "key_insight": "Obsessing over protocol-level performance differences is wasted effort when poor API design\u2014like transferring massive datasets to clients\u2014is almost always the real bottleneck.",
+  "filename": "2004-08-13-performance-remoting-vs-web-services"
+}

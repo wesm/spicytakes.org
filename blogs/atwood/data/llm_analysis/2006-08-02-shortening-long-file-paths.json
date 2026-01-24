@@ -1,0 +1,24 @@
+{
+  "summary": "Atwood describes creating a regex-based solution to shorten long file paths for display in a shell utility menu. His approach keeps the first two folders, replaces the middle with an ellipsis, and preserves the final folder and filename. After spending an hour perfecting his solution, a colleague pointed out the existing Windows API function PathCompactPathEx that does nearly the same thing. He compares the two approaches: his regex splits cleanly but has variable length, while the API guarantees fixed length but may split mid-folder.",
+  "key_points": [
+    "The regex approach preserves the beginning path context (first two folders) and the end (final folder and filename), replacing the middle with ellipsis",
+    "Windows already provides PathCompactPathEx API for this exact use case, which Atwood discovered after building his own solution",
+    "The API version guarantees exact character length but may truncate awkwardly mid-folder name",
+    "The custom regex version always splits at folder boundaries but cannot guarantee a maximum length",
+    "Platform dependency matters: the Windows API isn't available on other systems or for those avoiding p/invoke"
+  ],
+  "money_quotes": [
+    "The general strategy is to keep the first two folders at the beginning, replace the middle with an ellipsis, and leave the final folder and filename on the end.",
+    "After spending an hour dinking around with this and testing it on a bunch of paths, a colleague pointed me to the Windows API call PathCompactPathEx, which (almost) does the same thing. Doh!",
+    "CompactPathEx guarantees that the paths will always be exactly (x) characters while displaying as much as it can, but it may not be able to split cleanly.",
+    "My regex always splits cleanly, but makes no guarantees on length.",
+    "And obviously, if you're not running Windows, or if you don't care for p/invoke, the API call is clearly out."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "practical, self-deprecating, technical",
+  "key_insight": "Before building a custom solution, it's worth checking if the platform already provides one\u2014but understanding the tradeoffs between approaches still matters.",
+  "filename": "2006-08-02-shortening-long-file-paths"
+}

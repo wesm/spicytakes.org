@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood shares practical strategies for reducing website bandwidth after his blog nearly saturated two T1 lines during a viral post. He identifies images as consuming 90% of bandwidth and recommends outsourcing them to services like Flickr or Amazon S3. He strongly advocates for HTTP compression as an obvious win, notes that RSS feeds can consume half of a site's bandwidth and recommends FeedBurner, and finally suggests optimizing CSS and JavaScript as a minor but worthwhile micro-optimization. The post acknowledges that even perfectly optimized content can still be overwhelmed by sufficient traffic.",
+  "key_points": [
+    "Images consume roughly 90% of website bandwidth, making external image hosting the most impactful optimization",
+    "HTTP compression provides approximately 66% reduction in text bandwidth with minimal effort - it's essentially free bandwidth",
+    "RSS feed polling can consume 50-60% of a site's bandwidth due to poorly-coded readers constantly polling unchanged content",
+    "CSS and JavaScript compression provides only about 10% additional savings on top of HTTP compression, making it a micro-optimization",
+    "Even hyper-optimized content cannot prevent bandwidth saturation if traffic volume is high enough"
+  ],
+  "money_quotes": [
+    "On the internet, popularity is a tax. Specifically, a bandwidth tax.",
+    "Never serve content that isn't HTTP compressed. It's as close as you'll ever get to free bandwidth in this world.",
+    "The entire RSS ecosystem depends on properly coded RSS readers; a single badly-coded reader could pummel your feed, pulling uncompressed copies of your RSS feed down hourly \u2013 even when it hasn't changed since the last retrieval.",
+    "The benefits of HTTP compression are so obvious it hurts.",
+    "I am offloading 90% of my site's bandwidth usage to an external host for a measly 2 dollars a month.",
+    "Even the most minimal, hyper-optimized compressed text content can saturate a 300 KB/sec link if the hits per second are coming fast enough."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "hardware"
+  ],
+  "tone": "practical, technical, self-deprecating",
+  "key_insight": "Website bandwidth optimization should prioritize the biggest wins first\u2014outsourcing images and enabling HTTP compression\u2014rather than obsessing over micro-optimizations that provide diminishing returns.",
+  "filename": "2007-03-05-reducing-your-websites-bandwidth-usage"
+}

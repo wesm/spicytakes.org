@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood argues that databases must be kept under version control alongside application code, noting that most development teams fail to do this despite it being critical for deployment consistency. He points out that deploying mismatched application and database versions inevitably breaks software. The post reviews Microsoft's Team Edition for Database Professionals as a comprehensive solution that goes beyond simple file-based version control to include test data generation, schema comparison, and database unit testing. Atwood emphasizes that the specific tooling matters less than actually implementing database version control, which he considers an obvious practice that remains surprisingly uncommon.",
+  "key_points": [
+    "Databases should be treated as first-class citizens in version control, deployed in lockstep with application code",
+    "Many teams roll their own tools to reverse-engineer databases into files for source control, but commercial tools offer more robust solutions",
+    "Test data generation solves the common problem of developers working with inadequate data volumes and discovering performance issues too late",
+    "Schema comparison tools enable quick debugging of environment differences and automatic update script generation",
+    "Database unit tests are essential for detecting when schema changes break dependent applications"
+  ],
+  "money_quotes": [
+    "When I ask development teams whether their database is under version control, I usually get blank stares.",
+    "If you deploy version 2.0 of your application against version 1.0 of your database, what do you get? A broken application.",
+    "Your database should always be under source control right next to your application code.",
+    "Like peanut butter and chocolate, they are two great tastes that taste great together.",
+    "I wish I had a dollar every time an application I've worked on began to have performance problems because none of the developers had the foresight to test the app with more than a few rows of crappy, manually entered test data.",
+    "If you make a change to the database schema, how do you know if you've broken any applications that rely on that database? You know because you've written unit tests that validate the database. Right? Right?",
+    "Get your database under version control by any means necessary.",
+    "Making your database a first-class citizen in source control seems totally obvious in retrospect. Now if only we could convince more developers to actually do it."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "programming"
+  ],
+  "tone": "opinionated, practical, evangelical",
+  "key_insight": "Your database is not separate infrastructure but an integral part of your application that must be versioned, tested, and deployed together with your code.",
+  "filename": "2006-12-12-is-your-database-under-version-control"
+}

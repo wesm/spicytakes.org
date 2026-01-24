@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood draws a compelling parallel between physical storefront signs limiting students to prevent shoplifting and software rate limiting to prevent abuse. He explains that rate limits exist everywhere\u2014from ATMs to email accounts to Xbox Live\u2014as necessary defenses against bad actors. Using Stack Overflow as a case study, he describes how even well-designed systems can be defeated by determined humans willing to solve CAPTCHAs repeatedly, leading to additional user-based limits. The post categorizes three main approaches to rate limiting: per user/API key, per IP address, and per global action, each with distinct tradeoffs. Atwood argues that rate limiting is the first and most important defense against attacks, yet finds surprisingly little comprehensive documentation on the topic for developers.",
+  "key_points": [
+    "Rate limiting exists everywhere in daily life, from ATMs ($300 daily max) to email accounts to convenience store student limits\u2014addressing real problems that emerged historically",
+    "Determining 'how much is too much' is the art of rate limiting, requiring balance between preventing abuse and avoiding false positives",
+    "Even CAPTCHA-protected systems can be defeated by determined humans willing to solve them repeatedly, necessitating additional rate limits",
+    "Three classes of rate limiting exist: per user/API key, per IP address, and per global action\u2014each with specific use cases and limitations",
+    "Without rate limiting, web applications face potential abuse at the speed of network bandwidth rather than physical human limitations"
+  ],
+  "money_quotes": [
+    "Determining how much is 'too much' \u2013 that's the art of rate limiting.",
+    "What if those 'students' were an infinite number of computer programs, capable of stealing items from your web store at a rate only limited by network bandwidth? Your store would be picked clean in a matter of minutes.",
+    "Not having any sort of rate limiting in your web application is an open invitation to abuse.",
+    "Even the most innocuous of user actions, if done rapidly enough and by enough users, could have potentially disastrous effects.",
+    "Rate limiting isn't always a precise science. But it's necessary, even with the false positives.",
+    "They are your first and most important line of defense against a broad spectrum of possible attacks.",
+    "Take a long, hard look your own website \u2013 how would it deal with a roving band of bored, morally ambiguous schoolkids?"
+  ],
+  "themes": [
+    "software_engineering",
+    "communities",
+    "industry_criticism"
+  ],
+  "tone": "practical, illustrative, conversational",
+  "key_insight": "Rate limiting is a fundamental and often overlooked defense mechanism that every web application needs, because online attackers can operate at speeds that make physical-world limitations irrelevant.",
+  "filename": "2009-02-23-rate-limiting-and-velocity-checking"
+}

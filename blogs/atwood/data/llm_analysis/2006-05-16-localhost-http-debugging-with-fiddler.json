@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood discusses the challenge of debugging localhost HTTP traffic on Windows, where ethernet sniffers cannot capture local packets since they bypass the regular network stack. He introduces Fiddler, a local HTTP proxy, as a workaround solution. While Atwood notes some quirks with IE7 compatibility, he highlights Fiddler's unique capabilities like setting breakpoints and modifying HTTP data mid-stream. Though he'd prefer using a standard sniffer, he acknowledges Fiddler as a reasonable alternative for localhost debugging scenarios.",
+  "key_points": [
+    "Ethernet sniffers are valuable debugging tools that don't require system reboots to install",
+    "Windows sniffers cannot capture localhost traffic because those packets bypass the normal network stack",
+    "Fiddler serves as a local HTTP proxy workaround for this limitation",
+    "Fiddler offers capabilities beyond sniffing, including breakpoints and HTTP data tampering",
+    "The tool integrates well with IE and can work with Firefox through additional configuration"
+  ],
+  "money_quotes": [
+    "Ethernet sniffers should be a standard tool in your development troubleshooting toolkit, too.",
+    "Windows ethernet sniffers do have one significant limitation: they can't sniff localhost traffic.",
+    "Localhost packets don't pass through the regular network stack, so they're invisible to an ethernet sniffer.",
+    "With Fiddler you can set breakpoints and tamper with the HTTP data before it is sent or received.",
+    "On the whole, I'd prefer to stick with a sniffer for localhost debugging. But a HTTP proxy like Fiddler is a reasonable workaround."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical, practical",
+  "key_insight": "When standard ethernet sniffers fail for localhost debugging on Windows, a local HTTP proxy like Fiddler provides both a workaround and additional debugging capabilities beyond simple packet capture.",
+  "filename": "2006-05-16-localhost-http-debugging-with-fiddler"
+}

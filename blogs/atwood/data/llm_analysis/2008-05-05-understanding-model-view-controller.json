@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explains the Model-View-Controller (MVC) pattern by tracing its origins to Trygve Reenskaug's 1979 Smalltalk work and then making it concrete through familiar examples. He argues that the web itself embodies MVC perfectly: HTML as Model, CSS as View, and the browser as Controller. The post demonstrates how this separation of concerns has driven the success of both the web and popular frameworks like Django and Rails. Atwood concludes with a practical litmus test: if your application is skinnable, you've likely implemented MVC correctly.",
+  "key_points": [
+    "MVC was invented by Trygve Reenskaug in 1979 for Smalltalk, making it one of software's oldest and most enduring architectural patterns",
+    "The web's fundamental structure (HTML/CSS/Browser) is itself an implementation of MVC, which helps explain the web's massive success",
+    "Proper MVC separation enables skinnability - the ability to completely change an application's appearance without touching its logic",
+    "The controller in web apps has two parts: the server that routes requests and the handlers that process them and interact with the database",
+    "Designers understand templates with holes (views) but struggle with logic - MVC's separation solves this practical collaboration problem"
+  ],
+  "money_quotes": [
+    "You're looking at MVC right now.",
+    "So if you believe the web has been at all successful \u2013 most signs I've seen point to yes \u2013 then you also have to acknowledge the incredible power of Model-View-Controller.",
+    "My experience is that designers don't understand loops or any kind of state. They do understand templates with holes in them. Everybody understands mail merge.",
+    "Skinnability cuts to the very heart of the MVC pattern.",
+    "If you have the view and the logic together, when you make a copy of the view you copy the logic as well. That breaks one of our primary rules as developers: have only one place to change anything.",
+    "If your app isn't skinnable, that means you've probably gotten your model's chocolate in your view's peanut butter, quite by accident.",
+    "I look at a website as nothing but a graph with edges with POSTs and GETs that routes pages."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "educational, accessible, pragmatic",
+  "key_insight": "The web's success validates MVC's power, and the ultimate test of proper MVC implementation is whether your application can be reskinned without touching its logic.",
+  "filename": "2008-05-05-understanding-model-view-controller"
+}

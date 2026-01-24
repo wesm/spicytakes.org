@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood documents the process of debugging a mysterious production deadlock in ASP.NET, where the ASPNET_WP process would randomly become unresponsive multiple times daily. After exhausting standard troubleshooting, he turned to Microsoft's advanced debugging tools (WinDbg and SOS.dll) to capture and analyze memory dumps. By examining thread states and call stacks, he discovered that all blocked threads were waiting for Oracle database connections. The root cause turned out to be a known bug in Microsoft's Oracle client that fails to properly dispose pooled connections after exceptions, causing connection pool exhaustion.",
+  "key_points": [
+    "Production debugging requires specialized tools like WinDbg and SOS.dll when standard troubleshooting fails",
+    "Memory dumps can reveal exactly what each thread is doing at the moment of a hang or crash",
+    "The !clrstack command in SOS.dll shows .NET-specific call stacks that pinpoint the blocking operations",
+    "Connection pool exhaustion from improperly disposed connections can cause random, hard-to-reproduce deadlocks",
+    "Microsoft's own Oracle client had a known bug where it would reuse connections it knew to be bad"
+  ],
+  "money_quotes": [
+    "This is painful. It means the server becomes unavailable for over three minutes, and any pending requests return errors after ASPNET_WP is cycled.",
+    "The best part is, this happens completely randomly. We can't force it to happen or duplicate it, we just have to wait for it to happen.",
+    "We went through all the normal troubleshooting procedures and exhausted them all, which left... the tough stuff.",
+    "Armed with this information, rather than 'gee, ASPNET_WP is deadlocking a lot,' we were able to determine that the real problem is a pooled connection is not disposed by Microsoft .NET Managed Provider for Oracle when an exception occurs.",
+    "The Microsoft System.Data.OracleClient is blindly re-using connections that it knows to be bad, which of generates a NullObjectException, and sooner or later \u2013 basically at random \u2013 causes ASPNET_WP to fall over and cycle.",
+    "Good times... good times..."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "When facing mysterious production issues that can't be reproduced, advanced debugging tools that capture memory dumps and thread states can transform vague symptoms into precise root cause identification.",
+  "filename": "2004-06-23-debugging-aspnet_wp-in-production"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores whether disabling the Windows XP pagefile is viable for systems with 2GB or more of RAM, walking through the technical steps to do so. He acknowledges that while developers are successfully running without pagefiles, the theoretical performance benefits are questionable since systems with adequate RAM rarely use the pagefile anyway. The post weighs the risks, including potential out-of-memory errors and issues with memory-hungry applications like Photoshop. Ultimately, the expert consensus recommends keeping a small pagefile rather than disabling it entirely, as Windows only pages to disk when necessary.",
+  "key_points": [
+    "With 2GB of RAM becoming common in 2005, disabling the pagefile became a more realistic option than in the 256MB-1GB era",
+    "If a system never runs out of physical memory, the pagefile theoretically never gets used anyway, negating performance benefits",
+    "Some applications pre-allocate large amounts of virtual memory on startup, which can cause problems without a pagefile",
+    "The recommended approach is a small initial pagefile (100MB) with a high maximum (1GB) rather than complete disabling",
+    "The 32-bit Windows memory architecture with its 2GB user-space limit actually helps constrain memory demands"
+  ],
+  "money_quotes": [
+    "If you have 2 gigabytes (or more) of memory in your PC, have you considered turning off your pagefile?",
+    "I've heard people talk about this before, but I had always disregarded it as crazy talk.",
+    "This idea was indeed crazy in a world where 256mb, 512mb and 1gb of memory were the norm. Now that 2 gb of memory is relatively common, disabling the pagefile isn't such a crazy idea any more.",
+    "If our systems were never running out of physical memory with 2gb, then theoretically the pagefile never gets used anyway.",
+    "When certain applications start, they allocate a huge amount of memory (hundreds of megabytes typically set aside in virtual memory) even though they might not use it.",
+    "This is one case where the 32-bit process memory limit of 4 gigabytes \u2013 which is really 2 gigabytes once you factor in the Windows kernel memory split \u2013 works in our favor."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "exploratory, balanced, technically curious",
+  "key_insight": "Having abundant RAM doesn't automatically mean you should disable virtual memory, because the safety net costs nothing when unused but provides crucial fallback when applications misbehave.",
+  "filename": "2005-10-19-running-xp-with-the-pagefile-disabled"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood demonstrates the alarming speed of rainbow table attacks, showing how Ophcrack can crack seemingly strong passwords like 'Fgpyyih804423' in under 3 minutes. Rainbow tables are massive pre-computed hash lookups that trade storage space for cracking speed, making brute-force attacks orders of magnitude faster. Windows systems are especially vulnerable due to legacy LAN Manager hashes that remain enabled by default. The defense against rainbow tables is straightforward: use password salting to make pre-computed tables useless, and use passphrases long enough to exceed table coverage.",
+  "key_points": [
+    "Rainbow tables enable password cracking that's orders of magnitude faster than brute-force by pre-computing hash values for all character combinations",
+    "A 388MB rainbow table can cover 99.9% of all 14-character alphanumeric passwords and crack them in minutes",
+    "Windows Server 2003's default support for legacy LAN Manager hashes creates serious security vulnerabilities for domain credentials",
+    "Passphrases are immune to rainbow table attacks due to their length exceeding table coverage",
+    "Salting password hashes with a unique prefix completely defeats rainbow table attacks by making pre-computed tables worthless"
+  ],
+  "money_quotes": [
+    "It can crack the password 'Fgpyyih804423' in 160 seconds.",
+    "Passwords are never stored in plaintext. At least they shouldn't be, unless you're building the world's most insecure system using the world's most na\u00efve programmers.",
+    "It's a classic time-memory tradeoff, exactly the sort of cheating shortcut you'd expect a black hat attacker to take.",
+    "This attack covered 99.9% of all possible 14 character alphanumeric passwords in 11 minutes.",
+    "There's a reason rainbow table attacks have only emerged recently, as the price of 2 to 4 gigabytes of memory in a desktop machine have approached realistic levels.",
+    "When a remote hacker obtains a large list of hashed passwords from a server or database, we're in trouble.",
+    "If you've salted your password hashes, an attacker can't use a rainbow table attack against you."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "technical, accessible, cautionary",
+  "key_insight": "Rainbow tables turn password cracking from a computationally expensive brute-force problem into a fast lookup operation, but salting your hashes renders these massive pre-computed tables completely useless.",
+  "filename": "2007-09-08-rainbow-hash-cracking"
+}

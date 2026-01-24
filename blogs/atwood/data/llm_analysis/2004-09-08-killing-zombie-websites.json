@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood addresses the frustrating Windows server administration issue where deleting website folders doesn't automatically remove their corresponding IIS website entries, leaving behind 'zombie websites.' He offers a practical solution using the often-forgotten FrontPage Server Extensions (later absorbed into SharePoint) which includes a Server Health check feature that can automatically detect and repair orphaned websites. The post is a quick technical tip aimed at lazy administrators who accumulate these leftover entries.",
+  "key_points": [
+    "Deleting a folder from wwwroot doesn't automatically clean up the corresponding IIS website entry",
+    "FrontPage Server Extensions were absorbed into SharePoint around 2002, though the relationship remains confusing",
+    "The 'Check Server Health' tool in FrontPage Site Administration can auto-repair and remove orphaned websites in bulk",
+    "The extensions appear differently depending on whether you're running a full or limited version of IIS"
+  ],
+  "money_quotes": [
+    "Isn't it annoying how deleting a folder from your wwwroot$ doesn't automatically remove the corresponding website in IIS?",
+    "If you're lazy like me, you probably have about a dozen left-over zombie websites waiting to be deleted (or eat some brains).",
+    "Remember those hoary old FrontPage extensions? The Microsoft proprietary version of WebDAV?",
+    "I still don't fully understand the nature of this relationship, but you may see it referred to by either name."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "casual, practical, self-deprecating",
+  "key_insight": "Legacy Microsoft tools like FrontPage Extensions, despite being largely forgotten, can still provide useful administrative shortcuts for cleaning up server cruft.",
+  "filename": "2004-09-08-killing-zombie-websites"
+}

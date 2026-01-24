@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood recounts his experience building a Markdown parser for Stack Overflow comments, using it as a parable about the dangers of insufficient testing. He initially crafted a regex that passed his simple test case, feeling confident it worked. However, when he tested against the actual database of 20,000+ real-world comments, he discovered numerous edge cases that broke his pattern. The post argues that developers must resist the seductive pull of shipping code after minimal testing and instead embrace 'brute force' testing against large, realistic datasets.",
+  "key_points": [
+    "Initial confidence in code that passes a single test case is dangerously misleading",
+    "Real-world data contains edge cases that simple test strings never reveal",
+    "Having access to production data or large test corpora is invaluable for validation",
+    "Fuzz testing with random inputs can substitute when real data isn't available",
+    "Regex patterns for human input can never be perfect, but extensive testing builds reasonable confidence"
+  ],
+  "money_quotes": [
+    "I can feel in my bones that this thing freakin' works! It's almost like I'm being pulled toward shipping this code by some inexorable, dark, testing... force.",
+    "But wait. I have this whole database of real world comments that people have entered on Stack Overflow. Shouldn't I perhaps try my awesome regular expression on that corpus of data to see what happens?",
+    "Thank goodness I listened to my midi-chlorians and let the light side of the testing force prevail here!",
+    "So how do we fix this regex? We use the light side of the force \u2013 brute force, that is, against a ton of test cases!",
+    "This regex doesn't have to be (and probably cannot be, given the huge possible number of human inputs) perfect, but running it against a large set of input test data gives me reasonable confidence that I'm not totally screwing up.",
+    "If you think one or two simple test cases covers it, that's taking the easy (and most likely, buggy and incorrect) way out."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "humorous, self-deprecating, instructive",
+  "key_insight": "The temptation to ship code after it passes a single test case is a dark force that developers must resist by testing against large, realistic datasets.",
+  "filename": "2009-07-07-testing-with-the-force"
+}

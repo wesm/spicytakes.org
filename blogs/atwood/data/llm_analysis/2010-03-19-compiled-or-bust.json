@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood challenges the common claim that uncompiled LINQ to SQL queries cause scalability nightmares, using Stack Overflow's success as counter-evidence. While acknowledging that LINQ queries do incur a per-execution parsing cost that compiled queries avoid, he demonstrates through benchmarking that this overhead amounts to less than one-third of a millisecond per query. The real issue isn't whether queries are compiled, but whether your application is making an unreasonable number of queries per request. Atwood concludes that blindly compiling all LINQ queries is a form of micro-optimization theater that trades developer productivity for negligible performance gains in most real-world scenarios.",
+  "key_points": [
+    "Stack Overflow runs hundreds of uncompiled LINQ queries per page while serving 1.5 million pageviews daily without CPU scalability issues",
+    "The per-query overhead of uncompiled LINQ is less than 0.3 milliseconds\u2014the real problem is applications making hundreds of thousands of queries",
+    "Rico Mariani's benchmarks show compiled queries can actually be slower in scenarios with many small batches versus few large batches",
+    "The compiled query syntax is ugly and contorted, creating maintenance burden that may not be worth the marginal performance gain",
+    "Database round-trip time typically dwarfs query parsing time, making LINQ compilation a classic micro-optimization"
+  ],
+  "money_quotes": [
+    "Querying the database is so slow (relative to typical code execution) that if you have to ask how long it will take, you can't afford it.",
+    "Stack Overflow has dozens to hundreds of plain vanilla uncompiled Linq to SQL queries on every page. What we don't have is 'scalability nightmares.'",
+    "Each uncompiled run of the query took less than one third of a millisecond longer.",
+    "At first I was worried that every Stack Overflow page was 1.5 times slower than it should be. But then I realized it's probably more realistic to make sure that any page we generate isn't doing 500 freakin' thousand queries!",
+    "Have we found ourselves in the sad tragedy of micro-optimization theater... again? I think we might have.",
+    "But compilation alone is not the entire performance story. Not even close."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism",
+    "productivity"
+  ],
+  "tone": "skeptical, empirical, self-deprecating",
+  "key_insight": "Performance advice without real-world benchmarks and context is dangerous\u2014what sounds like catastrophic overhead often amounts to micro-optimization theater when you do the actual math.",
+  "filename": "2010-03-19-compiled-or-bust"
+}

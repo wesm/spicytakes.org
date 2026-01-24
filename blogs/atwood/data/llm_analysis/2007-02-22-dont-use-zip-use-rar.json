@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood makes a passionate case for abandoning the ZIP format in favor of RAR, citing WinRAR's superior compression ratios, speed efficiency, and polished implementation. He demonstrates with benchmarks that RAR produces significantly smaller archives than ZIP in comparable time, particularly when compressing multiple files due to solid archive support. The post analyzes compression benchmark data to show that WinRAR ranks among the top archivers for efficiency, and that pushing beyond ~73% compression ratio yields severely diminishing returns. Atwood concludes that except for backwards compatibility requirements, RAR should replace ZIP as the default compression format.",
+  "key_points": [
+    "RAR produces dramatically smaller archives than ZIP, especially for multiple files - a C# code snippet collection compressed to 73KB with RAR versus 229KB with ZIP",
+    "WinRAR ranks 3rd and 4th out of 200 archivers in efficiency metrics that balance compression ratio against time",
+    "Compression performance hits a 'brick wall' around 73% ratio - gaining an additional 2-7% compression requires exponentially more time (from 3 minutes to 8+ hours)",
+    "RAR's solid archive feature exploits intra-file redundancies that ZIP cannot, making it especially effective for compressing many similar files",
+    "Self-extracting archives solve the 'recipient needs RAR client' problem at minimal cost (~60KB overhead)"
+  ],
+  "money_quotes": [
+    "RAR, as a compression format, clobbers ZIP. It produces much smaller archives in roughly the same time.",
+    "You don't just hit the point of diminishing returns in compression, you slam into it like a brick wall.",
+    "Is an additional two percent of compression worth taking five times longer? Is an additional four percent worth ten times longer?",
+    "RAR offers a nearly perfect blend of compression efficiency and speed across all modern compression formats.",
+    "We should abandon the archaic ZIP format \u2013 and switch to the power and flexibility of WinRAR."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "hardware"
+  ],
+  "tone": "opinionated, enthusiastic, data-driven",
+  "key_insight": "When evaluating compression tools, efficiency (the ratio of compression gains to time spent) matters more than raw compression ratio, and RAR hits the sweet spot where ZIP falls short.",
+  "filename": "2007-02-22-dont-use-zip-use-rar"
+}

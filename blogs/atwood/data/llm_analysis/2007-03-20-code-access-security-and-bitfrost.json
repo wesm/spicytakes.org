@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood examines the OLPC's BitFrost security model, which attempts to implement code access security\u2014granting permissions to applications rather than just users. He draws a parallel to .NET's Code Access Security (CAS), which failed because it was too complex for developers to adopt. Despite the theoretical appeal of limiting what applications can do (like preventing Solitaire from accessing your documents), Microsoft eventually abandoned CAS in favor of ClickOnce's simpler full-trust model. Atwood expresses skepticism that BitFrost will succeed where CAS failed.",
+  "key_points": [
+    "UNIX file permissions from 1971 remain virtually unchanged today, focusing on user access rather than controlling what programs can do with files",
+    "Code access security would allow applications to declare and shed unnecessary privileges at install time, limiting damage from compromised software",
+    ".NET's Code Access Security was a comprehensive but ultimately failed attempt at this same concept",
+    "Microsoft's CAS was so difficult to use that ClickOnce effectively abandoned it for full-trust applications",
+    "Security models fail when they're too cumbersome for developers to actually implement"
+  ],
+  "money_quotes": [
+    "A user can choose to protect her files from other people on the system, but has no control whatsoever over what her own programs are able to do with her files.",
+    "How, then, is it a surprise that we can't stop viruses and malware now, when our defenses have remained largely unchanged from thirty-five years ago?",
+    "The critical observation here is not that Solitaire should never have the ability to do any of the above (which it clearly shouldn't), but that its creators know it should never do any of the above.",
+    "Code Access Security is too hard.",
+    "You're now exactly one click away from running a full trust application that can do whatever it wants to on your machine, with no restrictions of any kind.",
+    "What good is a security model that's so cumbersome to use, nobody ever adopts it?"
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "skeptical, analytical, historically-informed",
+  "key_insight": "Even theoretically sound security models fail in practice when they impose too much complexity on developers, as demonstrated by .NET's abandoned Code Access Security.",
+  "filename": "2007-03-20-code-access-security-and-bitfrost"
+}

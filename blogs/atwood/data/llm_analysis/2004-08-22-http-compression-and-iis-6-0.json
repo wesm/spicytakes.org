@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood argues that HTTP compression is an essential optimization that every website should implement, noting that it can quadruple throughput by reducing plaintext size by 75 percent. While IIS 5.0's built-in compression was broken and required a third-party ISAPI filter workaround, IIS 6.0 promised a working solution. However, getting dynamic content compression working in IIS 6.0 proved frustratingly difficult due to undocumented configuration requirements and misleading documentation. After extensive troubleshooting, Atwood shares his working metabase configuration and reports dramatic performance improvements once compression was properly enabled.",
+  "key_points": [
+    "HTTP compression reduces plaintext by 75%, effectively quadrupling throughput with minimal CPU cost",
+    "IIS 5.0's built-in HTTP compression was broken and should be avoided in favor of the free FlatCompression ISAPI filter",
+    "IIS 6.0 compression configuration is poorly documented, with critical details like cr/lf delimiters being incorrectly stated as space-delimited",
+    "Dynamic content compression (for .aspx, .cgi, etc.) is significantly harder to configure than static file compression",
+    "The performance improvement from HTTP compression is immediately noticeable even on fast local networks"
+  ],
+  "money_quotes": [
+    "HTTP compression is the ultimate no-brainer.",
+    "The network is really slow, and CPU time is effectively free and getting faster and, uh, \"free-er\" every day.",
+    "Every website should be serving up HTTP compressed pages to clients that can accept it.",
+    "Despite what the MS documentation says, the metabase filename extension lists are not space delimited! They are cr/lf delimited.",
+    "It's truly amazing how much faster pages appear to load, even over a 100baseT local network, with HTTP compression enabled."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "technical, pragmatic, frustrated",
+  "key_insight": "HTTP compression offers massive performance gains at virtually no cost, but getting it properly configured often requires fighting through broken implementations and misleading documentation.",
+  "filename": "2004-08-22-http-compression-and-iis-6-0"
+}

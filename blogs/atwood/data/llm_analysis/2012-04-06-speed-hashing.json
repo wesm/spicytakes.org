@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explains the critical difference between checksums (fast, for data integrity) and cryptographic hashes (slow by design, for security), arguing that traditional hashing algorithms like MD5 and SHA-1 are dangerously obsolete for password storage. He demonstrates that modern GPUs can crack MD5 hashes at rates 150 times faster than CPUs, making brute-force attacks on short passwords trivially easy. The post provides concrete benchmarks showing that all 8-character alphanumeric passwords can be cracked in just 4 hours with consumer hardware. Atwood concludes that rainbow tables are now obsolete, salts alone are insufficient protection, and developers must use bcrypt or PBKDF2 exclusively for password hashing.",
+  "key_points": [
+    "GPUs produce over 150 times the hash calculations per second compared to CPUs, equivalent to a 10-year leap in Moore's Law terms",
+    "MD5 is cryptographically broken and should be considered merely a checksum, while SHA-1 is also showing weaknesses",
+    "Rainbow tables are completely obsolete because GPU-based brute forcing is now cheaper and more effective",
+    "Salts are necessary but insufficient - they provide 'the illusion of security more than any actual security' against determined attackers",
+    "Secure hashes must be slow by design, which is why bcrypt and PBKDF2 are the only appropriate choices for password storage"
+  ],
+  "money_quotes": [
+    "Hashes, when used for security, need to be slow. The faster you can calculate the hash, the more viable it is to use brute force to mount attacks.",
+    "The GPU on a single modern video card produces over 150 times the number of hash calculations per second compared to a modern CPU. If Moore's Law anticipates a doubling of computing power every 18 months, that's like peeking 10 years into the future.",
+    "Rainbow tables, despite their recent popularity as a subject of blog posts, have not aged gracefully.",
+    "This will provide the illusion of security more than any actual security.",
+    "These days, salts alone can no longer save you from a person willing to spend a few thousand dollars on video card hardware, and if you think they can, you're in trouble.",
+    "We can't protect users dead-set on using 'monkey1' for their password from themselves.",
+    "If you've been compromised to the point that an attacker has your password database, it's reasonable to assume they either have or can get your secret, hidden salt."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming",
+    "industry_criticism"
+  ],
+  "tone": "technical, urgent, pragmatic",
+  "key_insight": "The explosive growth of GPU computing power has rendered traditional password hashing algorithms and rainbow tables obsolete, making bcrypt or PBKDF2 mandatory for any security-conscious application.",
+  "filename": "2012-04-06-speed-hashing"
+}

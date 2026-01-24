@@ -1,0 +1,25 @@
+{
+  "summary": "Atwood discovers that spammers are exploiting his Windows Server 2003 SMTP service through a 'Reverse NDR attack' - sending emails to nonexistent addresses on his domain so that bounce messages containing spam are forwarded to spoofed sender addresses. The default SMTP service accepts messages before validating recipients, making it too late to prevent the abuse. While he found a tarpit feature, it won't help because the core issue is the timing of recipient validation. Suppressing NDRs entirely would break RFC 2821 email protocol standards. He concludes he may need to purchase a commercial mail server unless he can find a way to reject invalid recipients before accepting messages.",
+  "key_points": [
+    "Spammers exploit SMTP non-delivery reports by sending to fake addresses, causing the server to bounce spam-laden NDRs to spoofed sender victims",
+    "Windows Server 2003's default SMTP service validates recipients after accepting messages, which is architecturally too late to prevent this attack",
+    "The SMTP tarpit feature exists but doesn't solve this problem since it operates at a different stage",
+    "Suppressing NDRs entirely violates RFC 2821 and breaks legitimate use cases like typo notifications",
+    "The only real fix is recipient validation before message acceptance, which the built-in service doesn't support"
+  ],
+  "money_quotes": [
+    "Spammers are intentionally sending email messages to nonexistent email addresses on my domain.",
+    "The person in the 'from' address will get a non-delivery report from my server that includes the original spam message as an attachment.",
+    "The basic SMTP service is not smart enough to perform 'recipient filtering' \u2013 to reject email for users that don't exist at the time of submission.",
+    "The validation of the address occurs after the email delivery process begins, which is too late.",
+    "I hate to buy a commercial mail server to replace the simple SMTP and POP3 services provided with Windows Server 2003."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware",
+    "industry_criticism"
+  ],
+  "tone": "technical, frustrated, practical",
+  "key_insight": "Email protocol design decisions about when to validate recipients can turn your own server into an unwitting spam relay through the abuse of non-delivery reports.",
+  "filename": "2006-05-07-spam-via-smtp-non-delivery-reports"
+}

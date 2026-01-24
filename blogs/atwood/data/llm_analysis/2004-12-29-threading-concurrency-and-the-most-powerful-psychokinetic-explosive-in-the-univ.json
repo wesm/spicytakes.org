@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood argues that as CPU development shifts from faster clock speeds to multiple cores, software developers face a serious challenge: our programming languages and mental models are fundamentally ill-suited for concurrent programming. He draws on predictions from 2001 about multi-core processors and quotes several experts who warn that threading is extremely difficult to get right. Using Dan Appleman's vivid analogy comparing multithreading to a psychokinetic explosive, Atwood emphasizes that incorrect threading designs can be catastrophically expensive to fix. He concludes that without radical changes to programming paradigms, developers will struggle to adapt to a concurrent world.",
+  "key_points": [
+    "CPU development is shifting from faster clock speeds to multiple cores, forcing developers to write concurrent code to gain performance",
+    "Current programming languages provide inadequate support for concurrent programming, making it unnecessarily difficult",
+    "Threading bugs are uniquely dangerous because design flaws cannot be patched later and have unlimited potential debugging costs",
+    "Most programmers lack experience with concurrent programming and underestimate its complexity",
+    "Linear thinking dominates programming, but concurrency requires reasoning about events that can interrupt each other at any time"
+  ],
+  "money_quotes": [
+    "We're pretty screwed if the only way to get more performance out of our apps is to make them heavily multithreaded.",
+    "We'll have to have much better language-level support for concurrent programming. What we have now sucks. Rocks. Hard.",
+    "Multithreading is the software equivalent of a nuclear device because if it is used incorrectly, it can blow up in your face.",
+    "Used incorrectly, it can destroy your reputation and your business because it has nearly infinite potential to increase your testing and debugging costs.",
+    "If your design is incorrect, it will be virtually impossible to patch up the problems later. And again, the potential cost to fix threading problems has no upper limit.",
+    "When you can't go forward, go sideways: more CPUs on the same die.",
+    "Writing software is hard enough as-is without adding a pinch of 'the most complex code in our app' throughout... your app."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "cautionary, prescient, technical",
+  "key_insight": "The shift to multi-core processors represents a fundamental challenge for software development because our languages, tools, and ways of thinking are built for linear execution, not concurrency.",
+  "filename": "2004-12-29-threading-concurrency-and-the-most-powerful-psychokinetic-explosive-in-the-univ"
+}

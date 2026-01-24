@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood argues that the ElseIf construct is overused and harmful, comparing it unfavorably to GOTO. He demonstrates how experienced programmers repeatedly choose chains of ElseIf statements when a Select Case (switch) statement would be cleaner and more readable. The post highlights that Select Case naturally encourages handling edge cases through its Case Else clause, while ElseIf chains often leave unexpected conditions unhandled. Atwood considers ElseIf destructive outside of very specialized niches.",
+  "key_points": [
+    "ElseIf chains are frequently used where Select Case would be clearer and more appropriate",
+    "This anti-pattern appears consistently across many experienced programmers, not just beginners",
+    "Select Case offers Case Else which encourages proper handling of unknown conditions",
+    "ElseIf chains often silently ignore edge cases like unexpected return values",
+    "The author considers ElseIf comparable to GOTO in its potential for misuse"
+  ],
+  "money_quotes": [
+    "I think the ELSEIF keyword is destructive and, like GOTO, has no good use outside of a very specialized niche.",
+    "ELSEIF, in my experience, is abused far more than it is used properly.",
+    "I have a very hard time coming up with any valid justification for the use of ELSEIF.",
+    "98 times out of 100, SELECT CASE is easier to read and offers the CASE ELSE condition, which encourages developers to handle unknown conditions properly.",
+    "In the above example, what happens when the dialog returns DialogResult.Cancel?"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, frustrated, instructive",
+  "key_insight": "Switch/case statements are almost always preferable to ElseIf chains because they're more readable and naturally prompt developers to handle unexpected conditions.",
+  "filename": "2004-06-20-the-tyranny-of-elseif"
+}

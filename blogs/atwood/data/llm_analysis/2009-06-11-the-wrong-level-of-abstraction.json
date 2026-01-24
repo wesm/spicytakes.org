@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood reflects on a security incident where his team's encryption implementation failed, ultimately concluding that the root cause wasn't poor understanding, copy-pasting code, or inadequate code review\u2014it was working at the wrong level of abstraction. Rather than using low-level cryptography primitives, they should have used a proven library like Bouncy Castle or Keyczar. He argues that abstractions are fundamental to programming progress and that higher-level libraries make it harder to misuse cryptography. The post advocates for deprecating insecure methods and making secure alternatives more attractive to developers.",
+  "key_points": [
+    "The real problem with encryption failures often isn't understanding or code review\u2014it's choosing to work with primitives instead of proven libraries",
+    "Programming history can be viewed as slowly clawing up the evolutionary tree of abstraction from assembly to modern frameworks",
+    "Rather than blocking programmers from low-level APIs, offer more attractive high-level alternatives",
+    "Libraries force developers to work at higher abstraction levels, making cryptographic misuse harder",
+    "Usability improvements are better handled by domain specialists who created the library than by framework generalists"
+  ],
+  "money_quotes": [
+    "The root problem was that we were working at the wrong layer of abstraction.",
+    "You can save a tremendous amount of time and effort by using the browser-independent framework that JQuery has spent untold man-hours testing, debugging, and proving in the field.",
+    "Don't reinvent the wheel, unless you plan on learning more about wheels.",
+    "You could view most of computer programming history as slowly, painfully clawing our way up the evolutionary tree of abstraction.",
+    "It's a testament to the power of abstraction that any of it works at all.",
+    "Putting roadblocks in front of programmers is tantamount to a challenge; why not offer them more attractive alternatives, instead?",
+    "So the next time you set out to write code \u2013 not just encryption code, any code \u2013 ask yourself: am I working at the right level of abstraction?"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "reflective, self-deprecating, instructive",
+  "key_insight": "Security failures and many other programming mistakes often stem not from lack of skill or diligence, but from working at the wrong level of abstraction\u2014proven libraries exist precisely to prevent us from reinventing wheels poorly.",
+  "filename": "2009-06-11-the-wrong-level-of-abstraction"
+}

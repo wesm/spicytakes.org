@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines NTLM authentication in ASP.NET, initially presenting it as a convenient way to avoid login dialogs on intranet sites. However, he methodically dismantles this convenience by revealing the hidden costs: a 50x performance penalty (1000ms vs 20ms per request), complex browser zone requirements, proxy incompatibilities, multi-domain headaches, and the burden of troubleshooting Windows account issues. After two years of experience, he concludes that the traditional login dialog might actually be the better choice despite NTLM's apparent elegance.",
+  "key_points": [
+    "NTLM authentication requires three browser round trips for the challenge-response handshake, creating a ~1000ms overhead compared to 20ms for anonymous requests",
+    "IE only sends NTLM credentials automatically to 'Intranet Zone' sites, requiring fallback to insecure Basic authentication for other scenarios",
+    "NTLM ties website access to Windows account status, making developers responsible for troubleshooting password expirations, lockouts, and domain issues",
+    "IIS Directory Security settings override ASP.NET Web.config authorization rules, creating confusing configuration precedence",
+    "The apparent simplicity of 'free' authentication hides significant operational complexity and support burden"
+  ],
+  "money_quotes": [
+    "Why trouble the user with Yet Another Login Dialog when you can leverage the built in NTLM functionality of IIS and Internet Explorer?",
+    "And it's free \u2013 as long as you define 'free' as three browser round trips.",
+    "The last time I benchmarked it, almost 1000ms per request, compared to under 20ms for anonymous requests.",
+    "And Basic authentication is, uh, unsecure. Like 'barely better than plain text' unsecure.",
+    "This inevitably results in a lot of user complaints that 'I can't get to your intranet site, but all the others work \u2013 what's wrong with your site?'",
+    "Those other sites don't use NTLM. And I am put in the uncomfortable position of troubleshooting people's Windows account so they can get to our website.",
+    "I used to be a big believer in NTLM authentication in ASP.NET. However, after living with it for the last two years, I'm starting to wonder if we wouldn't all be better off with Yet Another Login Dialog."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "reflective, pragmatic, slightly rueful",
+  "key_insight": "Convenience features that eliminate user friction often just transfer that friction to developers and operations, sometimes at a much higher total cost.",
+  "filename": "2005-04-13-aspnet-ntlm-authentication-is-it-worth-it"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood documents his investigation into why .NET's UnhandledException event doesn't work as documented, and shares Microsoft's response explaining the design rationale. The post reveals that in .NET 1.0/1.1, unhandled exceptions on non-main threads were silently swallowed, causing difficult-to-debug failures. Microsoft's Jonathan Keljo explains that .NET 2.0 will crash the application on any unhandled exception, making debugging significantly easier. Atwood reflects on his own painful debugging experiences caused by the old silent-failure behavior, particularly with drag-and-drop functionality on COM threads.",
+  "key_points": [
+    "The UnhandledException event is a notification mechanism, not an exception handler - registering for it doesn't prevent the exception from being unhandled",
+    "In .NET 1.0/1.1, unhandled exceptions on non-main threads were silently swallowed, allowing apps to continue in a broken state",
+    ".NET 2.0 changes this behavior so unhandled exceptions on any thread will crash the application",
+    "The order of events changed in 2.0: UnhandledException event now fires before debugger attachment",
+    "Silent exception swallowing made debugging extremely difficult, as ThreadPool threads would die off without indication"
+  ],
+  "money_quotes": [
+    "The UnhandledException event is not an unhandled exception 'handler.' Registering for the event, contrary to what the documentation says, does not cause unhandled exceptions to be handled.",
+    "In v2.0, an unhandled exception on any thread will take down the application. We've found that it's tremendously easier to debug crashes than it is to debug hangs or the silent-stoppage-of-work problem.",
+    "This was generally evil, because what would often happen was, for example, that ThreadPool threads would silently die off, one by one, until your application wasn't actually doing any work.",
+    "Figuring out the cause of this kind of failure was nearly impossible.",
+    "I remember spending an entire day working on winforms drag and drop problems that were a side effect of this unwanted exception behavior."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Crashes are easier to debug than silent failures, making fail-fast behavior a significant improvement in error handling design.",
+  "filename": "2005-02-18-improved-unhandled-exception-behavior-in-net-20"
+}

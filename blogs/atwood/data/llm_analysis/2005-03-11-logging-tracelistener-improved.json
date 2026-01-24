@@ -1,0 +1,20 @@
+{
+  "summary": "Jeff Atwood announces improvements to his Logging TraceListener utility, adding date-based file aging alongside the existing size-based aging. The update introduces a templated filename system using String.Format codes, separate properties for specifying units of scale, and sensible defaults. He demonstrates the configuration both via .config files and programmatic creation, showing how he uses it to separate verbose HTML tracing from regular console output.",
+  "key_points": [
+    "Files can now age by date in addition to size, with configurable units (kb, mb, gb, weeks, months)",
+    "Filename templating now uses a single FileNameTemplate property with String.Format codes for flexibility",
+    "The utility allows combining age, number, and size limits to control log file proliferation",
+    "Separating noisy trace output (like HTML) into dedicated log files improves signal-to-noise ratio"
+  ],
+  "money_quotes": [
+    "Including them with the regular console output is way too noisy.",
+    "With the configuration specified above, no more than 3 logs will ever exist, and no more than 3 per month, and never more than 512kb or 1mb in size."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Good logging infrastructure should provide flexible controls over file rotation by size, age, and count to manage disk space while maintaining useful diagnostic information.",
+  "filename": "2005-03-11-logging-tracelistener-improved"
+}

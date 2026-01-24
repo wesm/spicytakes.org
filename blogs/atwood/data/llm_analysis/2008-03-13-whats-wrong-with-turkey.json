@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explores why Turkey consistently appears in internationalization bug reports, using it as a case study for why software developers fail at i18n. The post examines specific issues like date formatting differences (3/14/2008 vs 14.3.2008), number grouping (commas vs periods), and most notably the 'Turkish I problem' where uppercase/lowercase conversions produce unexpected characters. Atwood argues the real question isn't what's wrong with Turkey, but what's wrong with developers who don't account for locale differences. He recommends testing code under the Turkish locale as a strong indicator of internationalization readiness.",
+  "key_points": [
+    "Turkey frequently appears in i18n bug reports due to its unique locale rules that expose common developer assumptions",
+    "Date and number formatting differences between cultures cause parsing failures when code assumes American English format",
+    "The 'Turkish I problem' causes string comparisons to fail because Turkish has dotted and dotless I characters that don't map to ASCII expectations",
+    "Most modern languages have culture-aware functions built in, but developers must know when to use them",
+    "Testing under the Turkish locale serves as an effective bellwether for internationalization quality"
+  ],
+  "money_quotes": [
+    "As with so many other problems in software development, the question shouldn't be what's wrong with Turkey, but rather, what the hell is wrong with software developers?",
+    "The 'invariant' culture is every American programmer's secret dream realized: we merely close our eyes and wish away all those confusing languages and cultures and their crazy, bug-inducing date and number formatting schemes in favor of our own.",
+    "Instead of rudely asking your users to 'speak American' through the invariant culture, you could politely ask them to enter data in ISO international standard format instead.",
+    "Strings are where it really starts to get hairy.",
+    "If you guessed Turkey, you're wrong! Just kidding. Of course it fails in Turkey.",
+    "If your code can pass the Turkey test, you're doing quite well. Certainly better than most.",
+    "Force your code to run under the Turkish locale as soon as reasonably possible. It's a strong bellwether for your code running in most \u2013 but by no means all \u2013 cultures and locales."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "satirical, instructive, self-deprecating",
+  "key_insight": "Turkey's unique locale rules make it an ideal stress test for internationalization, exposing the Anglocentric assumptions that most developers unconsciously bake into their code.",
+  "filename": "2008-03-13-whats-wrong-with-turkey"
+}

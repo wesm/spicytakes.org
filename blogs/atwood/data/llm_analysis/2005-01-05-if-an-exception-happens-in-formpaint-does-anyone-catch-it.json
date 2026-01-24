@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood explores a frustrating debugging quirk in .NET Windows Forms where exceptions thrown in the Form.Paint event don't break at the actual line of code, instead landing the debugger at the main application entry point. He demonstrates how the debugger misleads developers by showing the wrong breakpoint location, while the actual exception details are only visible in the debug output. The workaround involves enabling 'break on all CLR exceptions' in Visual Studio, but this causes breaks on every exception including handled ones. Atwood expresses frustration at the lack of satisfying explanations for this behavior, which stems from how PaintWithErrorHandling catches and re-throws exceptions.",
+  "key_points": [
+    "Exceptions in Form.Paint don't break at the offending line of code - the debugger lands at the main entry point instead",
+    "The actual exception location IS present in the debug output, just not where the debugger breaks",
+    "Enabling 'break on all CLR exceptions' fixes the issue but causes breaks on every exception including handled ones",
+    "The behavior is caused by PaintWithErrorHandling catching and re-throwing exceptions back to the program entry point",
+    "This is a practical consequence of using the Form.Paint event for deferred work, a pattern inherited from VB6"
+  ],
+  "money_quotes": [
+    "The breakpoint the debugger puts us on is nowhere near the offending line of code.",
+    "As I'm sure you can imagine, this makes debugging... interesting.",
+    "I don't pretend to understand the arcane win32 api rules that cause exceptions to be somehow absorbed in Form.Paint() and passed back to the main application thread.",
+    "All I know is, it's incredibly annoying.",
+    "If any Windows Forms Coding Heroes want to step up and justify this in the comments, be my guest."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "frustrated, technical, inquisitive",
+  "key_insight": "When debugging .NET Windows Forms applications, exceptions in Form.Paint events can mislead developers by breaking at the wrong location, requiring workarounds that come with their own annoyances.",
+  "filename": "2005-01-05-if-an-exception-happens-in-formpaint-does-anyone-catch-it"
+}

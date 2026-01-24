@@ -1,0 +1,20 @@
+{
+  "summary": "Jeff Atwood announces updates to his Shellicious code library, adding the ability to run shell commands both asynchronously and synchronously. The post demonstrates the new synchronous execution mode with a code example showing how to wait for command completion while doing other work. He also notes the addition of named threads for easier debugging, along with timeout handling via MaximumWaitSeconds and a new CancelExecution method for on-demand termination.",
+  "key_points": [
+    "Added synchronous execution mode alongside the existing asynchronous option",
+    "Named threads improve debugging visibility by clearly identifying ShellErrorThread, ShellOutputThread, and ShellLaunchThread",
+    "The synchronous behavior respects the existing MaximumWaitSeconds timeout property",
+    "New CancelExecution method allows on-demand termination of running commands"
+  ],
+  "money_quotes": [
+    "And this time I remembered to give the threads names, which always helps in debugging.",
+    "So far so good. The synchronous behavior respects the same .MaximumWaitSeconds property as before, and there's a new .CancelExecution method if you want to bail out on demand."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Adding both synchronous and asynchronous execution options, along with proper thread naming, makes shell command libraries more flexible and debuggable.",
+  "filename": "2004-11-22-full-threaded-shellicious"
+}

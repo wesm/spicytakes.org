@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood examines Tim Bray's Wide Finder Project, a benchmarking exercise that challenges programmers to optimize a simple log-parsing Ruby script for multicore processors. The experiment reveals massive performance disparities within the same language depending on implementation, with the fastest versions often requiring significantly more complex code. Atwood argues that the real lesson isn't about choosing the right language, but about the need for programming languages to make parallelization nearly transparent to developers. He endorses Bray's vision that a one-character change should be sufficient to enable multicore optimizations, highlighting the tension between performance gains and code complexity.",
+  "key_points": [
+    "The Wide Finder benchmarks show huge performance variations within languages (Ruby ranged from 1:43 to 50 seconds), proving language choice alone isn't a silver bullet for multicore performance",
+    "Tim Bray proposes that ideal multicore optimization should require minimal code changes\u2014ideally just adding an asterisk to make loops parallel",
+    "Solutions that require more than twice the source code to leverage multicore are 'highly suspect' according to Bray's criteria",
+    "The na\u00efve Ruby implementation of Wide Finder 2 takes 25 hours, while optimized versions beat it by nearly two orders of magnitude",
+    "Beauty in code can be deceptive\u2014what matters more is the ongoing 'conversation between programmer and code' and domestic virtues like straightforwardness"
+  ],
+  "money_quotes": [
+    "Beauty is an idealistic fantasy: what really matters is the quality of the never ending conversation between programmer and code, as each learns from and adapts to the other.",
+    "The best code is no code at all.",
+    "When it comes to multicore performance, choice of language is no silver bullet.",
+    "In a perfect world, a one-character change to the original Ruby program would be all it takes to enable all the necessary multicore optimizations.",
+    "The problem is that lots of simple basic data-processing operations, in my case a simple Ruby script, run like crap on modern many-core processors.",
+    "Anything that requires more than twice as much source code to take advantage of many-core is highly suspect.",
+    "Can you do better on the time without exploding either the code size, the code complexity, or the average programmer's head?"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "analytical, pragmatic, skeptical",
+  "key_insight": "The challenge of multicore programming isn't finding the right language\u2014it's making parallelization transparent enough that simple code can automatically leverage multiple cores without exploding in complexity.",
+  "filename": "2008-06-09-exploring-wide-finder"
+}

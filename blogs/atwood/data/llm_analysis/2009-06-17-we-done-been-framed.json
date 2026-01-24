@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood examines the DiggBar framing controversy and concludes that while Digg's implementation is relatively ethical (opt-in only, uses rel=canonical, no ads), the broader security implications of framing are deeply concerning. He demonstrates that frame-busting JavaScript can be defeated by frame-busting-busting code, creating an unwinnable arms race. The post reveals that due to cross-domain JavaScript security restrictions, there's no reliable way to prevent a malicious site from framing your content. This makes clickjacking attacks\u2014where users unknowingly perform actions on hidden pages\u2014a serious and underappreciated threat that Atwood experienced firsthand on Twitter.",
+  "key_points": [
+    "Digg's framing implementation is relatively ethical: opt-in for logged-in users, uses rel=canonical for SEO, serves no ads, and allows opt-out",
+    "Frame-busting JavaScript provides only a false sense of security because it can be defeated by counter-scripts using the onbeforeunload event and 204 HTTP responses",
+    "Cross-domain JavaScript security restrictions make it nearly impossible for framed sites to defend against determined attackers",
+    "Framing is the gateway to clickjacking attacks, where users perform unintended actions on hidden authentic pages",
+    "Websites should implement clickjacking countermeasures assuming they could be framed at any time, regardless of frame-busting code"
+  ],
+  "money_quotes": [
+    "If an evil website decides it's going to frame your website, you will be framed. Period.",
+    "Frame-busting is nothing more than a false sense of security; it doesn't work.",
+    "When life serves you lemons, make a lemon cannon.",
+    "Don't let frame-busting code lull you into a false sense of security, too.",
+    "If the framing site is evil, good luck. When faced with a determined, skilled adversary that wants to frame your content, all bets are off.",
+    "The users think that they are clicking the visible buttons, while they are actually performing actions on the hidden page.",
+    "I was a skeptic. I didn't want to believe it either. But once shown the exploits on our own site \u2013 fortunately, by a white hat security expert \u2013 I lived to regret that."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism",
+    "communities",
+    "human_factors"
+  ],
+  "tone": "pragmatic, security-conscious, surprisingly balanced",
+  "key_insight": "Frame-busting JavaScript creates a dangerous false sense of security because determined attackers can always defeat it, making clickjacking countermeasures essential for any website.",
+  "filename": "2009-06-17-we-done-been-framed"
+}

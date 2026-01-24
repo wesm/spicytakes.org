@@ -1,0 +1,23 @@
+{
+  "summary": "Jeff Atwood discusses implementing global exception handling for .NET web services, moving from Application_Error in global.asax to HttpModule for better abstraction and easier deployment. He explains how HttpModule allows adding exception handling to any ASP.NET website without recompiling\u2014just by dropping a DLL and modifying web.config. He then tackles the harder problem of web service exception handling via SoapExtension, which modifies SOAP messages in-flight to communicate detailed error information back to clients. The solution works well for SOAP clients but not for browser-based testing.",
+  "key_points": [
+    "HttpModule provides superior exception handling compared to Application_Error because it can be added to any ASP.NET site without recompilation",
+    "The .Source property of exceptions usually contains the assembly name that generated the error, which helps identify the source of problems",
+    "SoapExtension allows modifying SOAP messages in-flight to inject detailed exception information into the <detail> node",
+    "Web services require different exception handling than websites because there's no visible UI to display error pages",
+    "The SoapExtension approach only works for real SOAP clients, not browser-based testing"
+  ],
+  "money_quotes": [
+    "Catching unhandled exceptions via HttpModule is a far better solution than using Application_Error in global.asax.",
+    "You can implement global unhandled exception handling on any ASP.NET website without recompiling.",
+    "This is critical for a web service, because unlike a website, there's no visible UI to present a helpful error page \u2013 and thus no way to diagnose the error without rooting through server files.",
+    "Be warned; you'd expect it to work the same in the browser, but it doesn't."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Better error handling architecture often comes from choosing the right hook point in the framework pipeline, where HttpModule and SoapExtension provide more flexible and less invasive integration than application-level events.",
+  "filename": "2004-10-17-throwing-better-net-exceptions-with-soap-and-http"
+}

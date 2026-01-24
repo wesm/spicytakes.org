@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood weighs in on the stored procedures vs. ad-hoc SQL debate, ultimately siding with simplicity and parameterized SQL as the default approach. While acknowledging that 'it depends,' he argues that starting with stored procedures is premature optimization. He challenges two common pro-stored-procedure arguments: that they provide meaningful abstraction (they don't\u2014they're tightly coupled to the database), and that embedding SQL in code is bad (it's actually good to use domain-specific languages where appropriate). He advocates for web services over stored procedures when true abstraction is needed.",
+  "key_points": [
+    "Starting with stored procedures is premature optimization\u2014parameterized SQL is simpler, safe, and fast",
+    "Stored procedures provide only the illusion of abstraction since they're tightly coupled to database schema changes",
+    "Web services are far superior to stored procedures for creating abstracted APIs with access control",
+    "Embedding domain-specific languages like SQL and regex directly in code should be embraced, not avoided",
+    "Every project is different, and actual performance should be measured before drawing conclusions"
+  ],
+  "money_quotes": [
+    "Writing a bunch of mindless stored procedures to perform every database operation you think you may need is definitely not what I'd call simple.",
+    "Stored procedures only provide the illusion of abstraction.",
+    "Make a few changes to the tables and your procs are toast \u2013 just like parameterized SQL.",
+    "Some programmers sneer at the idea of 'naked SQL statements clumsily embedded in other languages.' This is insane.",
+    "Use SQL to manipulate set-based data, Regular Expressions to manipulate strings, VB.NET to do COM interop, and C# for bitwise operations.",
+    "Why in the world would you write a 3-level deep For..Next loop to manipulate a string when you can express that same logic in 12 characters of regex?",
+    "If anything, we should be railing against the stupidity of being limited to a single, general-purpose language!"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, pragmatic, contrarian",
+  "key_insight": "Default to simplicity with parameterized SQL rather than stored procedures, and embrace domain-specific languages like SQL directly in your code instead of hiding behind false abstractions.",
+  "filename": "2005-05-17-stored-procedures-vs-ad-hoc-sql"
+}

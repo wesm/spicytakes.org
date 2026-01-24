@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood explores file compression performance on multi-core servers, comparing 7zip's native algorithm against bzip2 for compressing large Stack Overflow backup files. He finds that while 7zip achieves better compression ratios, it only uses 2 CPU cores, whereas bzip2 can parallelize across all 8 cores for dramatically faster compression. However, bzip2's compression ratio barely improves beyond 'normal' settings, making the speed advantage less useful for maximum compression. The post highlights the gap between available hardware parallelism and software that can exploit it, leaving Atwood wishing 7zip would be rewritten to use more cores.",
+  "key_points": [
+    "7zip achieves superior compression ratios but only utilizes 2 CPU cores even on 8-core servers",
+    "Bzip2 can parallelize across multiple cores (up to 16), compressing 5GB in 2 minutes vs 7zip's 34 minutes at normal settings",
+    "Compression settings beyond 'normal' show diminishing returns - massive time increases for tiny size improvements",
+    "The optimal compression choice depends on a formula balancing compression time, file size, network speed, and how many times the file will be transferred",
+    "Multi-core hardware was outpacing software's ability to leverage it, even for embarrassingly parallelizable tasks like compression"
+  ],
+  "money_quotes": [
+    "I'm not a big fan of more than dual core on the desktop, but it's a no brainer for servers. The more CPU cores the merrier!",
+    "There's a reason most compression programs default to certain settings as 'normal.'",
+    "Above these settings, results tend to fall off a cliff; beyond that sweet spot, you tend to get absurdly tiny increases in compression ratio in exchange for huge order of magnitude increases in compression time.",
+    "Bzip2 uses more than 2 CPU cores to parallelize its work.",
+    "The ability to compress a 5 GB source file to a fifth of its size in two minutes flat is pretty darn impressive.",
+    "I can't help wondering how fast the 7zip algorithm would be if it was rewritten and parallelized to take advantage of more than 2 CPU cores, too."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware",
+    "productivity"
+  ],
+  "tone": "technical, pragmatic, curious",
+  "key_insight": "Multi-core processors were becoming ubiquitous in 2009, but software like 7zip hadn't yet been rewritten to exploit that parallelism, leaving significant performance gains on the table for CPU-intensive tasks like compression.",
+  "filename": "2009-02-28-file-compression-in-the-multi-core-era"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood documents his frustrating experience getting remote debugging to work after installing Windows XP SP2, which broke his existing setup despite having the firewall disabled. After three hours of troubleshooting and trying every documented solution, he discovered the fix was granting 'Remote Access' to ANONYMOUS LOGON in dcomcnfg.exe - a solution not mentioned in Microsoft's documentation. He also shares a cautionary tale about accidentally removing all COM permissions while testing, which required two in-place OS reinstalls to fix. The post serves as both a technical solution and a warning about the dangers of DCOM configuration.",
+  "key_points": [
+    "XP SP2 broke previously working remote debugging setups even with the firewall disabled",
+    "The fix requires granting Remote Access to ANONYMOUS LOGON in dcomcnfg.exe's Edit Limits, which contradicts Microsoft's documentation",
+    "Microsoft's documentation incorrectly suggests adding your own account only if you're not an administrator",
+    "Removing permissions in dcomcnfg can completely break your OS, requiring multiple reinstalls to recover",
+    "The solution was discovered through desperate trial-and-error after exhausting all documented approaches"
+  ],
+  "money_quotes": [
+    "After three hours of intense frustration, I started to feel like that Doom3 zombie \u2013 the one mindlessly pounding his head against a bloody wall over and over.",
+    "Eventually you get to that desperate point where you'll try anything, no matter how crazy.",
+    "I finally got remote debugging to work with XP SP2 by granting 'Remote Access' to the ANONYMOUS LOGON account in dcomcnfg.exe on the client computer.",
+    "That doesn't even make sense; out of the box EVERYONE is granted both local and remote permissions in Edit Limits.",
+    "Friends, do not do this.",
+    "Two in-place reinstalls later, I had a functioning OS again. Revenge of COM..."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "frustrated, practical, cautionary",
+  "key_insight": "When official documentation fails and you've exhausted all reasonable options, sometimes desperate experimentation is the only path forward - but document your steps carefully because you might break things worse before you fix them.",
+  "filename": "2004-08-12-dcom-xp-sp2-and-remote-debugging"
+}

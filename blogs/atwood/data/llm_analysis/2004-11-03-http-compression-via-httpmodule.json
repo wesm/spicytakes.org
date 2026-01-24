@@ -1,0 +1,23 @@
+{
+  "summary": "This early technical post explains how to implement HTTP compression for ASP.NET websites hosted on third-party servers where you don't control IIS configuration. Atwood recommends the blowery.org HttpCompressionModule as a working solution that can be configured through Web.config. He documents a bug he encountered where the compression module interfered with his exception handling module's Response.Write output, and shares a code fix that checks for unhandled exceptions before attempting compression.",
+  "key_points": [
+    "HTTP compression can be enabled at the application level via HttpModule when you lack server-level IIS access",
+    "The blowery.org HttpCompressionModule is a mature, well-tested solution for ASP.NET compression",
+    "Multiple HttpModules running simultaneously can create unexpected interaction bugs",
+    "Adding an early return when exceptions exist prevents compression from interfering with error output"
+  ],
+  "money_quotes": [
+    "How can we enable compression in that scenario?",
+    "We can implement HTTP compression on a per-website basis in ASP.NET through a compression HttpModule.",
+    "Clearly, some kind of problem related to having two HttpModules running at the same time.",
+    "Basically, in the case of any Exception \u2013 if it bubbles up this far, it's definitely unhandled \u2013 we want to return immediately and do nothing in the compression handler.",
+    "I am not sure if this is the optimal fix, but without it, all I get is the default .NET exception page. And who wants that?"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "When you can't control server configuration, HttpModules provide application-level hooks to implement features like compression, but you must be careful about interactions between multiple modules.",
+  "filename": "2004-11-03-http-compression-via-httpmodule"
+}

@@ -1,0 +1,20 @@
+{
+  "summary": "This technical tutorial demonstrates how to extend .NET's AssemblyInfo file with custom attributes beyond the built-in ones. Atwood shows the complete implementation: defining custom attribute classes (AssemblyCompanyEmail and AssemblyCompanyUrl), applying them in AssemblyInfo, and retrieving all attributes via reflection into a NameValueCollection. The post follows up on his earlier argument that developers should properly populate their AssemblyInfo files, now showing how to go even further with customization.",
+  "key_points": [
+    "Custom assembly attributes can be created by inheriting from System.Attribute and applying AttributeUsage targeting Assembly",
+    "The pattern for custom attributes is straightforward: a constructor that stores the value and a read-only property to expose it",
+    "Reflection's GetCustomAttributes method allows retrieval of both standard and custom attributes at runtime",
+    "A switch/case pattern can normalize attribute type names into friendly key-value pairs"
+  ],
+  "money_quotes": [
+    "To complement my previous post bemoaning the lack of respect for AssemblyInfo, I wanted to illustrate just how easy it is to add a few custom attributes to our AssemblyInfo file.",
+    "But I am sure there are other ways."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Extending .NET assemblies with custom metadata attributes is straightforward and enables richer self-describing components through simple class inheritance and reflection.",
+  "filename": "2004-11-28-custom-assemblyinfo-attributes"
+}

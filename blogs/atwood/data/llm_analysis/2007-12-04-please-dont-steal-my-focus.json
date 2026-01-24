@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood argues that applications stealing window focus from users is an inexcusable design flaw that disrupts workflow and can cause catastrophic accidents. He illustrates the danger with a story of a programmer who accidentally triggered a system reboot while trying to check in code, losing her work because a dialog stole focus at the wrong moment. Despite operating system protections like ForegroundLockTimeout designed to prevent this behavior, badly written applications still find ways to grab focus. Atwood concludes that programmers need to be educated about the evils of focus stealing and the futility of notifications users won't read anyway.",
+  "key_points": [
+    "Focus stealing interrupts user flow at best, and at worst can cause accidental data loss when keystrokes intended for one application are captured by an unexpected dialog",
+    "The problem is particularly severe for keyboard-heavy users who may unknowingly press Enter or Space on dialogs they never saw appear",
+    "Windows has built-in protections (ForegroundLockTimeout) to prevent focus stealing, but poorly written applications still circumvent them",
+    "Modal dialogs that steal focus represent an extreme form of self-importance, treating every message as if all work must cease",
+    "Educating programmers about the harm of focus stealing may be more effective than technical solutions alone"
+  ],
+  "money_quotes": [
+    "Stealing focus from the user is never acceptable.",
+    "At best, your flow is interrupted. You'll have to switch back to the window that you were using, figure out where you were, and resume your work.",
+    "It's almost a system modal dialog, so self-important that all work must cease as the user is forced to pay attention to whatever earth-shattering message it urgently has to deliver.",
+    "At some level, sufficiently advanced incompetence is indistinguishable from malice.",
+    "Please don't steal my focus. I'm using it right now. Really. I am.",
+    "It's a perfect example of how stealing the user's focus can lead to catastrophic results if the user is particularly unlucky."
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "frustrated, witty, opinionated",
+  "key_insight": "Focus stealing represents a fundamental violation of user trust, where applications arrogantly assume their messages are more important than whatever the user is actually doing.",
+  "filename": "2007-12-04-please-dont-steal-my-focus"
+}

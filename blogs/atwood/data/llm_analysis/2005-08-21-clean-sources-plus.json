@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood introduces Clean Sources Plus, an improvement on Omar Shahine's Clean Sources utility for .NET developers. The original tool removed build artifacts (bin, obj folders) before sharing projects, but Atwood identified a critical gap: it didn't remove source control bindings or user-specific settings files. His enhanced version adds these cleanup features plus a convenient zip functionality, making it easier to share pristine .NET solutions without the cruft of local development configuration.",
+  "key_points": [
+    "The original Clean Sources tool only removed build folders, leaving source control bindings and user settings that shouldn't be shared",
+    "Clean Sources Plus removes bin/obj/Debug/Release folders, source control bindings from project files, and user setting files",
+    "Version 1.1 added a 'Clean and Zip' option and made deletion patterns configurable via config file",
+    "The tool was tested with C# and VB projects but may have edge cases with other project types"
+  ],
+  "money_quotes": [
+    "This application does one thing.",
+    "The source control bindings aren't removed!",
+    "The result is a very clean, minimal set of .NET solution files, suitable for upload or sharing.",
+    "The regex patterns used to determine what files and folders to delete are now set in the .config file.",
+    "If this app deletes all your source code, then it's Omar's fault."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "productivity"
+  ],
+  "tone": "practical, helpful, playful",
+  "key_insight": "When sharing code, removing build artifacts isn't enough\u2014you also need to strip out source control bindings and local user settings to create a truly portable solution.",
+  "filename": "2005-08-21-clean-sources-plus"
+}

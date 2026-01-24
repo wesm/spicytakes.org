@@ -1,0 +1,23 @@
+{
+  "summary": "Jeff Atwood explores three methods for determining when a .NET assembly was built. The filesystem date method is unreliable, while the version-based approach works only if developers stick to default versioning conventions\u2014and has a quirk where Visual Studio only updates build numbers when solutions are reopened. The most reliable method involves reading the embedded linker timestamp from the Portable Executable header, though Atwood discovered timezone issues when testing code from a developer who lives in GMT.",
+  "key_points": [
+    "Filesystem dates are unreliable for determining actual build times",
+    "The default .NET version string encodes build date as days since January 1, 2000, and revision as seconds since midnight divided by 2",
+    "Visual Studio has a surprising behavior where it only increments build/revision numbers when a solution is closed and reopened, not on every build",
+    "The PE header's embedded linker timestamp provides the most reliable build date",
+    "Timezone handling is a common source of bugs, especially when sharing code across different regions"
+  ],
+  "money_quotes": [
+    "Visual Studio only increments the build and revision number when the solution is closed and reopened.",
+    "If you build fifty times throughout the day in the same solution, every single one of your builds will have the same version.",
+    "Dustin lives in GMT \u2014 that's the ultimate 'it runs on my machine!'",
+    "Even I can figure out GMT/UTC issues when they practically slap me in the face."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical, practical, self-deprecating",
+  "key_insight": "The most reliable way to determine a .NET assembly's build date is to read the linker timestamp from the PE header, not from the filesystem or version string.",
+  "filename": "2005-04-14-determining-build-date-the-hard-way"
+}

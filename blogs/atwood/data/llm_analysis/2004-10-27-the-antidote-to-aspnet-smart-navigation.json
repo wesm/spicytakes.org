@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood critiques ASP.NET's heavy reliance on server-side postbacks, which causes page flicker, scroll position loss, and performance issues due to repeated viewstate submissions. He notes that Microsoft's SmartNavigation feature, meant to address scroll position issues, is broken. Atwood recommends Brad McCabe's workaround as an elegant solution and looks forward to ASP.NET 2.0's promise of XMLHTTP background postbacks, though he remains skeptical given the browser's limitations as a development platform.",
+  "key_points": [
+    "ASP.NET's architecture forces almost everything through server postbacks, creating an extreme opposite to client-side JavaScript approaches",
+    "SmartNavigation was Microsoft's broken attempt to solve the postback scroll position problem",
+    "Heavy viewstate submission on every postback creates serious performance issues",
+    "ASP.NET 2.0's XMLHTTP background postbacks could abstract away the pain if browser compatibility is maintained",
+    "Third-party controls offer client-side behaviors that default ASP.NET controls lack"
+  ],
+  "money_quotes": [
+    "One of the issues I have with ASP.NET is that it is postback crazy.",
+    "While this is nice from an abstraction standpoint, it's kind of a pain for the client.",
+    "I am definitely not a fan of doing a lot of stuff in JavaScript and DOM on the browser \u2013 been there, done that \u2013 but we almost have the opposite extreme in ASP.NET.",
+    "Unfortunately, it's horribly broken.",
+    "It works, but it's still painful, mostly because the browser is a hideous development platform."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "critical, pragmatic, slightly weary",
+  "key_insight": "ASP.NET's server-centric abstraction trades client-side complexity for postback pain, and Microsoft's attempts to fix the symptoms have been broken rather than addressing the architectural tradeoff.",
+  "filename": "2004-10-27-the-antidote-to-aspnet-smart-navigation"
+}

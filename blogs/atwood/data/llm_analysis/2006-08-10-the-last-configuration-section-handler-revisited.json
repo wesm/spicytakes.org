@@ -1,0 +1,23 @@
+{
+  "summary": "This post revisits a 2004 technique for storing configuration data using XML serialization in .NET. Atwood updates his previous 'Configuration Section Handler' approach for Visual Studio 2005, providing implementations in both C# and VB.NET. The method involves creating a simple class with public fields, serializing it to XML, and using a custom config section handler to deserialize it back. He emphasizes the straightforward nature of this approach for storing small amounts of state in configuration files.",
+  "key_points": [
+    "XML serialization provides a quick way to persist simple data structures to .config files",
+    "The technique requires a class with public fields, a serialization routine, and a custom config section handler",
+    "Error handling in the deserialization code provides clear exceptions rather than cryptic errors",
+    "VB.NET requires an additional namespace prefix compared to C# for the same functionality",
+    "The approach prioritizes human-readable output and simplicity over more complex configuration solutions"
+  ],
+  "money_quotes": [
+    "If you need to store a little bit of state \u2013 in your configuration file, or on disk \u2013 nothing is faster than some quick and dirty serialization.",
+    "Or as I like to call it, stringization.",
+    "It's just so darn... straightforward.",
+    "If something goes wrong, you get a nice explanatory exception instead of a cryptic error. It's good stuff."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "For simple configuration needs, XML serialization offers a straightforward, human-readable approach that avoids the complexity of more elaborate configuration systems.",
+  "filename": "2006-08-10-the-last-configuration-section-handler-revisited"
+}

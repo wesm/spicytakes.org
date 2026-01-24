@@ -1,0 +1,22 @@
+{
+  "summary": "Jeff Atwood shares a reusable VB.NET Shell class he created for executing command line utilities from within ASP.NET applications and capturing their output. The class wraps System.Diagnostics.Process and handles multithreaded output/error capture, timeouts, and cleanup. He notes the current implementation is synchronous but could be extended to support asynchronous operation with events for long-running processes. The post is primarily a code share with minimal commentary, serving as a practical utility for developers facing similar challenges.",
+  "key_points": [
+    "The Shell class encapsulates Process execution with output/error capture, timeout handling, and proper resource disposal",
+    "Separate threads are spawned to read stdout and stderr to prevent deadlocks during process execution",
+    "The class supports both synchronous blocking execution and optional threaded launch for async scenarios",
+    "Proper cleanup is implemented via IDisposable pattern and thread abortion on completion or timeout",
+    "The WorkingDirectory property must be set if executables aren't in the default system path"
+  ],
+  "money_quotes": [
+    "I wrote a little multithreaded .Process wrapper class to encapsulate this behavior. It's nothing magical, but it is handy for these scenarios.",
+    "Don't forget to set the .WorkingDirectory if your executables aren't in the default path.",
+    "If you have long running console processes, you might want to make this class asynchronous (e.g., non-blocking) and raise events for things like console lines being written, command terminating, etcetera."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Wrapping command line execution in a reusable class with proper threading, timeout handling, and resource cleanup makes integrating external tools into .NET applications significantly cleaner and more reliable.",
+  "filename": "2004-11-19-shellicious"
+}

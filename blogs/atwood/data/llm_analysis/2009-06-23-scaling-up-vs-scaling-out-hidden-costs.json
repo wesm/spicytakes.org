@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood examines the trade-offs between scaling up (buying one powerful server) and scaling out (buying many cheap servers) using a real-world example: plentyoffish.com's $100,000 monster HP server versus 83 commodity Lenovo servers at the same price point. While the raw hardware comparison favors scaling out (more CPUs, RAM, and disk space), he reveals hidden costs that dramatically change the calculus: Microsoft software licensing could add $83,000 to the scale-out approach, and power costs would be 14x higher. His conclusion is that scaling out only makes economic sense when using open source software, otherwise you're trapped choosing between expensive hardware or expensive licenses.",
+  "key_points": [
+    "For the same $100,000, scaling out yields 10x the CPUs, 30% more RAM, and 10x the disk space compared to a single big-iron server",
+    "Microsoft licensing costs for 83 servers would exceed $83,000, nearly doubling the total investment",
+    "Power consumption for the scale-out approach would be nearly 14x higher, adding $20,000+ annually in electricity costs",
+    "Enterprise software licensing models create a hidden tax that fundamentally changes the economics of infrastructure decisions",
+    "The choice between scaling strategies depends heavily on your software stack and resource constraints, not just raw performance numbers"
+  ],
+  "money_quotes": [
+    "Scaling out is only frictionless when you use open source software.",
+    "Scaling up means paying less for licenses and a lot more for hardware, while scaling out means paying less for the hardware, and a whole lot more for licenses.",
+    "I have no idea if these are the right prices for Windows Server 2008 and SQL Server 2008, because reading about the licensing models makes my brain hurt.",
+    "Now which approach makes more sense?",
+    "I'm not picking favorites. This is presented as food for thought."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware",
+    "industry_criticism"
+  ],
+  "tone": "analytical, pragmatic, slightly sardonic",
+  "key_insight": "The true cost of scaling infrastructure isn't just hardware\u2014software licensing and power consumption can completely flip the economics, making open source software the key enabler for horizontal scaling strategies.",
+  "filename": "2009-06-23-scaling-up-vs-scaling-out-hidden-costs"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "This post examines the reentrancy pitfalls of using Application.DoEvents() in Windows Forms applications. A colleague's code sample demonstrates how DoEvents processes all messages in the queue, not just paint messages, leading to unexpected method reentry. The post acknowledges these dangers but ultimately defends DoEvents as a pragmatic middle ground between frozen UIs and complex multithreaded code. Atwood suggests that despite its quirks, DoEvents remains valuable for specific use cases like improving perceived form load performance.",
+  "key_points": [
+    "DoEvents processes ALL messages in the queue, not just paint messages, which causes unexpected reentrancy",
+    "Any method called directly or indirectly in response to message queue processing can be reentered during DoEvents",
+    "A Form.Busy property that only processes paint messages would be a useful addition to prevent input-related reentrancy",
+    "DoEvents represents a pragmatic compromise between unresponsive UIs and full multithreaded complexity",
+    "The technique can be valuable for specific scenarios like improving perceived form load performance"
+  ],
+  "money_quotes": [
+    "DoEvents processes all of the messages in the message queue, not just paint messages.",
+    "Always remember that DoEvents can cause methods to be reentered.",
+    "I think it's definitely the lesser of two evils: it's either this simplified cooperative yielding or full-bore multithreaded code.",
+    "DoEvents can be a big win with minimal effort in the right situations."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical, pragmatic, balanced",
+  "key_insight": "DoEvents is a dangerous but sometimes worthwhile shortcut\u2014understanding its reentrancy implications lets you use it safely as an alternative to complex threading.",
+  "filename": "2005-08-22-is-doevents-evil-revisited"
+}

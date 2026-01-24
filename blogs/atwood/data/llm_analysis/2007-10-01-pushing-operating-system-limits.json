@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines Raymond Chen's advice that needing to know operating system limits often indicates poor design, while demonstrating that even normal power users can hit these limits surprisingly easily. Through hands-on testing with Internet Explorer 7 and Firefox 2, he discovers that IE has a hard limit of only 47 tabs before the system becomes unstable, while Firefox handles over 100 tabs due to its single-process architecture. He argues that while extreme edge cases like 254-level nested menus are clearly design failures, legitimate power user scenarios shouldn't bump against arbitrary limits. The post concludes that browser developers failed to anticipate how tabbed browsing would change usage patterns, representing a failure to test with reasonably large data sets.",
+  "key_points": [
+    "If you're asking about operating system limits, you're likely either doing something brilliant or stupid\u2014and stupid is far more common",
+    "Internet Explorer 7 has a hard limit of ~47 tabs due to its multi-process architecture, while Firefox's single-process design allows 100+ tabs at the cost of crash isolation",
+    "Operating system limits should be set high enough that even power users rarely encounter them in legitimate use cases",
+    "The introduction of tabbed browsing fundamentally changed usage patterns, but browser developers failed to test for moderately heavy usage scenarios",
+    "There's a key architectural tradeoff: IE's process isolation provides crash protection but limits scalability, while Firefox's single process scales better but crashes affect all tabs"
+  ],
+  "money_quotes": [
+    "If your design is skirting that close to an operating system edge condition, you're either doing something incredibly brilliant or incredibly stupid. Guess which one is more common?",
+    "It can also be surprising how quickly you can run into operating system limits \u2013 even when you're not doing anything that unusual.",
+    "I don't think having 47 typical web pages open, spread across a couple instances of Internet Explorer on my three monitors, is so unreasonable.",
+    "Can you imagine subjecting a user to a menu with 254 nesting levels?",
+    "The point is to keep those operating system limits far enough above typical usage that developers and users \u2013 even power users \u2013 aren't likely to run into them.",
+    "It's another case of failing to test with a reasonably large data set."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "analytical, pragmatic, mildly frustrated",
+  "key_insight": "Operating system and application limits should be set high enough above typical usage that even power users won't encounter them\u2014and the shift to tabbed browsing exposed how browser developers failed to anticipate changing usage patterns.",
+  "filename": "2007-10-01-pushing-operating-system-limits"
+}

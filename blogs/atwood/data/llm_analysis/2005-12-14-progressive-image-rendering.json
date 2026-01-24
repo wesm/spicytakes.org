@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood advocates for using interlaced/progressive image rendering to improve perceived page load performance. He explains the four different ways images can be transmitted over the Internet, from dumb full-load-before-display to sophisticated two-dimensional PNG interlacing. The post highlights how GIF uses a one-dimensional four-pass interlacing scheme while PNG uses a superior seven-pass two-dimensional approach. Atwood notes this optimization comes with a tradeoff: 10-20% larger file sizes depending on format. He concludes by wishing browsers would add bilinear interpolation of low-resolution incremental images for even better perceived performance.",
+  "key_points": [
+    "Interlaced/progressive image options provide visual feedback faster than standard top-down rendering",
+    "PNG's two-dimensional seven-pass interlacing is superior to GIF's one-dimensional four-pass scheme",
+    "Enabling interlacing adds ~20% to PNG file sizes and ~10% to JPEG/GIF sizes",
+    "The technique improves perceived performance especially on slow connections",
+    "Browsers could further improve the experience by bilinearly interpolating low-resolution incremental images"
+  ],
+  "money_quotes": [
+    "I'm a big fan of showing the user visual feedback as soon as possible",
+    "Simply save your GIF or PNG images with the \"interlaced\" option, or your JPEG images with the \"progressive\" option.",
+    "Choosing the right way can make your connection seem much faster than it really is.",
+    "So blindingly dumb that not even Internet Explorer does it.",
+    "In 1/64 of the time that the whole image will take to display, one pass is already completed, showing the image in a very rough manner.",
+    "Whether this improved rendering behavior is worth the bandwidth cost I leave as an exercise to the reader."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors"
+  ],
+  "tone": "technical, practical, instructive",
+  "key_insight": "Progressive image rendering techniques trade modest file size increases for dramatically improved perceived performance by giving users visual feedback before the full image downloads.",
+  "filename": "2005-12-14-progressive-image-rendering"
+}

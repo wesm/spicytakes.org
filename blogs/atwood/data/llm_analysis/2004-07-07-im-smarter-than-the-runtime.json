@@ -1,0 +1,25 @@
+{
+  "summary": "Atwood criticizes developers who compulsively add manual Dispose() calls in .NET code, arguing this reflects a misguided belief that they know better than the garbage collector. He points out that such code is at best unnecessary clutter and at worst signals a dangerous distrust of the runtime. While acknowledging that explicit disposal is appropriate for resources like files and database connections, he argues these are exceptions. The post advocates trusting default behaviors and letting variables fall out of scope naturally rather than littering code with C++-style memory management habits.",
+  "key_points": [
+    "Manual Dispose() calls on objects without real-world resources (files, DB connections, handles) are unnecessary in .NET",
+    "Developers who don't trust the garbage collector are 'dangerous' because they deviate from defaults without good reason",
+    "Default behaviors exist to make our lives easier and should be leveraged whenever possible",
+    "Extra disposal code creates maintenance burden for anyone who has to read and debug it",
+    "The exception proves the rule: only dispose objects with associated real-world resources"
+  ],
+  "money_quotes": [
+    "At worst, coding like this screams 'I'm smarter than the Runtime!'",
+    "These kinds of developers are, in my experience, dangerous.",
+    "Default behaviors are there to make our lives easier, and to protect us \u2013 they should be leveraged whenever possible.",
+    "Why create extra work for yourself (and the people who will maintain your code) by littering your code with these unnecessary, C++ style Dispose() calls?",
+    "At best, this is extra, meaningless code that someone has to debug and read."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "opinionated, direct, slightly provocative",
+  "key_insight": "Trust your runtime's garbage collector instead of cluttering code with unnecessary manual disposal calls that signal distrust of the platform you're building on.",
+  "filename": "2004-07-07-im-smarter-than-the-runtime"
+}

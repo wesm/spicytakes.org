@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood discusses the inherent vulnerability of Bayesian spam filters when spammers can obtain feedback about which emails get through. He references John Graham-Cumming's presentation showing that POPFile, a Bayesian filter, can be defeated by spammers using the same technology against it. The post also explains why challenge/response email systems are problematic and praises Windows XP SP2's decision to block HTML image rendering by default in Outlook Express, which prevents spammers from using web beacons to verify email addresses and gather the feedback they need to defeat filters.",
+  "key_points": [
+    "Challenge/response email systems are dismissive because they implicitly say 'my time is more important than yours'",
+    "Bayesian spam filters can be defeated by spammers using the same Bayesian techniques\u2014but only if they get feedback about what gets through",
+    "Web beacons (tiny images in HTML emails) allow spammers to verify active email addresses and gather filter-defeating feedback",
+    "Blocking external images in email clients is an effective defense against spammer reconnaissance",
+    "The arms race between spam filters and spammers fundamentally favors whoever has better feedback loops"
+  ],
+  "money_quotes": [
+    "Challenge/Response is the ultimate email diss. By using it you are saying, 'my time is more important than yours.'",
+    "When pitting 'evil' POPFile against good POPFile, the good guys lose.",
+    "Spammers can use Bayesian filters to defeat Bayesian filters \u2013 if they get feedback about what mails are getting through!",
+    "Putting images in HTML seems innocent enough, but retrieving any image results in a direct request from your computer to the spammer's webserver.",
+    "With this tiny bit of feedback, they could conceivably defeat any anti-spam technology."
+  ],
+  "themes": [
+    "software_engineering",
+    "human_factors",
+    "industry_criticism"
+  ],
+  "tone": "analytical, concerned, technical",
+  "key_insight": "The effectiveness of spam filtering depends critically on denying spammers feedback about what gets through\u2014making seemingly innocent features like HTML image loading a serious security vulnerability.",
+  "filename": "2004-09-21-popfile-vs-popfile"
+}

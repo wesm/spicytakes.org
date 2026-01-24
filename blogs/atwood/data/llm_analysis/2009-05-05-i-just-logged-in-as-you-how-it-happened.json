@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood reveals how his password was compromised: not through guessing, brute force, or phishing, but because another site stored his password as an unsalted MD5 hash that was easily reversed. He admits to reusing a weak password across sites and using a low-value credential for his Stack Overflow moderator account. The post serves as both a cautionary tale about password storage practices and an argument for why developers should avoid storing credentials altogether, instead delegating to specialized identity providers like OpenID.",
+  "key_points": [
+    "Unsalted MD5 password hashes can be trivially reversed using lookup tables, exposing users who reuse passwords across sites",
+    "The attacker was actually a well-meaning person who had complained to the vulnerable site about their poor password practices months earlier",
+    "Password reuse transforms a security failure on one site into a vulnerability across all sites where that password is used",
+    "Developers should 'get the hell out of the business of storing user credentials' and delegate authentication to specialized providers",
+    "Even security-conscious programmers like Atwood make basic mistakes like password reuse and using weak passwords for important accounts"
+  ],
+  "money_quotes": [
+    "We have met the enemy, and he is... programmers just like us.",
+    "The important thing to take away from this, if you're a programmer working on an application that stores user credentials, is to get the hell out of the business of storing user credentials!",
+    "Are you equipped and willing do everything necessary to protect idiots like me from myself?",
+    "I, for one, think that my OpenID provider is more secure than the average guy running a forum.",
+    "We outsourced our user credential system to people who are much better at it than us.",
+    "Failing to rate limit password attempts is strictly amateur hour stuff (and I'd argue borderline incompetence).",
+    "Programmers are the enemy. Hey... wait a second, I'm a programmer! GOTO 1"
+  ],
+  "themes": [
+    "software_engineering",
+    "communities",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "self-deprecating, cautionary, pragmatic",
+  "key_insight": "The weakest link in your security is often not your own application but some forgotten site with poor password practices combined with users who reuse credentials\u2014making the case for delegating authentication to specialized identity providers.",
+  "filename": "2009-05-05-i-just-logged-in-as-you-how-it-happened"
+}

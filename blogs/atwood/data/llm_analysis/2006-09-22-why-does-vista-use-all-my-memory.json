@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood explains why Windows Vista appears to use all available RAM, revealing it's actually a feature called SuperFetch that treats system memory as a cache. He argues that empty memory is wasted memory, since RAM is dramatically faster than hard drives. Vista aggressively pre-populates unused memory with data it predicts you'll need, improving responsiveness compared to Windows XP which left gigabytes unused. While Atwood endorses this approach, he notes it can cause issues during gaming when background disk activity competes with performance-sensitive applications.",
+  "key_points": [
+    "System memory should be thought of as a cache between CPU and hard drive, not as a finite resource to be conserved",
+    "Empty cache memory is fundamentally wasted - it's expensive hardware doing nothing useful",
+    "RAM is roughly 37x faster than hard drives, making aggressive caching extremely valuable",
+    "Vista's SuperFetch learns usage patterns and preloads likely-needed applications into unused memory",
+    "The approach can backfire during memory-intensive gaming when low-priority disk threads compete for I/O"
+  ],
+  "money_quotes": [
+    "The most important rule of cache design is that empty cache memory is wasted cache memory.",
+    "Empty cache isn't doing you any good. It's expensive, high-speed memory sucking down power for zero benefit.",
+    "You have to stop thinking of system memory as a resource and start thinking of it as a cache.",
+    "If you have to ask how much going to the hard drive will cost you in performance, you can't afford it.",
+    "The question shouldn't be 'Why does Vista use all my memory?' but 'Why the heck did previous versions of Windows use my memory so ineffectively?'",
+    "The less free memory I have, the better; every byte of memory should be actively working on my behalf at all times.",
+    "Vista is trying its darndest to pre-emptively populate every byte of system memory with what it thinks I might need next."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware",
+    "productivity"
+  ],
+  "tone": "explanatory, enthusiastic, slightly contrarian",
+  "key_insight": "Unused RAM is wasted RAM - modern operating systems should aggressively cache data in memory rather than leaving it empty, fundamentally changing how users should interpret 'free memory' metrics.",
+  "filename": "2006-09-22-why-does-vista-use-all-my-memory"
+}

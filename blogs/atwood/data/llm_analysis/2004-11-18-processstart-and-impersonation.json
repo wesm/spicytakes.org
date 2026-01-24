@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood documents his frustrating discovery that Process.Start in .NET 1.1 always runs under the ASP.NET worker process security context, ignoring any thread impersonation. He explores various workarounds including Win32 API calls and the MSKB impersonation methods, but finds none fully satisfactory. The post notes that .NET 2.0 will solve this with new properties on ProcessStartInfo. Atwood's attempt to use CreateProcessWithLogonW directly also failed, leaving him without a clean solution for his use case of capturing command output while running as a different user.",
+  "key_points": [
+    "Process.Start in .NET 1.1 ignores thread impersonation and always inherits the parent ASP.NET process credentials",
+    "NET 2.0 introduces User, Domain, and Password properties on ProcessStartInfo to address this limitation",
+    "Impersonation is expensive and should be used sparingly",
+    "Win32 API workarounds like CreateProcessWithLogonW exist but are difficult to implement correctly in .NET",
+    "Combining credential switching with output redirection remains unsolved in .NET 1.1"
+  ],
+  "money_quotes": [
+    "Did you know that Process.Start always uses the security context of the parent ASP.NET process?",
+    "Way to rub salt in my wounds, Whidbey.",
+    "This is a very unfortunate limitation of .NET 1.1, as it severely limits what I can do with Process.Start in a web app.",
+    "Bear in mind that impersonation is a very expensive operation; it's not something you want to do often.",
+    "That requires a more masochistic workaround \u2013 calling the newer Win32 API method CreateProcessWithLogonW() directly.",
+    "Even if I could get that API call to work, I still wouldn't have the amenities of the Process class that I need."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "frustrated, technical, pragmatic",
+  "key_insight": "Framework limitations often force developers into painful workarounds, and sometimes the only real solution is waiting for the next version.",
+  "filename": "2004-11-18-processstart-and-impersonation"
+}

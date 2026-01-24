@@ -1,0 +1,21 @@
+{
+  "summary": "This early technical post addresses a common ASP.NET deployment problem where ViewState validation fails in web farm environments. The issue stems from each server auto-generating unique machine keys, causing ViewState created on one server to be rejected by another. Atwood explains two solutions: synchronizing machine keys across all servers, or disabling ViewState MAC validation entirely. The post ends with a sardonic quip about security, hinting at the trade-off involved in the easier solution.",
+  "key_points": [
+    "ASP.NET ViewState is cryptographically tied to its originating server by default, despite documentation suggesting otherwise",
+    "Web farm deployments require either synchronized machine keys or disabled ViewState MAC validation",
+    "The easier solution (disabling enableViewStateMac) comes with security implications that shouldn't be ignored",
+    "Service Pack 1 improved error messages to actually explain the problem, a small but meaningful debugging improvement"
+  ],
+  "money_quotes": [
+    "ASP.NET ViewState is tied to the particular server it came from by default \u2013 even though the documentation says it isn't.",
+    "This is done to prevent users from somehow tampering with the ViewState. Any change to the ViewState data on the client will be detected.",
+    "Either way, works great. Who needs all that stupid security anyway?"
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "technical, sardonic",
+  "key_insight": "Web farm ViewState failures occur because ASP.NET's security-by-default approach conflicts with distributed deployment, forcing developers to choose between synchronized configuration or reduced security.",
+  "filename": "2004-11-16-web-farms-and-aspnet-viewstate"
+}

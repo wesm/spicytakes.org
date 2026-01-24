@@ -1,0 +1,28 @@
+{
+  "summary": "Jeff Atwood recounts a frustrating incident where a colleague refactored his working code in the name of performance optimization, introducing a bug in the process. The colleague replaced simple equality operators with .Equals method calls, citing marginal performance gains and dubious benefits like easier language conversion. Atwood systematically dismantles each justification, pointing out that the 'optimization' actually broke the code by failing to handle null values. He argues forcefully that readability and simplicity should always take precedence over micro-optimizations, especially when those optimizations are based on theoretical articles rather than actual application profiling.",
+  "key_points": [
+    "Premature optimization that sacrifices readability often introduces bugs while providing negligible real-world performance benefits",
+    "The refactored code broke because calling .Equals on a null object throws an exception, demonstrating how 'improvements' can introduce regressions",
+    "Performance gains from using .Equals over the = operator are marginal and irrelevant in a database-driven web application where database queries dominate execution time",
+    "Code clarity enables analysis and maintenance, which is the true measure of performance - not nanosecond savings",
+    "Optimizations should be based on actual metrics from functional applications, not theoretical articles read on websites"
+  ],
+  "money_quotes": [
+    "Don't take working code and break it in the name of highly questionable 'performance' gains.",
+    "Can you imagine reading code littered with tons of .Equals calls instead of the simple, straightforward = operator?",
+    "Code that makes sense is code which can be analyzed and maintained, and that makes it performant.",
+    "It's worthless code. It's a distraction to maintenance programmers. That's the real performance cost.",
+    "Always, always write for simplicity and readability first.",
+    "If you must optimize, use real optimizations based on actual metrics in a functional application. Not hypothetical theory based on some article you read on some website.",
+    "Good luck calling the .Equals method on Nothing."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "frustrated, opinionated, sardonic",
+  "key_insight": "The real cost of misguided performance optimization isn't just wasted effort\u2014it's broken code and reduced maintainability, making simplicity and readability the true performance wins.",
+  "filename": "2005-01-11-the-real-cost-of-performance"
+}

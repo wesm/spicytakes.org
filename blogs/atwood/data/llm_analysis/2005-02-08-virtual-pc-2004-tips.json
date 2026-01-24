@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood shares practical tips for working with Microsoft's Virtual PC 2004, focusing on performance optimization after the release of Service Pack 1. He explains that while CPU and network performance are acceptable, disk and video emulation create significant bottlenecks. The post recommends specific strategies like using disk images instead of physical media, ensuring VMs have adequate memory to avoid paging, and potentially using fixed-size disk images. He also documents the specific hardware that VPC emulates (S3 Trio, Intel 21140, SoundBlaster 16) and explains these choices were made for maximum compatibility.",
+  "key_points": [
+    "Virtual PC disk performance is only 40-70% of host, making it the biggest bottleneck alongside video emulation",
+    "OS installations in VPC can take two or more hours even on fast hardware - plan accordingly",
+    "Never starve VMs for memory since paging to the already-slow emulated disk creates severe performance problems",
+    "Always use ISO and floppy disk images instead of physical media to avoid additional performance penalties",
+    "VPC emulates specific legacy hardware (S3 Trio, Intel 21140, SoundBlaster 16) chosen for broad OS compatibility"
+  ],
+  "money_quotes": [
+    "Even if you have fire-breathing PC hardware \u2013 and any self-respecting developer should, because time is money, and PCs are cheap these days \u2013 you'll be disappointed with Virtual PC performance.",
+    "Emulated disk performance is terrible.",
+    "If these guys start paging to disk, you'll be in a world of hurt.",
+    "The biggest performance problems in Virtual PC are caused by the slow emulated disk and video subsystems.",
+    "Always use disk image files!",
+    "This isn't that kind of emulation."
+  ],
+  "themes": [
+    "software_engineering",
+    "hardware",
+    "productivity"
+  ],
+  "tone": "practical",
+  "key_insight": "Virtual PC's performance bottleneck lies primarily in disk and video emulation, so optimizing memory allocation and using disk images instead of physical media are essential for a tolerable experience.",
+  "filename": "2005-02-08-virtual-pc-2004-tips"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood summarizes Martin Fowler's article on test doubles, which clarifies the confusing vocabulary around pretend objects used in testing. The post adopts Gerard Meszaros's taxonomy that uses 'Test Double' as the umbrella term for any fake object used in place of a real one during testing. Atwood presents the four main categories: dummy objects (unused placeholders), fake objects (working but simplified implementations), stub objects (canned response providers), and mock objects (expectation-verifying replacements). He adds his own preferred term, 'Stunt Objects,' as a memorable alternative to the generic 'Test Double.'",
+  "key_points": [
+    "Test Double is the generic term for any pretend object used in place of a real object for testing purposes",
+    "Dummy objects are passed around but never actually used, typically just filling parameter lists",
+    "Fake objects have working implementations but take shortcuts unsuitable for production",
+    "Stub objects provide canned answers only to calls programmed for the specific test",
+    "Mock objects are pre-programmed with expectations about which calls they should receive"
+  ],
+  "money_quotes": [
+    "Personally, I like to think of them as Stunt Objects.",
+    "The vocabulary for talking about pretend objects soon gets messy \u2013 all sorts of words are used: stub, mock, fake, dummy.",
+    "Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.",
+    "Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production.",
+    "Mock objects are pre-programmed with expectations which form a specification of the calls they are expected to receive."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming"
+  ],
+  "tone": "technical, concise, educational",
+  "key_insight": "Understanding the precise taxonomy of test doubles\u2014dummy, fake, stub, and mock\u2014eliminates confusion and enables more precise communication about testing strategies.",
+  "filename": "2007-01-08-test-doubles-a-taxonomy-of-pretend-objects"
+}

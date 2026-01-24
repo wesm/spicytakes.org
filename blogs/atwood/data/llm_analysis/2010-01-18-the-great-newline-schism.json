@@ -1,0 +1,29 @@
+{
+  "summary": "Jeff Atwood explores the surprisingly complex history behind newline characters in text files, explaining why different operating systems use different line endings (CR LF for Windows, CR for old Mac, LF for Unix). The terms Carriage Return and Line Feed derive from manual typewriters where they were physically separate operations. This historical baggage creates ongoing problems when text files are shared across platforms, leading to the 'onegiantunbrokenline' display bug or mysterious ^M characters. Atwood warns that mixing line endings in a single file through copy-paste is easy to do accidentally and hard to detect. He concludes that programmers need to understand this schism and use tools that can display invisible line ending characters.",
+  "key_points": [
+    "Three main newline conventions exist: CR LF (Windows/DOS), CR (old Mac), and LF (Unix), plus two Unicode variants",
+    "The CR/LF distinction originated from physical typewriter mechanics where returning the carriage and advancing paper were separate operations",
+    "Early computer systems used CR+LF because teletype print heads physically needed time to return to the left margin",
+    "Mixing line endings in a single file is easy to do accidentally through copy-paste and creates hard-to-diagnose problems",
+    "Many editors, including Visual Studio, cannot display end-of-line markers, making detection difficult"
+  ],
+  "money_quotes": [
+    "Have you ever opened a simple little ASCII text file to see it inexplicably displayed as onegiantunbrokenline?",
+    "Did you ever wonder what was at the end of your lines? As a programmer, I knew there were end of line characters, but I honestly never thought much about them. They just... worked.",
+    "Confusing terms based on archaic hardware that is no longer in use, and is confounding to new users who have no point of reference for said terms; Completely arbitrary platform 'standards' for what is exactly the same function. Pretty much business as usual in computing.",
+    "The separation of the two functions concealed the fact that the print head could not return from the far right to the beginning of the next line in one-character time.",
+    "Even worse, it's possible to mix all three of these line endings in the same file.",
+    "Innocently copy and paste a comment or code snippet from a file with a different set of line endings, then save it. Bam, you've got a file with multiple line endings. That you can't see.",
+    "I find it fascinating that the mundane ASCII newline has so much ancient computing lore behind it, and that it still regularly bites us in unexpected places.",
+    "The Great Newline Schism is something you need to be aware of."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "hardware"
+  ],
+  "tone": "educational, humorous, historically-curious",
+  "key_insight": "The seemingly simple newline character carries decades of computing history baggage that still causes real problems today, and programmers need tools that reveal these invisible characters.",
+  "filename": "2010-01-18-the-great-newline-schism"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Jeff Atwood documents a frustrating Windows XP hibernation bug that affects systems with 1GB+ of RAM, where the OS fails to hibernate due to insufficient contiguous memory. The post explains the technical cause (the Windows kernel power manager needs a proportionally larger block of contiguous memory as RAM increases) and provides a link to Microsoft's hotfix. Atwood criticizes Microsoft's policy of requiring users to call support to obtain necessary patches, noting that community members have thankfully mirrored the fix. He also reveals his own workaround limitations, stuck using hibernate instead of sleep due to motherboard quirks with his overclocked CPU.",
+  "key_points": [
+    "Windows XP SP2 systems with 1GB+ RAM can randomly fail to hibernate due to memory fragmentation issues",
+    "The failure is particularly dangerous on laptops where users might bag a machine they believe is hibernating but is actually still running",
+    "Microsoft's hotfix exists but requires calling support to obtain it, which Atwood finds ridiculous",
+    "The bug's intermittent nature makes it harder to diagnose and more frustrating when it does occur",
+    "Even power users face cascading hardware/software compromises (Atwood can't use sleep due to overclocking issues)"
+  ],
+  "money_quotes": [
+    "You can imagine how catastrophic this could be on a laptop; you'd be putting a laptop in your bag that was still fully on!",
+    "The busywork exercise of calling Microsoft support to obtain a necessary hotfix. What a ridiculous policy.",
+    "I would use sleep, but the motherboard I use isn't smart enough to restore the correct overclocked CPU speed.",
+    "My system fails to hibernate after I've already initiated the hibernation process and walked away from it."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "frustrated, practical, critical",
+  "key_insight": "Essential bug fixes shouldn't be hidden behind support call barriers when the community is already sharing workarounds to bypass corporate gatekeeping.",
+  "filename": "2006-03-31-the-2gb-windows-xp-hibernation-problem"
+}

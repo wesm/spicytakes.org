@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood examines whether quad-core CPUs offer meaningful benefits over dual-core systems in 2007, using benchmark data to compare identical 2.4 GHz processors differing only in core count. He finds that most software fails to utilize more than two cores, with only rendering, encoding, and scientific applications showing improvement. When comparing a faster dual-core (3.0 GHz) against a slower quad-core (2.4 GHz) at similar price points, the dual-core wins in most general-purpose tasks. Atwood concludes that while CPU parallelism is inevitable due to physics constraints on clock speed, typical users should prioritize the fastest dual-core they can afford.",
+  "key_points": [
+    "Dual-core provides clear benefits for all users, acting like a 'backup CPU' for system responsiveness, but returns diminish rapidly after two cores",
+    "Benchmark data shows quad-core improvements only in rendering, encoding, and scientific applications that are naturally parallelizable",
+    "At equivalent price points, a faster dual-core (3.0 GHz) outperforms a slower quad-core (2.4 GHz) for most general-purpose tasks",
+    "CPU vendors are forced toward more cores because physics prevents endless clock speed increases",
+    "Software engineering hasn't advanced enough to exploit parallelism over raw clock speed for typical applications"
+  ],
+  "money_quotes": [
+    "You hit a point of diminishing returns very rapidly after two cores.",
+    "It's like having a backup CPU in reserve, waiting to jump in and assist as necessary.",
+    "Beyond encoding and rendering tasks which are naturally amenable to parallelization, the task manager CPU graphs tell the sad tale of software that simply isn't written to exploit more than two CPUs.",
+    "In the short term, we have to choose between faster dual-core systems, or slower quad-core systems.",
+    "Clock speed wins most of the time.",
+    "More CPU cores isn't automatically better."
+  ],
+  "themes": [
+    "hardware",
+    "software_engineering",
+    "industry_criticism"
+  ],
+  "tone": "analytical, pragmatic, data-driven",
+  "key_insight": "Hardware capabilities mean nothing if software can't exploit them\u2014for most users in 2007, a faster dual-core beats a slower quad-core because software parallelization hasn't caught up with CPU architecture.",
+  "filename": "2007-09-01-choosing-dual-or-quad-core"
+}

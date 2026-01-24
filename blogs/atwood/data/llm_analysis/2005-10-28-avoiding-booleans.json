@@ -1,0 +1,29 @@
+{
+  "summary": "Jeff Atwood argues that boolean parameters in code and boolean UI elements like checkboxes create ambiguity and should be replaced with more explicit alternatives. He cites the .NET Framework Standard Library guidelines recommending enumerations over boolean parameters because they make code self-documenting. The same principle applies to user interfaces: radio buttons with adjective labels are clearer than checkboxes with verb labels. A checkbox labeled 'Lock' leaves users guessing about both the current state and what happens when unchecked, while radio buttons showing 'Locked/Unlocked' make both states immediately visible. The post connects API design principles to UI design, showing how the same clarity improvements apply to both domains.",
+  "key_points": [
+    "Boolean parameters turn into magic numbers that obscure code meaning - Authorization('foo', true) tells you nothing about what 'true' means",
+    "Enumerations make code self-documenting by replacing opaque true/false with named states like AuthorizationCompletion.Pending",
+    "Checkboxes with verb labels create ambiguity about current state and alternatives - users can't tell if an action has happened or will happen",
+    "Radio buttons with adjective labels show both the current state and all alternatives clearly",
+    "The same boolean-to-enumeration principle that improves code readability also improves UI clarity"
+  ],
+  "money_quotes": [
+    "Boolean parameters make calls harder to read and harder to write.",
+    "If you're not careful, boolean parameters become magic numbers.",
+    "Check boxes can leave the user guessing what the alternative is.",
+    "Whether checkboxes or radio buttons are used, it is important to label with adjectives which describe the state of the affected object.",
+    "If verbs are used as labels, the user does not know whether the action has taken place or is yet to take place.",
+    "Whenever possible, use radio buttons instead of checkboxes.",
+    "This is conceptually identical to the code sample; we simply switched from a boolean to an enumeration.",
+    "It's amazing how obvious the benefits are in retrospect, but it sure wasn't obvious to me until today."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "human_factors",
+    "productivity"
+  ],
+  "tone": "instructive, reflective, practical",
+  "key_insight": "The same principle that makes code readable\u2014replacing ambiguous booleans with explicit enumerations\u2014also makes user interfaces clearer when applied to checkboxes versus radio buttons.",
+  "filename": "2005-10-28-avoiding-booleans"
+}

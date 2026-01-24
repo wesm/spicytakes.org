@@ -1,0 +1,26 @@
+{
+  "summary": "Jeff Atwood reconsiders his earlier skepticism about encrypting all web traffic, prompted by Twitter's seamless switch to HTTPS by default for logged-in users. He acknowledges that while he initially dismissed universal encryption as overkill, the combination of negligible performance costs (Gmail reports SSL uses less than 1% CPU), improved protocols like SPDY and SSL False Start, and the genuine privacy benefits for users under repressive governments has changed his mind. He concedes that implementing HTTPS on large sites remains challenging due to issues like proxy caching and mixed content, but argues the web's long-term health depends on making encrypted connections the default for authenticated users.",
+  "key_points": [
+    "HTTPS performance overhead is now negligible\u2014Gmail reports SSL accounts for less than 1% of CPU load and less than 2% of network overhead",
+    "Encryption protects against identity cookie theft, traffic snooping, and content tampering, especially on open WiFi networks",
+    "New protocols like SPDY bake in encryption by default, and SSL False Start reduces handshaking latency significantly",
+    "Implementation challenges remain real: proxy caching becomes harder, all content sources need HTTPS, and mobile devices pay a steeper performance penalty",
+    "Privacy isn't just for criminals\u2014citizens under repressive governments deserve protection from surveillance"
+  ],
+  "money_quotes": [
+    "Maybe encrypted connections should be the default for all web sites.",
+    "Why not boil the sea, then? Let us encrypt all the things!",
+    "I certainly don't subscribe to the dangerous idea that 'only criminals have things to hide'; everyone deserves the right to personal privacy.",
+    "The long-term future of the web depends on a secure network connection.",
+    "SSL/TLS accounts for less than 1% of the CPU load, less than 10KB of memory per connection and less than 2% of network overhead.",
+    "There are lots of repressive governments out there who wouldn't hesitate at the chance to spy on what their citizens do online, or worse. Much, much worse."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_criticism",
+    "communities"
+  ],
+  "tone": "reflective, pragmatic, evolving",
+  "key_insight": "The performance and complexity costs of HTTPS have dropped enough that encrypting all authenticated web traffic should become the default standard for the health of the entire web.",
+  "filename": "2012-02-23-should-all-web-traffic-be-encrypted"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood reflects on his conversion to managed code advocacy after the NIMDA worm devastated his organization in 2001, demonstrating how buffer overrun vulnerabilities in native code can cause catastrophic real-world damage. He examines the Quake II .NET port as a benchmark for managed code performance, finding that managed code runs at about 85% the speed of optimized native C++ code. The post argues that this performance tradeoff is entirely worthwhile given the security benefits of eliminating entire classes of vulnerabilities. Atwood closes with an appreciation for Mike Abrash, the legendary assembly programmer behind Quake's software rasterizer, praising his technical writing abilities.",
+  "key_points": [
+    "The NIMDA worm exploiting IIS buffer overruns was a watershed moment that demonstrated the real cost of memory-unsafe languages",
+    "Managed Quake II benchmarks show .NET code performing at 85% of native C++ speed, and about 70% of hand-optimized assembly",
+    "In applications using 3D hardware acceleration, the performance gap between managed and native code becomes even smaller since the GPU is the bottleneck",
+    "Managed code benchmarks don't capture real-world issues like frame drops from garbage collection pauses",
+    "A 15% performance penalty is a reasonable trade for eliminating buffer overrun vulnerabilities entirely"
+  ],
+  "money_quotes": [
+    "It felt like a natural disaster without the 'natural' part \u2013 the first notable port 80 IIS buffer overrun exploit.",
+    "After surveying the carnage first hand, I immediately saw the benefit of languages where buffer overruns weren't even possible.",
+    "I'll gladly trade 15 percent of performance to live in a world where NIMDA can't exist. That's a no-brainer.",
+    "The techniques may be obsolete, but the problem solving he describes so compellingly is truly timeless.",
+    "In apps/demos/games that use 3D acceleration, expect the difference between managed and unmanaged code to be even smaller, as the bottleneck of rendering is the 3D card, not the CPU.",
+    "Our codegen is generating code with about 70% of the performance of the original hand optimized assembly. I personally think this is great."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering",
+    "industry_criticism",
+    "human_factors"
+  ],
+  "tone": "reflective, pragmatic, appreciative",
+  "key_insight": "Security vulnerabilities caused by memory-unsafe code exact such enormous real-world costs that trading 15% of raw performance for memory safety is an obviously worthwhile bargain.",
+  "filename": "2005-03-08-on-managed-code-performance"
+}

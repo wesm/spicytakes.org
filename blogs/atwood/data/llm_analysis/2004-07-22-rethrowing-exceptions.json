@@ -1,0 +1,25 @@
+{
+  "summary": "Jeff Atwood explains the nuances of properly rethrowing exceptions in .NET, emphasizing the importance of preserving the call stack. He demonstrates how to include original exceptions as InnerExceptions when adding context, and how to use a bare 'Throw' statement to rethrow without losing stack trace information. The post then transitions to broader guidance on when exceptions should be caught at all, advocating restraint and specificity. The core message is that most exceptions should not be caught unless you can genuinely handle them or add meaningful context.",
+  "key_points": [
+    "Use InnerException to preserve original exception details when throwing a new exception with more context",
+    "A bare 'Throw' statement (without parameters) preserves the original call stack, unlike 'Throw ex'",
+    "The golden rule: don't catch exceptions unless you have a very good reason\u2014let them propagate",
+    "Only catch exceptions if you can fix the problem, add meaningful information, or handle a specific error type",
+    "Always prefer catching specific exception types over the generic System.Exception"
+  ],
+  "money_quotes": [
+    "Unless you have a very good reason to catch an exception, DON'T.",
+    "Exceptions are supposed to be exceptional, just like the dictionary meaning: uncommon, unusual.",
+    "The hardest kinds of exceptions to troubleshoot are the ones that don't even exist, because a developer upstream of you decided to consume it.",
+    "When in doubt, let the calling routine, or the global exception handler, deal with it.",
+    "Less code is almost always better, IMO.",
+    "Always try to catch specific exceptions."
+  ],
+  "themes": [
+    "programming",
+    "software_engineering"
+  ],
+  "tone": "instructional",
+  "key_insight": "The hardest bugs to diagnose come from exceptions that are silently swallowed, so only catch exceptions when you can genuinely fix the problem or add meaningful context\u2014otherwise, let them propagate.",
+  "filename": "2004-07-22-rethrowing-exceptions"
+}

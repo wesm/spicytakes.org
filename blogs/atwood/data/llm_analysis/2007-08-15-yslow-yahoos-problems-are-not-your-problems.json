@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood critiques Yahoo's YSlow tool and its 13 rules for website optimization, arguing that advice designed for one of the world's largest web properties doesn't automatically apply to smaller sites. He analyzes the weighted scoring system and demonstrates how blindly following these rules can actually make sites slower. The post dissects specific high-weight recommendations like CDNs, ETags, and Expires headers, explaining why each can be counterproductive for sites that aren't serving millions of daily users. Atwood concludes that developers should understand optimization advice before implementing it, rather than chasing arbitrary scores.",
+  "key_points": [
+    "Yahoo's optimization rules are designed for sites with millions of daily users, making them inappropriate or even harmful for smaller websites",
+    "YSlow's scoring system gives high weight to rules that can actively degrade performance for non-enterprise sites, like disabling ETags",
+    "CDNs can actually slow down sites below a certain traffic threshold, and their cost is prohibitive for most developers",
+    "Setting aggressive Expires headers risks serving stale content and forces filename changes on every update",
+    "Understanding why optimization advice works is more important than blindly implementing it to chase a score"
+  ],
+  "money_quotes": [
+    "Do you run a website like that? If so, what are you doing reading this instead of flying your private jet to a Bermuda vacation with your trophy wife?",
+    "Software developers love optimization. Sometimes too much.",
+    "If you fail to read the Yahoo advice critically, you might make your site slower.",
+    "There is no such thing as one-size-fits-all guidance.",
+    "If you have to ask how much a formal Content Delivery Network will cost, you can't afford it.",
+    "Strive to understand the advice first, then implement the advice that makes sense for your specific situation.",
+    "Either the web is full of terribly inefficient web pages, or there's something wrong with its scoring."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "industry_criticism"
+  ],
+  "tone": "critical, pragmatic, skeptical",
+  "key_insight": "Optimization advice from tech giants is designed for their scale, and blindly applying it to smaller projects can make things worse rather than better.",
+  "filename": "2007-08-15-yslow-yahoos-problems-are-not-your-problems"
+}

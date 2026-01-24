@@ -1,0 +1,27 @@
+{
+  "summary": "Jeff Atwood examines the persistent problem of email spam, using the Nigerian 419 scam anthem as a jumping-off point to discuss why spam remains profitable despite being obvious. He explores various anti-spam techniques, from challenge-response systems (which have significant usability problems) to Bayesian filtering (which he uses via POPFile). The post highlights Markovian filtering as implemented in CRM114, which achieves near-perfect accuracy by analyzing phrases rather than individual words. Atwood notes that this technique can exceed human accuracy in spam detection, with the CRM114 author reporting zero classification errors over 10,000 emails.",
+  "key_points": [
+    "Nigerian 419 scammers succeed because even low response rates (7 replies per 500 emails) convert to money 70% of the time",
+    "Challenge-response spam systems create awkward scenarios where two such systems can deadlock, each waiting for the other to respond",
+    "Markovian filtering analyzes weighted phrases rather than individual words, making it significantly more accurate than Bayesian approaches",
+    "CRM114's Markovian filtering achieves 99.5%+ accuracy, which actually exceeds measured human accuracy of 99.84%",
+    "The author's practical approach evolved from POPFile to K9, prioritizing simplicity alongside effectiveness"
+  ],
+  "money_quotes": [
+    "Like all spammers, they do it because it works.",
+    "When you get a reply, it's 70% sure that you'll get the money.",
+    "If you can't take two seconds to respond to the challenge, then just how important is that email you're sending me?",
+    "The 'I challenge your challenge!' scenario is particularly amusing.",
+    "Markovian filtering weights phrases and words, whereas Bayesian filtering only looks at individual words.",
+    "I received over 10,000 emails. About 60% were spam. I had ZERO classification errors. ZERO.",
+    "I, as an unassisted human, under nearly optimal conditions, am 99.84% accurate."
+  ],
+  "themes": [
+    "software_engineering",
+    "productivity",
+    "human_factors"
+  ],
+  "tone": "informative, practical, wryly amused",
+  "key_insight": "Spam filtering technology had already surpassed human accuracy by 2005, with Markovian techniques achieving better than 99.98% accuracy compared to humans' 99.84% under optimal conditions.",
+  "filename": "2005-10-21-the-nigerian-spammer-anthem"
+}
