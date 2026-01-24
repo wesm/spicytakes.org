@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 // Disable prerendering for post pages to avoid Vercel's 2048 route limit
@@ -8,10 +9,14 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const { blogData } = await parent();
 
   if (!blogData) {
-    return { post: null };
+    throw error(404, 'Blog not found');
   }
 
   const post = blogData.posts.find((p: { filename: string }) => p.filename === params.filename);
 
-  return { post: post || null };
+  if (!post) {
+    throw error(404, 'Post not found');
+  }
+
+  return { post };
 };

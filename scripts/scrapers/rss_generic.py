@@ -379,7 +379,7 @@ if __name__ == "__main__":
     blog_id = os.environ.get("BLOG_ID")
     if not blog_id:
         print("Error: BLOG_ID environment variable required")
-        print("Usage: BLOG_ID=simon python scripts/scrapers/rss_generic.py")
+        print("Usage: BLOG_ID=<blog_id> python scripts/scrapers/rss_generic.py")
         sys.exit(1)
 
     scraper = RssGenericScraper(blog_id)

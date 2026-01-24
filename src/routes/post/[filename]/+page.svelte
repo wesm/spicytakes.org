@@ -47,8 +47,12 @@
     event.stopPropagation();
     if (!browser) return;
     const url = `${window.location.origin}${window.location.pathname}#quote-${index}`;
-    await navigator.clipboard.writeText(url);
-    copiedQuote = index;
+    try {
+      await navigator.clipboard.writeText(url);
+      copiedQuote = index;
+    } catch {
+      // Clipboard API not available or permission denied - just highlight the quote
+    }
     highlightedQuote = index;
     window.location.hash = `quote-${index}`;
     setTimeout(() => {
