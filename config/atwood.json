@@ -1,0 +1,41 @@
+{
+  "id": "atwood",
+  "name": "Jeff Atwood",
+  "tagline": "Coding Horror",
+  "description": "Legendary software development blog exploring programming, the human side of software, and building communities like Stack Overflow and Discourse.",
+  "sourceUrl": "https://blog.codinghorror.com",
+  "sourceLabel": "codinghorror.com",
+
+  "scraper": {
+    "type": "rss_generic",
+    "feedUrl": "https://blog.codinghorror.com/rss/",
+    "baseUrl": "https://blog.codinghorror.com",
+        "archivePattern": "/page/{page}/",
+    "archiveStartPage": 2,
+    "maxArchivePages": 120
+  },
+
+  "themes": {
+    "programming": { "label": "Programming", "icon": "\ud83d\udcbb" },
+    "software_engineering": { "label": "Software Engineering", "icon": "\u2699\ufe0f" },
+    "career": { "label": "Career & Work", "icon": "\ud83d\udcbc" },
+    "productivity": { "label": "Productivity", "icon": "\u23f1\ufe0f" },
+    "human_factors": { "label": "Human Factors", "icon": "\ud83e\udde0" },
+    "communities": { "label": "Communities & Stack Overflow", "icon": "\ud83c\udf10" },
+    "hardware": { "label": "Hardware & Gear", "icon": "\ud83d\udda5\ufe0f" },
+    "industry_criticism": { "label": "Industry Criticism", "icon": "\ud83d\udd0d" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Jeff Atwood, co-founder of Stack Overflow and Discourse. Jeff is known for his accessible writing about software development, his strong opinions on code quality and developer tools, and his insights into building developer communities. His blog 'Coding Horror' has been influential in shaping software development culture since 2004.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Jeff Atwood is known for strong, contrarian opinions about software development practices, developer culture, and technology. He's not afraid to criticize industry trends, challenge conventional wisdom, or make bold claims. His writing often has a provocative edge while remaining grounded in practical experience building Stack Overflow and Discourse."
+  }
+}

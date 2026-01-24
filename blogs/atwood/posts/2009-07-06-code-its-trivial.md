@@ -1,0 +1,93 @@
+---
+title: "Code: It’s Trivial"
+date: 2009-07-06
+url: https://blog.codinghorror.com/code-its-trivial/
+slug: code-its-trivial
+word_count: 1093
+---
+
+Remember that Stack Overflow thing we’ve been working on? Some commenters on a recent [Hacker News article](http://news.ycombinator.com/item?id=678398) questioned the pricing of [Stack Exchange](http://stackexchange.com/) – essentially, a hosted Stack Overflow:
+
+
+> Seems really pricey for a relatively simple software like this. Someone write an open source alternative? it looks like something that can be thrown together in a weekend.
+
+
+Ah, yes, the stereotypical programmer response to most projects: **it’s trivial!** I could write that in a week!*
+
+
+It’s even easier than that. Open source alternatives to Stack Overflow [already exist](http://meta.stackoverflow.com/questions/2267/so-clones), so you’ve got a head start. **Gentlemen, start your compilers! Er, I mean, *interpreters!***
+
+
+No, I don’t take this claim seriously. Not enough to write a response. And fortunately for me, now I don’t need to, because [Benjamin Pollack](http://blog.bitquabit.com/) – one of the few people outside our core team who has access to the Stack Overflow source code – already [wrote a response](https://www.bitquabit.com/post/one-which-i-call-out-hacker-news/). Even if I had written a response, I doubt it would have been half as well written as Benjamin’s.
+
+kg-card-begin: html
+
+> Developers think cloning a site like StackOverflow is easy for the same reason that open-source software remains such a horrible pain in the ass to use. **When you put a developer in front of StackOverflow, they don’t really see StackOverflow**. What they actually see is this:
+> create table QUESTION (ID identity primary key,
+> TITLE varchar(255),
+> BODY text,
+> UPVOTES integer not null default 0,
+> DOWNVOTES integer not null default 0,
+> USER integer references USER(ID));
+> create table RESPONSE (ID identity primary key,
+> BODY text,
+> UPVOTES integer not null default 0,
+> DOWNVOTES integer not null default 0,
+> QUESTION integer references QUESTION(ID))
+> If you then tell a developer to replicate StackOverflow, what goes into his head are the above two SQL tables and enough HTML to display them without formatting, and that really *is* completely doable in a weekend. The smarter ones will realize that they need to implement login and logout, and comments, and that the votes need to be tied to a user, but that’s still totally doable in a weekend; it’s just a couple more tables in a SQL back-end, and the HTML to show their contents. Use a framework like Django, and you even get basic users and comments for free.
+> But that’s *not* what StackOverflow is about. Regardless of what your feelings may be on StackOverflow in general, most visitors seem to agree that the user experience is smooth, from start to finish. They feel that they’re interacting with a polished product. Even if I didn’t know better, I would guess that very little of what actually makes StackOverflow a continuing success has to do with the database schema – and having had a chance to read through StackOverflow’s source code, I know how little really does. There is a *tremendous* amount of spit and polish that goes into making a major website highly usable. A developer, asked how hard something will be to clone, simply *does not think about the polish, because the polish is incidental to the implementation*.
+
+kg-card-end: html
+
+I have zero doubt that **given enough time, open source clones will begin to approximate what we’ve created with Stack Overflow**. It’s as inevitable as evolution itself. Well, depending on what time scale you’re willing to look at. With a smart, motivated team of closed-source dinosaurs, it is indeed possible to outrun those teeny tiny open-source mammals. For now, anyway. Let’s say we’re those speedy, clever [Velociraptor](http://en.wikipedia.org/wiki/Velociraptor) types of dinosaurs – those are cool, right?
+
+
+Despite Benjamin’s well reasoned protests, the source code to Stack Overflow is, in fact, actually, kind of... well, trivial. Although there is starting to be quite a lot of it, as we’ve been beating on this stuff for almost a year now. That doesn’t mean our source code is good, by any means; as usual, [we make crappy software, with bugs](https://blog.codinghorror.com/we-make-shitty-software-with-bugs/). But every day, our tiny little three person team of speedy-but-doomed Velociraptors starts out with the same goal. Not to write the best Stack Overflow *code* possible, but to **create the best Stack Overflow *experience*  possible.** That’s our mission: make Stack Overflow better, in some small way, than it was the day before. We don’t always succeed, but **we try very, very hard not to suck** – and more importantly, we [keep plugging away at it](https://blog.codinghorror.com/overnight-success-it-takes-years/), day after day.
+
+
+Building a better Stack Overflow experience does involve writing code and building cool features. But more often, it’s anything but:
+
+1. synthesizing cleaner, saner HTML markup
+2. optimizing our pages for speed and load time efficiency
+3. simplifying or improving our site layout, CSS, and graphics
+4. responding to support and feedback emails
+5. writing a [blog post](http://blog.stackoverflow.com/) explaining some aspect of the site engine or philosophy
+6. being customers of our own sites, asking our own programming questions and [sysadmin questions](http://serverfault.com/)
+7. interacting with the community on our [dedicated meta-discussion site](http://meta.stackoverflow.com/) to help gauge what we should be working on, and where the rough edges are that need polishing
+8. [electing community moderators](http://blog.stackoverflow.com/2009/05/welcome-new-community-moderators/) and [building moderation tools](http://blog.stackoverflow.com/2009/05/a-theory-of-moderation/) so the community can police and regulate itself as it scales
+9. producing [Creative Commons dumps](http://blog.stackoverflow.com/category/cc-wiki-dump/) of our user-contributed questions and answers
+10. coming up with schemes for [responsible advertising](https://blog.codinghorror.com/how-to-advertise-on-your-blog-without-completely-selling-out/) so we can all make a living
+11. producing the [Stack Overflow podcast](https://stackoverflow.blog/podcast) with Joel
+12. helping set up logistics for the [Stack Overflow DevDays](https://stackoverflow.blog/2009/05/12/stack-overflow-developer-days-conference/) conferences
+13. setting up [the next site in the trilogy](http://blog.stackoverflow.com/2009/05/the-stack-overflow-trilogy/), and figuring out where we go next
+
+
+As programmers, as much as we might want to believe that
+
+kg-card-begin: html
+
+```
+
+lots_of_awesome_code = success;
+
+```
+
+kg-card-end: html
+
+There’s nothing particularly magical about the production of source code. In fact, writing code is a tiny proportion of [what makes most businesses successful](https://blog.codinghorror.com/does-writing-code-matter/).
+
+
+> Code is meaningless if nobody knows about your product. Code is meaningless if the IRS comes and throws you in jail because you didn’t do your taxes. Code is meaningless if you get sued because you didn’t bother having a software license created by a lawyer.
+
+
+Writing code *is* trivial. And fun. And something I continue to love doing. But if you *really* want your code to be successful, you’ll [**stop coding**](https://blog.codinghorror.com/the-best-code-is-no-code-at-all/)** long enough to do all that other, even *more* trivial stuff around the code that’s necessary to *make* it successful.**
+
+kg-card-begin: html
+
+*Although, to be fair, I really could write Twitter in a week. It’s so ridiculously simple! Come on!
+
+kg-card-end: html
+[programming languages](https://blog.codinghorror.com/tag/programming-languages/)
+[software development concepts](https://blog.codinghorror.com/tag/software-development-concepts/)
+[open source](https://blog.codinghorror.com/tag/open-source/)
+[software pricing](https://blog.codinghorror.com/tag/software-pricing/)
