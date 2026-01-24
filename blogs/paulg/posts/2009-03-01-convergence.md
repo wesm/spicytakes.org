@@ -146,7 +146,7 @@ signal to everyone.
 
 ___
 
-[Now](badeconomy.html)
+[Now](https://paulgraham.com/badeconomy.html)
 would be a good time to start any company that competes with
 TV networks.  That's what a lot of Internet startups are, though
 they may not have had this as an explicit goal.  People only have

@@ -144,7 +144,7 @@ what I've read about John Doerr, he sounds like a good guy too,
 almost a hacker.  But they work for the very best VC funds.  And 
 my theory explains why they'd tend to be different: just as the
 very most popular kids don't have to persecute
-[nerds](nerds.html)
+[nerds](https://paulgraham.com/nerds.html)
 , the very best
 VCs don't have to act like VCs.  They get the pick of all the best  
 deals.  So they don't have to be so paranoid and sneaky, and they 

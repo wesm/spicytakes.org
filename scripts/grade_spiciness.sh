@@ -178,10 +178,22 @@ JSON array of scores:"""
             else:
                 print(f"  FATAL: got {len(scores)} scores for {len(batch)} quotes")
                 print(f"  Raw response: {result_text[:200]}")
+                # Save progress before exiting
+                if graded_quotes:
+                    output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
+                    with open(OUTPUT_FILE, 'w') as f:
+                        json.dump(output, f, indent=2)
+                    print(f"  Saved {len(graded_quotes)} quotes before failure")
                 exit(1)
         else:
             print(f"  FATAL: couldn't parse scores from response")
             print(f"  Raw response: {result_text[:200]}")
+            # Save progress before exiting
+            if graded_quotes:
+                output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
+                with open(OUTPUT_FILE, 'w') as f:
+                    json.dump(output, f, indent=2)
+                print(f"  Saved {len(graded_quotes)} quotes before failure")
             exit(1)
 
     except Exception as e:

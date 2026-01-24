@@ -160,11 +160,11 @@ and beloved of the DoD, happens nonetheless to be a clean, beautiful,
 powerful language that I would love programming in.  It could be,
 but it seems very unlikely.
 
-[Trevor Re: Java's Cover](trevrejavcov.html)
+[Trevor Re: Java's Cover](https://paulgraham.com/trevrejavcov.html)
 
-[Berners-Lee Re: Java](bljava.html)
+[Berners-Lee Re: Java](https://paulgraham.com/bljava.html)
 
-[Being Popular](popular.html)
+[Being Popular](https://paulgraham.com/popular.html)
 
 [Sun Internal Memo](http://www.archub.org/javamemo.txt)
 

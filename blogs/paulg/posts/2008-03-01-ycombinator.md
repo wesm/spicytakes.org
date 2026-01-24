@@ -159,7 +159,7 @@ would have been in much better shape.  We probably could have raised
 money at 3 to 5 times the valuation we did.
 
 If we take 7% of a company we fund, the founders only have to do
-[7.5%](equity.html)
+[7.5%](https://paulgraham.com/equity.html)
 better in their next round of funding
 to end up net ahead.  We certainly manage that.
 

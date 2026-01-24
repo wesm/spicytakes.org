@@ -17,7 +17,7 @@ now had to think about something I hadn't had to think about before:
 how not to lose it.   I knew it was possible to go from rich to
 poor, just as it was possible to go from poor to rich.  But while
 I'd spent a lot of the past several years studying the paths from
-[poor to rich](wealth.html)
+[poor to rich](https://paulgraham.com/wealth.html)
 , 
 I knew practically nothing about the paths from rich
 to poor.  Now, in order to avoid them, I had to learn where they

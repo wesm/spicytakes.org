@@ -39,7 +39,7 @@ for that matter.  But they're not dangerous.
 
 When did Microsoft die, and of what?  I know they seemed dangerous
 as late as 2001, because I wrote an
-[essay](road.html)
+[essay](https://paulgraham.com/road.html)
 then 
 about how they were
 less dangerous than they seemed.   I'd guess they were dead by 2005.
@@ -139,7 +139,7 @@ by everyone.
 The surprising fact is, brilliant hackers—dangerously brilliant
 hackers—can be had very cheaply, by the standards of a
 company as rich as Microsoft.  They can't
-[hire](hiring.html)
+[hire](https://paulgraham.com/hiring.html)
 smart people anymore,
 but they could buy as many as they wanted for only an order of magnitude 
 more. So if they wanted to be a contender
@@ -162,7 +162,7 @@ in our insular little "Web 2.0" bubble.  The other half, the younger
 half, will complain that this is old news.
 
 **See also:**
-[Microsoft is Dead: the Cliffs Notes](cliffsnotes.html)
+[Microsoft is Dead: the Cliffs Notes](https://paulgraham.com/cliffsnotes.html)
 
 **Notes**
 

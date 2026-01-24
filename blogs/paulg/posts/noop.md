@@ -55,7 +55,7 @@ based on one's own experience of programming.  But it seems
 more dangerous to put stuff in that you've never needed 
 because it's thought to be a good idea.
 
-[Rees Re: OO](reesoo.html)
+[Rees Re: OO](https://paulgraham.com/reesoo.html)
 
 [Spanish Translation](http://www.cibercalli.com/erick/hackingnews/porque-arc-no-es-especialmente-orientado-a-objetos)
 

@@ -347,7 +347,7 @@ gotten used to a GPS.
 
 The other thing I like about publishing online is that you can write
 what you want and publish when you want.  Earlier this year I wrote
-[something](inequality.html)
+[something](https://paulgraham.com/inequality.html)
 that seemed suitable for a magazine, so
 I sent it to an editor I know.
 As I was waiting to hear back, I found to my surprise that I was
@@ -427,7 +427,7 @@ has accumulated a lot of cruft over the years.  The list of what
 you can't ask in job interviews is now so long that for convenience
 I assume it's infinite.  Within the
 office you now have to walk on eggshells lest anyone
-[say](say.html)
+[say](https://paulgraham.com/say.html)
 or do
 something that makes the company prey to a lawsuit.  And God help
 you if you fire anyone.
@@ -482,7 +482,7 @@ I had.
 The big advantage of investment over employment, as the examples of open
 source and blogging suggest, is that people working on projects of
 their own are enormously more productive.  And a
-[startup](start.html)
+[startup](https://paulgraham.com/start.html)
 is a project
 of one's own in two senses, both of them important: it's creatively
 one's own, and also economically ones's own.
@@ -503,7 +503,7 @@ that everyone should go and start a startup?  Of course not.
 But more people could do it than do it now.
 At the moment, even the smartest students leave school thinking
 they have to get a
-[job](hiring.html)
+[job](https://paulgraham.com/hiring.html)
 .  
 Actually what they need to do is make
 something valuable.  A job is one way to do that, but the more

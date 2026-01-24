@@ -384,7 +384,7 @@ largely by fame, which has its own source of superlinear growth.
 But when we exclude sports and politics and the effects of fame, a
 remarkable pattern emerges: the remaining list is exactly the same
 as the list of fields where you have to be
-[independent-minded](think.html)
+[independent-minded](https://paulgraham.com/think.html)
 to
 succeed — where your ideas have to be not just correct, but novel
 as well.
@@ -504,7 +504,7 @@ that exist for such reasons.
 6
 ]
 In my twenties I wanted to be an
-[artist](worked.html)
+[artist](https://paulgraham.com/worked.html)
 and even went to art
 school to study painting. Mostly because I liked art, but a nontrivial
 part of my motivation came from the fact that artists seemed least
@@ -545,7 +545,7 @@ it, will be hosing them even more than they have in the past.
 ]
 The original version of this paragraph was the first draft of
 "
-[How to Do Great Work](greatwork.html)
+[How to Do Great Work](https://paulgraham.com/greatwork.html)
 ." 
 As soon as I wrote it I realized it was a more important topic than superlinear
 returns, so I paused the present essay to expand this paragraph into its
@@ -561,7 +561,7 @@ and enabled them to capture more. Now it can be done like a scientist,
 by discovering or building something uniquely valuable. Most people
 who get rich use a mix of the old and the new ways, but in the most
 advanced economies the ratio has
-[shifted dramatically](richnow.html)
+[shifted dramatically](https://paulgraham.com/richnow.html)
 toward discovery
 just in the last half century.
 

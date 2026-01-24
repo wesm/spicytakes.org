@@ -82,8 +82,12 @@ export function formatDate(date: Date | undefined, monthFormat: 'long' | 'short'
 
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
-    month: monthFormat,
   };
+
+  // Only include month for day or month precision
+  if (datePrecision === 'day' || datePrecision === 'month') {
+    options.month = monthFormat;
+  }
 
   if (datePrecision === 'day') {
     options.day = 'numeric';

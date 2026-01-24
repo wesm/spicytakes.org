@@ -221,7 +221,7 @@ longer.
 Now companies increasingly have to pay employees market price for
 the work they do.   One reason is that employees no longer trust
 companies to deliver
-[deferred rewards](ladder.html)
+[deferred rewards](https://paulgraham.com/ladder.html)
 : why work to accumulate
 deferred rewards at a company that might go bankrupt, or be taken
 over and have all its implicit obligations wiped out?  The other
@@ -301,7 +301,7 @@ the left are forced to fall back on.
 
 The era of credentials began to end when the power of large
 organizations
-[peaked](highres.html)
+[peaked](https://paulgraham.com/highres.html)
 in the late twentieth century.  Now we seem
 to be entering a new era based on measurement.  The reason the new
 model has advanced so rapidly is that it works so much better.  It

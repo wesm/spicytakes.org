@@ -46,7 +46,7 @@ food processing into something with way more immediate bang for the
 buck, and you can see the results in any town in America. Checkers
 and solitaire have been replaced by World of Warcraft and FarmVille.
 TV has become much more engaging, and even so it
-[can't compete](convergence.html)
+[can't compete](https://paulgraham.com/convergence.html)
 with Facebook.
 
 The world is more addictive than it was 40 years ago.   And unless

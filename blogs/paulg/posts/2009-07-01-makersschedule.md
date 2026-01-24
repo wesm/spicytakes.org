@@ -112,9 +112,9 @@ know we have to have some number of meetings.  All we ask from those
 on the manager's schedule is that they understand the cost.Thanksto Sam Altman, Trevor Blackwell, Paul Buchheit, Jessica Livingston,
 and Robert Morris for reading drafts of this.Related:
 
-[How to Do What You Love](love.html)
+[How to Do What You Love](https://paulgraham.com/love.html)
 
-[Good and Bad Procrastination](procrastination.html)
+[Good and Bad Procrastination](https://paulgraham.com/procrastination.html)
 
 [Turkish Translation](http://bdgn.blogspot.com/2009/07/ureticilerin-is-takvimi-ve.html)
 

@@ -34,7 +34,6 @@ const spicyQuotesModules = import.meta.glob<{ quotes: SpicyQuote[] }>('/blogs/*/
 const postsIndexModules = import.meta.glob<{ posts: PostIndexEntry[] }>('/blogs/*/data/posts_index.json', { eager: true });
 
 function getBlogData<T>(modules: Record<string, T>, blogId: string, defaultValue: T): T {
-  const key = `/blogs/${blogId}/data/${Object.keys(modules)[0]?.split('/').pop()}`;
   for (const [path, module] of Object.entries(modules)) {
     if (path.includes(`/blogs/${blogId}/`)) {
       return module;

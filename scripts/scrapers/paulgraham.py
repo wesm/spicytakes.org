@@ -9,6 +9,7 @@ import re
 import sys
 import time
 from datetime import datetime
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -166,8 +167,8 @@ class PaulGrahamScraper(BaseScraper):
         title = self.extract_title(soup, index_title)
         date_str = self.extract_date(soup, raw_text)
 
-        # Extract content
-        content = self.html_to_markdown(body)
+        # Extract content (pass base_url to convert relative links to absolute)
+        content = self.html_to_markdown(body, self.base_url)
 
         # Extract slug from URL
         slug = url.rstrip("/").split("/")[-1].replace(".html", "")
@@ -181,7 +182,7 @@ class PaulGrahamScraper(BaseScraper):
             "word_count": len(content.split())
         }
 
-    def html_to_markdown(self, element) -> str:
+    def html_to_markdown(self, element, base_url: str = None) -> str:
         """Convert HTML content to markdown."""
         lines = []
 
@@ -234,6 +235,9 @@ class PaulGrahamScraper(BaseScraper):
                 text = child.get_text(strip=True)
                 href = child.get("href", "")
                 if text and href and not href.startswith("#"):
+                    # Convert relative URLs to absolute
+                    if base_url and not href.startswith(("http://", "https://", "mailto:")):
+                        href = urljoin(base_url + "/", href)
                     lines.append(f"[{text}]({href})")
                 elif text:
                     lines.append(text)
@@ -245,10 +249,13 @@ class PaulGrahamScraper(BaseScraper):
                 if "spacer" in src.lower() or not alt:
                     continue
                 if src:
+                    # Convert relative URLs to absolute
+                    if base_url and not src.startswith(("http://", "https://")):
+                        src = urljoin(base_url + "/", src)
                     lines.append(f"\n![{alt}]({src})\n")
 
             elif tag in ["div", "section", "article", "main", "td", "tr", "table", "font", "center"]:
-                nested = self.html_to_markdown(child)
+                nested = self.html_to_markdown(child, base_url)
                 if nested.strip():
                     lines.append(nested)
 

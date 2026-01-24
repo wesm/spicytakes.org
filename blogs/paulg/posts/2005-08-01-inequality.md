@@ -115,7 +115,7 @@ that you want to make terribly risky choices, if the upside looks
 good enough.
 
 VCs are currently
-[paid](venturecapital.html)
+[paid](https://paulgraham.com/venturecapital.html)
 in a way that makes them 
 focus on the upside:
 they get a percentage of the fund's gains.  And that helps overcome
@@ -162,7 +162,7 @@ That's what everyone does in societies where risk isn't rewarded.
 If you can't ensure your own security, the next best thing is to
 make a nest for yourself in some large organization where your
 status depends mostly on
-[seniority](ladder.html)
+[seniority](https://paulgraham.com/ladder.html)
 .
 [
 3
@@ -373,7 +373,7 @@ kill.
 ]
 The speed at which startups develop new techology is the other     
 reason they pay so well.  As I explained in
-["How to Make Wealth"](wealth.html)
+["How to Make Wealth"](https://paulgraham.com/wealth.html)
 , what you do in a startup is compress a
 lifetime's worth of work into a few years.  It seems as
 dumb to discourage that as to discourage risk-taking.

@@ -34,7 +34,7 @@ the art you like is better than the art I like.
 
 If there's no such thing as good taste, then there's no such thing
 as
-[good art](goodart.html)
+[good art](https://paulgraham.com/goodart.html)
 . Because if there is such a
 thing as good art, it's
 easy to tell which of two people has better taste. Show them a lot

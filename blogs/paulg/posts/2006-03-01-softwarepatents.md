@@ -315,7 +315,7 @@ and tell them to make a new web-based email program, they'll get
 their asses kicked by a team of inspired nineteen year olds.
 
 Experts can implement, but they can't
-[design](taste.html)
+[design](https://paulgraham.com/taste.html)
 .
 Or rather, expertise in implementation is the only kind most people,
 including the experts themselves, can measure.
@@ -413,7 +413,7 @@ with, you must be perilously close to tautologies.
 The CEO of Forgent, one of the most notorious patent trolls, says
 that what his company does is "the American way." Actually that's
 not true. The American way is to make money by
-[creating wealth](wealth.html)
+[creating wealth](https://paulgraham.com/wealth.html)
 , not by suing people.
 [
 7

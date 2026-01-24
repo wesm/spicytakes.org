@@ -13,7 +13,7 @@ word_count: 167
 February 2008
 
 The fiery reaction to the release of
-[Arc](arc.html)
+[Arc](https://paulgraham.com/arc.html)
 had
 an unexpected consequence: it made me realize I had a design
 philosophy.  The main complaint of the more articulate critics was

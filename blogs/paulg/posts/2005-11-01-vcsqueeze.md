@@ -41,7 +41,7 @@ through the print media.
 
 And of course another big change for the average startup is that
 programming languages have improved-- or rather, the
-[median language](avg.html)
+[median language](https://paulgraham.com/avg.html)
 has.  At most startups ten years
 ago, software development meant ten programmers writing code in
 C++.  Now the same work might be done by one or two using Python
@@ -174,7 +174,7 @@ Some VCs will say this is
 unthinkable—that they want all their money to be put to work
 growing the company.  But the fact is, the huge size of current VC
 investments is dictated by the
-[structure](venturecapital.html)
+[structure](https://paulgraham.com/venturecapital.html)
 of VC funds, not the needs of startups.  Often as not these large  
 investments go to work destroying the company rather than growing
 it.

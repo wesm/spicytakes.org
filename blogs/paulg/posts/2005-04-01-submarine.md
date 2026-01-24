@@ -316,7 +316,7 @@ and
 .  Since high
 school, at least, I've thought of magazines like that more as
 guides to what ordinary people were being
-[told](say.html)
+[told](https://paulgraham.com/say.html)
 to think than as  
 sources of information.  But I didn't realize till the last  
 few years that writing for publication didn't have to mean writing
@@ -437,6 +437,6 @@ it was spontaneous.
 ---
 
 If you liked this, you may also like
-[Hackers & Painters](hackpaint.html)
+[Hackers & Painters](https://paulgraham.com/hackpaint.html)
 .
 

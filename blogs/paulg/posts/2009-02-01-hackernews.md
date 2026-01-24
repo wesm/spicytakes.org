@@ -262,7 +262,7 @@ technology comes into play. Technology certainly can enhance
 discussion.  Nested comments do, for example.  But I'd rather use
 a site with primitive features and smart, nice users than a more
 advanced one whose users were idiots or
-[trolls](trolls.html)
+[trolls](https://paulgraham.com/trolls.html)
 .
 
 So the most important thing a community site can do is attract the

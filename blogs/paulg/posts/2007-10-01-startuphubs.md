@@ -13,7 +13,7 @@ word_count: 1475
 October 2007
 
 After the last
-[talk](webstartups.html)
+[talk](https://paulgraham.com/webstartups.html)
 I gave, one of the organizers 
 got up on the
 stage to deliver an impromptu rebuttal.  That never happened before.

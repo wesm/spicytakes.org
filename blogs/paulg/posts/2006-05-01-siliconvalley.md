@@ -500,7 +500,7 @@ reading drafts of this, and to Ed Dumbill for inviting me to speak.
 
 (The second part of this talk became
 [Why Startups
-Condense in America](america.html)
+Condense in America](https://paulgraham.com/america.html)
 .)
 
 [VC Deals by Region](http://www.pwcmoneytree.com/moneytree/nav.jsp?page=region)

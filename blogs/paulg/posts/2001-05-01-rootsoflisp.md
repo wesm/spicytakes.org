@@ -54,7 +54,7 @@ notation translated into running Common Lisp code.
 
 [Complete Article (Postscript)](https://sep.turbifycdn.com/ty/cdn/paulgraham/jmc.ps?t=1767460192&)
 
-[What Made Lisp Different](diff.html)
+[What Made Lisp Different](https://paulgraham.com/diff.html)
 
 [The Code](https://sep.turbifycdn.com/ty/cdn/paulgraham/jmc.lisp?t=1767460192&)
 

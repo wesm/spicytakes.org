@@ -217,9 +217,9 @@ talk, preferably near the beginning.It's a good exercise for you, too, to sit do
 out how to describe your startup in one compelling phrase.  If you
 can't, your plans may not be sufficiently focused.
 
-[How to Fund a Startup](startupfunding.html)
+[How to Fund a Startup](https://paulgraham.com/startupfunding.html)
 
-[Hackers' Guide to Investors](guidetoinvestors.html)
+[Hackers' Guide to Investors](https://paulgraham.com/guidetoinvestors.html)
 
 [Spanish Translation](http://www.simpleoption.com/ensayo-como-presentarte-inversores.html)
 
