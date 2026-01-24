@@ -176,24 +176,33 @@ JSON array of scores:"""
                     graded_quotes.append(q)
                 print(f"  Scores: {scores}")
             else:
-                print(f"  Warning: got {len(scores)} scores for {len(batch)} quotes, using default")
-                for q in batch:
-                    q['spiciness'] = 5
-                    graded_quotes.append(q)
+                print(f"  FATAL: got {len(scores)} scores for {len(batch)} quotes")
+                print(f"  Raw response: {result_text[:200]}")
+                exit(1)
         else:
-            print(f"  Warning: couldn't parse scores from: {result_text[:100]}")
-            for q in batch:
-                q['spiciness'] = 5
-                graded_quotes.append(q)
+            print(f"  FATAL: couldn't parse scores from response")
+            print(f"  Raw response: {result_text[:200]}")
+            exit(1)
 
     except Exception as e:
-        print(f"  Error: {e}, using default scores")
-        for q in batch:
-            q['spiciness'] = 5
-            graded_quotes.append(q)
+        print(f"  FATAL: {e}")
+        # Save progress before exiting
+        if graded_quotes:
+            output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
+            with open(OUTPUT_FILE, 'w') as f:
+                json.dump(output, f, indent=2)
+            print(f"  Saved {len(graded_quotes)} quotes before failure")
+        exit(1)
     finally:
         if os.path.exists(result_file):
             os.unlink(result_file)
+
+    # Save progress every 10 batches
+    if batch_num % 10 == 0:
+        output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
+        with open(OUTPUT_FILE, 'w') as f:
+            json.dump(output, f, indent=2)
+        print(f"  Progress saved ({len(graded_quotes)} quotes)")
 
 # Sort by date (filename contains date)
 graded_quotes.sort(key=lambda q: q['filename'], reverse=True)
