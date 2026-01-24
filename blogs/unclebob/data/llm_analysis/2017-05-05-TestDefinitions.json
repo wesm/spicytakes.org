@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob responds to a blog post where the author abandoned unit testing due to fragile, over-mocked tests. He argues the problem isn't unit testing itself but poorly written tests that are too tightly coupled to implementation. He provides clear definitions for various test types (unit, acceptance, integration, system, micro-test, functional) and emphasizes that all tests should be decoupled from production code using proper design techniques. The solution is treating tests as first-class citizens with the same quality standards as production code, not abandoning them entirely.",
+  "key_points": [
+    "Over-mocking creates fragile tests coupled to implementation details, not a failure of unit testing itself",
+    "Tests should be decoupled from production code using OO design, dependency inversion, and design patterns like Facade and Strategy",
+    "Writing test doubles manually rather than using mocking frameworks encourages more thoughtful, less coupled test design",
+    "15-minute test runs are far too slow for the rapid feedback TDD requires",
+    "When programmers abandon unit tests, it's typically because they treated tests as 'junk code' rather than first-class citizens"
+  ],
+  "money_quotes": [
+    "Someone who treats their tests like first class citizens will take great pains to ensure that those tests are not strongly coupled to the production code.",
+    "Too many programmers think that the rules for unit tests are different \u2013 that they can be 'junk code' written using any ad hoc style that they find convenient.",
+    "Too many programmers have read the books on mocking, and have bought in to the notion that mocking tools are an intrinsic, and necessary, part of unit testing. Nothing could be further from the truth.",
+    "Writing the Test Double myself encourages me not to write tests with Test Doubles, unless it is really necessary.",
+    "They have allowed the tests to rot, to become coupled, to become rigid, and fragile, and slow. And then, in frustration, they give up on the tests.",
+    "Keep your tests clean. Treat them as first-class citizens of the system."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "critical, instructive, authoritative",
+  "key_insight": "When unit tests become fragile and burdensome, the solution is not to abandon them but to apply the same design discipline and quality standards to test code that you apply to production code.",
+  "filename": "2017-05-05-TestDefinitions"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Uncle Bob explores the differences between OO and functional approaches to processing game state, specifically updating lists of shots and targets in a Spacewar game. The OO approach mutates state directly, while the functional approach must create new instances of everything, tracking both changed and unchanged elements. He initially viewed the functional requirement to separate and recombine unchanged elements as wasteful extra work. However, he arrives at an insight comparing it to selecting bicycles from a garage for a race\u2014you must separate them, modify them, and return them to the collection. He notes that functional languages use clever persistent data structures to avoid actual copying by sharing unchanged elements.",
+  "key_points": [
+    "OO programming allows direct mutation of world state, making updates straightforward but impure",
+    "Functional programming requires creating entirely new instances rather than modifying existing state",
+    "Tail call optimization enables recursive world transformation without stack overflow",
+    "The functional approach requires explicitly tracking both changed AND unchanged elements to reconstruct state",
+    "Persistent data structures eliminate the performance cost of functional immutability by sharing unchanged elements"
+  ],
+  "money_quotes": [
+    "That's what functional programming is all about. You aren't allowed to change the value of any existing variables.",
+    "In order to build a new instance of the world, I must keep track of those parts of the world that changed, and all the parts of the world that did not change.",
+    "I must separate them. Make the modifications. Then add them back together again. I can't just reach into the world and make specific changes.",
+    "At first I thought that this was extra work. It seemed wasteful to me that I had to separate and keep track of the unchanged elements. However, then I had a flash of insight.",
+    "Imagine that you have a dozen bicycles in your garage. You and your partner are about to enter a race, and you need to select and prepare two bicycles. You must separate those two bicycles from the rest, prepare them, race them, and then put them back into the garage with the rest of the bicycles."
+  ],
+  "themes": [
+    "clean_code",
+    "architecture"
+  ],
+  "tone": "reflective, educational, exploratory",
+  "key_insight": "Functional programming's requirement to explicitly track unchanged elements alongside changes mirrors how we naturally handle physical objects\u2014separating, modifying, and recombining\u2014and persistent data structures make this efficient.",
+  "filename": "2018-12-17-FPvsOO-List-processing"
+}

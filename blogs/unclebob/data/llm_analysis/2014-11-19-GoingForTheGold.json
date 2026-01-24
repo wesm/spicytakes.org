@@ -1,0 +1,27 @@
+{
+  "summary": "Martin argues that TDD practitioners often make the mistake of writing tests for core functionality first, which he calls 'grabbing for the gold.' The gold is always surrounded by an invisible 'hedge of thorns'\u2014exceptional, degenerate, and ancillary behaviors that will entangle programmers who skip them. He advocates writing tests in a specific order: exceptional behaviors (invalid inputs), degenerate behaviors (inputs that produce 'nothing'), and ancillary behaviors (supporting functions) before tackling core functionality. This approach clears the thorns away systematically, making the core implementation much easier when you finally reach it.",
+  "key_points": [
+    "Core functionality ('the gold') is always protected by invisible thorns\u2014exceptional, degenerate, and ancillary cases",
+    "Write tests for exceptional behaviors first: invalid inputs that should never reach core functionality",
+    "Handle degenerate behaviors next: inputs like empty strings, zero-length arrays, and blank values that cause 'nothing' to happen",
+    "Ancillary behaviors often prove surprisingly useful to core functionality in non-obvious ways",
+    "Only approach core functionality after surrounding the problem with passing tests for everything else"
+  ],
+  "money_quotes": [
+    "The problem is that The Gold is protected by an invisible hedge of thorns that will entangle any unwitting programmer who, dazzled by The Gold, incautiously grabs for it.",
+    "I've learned that if you grab for The Gold too early, that invisible hedge will thwart your progress and tear your efforts to ribbons.",
+    "So the strategy I've learned to follow is to keep my eyes averted from 'The Gold', while probing for the hedge and clearing it away.",
+    "Before I approach the core functionality, I write as many tests as I can that ignore the core functionality and deal instead with exceptional, degenerate, and ancillary behaviors; in that order.",
+    "I often find that if all the ancillary behaviors are in place before I approach the core functionality, then the core functionality is much easier to implement.",
+    "I shy away from any tests that are close to the core functionality until I have completely surrounded the problem with passing tests.",
+    "Indeed just the day before yesterday I wasted four hours entangled in thorns that I had missed, and had not cleared away properly. In the end git reset --hard was my only escape."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "instructional, reflective, metaphorical",
+  "key_insight": "In TDD, systematically test exceptional, degenerate, and ancillary behaviors before approaching core functionality\u2014the thorns must be cleared before you can safely reach the gold.",
+  "filename": "2014-11-19-GoingForTheGold"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob proposes that TDD's green phase can be accomplished through a finite set of 'transformations'\u2014operations that change code behavior from specific to generic forms, as opposed to refactorings which only change structure. He argues these transformations have a natural priority ordering based on complexity, and following this ordering when selecting tests and implementations prevents the common TDD problem of reaching impasses where large rewrites become necessary. Using the word wrap kata as a case study, he demonstrates how choosing lower-priority transformations (like expression->function) early leads to dead ends, while preferring higher-priority transformations (like constant->scalar) keeps the algorithm evolving smoothly.",
+  "key_points": [
+    "Transformations are the behavioral counterpart to refactorings\u2014refactorings change structure without changing behavior, transformations change behavior by making code more generic",
+    "A proposed priority list orders transformations from simple (nil->constant) to complex (expression->function), with simpler transformations preferred",
+    "Following transformation priority when choosing tests and implementations prevents TDD impasses where you can't pass a test without major rewrites",
+    "The word wrap kata demonstrates how choosing the wrong transformation path leads to dead ends, while respecting priority produces smooth incremental progress",
+    "If formalized, this could enable tool support for transformations and potentially constitute formal proofs of correctness through construction"
+  ],
+  "money_quotes": [
+    "As the tests get more specific, the code gets more generic.",
+    "What I have begun to discover is that returning zero is not nearly so brainless as it looks.",
+    "Rather, the code goes through a sequence of transformation from specific to generic.",
+    "A variable is a generalization of a constant.",
+    "This is one of those moves that feels clever. We justify it by saying that we are doing the simplest thing that would work. But given the priority premise, this is no longer all that simple.",
+    "We've put ourselves in the position where we must now solve a large part of the problem rather than a small incremental part of the problem.",
+    "The sequence of tests, transformations, and refactorings may just be a formal proof of correctness.",
+    "It is the premise of this blog that if tests are chosen and implemented in this preferred order of transformations, then TDD impasses will be reduced or eliminated."
+  ],
+  "themes": [
+    "tdd",
+    "craftsmanship",
+    "clean_code"
+  ],
+  "tone": "exploratory, analytical, pedagogical",
+  "key_insight": "TDD's green phase follows a discoverable pattern where code transforms from specific to generic through a prioritized sequence of operations, and respecting this priority prevents the impasses that plague test-driven development.",
+  "filename": "2013-05-27-TheTransformationPriorityPremise"
+}

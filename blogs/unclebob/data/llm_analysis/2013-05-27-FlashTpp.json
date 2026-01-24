@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob demonstrates the Transformation Priority Premise (TPP) by implementing a flash card kata in Java, showing how to evolve code through small, prioritized transformations. Starting from an empty test, he incrementally builds a complete flash card game that tracks right and wrong answers. The post walks through specific transformations like ({}->nil), (nil->constant), (unconditional->if), and (if->while), showing how each moves the code forward. Along the way, he refactors to improve design, extracting a User interface and MockUser class. The exercise validates that following TPP's transformation priority leads to clean, correct algorithms without fighting the tests.",
+  "key_points": [
+    "The Transformation Priority Premise provides a systematic approach to evolving code from simple to complex through prioritized transformations",
+    "Starting with the simplest possible test (empty list, zero counts) establishes the foundation for incremental development",
+    "Transformations like (nil->constant), (unconditional->if), and (if->while) each represent a specific, small step in code evolution",
+    "Refactoring is essential between transformations to keep code clean\u2014the author repeatedly notes when code is 'ugly' or 'hideous' and addresses it",
+    "Following TPP naturally leads to correct algorithms: 'the algorithm came out nicely' without forcing or fighting the tests"
+  ],
+  "money_quotes": [
+    "We begin with an empty test which passes",
+    "In this case -1 is the integer equivalent of nil, e.g. a degenerate value",
+    "This solution is a bit ugly since it couples the test and the solution. So let's refactor to create a class.",
+    "Of course this is hideous, so we need to refactor alot.",
+    "This fails, but we can make it pass with a (if->while) transform.",
+    "There's more to do, of course, but the plumbing is all set up, and the algorithm looks right.",
+    "There were several cases where we could have used a lower transform such as (variable->assignment) but there was no need, and the algorithm came out nicely."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "technical",
+  "key_insight": "The Transformation Priority Premise guides TDD practitioners through a systematic sequence of small code transformations that naturally evolve toward correct algorithms without fighting the tests.",
+  "filename": "2013-05-27-FlashTpp"
+}

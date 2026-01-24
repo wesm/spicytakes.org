@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob argues that SQL's fundamental design as a textual query language makes it inherently dangerous, as it can pass through user interfaces and provide unauthorized data access. Despite decades of awareness since the first SQL injection was documented in 1998, breaches continue because it's unreasonable to expect every programmer to correctly apply protection mechanisms every time. He contends that frameworks don't solve the problem\u2014programmers do\u2014and they've consistently failed. The only real solution is to eliminate SQL entirely and replace it with non-textual APIs using data structures and function calls.",
+  "key_points": [
+    "SQL injection has been a known vulnerability since 1998, yet continues to cause massive breaches at companies like Equifax and Yahoo",
+    "Relying on frameworks or programmer discipline to prevent SQLi is fundamentally unreliable given the sheer number of query statements in typical applications",
+    "The subtle syntax differences between safe and unsafe SQL statements (question marks, hash marks, parentheses) make mistakes inevitable",
+    "Even with good architecture, there are too many 'absolutelys' required to guarantee safety",
+    "The only reliable solution is replacing SQL with non-textual APIs that use data structures and function calls"
+  ],
+  "money_quotes": [
+    "SQL is demon spawn, and no self-respecting software developer should ever use it.",
+    "The instant that article was published every single programmer in the world should have ceased to use SQL on the spot!",
+    "Frameworks don't handle the issue; programmers do! And programmers haven't been handling that issue all that well; have they?",
+    "SQL is the ultimate security breech. SQL is a portable, universal, textual language that can be transmitted through the user interface of a system and, if passed to the SQL engine, can provide absolute access and control to all the data in the system.",
+    "The very idea that SQL statements might come in through the user interface and be held in RAM ought to fill you with unmitigated terror!",
+    "You never know when some 22 year old programmer, working at 3AM under a horrific schedule pressure, will forget to use just the right ? and # in just the right positions.",
+    "If there is no SQL engine, then there can be no SQLi attacks."
+  ],
+  "themes": [
+    "architecture",
+    "ethics",
+    "industry_commentary",
+    "craftsmanship"
+  ],
+  "tone": "provocative, hyperbolic, exasperated",
+  "key_insight": "The only way to truly eliminate SQL injection vulnerabilities is to eliminate SQL itself, replacing textual query languages with type-safe APIs.",
+  "filename": "2017-12-03-BobbyTables"
+}

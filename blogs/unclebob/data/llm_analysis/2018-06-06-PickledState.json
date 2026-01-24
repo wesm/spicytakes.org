@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob argues that Gherkin's GIVEN/WHEN/THEN syntax has become so effective for specifying requirements because it implicitly describes finite state machine transitions. He draws a parallel between Gherkin (GWT) and unit test patterns (Arrange/Act/Assert), showing they are isomorphic\u2014both describe state transitions. The post demonstrates how viewing requirements as state machines helps identify missing edge cases by systematically exploring all possible state-event pairs. Uncle Bob concludes that Gherkin succeeds because it bridges specification, testing, and programming disciplines with a common language rooted in formal state machine notation.",
+  "key_points": [
+    "Gherkin's GIVEN/WHEN/THEN triplet is fundamentally a state machine transition specification (current state, event, next state)",
+    "The Arrange/Act/Assert pattern in unit tests is isomorphic to GIVEN/WHEN/THEN\u2014both describe state transitions",
+    "A complete suite of Gherkin scenarios combined with TDD unit tests specifies the complete finite state machine of system behavior",
+    "Viewing systems as state machines makes it trivial to find missing state-event pairs that cause bugs",
+    "Gherkin succeeds because it speaks equally to specification, testing, and programming disciplines"
+  ],
+  "money_quotes": [
+    "This means that a suite of Gherkin scenarios is a specification of a finite state machine.",
+    "Gherkin is a language that sits perfectly between, and speaks equally to, the three disciplines of specification, testing, and programming.",
+    "How often have you found, and fixed, bugs in systems that were due to some event happening in a state that didn't expect it? If you are like me, it happens all the time.",
+    "When a system is described in state transition form, and when the states and transitions are well identified, then the hunt for the missing {state, event} pairs becomes trivial.",
+    "The formalism that business analysts find most conducive to specifying system requirements just happens to be the same formalism that programmers frequently use to specify system behavior.",
+    "There is no better mechanism for exploring the behavior of a system than a well specified state machine."
+  ],
+  "themes": [
+    "tdd",
+    "architecture",
+    "craftsmanship"
+  ],
+  "tone": "technical, reflective, pedagogical",
+  "key_insight": "Gherkin's effectiveness stems from its implicit description of finite state machines, which provides a formal bridge between business requirements, tests, and code while making it easy to discover missing edge cases.",
+  "filename": "2018-06-06-PickledState"
+}

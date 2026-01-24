@@ -1,0 +1,29 @@
+{
+  "summary": "Uncle Bob addresses the criticism that TDD damages design and architecture, arguing that the problem lies not with TDD itself but with how programmers apply it. He explains that tests, like any code, must be designed with proper decoupling principles. The common mistake is creating a one-to-one correspondence between test classes and production classes, which creates tight coupling and fragile tests. The solution is to let tests and production code evolve in opposite directions\u2014tests becoming more specific while production code becomes more generic\u2014with an API emerging to bridge them. Architecture doesn't emerge from TDD, but lower-level designs do when programmers apply proper design principles during refactoring.",
+  "key_points": [
+    "A one-to-one correspondence between test code and production code implies extremely tight coupling, leading to fragile and rigid tests",
+    "Tests are part of the system and must be designed with the same principles (OCP, DIP) as production code",
+    "As tests get more specific, production code should get more generic\u2014this opposition is why TDD works",
+    "High-level architecture does not emerge from TDD and must be established beforehand; only lower-level designs emerge",
+    "The fragile test problem and test-induced rigidity are symptoms of poor test design, not inherent flaws in TDD"
+  ],
+  "money_quotes": [
+    "A one-to-one correspondence implies extremely tight coupling.",
+    "Tests need to be designed. Principles of design apply to tests just as much as they apply to regular code.",
+    "As the tests get more specific, the production code gets more generic.",
+    "It is not TDD that creates bad designs. It is not TDD that creates good designs. It's you.",
+    "TDD is a discipline, not a solution.",
+    "It is only programmers, not TDD, that can do harm to designs and architectures.",
+    "The idea that the high level design and architecture of a system emerge from TDD is, frankly, absurd."
+  ],
+  "themes": [
+    "tdd",
+    "architecture",
+    "solid_principles",
+    "craftsmanship",
+    "clean_code"
+  ],
+  "tone": "technical, corrective, authoritative",
+  "key_insight": "TDD doesn't harm architecture\u2014poor test design does; tests must be decoupled from production code structure, evolving toward specificity while production code evolves toward generality.",
+  "filename": "2017-03-03-TDD-Harms-Architecture"
+}

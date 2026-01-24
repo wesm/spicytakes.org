@@ -1,0 +1,28 @@
+{
+  "summary": "Through a Socratic dialogue between a young developer and a mentor, Uncle Bob argues that the truly important architectural decisions are those that allow you to defer choices about databases, frameworks, and web servers\u2014not the choices themselves. He demonstrates how dependency inversion and interface segregation principles enable business rules to remain independent of infrastructure concerns. The mentor shows that by having low-level components depend on interfaces owned by high-level business rules, teams gain flexibility to delay technology decisions until they have sufficient information. The post challenges the common belief that databases are 'the heart of the system' and reframes them as mere IO devices ancillary to core business logic.",
+  "key_points": [
+    "The database is merely an IO device, not the heart of the system\u2014business rules should not depend on specific database implementations",
+    "Dependency Inversion Principle: low-level policies should depend upon high-level policies, not the reverse",
+    "Interface Segregation Principle: each business rule should define interfaces for only the data access it specifically needs",
+    "The important architectural decisions are those that allow you to NOT make premature decisions about databases, frameworks, and web servers",
+    "Good architecture enables teams to defer technology choices until they have enough information to make them wisely"
+  ],
+  "money_quotes": [
+    "The Database isn't an important decision? \u2014 Too much probably. And, no; the database is not one of the most important decisions.",
+    "The database is merely an IO device.",
+    "I didn't say they don't use the tools of the database; I said they shouldn't depend upon them.",
+    "Senders own the interfaces that the receivers must implement.",
+    "The important decisions that a Software Architect makes are the ones that allow you to NOT make the decisions about the database, and the webserver, and the frameworks.",
+    "Woe is the architect who prematurely decides on a database, and then finds that flat files would have been sufficient.",
+    "Blessed is the team whose architects have so isolated them from slow and resource hungry IO devices and frameworks that they can create fast and lightweight test environments.",
+    "Blessed is the team whose architects care about what really matters, and defer those things that don't."
+  ],
+  "themes": [
+    "architecture",
+    "solid_principles",
+    "clean_code"
+  ],
+  "tone": "didactic, Socratic, provocative",
+  "key_insight": "A software architect's most important decisions are those that preserve the team's ability to defer technology choices, not the technology choices themselves.",
+  "filename": "2016-01-04-ALittleArchitecture"
+}

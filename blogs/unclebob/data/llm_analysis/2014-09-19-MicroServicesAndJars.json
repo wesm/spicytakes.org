@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob examines the microservices trend and questions whether it offers advantages that aren't already available through well-designed jar files, DLLs, or shared libraries. He argues that the core benefit touted for microservices\u2014independent deployability\u2014has always been achievable through proper modular design using existing packaging mechanisms. The post acknowledges real costs of microservices: communication latency across sockets and loss of debugging capabilities like stack traces and single-stepping. While not dismissing microservices entirely, he warns against adopting them as a fad without first trying simpler approaches like plugin architectures with jar files.",
+  "key_points": [
+    "Independent deployability, the main selling point of microservices, is already achievable through well-designed jar files, DLLs, gems, and shared libraries",
+    "Most developers have forgotten that jar files are dynamically linked at runtime and can be deployed independently, just like IDE plugins",
+    "Microservices introduce significant costs: socket communication latency (50ms connection setup plus transmission time) and loss of debugging capabilities",
+    "The industry tends to chase architectural fads that leave broken systems in their wake",
+    "A plugin architecture using jar files should be the first approach before considering service boundaries"
+  ],
+  "money_quotes": [
+    "Most people have forgotten this. Most people think that jar files are just convenient little folders that they can jam their classes into any way they see fit.",
+    "So if you design your jars well, you can make them just as independently deployable as a MS.",
+    "If you'd like proof that jars can be independently deployable, just look at the plugins you use for your editor or IDE.",
+    "Freedom's just another word for\u2026",
+    "You can't single step across a REST call, but you can single step across jar files.",
+    "I don't want to see a big fad tearing through the industry leaving lots of broken systems in it's wake.",
+    "Don't leap into microservices just because it sounds cool. Segregate the system into jars using a plugin architecture first. If that's not sufficient, then consider introducing service boundaries at strategic points."
+  ],
+  "themes": [
+    "architecture",
+    "industry_commentary",
+    "craftsmanship"
+  ],
+  "tone": "skeptical, contrarian, pragmatic",
+  "key_insight": "Before adopting microservices for independent deployability, master the art of well-designed jar files and plugin architectures\u2014they've always offered the same benefits without the overhead.",
+  "filename": "2014-09-19-MicroServicesAndJars"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob argues that if/else/switch statements are problematic not just because they proliferate and become hard to maintain, but primarily because of their dependency structure. These statements create 'dependency magnets' where high-level modules transitively depend on low-level modules, binding systems into tight monolithic architectures. The solution is polymorphism: replace the switch with a base class interface, move the single remaining decision point to a factory in main, and let all dependencies point toward higher-level modules. This preserves the same runtime behavior while enabling independently deployable components.",
+  "key_points": [
+    "Replicated if/else/switch statements across a codebase create fragility because changes easily miss some instances",
+    "The deeper problem is dependency structure: switch statements become 'dependency magnets' creating transitive dependencies from high-level to low-level modules",
+    "Polymorphism solves this by inverting dependencies - high-level modules use a base class interface while low-level details implement it",
+    "All three approaches (if/else, switch, polymorphic dispatch) use table lookups with similar runtime and memory characteristics",
+    "The factory containing the sole if/else/switch should live in main, using simple tokens (strings/integers) rather than type-safe enums to preserve component boundaries"
+  ],
+  "money_quotes": [
+    "The proliferation of if/else/switch statements is a common problem in software systems.",
+    "This turns the if/else/switch statements into dependency magnets that reach across large swathes of the system source code, binding the system into a tight monolithic architecture without a flexible component structure.",
+    "The solution to this problem is to break those outwards dependencies on the lower level modules. This can be done with simple polymorphism.",
+    "The decision about which case to follow must have been made before those high level policy modules invoked the base class interface.",
+    "It may not be type safe. Indeed, it cannot be type safe. But it will allow you to preserve the component structure of your architecture.",
+    "Isn't it fascinating how interesting a discussion of a simple if/else/switch can be?"
+  ],
+  "themes": [
+    "clean_code",
+    "solid_principles",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "The real problem with if/else/switch statements isn't code duplication but dependency structure - they become magnets that transitively bind high-level modules to low-level details, which polymorphism elegantly solves by inverting those dependencies.",
+  "filename": "2021-03-06-ifElseSwitch"
+}

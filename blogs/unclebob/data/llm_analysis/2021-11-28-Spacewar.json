@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob reflects on returning to his Space War game project after three years away, using it as an example of how functional programming and good practices make code maintainable. He contrasts his 1978 character-graphics version with his modern Clojure/Quil implementation. The key revelation is that pure functional code\u2014with no mutable state\u2014eliminated the usual anxiety of revisiting old code. Combined with comprehensive tests and clojure/spec type descriptions, he was able to make progress quickly and confidently without the typical 'wading through legacy code' feeling.",
+  "key_points": [
+    "Pure functional programming (no mutation) made the codebase easy to understand after three years because functions had no hidden side effects",
+    "A comprehensive test suite covering game logic provided confidence when making changes",
+    "clojure/spec declarations served as living documentation for data structures, providing type-like benefits in a dynamic language",
+    "The relief of returning to well-written functional code was 'palpable' compared to typical legacy code anxiety",
+    "The Clojure codebase was so clean it converted to ClojureScript with minimal changes, demonstrating portability"
+  ],
+  "money_quotes": [
+    "No variables were mutated, anywhere in the code. This meant that every function did exactly what it said it did; and left no detritus around to confound other functions.",
+    "No function could be impacted by the state of the system because the system did not have 'a state'.",
+    "The relief I experienced coming back into this code base after three years of not touching it, and knowing it was functional, was palpable.",
+    "I never had that feeling of wading through bogs of legacy code.",
+    "I'm sure you've had that feeling of trepidation when you pick up a code base that you haven't seen in three years.",
+    "These kinds of clojure/spec descriptions gave me the documentation I needed to reaquaint myself with the critical data structures of the system."
+  ],
+  "themes": [
+    "clean_code",
+    "craftsmanship",
+    "architecture"
+  ],
+  "tone": "reflective",
+  "key_insight": "Pure functional programming eliminates the anxiety of returning to old code because immutability guarantees that functions do exactly what they say with no hidden state to confound your understanding.",
+  "filename": "2021-11-28-Spacewar"
+}

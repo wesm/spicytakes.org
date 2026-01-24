@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob explores mutation testing as a powerful technique for validating the quality of test suites beyond simple code coverage. He explains that while coverage tools show which lines are executed, mutation testing verifies that tests actually detect semantic changes to the code. Tools like pitest systematically modify code (inverting conditionals, removing function calls) and check if tests fail\u2014surviving mutants indicate gaps in test coverage. Most provocatively, he argues that mutation testing could validate test-after approaches, potentially weakening the case for strict test-first TDD discipline.",
+  "key_points": [
+    "Code coverage only proves execution, not testing\u2014remove all asserts and coverage stays the same",
+    "Mutation testing creates 'mutants' by making semantic changes to code and verifying tests fail",
+    "100% line and branch coverage should be an asymptotic goal we always push toward",
+    "A semantically stable test suite that catches all code changes is the ultimate measure of test quality",
+    "Mutation testing could legitimize test-after approaches if teams verify semantic stability"
+  ],
+  "money_quotes": [
+    "Testing shows the presence, not the absence of bugs.",
+    "If experiments are good enough for science, why aren't unit tests good enough for software?",
+    "So what should your goal be? The question is absurd. There is no justifiable goal other than 100%.",
+    "Pull out all the asserts from your tests, and your coverage remains unchanged!",
+    "Of course your test suite should fail if you make a semantic change to your production code. Does anybody realistically doubt that?",
+    "A surviving (green) mutant might be the result of tests that have been @ignored, or commented out, or when asserts have been removed, or never added.",
+    "The cleaner the code the longer it's useful lifetime.",
+    "If I saw a team using mutation testing to guarantee the semantic stability of a test-after suite; I would smile, and nod, and consider them to be highly professional."
+  ],
+  "themes": [
+    "tdd",
+    "craftsmanship",
+    "clean_code"
+  ],
+  "tone": "technical, persuasive, pragmatic",
+  "key_insight": "The true measure of a test suite isn't coverage metrics but semantic stability\u2014whether any meaningful code change causes a test to fail.",
+  "filename": "2016-06-10-MutationTesting"
+}

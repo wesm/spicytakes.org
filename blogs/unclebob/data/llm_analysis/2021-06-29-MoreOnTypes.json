@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob demonstrates how he built a Turtle Graphics system in Clojure, using clojure/spec to define dynamic type constraints. He argues that dynamic typing with spec allows for more expressive type constraints than most static type systems can achieve, such as asserting relationships between field values. Combined with a comprehensive test suite, he contends this approach provides the same reliability as static typing while offering greater flexibility. The post concludes by reconciling the old TDD vs Design by Contract debate, suggesting both techniques complement each other well.",
+  "key_points": [
+    "Dynamic type systems like clojure/spec can express constraints that are difficult or impossible in most static type systems, such as asserting that a heading must be between 0 and 360, or that an accounting balance sheet sums to zero",
+    "Post-conditions that assert type conformance at runtime, combined with exhaustive tests, provide the same safety guarantees as compile-time static type checking",
+    "The programmer controls when types are asserted, allowing violations during intermediate computations as long as the final result conforms",
+    "TDD and Design by Contract are not opposing philosophies but complementary tools that work well together",
+    "Type models should capture not just data structure but meaningful constraints on values and relationships between fields"
+  ],
+  "money_quotes": [
+    "Since those functions have post conditions that will check the types, and since my suite of tests is exhaustive, I am quite certain that there will be no runtime errors in production and that my dynamic type checking is as robust as any static type system.",
+    "The dynamic nature of the type checking allows me to assert type constraints that are very difficult, if not impossible, to assert at compile time.",
+    "Moreover, I get to control when types are asserted. It is up to me to decide if and when a certain type should be checked. This gives me a lot of power and flexibility.",
+    "It allows me to violate the type rules in the midst of computations, so long as the end result ends up conforming to the types.",
+    "What clojure/spec has taught me is that the two play very well together, and both should be in every programmer's toolkit.",
+    "The sum of the assets, liabilities and equities on the balance sheet must be zero. This is easy to assert in clojure/spec but is difficult, if not impossible, to assert in most statically typed languages."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "architecture"
+  ],
+  "tone": "technical, instructive, persuasive",
+  "key_insight": "Dynamic type checking with comprehensive tests offers the same safety as static typing while enabling more expressive constraints and greater programmer control over when types are validated.",
+  "filename": "2021-06-29-MoreOnTypes"
+}

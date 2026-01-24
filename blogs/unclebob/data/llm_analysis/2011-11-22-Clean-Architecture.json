@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob defends his Clean Architecture approach against critics who argue that frameworks, UIs, and databases shouldn't be hidden from application code. He addresses objections about Rails being special, concerns about code duplication, claims it will slow development, and accusations of Big Up Front Design. The core principle is simple: separate UI from business rules using plain data structures, allowing controllers to pass data to interactors without knowing business logic. This decoupling enables faster testing, deferred decisions, and architectural flexibility. He expresses disappointment that fundamental principles of coupling and cohesion, established decades ago by pioneers like Parnas and Jacobson, seem to have been forgotten by modern developers.",
+  "key_points": [
+    "Separate UI from business rules by passing simple data structures between layers - controllers unpack requests, interactors handle use cases, views present responses",
+    "Decoupling speeds development by enabling tests without firing up web servers, containers, or frameworks",
+    "Good architecture allows you to defer critical decisions without forcing you to - this provides flexibility, not constraints",
+    "Convention over configuration (like Rails) doesn't require coupling - you can follow conventions while keeping business rules separate",
+    "These principles aren't new - they come from Parnas, Demarco, Booch, Jacobson and have been proven over decades"
+  ],
+  "money_quotes": [
+    "No matter how large any one part of the system is, the other parts should be decoupled from it.",
+    "The views do not know about the business objects. They just look in that data structure and present the response.",
+    "If there's one thing we've learned about coupling over the last fifty years it that nothing is better as slowing you down.",
+    "A good architecture allows you to defer critical decisions, it doesn't force you to defer them.",
+    "I'm not telling you to spend months and months drawing UML diagrams. I'm telling you to decouple.",
+    "There's nothing wrong with thinking.",
+    "Are we really so naive as to think that the best way to write a complex system is to throw a bunch of components into a bag and shake it until it works?"
+  ],
+  "themes": [
+    "clean_code",
+    "architecture",
+    "craftsmanship",
+    "industry_commentary"
+  ],
+  "tone": "defensive, frustrated, pedagogical",
+  "key_insight": "Clean Architecture isn't about deferring decisions or adding complexity - it's about the fundamental discipline of decoupling that enables faster testing, easier changes, and architectural flexibility.",
+  "filename": "2011-11-22-Clean-Architecture"
+}

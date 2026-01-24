@@ -1,0 +1,27 @@
+{
+  "summary": "Robert Martin recounts how IBM's 1401 FORTRAN compiler from 1960 used what he calls a 'microservice architecture' - 63 small programs (phases) of about 150 instructions each that ran sequentially, each transforming the source code held in memory. Rather than the obvious approach of loading a full compiler and making multiple passes that required punching and reading intermediate card decks, IBM's engineers kept the source code in memory and swapped in tiny executable phases from the card reader. Each phase progressively transformed the source into smaller intermediate representations until producing the final binary output. Martin marvels at the ingenuity required to decompose compilation into 62 distinct programs with such tight constraints.",
+  "key_points": [
+    "The IBM 1401 had only 16,000 bytes of memory and an 88khz clock, yet ran a FORTRAN compiler",
+    "The naive multi-pass approach would require operators to physically shuttle punch cards between passes, taking potentially an hour for a 1000-line program",
+    "IBM's solution kept source code in memory and loaded 63 tiny 'phases' (~150 instructions each) sequentially from the card reader",
+    "Each phase transformed the source into smaller intermediate forms, freeing memory for symbol tables as compilation progressed",
+    "Martin argues this 1960s approach was essentially a microservice architecture, proving there's nothing new in software"
+  ],
+  "money_quotes": [
+    "The machine addressed it's memory in decimal.",
+    "If you had 8000 bytes, and had to write a FORTRAN compiler, how would you do it?",
+    "Almost all the memory in the computer was used to store the source code. They held back a few hundred bytes for the executable phases.",
+    "Each compiler phase averaged 150 instructions.",
+    "Imagine breaking down the problem of compilation into 62 different programs, each of which can run only once.",
+    "I have just one word for that. Incredible.",
+    "Which just goes to show that there's nothing new under the Sun."
+  ],
+  "themes": [
+    "architecture",
+    "industry_commentary",
+    "craftsmanship"
+  ],
+  "tone": "reflective, admiring, historical",
+  "key_insight": "Elegant architectural solutions to resource constraints are timeless - IBM engineers independently discovered microservice-like decomposition in 1960, decades before the pattern was named.",
+  "filename": "2015-05-28-TheFirstMicroserviceArchitecture"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob traces the intellectual lineage of the Single Responsibility Principle from Parnas's 1972 paper on module decomposition through Dijkstra's separation of concerns to his own formulation in the late 1990s. He clarifies that SRP is fundamentally about people, not code mechanics\u2014a module should have only one reason to change because it should serve only one business stakeholder. Using an Employee class example, he shows how different methods serve different C-level executives (CFO, COO, CTO), and mixing these concerns creates organizational chaos when changes in one area break functionality another group depends on. The principle is ultimately about protecting both the software and the relationships with the people it serves.",
+  "key_points": [
+    "SRP's 'reason to change' refers to people and business functions, not technical concerns like bug fixes or refactoring",
+    "Modules should be designed so that change requests originate from a single tightly coupled group representing one business function",
+    "The Employee class example demonstrates how calculatePay (CFO), reportHours (COO), and save (CTO) serve different organizational stakeholders",
+    "Mixing concerns terrifies customers and managers\u2014breaking unrelated functionality destroys trust like a mechanic who fixes your window but breaks your starter",
+    "SRP is a restatement of cohesion and coupling: gather things that change for the same reasons, separate things that change for different reasons"
+  ],
+  "money_quotes": [
+    "This principle is about people.",
+    "When you write a software module, you want to make sure that when changes are requested, those changes can only originate from a single person, or rather, a single tightly coupled group of people representing a single narrowly defined business function.",
+    "Nothing terrifies our customers and managers more that discovering that a program malfunctioned in a way that was, from their point of view, completely unrelated to the changes they requested.",
+    "Gather together the things that change for the same reasons. Separate those things that change for different reasons.",
+    "The reasons for change are people. It is people who request changes.",
+    "Certainly the code is not responsible for bug fixes or refactoring. Those things are the responsibility of the programmer, not of the program."
+  ],
+  "themes": [
+    "solid_principles",
+    "architecture",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "didactic, clarifying, historically grounded",
+  "key_insight": "The Single Responsibility Principle is fundamentally about people and organizational structure\u2014each module should serve exactly one business stakeholder so that changes from one group never accidentally break functionality that another group depends on.",
+  "filename": "2014-05-08-SingleReponsibilityPrinciple"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "This is an introductory tutorial to Clojure syntax and programming fundamentals. Uncle Bob walks readers through the basics of lists, function calls, vectors, and function definitions in Clojure. He demonstrates how expressions are evaluated in the REPL, explains the difference between lists and vectors, and builds up to writing recursive functions like factorial and sum. The post emphasizes how minimal Clojure's syntax really is\u2014by the end of the tutorial, readers have learned 'the vast majority of Clojure syntax.'",
+  "key_points": [
+    "Clojure's syntax is remarkably minimal\u2014function calls are just lists where the first element is the function and the rest are arguments",
+    "Lists are linked lists (good for stacks), vectors are growable arrays (good for queues and indexing)",
+    "The REPL evaluates any list as a function call, so you must quote lists to prevent evaluation",
+    "Clojure uses 64-bit integers by default but supports unlimited precision with the N notation",
+    "Higher-order functions like apply and reduce provide powerful abstractions for working with collections"
+  ],
+  "money_quotes": [
+    "A function call is really just a list. The function is the first element of the list, and the arguments are just the other elements of that list.",
+    "You now know the vast majority of Clojure syntax. There's more, of course, but you already know enough to write significant programs.",
+    "Lists make good stacks. Vectors make good queues.",
+    "If you just want the list (1 2) at the REPL you can convince the REPL not to call the list as a function by quoting it.",
+    "That works nicely, until we exceed 64 bits of precision. Clojure likes to use 64 bit integers for efficiency."
+  ],
+  "themes": [
+    "clean_code"
+  ],
+  "tone": "technical, pedagogical, approachable",
+  "key_insight": "Clojure's elegance lies in its minimal syntax where everything is a list, and function calls are simply lists being evaluated.",
+  "filename": "2020-04-06-ALittleClojure"
+}

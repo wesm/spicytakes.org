@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob argues that Object Orientation and Functional Programming are not mutually exclusive paradigms but complementary disciplines that can be combined. He defines OO as fundamentally about disciplined polymorphism (managed function pointers), not about state, while FP is about disciplined assignment (immutability). Since these disciplines address orthogonal concerns, programmers can and should use both. He dismisses the tribal warfare between OO and FP advocates as ignorant, asserting that design principles like SRP and patterns like Strategy apply regardless of paradigm.",
+  "key_points": [
+    "Objects are bags of functions, not bags of data - when objects are used as data structures, it's a design smell",
+    "OO's core contribution is disciplined polymorphism through managed function pointers, enabling dependency inversion",
+    "FP's core contribution is disciplined assignment through immutability, enabling safe concurrent programming",
+    "Polymorphism allows source code dependencies to be inverted from runtime dependencies, enabling plugin architectures",
+    "Design principles (SOLID) and patterns apply regardless of paradigm - FP doesn't magically make them irrelevant"
+  ],
+  "money_quotes": [
+    "Objects are bags of functions, not bags of data.",
+    "Is there really so much difference between f(o), o.f(), and (f o)? Are we really saying that the difference is just about the syntax of a function call?",
+    "The overriding difference between a functional language and a non-functional language is that functional languages don't have assignment statements.",
+    "For all the hi-falutin' rhetoric about OO and 'real-world objects' and 'programming closer to the way we think', what OO really comes down to is that OO languages replace function pointers with convenient polymorphism.",
+    "You can't have concurrent update problems if you never update anything.",
+    "Everybody thinks their way is the best. Everybody is wrong.",
+    "The fact that you've decided to use a language that doesn't have an assignment operator does not mean that you can ignore the Single Responsibility Principle."
+  ],
+  "themes": [
+    "architecture",
+    "solid_principles",
+    "industry_commentary",
+    "clean_code"
+  ],
+  "tone": "opinionated, corrective, reductionist",
+  "key_insight": "OO and FP are orthogonal disciplines - OO manages polymorphism while FP manages mutation - and combining both yields robust, safe systems.",
+  "filename": "2014-11-24-FPvsOO"
+}

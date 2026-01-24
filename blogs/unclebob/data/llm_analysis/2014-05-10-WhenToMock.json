@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob examines the trade-offs of using mock objects in testing, arguing that both extremes\u2014no mocks and too many mocks\u2014lead to problematic test suites. Without mocks, tests become slow, incomplete, and fragile due to external dependencies. With excessive mocking, tests become slow (due to reflection), complicated (mocks returning mocks), and tightly coupled to implementation details. He advocates for a 'Goldilocks' approach: mock only across architecturally significant boundaries like databases and web servers, and write your own simple mocks rather than relying on mocking frameworks.",
+  "key_points": [
+    "Tests without mocks suffer from slowness, low coverage of error conditions, and fragility due to external dependencies",
+    "Excessive mocking leads to complicated setup code, tight coupling to implementation details, and over-abstraction through unnecessary interfaces",
+    "Mock only across architecturally significant boundaries (databases, web servers, external services) but not within those boundaries",
+    "Writing your own mocks is trivial, forces better design, avoids reflection overhead, and promotes reuse",
+    "Good architectures are inherently testable\u2014the right mocking balance correlates with proper separation of concerns"
+  ],
+  "money_quotes": [
+    "So, without mocks, tests tend to be slow, incomplete, and fragile.",
+    "Mocking the interactions between all classes forces you to create mocks that return other mocks (that might return yet other mocks).",
+    "The mocking structure become tightly coupled to implementation details causing many tests to break when those details are modified.",
+    "Mock across architecturally significant boundaries, but not within those boundaries.",
+    "The implication is that good architectures are inherently testable.",
+    "Find a way to test \u2013 design a way to test \u2013 your code so that it doesn't require a mock.",
+    "Those are the important boundaries of your system and they need to be managed, not just for tests, but for everything."
+  ],
+  "themes": [
+    "tdd",
+    "architecture",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "practical, balanced, instructive",
+  "key_insight": "Mock sparingly and only at architecturally significant boundaries\u2014this discipline not only improves test quality but also reinforces good architectural design.",
+  "filename": "2014-05-10-WhenToMock"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob distinguishes between objects and data structures as complementary opposites: objects are functions operating on implied data, while data structures are data operated upon by implied functions. This distinction has profound implications for software design, particularly regarding ORMs (which transfer data between structures, not map to objects), the object/relational impedance mismatch, and how we add types versus functions. The post demonstrates that classes make adding new types easy but functions hard, while data structures make adding functions easy but types hard. Additionally, data structures create source code dependencies that flow toward implementations (causing widespread recompilation), while classes invert these dependencies, isolating callers from changes.",
+  "key_points": [
+    "Objects and data structures are complements, not similar entities - objects hide data behind functions, data structures expose data with implied functions",
+    "ORMs don't map objects to tables; they transfer data between data structures because database schemas and object models serve different purposes",
+    "Adding types is easy with classes but hard with data structures; adding functions is easy with data structures but hard with classes",
+    "Classes enable dependency inversion - implementation source files depend on interfaces, not vice versa - isolating callers from recompilation",
+    "The object/relational impedance mismatch isn't solved by ORMs because objects and data structures are opposites constrained by different forces"
+  ],
+  "money_quotes": [
+    "An Object is a set of functions that operate upon implied data elements. A Data Structure is a set of data elements operated upon by implied functions.",
+    "Objects are the opposite of data structures.",
+    "There is no such thing as an Object Relational Mapper; because there is no mapping between database tables and objects.",
+    "Business objects define the structure of the business behavior. Database schemas define the structure of the business data. Those two structures are constrained by very different forces.",
+    "There is no impedance mismatch because objects and data structures are complementary, not isomorphic.",
+    "Adding new functions to a set of classes is hard, you have to change each class. Adding new types to a set of data structures is hard, you have to change each function.",
+    "Classes isolate callers from recompilation and redeployment."
+  ],
+  "themes": [
+    "clean_code",
+    "solid_principles",
+    "architecture"
+  ],
+  "tone": "didactic, socratic, technical",
+  "key_insight": "Objects and data structures are not interchangeable but complementary opposites, and understanding this distinction is essential for making informed design decisions about extensibility, dependencies, and system architecture.",
+  "filename": "2019-06-16-ObjectsAndDataStructures"
+}

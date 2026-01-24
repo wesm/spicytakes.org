@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob argues that Java's 'interface' keyword was a lazy workaround to avoid implementing proper multiple inheritance, a problem solved decades ago in languages like C++, Ruby, and CLOS. Through a Socratic dialogue, he demonstrates that interfaces and abstract classes with only abstract methods are functionally identical, differing only by compiler-enforced keywords. The 'Deadly Diamond of Death' problem that supposedly justifies this limitation has known solutions. The real harm comes when developers need legitimate multiple inheritance, like implementing the Observer pattern cleanly, and are forced to either violate separation of concerns or duplicate code.",
+  "key_points": [
+    "Interfaces and fully abstract classes are functionally identical - the distinction is purely a compiler enforcement mechanism",
+    "The 'Deadly Diamond of Death' multiple inheritance problem was solved decades ago in C++, Eiffel, Ruby, and CLOS",
+    "The interface keyword forces classes to know whether they're implementing an interface or extending a class, breaking encapsulation",
+    "Without multiple class inheritance, implementing patterns like Observer cleanly becomes impossible",
+    "Developers are forced to choose between violating separation of concerns or duplicating code - both bad options caused by the language limitation"
+  ],
+  "money_quotes": [
+    "The deadly diamond of death is a problem that was solved decades ago and it isn't deadly, and does not lead to death.",
+    "The keyword interface was invented as a way to prevent multiple inheritance of classes.",
+    "I can't explain it any other way than laziness.",
+    "Why should a class have to know that it is implementing an interface? Isn't that precisely the kind of thing you are supposed to hide?",
+    "Either you'll have to violate the separation of concerns, or you'll have to duplicate code. And it's the language forcing me into that situation.",
+    "That's the Observer pattern \u2013 done correctly. But it won't compile because you can't extend more than one class. Yes, and that's a tragedy."
+  ],
+  "themes": [
+    "architecture",
+    "clean_code",
+    "industry_commentary"
+  ],
+  "tone": "satirical, provocative, Socratic",
+  "key_insight": "Java's interface keyword was a shortcut that avoided solving multiple inheritance properly, and this design decision continues to force developers into code duplication or broken separation of concerns.",
+  "filename": "2015-01-08-InterfaceConsideredHarmful"
+}

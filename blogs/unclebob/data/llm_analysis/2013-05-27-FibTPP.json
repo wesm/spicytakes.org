@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob explores the Transformation Priority Premise (TPP) using the Fibonacci sequence, responding to Guilherme Silveira's blog that found the original transformation list led to suboptimal solutions. He refines the transformation priority list by adding 'case' at the bottom to discourage switch statements and positioning tail-recursion above general recursion. The exercise reveals that while the elegant recursive Fibonacci solution emerges naturally from TPP, it has serious performance problems in Java. This leads to the insight that transformation priorities may be language-specific, with Java preferring iteration over recursion due to JVM limitations.",
+  "key_points": [
+    "The switch/case transformation should always be the last resort, added to the bottom of the priority list",
+    "Tail recursion should be preferred over arbitrary recursion in the transformation hierarchy",
+    "The 'pretty' recursive Fibonacci solution has horrific O(n\u00b2) complexity and stack space issues",
+    "Java's inability to optimize tail recursion means the transformation priority list may need to be language-specific",
+    "Despite language-specific tweaks, the vast majority of low-level coding decisions remain similar across programming styles"
+  ],
+  "money_quotes": [
+    "This means that using a switch/case or an 'else if' is always the last option to choose.",
+    "This makes all the tests pass. Hallelujah! And look how simple that was! What a pretty sight.",
+    "Unfortunately there are three things wrong with this pretty solution.",
+    "Java is not a functional language, and strongly resists a functional style. So any bias towards functional style will lead to suboptimal implementations.",
+    "I think what this shows us is that the transformations and their priorities are a way to encode a particular programming style.",
+    "The effect is, of course, profound, but the difference in the lists is actually relatively small."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "technical, exploratory, iterative",
+  "key_insight": "The Transformation Priority Premise encodes programming style preferences, and while different languages may require subtle adjustments to the priority list, the fundamental low-level coding decisions remain consistent across paradigms.",
+  "filename": "2013-05-27-FibTPP"
+}

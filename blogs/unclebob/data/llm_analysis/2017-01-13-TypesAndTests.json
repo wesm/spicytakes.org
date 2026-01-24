@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob clarifies his previous 'Dark Path' blog, explaining that his concern is not with static typing itself but with how far languages like Swift and Kotlin have pushed type constraints. He argues that types check internal consistency of program text, not behavior, making them fundamentally different from tests. While some type safety provides valuable low-hanging fruit, excessive type constraints lead to Open-Closed Principle violations and force Big Design Up Front. Languages like Java and C# hover near a reasonable balance point, while Swift and Kotlin have crossed into diminishing returns territory.",
+  "key_points": [
+    "Types constrain program text and check internal consistency, while tests verify external behavior - these are orthogonal concerns",
+    "Every increase in type safety increases notation complexity and the risk of Open-Closed Principle violations",
+    "Excessive type constraints force programmers to get their type models right up front because changing them later becomes too expensive",
+    "Java and C# hover near the balance point of useful type safety, while Swift and Kotlin have gone too far",
+    "Type systems cannot replace testing - you still must test every bit of behavior regardless of how strong the type system is"
+  ],
+  "money_quotes": [
+    "No, types are not tests. Type systems are not tests. Type checking is not testing.",
+    "So what the type system is checking is not the external behavior of the program. It is checking only the internal consistency of the program text.",
+    "Behavior and self-consistency are orthogonal concepts.",
+    "Every step down that path forces users of the language to get their type models 'right' up front; because changing them later is too expensive.",
+    "Every step down that path forces us back into the regime of Big Design Up Front.",
+    "So, a little type safety, like a little salt, is a good thing. Too much, on the other hand, can have unfortunate consequences.",
+    "Type models do not specify behavior. The correctness of your type model has no bearing on the correctness of the behavior you have specified."
+  ],
+  "themes": [
+    "clean_code",
+    "architecture",
+    "industry_commentary",
+    "tdd"
+  ],
+  "tone": "argumentative, clarifying, technical",
+  "key_insight": "Types verify internal textual consistency while tests verify external behavior - conflating them leads to both over-constrained code and undertested systems.",
+  "filename": "2017-01-13-TypesAndTests"
+}

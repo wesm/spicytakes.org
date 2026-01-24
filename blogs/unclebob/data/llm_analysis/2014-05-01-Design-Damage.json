@@ -1,0 +1,28 @@
+{
+  "summary": "Martin defends Jim Weirich's approach to decoupling business logic from Rails frameworks against DHH's critique that such refactoring constitutes 'test-induced design damage.' He argues that what Weirich demonstrated was the classic principle of separation of concerns, as articulated by David Parnas in 1972. Martin contends that separating business rules from framework code, GUI concerns, and database schemas is simply good design that happens to also make tests faster. The faster tests are a symptom of good design, not a distortion caused by testing obsession.",
+  "key_points": [
+    "Jim Weirich's refactoring of Rails apps demonstrates separation of concerns, not test-induced design damage",
+    "Things that change together should stay together; things that change for different reasons should be separated",
+    "Business rules change at different rates and for different reasons than framework code, GUI, or database schemas",
+    "Slow tests are an indication of poor separation of concerns, not a necessary evil",
+    "DHH's critique points to architectural boundaries as 'needless indirection' but these boundaries are fundamental to good design"
+  ],
+  "money_quotes": [
+    "What I saw was a tightly interwoven mass of rails and business logic being teased apart by a master of his craft.",
+    "How do you separate concerns? You separate behaviors that change at different times for different reasons. Things that change together you keep together. Things that change apart you keep apart.",
+    "Putting those business rules into Rails controllers or Rails models therefore violates Parnas' principle.",
+    "If your tests run slowly, it is an indication that you have not separated concerns, and that therefore your design is lacking.",
+    "It seems to me that using good design principles that make your tests run faster is a noble goal.",
+    "Jim would have done this separation no matter how fast the tests were running."
+  ],
+  "themes": [
+    "tdd",
+    "architecture",
+    "clean_code",
+    "craftsmanship",
+    "industry_commentary"
+  ],
+  "tone": "defensive, respectful, elegiac",
+  "key_insight": "Slow tests are a symptom of poor design, not a necessary cost of thorough testing\u2014good separation of concerns naturally yields both better architecture and faster tests.",
+  "filename": "2014-05-01-Design-Damage"
+}

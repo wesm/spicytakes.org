@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob synthesizes several existing architectural patterns\u2014Hexagonal, Onion, Screaming, DCI, and BCE\u2014into a unified 'Clean Architecture' centered on concentric circles of abstraction. The core principle is the Dependency Rule: source code dependencies must always point inward toward higher-level policies, never outward toward implementation details. This separation produces systems that are framework-independent, testable, and resilient to change in external elements like databases and UIs. The architecture uses Dependency Inversion to allow inner layers to communicate with outer layers without violating the rule. Entities contain enterprise-wide business rules, use cases contain application-specific logic, and outer layers handle adapters and frameworks. The result is a system where obsolete external components can be swapped with minimal disruption.",
+  "key_points": [
+    "The Dependency Rule is paramount: source code dependencies can only point inward toward higher-level abstractions, never outward toward details",
+    "Entities represent the most stable, enterprise-wide business rules that are least likely to change when external factors shift",
+    "Use cases orchestrate application-specific business logic while remaining isolated from UI, database, and framework concerns",
+    "Dependency Inversion Principle enables inner layers to call outer layers through interfaces without violating the Dependency Rule",
+    "The web and database are 'details' that belong in the outermost layer where they can do the least harm"
+  ],
+  "money_quotes": [
+    "Source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle.",
+    "The Web is a detail. The database is a detail. We keep these things on the outside where they can do little harm.",
+    "This allows you to use such frameworks as tools, rather than having to cram your system into their limited constraints.",
+    "No operational change to any particular application should affect the entity layer.",
+    "As you move inwards the software grows more abstract, and encapsulates higher level policies.",
+    "We take advantage of dynamic polymorphism to create source code dependencies that oppose the flow of control.",
+    "When any of the external parts of the system become obsolete, like the database, or the web framework, you can replace those obsolete elements with a minimum of fuss."
+  ],
+  "themes": [
+    "architecture",
+    "solid_principles",
+    "clean_code"
+  ],
+  "tone": "technical, authoritative, synthesizing",
+  "key_insight": "True architectural independence comes from enforcing that all source code dependencies point inward toward business rules, treating frameworks, databases, and UIs as replaceable outer-layer details.",
+  "filename": "2012-08-13-the-clean-architecture"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob explores whether Test-Driven Development can guide a programmer to discover Dijkstra's shortest path algorithm through a sequence of increasingly complex test cases. Starting with degenerate cases (empty graphs, single nodes), he incrementally builds up the solution, making design decisions along the way about input/output formats and API structure. The journey is 'jerky' rather than smooth\u2014several tentative algorithms are abandoned as tests expose their weaknesses. Ultimately, he arrives at a working implementation of Dijkstra's algorithm, demonstrating that TDD can lead to complex algorithms even if the path isn't direct or elegant.",
+  "key_points": [
+    "TDD can be used to incrementally discover complex algorithms like Dijkstra's, though the process may be 'jerky' rather than smooth",
+    "The 'generality rule' states that as tests get more specific, production code must get more generic\u2014you can't add test-specific expressions to production code",
+    "Composed asserts\u2014test helper methods that translate readable assertions into API calls\u2014help keep tests decoupled from implementation details",
+    "Test coupling should be minimized; changes to production code shouldn't break dozens of tests",
+    "Each failing test exposes weaknesses in the current implementation that can be corrected in a relatively straightforward manner"
+  ],
+  "money_quotes": [
+    "As the tests get more specific, the code gets more generic.",
+    "We don't want the tests to become strongly coupled to the production code. The more the coupling the more fragile the tests become.",
+    "I think it's interesting how much thought and effort have been put into the structure of this problem; for just the first degenerate test case.",
+    "Did you like that change? && to ||. Yeah, pretty clever. It'll only work for two consecutive edges. The assumptions are mounting to the sky!",
+    "Those first few tests drove me through several tentative algorithms that did not neatly evolve into one another.",
+    "Is there a better sequence of tests that would lead more directly to Dijkstra's algorithm, without the tentative jerkiness? Perhaps; but if so, I haven't found them."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "technical, exploratory, candid",
+  "key_insight": "TDD can guide you to complex algorithmic solutions, but the journey may involve false starts and abandoned approaches rather than a smooth, direct path\u2014and that's acceptable.",
+  "filename": "2016-10-26-DijkstrasAlg"
+}

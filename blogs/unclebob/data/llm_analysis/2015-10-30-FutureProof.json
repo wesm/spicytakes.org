@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob responds to Christin Gorman's critique of 'future proofing' code, agreeing that no system can be completely protected from change, but defending strategic decoupling. He argues that while gratuitous abstraction is harmful, placing frequently-changing elements outside code and using interfaces to isolate volatile modules is sound practice. He pushes back on Gorman's dismissal of single-implementation interfaces, arguing they serve legitimate decoupling purposes. He also defends hand-written mocks over mocking frameworks, finding interfaces essential at architectural boundaries.",
+  "key_points": [
+    "The Open-Closed Principle cannot apply to every element - some code must change when requirements change",
+    "Anything that changes frequently should be externalized from code or decoupled from the rest of the system",
+    "Single-implementation interfaces are legitimate when they isolate frequently-changing modules from the rest of the system",
+    "Hand-written mocks are preferable to mocking frameworks because they can be given meaningful names and don't pollute test setup",
+    "Strategic decoupling in moderation is valuable, but gratuitous decoupling should be avoided"
+  ],
+  "money_quotes": [
+    "Any module that changes frequently should be decoupled from the rest of the system.",
+    "Interfaces should not be actively avoided. Being restrained is not the same as being repelled.",
+    "The goal is not to 'Future Proof' your code. The future will always find a way to thwart you.",
+    "Decoupling shouldn't be gratuitous; but it's not something to actively avoid. Indeed, strategic decoupling in moderation is a very, very good thing.",
+    "Hand written mocks don't pollute your setups with random sequences of dots and parentheses.",
+    "I have worked on systems where the impact of certain changes was so prohibitive that they were delayed for years."
+  ],
+  "themes": [
+    "architecture",
+    "solid_principles",
+    "tdd",
+    "clean_code"
+  ],
+  "tone": "measured, pragmatic, conversational",
+  "key_insight": "The goal isn't to prevent all future changes, but to strategically decouple the parts of your system that change frequently so that modifications remain cheap and localized.",
+  "filename": "2015-10-30-FutureProof"
+}

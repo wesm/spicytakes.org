@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob addresses criticisms about TDD 'religiosity' by clearly delineating where TDD is impractical: at physical system boundaries requiring hardware interaction, in 'fiddling layers' like CSS that require human judgment, and in test support code. He compares TDD to double-entry bookkeeping but acknowledges software's unique challenge of controlling physical devices. The solution isn't to abandon testing but to keep these boundary layers 'humble' by extracting all logic into testable modules. He argues this separation of concerns actually improves design rather than damaging it.",
+  "key_points": [
+    "TDD doesn't work at physical boundaries where software interacts with the real world - testing a bell rings requires a microphone or human ears",
+    "The 'fiddling layer' just before physical boundaries (CSS, Swing setup, configuration) can't be meaningfully test-driven because you discover correctness through iteration, not specification",
+    "Test support code (fixtures, Object Mothers, test doubles) doesn't need its own tests - the actual tests validate them",
+    "The Humble Object pattern solves the boundary problem: extract all logic from untestable layers into testable modules",
+    "This separation of fiddling code from testable code is good design, not damage - these concerns change for different reasons and at different rates"
+  ],
+  "money_quotes": [
+    "The act of stating every bit of logic twice, once in a test, and once in the production code, is very similar to the accounting practice of entering every transaction twice.",
+    "At the moment the software controls something that physically interacts with the world, automated tests become so impractical that manual tests are the best option.",
+    "As the tests get more specific, the code gets more generic.",
+    "Your eyes, and your mind, are the actual test.",
+    "It's not fair to load those layers with logic just so you can avoid writing tests for that logic.",
+    "We keep these layers humble by moving all the logic associated with them out into other modules for which we can easily write tests.",
+    "Those two domains of code will change for very different reasons and at very different rates; so it is wise to separate them."
+  ],
+  "themes": [
+    "tdd",
+    "architecture",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "measured, pragmatic, instructive",
+  "key_insight": "TDD's boundaries aren't failures of the methodology but opportunities to apply the Humble Object pattern, separating untestable physical interactions from testable logic through good design.",
+  "filename": "2014-04-30-When-tdd-does-not-work"
+}

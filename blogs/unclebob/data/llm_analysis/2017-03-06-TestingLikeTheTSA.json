@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob responds to DHH's post about testing practices, offering point-by-point agreement and disagreement with DHH's seven testing guidelines. He pushes back on DHH's recommendation against 100% coverage, arguing it should remain an asymptotic goal, and disagrees with DHH's code-to-test ratios, preferring 1:1. He agrees that testing frameworks is usually unnecessary, that integration tests should be reserved for integration issues, and that obviously trivial code may not need tests. The post ends with a correction noting DHH's TSA post actually predated his 'TDD is Dead' post.",
+  "key_points": [
+    "100% test coverage should be treated as an asymptotic goal - no other number makes a reasonable target",
+    "Code-to-test ratio should be approximately 1:1 (20K lines of code = 20K lines of tests)",
+    "Writing tests with TDD requires 'negative time' - it saves time rather than consuming it",
+    "Don't test your framework unless you have reason not to trust it",
+    "Keep tests focused and close to the code - avoid testing through UIs or web servers"
+  ],
+  "money_quotes": [
+    "Aim as high as you can. Treat 100% as an asymptotic goal. No other number makes a reasonable goal.",
+    "Testing should take none of your time. Writing tests, with TDD, requires negative time (i.e. it saves you a boatload).",
+    "Every worthwhile test you don't write costs you time.",
+    "There's generally no reason to test your framework; so long as you trust it.",
+    "Keep your tests focused. Don't test through UIs. Don't test through web servers. Test as close to the code as you can.",
+    "Be careful. Sometimes one line of code has 20 lines of semantics."
+  ],
+  "themes": [
+    "tdd",
+    "craftsmanship",
+    "industry_commentary"
+  ],
+  "tone": "conversational, opinionated, collegial",
+  "key_insight": "Writing tests with TDD doesn't cost time - it saves time, and every worthwhile test you skip will ultimately cost you more than writing it would have.",
+  "filename": "2017-03-06-TestingLikeTheTSA"
+}

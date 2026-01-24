@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob argues that Test-Driven Development is the programmer's equivalent of double-entry bookkeeping, a discipline that ensures accuracy through redundancy and immediate feedback. He explores the parallels between the two disciplines: both operate at fine granularity, provide immediate error detection, and create two complementary pathways that must reconcile. However, he identifies a crucial asymmetry\u2014unlike accounting where debits and credits are reversible, tests and production code have a one-way relationship. Through logical analysis, he demonstrates that the three laws of TDD cannot be inverted, concluding that test-first is the only valid discipline because tests serve as 'assembly instructions' for production code, a trap-door function that works in only one direction.",
+  "key_points": [
+    "TDD and double-entry bookkeeping share key properties: fine granularity, immediate feedback, and dual pathways that must reconcile to zero errors",
+    "Unlike accounting's symmetric debits/credits, the relationship between tests and production code is fundamentally asymmetric\u2014tests depend on production code but not vice versa",
+    "The three laws of TDD cannot be logically inverted because there's no natural constraint on granularity when production code comes first",
+    "Tests form independent assertions without system structure, while production code forms an interconnected system\u2014this structural difference makes the conversion a one-way 'trap-door function'",
+    "Writing comprehensive fine-grained tests after production code is impractical because you must understand the entire codebase and it must already be decoupled"
+  ],
+  "money_quotes": [
+    "The stakes are enormous. Accuracy is essential. Millions wait to be lost or gained based upon our rare and esoteric skills.",
+    "This asymmetry leads to the inescapable conclusion that the equivalence to double entry bookkeeping only works if the tests are written first.",
+    "When tests are written first, granularity and decoupling are trivial to achieve. When tests follow production code, decoupling and granularity are much more difficult to achieve.",
+    "The tests, and their ordering, form the assembly instructions for the production code.",
+    "Tests can trivially drive production code; but production code cannot practicably drive the equivalent test suite.",
+    "There is a well defined discipline of test-first that is equivalent to double-entry bookkeeping; but there is no such discipline for test-after.",
+    "If accountants can do it, can't we?"
+  ],
+  "themes": [
+    "tdd",
+    "craftsmanship",
+    "ethics"
+  ],
+  "tone": "analytical, persuasive, authoritative",
+  "key_insight": "Test-first is not merely a preference but a logical necessity\u2014like assembly instructions, tests can trivially generate production code, but the reverse is a trap-door function that cannot be practically executed.",
+  "filename": "2017-03-07-SymmetryBreaking"
+}

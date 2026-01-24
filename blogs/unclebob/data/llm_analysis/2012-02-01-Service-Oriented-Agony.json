@@ -1,0 +1,27 @@
+{
+  "summary": "Martin recounts a retrospective with developers struggling with slow velocity due to a service-oriented architecture that partitions the system along physical boundaries (UI, gems, database services) rather than business boundaries. Every new feature requires changes in three different places\u2014front end, gem interface, and service\u2014even without schema changes. This violates the Single Responsibility and Common Closure Principles, which dictate grouping things that change together. Martin argues that services are expensive and should only be created when absolutely necessary, and when they are needed, they should be partitioned by business rules, not physical layers.",
+  "key_points": [
+    "Physical partitioning (UI/gem/DB layers) forces every feature to touch multiple places, slowing development",
+    "The Single Responsibility Principle and Common Closure Principle require grouping things that change together",
+    "Services are expensive\u2014don't distribute your objects unless absolutely necessary",
+    "When services are needed, partition by families of business rules, not by technical layers",
+    "Generic interfaces can help prevent every feature from requiring system-wide changes"
+  ],
+  "money_quotes": [
+    "These principles tell us to group together things that change together, and keep apart things that change for different reasons.",
+    "Unfortunately the above design separates things that change for the same reasons, and groups together things that change for different reasons.",
+    "Services are expensive and complicated, you should only create them if you absolutely need to.",
+    "It's always easier to live in a single process.",
+    "Remember Martin Fowler's first law of distributed objects: Don't distribute your objects.",
+    "Dividing a system into UI and DB services is a physical partitioning. What we should be looking for is families of business rules that are separate from each other.",
+    "It slows development because it smears features through many different layers."
+  ],
+  "themes": [
+    "architecture",
+    "solid_principles",
+    "industry_commentary"
+  ],
+  "tone": "diagnostic, pragmatic, cautionary",
+  "key_insight": "Partitioning systems along physical layers rather than business boundaries violates core design principles and inevitably slows development by smearing every feature across multiple components.",
+  "filename": "2012-02-01-Service-Oriented-Agony"
+}

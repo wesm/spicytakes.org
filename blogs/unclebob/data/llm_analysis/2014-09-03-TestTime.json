@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob argues that slow-running tests are unacceptable and represent a fundamental design flaw. He recounts advising a client whose C++ build times were slowing their test feedback loop, emphasizing that no testing tool's benefits justify slow execution. The core problem is that slow tests get run less frequently, leading developers to avoid refactoring and allowing code to rot. He advocates for decoupled architectures that enable fast test doubles, using FitNesse as an example where 72,000 lines of code can be tested in seconds during the red/green/refactor loop by stubbing slow dependencies.",
+  "key_points": [
+    "Slow tests are run less frequently, causing developers to skip refactoring and allowing code quality to deteriorate",
+    "No testing tool's features justify slowness - if it slows you down, replace it immediately",
+    "Keeping tests fast is a design challenge requiring decoupled architectures and strategic stubbing",
+    "Well-designed systems allow slow operations (databases, web servers) to be stubbed behind architectural boundaries",
+    "You only need to test slow external systems like databases once to know they work - testing them repeatedly wastes time"
+  ],
+  "money_quotes": [
+    "If your testing tool is the reason it takes a long time to run your tests, then it's not the best tool for the job \u2013 let alone the best tool out there.",
+    "Anything that gets in the way of fast test times is forfeit, no matter what other wonderful benefits it may provide.",
+    "The primary benefit of TDD is the ability to refactor without fear, and without cost. The slower your tests run, the higher the refactoring cost.",
+    "Don't let the tests get slow!",
+    "Keeping the tests running very fast is a design challenge. It's one of the design constraints that well heeled craftsmen put upon themselves.",
+    "After all, how many times do you need to test the database to know that it works? How many times do you need to test the web server to know that it works? The answer to both questions is pretty close to one.",
+    "A slow running test suite is either a freshman error, or just plain carelessness."
+  ],
+  "themes": [
+    "tdd",
+    "architecture",
+    "craftsmanship",
+    "clean_code"
+  ],
+  "tone": "opinionated, direct, prescriptive",
+  "key_insight": "Fast test execution is not a nice-to-have but a critical design constraint that professional developers must actively architect for, because slow tests inevitably lead to infrequent runs, skipped refactoring, and rotting code.",
+  "filename": "2014-09-03-TestTime"
+}

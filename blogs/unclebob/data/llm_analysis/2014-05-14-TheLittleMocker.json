@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob explains the taxonomy of test doubles through a Socratic dialogue, distinguishing between dummies, stubs, spies, mocks, and fakes. He clarifies that 'mock' is often used colloquially to mean any test double, but formally refers to a specific type that verifies behavior. The conversation reveals a hierarchy where mocks are spies, spies are stubs, and stubs are dummies\u2014but fakes stand apart with real business logic. Uncle Bob concludes by sharing his personal preference for hand-written stubs and spies over mocking frameworks, finding them simpler despite the tooling available.",
+  "key_points": [
+    "Test doubles are the formal term for all test objects, like 'stunt doubles' in movies\u2014mock became colloquial slang for the whole family",
+    "Dummies return null and should never be used; stubs return canned values; spies record what happened; mocks verify expected behavior; fakes have real business logic",
+    "There's a hierarchy: Mock \u2192 Spy \u2192 Stub \u2192 Dummy, but Fakes are fundamentally different and can become so complex they need their own unit tests",
+    "Spying on implementation details creates coupling and leads to fragile tests that break for wrong reasons",
+    "Uncle Bob prefers writing his own stubs and spies over using mocking frameworks, finding the syntax strange and setups overly complicated"
+  ],
+  "money_quotes": [
+    "They are called 'Test Doubles'. You mean like 'Stunt Doubles' in the movies? Exactly.",
+    "You pass it into something when you don't care how it's used.",
+    "The more you spy, the tighter you couple your tests to the implementation of your system. And that leads to fragile tests.",
+    "A test that breaks for reasons that shouldn't break a test.",
+    "Mocks know what they are testing.",
+    "The mock is not so interested in the return values of functions. It's more interested in what function were called, with what arguments, when, and how often.",
+    "We can say that a Mock is a kind of spy, a spy is a kind of stub, and a stub is a kind of dummy. But a fake isn't a kind of any of them.",
+    "I don't often write fakes. Indeed, I haven't written one for over thirty years."
+  ],
+  "themes": [
+    "tdd",
+    "craftsmanship",
+    "clean_code"
+  ],
+  "tone": "pedagogical, conversational, pragmatic",
+  "key_insight": "Understanding the precise taxonomy of test doubles\u2014dummy, stub, spy, mock, and fake\u2014helps developers choose the right tool for each testing situation while avoiding the coupling and fragility that comes from over-mocking.",
+  "filename": "2014-05-14-TheLittleMocker"
+}

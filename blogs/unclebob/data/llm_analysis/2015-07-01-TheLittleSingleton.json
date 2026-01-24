@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob tackles the common belief that Singletons are untestable by demonstrating simple techniques to mock them. He argues that tests trump encapsulation, meaning private variables should be made accessible when testing requires it. By making the instance variable package-scoped or public, Singletons become trivially mockable. He concludes that while Singletons are useful in public APIs to enforce single-instance constraints, within trusted team code you can simply create one instance without the pattern's ceremony.",
+  "key_points": [
+    "Tests trump encapsulation - no test should be denied access to a variable just to maintain encapsulation",
+    "Singletons can be easily mocked by relaxing the private access modifier on the instance variable",
+    "The 'Singletons are hard to test' criticism stems from misunderstanding, not inherent pattern flaws",
+    "Public APIs justify Singleton usage for enforcing constraints; internal code can just create one instance",
+    "Trust your team - protective patterns are less necessary when you control all the consumers"
+  ],
+  "money_quotes": [
+    "Tests trump Encapsulation.",
+    "That means that tests win. No test can be denied access to a variable simply to maintain encapsulation.",
+    "What good is encapsulated code if you can't test it?",
+    "Do you have bad people on your team?",
+    "Well, if this were part of a public API, I'd agree with you. But if this is just code that's used by our team then\u2026 We trust our team?",
+    "Well, then, I simply create one."
+  ],
+  "themes": [
+    "clean_code",
+    "tdd",
+    "craftsmanship"
+  ],
+  "tone": "socratic, pragmatic, conversational",
+  "key_insight": "The supposed untestability of Singletons is a self-imposed constraint - relax encapsulation for tests, trust your team, and the pattern becomes unproblematic.",
+  "filename": "2015-07-01-TheLittleSingleton"
+}

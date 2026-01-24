@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob introduces functional programming by reducing it to its core principle: programming without assignment statements. Using a Clojure example contrasted with Java, he demonstrates how functional programs achieve referential transparency\u2014the ability to replace any function call with its value without changing program behavior. The essay builds to its central argument: as processors multiply (from 4 to potentially thousands of cores), traditional concurrent programming with shared mutable state becomes untenable. Functional programming's prohibition on assignment eliminates the race conditions and synchronization nightmares that plague multi-threaded code. The freight train of multi-core computing is coming, and functional programming is how we'll survive it.",
+  "key_points": [
+    "Functional programming can be reduced to one principle: programming without assignment statements",
+    "Referential transparency means any function call can be replaced with its return value\u2014this requires functions have no side effects",
+    "The hardware speed limit has been reached; future performance gains come only from adding more processor cores",
+    "Traditional concurrent programming with shared mutable state doesn't scale to thousands of cores",
+    "Without mutable state, there's nothing for processors to compete over\u2014no semaphores needed, no simultaneous update problems"
+  ],
+  "money_quotes": [
+    "Functional programming is programming without assignment statements.",
+    "Referential Transparency means that no function can have a side effect.",
+    "The poor hardware engineers, who have carried us on their backs for the last four decades, have finally hit the speed of light limit.",
+    "Honestly, we programmers can barely get two Java threads to cooperate.",
+    "Welcome to the wonderful world of simultaneity! Now; how are you going to deal with it?",
+    "Abandon all assignment, ye who enter here.",
+    "You don't need semaphores if you don't have side effects!",
+    "There is a freight train barreling down the tracks towards us, with multi-core emblazoned on it; and you'd better be ready by the time it gets here."
+  ],
+  "themes": [
+    "architecture",
+    "industry_commentary",
+    "craftsmanship"
+  ],
+  "tone": "pedagogical, provocative, urgent",
+  "key_insight": "The multi-core future makes functional programming's immutability not just elegant but essential\u2014you can't have race conditions if you never mutate state.",
+  "filename": "2012-12-22-FPBE1-Whats-it-all-about"
+}

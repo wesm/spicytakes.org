@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob demonstrates how to test-drive the Diamond-Square terrain generation algorithm, addressing the challenge of testing algorithms that produce complex multi-dimensional outputs. Rather than testing raw output values which would be tedious and force writing the entire algorithm at once, he advocates testing the internal coordinate calculations using spy test doubles that record the sequence of operations. This approach allows incremental development while ensuring the algorithm's structure is correct, deferring simple calculations like averages until the coordinate logic is proven sound.",
+  "key_points": [
+    "Testing algorithms with large output arrays (9+ values) by predicting results leads to data overload and forces writing the whole algorithm at once - a pattern called 'Getting Stuck'",
+    "Despite being a Classical School TDD adherent who normally tests outputs, algorithmic concerns sometimes warrant inspecting internal values - specifically the coordinates being manipulated",
+    "Spy test doubles that build action strings recording operation sequences provide better insight into algorithm correctness than checking raw output values",
+    "Once coordinate calculations are proven correct, average calculations become trivial to test separately with real values",
+    "The approach enables incremental test-driving of a complex algorithm by separating structural concerns (coordinates, repetition) from computational concerns (averages, randomness)"
+  ],
+  "money_quotes": [
+    "Trying to write a comprehensive set of tests, even for the 3X3 case, would be tedious at best; and very difficult for someone else to understand.",
+    "Test-driving from the raw results forces us to write the whole algorithm very early in the testing process. There's no way to proceed incrementally.",
+    "Those tests don't prove the algorithm is working the way it is supposed to. They just prove that the resulting values are right.",
+    "I'm a strong adherent of the Classical School of TDD, and I tend not to use my tests to inspect the internal workings of the software I am writing. The output values are usually good enough. In this case, however, the algorithm is the overriding concern.",
+    "Once I know that those coordinates are calculated properly, I don't really care what the values of the cells are, or whether the average is calculated properly. I mean, averages are pretty trivial to test.",
+    "This is a rather different slant on a spy test double. Rather than giving us booleans and flags to inspect about the calls of individual functions, this spy is going to load the actions string with the sequence of things that happened as the algorithm proceeded."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "technical, instructive, practical",
+  "key_insight": "When test-driving algorithms with complex outputs, focus tests on verifying the structural correctness of coordinate and sequencing logic through action-recording spies, then separately test the trivial computational pieces with real values.",
+  "filename": "2017-01-09-DiamondSquare"
+}

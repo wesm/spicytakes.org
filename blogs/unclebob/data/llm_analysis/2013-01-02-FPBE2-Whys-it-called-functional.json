@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob explains why functional programming is called 'functional' by demonstrating how functions can be passed as arguments and returned as values\u2014making them 'first-class citizens.' Using Clojure examples, he walks through lazy sequences, persistent data structures, and the map function to show how functional programs 'pull' data rather than 'push' it through loops. He acknowledges oversimplifying for pedagogical purposes while building toward a working definition: functional languages have first-class functions, enforce referential transparency by eliminating assignment, and maintain data history with persistent data structures.",
+  "key_points": [
+    "Functions as first-class citizens means they can be passed as arguments and returned as values, just like integers or characters",
+    "Persistent data structures preserve history without copying\u2014like source control, nothing gets deleted or modified, just new entry points are created",
+    "Lazy sequences calculate elements only when needed, enabling infinite lists that never compute more than required",
+    "The difference between 'push' and 'pull' is profound: functional programs pull data out rather than pushing it through loops",
+    "A language with functional features is not a functional language\u2014you need referential transparency and persistent data structures"
+  ],
+  "money_quotes": [
+    "A language with functional features is not a functional language; and a program written with a few lambdas here and there is not a functional program.",
+    "That way lay madness, wailing, and much gnashing of teeth!",
+    "Think of it like a source code control system. Though you delete and modify lines of code; nothing ever gets deleted or changed in the source code repository.",
+    "Most of us have written loops that push data through the rest of the program. But (take 25 (squares-of (integers))) is a loop that pulls data out of the rest of the program.",
+    "We call this programming style functional because it's all about treating functions as data elements that are manipulated no differently than integers or characters.",
+    "A functional language is a language that has functions as first-class citizens, enforces referential transparency by eliminating assignment, and maintains data history with persistent data structures."
+  ],
+  "themes": [
+    "clean_code",
+    "architecture",
+    "craftsmanship"
+  ],
+  "tone": "pedagogical, playful, self-deprecating",
+  "key_insight": "Functional programming isn't about using lambdas occasionally\u2014it requires first-class functions, referential transparency through eliminating assignment, and persistent data structures that preserve history.",
+  "filename": "2013-01-02-FPBE2-Whys-it-called-functional"
+}

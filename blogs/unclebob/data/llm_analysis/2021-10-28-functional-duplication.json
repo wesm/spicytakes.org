@@ -1,0 +1,25 @@
+{
+  "summary": "Uncle Bob recounts discovering a subtle bug in his functional Space War game where bases were being duplicated, causing crashes. Despite disciplined TDD and clean code practices, the bug eluded his tests because it involved multiple Klingons stealing from the same base simultaneously. In functional programming, updating immutable objects requires creating new versions, and when two thieves targeted one victim, two separate updated copies of the base were created and both added back to the world. The fix required restructuring the algorithm using hashmaps, with existing unit tests providing safety during the refactoring.",
+  "key_points": [
+    "TDD and clean code don't guarantee bug-free software\u2014edge cases can still slip through when tests don't cover all scenarios",
+    "Functional programming's immutability creates a specific class of bugs: when updating m elements from n, you must carefully partition and recombine to avoid duplication",
+    "The bug was hard to find because it required specific game conditions (multiple Klingons near one base) that took 20+ minutes to occur naturally",
+    "Debugging required adding detection functions throughout the code to narrow down where duplication occurred",
+    "Existing unit tests provided a safety net when refactoring the algorithm to fix the bug"
+  ],
+  "money_quotes": [
+    "I wrote this with TDD, and I was very disciplined about the cleanliness of the code, and the test coverage. So this was unexpected.",
+    "Unfortunately being able to detect that the duplication occurred did not tell me where it occurred.",
+    "In a purely functional program you cannot update the status of an object. Instead you transform old objects into new objects.",
+    "If you are writing functional programs, you will face this issue, and you'll likely face it a lot.",
+    "Dealing with immutable lists of objects means that when you update such a list you must recreate it."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "architecture"
+  ],
+  "tone": "reflective, technical, instructive",
+  "key_insight": "Functional programming's immutability requires careful handling when multiple operations target the same object, as each creates a separate copy that must be properly merged rather than naively concatenated.",
+  "filename": "2021-10-28-functional-duplication"
+}

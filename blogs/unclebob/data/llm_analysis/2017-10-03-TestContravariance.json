@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob addresses the 'Fragile Test Problem' where tests break during refactoring because they mirror production code structure. He argues that test structure should be contra-variant to production code structure, not covariant. As development proceeds, tests should become more specific while production code becomes more generic, moving in opposite directions along the generality axis. This decoupling of both structure and behavior allows true refactoring while maintaining test coverage.",
+  "key_points": [
+    "Creating one test class per production class couples test structure to code structure, causing the Fragile Test Problem",
+    "Tests should have their own independent design, not mirror production code structure",
+    "As you extract private methods and discover new classes, the original test class can still cover all that code through the public API",
+    "Tests become more specific over time while production code becomes more generic - they move in opposite directions",
+    "Generalizing production code is itself an act of decoupling from the test specifications"
+  ],
+  "money_quotes": [
+    "If a small change in one module of a system causes large changes in many other modules of the system, the system has a design problem.",
+    "Their behavior is coupled; but their structure need not be coupled.",
+    "The act of generalizing is the act of decoupling. We decouple by generalizing!",
+    "The structure of the tests must not reflect the structure of the production code, because that much coupling makes the system fragile and obstructs refactoring.",
+    "We keep writing failing tests in order to drive the generality of the production code to a point where it becomes impossible to write another failing test.",
+    "Not everything you read and see is a rule.",
+    "No test suite can specify every required behavior. The production code must generalize the subset of behaviors specified by the tests to all the behaviors required of the system."
+  ],
+  "themes": [
+    "tdd",
+    "architecture",
+    "clean_code"
+  ],
+  "tone": "socratic, instructive, revelatory",
+  "key_insight": "Tests and production code should evolve in opposite directions - tests becoming more specific while production code becomes more generic - decoupling both their structure and behavior to enable true refactoring.",
+  "filename": "2017-10-03-TestContravariance"
+}

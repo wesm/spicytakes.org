@@ -1,0 +1,25 @@
+{
+  "summary": "Uncle Bob describes his experience using REPL Driven Design instead of TDD for a Clojure program that processes COVID-19 data. Initially, REPL-driven development felt faster and more satisfying, with quick feedback cycles and the ability to use real production data. However, when he needed to make structural changes, he found himself paralyzed by fear due to lack of test coverage, ultimately deploying a bug that went undetected for four days. He concludes that the decoupling TDD forces upon developers is precisely the design that enables flexibility and change.",
+  "key_points": [
+    "REPL Driven Design offers satisfying quick feedback cycles that feel nearly as fast as TDD",
+    "Using real production data instead of mocks creates a false sense of speed and confidence",
+    "Without tests, structural changes become fear-inducing because there's no safety net to catch regressions",
+    "The design changes TDD forces (for mocking and isolation) are the same changes needed for flexibility",
+    "What feels easier in the short term often creates technical debt that surfaces during refactoring"
+  ],
+  "money_quotes": [
+    "And suddenly I found myself full of fear. I had no way to ensure that those design changes wouldn't leave the system broken in some way.",
+    "Had I stuck with the TDD discipline I would have automatically made that design change, and I would not have faced the fear, the delay, and the error.",
+    "The decoupling that TDD forces upon us in order to pass isolated inputs and gather isolated outputs is almost always the design that facilitates flexibility and promotes change.",
+    "REPL driven development feels easier and faster than TDD; but it is not.",
+    "So I postponed the change until I could muster the courage, and set aside the dedicated time it would require."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "reflective, confessional, didactic",
+  "key_insight": "The discipline TDD imposes through mocking and isolation isn't overhead\u2014it's precisely the architectural flexibility you'll need when requirements change.",
+  "filename": "2020-05-27-ReplDrivenDesign"
+}

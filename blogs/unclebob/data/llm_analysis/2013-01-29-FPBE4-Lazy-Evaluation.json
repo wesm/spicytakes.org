@@ -1,0 +1,25 @@
+{
+  "summary": "Uncle Bob demystifies lazy evaluation by showing it's fundamentally the same as Java's iterator pattern that programmers use daily. He demonstrates how to implement 'infinite' sequences in Java using iterators, proving there's no magic in functional languages' lazy sequences. However, he cautions that while small functional programs work in Java, the language's mutable data structures make true functional programming impractical. The key insight is that lazy sequences are just iterators in disguise, allowing you to design data structures for convenience without worrying about memory because the values are computed on demand.",
+  "key_points": [
+    "Lazy evaluation in functional languages is conceptually identical to Java's iterator pattern - a trick Java programmers use 'dozens of times each day'",
+    "You can create 'infinite' lists in Java without taking up time or space by returning iterators that generate values on demand",
+    "While small functional programs are achievable in Java, the language's mutable data structures make serious functional programming impractical",
+    "Lazy sequences let you design data structures that appear wastefully redundant but actually consume no extra space because values aren't computed until needed",
+    "The XML tree traversal example shows how lazy sequences can make a depth-first walk look like iterating over a simple linear list"
+  ],
+  "money_quotes": [
+    "If you haven't figured it out, you're going to kick yourself when I tell you; because the trick is a trick that java programmers use every single day, and probably dozens of times each day.",
+    "It's the lazy evaluator that all Java programmers know and love. It's the humble, lovable, iterator.",
+    "Java programmers have been doing lazy evaluation of lists since the first days of Java.",
+    "So then why did I show you the iterator trick? To impress upon you the fact that there's no magic or mystery about lazily evaluated sequences in Clojure or other functional languages.",
+    "The list of nodes does not take up extra space! It's just an efficient and convenient way to walk a depth-first traversal \u2013 rather like our Java iterator.",
+    "When you have lazy sequences at your disposal, you can design your data structures for convenience, without undo concern for time and space; because lazy sequences are really just a clever use of iterators."
+  ],
+  "themes": [
+    "clean_code",
+    "architecture"
+  ],
+  "tone": "technical, instructive, demystifying",
+  "key_insight": "Lazy evaluation isn't functional programming magic\u2014it's just the iterator pattern that imperative programmers have used for decades, enabling convenient data structure design without memory overhead.",
+  "filename": "2013-01-29-FPBE4-Lazy-Evaluation"
+}

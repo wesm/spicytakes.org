@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob explores the equivalence between nested loops and finite state machines through a series of refactorings of the Prime Factors Kata. Starting with a doubly nested loop in Java and a recursive solution in Clojure, he demonstrates how any nested loop structure can be transformed into a single loop with explicit state management. The journey reveals that functional programs naturally resemble finite state machines because they cannot save state within flow of control through variable mutation. He concludes by imagining a language with no loops at all, where programs are simply FSM-style switch statements executed repeatedly.",
+  "key_points": [
+    "Any program with nested loops can be rewritten as a single loop with explicit state variables",
+    "The transformation from nested loops to a Moore-model finite state machine can be done through pure refactoring while keeping tests passing",
+    "Functional programs inherently look more like FSMs because they cannot mutate variables during loop execution",
+    "A language could theoretically eliminate all loops, replacing them with FSM-style switch statements executed repeatedly",
+    "The hidden state machine in imperative code becomes explicit when you cannot rely on mutable variables for flow control"
+  ],
+  "money_quotes": [
+    "The value, if any, is in the journey itself.",
+    "We have transformed the code from a doubly nested loop, to a single loop, without affecting the algorithm.",
+    "The Java program can save some state information within the flow of control, because it can mutate variables while the loops are in progress.",
+    "The Clojure program cannot save any state within the flow of control because no variables can be mutated at all.",
+    "Thus, functional programs tend to look much more like Finite State Machines than programs that are free to manipulate variables.",
+    "That means the loop knew nothing at all about the algorithm it was looping.",
+    "In effect the program would look like a tail-call-optimized recursive function."
+  ],
+  "themes": [
+    "clean_code",
+    "architecture"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Functional programs naturally reveal the finite state machine structure that imperative code hides within its mutable flow of control.",
+  "filename": "2020-09-30-loopy"
+}

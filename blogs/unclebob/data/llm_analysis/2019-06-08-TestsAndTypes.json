@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob responds to a Twitter debate with Mark Seemann about whether static typing reduces the number of tests needed. He demonstrates his argument by implementing a random element selection function in Clojure using strict TDD, contrasting it with Mark's Haskell implementation. Bob argues that tests describe correct behavior, and if all system components are tested properly, invalid states will never occur regardless of type system. He concludes that the number of tests required for practical correctness is the same whether using static or dynamic typing, since disciplined TDD ensures invalid arguments are never passed in the first place.",
+  "key_points": [
+    "Static typing does not reduce the number of behavioral tests needed because tests verify behavior, not types",
+    "The TDD strategy of 'Don't go for the Gold' means gradually increasing test complexity by handling degenerate and trivial cases before tackling the core algorithm",
+    "If every component is written with proper tests, invalid states will never be represented, making defensive tests for nil/invalid inputs unnecessary",
+    "Mark Seemann's type-focused approach consumed thought on type structure, while TDD focuses purely on desired behavior stepped forward incrementally",
+    "The debate centers on whether making illegal states 'unrepresentable' via types is better than making them 'unrepresented' via disciplined testing"
+  ],
+  "money_quotes": [
+    "Static typing does not reduce that number of tests, because those tests are behavioral and empirical.",
+    "Don't go for the Gold. Gradually increase the complexity of your tests by staying away from the center of the algorithm for as long as possible.",
+    "I don't need to make states unrepresentable, if I know those states will never be represented.",
+    "If the behavior of each element of the system is correct, then no element of the system will pass invalid arguments to any other.",
+    "Testing shows the presence, not the absence of bugs.",
+    "This is a dynamically typed language. You get exceptions when you mess up the types.",
+    "If you call this function from a module that you wrote with tests, using something as effective as the TDD discipline, you won't be passing nil or negative numbers, or any other form of invalid arguments."
+  ],
+  "themes": [
+    "tdd",
+    "clean_code",
+    "craftsmanship",
+    "industry_commentary"
+  ],
+  "tone": "technical, opinionated, collegial",
+  "key_insight": "The discipline of comprehensive TDD makes defensive type checking redundant because well-tested code never passes invalid arguments, rendering the static-vs-dynamic typing debate moot for test count.",
+  "filename": "2019-06-08-TestsAndTypes"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Uncle Bob recounts the architecture of a 1984 telephone voice response system (CDS) that he designed, describing its components: a RAM-based key-value database, field-labeled data format, and a finite state machine driven by a state transition table that invoked command-line processes. He then reframes these 30-year-old design choices using modern terminology\u2014micro-services, message bus, BPEL engine, NoSQL, and JSON\u2014to demonstrate that today's 'innovative' architectural patterns are essentially rediscoveries of older ideas. The post serves as a reminder that fundamental software architecture concepts remain constant even as terminology evolves.",
+  "key_points": [
+    "The 1984 CDS system used a RAM-based key-value store (3DBB) fronted by a message-passing process\u2014essentially a NoSQL database",
+    "Field Labeled Data (FLD) was a binary tree structure with JSON-like text encoding, predating modern data interchange formats",
+    "A finite state machine read from a configuration file and invoked command-line processes\u2014an early form of BPM/BPEL orchestration",
+    "Multiple FSM processes ran simultaneously handling different phone lines, achieving concurrency through process isolation",
+    "Modern architectural buzzwords often describe patterns that have existed for decades under different names"
+  ],
+  "money_quotes": [
+    "For CDS I had a radical new idea.",
+    "Nowadays we'd call this JSON or XML. It had it's own text encoding scheme that, quite by accident, looked a lot like JSON.",
+    "The actions of the FSM were command lines.",
+    "We used a Micro-Service Architecture, communicating through a message buss, driven by Business Process Model (BPM) interpreted by a BPEL engine, backed by a NOSQL database holding values in JSON.",
+    "The more things change, the more they stay the same."
+  ],
+  "themes": [
+    "architecture",
+    "industry_commentary"
+  ],
+  "tone": "reflective, wry",
+  "key_insight": "Modern software architecture patterns like micro-services, message buses, and NoSQL databases are often rediscoveries of fundamental design principles that experienced programmers have been applying for decades.",
+  "filename": "2014-09-18-TheMoreThingsChange"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob, known for advocating minimal comments in code, describes a situation where comments proved genuinely necessary. While implementing a caching feature that throttles long-running algorithms (which he calls 'choking'), he and his team found the concept too difficult to explain through code alone. They added explanatory comments describing the choking behavior and created an ASCII timing diagram to document their unit tests. This experience reinforced that while comments should be a last resort, some situations genuinely require them to preserve intent and rationale.",
+  "key_points": [
+    "Good code typically doesn't need many comments, and each comment represents a failure to make code self-explanatory",
+    "Some concepts, like the 'choking' pattern for throttling long-running functions, are inherently difficult to express through code alone",
+    "Visual diagrams embedded in comments can be essential for understanding complex timing-dependent behavior",
+    "Test names can be simplified to references (test1, test2) when accompanied by explanatory diagrams",
+    "The need for extensive comments is rare but real, and when it occurs, well-written comments are invaluable"
+  ],
+  "money_quotes": [
+    "I have often suggested that every comment represents a failure to make the code self explanatory.",
+    "I have advised programmers to consider comments as a last resort.",
+    "I recently came across that last resort.",
+    "We realized that nobody else would understand our tests unless they could see that timing diagram as well.",
+    "Had we left the comments out of these modules, we would have lost the intent and the rationale behind what we did.",
+    "This doesn't happen all the time. Indeed, I have found this kind of thing to be relatively rare. But it does happen.",
+    "When it does nothing can be more helpful than a well written, well thought through, comment."
+  ],
+  "themes": [
+    "clean_code",
+    "craftsmanship"
+  ],
+  "tone": "reflective",
+  "key_insight": "Even the strongest advocate for self-documenting code must acknowledge that some concepts\u2014particularly those involving timing, concurrency, or complex behavioral contracts\u2014genuinely require thoughtful comments to preserve intent.",
+  "filename": "2017-02-23-NecessaryComments"
+}

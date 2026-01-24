@@ -1,0 +1,28 @@
+{
+  "summary": "Uncle Bob argues that micro-services are a deployment option, not an architecture, and should be treated as such. He contends that a well-designed Clean Architecture keeps components ignorant of their deployment model, allowing architects to choose the appropriate deployment strategy based on actual needs rather than anticipated scaling. The post walks through a 'scalability scale' from micro-services down to simple JARs, noting that Clean Architecture works at any level. He pushes back against the notion that non-micro-service systems are 'monolithic,' calling this marketing spin, and recommends starting with the simplest deployment model and scaling up only as needed.",
+  "key_points": [
+    "Micro-services are a deployment option, not an architecture - the deployment model is a detail that should be deferred",
+    "Clean Architecture components should have 'forced ignorance' about how they're deployed and how they communicate with other components",
+    "There's a scalability scale from micro-services to threads to JARs, and good architecture works at any level",
+    "Calling non-micro-service systems 'monolithic' is marketing baloney - well-designed JAR-based systems can be just as decoupled",
+    "Start with the simplest deployment (JARs/DLLs) and walk up the scale as actual needs arise, rather than anticipating massive scaling"
+  ],
+  "money_quotes": [
+    "The code within the components of a Clean Architecture has no idea whether it is in a micro-service running on an independent server communicating with other independent servers over the internet, or in a simple Jar or DLL communicating with other components using polymorphic function calls.",
+    "That means that there is no such thing as a micro-service architecture. Micro-services are a deployment option, not an architecture.",
+    "The job of good system architects is to create a structure whereby the components of the system have no idea how they are deployed and how they communicate with the other components in the system.",
+    "Breaking that forced ignorance is a good way to over-engineer a system.",
+    "Too often I have seen systems that have adopted huge three-tiered architectures in anticipation of scaling, only to discover that they never need to be deployed on more than one server.",
+    "A well designed system following the Clean Architecture is about as far from a monolith as you can get.",
+    "Don't leap to the top of the scale in anticipation of massive scaling. Keep that option open by conforming to the Clean Architecture."
+  ],
+  "themes": [
+    "architecture",
+    "clean_code",
+    "industry_commentary",
+    "craftsmanship"
+  ],
+  "tone": "opinionated, pragmatic, contrarian",
+  "key_insight": "Micro-services are a deployment detail, not an architecture - good architects keep deployment options open by ensuring components remain ignorant of how they communicate and are deployed.",
+  "filename": "2014-10-01-CleanMicroserviceArchitecture"
+}

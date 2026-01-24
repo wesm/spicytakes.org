@@ -1,0 +1,26 @@
+{
+  "summary": "Uncle Bob revisits Bertrand Meyer's 1988 Open Closed Principle, arguing that while the original definition feels dated, its core insight remains vital: systems should be extensible without modification. He points to plugin architectures (Eclipse, Vim, Minecraft) as proof that OCP is not only achievable but represents the pinnacle of software design. The key is using object-oriented design to separate high-level policy from low-level detail, with dependencies pointing inward toward the core system. He concludes by dismissing critics who call OCP impractical, asserting that plugin architectures will be the most important aspect of future software systems.",
+  "key_points": [
+    "The OCP states you should extend system behavior without modifying existing code\u2014new features mean new code only, no changes to old code",
+    "Plugin systems (Eclipse, Vim, Minecraft) are 'the ultimate consummation' of OCP, proving the principle works at scale",
+    "Achieving OCP requires careful dependency management: plugins depend on the system, never the reverse",
+    "JARs, DLLs, and gems should ideally represent isolatable features, not tangled code bundles",
+    "A plugin architecture frees your core business rules from being bound to any particular framework, database, or interface"
+  ],
+  "money_quotes": [
+    "You should be able to extend the behavior of a system without having to modify that system.",
+    "Plugin systems are the ultimate consummation, the apotheosis, of the Open-Closed Principle.",
+    "The way you get a plugin architecture is to make sure that all dependencies inside the plugin, point at the system; and that nothing in the system points out towards the plugins.",
+    "When your fundamental business rules are the core of a plugin architecture, then you are never bound to a particular feature set, interface, database, framework, or anything else.",
+    "A strong plugin architecture is likely to be the most important aspect of future software systems.",
+    "We've known this was bad long before Martin Fowler wrote the book that labeled it Shotgun Surgery; but we still do it."
+  ],
+  "themes": [
+    "solid_principles",
+    "architecture",
+    "clean_code"
+  ],
+  "tone": "persuasive, declarative, visionary",
+  "key_insight": "Plugin architectures prove that the Open Closed Principle is not theoretical idealism but a practical, powerful approach that liberates core business rules from framework and infrastructure dependencies.",
+  "filename": "2014-05-12-TheOpenClosedPrinciple"
+}

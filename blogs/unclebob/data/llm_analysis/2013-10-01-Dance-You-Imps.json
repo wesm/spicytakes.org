@@ -1,0 +1,27 @@
+{
+  "summary": "Uncle Bob argues that Object-Relational Mappers are fundamentally misnamed because objects and data structures are opposites\u2014objects expose behavior and hide data, while data structures expose data and have no behavior. He traces the history of how OO programming became subservient to relational databases, forcing developers into a 'lock-step march' around database schemas rather than designing freely. ORMs don't actually create objects; they merely migrate data structures between disk and memory. The real problem is that developers design their business objects to mirror relational schemas instead of designing behavior-first applications that treat database tables as just another resource.",
+  "key_points": [
+    "Objects are abstractions of behavior with hidden data; data structures are public data with no methods\u2014they are exact opposites",
+    "ORMs don't create objects from relational tables; they simply migrate data structures from disk to RAM while changing their form",
+    "Too many applications bind their business object design in lock-step to their relational schema, letting database structure dictate behavior",
+    "If you design an application by grouping behaviors by responsibility without considering the database, you get an object model that looks nothing like a relational schema",
+    "Tables are resources that business objects use, not business objects themselves"
+  ],
+  "money_quotes": [
+    "An object is not a data structure. Repeat after me: An Object Is Not A Data Structure.",
+    "From the outside looking in, an object is an abstraction of behavior, not an abstraction of data.",
+    "How do you store an abstraction of behavior in a database? Answer: You don't!",
+    "Hibernate doesn't turn anything into an object. All Hibernate does is to migrate data structures that are stored on a disk to data structures stored in RAM.",
+    "Why should the message pathways of an application be bound to the lines on a E-R diagram? What does the behavior of the application have to do with the structure of the data?",
+    "Tables are not business objects! Tables aren't objects at all. Tables are just data structures that the true business objects use as a resource.",
+    "Design your applications to behave first. Then figure out a way to bind those behaviors to the data brought into memory by your ORM."
+  ],
+  "themes": [
+    "architecture",
+    "clean_code",
+    "industry_commentary"
+  ],
+  "tone": "satirical, opinionated, playful",
+  "key_insight": "ORMs don't bridge objects and databases because objects are behavior abstractions while databases store data structures\u2014design your application's behavior first, then treat the database as just a resource.",
+  "filename": "2013-10-01-Dance-You-Imps"
+}
