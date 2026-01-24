@@ -100,69 +100,65 @@ export function formatDate(date: Date | undefined, monthFormat: 'long' | 'short'
   return date.toLocaleDateString('en-US', options);
 }
 
-// Helper to get source URL for a post
-// For transcripts, pass the post object to get video_url if available
-// Returns empty string if transcript has no video_url (caller should hide link)
-// Returns empty string if called in landing mode (no blog config)
-export function getSourceUrl(filename: string, post?: { video_url?: string; content_type?: string }): string {
+// Pure helper to build source URL from config - exported for testing
+export function buildSourceUrl(
+  filename: string,
+  cfg: BlogConfig,
+  post?: { video_url?: string; content_type?: string }
+): string {
   // For transcripts, use video_url or return empty (no public URL for transcripts)
   if (post?.content_type === 'transcript') {
     return post.video_url || '';
   }
 
-  // Guard against null config (landing mode)
-  if (!config) {
-    return '';
-  }
-
-  if (config.scraper.type === 'substack') {
+  if (cfg.scraper.type === 'substack') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${config.sourceUrl}/p/${slug}`;
+    return `${cfg.sourceUrl}/p/${slug}`;
   }
   // For GitHub markdown blogs (lucumr), construct URL based on date
   // lucumr URLs are: /YYYY/M/D/slug/ (no leading zeros on month/day)
-  if (config.scraper.type === 'github_markdown') {
+  if (cfg.scraper.type === 'github_markdown') {
     const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
     if (match) {
       const [, year, month, day, slug] = match;
       const m = parseInt(month, 10);
       const d = parseInt(day, 10);
-      return `${config.sourceUrl}/${year}/${m}/${d}/${slug}/`;
+      return `${cfg.sourceUrl}/${year}/${m}/${d}/${slug}/`;
     }
   }
   // For quarto_blog blog posts, construct URL based on slug
   // wesmckinney.com URLs are: /blog/slug/
-  if (config.scraper.type === 'quarto_blog') {
+  if (cfg.scraper.type === 'quarto_blog') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${config.sourceUrl}/blog/${slug}/`;
+    return `${cfg.sourceUrl}/blog/${slug}/`;
   }
   // For static_html blogs (danluu), URL is just /slug/
-  if (config.scraper.type === 'static_html') {
+  if (cfg.scraper.type === 'static_html') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${config.sourceUrl}/${slug}/`;
+    return `${cfg.sourceUrl}/${slug}/`;
   }
   // For hugo_rss blogs (bcantrill), URL is /YYYY/MM/DD/slug/
-  if (config.scraper.type === 'hugo_rss') {
+  if (cfg.scraper.type === 'hugo_rss') {
     const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
     if (match) {
       const [, year, month, day, slug] = match;
-      return `${config.sourceUrl}/${year}/${month}/${day}/${slug}/`;
+      return `${cfg.sourceUrl}/${year}/${month}/${day}/${slug}/`;
     }
   }
   // For hugo_homepage blogs (jessfraz), URL is /post/slug/
-  if (config.scraper.type === 'hugo_homepage') {
+  if (cfg.scraper.type === 'hugo_homepage') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${config.sourceUrl}/post/${slug}/`;
+    return `${cfg.sourceUrl}/post/${slug}/`;
   }
   // For jekyll_feed blogs, URL pattern is configurable via sourcePostPath
   // Default: /blog/jekyll/update/{year}/{month}/{day}/{slug}.html (geohot)
   // Uncle Bob uses: /uncle-bob/{year}/{month}/{day}/{slug}.html
-  if (config.scraper.type === 'jekyll_feed') {
+  if (cfg.scraper.type === 'jekyll_feed') {
     const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
     if (match) {
       const [, year, month, day, slug] = match;
-      const postPath = (config.scraper as any).sourcePostPath || '/blog/jekyll/update/{year}/{month}/{day}/{slug}.html';
-      return `${config.sourceUrl}${postPath
+      const postPath = cfg.scraper.sourcePostPath || '/blog/jekyll/update/{year}/{month}/{day}/{slug}.html';
+      return `${cfg.sourceUrl}${postPath
         .replace('{year}', year)
         .replace('{month}', month)
         .replace('{day}', day)
@@ -170,28 +166,40 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
     }
   }
   // For wordpress blogs (mathbabe), URL is /YYYY/MM/DD/slug/
-  if (config.scraper.type === 'wordpress') {
+  if (cfg.scraper.type === 'wordpress') {
     const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
     if (match) {
       const [, year, month, day, slug] = match;
-      return `${config.sourceUrl}/${year}/${month}/${day}/${slug}/`;
+      return `${cfg.sourceUrl}/${year}/${month}/${day}/${slug}/`;
     }
   }
   // For jekyll_static blogs (nadia.xyz), URL is just /slug
-  if (config.scraper.type === 'jekyll_static') {
+  if (cfg.scraper.type === 'jekyll_static') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${config.sourceUrl}/${slug}`;
+    return `${cfg.sourceUrl}/${slug}`;
   }
   // For rss_generic blogs, use sourcePostPath from config or default to /blog/{slug}/
-  if (config.scraper.type === 'rss_generic') {
+  if (cfg.scraper.type === 'rss_generic') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    const postPath = (config.scraper as any).sourcePostPath || '/blog/{slug}/';
-    return `${config.sourceUrl}${postPath.replace('{slug}', slug)}`;
+    const postPath = cfg.scraper.sourcePostPath || '/blog/{slug}/';
+    return `${cfg.sourceUrl}${postPath.replace('{slug}', slug)}`;
   }
   // For paulgraham essays, URL is /slug.html
-  if (config.scraper.type === 'paulgraham') {
+  if (cfg.scraper.type === 'paulgraham') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${config.sourceUrl}/${slug}.html`;
+    return `${cfg.sourceUrl}/${slug}.html`;
   }
-  return config.sourceUrl;
+  return cfg.sourceUrl;
+}
+
+// Helper to get source URL for a post using the global config
+// For transcripts, pass the post object to get video_url if available
+// Returns empty string if transcript has no video_url (caller should hide link)
+// Returns empty string if called in landing mode (no blog config)
+export function getSourceUrl(filename: string, post?: { video_url?: string; content_type?: string }): string {
+  // Guard against null config (landing mode)
+  if (!config) {
+    return '';
+  }
+  return buildSourceUrl(filename, config, post);
 }

@@ -96,11 +96,11 @@ test.describe('Filtering and Search', () => {
       expect(filteredCount).toBeLessThan(initialCount);
     });
 
-    test('high spiciness threshold reduces results', async ({ skip }) => {
+    test('high spiciness threshold reduces results', async ({}, testInfo) => {
       const initialCount = await blog.postCards.count();
       // Skip if dataset is too small to meaningfully filter
       if (initialCount < 10) {
-        skip();
+        testInfo.skip();
         return;
       }
 
@@ -114,7 +114,7 @@ test.describe('Filtering and Search', () => {
   });
 
   test.describe('Year Filter', () => {
-    test('filters by specific year', async ({ skip }) => {
+    test('filters by specific year', async ({}, testInfo) => {
       const initialCount = await blog.postCards.count();
 
       // Get a year dynamically from the dropdown (skip "All Years" and "Undated" options)
@@ -123,7 +123,7 @@ test.describe('Filtering and Search', () => {
 
       // Skip if there's only one year (filtering won't reduce results)
       if (yearOnlyOptions.length < 2) {
-        skip();
+        testInfo.skip();
         return;
       }
 
@@ -137,14 +137,14 @@ test.describe('Filtering and Search', () => {
       expect(filteredCount).toBeGreaterThan(0);
     });
 
-    test('All Years option shows all posts', async ({ skip }) => {
+    test('All Years option shows all posts', async ({}, testInfo) => {
       // Get a year dynamically from the dropdown
       const yearOptions = await blog.yearSelect.locator('option').allTextContents();
       const yearOnlyOptions = yearOptions.filter(y => /^\d{4}$/.test(y));
 
       // Skip if there's only one year
       if (yearOnlyOptions.length < 2) {
-        skip();
+        testInfo.skip();
         return;
       }
 
@@ -161,7 +161,7 @@ test.describe('Filtering and Search', () => {
       expect(allCount).toBeGreaterThan(filteredCount);
     });
 
-    test('year filter works in Quotes view', async ({ skip }) => {
+    test('year filter works in Quotes view', async ({}, testInfo) => {
       await blog.switchToView('quotes');
       const initialCount = await blog.quoteCards.count();
 
@@ -171,7 +171,7 @@ test.describe('Filtering and Search', () => {
 
       // Skip if there's only one year
       if (yearOnlyOptions.length < 2) {
-        skip();
+        testInfo.skip();
         return;
       }
 
