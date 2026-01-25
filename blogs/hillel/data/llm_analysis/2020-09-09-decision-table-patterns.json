@@ -1,0 +1,27 @@
+{
+  "summary": "This post provides a comprehensive guide to decision tables, a specification tool that maps finite enumerated inputs to outputs. Wayne explains that decision tables must be complete (covering all input combinations) and sound (no conflicting outputs) to be valid, making them a form of formal specification. He distinguishes decision tables from pattern matching by emphasizing they work at any abstraction level for design, not just code. The bulk of the post covers techniques to manage table bloat, including wildcards, decomposition, and handling dependent inputs and intervals. Wayne concludes by identifying when decision tables become inappropriate\u2014complex data structures, time-based decisions, or when formalism doesn't add clarity.",
+  "key_points": [
+    "Decision tables are formal specifications that map all possible input combinations to exactly one output, enabling automated correctness analysis",
+    "The 'any' wildcard (-) compresses tables by representing multiple rows but can introduce soundness errors or implicit ordering",
+    "Infinite states can be represented through equivalence classes or intervals, converting unbounded inputs into finite enumerable values",
+    "Dependent inputs (where one restricts another's values) require careful handling\u2014distinguish between facts that can't be false and assertions that shouldn't be false",
+    "Decision tables hit their limits with complex data structures, time-based decisions, or when completeness isn't visually obvious"
+  ],
+  "money_quotes": [
+    "Decision tables are easy, simple, and powerful. You can teach them in five minutes and write one in half that time.",
+    "Pattern matching is part of the language implementation. Decision tables are more to help you with the design.",
+    "By being formalized, errors in the construction of the table often map to errors in our design itself.",
+    "Ideally is a dangerous word.",
+    "A fact is something that cannot possibly be false. If we run into a case where it is false, then a software bug is the least of our worries.",
+    "If you're using the decision table as a mental augmentation tool, then taking shortcuts is fine. The goal is to help you think better and excessive formalism doesn't always lead to insight.",
+    "While they have a low expressiveness ceiling, there's no opportunity cost to trying them first."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "technical, practical, pedagogical",
+  "key_insight": "Decision tables are low-cost formal specifications that help catch design errors by forcing explicit enumeration of all input-output mappings, but their simplicity means they're best suited for discrete, independent inputs rather than complex state or temporal logic.",
+  "filename": "2020-09-09-decision-table-patterns"
+}

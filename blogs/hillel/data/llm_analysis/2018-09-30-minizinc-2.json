@@ -1,0 +1,28 @@
+{
+  "summary": "This tutorial walks through optimizing a MiniZinc conference scheduling model, demonstrating how to reduce runtime from over 8 hours to just 2 seconds through various techniques. Wayne explores solver selection, constraint reformulation, symmetry breaking, and channeling while discovering that optimization is highly nonlinear\u2014what helps with one solver or dataset may hurt with another. The key breakthrough comes from using channels to decompose the schedule into separate talk_time and talk_room arrays, combined with precomputing favorites and using native functions like nvalue instead of hand-rolled constraints.",
+  "key_points": [
+    "Switching solvers can dramatically affect performance, but the 'best' solver depends on your specific constraints and optimizations",
+    "Symmetry breaking reduced runtime by an order of magnitude by eliminating equivalent solutions (from 5s to 0.5s)",
+    "Channels\u2014constraints relating two representations of the same model\u2014enabled the biggest improvement by making certain lookups more efficient",
+    "Native MiniZinc functions consistently outperform hand-rolled equivalents, even when the logic appears identical",
+    "Optimization improvements are nonlinear: a change that helps with one solver, dataset, or set of constraints may be a regression with another"
+  ],
+  "money_quotes": [
+    "Optimizations are nonlinear. Whether something's an improvement or regression depends on your other optimizations.",
+    "One solver's improvement is another solver's regression.",
+    "This could be the difference between 'finished in 300ms' and 'still going a year later'.",
+    "Native beats bespoke.",
+    "Casting arrays to sets is the road to madness.",
+    "I feel vaguely betrayed.",
+    "Profile everything and then don't trust it.",
+    "Even though our `fav` stepping-stone was a regression, the end result is five times faster than without the regression!"
+  ],
+  "themes": [
+    "formal_methods",
+    "tutorials",
+    "programming_languages"
+  ],
+  "tone": "technical, methodical, self-deprecating",
+  "key_insight": "Constraint programming optimization is deeply nonlinear\u2014improvements depend on solver choice, other constraints, and dataset, so systematic experimentation matters more than following rules.",
+  "filename": "2018-09-30-minizinc-2"
+}

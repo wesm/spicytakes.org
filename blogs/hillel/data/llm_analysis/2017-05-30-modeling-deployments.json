@@ -1,0 +1,27 @@
+{
+  "summary": "This post demonstrates how to use TLA+ to model and verify a zero-downtime deployment system. Starting with a naive approach that immediately fails verification, Wayne iteratively builds a correct specification by adding a load balancer, update flags, and a coordinator process. The model checker exhaustively explores all possible orderings of concurrent server updates to find bugs. The final spec ensures both safety properties: at least one server is always accessible, and all accessible servers run the same code version.",
+  "key_points": [
+    "TLA+ model checking exhaustively explores all possible orderings of concurrent operations - even 3 servers can have 90+ behaviors to verify",
+    "The naive deployment approach fails immediately because servers update at different rates, breaking version consistency",
+    "Adding a load balancer and coordinator process enables safe rolling updates by controlling which servers are accessible during updates",
+    "Temporal properties can verify system-wide conditions like 'when done, all servers must be back in the load balancer'",
+    "The spec can be extended to model failures, blue-green deployments, minimum capacity requirements, and lossy communication"
+  ],
+  "money_quotes": [
+    "As with any complicated system, it makes sense for us to design it up from, and then check the design itself for bugs.",
+    "We're done! Except that deployment model is horribly broken.",
+    "Instead of 6 behaviors and 18 steps, we have up to 90 behaviors and 1170 steps.",
+    "'But wait!' you've probably said, because you're a programmer and used to seeing things go horribly wrong.",
+    "Just kidding. We can totally check this in our model.",
+    "TLA+ has the power and flexibility to model all of these cases."
+  ],
+  "themes": [
+    "tla_plus",
+    "formal_methods",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "accessible, pedagogical, playful",
+  "key_insight": "Formal specification lets you find concurrency bugs in deployment systems before writing any code by exhaustively checking all possible orderings of operations.",
+  "filename": "2017-05-30-modeling-deployments"
+}

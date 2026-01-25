@@ -1,0 +1,27 @@
+{
+  "summary": "Hillel Wayne explores a mental random number generator algorithm originally posted by George Marsaglia on Usenet. The technique involves starting with a 2-digit seed, then repeatedly computing a new number by adding the tens digit to 6 times the units digit. Wayne investigates why this works using Raku, discovering that only certain multipliers (like 6, 11, 18) produce a single orbit covering all values. He explains the connection to multiply-with-carry and Lehmer RNGs, ultimately recommending 18 as a multiplier for better randomness despite requiring memorization of the 18 times-table.",
+  "key_points": [
+    "The algorithm works by treating the mental calculation as a multiply-with-carry RNG, which is equivalent to a Lehmer RNG running in reverse",
+    "Only certain multipliers produce a single orbit - good choices include 6, 11, 18, and 50",
+    "Marsaglia chose 6 because it's easy to compute mentally and never produces 3-digit numbers",
+    "The multiplier 18 has every possible digit transition and a period of 178, making it more random but requiring learning the 18 times-table",
+    "The sequence will always slightly underrepresent 0 and 9 because the orbit excludes 10n-1 and 10n"
+  ],
+  "money_quotes": [
+    "Humans are notoriously bad at coming up with random numbers.",
+    "Raku, the language for gremlins.",
+    "If you picked 13 as your starting value, your random digits would be 3, 3, 3, 3, 3, 3.",
+    "I dunno, I kinda like an RNG that never gives me 3.",
+    "It's easier for me to mathematically reason about '10y mod 59' than 'multiply the last digit by six and add the first digit'.",
+    "I internalized it with maybe 10 minutes of practice.",
+    "The code I'm showing is less gremliny than the code I originally wrote. So just know it can be more gremlins than this."
+  ],
+  "themes": [
+    "computer_science",
+    "programming_languages",
+    "tutorials"
+  ],
+  "tone": "playful, exploratory, technical",
+  "key_insight": "A simple mental arithmetic trick for generating random digits is actually a multiply-with-carry RNG in disguise, and understanding the underlying math reveals which multipliers produce the best randomness.",
+  "filename": "2024-01-22-randomness"
+}

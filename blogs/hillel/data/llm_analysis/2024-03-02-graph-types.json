@@ -1,0 +1,28 @@
+{
+  "summary": "The post investigates why graphs, despite being ubiquitous in software (package dependencies, databases, state spaces, social networks), lack native support in mainstream programming languages. Through interviews with graph algorithm experts, library maintainers, and database engineers, Wayne identifies three interconnected reasons: the overwhelming number of graph type variations (directed, undirected, multigraphs, hypergraphs), the many possible internal representations (edge lists, adjacency matrices, etc.) each with different performance tradeoffs, and the critical importance of performance optimization for graph algorithms that are often NP-complete and run on enormous datasets. The conclusion is that the design space is simply too large and performance-sensitive for standard libraries to provide useful abstractions.",
+  "key_points": [
+    "Graphs appear everywhere in software (dependencies, databases, state spaces, networks) yet almost no mainstream language provides built-in graph types",
+    "The design space is enormous: directed vs undirected, simple vs multi, hypergraphs, plus choices about node/edge data and identities",
+    "Different internal representations (edge list, adjacency list, adjacency matrix) have dramatically different performance characteristics for different operations and graph densities",
+    "Graph algorithm performance is so critical that generic implementations often can't compete with hand-rolled solutions optimized for specific use cases",
+    "NetworkX alone contains ~500 distinct graph algorithms in 60,000 lines of code, illustrating the maintenance burden a standard library would face"
+  ],
+  "money_quotes": [
+    "There is almost no graph support in any mainstream language. None have it as a built-in type, very few have them in the standard library, and many don't have a robust third-party library in the ecosystem.",
+    "The amount of things people want to do with graphs is absurd.",
+    "Every single implementation of pagerank that I compared to was wrong.",
+    "If you generate all the nodes, you've lost already.",
+    "A 'generic' graph implementation often doesn't cut it.",
+    "I was able to get working a proof of concept pretty quickly with [petgraph], but then\u2026 this is one of those cases where the performance constraints end up meeting reality.",
+    "It sometimes seems like graphs are too powerful, that all their possibilities are beyond my understanding."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "computer_science",
+    "industry_observations"
+  ],
+  "tone": "investigative, pragmatic, slightly resigned",
+  "key_insight": "The absence of graph types in programming languages isn't an oversight but a consequence of the impossibly large design space combined with performance requirements so stringent that generic abstractions consistently fail real-world use cases.",
+  "filename": "2024-03-02-graph-types"
+}

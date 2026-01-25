@@ -1,0 +1,26 @@
+{
+  "summary": "This tutorial introduces MiniZinc, a constraint solving language for modeling optimization problems, using a conference scheduling problem as the main example. The post walks through defining enums, parameters, decision variables, and constraints to create a schedule that maximizes attendee satisfaction. Wayne demonstrates how constraint languages make it easy to add new requirements\u2014like ensuring speakers don't present twice on the same day\u2014without rewriting the core algorithm. However, he notes that while expressing constraints is straightforward, optimizing models for real-world scale is challenging and poorly documented, which sets up a follow-up article on optimization techniques.",
+  "key_points": [
+    "Constraint solvers are powerful but surprisingly obscure tools that many developers don't know exist",
+    "MiniZinc separates problem definition from solver implementation, allowing you to choose the best solver for your specific problem",
+    "Adding new constraints to a model is simple\u2014you just add another constraint rather than rewriting the algorithm",
+    "The naive model works fast on small problems but fails to scale; 24 talks and 20 people took over 8 hours without optimization",
+    "Optimizing constraint models is highly heuristic-based and poorly documented, requiring significant trial and error"
+  ],
+  "money_quotes": [
+    "Constraint solvers are one of those things that are way more obscure than they should be.",
+    "A lot of people don't even know constraint solvers exist, much less how useful they are.",
+    "If we were writing the scheduling algorithm ourself, this would be a huge mess.",
+    "One nice thing about MiniZinc is it decouples the definition of the problem from the implementation.",
+    "While expressing constraints is easy, optimizing them is a topic of its own.",
+    "Three optimizations may be ten times faster than any two alone."
+  ],
+  "themes": [
+    "tutorials",
+    "programming_languages",
+    "computer_science"
+  ],
+  "tone": "technical, accessible, practical",
+  "key_insight": "Constraint solvers are underappreciated tools that let you express complex optimization problems declaratively, though making them scale requires deep expertise in heuristic optimization.",
+  "filename": "2018-09-24-minizinc"
+}

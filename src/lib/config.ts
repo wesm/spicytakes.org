@@ -24,6 +24,7 @@ import sspConfig from '../../config/ssp.json';
 import paulgConfig from '../../config/paulg.json';
 import atwoodConfig from '../../config/atwood.json';
 import unclebobConfig from '../../config/unclebob.json';
+import hillelConfig from '../../config/hillel.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -46,6 +47,7 @@ const configs: Record<string, BlogConfig> = {
   paulg: paulgConfig as BlogConfig,
   atwood: atwoodConfig as BlogConfig,
   unclebob: unclebobConfig as BlogConfig,
+  hillel: hillelConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'

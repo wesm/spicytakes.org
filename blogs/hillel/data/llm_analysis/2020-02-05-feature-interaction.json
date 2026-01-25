@@ -1,0 +1,28 @@
+{
+  "summary": "Feature interaction bugs occur when individually correct features combine to break global system properties. Wayne demonstrates this through a detailed example of an email registration system where spam blocking, email changing, and verification resending features each work correctly in isolation but combine to allow spammers through. These bugs are especially insidious because they don't map to isolated components and can't be caught by unit tests. While formal specification tools like TLA+ and Alloy can detect these issues, ultimately addressing feature interaction requires involving domain experts, maintaining constant communication, and continuously evaluating how local changes affect the big picture.",
+  "key_points": [
+    "Global correctness does not follow from local correctness - individually rock-solid parts can combine into a broken system",
+    "Feature interaction bugs are undetectable by unit tests because they're global properties that emerge from combinations of features",
+    "Agile teams are especially vulnerable to FI bugs because iterative development creates space for cross-sprint interactions that weren't considered together",
+    "Formal specifications can test for FI at the global level, unlike code-level testing which is inherently local",
+    "FI is ultimately a technical problem with a social solution - requiring domain experts, communication, and big-picture thinking"
+  ],
+  "money_quotes": [
+    "In practice, global correctness does not follow from local correctness.",
+    "No part of our system is obviously broken. All of our unit tests pass. It's only when the different parts combine does the bug emerge that's not localizable to just one part failing.",
+    "Feature interactions have been a notorious source of runaway complexity, software bugs, cost and schedule overruns, and unfortunate user experiences.",
+    "Safety and security concerns are especially vulnerable to FI, as there's often no obviously-incorrect prior state. The system looks like it's working fine up until the point that everything catches fire.",
+    "Customers 'think locally' about changes to the system. They're not thinking about how feature X would interact with something you implemented six weeks ago.",
+    "The price for working at the machine level is that we are restricted to what we can express at the machine level.",
+    "Ultimately, dealing with FI bugs is a process of looping domain experts into your development process, keeping everyone in constant communication, and constantly reevaluating how local changes affect the big picture. It's a technical problem with a social solution."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "software_engineering",
+    "industry_observations"
+  ],
+  "tone": "technical, pedagogical, pragmatic",
+  "key_insight": "Feature interaction bugs emerge when individually correct features combine to violate global properties, making them invisible to unit tests and requiring formal specification or domain expert involvement to detect.",
+  "filename": "2020-02-05-feature-interaction"
+}

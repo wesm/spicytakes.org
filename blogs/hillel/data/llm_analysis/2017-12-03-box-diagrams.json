@@ -1,0 +1,26 @@
+{
+  "summary": "The post introduces a simple visual notation of 'boxes, arrows, and ports' to analyze software architecture, revealing that classes and microservices are topologically equivalent from a design perspective. Wayne argues that the key difference is the size of the largest 'proper interface' - Ruby's biggest enforced boundary is the class, while microservices enforce boundaries at the service level via HTTP APIs. He concludes that microservices' separation of concerns is essentially using devops to compensate for programming language limitations, and that choosing microservices primarily for this benefit is misguided.",
+  "key_points": [
+    "Classes and microservices have the same topological representation when abstracted to boxes, arrows, and ports - the difference is enforcement",
+    "Ruby's module system lacks proper interfaces (only conventions), making it fragile and prone to coupling violations",
+    "Microservices provide larger proper interfaces than classes, but 'federated microservices' that know about each other recreate the same coupling problems",
+    "Convention-based interfaces fail because programmers must know about them, they're hard to document at scale, violations are easy to make accidentally or intentionally",
+    "The desire for separation of concerns through microservices reveals a deficiency in programming languages rather than an inherent advantage of distributed systems"
+  ],
+  "money_quotes": [
+    "Abstract far enough and classes and microservices have the same representation!",
+    "Convention, as we all know, is fragile.",
+    "Eventually, the system becomes entangled and everything becomes terrible.",
+    "One of the major claimed benefits of a microservice architecture, separation of concerns, is us using devops to compensate for a flaw in our programming language.",
+    "Without a common notation for boxes, ports, and interfaces, there's no easy way to communicate what, exactly, it is you're losing.",
+    "Use `send` and your coworkers will throw rocks at you."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming_languages",
+    "industry_observations"
+  ],
+  "tone": "analytical, pragmatic, slightly contrarian",
+  "key_insight": "Microservices and classes are structurally identical - microservices only provide better separation of concerns because they enforce interfaces that programming languages fail to enforce.",
+  "filename": "2017-12-03-box-diagrams"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "This post presents a JavaScript parsing puzzle where the expression 'x = 1' followed by 'x' and '--> 0' unexpectedly prints 1. The trick is that '-->' at the beginning of a line is a valid comment token in JavaScript, a legacy feature preserved from the days when developers wrapped scripts in HTML comments to hide them from older browsers that didn't understand the script tag. This hack was standardized in ECMAScript 2015 to avoid breaking old websites, demonstrating how backward compatibility concerns shape language design.",
+  "key_points": [
+    "The --> token at the start of a line begins a comment in JavaScript, making it equivalent to //",
+    "This syntax exists because early web developers wrapped JavaScript in HTML comments for graceful degradation in browsers that predated script tag support",
+    "The ECMAScript standardization committee codified this hack in 2015 rather than break existing websites",
+    "<!-- can appear anywhere in a line as a comment, but --> only works at line start to avoid ambiguity with decrement operators"
+  ],
+  "money_quotes": [
+    "At the beginning of a line (and only at the beginning of a line), --> starts a comment.",
+    "It's a legacy hack.",
+    "Old browsers would parse the content as an HTML comment and ignore it, new browsers would parse the content as JavaScript and execute it.",
+    "Since some old websites still have the hack and the standardization committee will never, ever break the web, they added <!-- and --> as legal comment tokens to the 2015 standard."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "computer_science"
+  ],
+  "tone": "playful, educational",
+  "key_insight": "JavaScript's bizarre --> comment syntax exists because the web's commitment to backward compatibility means even temporary hacks from 1995 get standardized forever.",
+  "filename": "2025-03-12-javascript-puzzle"
+}

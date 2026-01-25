@@ -1,0 +1,27 @@
+{
+  "summary": "This post traces the origins of algebraic data types (AlgDTs) from John McCarthy's 1961 paper through their development in both imperative and functional programming traditions. McCarthy first defined the concepts of Cartesian products and direct unions (sum types) along with their algebraic properties like distributivity and associativity. The ideas influenced Tony Hoare and Rod Burstall, who developed them independently in different directions. While sum types disappeared from imperative languages due to Pascal and C's influence, they flourished in functional programming through ML, HOPE, and Miranda, eventually gaining features like tags, exhaustiveness checking, and pattern matching that define modern AlgDTs.",
+  "key_points": [
+    "McCarthy's 1961 paper established both sum and product types along with their algebraic properties (associativity, distributivity) from the very beginning, even without using modern terminology",
+    "The terms come from set theory: product types from Cartesian products, sum types from disjoint unions, both named for their cardinality relationships",
+    "Sum types split into two traditions: Hoare influenced imperative languages (calling them 'discriminated unions'), while Burstall influenced functional programming",
+    "Pascal and C prevented sum types from gaining traction in imperative programming for decades",
+    "HOPE (1980) introduced pattern matching to functional programming, and VAX ML added tagged sums and products together for the first time"
+  ],
+  "money_quotes": [
+    "It doesn't matter if you're the first to have an idea if nobody else hears you have it.",
+    "All of these properties of 'algebraic data types' were known from the start, even if they weren't called that yet.",
+    "Pascal did not have sum types because Wirth thought they were less flexible than untagged unions.",
+    "After this point sum types disappear from imperative programming.",
+    "Burstall is incredibly frustrating to research.",
+    "If the programmer attempts to convert a discriminated union value back to a type from which it did not originate, this is a serious programming error.",
+    "This is the best I could do with the time and resources I had available."
+  ],
+  "themes": [
+    "programming_languages",
+    "computer_science",
+    "software_engineering"
+  ],
+  "tone": "investigative, scholarly, self-deprecating",
+  "key_insight": "The algebraic properties that give algebraic data types their name\u2014associativity, distributivity, cardinality relationships\u2014were all present in McCarthy's foundational 1961 paper, decades before the terminology was standardized.",
+  "filename": "2025-09-25-algdt-history"
+}

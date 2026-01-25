@@ -1,0 +1,26 @@
+{
+  "summary": "The post demonstrates how to use Alloy, a formal specification language, to model and verify database migrations. Wayne walks through specifying an old schema (Person with event relationships) and a new schema (separate Attendance and Review tables), then proves that migrations preserve data equivalence and validity constraints. The tutorial reveals subtle bugs in the migration spec\u2014like accidentally allowing extra records\u2014and shows how formal methods catch these issues. The post concludes by refining the validity assertions to match real-world requirements: migrations should preserve validity, and the new schema should only allow states that would have been valid in the old schema.",
+  "key_points": [
+    "Alloy's relational model elegantly expresses database schemas and the relationships between them, with relations being first-class entities that can be manipulated",
+    "The migration verification process has four steps: specify both schemas, define equivalence, prove equivalent data has equivalent constraints, and prove migrations produce equivalent data",
+    "Formal specification caught a subtle bug: the initial migration spec allowed creating extra records beyond what the original data contained",
+    "When the new schema has stronger constraints than the old one, you must split validity preservation into two properties: migrations stay valid, and new validity implies old validity",
+    "Alloy's grammar fits in two pages yet can express complex properties like multistage migrations and rollbacks"
+  ],
+  "money_quotes": [
+    "Migrations are risky business because they involve changing a large amount of state at once.",
+    "In specifications, we don't restrict ourselves to a single model, and instead talk about the entire space of possibilities.",
+    "If we can express a property of the spec, we automatically have the complete test for it.",
+    "We've made the NewPerson constraints stronger without changing the corresponding Person constraints.",
+    "Changing equivalent would mix our abstraction levels.",
+    "Alloy packs a lot of power in a very small space."
+  ],
+  "themes": [
+    "formal_methods",
+    "tutorials",
+    "software_engineering"
+  ],
+  "tone": "instructional, methodical, practical",
+  "key_insight": "Formal methods aren't just for distributed systems\u2014they're equally valuable for verifying database migrations by proving that data transformations preserve both equivalence and validity constraints.",
+  "filename": "2019-10-09-formally-modeling-migrations"
+}

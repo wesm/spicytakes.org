@@ -1,0 +1,27 @@
+{
+  "summary": "This post builds up the concept of contract programming from first principles, distinguishing it from type checking and unit testing. Starting with a simple number-guessing game, Wayne demonstrates how preconditions and postconditions can enforce correctness at function boundaries. He argues that while Python's assert statements are crude, they capture the essential idea: contracts specify what callers must guarantee and what functions promise in return. The post surveys contract support across languages, from inadequate library-based solutions to D's built-in support to Eiffel's gold-standard implementation, ultimately encouraging developers to make implicit contracts explicit even without native language support.",
+  "key_points": [
+    "Contracts are distinct from type systems and tests - they act on real-world dynamic behavior and can express relationships between parameters that types cannot",
+    "Preconditions specify caller responsibilities, postconditions specify function guarantees, and together they localize bugs to specific boundaries",
+    "Most contract libraries fail by treating contracts as type checkers or using limited DSLs instead of the full host language",
+    "Class invariants (checked before and after every method) simplify the inheritance vs composition decision",
+    "Even crude assert statements are valuable - most codebases have implicit contracts that should be made explicit"
+  ],
+  "money_quotes": [
+    "My favorite definition of assert is 'a conditional which, if false, indicates a bug in your program.'",
+    "It conceptually separates anticipated bad behavior from impossible behavior. You handle the former with guard statements, and the latter with contracts.",
+    "Contracts make pretty bad type systems. You can dismiss it as 'like a static type system, but worse' or as 'I didn't need types anyway, why bother with contracts?'",
+    "Just as contracts make for poor types, types make for poor contracts.",
+    "Unlike catching any other kind of error it's so obviously and unambiguously a fatal error that catching it is a war crime.",
+    "Most large codebases have a lot of implicit contracts 'enforced' through unit tests and guard statements. Might as well make them explicit."
+  ],
+  "themes": [
+    "formal_methods",
+    "programming_languages",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "pedagogical, opinionated, accessible",
+  "key_insight": "Contracts occupy a distinct correctness niche from types and tests by expressing runtime invariants and inter-parameter relationships at function boundaries, making implicit assumptions explicit and localizing bugs to their source.",
+  "filename": "2017-11-27-contracts"
+}

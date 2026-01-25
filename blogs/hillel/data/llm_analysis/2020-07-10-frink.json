@@ -1,0 +1,27 @@
+{
+  "summary": "The post introduces Frink, a programming language designed specifically for handling units of measurement with dimensional analysis. Wayne explains why units are surprisingly complex\u2014different measurement systems, historical variations, ambiguous dimensions, and uncertainties all create challenges that most programming languages handle poorly. Frink strikes a balance between the strict compile-time checking of F# and the simple conversion tool GNU units, offering runtime flexibility with built-in dimensional analysis. The language includes over 5,000 predefined units, natural mathematical syntax, and affordances like interval arithmetic and timestamp handling. Wayne demonstrates its practical value by calculating the calories in homemade chocolates, showing how Frink handles mixed units and uncertainty naturally.",
+  "key_points": [
+    "Units are far more complex than they appear: historical definitions change, dimensions can be ambiguous (energy vs torque), and different systems (SI, American, Gaussian) create conversion nightmares",
+    "Most programming languages punt on units, relegating them to libraries; F# has built-in support but requires explicit conversions that add boilerplate",
+    "Frink uses natural math syntax where spaces are multiplication, making equation translation easy while preventing incompatible dimension additions",
+    "The language includes practical affordances like interval arithmetic for uncertainty, timestamp handling with timezone conversion, and 5,000+ predefined units",
+    "Frink fills a niche between strict industrial software (F#) and simple conversion tools (GNU units), optimized for interactive exploratory calculation"
+  ],
+  "money_quotes": [
+    "One day Alan Eliasen read a fart joke and got so mad he invented a programming language.",
+    "This is the bug that destroyed the Mars Climate Orbiter.",
+    "If I'm trying to find the Titanic's weight in cups of rice I don't want to spend ten minutes writing unit conversions.",
+    "The syntax is designed to look like 'natural' math, so a space counts as a multiplication.",
+    "I think the candela is a scam, and I am completely opposed to it. Some good-for-nothing lighting 'engineers' or psychologists probably got this perceptually-rigged abomination into the whole otherwise scientific endeavor.",
+    "Different dimensions doesn't always mean the units are incompatible.",
+    "Frink treats intervals as a single unknown value inside the interval, not the range itself. This means that for any interval x, x - x = 0."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "playful, informative, practical",
+  "key_insight": "Unit handling in software is a deceptively complex problem that most languages ignore, but Frink demonstrates that a purpose-built language can make dimensional analysis both rigorous and pleasant to use interactively.",
+  "filename": "2020-07-10-frink"
+}

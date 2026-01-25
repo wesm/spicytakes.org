@@ -1,0 +1,27 @@
+{
+  "summary": "The post introduces the concept of oracle functions in property-based testing with Hypothesis, demonstrating how known-correct functions can validate new implementations. Wayne presents four oracle patterns: using original functions during refactoring, leveraging special-case oracles that work on restricted domains, employing inefficient but correct implementations as references, and generating test inputs from expected outputs via reverse oracles. The approach complements traditional unit tests by providing broader coverage through randomized input generation. Wayne emphasizes that while oracles add testing complexity, they catch subtle bugs that might escape conventional tests.",
+  "key_points": [
+    "Oracle functions are known-correct implementations you can compare against when testing new code, even if they seem redundant or impractical for production",
+    "Refactoring is an ideal oracle use case: your original working function validates the optimized version against edge cases you might miss",
+    "Special-case oracles work by restricting the input domain to cases where a simpler function is known to be correct",
+    "Reverse oracles flip the pattern by generating inputs from expected outputs, though they require careful construction to avoid test bugs",
+    "Property-based testing provides benefits orthogonal to unit tests, type systems, formal methods, and sleep\u2014ideally you'd have all five"
+  ],
+  "money_quotes": [
+    "This may look like cheating ('if we already have a sorting function, why would we be writing another?'), but this can be a surprisingly powerful testing strategy.",
+    "We found this by using our original version as an oracle against the refactored version.",
+    "Over our restricted domain, the broken function is correct, and can be used as an oracle.",
+    "That might matter in production, but it won't matter too much in testing, so we can benefit from an oracle here.",
+    "This test ends up being more complicated than the others because it's easier for the test itself to have bugs.",
+    "This throws you down a rabbit hole ('I have to test my tests?!'), but you get much wider test coverage with PBTs in return for the extra complexity.",
+    "The benefits PBT provides are orthogonal to the benefits you get from unit tests, type systems, formal methods, and getting a full night's sleep."
+  ],
+  "themes": [
+    "software_engineering",
+    "tutorials",
+    "formal_methods"
+  ],
+  "tone": "instructional, practical, playful",
+  "key_insight": "Oracle functions let you leverage existing correct implementations\u2014whether slow, partial, or soon-to-be-replaced\u2014as test references, turning the apparent redundancy of 'testing against something you already have' into a powerful verification strategy.",
+  "filename": "2017-07-21-hypothesis-oracles"
+}

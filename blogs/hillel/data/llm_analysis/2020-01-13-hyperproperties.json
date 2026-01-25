@@ -1,0 +1,29 @@
+{
+  "summary": "Hyperproperties are properties defined over sets of behaviors rather than individual traces, making them fundamentally different from traditional safety and liveness properties. While TLA+ cannot natively express hyperproperties, you can work around this limitation through 'self-composition'\u2014creating a hyperspec that runs multiple copies of the original spec and compares their results. The post walks through a concrete example of checking Observational Determinism (whether a nondeterministic system appears deterministic to outside observers) using this technique. Most hyperproperty research focuses on security properties like noninterference, though the formalism has seen limited industrial adoption. Wayne argues that understanding hyperproperties provides valuable intuition for verification, explaining why tests are better at capturing relationships between function calls than types or contracts.",
+  "key_points": [
+    "Hyperproperties are properties defined over sets of behaviors, not individual traces\u2014'average response time under 10ms' can't be refuted by a single counterexample",
+    "TLA+ fundamentally cannot express hyperproperties natively, but self-composition (running multiple spec copies in parallel) converts k-safety hyperproperties into regular 1-safety properties",
+    "Observational Determinism\u2014where a system appears deterministic to observers despite internal nondeterminism\u2014is a 2-safety hyperproperty requiring two traces as a counterexample",
+    "Security properties like noninterference are hyperproperties, which partly explains why security is so hard to get right",
+    "Tests are better than types/contracts at capturing hyperproperties because they can run functions multiple times, similar to how hyperspecs run specs multiple times"
+  ],
+  "money_quotes": [
+    "Properties which are only defined for sets of behaviors are hyperproperties.",
+    "You can't provide a single timeline as a counterexample; for all we know, all the other timelines get the same x value.",
+    "Specifying hyperproperties in TLA+: You can't. This is a fundamental limit of the language.",
+    "That's the challenge with emulation: sure, you can sort of hack in what you need, but maybe you're using the wrong tool for the job.",
+    "Many interesting security properties are hyperproperties, which is one reason why they're so hard to get right.",
+    "While you're not going to be formally verifying hyperproperties any time soon, I still think they're very useful. It helps you think about systems in a different way.",
+    "'Was this a correct optimization' and 'Was this a safe refactoring' are hyperproperties."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "software_engineering",
+    "computer_science",
+    "tutorials"
+  ],
+  "tone": "technical, pedagogical, pragmatic",
+  "key_insight": "Understanding hyperproperties\u2014properties over sets of behaviors rather than individual traces\u2014explains why security is hard, why tests catch things types miss, and provides a powerful lens for thinking about system correctness.",
+  "filename": "2020-01-13-hyperproperties"
+}

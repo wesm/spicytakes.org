@@ -1,0 +1,27 @@
+{
+  "summary": "Decision tables are a simple but underused formal specification technique for representing branching logic, where inputs map to exactly one output row. Wayne explains the concept in under two minutes, then demonstrates its practical value through a real-world migration of a legacy audio system with complex conditional logic involving text-to-speech, manual uploads, and database lookups. The table format made it easy to reason about edge cases like 'what happens if we have a legacy override pointing at a manual upload?' Decision tables can also reveal properties like input irrelevance and decomposition opportunities, and can be expanded into test suites.",
+  "key_points": [
+    "A decision table maps boolean/enumeration inputs to outputs, with the consistency rule that all inputs must map to exactly one row",
+    "The technique excels at complex conditional logic with no clear pattern, where informal descriptions make reasoning difficult",
+    "Decision tables enable property discovery: determining which inputs are irrelevant and whether tables can be decomposed into simpler independent tables",
+    "They can be programmatically expanded into test suites to verify code consistency with the specification",
+    "The main advantage is accessibility: anyone can learn to read and write them with zero learning curve"
+  ],
+  "money_quotes": [
+    "I really like decision tables but they've fallen out of common knowledge. Let's fix that.",
+    "That's what I like about them: you can explain the whole idea in under two minutes.",
+    "Figuring out what should happen from the informal description is really hard. With a decision table, that question just maps to row 3.",
+    "Like all formal specifications, we can use the table to discover properties about our program.",
+    "Decision tables are an extremely lightweight formal specification.",
+    "Pretty much anyone can learn to write one. More importantly, anybody can learn to read one, so it provides a simple means of sharing information between people.",
+    "That's why it's a shame they're so obscure: a lot of people would find them useful and there's zero learning curve to start using them."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "instructional, practical, enthusiastic",
+  "key_insight": "Decision tables are an accessible formal specification technique that makes complex conditional logic easy to reason about, verify, and communicate, yet they've become needlessly obscure.",
+  "filename": "2018-07-09-decision-tables"
+}

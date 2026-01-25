@@ -1,0 +1,26 @@
+{
+  "summary": "The post explores two approaches to data validation: predicative (using boolean functions to filter valid items from all representable states) and constructive (structuring data so only valid states can be created). While the constructive approach of 'making illegal states unrepresentable' is often seen as obviously superior, Wayne argues it has significant limitations including ergonomic costs, difficulty handling overlapping categories, and poor support for nonmonotonic properties. He concludes that most real-world data will be a mix of both approaches, and that finding good constructive solutions is a learnable skill with identifiable patterns.",
+  "key_points": [
+    "Predicative approaches use boolean functions to validate a subset of representable data, while constructive approaches structure data so only valid states can exist",
+    "Constructive data is sound but not complete\u2014it guarantees validity but may not represent all valid states or represent them evenly",
+    "Nonmonotonic properties (those that can be falsified by adding information) are particularly difficult to handle constructively",
+    "The distinction between 'invalid' and 'undesirable' data creates tension with purely constructive approaches, since programs often need to represent undesirable states to fix them",
+    "Finding constructive solutions is a skill that can be improved through recognizing patterns like finite enumerations, wrapper types, and dictionary inversions"
+  ],
+  "money_quotes": [
+    "We consciously make the choice to make illegal states unrepresentable and should study how we make that choice.",
+    "Finding a good constructive solution requires that you be 'clever' in a way finding a predicative solution does not.",
+    "Constructive systems are very bad at negating properties, in the same way that most sound static type systems cannot type 'everything that is not an integer.'",
+    "Data should never be invalid, but sometimes data is in a valid but undesirable state. Oftentimes the purpose of the program itself is to take undesirable data and move it out of the undesired state.",
+    "If finding constructive solutions is a skill, then it is a skill we can improve.",
+    "I'm also fascinated by how 'finding constructive solutions' can be seen as a skill with patterns and techniques, while this is less true with finding predicative solutions."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "formal_methods"
+  ],
+  "tone": "analytical, exploratory, pedagogical",
+  "key_insight": "Making illegal states unrepresentable is not universally superior\u2014it's a tradeoff that works well for monotonic properties but struggles with negation, overlapping categories, and the need to represent undesirable-but-valid states.",
+  "filename": "2020-05-18-constructive"
+}

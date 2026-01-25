@@ -1,0 +1,27 @@
+{
+  "summary": "Metamorphic testing is a powerful testing technique that compares outputs across transformed inputs rather than checking against known answers. Unlike traditional oracle-based tests or property-based testing, metamorphic testing leverages 'metamorphic relations' - properties that should hold between related inputs and their outputs. The technique is especially valuable for complex systems like speech-to-text where generating test oracles is expensive or impossible. Despite impressive academic case studies across many domains, the technique remains obscure because nearly all research is locked behind academic paywalls.",
+  "key_points": [
+    "Traditional oracle tests don't scale for complex systems with enormous input spaces, and property-based testing often yields only weak general properties",
+    "Metamorphic testing compares outputs across transformed inputs (e.g., same audio at different volumes should produce same transcription) without needing to know the 'correct' answer",
+    "The technique has been successfully applied to search engines, machine learning systems, compilers, and scientific simulations with documented bug discoveries",
+    "Academic paywalls are the primary barrier to adoption - finding case studies requires hours of hunting for preprints",
+    "Metamorphic testing and property-based testing are complementary: PBT focuses on input generation while MT focuses on what properties to test"
+  ],
+  "money_quotes": [
+    "We have useful tests without listening to the voice clip. We can now generate complex, deep tests without the use of an oracle!",
+    "For complex systems, it can be easier to find interesting metamorphic relations than interesting single input/output properties.",
+    "When I dig into obscure techniques, I always ask 'why is it obscure?' Sometimes there's an obvious reason, sometimes it's a complex set of subtle reasons, sometimes it's just bad luck.",
+    "Almost all of the info is behind academic paywalls. If you want to learn about MT, you either need journal access or spend hours hunting down preprints.",
+    "Confession: I read the ACM Magazine. This makes me a dweeb even in programming circles.",
+    "In general it seems to me that most PBT research focuses on how we effectively generate and shrink inputs, while MT research is more focused on determining what we actually want to test."
+  ],
+  "themes": [
+    "software_engineering",
+    "tutorials",
+    "computer_science",
+    "industry_observations"
+  ],
+  "tone": "accessible, educational, slightly sardonic",
+  "key_insight": "Metamorphic testing unlocks practical testing of complex systems by checking that relationships between transformed inputs hold, rather than requiring expensive or impossible-to-obtain test oracles.",
+  "filename": "2019-03-25-metamorphic-testing"
+}

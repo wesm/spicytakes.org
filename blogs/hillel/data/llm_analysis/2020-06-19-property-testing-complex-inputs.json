@@ -1,0 +1,26 @@
+{
+  "summary": "This tutorial addresses one of the two hard parts of property-based testing: generating complex, interdependent inputs. Using an exam/exam-instance example, it walks through Hypothesis strategies from simple (type inference, filter, assume) to sophisticated (builds, composite, data). The key challenge is generating data with preconditions and dependencies\u2014like ensuring an ExamInstance's answers match its Exam's length. Composite strategies emerge as the most powerful tool, allowing multiple draws to be related to each other. The tutorial emphasizes that generating valid inputs by construction is better than filtering invalid ones.",
+  "key_points": [
+    "Type inference with from_type works for simple cases but generates too many nonsensical inputs for real testing",
+    "filter and assume are easy but wasteful\u2014you're still generating bad inputs and throwing them away",
+    "The builds strategy lets you construct objects with constrained field generators, ensuring valid inputs by construction",
+    "composite strategies are the key to generating interdependent data where one value constrains another",
+    "The data strategy allows interactive drawing within tests but sacrifices some Hypothesis features like better error reporting"
+  ],
+  "money_quotes": [
+    "Once you learn the basics, there are two hard parts to writing property-based tests: What are good properties to test? How do I generate complex inputs?",
+    "The more narrowly we can constrain the search space the more likely we are to get interesting edge cases.",
+    "We're better off writing a customized generator that always generates good inputs.",
+    "The inner function does not return a strategy. It returns regular Python values. The @composite decorator is what converts this function into a strategy.",
+    "Hypothesis provides a lot of mechanisms to create complex data. Learning how to use them well is a bit of an art, but well worth it."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "tutorials",
+    "programming_languages"
+  ],
+  "tone": "technical, pedagogical, pragmatic",
+  "key_insight": "Generating valid test inputs by construction through composite strategies is more effective than filtering invalid random inputs, and is essential for testing code with interdependent data structures.",
+  "filename": "2020-06-19-property-testing-complex-inputs"
+}

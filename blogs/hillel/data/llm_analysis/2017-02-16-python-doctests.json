@@ -1,0 +1,26 @@
+{
+  "summary": "Doctests are a unique Python feature that embeds tests directly in documentation strings, simulating REPL interactions to verify examples work correctly. While they've fallen out of favor because they lack setup mechanisms and don't scale well compared to unit tests, Wayne argues they serve a fundamentally different purpose: detecting documentation bugs rather than code bugs. When a doctest fails but the unit test passes, it signals the documentation is out of sync with the code's actual behavior. Wayne sees doctests as an underexplored approach to keeping documentation consistent with code, inverting the common pattern of generating docs from code.",
+  "key_points": [
+    "Doctests were invented in 1999 before TDD conventions existed, experimenting with embedding tests directly in documentation",
+    "They're rarely used today because they lack setup mechanisms like beforeEach and don't scale for complex testing scenarios",
+    "Doctests serve a different purpose than unit tests: they verify documentation accuracy rather than code correctness",
+    "When a doctest fails but unit tests pass, it reveals a documentation bug rather than a code bug",
+    "The approach of verifying human-written documentation against code is underexplored compared to auto-generating docs from code"
+  ],
+  "money_quotes": [
+    "Unit tests check your code for bugs, while doctests check your guide for bugs!",
+    "It's at the point where BDD advocates even call their tests 'specs', which is kind of like throwing a hammer at a car and calling the dent a blueprint.",
+    "Doctests go the other way. Instead of making the tests have documentation, it adds a tool to test documentation consistency.",
+    "Code-tests-code is much more flexible and scalable than documents-test-code.",
+    "Finding beauty in the missing places.",
+    "It's the dynamic nature, the tests as motion, that makes it an appealing substitute for documentation."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "reflective",
+  "key_insight": "Doctests uniquely detect documentation bugs rather than code bugs\u2014when they fail but unit tests pass, your docs are lying about what the code does.",
+  "filename": "2017-02-16-python-doctests"
+}

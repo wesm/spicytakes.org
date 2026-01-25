@@ -1,0 +1,27 @@
+{
+  "summary": "Hillel Wayne uses the Alloy specification language to formally model package managers and demonstrate why Nix's 'purely functional' approach solves real problems. He starts with a naive package manager that fails when upgrading shared dependencies, then shows how allowing multiple versions prevents breakage. The key insight comes when modeling the gap between developer and user environments: traditional package managers can fail because developers don't explicitly track all transitive dependencies. Nix solves this by coupling each requirement to its specific program, creating isolated dependency trees that guarantee reproducible builds across machines.",
+  "key_points": [
+    "A naive package manager that only allows one version of a package breaks when upgrading shared dependencies between programs",
+    "Simply allowing multiple versions installed simultaneously fixes the upgrade problem but doesn't solve the developer-user environment mismatch",
+    "Traditional package managers fail when developers have implicit dependencies already installed that users lack",
+    "Nix's approach of isolating requirements per-program guarantees that explicit dependencies always match actual requirements",
+    "Formal specification revealed the 'upgrades are tricky' problem within minutes of starting, demonstrating how structured thinking about systems improves quality"
+  ],
+  "money_quotes": [
+    "Buckle up everyone, it's time for some formal methods.",
+    "Predicates don't set values. They're just statements that are true or false.",
+    "Since we're installing requirements as coupled to the appropriate program, she must install a complete copy of every requirement in order to get the program.",
+    "By keeping all of the requirements isolated, you have a deterministic build. If it works on your machine, it should (ideally) work on other machines regardless of their current state.",
+    "Just having a way to clearly think about your system makes a huge difference in the overall quality.",
+    "The 'upgrades are tricky' case came up within a few minutes of me starting the spec.",
+    "I'm not investing 50+ hours into understanding package management problems for a 2,000 word post."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "accessible_technical",
+  "key_insight": "Formal specification isn't just for finding bugs\u2014it's a powerful tool for understanding problem domains, as modeling a package manager quickly reveals why Nix's isolated dependency approach solves real reproducibility problems.",
+  "filename": "2018-03-16-nix"
+}

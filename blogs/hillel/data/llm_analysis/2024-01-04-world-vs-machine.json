@@ -1,0 +1,27 @@
+{
+  "summary": "This post introduces a conceptual framework from Michael Jackson for thinking about formal specifications: the distinction between 'machine' (the part of the system you control) and 'world' (everything you don't). Using a TLA+ bank transfer example with a race condition bug, Hillel demonstrates that solutions must work within the machine's boundaries\u2014you can add a lock to serialize transactions, but you can't control how people use their checkbooks. The post elaborates on observability (which states each domain can read/write) and distinguishes between internal properties (implementation details) and observable properties (what users actually experience). The key insight is that observable properties matter more because they're what actually affects people.",
+  "key_points": [
+    "The machine is what you control; the world is everything else\u2014and this boundary shifts depending on your scope in the system",
+    "You need to model the whole system but you're only designing the machine, so world behavior can be abstracted to just how it affects your component",
+    "Observable properties (like NoOverdrafts) matter more than internal properties (like OnlyOneWithdraw) because they're what actually affects users",
+    "If the world can break an invariant, it's not really an invariant\u2014you need resilience instead",
+    "Specs often break not because the machine has a bug, but because the surrounding world has changed"
+  ],
+  "money_quotes": [
+    "The machine is the part of the system you have direct control over and the world is all the parts that you don't.",
+    "One way you can't solve it is by forcing people to deposit one cheque at a time. You don't have any control over what people do with their chequebook!",
+    "If they're sending you bad data, you need to faithfully model receiving that bad data in your spec as part of designing your machine.",
+    "While you need to model the whole system, you're only designing the machine.",
+    "If a property isn't observable, it doesn't have any connection to the broader world, so nobody is actually affected by it breaking.",
+    "If the world can break an invariant, it's not an invariant.",
+    "It's not uncommon for a spec to break not because the machine has a bug, but because the surrounding world has changed."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "software_engineering"
+  ],
+  "tone": "technical, pedagogical, practical",
+  "key_insight": "When designing systems, you must faithfully model the world you can't control while only implementing the machine you can\u2014and observable properties that affect users matter far more than internal implementation details.",
+  "filename": "2024-01-04-world-vs-machine"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "This post demonstrates how to model message queues and pub-sub systems in TLA+, providing practical examples that go beyond the typical consensus algorithm tutorials. Hillel walks through implementing an SQS-like queue with writers and readers, then extends it to handle at-least-once delivery semantics with message duplication and retry logic. He then shows a pub-sub variant where each reader has their own queue, including subscription management. The post emphasizes that TLA+ is useful for everyday distributed systems problems, not just verifying Paxos, and calls for more accessible learning resources.",
+  "key_points": [
+    "TLA+ lacks simple, practical examples which makes it harder to learn and harder for people to see its relevance to their actual problems",
+    "At-least-once delivery can be modeled three different ways depending on whether you're specifying the protocol itself or a system using the protocol",
+    "Type invariants in TLA+ serve double duty as both spec correctness checks and model constraint validation, which should ideally be separated",
+    "Function sets and function comprehensions are powerful TLA+ features that elegantly model per-reader queues in pub-sub systems",
+    "The either/or construct naturally models nondeterministic failures like dropped messages, failed acks, or message duplication"
+  ],
+  "money_quotes": [
+    "My problem isn't verifying Paxos, it's figuring out why my microservices aren't deduping the message queue.",
+    "If you looked at the most common public examples, you'd probably come away thinking that people only used it for critical consensus algorithms.",
+    "TLA+ is an untyped formalism. Lamport argued that type systems in specifications are often a hindrance.",
+    "I could just as easily make types like 'two-digit primes except 11' or 'sequences of messages no reader has seen yet.'",
+    "Mixing spec invariants and model constraints is bad practice. You should really separate them out.",
+    "Function sets are one of the biggest stumbling blocks for people new to TLA+, but they are amazingly powerful once you get used to them.",
+    "It took me only a couple minutes to whip each example up but I've been doing this a while- it's probably a lot harder to 'see' these if you're just starting out."
+  ],
+  "themes": [
+    "tla_plus",
+    "formal_methods",
+    "tutorials",
+    "software_engineering"
+  ],
+  "tone": "pedagogical, practical, accessible",
+  "key_insight": "TLA+ is most valuable not for verifying exotic consensus algorithms but for modeling the everyday distributed systems problems engineers actually face, like message queue semantics and deduplication logic.",
+  "filename": "2018-10-31-tla-messages"
+}

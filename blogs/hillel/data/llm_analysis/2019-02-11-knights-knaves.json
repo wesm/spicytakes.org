@@ -1,0 +1,26 @@
+{
+  "summary": "This post demonstrates how to use Alloy, a formal modeling tool, to systematically solve Knights and Knaves logic puzzles rather than relying on manual reasoning. Wayne walks through the Alloy syntax for modeling these puzzles, where Knights always tell the truth and Knaves always lie, showing how the model-finder can discover all valid solutions. The post explores increasingly complex variations, including the famous fork-in-the-road puzzle and an advanced version with drunk/sober modifiers. Along the way, Wayne reveals counterintuitive results, such as how the famous fork puzzle solution only works in a special case, while a simpler general solution exists.",
+  "key_points": [
+    "Alloy's model-finding capability can exhaustively discover all solutions to logic puzzles, making it superior to manual solving for verification",
+    "The logical equivalence operator (<=> ) elegantly captures the knight/knave truth-telling constraint: a statement is true iff the speaker is a knight",
+    "Propositional logic produces unintuitive results: 'I am a knave and B is a knave' differs logically from 'I am a knave. B is a knave.'",
+    "The famous fork-in-the-road solution only works when there's exactly one knight and one knave; the general case is actually simpler",
+    "Alloy's type system with 'extends' vs 'in' signatures allows modeling both exclusive categories (knight/knave) and overlapping properties (drunk/sober)"
+  ],
+  "money_quotes": [
+    "Knights and Knaves puzzles are supposed to be solved through creativity and cleverness: you read the statements and figure out the contradictions. Let's instead take all the fun out and solve them with a program.",
+    "This means, confusingly enough, that if we want to know whether P is true or false, we don't need to know whether we're talking to a knight or a knave.",
+    "Propositional logic is weird and often unintuitive.",
+    "The problem is that all we can infer from 'F is a knave' is 'E did not say there is one knight among us.' It does not restrict what E said, or what she could say later.",
+    "It's really funny to me that the famous solution only works in this special case, while the general case is both simpler and always gets true answers regardless of what pair you have.",
+    "Not only that, but the general case doesn't even use o! It works even if we're talking to a single person."
+  ],
+  "themes": [
+    "formal_methods",
+    "tutorials",
+    "programming_languages"
+  ],
+  "tone": "playful, technical, methodical",
+  "key_insight": "Formal modeling tools like Alloy can mechanically solve logic puzzles while also revealing subtle flaws in 'classic' solutions that human reasoning might miss.",
+  "filename": "2019-02-11-knights-knaves"
+}

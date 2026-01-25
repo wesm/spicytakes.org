@@ -1,0 +1,24 @@
+{
+  "summary": "The post challenges the conventional wisdom that comments should only explain 'why' and not 'what'. Wayne argues that the real issue is context switching\u2014whether that's looking up variable meanings, digging through git blame, or jumping between extracted methods. He critiques the 'Extract Till You Drop' style of clean code, showing how aggressive method extraction can actually harm readability by forcing readers to jump around. The core argument is that keeping information where it's needed\u2014sometimes via 'what' comments\u2014reduces cognitive load better than either cryptic code or over-extracted methods.",
+  "key_points": [
+    "Looking things up is the core problem\u2014whether it's variable names, commit messages, or extracted methods, context switches harm understanding",
+    "The 'comments should explain why not what' rule is too absolute; sometimes what-comments prevent dangerous assumptions",
+    "Aggressive method extraction (Clean Code style) can make code harder to follow by spreading logic across many small methods",
+    "Information should live where you need it, whether that's descriptive names, comments, or inline code",
+    "Comments are not a substitute for clean code, but they can complement it when extraction would fragment understanding"
+  ],
+  "money_quotes": [
+    "Both of these cases share the same problem: looking things up is hard.",
+    "Best case it's a context switch that takes time away from understanding the problem. Worst case you don't look it up and make a potentially-dangerous assumption.",
+    "So much better, right?! `replace` is now two lines instead of ten. But now there's six other methods you have to read to understand how the class works.",
+    "Is that really so much better than using comments?",
+    "I'm just saying that there are at least a few cases where writing a 'what' comment is the right choice, so we shouldn't reject them out-of-hand."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_observations"
+  ],
+  "tone": "contrarian, playful, pragmatic",
+  "key_insight": "The real enemy of code readability isn't comments or extracted methods\u2014it's context switching, and sometimes a 'what' comment is the most direct way to keep information where it's needed.",
+  "filename": "2017-12-05-what-comments"
+}

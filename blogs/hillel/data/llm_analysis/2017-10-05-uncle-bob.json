@@ -1,0 +1,28 @@
+{
+  "summary": "Hillel Wayne critiques Robert 'Uncle Bob' Martin's dismissive attitude toward software correctness techniques beyond unit testing. Martin argues that 'discipline' rather than tools is the solution to software problems, but Wayne contends this is naive\u2014modern systems engineering recognizes that humans inevitably make mistakes, so we must design systems that catch errors rather than blame programmers. Wayne demonstrates through code examples how unit tests alone miss floating-point edge cases, null paths, and security vulnerabilities that other techniques like property-based testing, type systems, and static analysis would catch. The core argument is that no single technique is sufficient; we need every tool available because 'there's only one way a program is right and infinite ways a program can be wrong.'",
+  "key_points": [
+    "Martin's advice to rely on 'discipline' instead of tools ignores that humans inevitably make mistakes\u2014systems engineering focuses on making errors harder to make, easier to catch, or less damaging",
+    "Unit tests are insufficient because programmers can't anticipate all failure modes, as demonstrated by floating-point quirks, null paths through large codebases, and XSS vulnerabilities",
+    "Many techniques Martin dismisses as 'new' are actually older than unit testing\u2014QuickCheck predates JUnit, TLA+ predates popular TDD by a decade",
+    "No single correctness technique is enough; type systems, contracts, formal specs, code review, and tests must all be combined",
+    "Martin systematically dismisses every correctness technique except unit tests: safer languages are the 'Dark Path', formal methods are 'shiny', type systems are unnecessary with test coverage"
+  ],
+  "money_quotes": [
+    "Uncle Bob is saying the solution for people writing bad code\u2026 is to not write bad code. Our programs would be perfect if it weren't for the programmers!",
+    "You can't rely on people to not fuck up on their own: after all, the US still has 30,000 auto deaths a year. Rather, the best way to reduce the volume and severity of mistakes is to adjust the system itself.",
+    "Don't just blame the drivers, give them safe roads! Give them seatbelts!",
+    "There's only one way a program is right and infinite ways a program can be wrong, and we can't assume that any tool we use will prevent more than a narrow slice of all those wrong ways.",
+    "By being so dismissive of everything but unit tests, he's actively discouraging us from using our whole range of techniques. He demands we run blind and blames us for tripping.",
+    "QuickCheck is older than JUnit. TLA+ is almost a decade older than popular TDD. If anything, unit testing is the 'new and shiny' thing!",
+    "We'll continue to struggle with our bugs, curse our model checkers, and make software engineering just a little bit better. We don't believe in silver bullets."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "industry_observations",
+    "programming_languages"
+  ],
+  "tone": "critical, polemical, technically grounded",
+  "key_insight": "Software correctness requires combining every available technique\u2014unit tests, type systems, static analysis, formal methods\u2014because humans inevitably make mistakes and no single tool catches more than a narrow slice of possible errors.",
+  "filename": "2017-10-05-uncle-bob"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "This post explains the distinction between weak and strong fairness in TLA+ specifications, concepts that determine whether concurrent systems are guaranteed to make progress. Fairness addresses whether actions that can happen will eventually happen, preventing specifications from allowing infinite 'stuttering' where systems freeze. Weak fairness guarantees an action happens if it's permanently enabled, while strong fairness guarantees it happens if it's intermittently enabled. The post uses clock and worker retry examples to illustrate how unfair, weakly fair, and strongly fair systems behave differently. Wayne notes that even production systems like Microsoft's thread scheduler opt for weak rather than strong fairness for practical tradeoffs.",
+  "key_points": [
+    "TLA+ specifications are stutter-invariant, meaning systems can infinitely pause without violating safety properties, but this blocks liveness properties",
+    "Weak fairness guarantees an action happens if it's always enabled; strong fairness guarantees it happens if it's repeatedly (but not continuously) enabled",
+    "Fairness applies to specific actions rather than entire specs, allowing fine-grained control over which parts of a system must make progress",
+    "Strong fairness is considered less important because weak fairness is safer to assume and more realistically achievable in practice",
+    "Real systems like Microsoft's thread scheduler deliberately choose weak over strong fairness to avoid problems like lock convoys"
+  ],
+  "money_quotes": [
+    "If I do not explicitly say that I cannot throw the clock in a lake, the spec permits me to throw the clock in a lake.",
+    "Stutter-invariance is what makes composing specs in TLA+ a miserable experience, as opposed to other specification languages, where composing specs is a punishment for sinners in hell.",
+    "A system is unfair if an infinite sequence of stutter steps is a valid behavior. This is equivalent to no agents in the system ever making progress.",
+    "An action is weakly fair if, if it always can happen, then it eventually will happen.",
+    "Strong fairness says that if an action isn't permanently disabled it will eventually happen.",
+    "They cannot guarantee that all threads make progress, but they make it probabilistically near-certain, and in return they avoid lock convoys."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "technical, accessible, pedagogical",
+  "key_insight": "The distinction between weak and strong fairness determines whether a concurrent system must guarantee progress for actions that are permanently enabled versus those that are only intermittently enabled, with real-world systems often choosing weaker guarantees for practical reasons.",
+  "filename": "2020-07-03-fairness"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "This post explains why Vim's macro system is uniquely powerful: macros are simply stored keystrokes in registers, giving them complete access to all Vim functionality. Wayne provides practical techniques for recording, editing, and debugging macros, along with useful settings and commands that enhance macro usage. He covers marks, registers, visual mode, and conditionals within macros, while cautioning that complex recursive macros often indicate you should use a different tool entirely. The post serves as a practical companion to Vim's sparse official macro documentation.",
+  "key_points": [
+    "Macros are just keystrokes stored in registers, which means they can be pasted, edited, and manipulated like any text string",
+    "When you make a mistake recording a macro, undo it and continue\u2014then manually remove the mistake and undo from the stored keystrokes afterward",
+    "Starting macros with a guard prefix (like ^) and ending with a setup suffix (like j) makes them more deterministic and repeatable",
+    "Marks and registers can be used within macros to track state across complex operations",
+    "If you need conditionals or recursion in a macro, you've probably chosen the wrong tool\u2014consider functions, external filters, or regex substitutions instead"
+  ],
+  "money_quotes": [
+    "Macros are just stored keystrokes. When you record a macro, it's saved to the appropriate register, and it can be pasted and appended like any other saved string.",
+    "Kind of a shame they're so neglected. The vim doc has what, fifty lines devoted to macros?",
+    "In replay mode, an undo will undo the entire macro up until that point, erasing all of your hard work and bleeding the macro out into the rest of your text.",
+    "The more deterministic the macro, the better.",
+    "If you need a conditional in your macro you should probably be writing a function instead.",
+    "Macros are best for simple ad-hoc repetitive edits.",
+    "Writing recursive macros usually means you picked the wrong tool for the job.",
+    "Just write a function dangit"
+  ],
+  "themes": [
+    "tutorials",
+    "software_engineering"
+  ],
+  "tone": "practical, informal, opinionated",
+  "key_insight": "Vim macros derive their power from being plain text keystrokes stored in registers, making them both infinitely flexible and trivially editable\u2014but knowing when not to use them is just as important as knowing how.",
+  "filename": "2017-12-26-vim-macro-trickz"
+}

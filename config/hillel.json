@@ -1,0 +1,43 @@
+{
+  "id": "hillel",
+  "name": "Hillel Wayne",
+  "tagline": "Formal methods, programming languages, and software engineering",
+  "description": "Exploring Hillel's writings on formal methods, TLA+, Alloy, programming languages, and software engineering practices.",
+  "sourceUrl": "https://www.hillelwayne.com",
+  "sourceLabel": "hillelwayne.com",
+
+  "scraper": {
+    "type": "rss_generic",
+    "feedUrl": "https://www.hillelwayne.com/index.xml",
+    "baseUrl": "https://www.hillelwayne.com",
+    "urlFilter": "/post/",
+    "archivePattern": "/post/page/{page}/",
+    "archiveStartPage": 2,
+    "maxArchivePages": 10,
+    "sourcePostPath": "/post/{slug}/"
+  },
+
+  "themes": {
+    "formal_methods": { "label": "Formal Methods", "icon": "🔬" },
+    "tla_plus": { "label": "TLA+", "icon": "📐" },
+    "programming_languages": { "label": "Programming Languages", "icon": "💻" },
+    "software_engineering": { "label": "Software Engineering", "icon": "⚙️" },
+    "computer_science": { "label": "CS Theory", "icon": "🧮" },
+    "tutorials": { "label": "Tutorials & Tools", "icon": "🛠️" },
+    "industry_observations": { "label": "Industry", "icon": "🔍" },
+    "miscellaneous": { "label": "Miscellaneous", "icon": "📝" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Hillel Wayne, a formal methods consultant and author known for making formal verification accessible. He writes extensively about TLA+, Alloy, specification languages, and practical software engineering. He's known for clear explanations of complex computer science topics and has a distinctive style that mixes rigor with accessibility.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Hillel Wayne is known for strongly-held opinions about formal methods, software correctness, and programming practices. He advocates for specification and verification techniques that many developers overlook, and isn't afraid to challenge conventional wisdom about testing and software quality."
+  }
+}

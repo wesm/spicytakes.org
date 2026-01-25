@@ -1,0 +1,27 @@
+{
+  "summary": "The post traces the historical evolution of the equals sign as an assignment operator, starting from the four dominant languages of the early 1960s (COBOL, FORTRAN, ALGOL-60, and LISP). While ALGOL and its descendants used ':=' for assignment and '=' for equality, the shift began with CPL's introduction of '=' for initialized definitions, continued through BCPL's simplifications, and culminated in B where Ken Thompson chose '=' for all assignment purely because it's shorter than ':='. C inherited this convention, and most modern languages follow C's lead despite ':=' being the more historically common and semantically clearer choice.",
+  "key_points": [
+    "ALGOL-60 and most of its descendants used ':=' for assignment and '=' for equality, which was the dominant convention",
+    "CPL introduced '=' for initialization to support three different initialization modes (by value, reference, and substitution)",
+    "Ken Thompson chose '=' for assignment in B specifically because it's one character shorter, reasoning that assignment is twice as common as equality testing",
+    "The '==' operator for equality was invented as a workaround to disambiguate after '=' was repurposed for assignment",
+    "Most correctness-oriented languages (Pascal, Eiffel, Ada, ML) continued using ':=' for assignment"
+  ],
+  "money_quotes": [
+    "A common FP critique of imperative programming goes like this: 'How can a = a + 1? That's like saying 1 = 2. Mutable assignment makes no sense.'",
+    "The usual answer is 'because of C'. But that's just passing the buck: why does C do it that way?",
+    "Since assignment is about twice as frequent as equality testing in typical programs, it's appropriate that the operator be half as long.",
+    "CPL was a great language with a minor problem: nobody could implement it.",
+    "Looking at this as a whole, '=' was never 'the natural choice' the assignment operator.",
+    "We can trace C using it to CPL being such a trash fire.",
+    "COBOL is a bad language."
+  ],
+  "themes": [
+    "programming_languages",
+    "computer_science",
+    "software_engineering"
+  ],
+  "tone": "informative, witty, historically curious",
+  "key_insight": "The use of '=' for assignment\u2014now ubiquitous\u2014was not a natural or obvious choice but rather an accident of history stemming from CPL's complexity, BCPL's simplifications, and Ken Thompson's preference for shorter code.",
+  "filename": "2018-04-10-equals-as-assignment"
+}

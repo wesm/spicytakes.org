@@ -1,0 +1,27 @@
+{
+  "summary": "The post examines how property-based testing with contracts can catch subtle bugs that manual unit tests miss, using a buggy Python mode() function as a case study. The bug\u2014treating 0 as falsy when checking for an uninitialized max value\u2014only surfaces with specific input combinations unlikely to appear in hand-written tests. Wayne walks through progressively sophisticated contract approaches: type checks (unhelpful), sanity checks (partial), comparing against first element (catches bug), and testing the mathematical definition (most robust). He also explores metamorphic properties like sorting preservation and affine transformations, showing how different approaches trade off between power and overconstraint.",
+  "key_points": [
+    "Property-based testing finds bugs in subtle input intersections that manual tests miss because humans don't think to test edge cases like 'mode is falsy AND last element differs'",
+    "Sanity check contracts (e.g., 'result is in list') are useful but insufficient\u2014they don't express enough about the function's actual semantics to catch implementation bugs",
+    "The most robust contract tests the mathematical definition directly: the mode's count must be >= every other element's count",
+    "Oracle-based testing overconstrains by forcing a specific choice when multiple valid answers exist (e.g., ties in mode)",
+    "Static typing and dynamic contracts are complementary\u2014each catches bugs the other misses, like None being a valid list element"
+  ],
+  "money_quotes": [
+    "To surface the bug, the mode of a list must be a falsy value like 0 or [] and the last value of the list must be something else. It's a small intersection of Python's typing and the mechanics of mode, making it too unusual a case to be found by standard unit testing practice.",
+    "The problem with PBT, though, is that it can be hard to find good properties.",
+    "We want a total contract, one which always raises on an incorrect output and never raises on a correct one.",
+    "With math_mode, we're arbitrarily choosing one of them as the 'real' mode and checking that our mode picked that arbitrary element.",
+    "Static and dynamic analysis are complementary, not contradictory.",
+    "Hypothetically contracts can express all possible properties of a function. In practice you're limited to what your framework can express and check."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming_languages",
+    "formal_methods",
+    "tutorials"
+  ],
+  "tone": "technical, pedagogical, methodical",
+  "key_insight": "The best property tests encode the mathematical definition of correctness rather than implementation-specific checks, but finding that definition requires understanding what makes your function unique among similar operations.",
+  "filename": "2019-04-08-contract-examples"
+}

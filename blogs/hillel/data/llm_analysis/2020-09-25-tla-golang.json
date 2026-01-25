@@ -1,0 +1,27 @@
+{
+  "summary": "This post demonstrates how to use TLA+ to model and verify a Go concurrency bug originally described by Chris Siebenmann. The author walks through translating Go code with goroutines, channels, and defer statements into a PlusCal specification, showing how to model both buffered and unbuffered channels. The TLA+ model checker successfully reproduces the deadlock and verifies that three proposed fixes all work correctly. The post concludes by noting that while TLA+ works for this purpose, Spin might be better suited for Go channel semantics since it has channels as a native datatype.",
+  "key_points": [
+    "Go's unbuffered channels require special handling in TLA+ because they need both sender and receiver to be ready simultaneously, which doesn't map cleanly to PlusCal's single-process-per-step model",
+    "Goroutine spawning can be emulated in TLA+ by pre-defining all processes with an 'initialized' flag that they await before executing",
+    "The deadlock occurs because goroutines can only return tokens after writing to the unbuffered 'found' channel, but main only reads from 'found' after initializing all goroutines",
+    "About 75 lines of TLA+ specification verified 20 lines of Go code, with over half being reusable channel logic",
+    "Spin may be more appropriate than TLA+ for modeling Go channels since it has channels as a native datatype and was previously used to model Go's runtime scheduler"
+  ],
+  "money_quotes": [
+    "But just knowing the syntax isn't enough to write specs, and it helps to have examples to draw from.",
+    "For the purposes of pedagogy I'm not modeling what we actually read or write. This is good practice when writing real-world specs too: write the simplest specification that usefully captures behavior and iteratively add detail to that.",
+    "The goroutines can't return tokens until all goroutines are initialized, and main can't initialize all goroutines until some goroutines have returned their tokens.",
+    "Noneless, writing the TLA+ version wouldn't be significantly more effort than writing the original version and could save you net time if it caught the deadlock before production.",
+    "Obviously I'm inclined towards using TLA+, given it's my professional language of choice. However, I suspect that TLA+ isn't exactly the right tool for modeling Go channels."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "programming_languages",
+    "tutorials",
+    "software_engineering"
+  ],
+  "tone": "technical, pedagogical, pragmatic",
+  "key_insight": "Formal specification with TLA+ can catch subtle concurrency bugs like deadlocks before they reach production, and the effort to write specs is comparable to writing the original code while being reusable across similar problems.",
+  "filename": "2020-09-25-tla-golang"
+}

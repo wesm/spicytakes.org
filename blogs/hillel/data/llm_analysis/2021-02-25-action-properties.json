@@ -1,0 +1,26 @@
+{
+  "summary": "This post explains TLA+ action properties, which are properties that apply to state transitions rather than individual states. Unlike invariants that must hold for every state, action properties validate pairs of states\u2014ensuring transitions are valid even when both states are individually acceptable. The post provides the syntax `[][A]_x` for expressing these properties while respecting TLA+'s stutter invariance. Wayne positions this as 'intermediate-level' content filling a gap between introductions and case studies, offering practical patterns for conditional properties, state machines, and various real-world constraints.",
+  "key_points": [
+    "Action properties validate transitions between states, not individual states\u2014useful when both states are valid but the transition is not",
+    "The `[][A]_x` syntax handles stutter invariance by meaning 'A holds OR x is unchanged'",
+    "Conditional action properties using `=>` enable powerful patterns like 'if X changes, it must be because of action Y'",
+    "State transition tables can be encoded as action properties to constrain valid state machine behavior",
+    "Action properties are more common than liveness properties but less critical to spec validity"
+  ],
+  "money_quotes": [
+    "There's not a whole lot on TLA+ technique out there: all the resources are either introductions or case studies. Good for people starting out, bad for people past that.",
+    "Going from `x = 2` to `x = 1` would violate this, but those are both individually valid states. It's only the transition that is invalid.",
+    "Invariants and action properties only cover bad states and transitions. They don't cover 'the system actually does what you need it to do.' That's liveness.",
+    "Action properties are very useful, but not critical in the same way.",
+    "Action properties can only describe pairs of states. You can't natively write a property that spans three states without adding an auxiliary variable.",
+    "TLC can check `[][Next]_vars` just like any other action property! This is the launching point into refinement, or using an entire specification as the checked property of another spec."
+  ],
+  "themes": [
+    "tla_plus",
+    "formal_methods",
+    "tutorials"
+  ],
+  "tone": "technical, practical, instructional",
+  "key_insight": "Action properties fill the gap between state invariants and liveness properties by validating transitions\u2014catching invalid changes between states that are individually acceptable.",
+  "filename": "2021-02-25-action-properties"
+}

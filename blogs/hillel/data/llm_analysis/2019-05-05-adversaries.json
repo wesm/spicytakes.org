@@ -1,0 +1,28 @@
+{
+  "summary": "This post demonstrates how to model adversaries and environmental effects in TLA+ specifications. Wayne shows how to compose a 'machine' (the system we control) with a 'world' (outside forces we can't control) and explores what properties can still be guaranteed. The key insight is that while stability (staying in goal forever) may be impossible with adversaries, we can still prove weaker but useful properties like resilience (eventually returning to goal) or finite-spite stability. The post also shows how to verify that the machine itself never violates safety invariants, even if the world can.",
+  "key_points": [
+    "Separate your spec into 'machine' (controllable) and 'world' (uncontrollable) components to reason about adversarial or environmental effects",
+    "When full stability is impossible, weaken requirements to prove useful properties like resilience (always-eventually safe) or finite-world stability",
+    "Verify that your machine maintains invariants even when the world can violate them - this confirms the controllable parts behave correctly",
+    "Model adversaries as agents with a superset of normal actions - they can follow the protocol OR break it, making the adversarial case the general one",
+    "The update correction shows a subtle pitfall: when machine actions are a subset of world actions, fairness on the machine makes finite-world assumptions vacuously true"
+  ],
+  "money_quotes": [
+    "These 'open world' situations are a great place to use formal methods. We can't easily represent rock-dropping with line-of-code verification.",
+    "Any restrictions to the world is a weakening of our spec.",
+    "A system is stable if it can't be pushed out of Goal. A system is resilient if, after being pushed out of Goal, it eventually returns to Goal.",
+    "The world is free to violate our invariants, but our machine isn't. That's what we can control, and that's what we want to confirm does nothing unsafe.",
+    "We can think of an adversary as an agent in the system who can take a superset of the actions everybody else can.",
+    "This means that the general case of our spec is the one where everybody is an attacker, and the 'normal' case is actually the exceptional one!",
+    "Everybody comes up with their own meanings for 'stability', 'robustness', and 'resilience' and they all contradict each other."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "technical, instructive, pragmatic",
+  "key_insight": "When modeling adversaries or environmental effects, separate your specification into controllable 'machine' and uncontrollable 'world' components, then explore what weaker-but-still-useful properties you can guarantee when full stability is impossible.",
+  "filename": "2019-05-05-adversaries"
+}

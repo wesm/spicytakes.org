@@ -1,0 +1,27 @@
+{
+  "summary": "Hillel Wayne introduces Picat's planner module, which extends logic programming by finding variable mutations that reach desired end states rather than just finding satisfying assignments. He demonstrates this through a grid pathfinding problem, progressively adding complexity: first basic movement, then multiple ordered goals, then optimal path finding across unordered goals. The planner elegantly handles each extension with minimal code changes, and can even combine with constraint solving for problems like finding the largest partitionable subset of numbers. Wayne concludes that while Picat isn't production-ready due to poor documentation and error messages, it excels as a toolkit language for specific computational problems.",
+  "key_points": [
+    "Planning differs from standard logic programming by finding state mutations to reach goals, not just variable assignments that satisfy equations",
+    "The planner requires only three things: a starting state, action functions defining transitions, and a final state predicate",
+    "Adding features like multiple goals or optimal ordering requires surprisingly minimal code changes\u2014often just one or two lines",
+    "Picat's planning integrates with its other features like constraint solving, enabling 'metaconstraint' problems",
+    "The language is best suited as a toolkit for specific problem classes rather than production use"
+  ],
+  "money_quotes": [
+    "Planning pushes this all one step further: instead of finding variable assignments that satisfy equations, we find variable *mutations* that reach a certain end state.",
+    "So Picat can 'choose' which goal it moves to next so as to minimize the overall path length.",
+    "This is all so mindblowing to me. It's almost like a metaconstraint solver, allowing me to express constraints *on the valid constraints*.",
+    "Picat seems more useful as a 'toolkit' language, one you learn to solve a specific class of computational problems, and where you're not expecting to maintain or share the code afterwards.",
+    "But hey it runs on Windows, which is better than 99% of research languages.",
+    "There's a handful of problems I struggled to do with regular programming languages and constraint solvers. Picat solves a lot of them quite elegantly."
+  ],
+  "themes": [
+    "programming_languages",
+    "formal_methods",
+    "tutorials",
+    "software_engineering"
+  ],
+  "tone": "enthusiastic, exploratory, practical",
+  "key_insight": "Planning as a programming paradigm\u2014finding sequences of state mutations to reach goals\u2014offers an elegant middle ground between imperative programming and constraint solving that makes certain hard problems surprisingly tractable.",
+  "filename": "2024-02-20-picat"
+}

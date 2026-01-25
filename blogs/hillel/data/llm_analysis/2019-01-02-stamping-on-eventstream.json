@@ -1,0 +1,26 @@
+{
+  "summary": "The post applies Nancy Leveson's STAMP (System-Theoretic Accident Model & Processes) framework to analyze the event-stream npm package compromise, where a malicious actor gained maintainer access and injected code to steal Bitcoin wallets. Rather than seeking a single 'root cause' to blame, STAMP reveals how the accident emerged from systemic properties: npm's ecosystem of thousands of small packages maintained by individuals who never expected responsibility, transitive dependencies that obscure accountability, lack of privilege restrictions in JavaScript, and inadequate tooling for auditing. The analysis identifies 15+ system-level factors that made the attack possible, arguing that fixing any single 'root cause' won't prevent similar attacks without addressing the deeper structural issues.",
+  "key_points": [
+    "Root cause analysis provides 'an illusion of control' - accidents are symptomatic of deeper system failures, not isolated mistakes by individuals",
+    "The npm ecosystem's culture of many small packages creates massive attack surfaces with ~1700 maintainers for a single app's dependencies",
+    "JavaScript lacks Principle of Least Privilege enforcement - any dependency can make HTTP requests or access the filesystem",
+    "Model drift occurs when practices designed for one context (browser JS needing minification) become security vulnerabilities in new contexts (Electron apps)",
+    "Floating dependencies create a conflict between two safety constraints: auditing changes slowly vs. applying security patches quickly"
+  ],
+  "money_quotes": [
+    "'Who did this' is the wrong question. 'How did this happen' is the wrong question. A better question is 'why was this possible in the first place?'",
+    "Accidents aren't isolated failures. Accidents aren't human error. Accidents aren't simple. Accidents are complicated.",
+    "One law we see time and time again is 'you cannot fix things with discipline.'",
+    "Auditing is a waste of time. Most packages aren't going to be malicious. Copay had 2700 dependencies. After the 200th time auditing an update and going 'yup, checks out', are you really going to be as diligent with the 201st?",
+    "Tarr didn't do any advertising. He is not a famous person. He just happened to be using Node a little before everybody else, needed to write a utility, and decided to publicly release it. Suddenly it was critical to thousands of projects.",
+    "Fixing the 'root cause' is fast and cheap. Changing the fundamental system properties is slow, expensive, and risky."
+  ],
+  "themes": [
+    "software_engineering",
+    "industry_observations",
+    "computer_science"
+  ],
+  "tone": "analytical, systematic, pedagogical",
+  "key_insight": "Security incidents in software ecosystems cannot be prevented by assigning blame to individuals; they require examining and addressing the systemic properties\u2014cultural, technical, and organizational\u2014that made the failure possible in the first place.",
+  "filename": "2019-01-02-stamping-on-eventstream"
+}

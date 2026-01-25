@@ -1,0 +1,26 @@
+{
+  "summary": "This post demonstrates how to use PRISM, a probabilistic model checker, to analyze task queue performance. The author builds progressively complex models showing that while throughput scales linearly with workers (2x workers \u2248 2x throughput), latency behaves counterintuitively\u2014growing quadratically with task volume for a single worker. Adding a second worker doesn't just halve latency; it fundamentally changes the growth pattern from quadratic to sublinear because queue jams require both workers to stall simultaneously. The post walks through the PRISM specification language, explains how to model both throughput and latency using reward functions, and concludes by generalizing the model using binomial expansion to handle arbitrary numbers of workers.",
+  "key_points": [
+    "Latency in task queues grows quadratically with volume for a single worker\u201410x more tasks means 40x more total wait time",
+    "Adding a second worker changes latency growth from quadratic to sublinear, not merely halving it",
+    "Queue jams occur when slow tasks block faster ones from processing, and more tasks means both higher jam probability and more tasks piling up behind jams",
+    "PRISM's probabilistic model checking can reveal counterintuitive system behaviors through formal specification rather than just tracing/metrics",
+    "The binomial expansion provides an elegant way to generalize worker processing probabilities to N workers"
+  ],
+  "money_quotes": [
+    "A 10x increase in volume gives us a 40x increase in total latency!",
+    "The latency spike then comes from two places: first, more tasks means a higher chance of a long task that jams the queue. Second, if the queue gets jammed there are more tasks that can pile up behind it, adding latency.",
+    "For one worker the wait time was just about quadratic, while this is sublinear. The queue only jams if *both* workers stall out, which is a lot less likely.",
+    "For all their popularity, we don't abstractly model the properties of task queues. We have tools to implement them and tools to trace/metric them, but we don't use theoretical models to understand our systems in abstract.",
+    "With specifications, we have two levels. We write the specs and then we write the properties about the specs.",
+    "This was a simple model of task queues. We didn't cover priority, error handling, multiple queues, etc. Nonetheless, the spec was good enough to show how nonlinear latency is."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "technical, pedagogical, methodical",
+  "key_insight": "Adding workers to a task queue doesn't just improve throughput linearly\u2014it fundamentally changes the mathematical behavior of latency from quadratic to sublinear growth.",
+  "filename": "2020-11-02-queueing-prism"
+}

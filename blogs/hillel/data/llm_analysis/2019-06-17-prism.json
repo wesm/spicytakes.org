@@ -1,0 +1,28 @@
+{
+  "summary": "Hillel Wayne explores PRISM, a probabilistic modeling language that can express statistical properties like average times and probability distributions\u2014capabilities that TLA+ and Alloy lack. Using a game theory example of two players with different skill levels, he demonstrates how PRISM can calculate win probabilities and optimal handicaps. However, he concludes that PRISM's severe expressivity limitations\u2014no tuples, arrays, functions, or even strings\u2014make it impractical for most real-world problems despite its powerful probability checking capabilities.",
+  "key_points": [
+    "PRISM fills a gap that TLA+ and Alloy cannot: expressing statistical properties and weighted probabilities rather than absolute correctness",
+    "The fundamental tradeoff in modeling is that more powerful checkers require less expressive languages\u2014PRISM's probability analysis comes at the cost of having only integers, doubles, and booleans",
+    "PRISM uses an extended Linear Temporal Logic (LTL) to express properties with operators like X (next), F (finally/eventually), G (global/henceforth), and S (steady-state)",
+    "The experiment feature allows running properties over parameter ranges to generate tables and graphs automatically",
+    "Despite months of searching, the author struggled to find good examples because most interesting problems require strings, tuples, or functions that PRISM lacks"
+  ],
+  "money_quotes": [
+    "There's a fundamental tradeoff in modeling: the more powerful the checker, the less expressive the language.",
+    "TLA+ and Alloy are good for absolutes. You can say 'there exists an error in this design'. But you can't express statistical properties.",
+    "As far as I can tell, this is a conceptual tradeoff: part of the reason PRISM is able to even check complex probabilities is because the spec language is so limited.",
+    "It took me months to find a good example because everything I could think of either required strings, tuples, or functions.",
+    "There are lots of interesting problems that you might want to solve, but very, very few of them are cleanly expressible in PRISM.",
+    "Is it worth learning? I don't think so. It's not going to be useful unless you're absolutely sure you don't need tuples.",
+    "But that's part of the deal with exploring: not everything you find is gonna shake the world."
+  ],
+  "themes": [
+    "formal_methods",
+    "tutorials",
+    "programming_languages",
+    "industry_observations"
+  ],
+  "tone": "candid, exploratory, pragmatic",
+  "key_insight": "PRISM demonstrates the fundamental tension in formal tools between analytical power and practical expressivity\u2014its ability to check complex probabilities comes at the cost of a language so limited that few real problems can be cleanly modeled in it.",
+  "filename": "2019-06-17-prism"
+}

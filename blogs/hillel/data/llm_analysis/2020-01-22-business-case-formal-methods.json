@@ -1,0 +1,27 @@
+{
+  "summary": "Hillel Wayne presents a practical business case for formal methods, arguing that specification-based design verification saves money by catching complex bugs before implementation. He demonstrates using a carbon credit trading platform example where a subtle race condition\u2014taking three actors and four steps to manifest\u2014would slip past unit tests and QA. A 50-line TLA+ specification finds this bug in under six minutes total effort. He also honestly addresses limitations: no automatic code generation, less useful for simple systems, and poor at catching implementation errors like null handling.",
+  "key_points": [
+    "Formal methods are 'debuggable design'\u2014you can test system designs without writing code, finding bugs before implementation begins",
+    "Complex bugs are expensive: they're subtle enough to evade testing, dangerous enough to violate core requirements, and costly to fix after deployment",
+    "The carbon credit demo shows a race condition that unit tests won't find: offering the same credit to multiple parties allows ownership to transfer from someone who never offered it",
+    "Specifications aren't silver bullets\u2014they don't auto-generate code, aren't worth it for simple systems, and won't catch implementation bugs like null handling",
+    "An hour of modeling catches issues that days of writing tests will miss, because it operates at a higher level of abstraction"
+  ],
+  "money_quotes": [
+    "You write a specification of your system and properties you want it to have. Then you can directly test the design without having to write any code and see if it has problems.",
+    "An hour of modeling will catch issues that days of writing tests will miss.",
+    "It took the model checker two seconds to find the error. In less than six minutes I designed the system and found an expensive bug.",
+    "So subtle, complex, dangerous. These are expensive bugs. The longer this bug is in production, the more money you lose.",
+    "If you can keep the whole system 'in your head', or if it does not involve a lot of intricate logic, specifications may not provide you much benefit.",
+    "Formal methods can be the difference between 'on time and under budget' and 'two months late and then another two months of maintenance fires.'"
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "software_engineering",
+    "industry_observations"
+  ],
+  "tone": "persuasive, practical, honest",
+  "key_insight": "Formal methods pay for themselves by finding subtle, expensive bugs at the design stage\u2014before you've spent weeks building the wrong system.",
+  "filename": "2020-01-22-business-case-formal-methods"
+}

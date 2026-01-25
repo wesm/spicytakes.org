@@ -1,0 +1,27 @@
+{
+  "summary": "The post warns against overusing Alloy's 'fact' keyword to constrain specification models. While facts prevent the model checker from generating certain states, this can backfire when you need to verify that your software correctly handles invalid inputs. The author argues that 'making illegal states unrepresentable' works well in programming but creates problems in specification because specs must model both the software and its environment. Using predicates instead of facts keeps constraints explicit and testable. Facts should be reserved for narrowing problem scope, eliminating uninteresting cases, optimization, or expressing relationships Alloy can't handle natively.",
+  "key_points": [
+    "Facts make states unrepresentable, which prevents testing that your software correctly rejects those states",
+    "Specifications must model both the machine (your software) and the world (the environment), unlike regular programming where MISU is always good",
+    "Predicates are preferable to facts because they're explicit, locally scoped, and can be selectively applied",
+    "Legitimate uses for facts include narrowing problem scope, eliminating fundamentally uninteresting cases, symmetry breaking for optimization, and expressing type constraints Alloy can't handle natively",
+    "The core tension: you need error states to exist in your model to verify your program handles them correctly"
+  ],
+  "money_quotes": [
+    "If you cannot represent the illegal state, you cannot represent the world creating an illegal state that your software needs to handle.",
+    "Constraints are dangerous because you need error states in order to check that your program avoids error states.",
+    "Normally in programming languages, 'making illegal states unrepresentable' is a good thing. But specification covers both the software you are writing and the environment the software is running in.",
+    "These kinds of nonsensical situations arise often when we're specifying, because we have an intent of what the system should be but don't explicitly encode it.",
+    "Instead of facts, you want predicates. Then you can test for the predicate being true or check that it's necessary to get other properties. Make the constraint explicit instead of implicit.",
+    "'No self-deps' is a perfectly reasonable fact if we're only specifying the package installer and something else is responsible for validating the manifests."
+  ],
+  "themes": [
+    "formal_methods",
+    "programming_languages",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "technical, instructive, practical",
+  "key_insight": "In formal specification, making illegal states unrepresentable through facts prevents you from verifying that your software correctly handles those illegal states when they occur in the real world.",
+  "filename": "2024-04-10-alloy-facts"
+}

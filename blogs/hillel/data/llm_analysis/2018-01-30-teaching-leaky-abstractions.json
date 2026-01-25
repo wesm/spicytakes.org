@@ -1,0 +1,28 @@
+{
+  "summary": "The author discusses pedagogical challenges when teaching TLA+ through the PlusCal abstraction layer. While PlusCal simplifies syntax significantly, certain advanced concepts like temporal invariants require underlying TLA+ knowledge that isn't otherwise needed in PlusCal. Rather than either using clunky workarounds or dumping inapplicable concepts on readers, the author explores a third approach: finding ways to make each prerequisite concept independently useful within PlusCal contexts, then synthesizing them later when needed.",
+  "key_points": [
+    "PlusCal abstracts away TLA+'s most convoluted syntax while preserving most of the learning, making it ideal for teaching",
+    "Some invariants (like 'x never decreases') are trivial in pure TLA+ but require ugly bookkeeping hacks in PlusCal",
+    "The pedagogical dilemma: teach concepts that aren't immediately useful, or use inferior workarounds",
+    "The solution is to find natural contexts where each prerequisite concept becomes useful on its own, enabling later synthesis",
+    "Stuttering can be taught through crash simulation, primed variables through debugging error traces"
+  ],
+  "money_quotes": [
+    "I asked my technical reviewer to be 'almost-comically brutal' and he's risen to the challenge.",
+    "PlusCal only abstracts away setting and updating values, which happens to be the most convoluted part of TLA+.",
+    "I don't want to sledgehammer the reader with information that only makes sense much later.",
+    "This works, but it has two major problems... We've added another variable to track solely to help with the bookkeeping.",
+    "We make things cumbersome or we could write `[][y => x' >= x]_x`. No bookkeeping needed at all.",
+    "Either we use a shitty workaround or we bite the bullet and teach a bunch of inapplicable concepts to get to the good stuff.",
+    "While all these concepts are unnecessary in Pluscal, I can find ways to make them useful.",
+    "Teaching is hard!!!"
+  ],
+  "themes": [
+    "tla_plus",
+    "formal_methods",
+    "tutorials"
+  ],
+  "tone": "reflective, practical, candid",
+  "key_insight": "When teaching abstractions that leak, the solution isn't to dump prerequisites or accept inferior workarounds, but to find independent contexts where each prerequisite becomes naturally useful before synthesis is needed.",
+  "filename": "2018-01-30-teaching-leaky-abstractions"
+}

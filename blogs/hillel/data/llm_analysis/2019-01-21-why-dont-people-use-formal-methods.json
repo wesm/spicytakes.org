@@ -1,0 +1,29 @@
+{
+  "summary": "This post provides a comprehensive historical overview of why formal methods remain niche in software engineering despite their potential benefits. Wayne distinguishes between code verification (proving code matches specifications) and design verification (proving system designs are correct), explaining that code verification is technically difficult\u2014requiring extensive mathematical proofs that even with modern SMT solvers yield only about four lines of verified code per day. Design verification is technically easier but faces cultural barriers: programmers don't trust artifacts that aren't code and don't believe specification provides value beyond existing practices like pseudocode or TDD. The post argues that while full formal verification is rarely economical, partial verification and design specification offer practical value that most of the industry overlooks.",
+  "key_points": [
+    "Code verification requires proving programs match specifications, which is extraordinarily difficult\u2014Microsoft's IronFleet project produced only 4 lines of verified code per day despite using cutting-edge SMT solvers",
+    "The 'right spec' problem isn't primarily about validation (does the customer want this?) but about translating human concepts into mathematical terms we can formally express",
+    "Design verification is technically much easier than code verification because you can abstract away implementation details, but faces social/cultural adoption barriers",
+    "Most software doesn't need 100% correctness\u2014you can get to 99% with testing, types, and practices like Cleanroom at far lower cost than formal proofs",
+    "Model checkers make design verification accessible by brute-forcing state spaces instead of requiring proofs, though they face state-space explosion challenges"
+  ],
+  "money_quotes": [
+    "There really isn't a formal methods community so much as a few tiny bands foraging in the Steppe.",
+    "Proofs are hard. Obnoxiously hard. 'Quit programming and join the circus' hard.",
+    "By using advanced SMT solvers and a cutting-edge verification language, Microsoft was able to write 5,000 lines of verified Dafny code in only 3.7 person-years! That's a blazing-fast rate of four whole lines a day.",
+    "What's good for coding is bad for proving!",
+    "You do not need full code verification to write good software or even to write near-perfect software.",
+    "While code verification is a technical problem, design verification is a social problem: people just don't see the point.",
+    "If there's one thing that studying formal methods has taught me, it's that time is evil and I hate it.",
+    "Keep in mind 'a lot of specifiers' is, like, ten people."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "industry_observations",
+    "computer_science"
+  ],
+  "tone": "educational, witty, pragmatic",
+  "key_insight": "Formal methods remain niche not because they don't work, but because code verification is prohibitively expensive for most cases while design verification\u2014though technically easier\u2014faces cultural resistance from programmers who don't trust non-code artifacts.",
+  "filename": "2019-01-21-why-dont-people-use-formal-methods"
+}

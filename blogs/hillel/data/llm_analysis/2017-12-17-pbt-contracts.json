@@ -1,0 +1,26 @@
+{
+  "summary": "The post demonstrates how combining property-based testing (PBT) with contracts can create effective integration tests. Contracts define preconditions and postconditions that serve as PBT invariants, eliminating the need to manually specify test assertions. When PBT generates inputs matching preconditions, contracts automatically verify correctness throughout the call chain. The author shows this through a list removal example and a siteswap validator, illustrating how contracts 'chain' through function calls to provide integration-level verification. This approach addresses PBT's challenge of coming up with invariants and integration testing's complexity of orchestrating components.",
+  "key_points": [
+    "Contracts and PBT have complementary tradeoffs: contracts need wide testing to confirm them, while PBT needs good invariants\u2014combining them solves both problems",
+    "The PBT test acts as a fuzzer that generates inputs while contracts serve as the invariants, requiring no manual assertions in tests",
+    "Contract checking 'chains' through function calls, so testing a high-level function automatically verifies contracts of all called functions",
+    "Precondition failures in directly-called functions usually indicate test errors, while postcondition failures indicate implementation bugs",
+    "This technique transforms the challenge of writing integration tests into the simpler task of writing contracts on individual functions"
+  ],
+  "money_quotes": [
+    "Maybe they complement each other: 'your code doesn't violate any contracts' counts as a PBT invariant.",
+    "Note we've tested our function without ever specifying what we're checking in the test! All it's doing is acting as a fuzzer.",
+    "Combining contracts and PBT gives us integration tests!",
+    "The test doesn't have to know anything about what siteswap_to_balls does, only that it accepts lists of integers. The contracts do the rest.",
+    "Given that one of the big challenges in PBT is coming up with invariants and one of the challenges of integration testing is the integration, I think this idea is worth exploring."
+  ],
+  "themes": [
+    "formal_methods",
+    "software_engineering",
+    "programming_languages",
+    "tutorials"
+  ],
+  "tone": "technical, exploratory, practical",
+  "key_insight": "Using contracts as PBT invariants creates self-documenting integration tests where the contracts do the verification work and testing becomes pure fuzzing.",
+  "filename": "2017-12-17-pbt-contracts"
+}

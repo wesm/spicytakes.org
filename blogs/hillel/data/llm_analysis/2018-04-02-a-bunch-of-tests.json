@@ -1,0 +1,28 @@
+{
+  "summary": "This post provides a comprehensive taxonomy of automated testing approaches, dividing them into automanual tests (where humans specify exact inputs and outputs) and generative tests (where programs search for failing inputs). Wayne walks through unit tests, integration tests, acceptance tests, feature tests, diff tests, and parameterized tests in the automanual category, then covers property tests, fuzz tests, and model tests in the generative category. He argues that while automanual tests are easier to write and deterministic, they only test tiny slivers of state space, whereas generative tests explore much wider ranges at the cost of specificity. The piece serves as both reference guide and gentle critique of testing orthodoxy.",
+  "key_points": [
+    "Automanual tests specify exact inputs and outputs; generative tests let programs search for failing inputs across broader state spaces",
+    "The distinction between unit and integration tests is fuzzy, but integration tests are those that might fail due to emergence\u2014complex behavior from interacting components",
+    "Property testing checks invariants across generated inputs and uses shrinking to find minimal failing cases",
+    "Model-based testing generalizes property testing by modeling tests as state machines that can choose their own transitions",
+    "Feature tests (like Cucumber) try to be tests, specifications, and documentation simultaneously, which creates tension since these have different requirements"
+  ],
+  "money_quotes": [
+    "I think a good difference is that unit tests are unaffected by emergence, or complex behavior that arises from multiple interacting components.",
+    "Emergence is a hellishly complicated problem and many, many bugs hide in the interactions between units.",
+    "Calling integration tests 'contract tests' is completely missing the point of contracts.",
+    "Once we get to the level of 'product' we're dealing with reality and reality is pretty damn hard to test.",
+    "Feature tests simultaneously try to be tests, specifications, and documents. Unfortunately, all three of these have different requirements.",
+    "While automanual tests give you complete information about a single input, generative tests only give you partial information on a range of inputs.",
+    "Finding good invariants to test can be a very difficult problem.",
+    "Mutation tests rerun your other tests on randomly modified versions of the code: if your tests still pass, they're probably broken."
+  ],
+  "themes": [
+    "software_engineering",
+    "tutorials",
+    "formal_methods"
+  ],
+  "tone": "technical, comprehensive, opinionated",
+  "key_insight": "The fundamental tradeoff in testing is between automanual tests that give complete information about specific cases and generative tests that give partial information across much wider state spaces.",
+  "filename": "2018-04-02-a-bunch-of-tests"
+}

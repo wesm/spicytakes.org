@@ -1,0 +1,27 @@
+{
+  "summary": "This post demonstrates how to use Alloy, a lightweight formal methods tool, to verify that randomized game configurations are always winnable. Using Link to the Past Randomizer as an example, Wayne builds an Alloy model that represents chests, items, and their requirements, then formally proves that certain placement restrictions guarantee the game can be completed. The post progressively refines the model to handle increasingly complex scenarios: unique item placement, requirement cycles, multi-item requirements, and alternative puzzle solutions. Wayne concludes by comparing Alloy favorably to TLA+ for its simplicity and speed, while noting its limitations for dynamic systems and concurrency.",
+  "key_points": [
+    "Alloy translates models into SAT problems, making it extremely fast (under 150ms) but limited to bounded model checking",
+    "The 'trace' pattern solves Alloy's lack of recursion support by modeling reachability as a sequence of inventory states",
+    "Relations in Alloy are just tuples of atoms, allowing bidirectional traversal and powerful set operations like transitive closure",
+    "Alloy excels at verifying relational data structures but struggles with dynamic systems, concurrency, and liveness properties",
+    "Forcing certain critical items to be 'free' (not in any chest) can guarantee winnability when simpler restrictions fail"
+  ],
+  "money_quotes": [
+    "We can check with unit tests, but tests don't give us 100% certainty. If we want that, we need to use formal methods.",
+    "For a verifier, Alloy is pretty damn fast!",
+    "Here's something very, very important about Alloy: it does not support multisets.",
+    "Another important thing: Alloy doesn't like recursion.",
+    "Instead of making it impossible to lose, our restrictions made it impossible to win.",
+    "Alloy's simplicity is also a weakness. It's pretty tuned to inspecting relationships in data structures. The further you get from that, the harder things get.",
+    "It's not as flexible or powerful as other formal methods tools, but it's fun and you can get up and going pretty quickly."
+  ],
+  "themes": [
+    "formal_methods",
+    "tutorials",
+    "programming_languages"
+  ],
+  "tone": "technical, accessible, playful",
+  "key_insight": "Alloy's relational algebra foundation makes it ideal for quickly verifying properties of data structures and item relationships, even if the problem domain (game randomizers) isn't its intended niche.",
+  "filename": "2018-01-15-alloy-randomizer"
+}

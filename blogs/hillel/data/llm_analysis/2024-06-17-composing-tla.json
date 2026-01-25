@@ -1,0 +1,28 @@
+{
+  "summary": "This post presents a technique for composing large TLA+ specifications using state machines and a 'Sync' operator. The traditional approach to composing specs requires manually stitching together actions, which becomes unwieldy for large specifications. Wayne's solution uses TLA+'s ability to treat primed variables as both assignments and constraints, allowing a central state machine to guard and trigger transitions across independent components. The technique involves writing an abstract state machine for the core component, keeping other components 'open' (not fully self-contained), and using refinement to verify correctness. While more complex than simple specs warrant, this approach scales better for large specifications that need independent development.",
+  "key_points": [
+    "TLA+ primed variables can serve as both assignments and constraints, enabling one spec to constrain another's transitions after the fact",
+    "The Sync operator acts as glue between independently developed specs, adding guards and side-effects to state transitions without modifying the original components",
+    "Specs can be written 'open' (incomplete) by making them stuttering-invariant only on internal variables, allowing external specs to drive their shared state",
+    "Refinement properties are transitive: if the composed system refines a component spec, all the component's verified properties carry over automatically",
+    "This approach trades upfront complexity for better maintainability and scalability compared to conventional composition that requires manually interlacing actions"
+  ],
+  "money_quotes": [
+    "Composing two specs can be as much work as writing them in the first place.",
+    "We can use x' to both assign the next value to x and constrain what the next value can be.",
+    "This is just a state machine! Constraints on transitions are just guard clauses and assignments on transitions are just effects.",
+    "Our worker doesn't need to know this. We can develop them independently and rely on the Sync to correctly compose their behaviors.",
+    "In TLA+, refinements are transitive.",
+    "The point of composing specs at all is so we can work on them independently.",
+    "This is a powerful technique, but also one that takes experience and adds complexity."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "technical, practical, pedagogical",
+  "key_insight": "By leveraging TLA+'s dual interpretation of primed variables as both assignments and constraints, you can compose large specifications through a central Sync operator that guards and triggers transitions without modifying the original components.",
+  "filename": "2024-06-17-composing-tla"
+}

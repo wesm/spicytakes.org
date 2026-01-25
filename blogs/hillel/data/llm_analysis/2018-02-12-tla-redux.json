@@ -1,0 +1,27 @@
+{
+  "summary": "This post demonstrates how to model Redux's state management pattern using TLA+, a formal specification language. Wayne walks through creating a reducer specification, then proves it 'refines' a simpler global state model by showing both systems always end up with equivalent state. He also shows how to create a temporal property that ensures all state changes go through Redux's proper channels, catching violations even when integrating with other components. The post concludes with the observation that specification helped Wayne understand Redux better than tutorials did.",
+  "key_points": [
+    "Redux's action-reduce-update cycle can be modeled as a single atomic step in TLA+ since there's no concurrency between reduction and update",
+    "Refinement proofs let you verify that a complex implementation behaves equivalently to a simpler abstract model",
+    "Temporal properties can enforce that state changes only happen through designated channels, catching violations automatically",
+    "PlusCal specs cannot import other PlusCal specs with actions, requiring TLA+ for component composition",
+    "The process of formal specification often improves understanding of a system more than reading tutorials"
+  ],
+  "money_quotes": [
+    "Careful refinement is one of the precious few ways we know of to prove code correct at scale.",
+    "Comprehension is one of the major benefits of specification; it's just less visceral than formally verifying properties.",
+    "Redux is usually presented as a pretty complicated topic to 'get', but the JS folk I talked to said this spec mostly matches how Redux is supposed to work.",
+    "The component is able to show that something else updated the global state without going through its channels.",
+    "We do this to blueprint our system and find errors in our designs, not to confirm the code itself works.",
+    "TLA+ is not only able to identify that the equivalence invariant has failed, it's able to identify the series of steps that leads to the invariant failing."
+  ],
+  "themes": [
+    "tla_plus",
+    "formal_methods",
+    "software_engineering",
+    "tutorials"
+  ],
+  "tone": "technical, exploratory, self-deprecating",
+  "key_insight": "Formal specification is valuable not just for verification but for understanding\u2014modeling Redux in TLA+ revealed its essential structure more clearly than tutorials could.",
+  "filename": "2018-02-12-tla-redux"
+}

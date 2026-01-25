@@ -1,0 +1,27 @@
+{
+  "summary": "Hillel Wayne presents a more intuitive way to understand the Liskov Substitution Principle: if a class inherits from another, it should pass all of the parent's black-box tests. The traditional approach uses three rules (method contracts, class invariants, and the history rule), but these feel arbitrary and disconnected. The testing approach unifies all three rules under one simple concept. Research by Baniassad and Summers found this pedagogical reframing significantly improved student understanding of LSP, taking them from failing to passing grades on related questions.",
+  "key_points": [
+    "The traditional LSP rules (don't strengthen preconditions, don't weaken postconditions, preserve invariants, follow history rule) are hard to remember and feel like ad-hoc patches",
+    "The history rule seems like a crude hack because contracts and invariants only span one method's lifetime, but tests can call sequences of methods",
+    "Reframing LSP as 'must pass all supertype black-box tests' provides a unified explanation for all the traditional rules",
+    "This testing approach also helps students understand the distinction between black-box and white-box testing",
+    "The research showed dramatic improvement in student comprehension, from failing to passing grades on LSP questions"
+  ],
+  "money_quotes": [
+    "If X inherits from Y, then X should pass all of Y's black box tests.",
+    "The history rule always felt like a tack-on. It makes me worry that we're just patching up holes as we find them.",
+    "We originally needed the history rule because contracts and invariants only span the lifetime of one method. But now we can just call a sequence of methods in one test!",
+    "For a class to be substitutable for its supertype, it must pass all the supertype's black box tests.",
+    "Students went from not demonstrating any intuition around the rule, to 'getting it'.",
+    "It all just makes me lose trust in the applicability of LSP."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming_languages",
+    "computer_science",
+    "tutorials"
+  ],
+  "tone": "pedagogical, analytical, pragmatic",
+  "key_insight": "The Liskov Substitution Principle becomes intuitive when reframed as a testing concept: a subtype must pass all black-box tests written for its parent type.",
+  "filename": "2023-11-07-lsp"
+}
