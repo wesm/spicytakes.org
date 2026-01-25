@@ -176,5 +176,18 @@ describe('buildSourceUrl', () => {
       const result = buildSourceUrl('2018-01-23-my-post.md', cfg, {});
       expect(result).toBe('https://steve-yegge.blogspot.com/2018/01/my-post.html');
     });
+
+    it('transcript video_url takes precedence over source_url', () => {
+      const cfg = makeConfig({
+        sourceUrl: 'https://example.com',
+        scraper: { type: 'blogger' },
+      });
+      const result = buildSourceUrl('2023-05-15-talk-transcript.md', cfg, {
+        content_type: 'transcript',
+        video_url: 'https://youtube.com/watch?v=abc123',
+        source_url: 'https://example.com/should-not-use-this',
+      });
+      expect(result).toBe('https://youtube.com/watch?v=abc123');
+    });
   });
 });

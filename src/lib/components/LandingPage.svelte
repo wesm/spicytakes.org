@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { landing } from '$lib/config';
 
-  // Pepper emoji for brand
+  // Pepper emoji for inline usage
   const pepper = '🌶️';
 
   // Shuffle blogs randomly on each page load (client-side only to avoid hydration mismatch)
@@ -27,7 +27,7 @@
   <!-- Hero Section -->
   <header class="pt-16 pb-12 px-6 text-center">
     <h1 class="text-5xl md:text-6xl font-bold text-stone-900 mb-4">
-      <span class="text-red-500">{pepper}</span> {landing.title}
+      <img src="/logo.jpeg" alt="Spicy Takes" class="w-12 h-12 md:w-14 md:h-14 inline-block align-middle rounded-lg" /> {landing.title}
     </h1>
     <p class="text-xl md:text-2xl text-stone-600 max-w-2xl mx-auto">
       {landing.tagline}
