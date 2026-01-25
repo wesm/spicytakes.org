@@ -45,13 +45,13 @@
       <div class="flex items-center gap-3">
         <!-- Spicy Takes logo and link -->
         <a href="https://spicytakes.org" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity flex-shrink-0" aria-label="Spicy Takes home">
-          <img src="{base}/logo.jpeg" alt="" aria-hidden="true" class="w-8 h-8 rounded-md" />
+          <img src={`${base}/logo.jpeg`} alt="" aria-hidden="true" class="w-8 h-8 rounded-md" />
         </a>
         <span class="text-stone-300">|</span>
         <!-- Blogger photo and name -->
         <div class="flex items-center gap-2">
           {#if bloggerPhoto}
-            <img src={bloggerPhoto} alt={config?.name} class="w-8 h-8 rounded-full object-cover ring-1 ring-stone-200 flex-shrink-0" />
+            <img src={`${base}${bloggerPhoto}`} alt={config?.name} class="w-8 h-8 rounded-full object-cover ring-1 ring-stone-200 flex-shrink-0" />
           {/if}
           <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2">
             <h1 class="text-lg sm:text-xl font-bold tracking-tight text-stone-900">{config?.name}</h1>
