@@ -1,0 +1,29 @@
+{
+  "summary": "Yegge announces Ejacs, a JavaScript interpreter he wrote in Emacs Lisp by porting Narcissus and implementing the full ECMA-262 runtime. The project stalled when he pivoted to js2-mode for JavaScript editing, which required porting Rhino's parser instead. The post morphs into a detailed comparison of Emacs Lisp vs JavaScript, where Yegge argues JavaScript is superior despite Elisp's macros. He criticizes Elisp's lack of namespaces, closures, delegation, properties, and proper serialization, while noting JavaScript has momentum and attracts smart people.",
+  "key_points": [
+    "Ejacs required implementing a full ECMA-262 runtime because Narcissus cheats by calling JavaScript for its runtime",
+    "Emacs Lisp's global namespace problem forces verbose symbol prefixing and prevents real encapsulation",
+    "Dynamic scoping in Elisp means let-bound variables can be destroyed by callees, breaking encapsulation further",
+    "JavaScript's properties pattern is fundamental but requires significant work to implement in Elisp (hybrid alist/hashtable approach)",
+    "Smart people consistently prefer JavaScript despite being slightly embarrassed to admit it"
+  ],
+  "money_quotes": [
+    "Narcissus has a working parser and evaluator, but for its runtime it calls JavaScript. So it's kind of like saying you're building a car by starting from scratch, using absolutely nothing except for a working car.",
+    "Emacs Lisp is a 1984 Subaru GL 4WD: 'the car that's always in front of you.'",
+    "It pretty much combines the elegance of Common Lisp with the industrial strength of Scheme, without hitting either of them, if you catch my drift.",
+    "Emacs is basically one big program soup. There's almost no encapsulation to speak of, and it hurts.",
+    "Writing your own virtual method dispatch is just not something you should have to do in 2008.",
+    "I've found that JavaScript is a language that smart people like. It's weird, but I keep meeting really really smart people, folks who (unlike me) are actually intelligent, and they like JavaScript.",
+    "Implementer convenience is a pretty lame metric for deciding whether to support a feature, especially after 20 years of people asking for it.",
+    "Ejacs is just a toy, but I think it also shows a kind of promise. Scripting Emacs using JavaScript could open up the world's most powerful, advanced editing environment to millions of people."
+  ],
+  "themes": [
+    "programming_languages",
+    "compilers",
+    "software_engineering",
+    "rants"
+  ],
+  "tone": "humorous, technical, opinionated",
+  "key_insight": "JavaScript, despite its flaws, has momentum and attracts smart people, while Emacs Lisp's lack of closures, namespaces, and properties makes it verbose and poorly encapsulated\u2014a language that 'gets the job done' but painfully.",
+  "filename": "2008-11-16-ejacs-javascript-interpreter-for-emacs"
+}

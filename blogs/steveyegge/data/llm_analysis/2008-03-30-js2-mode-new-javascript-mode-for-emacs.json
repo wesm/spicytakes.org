@@ -1,0 +1,27 @@
+{
+  "summary": "Yegge announces js2-mode, a new JavaScript editing mode for Emacs that includes a full recursive-descent parser ported from Mozilla Rhino. The mode provides accurate syntax highlighting, async parsing, and bounce-style indentation. He details his failed attempt at incremental parsing and the surprisingly difficult problem of indentation, which he discovered is 'almost totally orthogonal to parsing.' The project is part of a larger effort to enable writing Emacs extensions in JavaScript instead of Emacs-Lisp.",
+  "key_points": [
+    "Built a 10,000-line elisp mode with a full JavaScript parser ported from Mozilla Rhino for accurate syntax highlighting",
+    "Incremental parsing proved too complex; switched to asynchronous parsing after weeks of failed effort",
+    "Indentation is shockingly harder than parsing - cc-mode has 27,000 lines of lisp just for indentation",
+    "Adopted a 'bounce indenter' from Karl Landstr\u00f6m's javascript.el that cycles through likely indentation points on TAB",
+    "The mode includes syntax error highlighting, strict warnings, code folding, and jsdoc support"
+  ],
+  "money_quotes": [
+    "I can't recognize my own incompetence",
+    "Brendan is an amazingly polite guy, so at the time I didn't realize this was a code-phrase for: 'Let me know when you give up on it, loser.'",
+    "27k lines of Lisp code? (Meaning it would be, like, five times that much Java?)",
+    "Amazingly, surprisingly, counterintuitively, the indentation problem is almost totally orthogonal to parsing and syntax validation.",
+    "Let's face it: you could be a total lunatic, and Emacs has to make you happy.",
+    "I'm declaring war on people too lazy to learn to type.",
+    "If you spend even 30 seconds on their site it becomes apparent that 'commercial' means 'better'."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "compilers"
+  ],
+  "tone": "humorous, self-deprecating, technical",
+  "key_insight": "Building a full parser for syntax highlighting is straightforward compared to the nightmare of indentation, which requires handling an explosion of edge cases that parsers deliberately ignore.",
+  "filename": "2008-03-30-js2-mode-new-javascript-mode-for-emacs"
+}

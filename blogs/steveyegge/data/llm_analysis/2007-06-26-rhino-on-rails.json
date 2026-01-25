@@ -1,0 +1,28 @@
+{
+  "summary": "Yegge recounts his unexpectedly viral Foo Camp talk about porting Ruby on Rails to JavaScript running on the JVM via Mozilla Rhino. He explains Google's pragmatic language policy (C++, Java, Python, JavaScript only) and why this constraint, combined with his project's JVM requirements, led him to choose Rhino over Jython. The post details how they extended JavaScript with Ruby/Python-like methods and began a 20% project to add JavaScript 1.7 features to Rhino. He emphasizes that Google's clean codebase and engineering discipline enable this kind of experimentation within well-defined boundaries.",
+  "key_points": [
+    "Google limits production languages to C++, Java, Python, and JavaScript to build language expertise, reduce interoperability complexity, and enable easy team transfers",
+    "Rhino (server-side JavaScript on JVM) was chosen over Jython because Jython stagnated since 2001 while Rhino has momentum, a real spec, and Sun's endorsement in Java 6",
+    "They extended JavaScript with Ruby and Python built-in methods by leveraging Rhino's ability to define non-enumerable properties",
+    "The Rails port covers ActionView, ActionController, and Railties, done manually with Emacs keyboard macros rather than code generators",
+    "Google's engineering culture requires design documents for anything over a week of work, resulting in comprehensive internal documentation for every significant piece of code"
+  ],
+  "money_quotes": [
+    "I am privileged to work at Google. It's a privilege. It's something that I have no expectations about.",
+    "I'm nobody at Google. I'm a very comfy, very small fish in a sea full of large, toothy sea creatures.",
+    "The thing is, Google's decision to limit the number of languages allowed for production work is actually pretty smart.",
+    "Programming languages have a core of standard functionality that everyone knows, followed by a long tail of murky semantics that become increasingly difficult to figure out.",
+    "I've never seen anything like it before, to be honest. I don't think you can get that kind of software-engineering discipline without doing it right from the start.",
+    "Ports are kinda boring when you get right down to it.",
+    "Rails is its own most succinct implementation, with very few exceptions."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "tech_industry",
+    "google"
+  ],
+  "tone": "self-deprecating, enthusiastic, technical, conversational",
+  "key_insight": "Smart language constraints at scale aren't limiting\u2014they enable experimentation by building deep expertise and reducing organizational friction.",
+  "filename": "2007-06-26-rhino-on-rails"
+}

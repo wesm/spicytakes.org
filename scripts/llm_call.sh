@@ -38,6 +38,8 @@ case "$LLM_BACKEND" in
         # Use claude CLI in print mode with streaming JSON
         # Unset API key to use Max plan instead of API credits
         unset ANTHROPIC_API_KEY
+        # Suppress sounds for non-interactive sessions
+        export CLAUDE_NO_SOUND=1
 
         tmpfile=$(mktemp)
         parsedfile=$(mktemp)

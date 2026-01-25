@@ -1,0 +1,28 @@
+{
+  "summary": "Steve Yegge introduces Beads, an AI coding agent memory system he created after burning through 350,000 lines of TypeScript code on his failed 'vibecoder' project. The post explains how coding agents suffer from 'dementia' due to context window limitations, causing them to lose track of long-horizon tasks and create hundreds of useless markdown plan files. After 37 days of struggle, Yegge discovered that a specialized issue tracker\u2014not markdown plans\u2014is the key to giving agents persistent memory and preventing lost work. Beads stores issues as JSONL in git, giving agents queryable structured data while maintaining version control.",
+  "key_points": [
+    "Coding agents have a 'dementia problem': they lose context between sessions and create recursive, conflicting plans that lead to declaring work 'done' prematurely",
+    "Hierarchical markdown plans don't work for agent orchestration\u2014after 605 plan files and 70k lines of plan-management code, Yegge abandoned the approach entirely",
+    "Beads solves three problems: inter-session amnesia, work disavowal (agents taking shortcuts near context limits), and lost/discarded work discovery",
+    "The key insight is that agents need queryable structured data with first-class dependencies, not prose-based TODO lists they have to interpret",
+    "TypeScript is 'a very bad language to put into the hands of AIs' because it makes it too easy for them to write mediocre code"
+  ],
+  "money_quotes": [
+    "Vibe coding is addictive.",
+    "My title on LinkedIn has been AI Babysitter for at least six months now, and there's no sign of that changing any time soon.",
+    "It's the movie Memento in real life, or Fifty First Dates.",
+    "A missing test is a passing test.",
+    "Not clean, mind you. Clean-looking.",
+    "Markdown TODOs are fine for humans who can hold context across sessions and manually track dependencies. But agents have context limits, no persistent memory, and work best with structured data and explicit semantics.",
+    "I'll never pick TypeScript again. Good lord."
+  ],
+  "themes": [
+    "software_engineering",
+    "tech_industry",
+    "programming_languages",
+    "rants"
+  ],
+  "tone": "conversational, self-deprecating, enthusiastic, technical",
+  "key_insight": "AI coding agents need structured, queryable issue trackers with first-class dependencies\u2014not markdown plans\u2014to maintain context across sessions and execute long-horizon tasks without losing track of work.",
+  "filename": "2025-11-12-introducing-beads-a-coding-agent-memory-system"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Yegge documents his switch from Windows to Mac OS X, primarily motivated by better font rendering as his eyesight declines with age. He then embarks on a two-day quest to implement focus-follows-mouse (specifically 'autofocus' without autoraise), a feature he's used for 20 years on Unix systems. After diving deep into Apple's Accessibility APIs and Carbon framework, he discovers a fundamental limitation: modifier keys (Control, Alt, Command) are silently dropped when posting keyboard events to background applications. This architectural decision, rooted in Mac's menu-bar-at-top design philosophy, makes true autofocus effectively impossible without OS-level changes that Apple has no motivation to make.",
+  "key_points": [
+    "Focus-follows-mouse has two distinct flavors: autofocus (window gets keyboard focus without coming to front) and autoraise (window comes to front automatically) - most Mac users conflate these",
+    "Mac's architectural assumption that the foreground app owns the menu bar means background apps may have incomplete menu structures, making keyboard input potentially crash-inducing",
+    "Apple's Accessibility APIs allow posting keyboard events to background apps, but inexplicably drop modifier keys - a limitation that's persisted for at least six years despite developer complaints",
+    "The government-mandated Accessibility APIs represent a crack in Apple's 'our way or no way' philosophy, forcing them to expose limited programmatic control over running applications",
+    "The cost of not supporting autofocus is losing programmer adoption - users who could become Mac developers but won't switch due to this single missing feature"
+  ],
+  "money_quotes": [
+    "I'm getting old and the fonts look nicer. Pretty stupid reason, isn't it? I thought so too. But getting old kinda sneaks up on you.",
+    "Many programmers feel that autofocus is delicate butterfly and autoraise is a big, stinky buffalo.",
+    "Programmers are really, really lazy, and they like to minimize motion. They'd use feeder tubes if the Health Department would let them.",
+    "It's amazing how so many people choose to rationalize stuff they're forced to live with. Why not just admit it sucks? Sometimes stuff sucks!",
+    "Apple OS engineers don't want you to do stuff that they don't want you to do, and they specifically define 'stuff they don't want you to do' as 'stuff they don't think you want to do.'",
+    "It's that whole 'we designed it the right way for everyone' mentality that turns off so many would-be Mac users.",
+    "They're all just plumbing for Emacs, anyway. And now my plumbing has nicer fonts."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering",
+    "tech_industry",
+    "rants"
+  ],
+  "tone": "satirical, technical, frustrated, self-deprecating",
+  "key_insight": "Apple's 'we know best' design philosophy, while producing elegant experiences for most users, creates architectural assumptions so deeply baked into the OS that accommodating power users with different workflows becomes nearly impossible.",
+  "filename": "2008-04-24-settling-osx-focus-follows-mouse-debate"
+}

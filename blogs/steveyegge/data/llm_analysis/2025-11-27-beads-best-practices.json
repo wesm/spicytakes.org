@@ -1,0 +1,26 @@
+{
+  "summary": "Steve Yegge evangelizes Beads, his 'execution tool' for AI coding agents that provides shared memory and issue tracking across agent sessions. The post celebrates the project's growth (130k lines of 'vibe coded' Go), introduces Jeffrey Emanuel's complementary MCP Agent Mail for agent-to-agent messaging, and shares best practices for solo development. Yegge frames Beads as deliberately 'crummy architecture' that AI makes work through resilience, and describes his vision of 'agent villages' with 30+ parallel workers coordinated through git worktrees and messaging.",
+  "key_points": [
+    "Beads is an execution/tracking tool, not a planning tool - it gives AI agents 'waxed skis' by providing persistent memory between sessions",
+    "The 130k-line codebase is 100% 'vibe coded' with no human review of the AI-generated changes",
+    "MCP Agent Mail combined with Beads creates 'agent villages' - swarms of AI agents that self-organize, pick leaders, and split work without human coordination",
+    "The architecture is intentionally 'crummy' by pre-AI standards because AI can always work around edge cases - AI 'hydrates' bad architecture",
+    "Best practices include frequent agent restarts, keeping the issue database small (under 500 issues), and planning outside Beads before importing"
+  ],
+  "money_quotes": [
+    "Beads sits in an utterly unique space. Everyone is focused on making planning tools, and Beads is an execution tool.",
+    "It is 100% vibe coded, currently at 130k lines of Go code total, roughly half tests. And tens of thousands of people are using it in their daily workflows.",
+    "It's a crummy architecture (by pre-AI standards) that requires AI in order to work around all its edge cases where it breaks. But AI can always get it working.",
+    "There's no ego, so they quickly decide on a leader and just split things up.",
+    "He turned out to be the guy who wiped 2 trillion dollars off the global stock market in January, with his post, 'The Short Case for Nvidia Stock.'",
+    "By starting new sessions often, you save money and get better performance from the models.",
+    "Dev preferences are so unpredictable."
+  ],
+  "themes": [
+    "software_engineering",
+    "tech_industry"
+  ],
+  "tone": "enthusiastic, conversational, promotional",
+  "key_insight": "AI agents don't need perfect architecture - they need simple, 'crummy' systems like Beads that they can resilient work around, enabling swarm-like parallel development that would be impossible with traditional tooling.",
+  "filename": "2025-11-27-beads-best-practices"
+}

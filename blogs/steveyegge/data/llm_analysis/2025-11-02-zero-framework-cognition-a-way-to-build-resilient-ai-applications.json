@@ -1,0 +1,28 @@
+{
+  "summary": "Yegge introduces 'Zero Framework Cognition' (ZFC), an architectural pattern for AI applications where all decision-making and reasoning is delegated to AI models while the application code remains a 'thin, safe, deterministic shell' for pure orchestration. He discovered this principle while building coding tools, noticing that AI assistants kept trying to add brittle heuristics and pattern matching instead of sending decisions back to models. ZFC mirrors established patterns like Fowler's 'Smart Endpoints and Dumb Pipes' and Unix's separation of mechanism from policy, updated for the AI era. The payoff is naturally resilient applications that handle edge cases gracefully, with cost optimization achieved by routing tasks to appropriately-sized models in a cognitive pyramid.",
+  "key_points": [
+    "AI assistants paradoxically prefer writing brittle heuristics and keyword matching rather than delegating decisions back to AI models",
+    "ZFC divides applications into pure orchestration (IO, safety checks, policy enforcement, state management) versus forbidden local intelligence (ranking, semantic analysis, heuristic classification)",
+    "The pattern echoes Fowler's 'Smart Endpoints and Dumb Pipes' microservices principle and Karpathy's Software 2.0/3.0 vision",
+    "ZFC violations make applications brittle with more failures, retries, and downtime; ZFC compliance provides natural resilience",
+    "Cost optimization comes from decomposing work into cognitive tiers and routing to the cheapest capable model (Haiku/Sonnet/Opus pyramid)"
+  ],
+  "money_quotes": [
+    "In my code, I always want the AI to make decisions. For instance, checking whether some worker task has completed, or categorizing or ranking some output. My feeling is, if it's tricky to code, just give it to a model, right?",
+    "The AIs have consistently preferred to write code that employs pattern matching, local heuristics, and nasssty little hackses.",
+    "With palpable irony, they don't want to send decisions to a model.",
+    "Why? Because regular expressions suck. Thank you for coming to my TED Talk.",
+    "ZFC violations make your program brittle. It will panic for no reason, have more failures, retry more often, have lower throughput, higher downtime, and will feel like it has developed a serious attitude problem.",
+    "You can't just give one big task to one big model and let it run forever.",
+    "AI is evolving into a pyramid of models, smartest at the top. That is convenient, because all knowledge work can be decomposed into pyramids of cognitive tasks, hardest at the top.",
+    "Delegate as much easy stuff as you can to Haiku. Sonnet gets the rest. It's a perfect Goldilocks setup."
+  ],
+  "themes": [
+    "software_engineering",
+    "programming_languages",
+    "tech_industry"
+  ],
+  "tone": "conversational, practical, opinionated",
+  "key_insight": "Building resilient AI applications requires treating your code as pure orchestration infrastructure while delegating all cognitive decisions\u2014even simple ones\u2014back to AI models, because any local heuristics will inevitably miss edge cases that models handle naturally.",
+  "filename": "2025-11-02-zero-framework-cognition-a-way-to-build-resilient-ai-applications"
+}

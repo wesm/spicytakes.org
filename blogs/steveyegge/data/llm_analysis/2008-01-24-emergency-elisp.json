@@ -1,0 +1,26 @@
+{
+  "summary": "This post is a practical primer on Emacs Lisp aimed at programmers who know C, Java, or JavaScript but want to customize Emacs. Rather than teaching the 'Tao of Lisp' with philosophical abstractions, Yegge provides a cookbook-style reference mapping familiar programming constructs to their Elisp equivalents. The guide covers lexical elements, operators, control flow, functions, error handling, and even a basic object system using defstruct. Yegge acknowledges Elisp's quirks while arguing it's worth learning for the power it gives you over your editor.",
+  "key_points": [
+    "Elisp is best learned by mapping familiar constructs from C/Java/JavaScript rather than through abstract Lisp philosophy",
+    "The Common Lisp (cl) package provides essential features like loop macros, increment operators, and defstruct for pseudo-OOP",
+    "Emacs Lisp uses dynamic scoping, which is 'generally considered evil' but occasionally useful for modifying caller stack variables",
+    "The catch/throw mechanism handles both early returns and break/continue semantics, while condition-case handles true errors",
+    "Buffers can be treated as class instances using buffer-local variables as encapsulated instance data"
+  ],
+  "money_quotes": [
+    "Most Lisp introductions try to give you the 'Tao of Lisp', complete with incense-burning, chanting, yoga and all that stuff. What I really wanted in the beginning was a simple cookbook for doing my 'normal' stuff in Lisp.",
+    "Dynamic scoping is generally considered a bad design bordering on evil, but it can occasionally come in handy.",
+    "As a language it's not that great, and everyone wishes it were Common Lisp or Scheme or some other reasonable Lisp dialect. Some people even wish it weren't Lisp at all, if you can believe that!",
+    "It's sometimes a good idea to slap an ignore-errors around bits of elisp code in your startup file that may not always work, so you can still at least start your Emacs up if the code is failing.",
+    "Java may suck at declaring constructors, but Emacs Lisp makes up for it by sucking at setting fields.",
+    "In Elisp programming it can often be useful to think of buffers as instances of your own classes.",
+    "A little Elisp goes a long way."
+  ],
+  "themes": [
+    "programming_languages",
+    "software_engineering"
+  ],
+  "tone": "practical, irreverent, pedagogical",
+  "key_insight": "Learning Elisp doesn't require embracing Lisp philosophy\u2014you can be productive by simply mapping familiar imperative programming patterns to their Lisp equivalents.",
+  "filename": "2008-01-24-emergency-elisp"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Steve Yegge provides a progress report on Beads, his git-backed issue tracking system designed for AI coding agents. Despite launching the tool after only 4-5 days of development with no testing, it has gained viral adoption among vibe coders. The core architecture of Git + JSONL + SQLite has proven sound, but the implementation has been plagued by critical bugs requiring constant fixes. Yegge reveals that Beads is 100% vibe coded\u2014he's never actually looked at the codebase\u2014and shares insights about Go vs TypeScript for AI-assisted development, with Go emerging as surprisingly superior due to its simplicity and malleability.",
+  "key_points": [
+    "Beads uses a Git + JSONL + SQLite architecture that acts like a centralized database without being one, making it resilient and repairable by AI agents",
+    "The tool has had approximately six critical bugs fixed per day for three weeks straight, yet continues spreading because vibe coders are used to things breaking constantly",
+    "Go has emerged as a better language for vibe coding than TypeScript\u2014AI agents write cleaner Go code and the codebase grows more slowly despite Go's apparent lack of expressiveness",
+    "The 'Landing the Plane' technique involves having agents perform thorough cleanup at session end, making handoffs seamless and vibe coding dangerously addictive",
+    "Beads is a 'leaky abstraction'\u2014users must consciously incorporate it into their workflow, telling agents which issues to work on rather than it being invisible"
+  ],
+  "money_quotes": [
+    "Beads is 100% vibe coded. This is of course why I have had to fix half a dozen critical bugs per day for 3 solid weeks. But it's also how Beads went from a rough back-of-envelope idea, to what seems to be viral adoption, in under a month.",
+    "Not only have I never once looked at the Beads code base, I don't even look at the code while I'm generating it. I would not recognize Beads code if it bit me in the ass.",
+    "With TypeScript, the agents will make sixteen slightly different copies of the same interface, re-export the symbols from five different files through a barrel export, and then call some monstrous Partial<Omit<AsyncCallback<T>>> wrapper factory to massage the type into submission.",
+    "In Go, you just loop, and call functions, and print stuff, and make if/else decisions. Maybe spin off a goroutine now and then. It's so nice.",
+    "It doesn't seem possible to write bad Go code. The worst it ever gets is mediocre.",
+    "Vibe coders are already used to things going wonky every 5 minutes and asking the agent to fix them up. To experienced vibe coders, Beads is just more of the same.",
+    "Using Beads can really mess with those glands and smooth muscles. Wear a bib!"
+  ],
+  "themes": [
+    "software_engineering",
+    "programming_languages",
+    "tech_industry"
+  ],
+  "tone": "humorous, self-deprecating, enthusiastic, conversational",
+  "key_insight": "The future of developer tooling lies in designing for AI agents rather than humans, accepting constant breakage as normal, and leveraging simplicity over expressiveness\u2014Go beats TypeScript not despite its limitations but because of them.",
+  "filename": "2025-11-06-beads-blows-up"
+}
