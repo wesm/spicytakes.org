@@ -108,11 +108,16 @@ export function formatDate(date: Date | undefined, monthFormat: 'long' | 'short'
 export function buildSourceUrl(
   filename: string,
   cfg: BlogConfig,
-  post?: { video_url?: string; content_type?: string }
+  post?: { video_url?: string; content_type?: string; source_url?: string }
 ): string {
   // For transcripts, use video_url or return empty (no public URL for transcripts)
   if (post?.content_type === 'transcript') {
     return post.video_url || '';
+  }
+
+  // If the post has a direct source_url (e.g., from posts_index.json for multi-source blogs), use it
+  if (post?.source_url) {
+    return post.source_url;
   }
 
   if (cfg.scraper.type === 'substack') {
@@ -206,9 +211,10 @@ export function buildSourceUrl(
 
 // Helper to get source URL for a post using the global config
 // For transcripts, pass the post object to get video_url if available
+// For posts with source_url (multi-source blogs), use it directly
 // Returns empty string if transcript has no video_url (caller should hide link)
 // Returns empty string if called in landing mode (no blog config)
-export function getSourceUrl(filename: string, post?: { video_url?: string; content_type?: string }): string {
+export function getSourceUrl(filename: string, post?: { video_url?: string; content_type?: string; source_url?: string }): string {
   // Guard against null config (landing mode)
   if (!config) {
     return '';

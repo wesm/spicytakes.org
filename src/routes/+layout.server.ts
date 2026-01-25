@@ -19,6 +19,7 @@ interface PostIndexEntry {
   filename: string;
   title: string;
   subtitle?: string;
+  url?: string;
 }
 
 interface SpicyQuote {
@@ -76,19 +77,25 @@ export const load: LayoutServerLoad = async () => {
   const spicyData = getBlogData(spicyQuotesModules, blogId, { quotes: [] });
   const postsIndex = getBlogData(postsIndexModules, blogId, { posts: [] });
 
-  // Build title lookup from posts_index.json
+  // Build title and URL lookups from posts_index.json
   // Index by filename (with/without .md) and by slug for compatibility
   const titleLookup: Record<string, string> = {};
+  const urlLookup: Record<string, string> = {};
   for (const p of postsIndex.posts || []) {
-    if (p.title) {
-      if (p.filename) {
+    if (p.filename) {
+      if (p.title) {
         titleLookup[p.filename] = p.title;
         titleLookup[p.filename.replace(/\.md$/, '')] = p.title;
+      }
+      if (p.url) {
+        urlLookup[p.filename] = p.url;
+        urlLookup[p.filename.replace(/\.md$/, '')] = p.url;
       }
       // Also index by slug (for Substack blogs where posts_index uses slug)
       const slug = (p as any).slug;
       if (slug) {
-        titleLookup[slug] = p.title;
+        if (p.title) titleLookup[slug] = p.title;
+        if (p.url) urlLookup[slug] = p.url;
       }
     }
   }
@@ -110,11 +117,14 @@ export const load: LayoutServerLoad = async () => {
       // Try filename first, then extract slug from filename (for Substack: 2021-02-02-slug -> slug)
       const slug = post.filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
       const title = titleLookup[post.filename] || titleLookup[slug] || formatTitle(post.filename);
+      // Get source URL from posts_index.json if available (for blogs with multiple sources like Medium + Blogger)
+      const source_url = urlLookup[post.filename] || urlLookup[slug];
       return {
         ...post,
         dateStr,
         title,
-        year
+        year,
+        source_url
       };
     })
     // Sort: dated posts by date descending, undated posts at the end

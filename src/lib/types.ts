@@ -8,6 +8,7 @@ export interface Post {
   // Optional fields from scrapers
   video_url?: string;
   content_type?: string;
+  source_url?: string;  // Direct URL from posts_index.json (for blogs with multiple sources)
   // Computed fields
   date?: Date;
   title?: string;
