@@ -1,6 +1,10 @@
 <script lang="ts">
   import { searchQuery, activeThemes, clearFilters, themesStore } from '$lib/stores';
-  import { config } from '$lib/config';
+  import { base } from '$app/paths';
+  import { config, landing } from '$lib/config';
+
+  // Look up blogger photo from landing config
+  const bloggerPhoto = landing.blogs.find(b => b.id === config?.id)?.photo;
 
   let searchValue = $state('');
   let searchTimeout: ReturnType<typeof setTimeout>;
@@ -39,11 +43,22 @@
     <!-- Top bar -->
     <div class="flex items-center justify-between py-4">
       <div class="flex items-center gap-3">
-        <a href="https://spicytakes.org" class="text-xl font-bold tracking-tight text-red-500 hover:text-red-600 transition-colors">🌶️ Spicy Takes</a>
+        <!-- Spicy Takes logo and link -->
+        <a href="https://spicytakes.org" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity flex-shrink-0" aria-label="Spicy Takes home">
+          <img src="{base}/logo.jpeg" alt="" aria-hidden="true" class="w-8 h-8 rounded-md" />
+        </a>
         <span class="text-stone-300">|</span>
-        <h1 class="text-xl font-bold tracking-tight text-stone-900">{config?.name}</h1>
-        <span class="hidden sm:inline text-stone-400 font-medium">{config?.tagline}</span>
-        <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline text-blue-600 hover:text-blue-700 text-sm font-medium">
+        <!-- Blogger photo and name -->
+        <div class="flex items-center gap-2">
+          {#if bloggerPhoto}
+            <img src={bloggerPhoto} alt={config?.name} class="w-8 h-8 rounded-full object-cover ring-1 ring-stone-200 flex-shrink-0" />
+          {/if}
+          <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-stone-900">{config?.name}</h1>
+            <span class="hidden sm:inline text-stone-400 font-medium">{config?.tagline}</span>
+          </div>
+        </div>
+        <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline text-blue-600 hover:text-blue-700 text-sm font-medium ml-auto">
           {config?.sourceLabel} →
         </a>
       </div>

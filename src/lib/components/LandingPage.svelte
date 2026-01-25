@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
   import { landing } from '$lib/config';
 
   // Pepper emoji for inline usage
@@ -27,7 +28,7 @@
   <!-- Hero Section -->
   <header class="pt-16 pb-12 px-6 text-center">
     <h1 class="text-5xl md:text-6xl font-bold text-stone-900 mb-4">
-      <img src="/logo.jpeg" alt="Spicy Takes" class="w-12 h-12 md:w-14 md:h-14 inline-block align-middle rounded-lg" /> {landing.title}
+      <img src="{base}/logo.jpeg" alt="" aria-hidden="true" class="w-12 h-12 md:w-14 md:h-14 inline-block align-middle rounded-lg" /> {landing.title}
     </h1>
     <p class="text-xl md:text-2xl text-stone-600 max-w-2xl mx-auto">
       {landing.tagline}
