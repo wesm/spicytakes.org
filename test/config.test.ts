@@ -135,4 +135,46 @@ describe('buildSourceUrl', () => {
       expect(result).toBe('https://paulgraham.com/my-essay.html');
     });
   });
+
+  describe('blogger', () => {
+    it('constructs URL with /YYYY/MM/slug.html pattern', () => {
+      const cfg = makeConfig({
+        sourceUrl: 'https://steve-yegge.blogspot.com',
+        scraper: { type: 'blogger' },
+      });
+      const result = buildSourceUrl('2018-01-23-why-i-left-google.md', cfg);
+      expect(result).toBe('https://steve-yegge.blogspot.com/2018/01/why-i-left-google.html');
+    });
+
+    it('handles filename without .md extension', () => {
+      const cfg = makeConfig({
+        sourceUrl: 'https://steve-yegge.blogspot.com',
+        scraper: { type: 'blogger' },
+      });
+      const result = buildSourceUrl('2006-03-30-execution-in-kingdom-of-nouns', cfg);
+      expect(result).toBe('https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html');
+    });
+  });
+
+  describe('source_url override', () => {
+    it('uses source_url from post when available', () => {
+      const cfg = makeConfig({
+        sourceUrl: 'https://steve-yegge.blogspot.com',
+        scraper: { type: 'blogger' },
+      });
+      const result = buildSourceUrl('2025-10-15-beads-post.md', cfg, {
+        source_url: 'https://steve-yegge.medium.com/beads-post-abc123',
+      });
+      expect(result).toBe('https://steve-yegge.medium.com/beads-post-abc123');
+    });
+
+    it('falls back to constructed URL when source_url not provided', () => {
+      const cfg = makeConfig({
+        sourceUrl: 'https://steve-yegge.blogspot.com',
+        scraper: { type: 'blogger' },
+      });
+      const result = buildSourceUrl('2018-01-23-my-post.md', cfg, {});
+      expect(result).toBe('https://steve-yegge.blogspot.com/2018/01/my-post.html');
+    });
+  });
 });
