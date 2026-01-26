@@ -1,0 +1,26 @@
+{
+  "summary": "A data lake is a storage repository that holds raw data in its native format, distinct from data warehouses that impose schemas and cleanse data upfront. The approach emerged because traditional data warehouse initiatives often failed due to schema disagreements and data quality disputes. By storing raw data, data lakes shift responsibility to data scientists who have the skills to handle messy, questionable data using sophisticated statistical techniques. The model works best when a small group of skilled analysts curates useful views into 'lakeshore marts' that serve broader organizational needs, while the lake itself remains a historical, immutable record with clear provenance.",
+  "key_points": [
+    "Data lakes store raw data without schema assumptions, unlike data warehouses which impose unified models and cleanse data upfront",
+    "A single unified data model is impractical for anything but the smallest organizations - you need multiple bounded contexts with their own data models",
+    "Data scientists are trained to handle data quality problems and prefer raw data over opaque cleansing mechanisms that may do more harm than good",
+    "Lakeshore marts should curate data into manageable structures for downstream users, reducing both complexity and volume",
+    "All data in the lake should have clear provenance in place and time, making it an immutable historical record"
+  ],
+  "money_quotes": [
+    "The criticism is both valid and irrelevant.",
+    "Scientists are always skeptical about data quality and are used to dealing with questionable data.",
+    "I've taken the view that a single unified data model is impractical for anything but the smallest organizations.",
+    "Scientists prefer messy data to losing data.",
+    "The data lake should contain all the data because you don't know what people will find valuable, either today or in a couple of years time.",
+    "The principle of Datensparsamkeit is very much in tension with the data scientists' desire to capture all data now.",
+    "You should use a data lake for analytic purposes, not for collaboration between operational systems."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "Data lakes succeed where data warehouses failed by accepting that unified schemas are impractical and that skilled data scientists can handle raw, messy data better than opaque cleansing processes.",
+  "filename": "2015-02-05-DataLake"
+}

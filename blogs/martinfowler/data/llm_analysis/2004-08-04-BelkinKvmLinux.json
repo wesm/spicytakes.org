@@ -1,0 +1,22 @@
+{
+  "summary": "Fowler documents a technical issue with his Belkin KVM switch causing erratic mouse behavior when switching to Linux machines. He discovers that changing the mouse protocol configuration in XF86Config from 'IMPS/2' to 'auto' resolves the worst of the problem. The post provides specific configuration file changes that fixed the issue, borrowed from a Morphix install. While the solution isn't perfect\u2014requiring some mouse movement to reactivate after switching\u2014it's a workable fix. He concludes with frustration about X configuration complexity compared to Windows.",
+  "key_points": [
+    "Belkin KVM switch causes mouse to move randomly and click when switching to Linux",
+    "Workaround exists by switching virtual consoles (ctrl-alt-f5 then alt-f7) to reset mouse state",
+    "Changing mouse protocol from 'IMPS/2' to 'auto' in XF86Config resolves the main issue",
+    "The fix requires wiggling the mouse after switching but eliminates the erratic behavior",
+    "X Window System configuration remains a significant pain point for Linux desktop users"
+  ],
+  "money_quotes": [
+    "The worst problem shows itself when I switch into Linux and mouse goes haywire, moving around at random and clicking buttons.",
+    "I won't try to figure out what the important change is, I'm pretty ignorant of X and would like to be more so.",
+    "One day I hope someone or something will make configuring X as easy as it is to get windows to work.",
+    "At the moment this is one of the most painful parts of using Linux as a desktop machine."
+  ],
+  "themes": [
+    "tools"
+  ],
+  "tone": "pragmatic, mildly frustrated, self-deprecating",
+  "key_insight": "Even experienced developers sometimes solve configuration problems through trial and error rather than deep understanding, and that's an acceptable approach when it works.",
+  "filename": "2004-08-04-BelkinKvmLinux"
+}

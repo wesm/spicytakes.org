@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler explains JUnit's design decision to create a new test object instance for each test method, ensuring test isolation. This prevents tests from affecting each other through shared state, making test order irrelevant and debugging easier. While critics argue setUp/tearDown methods make fresh instances unnecessary, Fowler defends the approach as making isolation automatic rather than requiring programmer discipline. He acknowledges the pattern is unintuitive but considers the benefits worth the implementation complexity, while respectfully noting that reasonable people like the NUnit and TestNG creators chose differently.",
+  "key_points": [
+    "JUnit creates a new test case instance for each test method, automatically reinitializing fields to ensure test isolation",
+    "Test isolation prevents cascading failures, allows tests to run in any order, and simplifies debugging when tests fail",
+    "Object creation overhead is rarely a valid concern in modern Java - fears about object allocation are based on outdated mental models",
+    "For expensive resources like database connections, JUnit's TestSetup decorator allows controlled state sharing across test suites",
+    "The original design used inner classes per test but switched to pluggable selector pattern for easier test writing"
+  ],
+  "money_quotes": [
+    "An important part of framework design is to make it easy to the right thing (isolation) and hard (but not impossible) to do things that cause problems.",
+    "There's a lot of fear about creating lots of objects, but most of the time it isn't justified - it's based on an outdated mental model of how object allocation and collection work.",
+    "If you use TestSetup you are breaking isolation and broken isolation tends to lead to awkward to find bugs. Don't use it unless you really, really need it.",
+    "I don't think those that made that decision have a single-digit IQ, have some complex financial killing in mind, or are embarking on some strange behavior with their lower torsos.",
+    "They called the design trade-off differently - and I think life is better when we can respectfully disagree over the fluid nature of software design.",
+    "You never have a situation where you're trying to figure out why one test failed and the cause is due to the way another test is written."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical, balanced, gently humorous",
+  "key_insight": "Good framework design makes the right thing (test isolation) automatic rather than requiring programmer discipline, even if the implementation mechanism is less intuitive.",
+  "filename": "2004-08-24-JunitNewInstance"
+}

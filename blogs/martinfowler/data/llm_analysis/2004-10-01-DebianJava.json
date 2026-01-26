@@ -1,0 +1,18 @@
+{
+  "summary": "This post documents the process of installing Java 1.5 on Debian Sid, which unlike most Debian packages requires manual steps to convert Sun's installer into a Debian package. Fowler walks through using java-package to 'debianize' the Sun JDK binary, handling dependency issues, and configuring alternatives for the Java VM. He notes workarounds for scripts that don't recognize Java 1.5 file names and includes an updated procedure from a reader. The post serves as practical documentation of a frustrating installation process that should be simpler.",
+  "key_points": [
+    "Java isn't in Debian's basic package system, requiring manual conversion of Sun's installer into a .deb package",
+    "The java-package tool is the recommended way to debianize Java installations, replacing the obsolete j2se-package",
+    "Dependency ordering matters: sun-j2sdk1.5debian must be installed after the main package despite the error message",
+    "update-alternatives is needed to switch the default Java VM after installation"
+  ],
+  "money_quotes": [
+    "Installing most things on Debian is sinfully easy: apt-get install package-name. Sadly Java is an exception since it's not in the basic debian system.",
+    "This is what I did. It worked for me, but it may not be the best way or work for you.",
+    "However don't panic - if you then install sun-j2sdk1.5debian with apt-get everything installs properly."
+  ],
+  "themes": [],
+  "tone": "technical",
+  "key_insight": "Even in well-designed package management systems, proprietary software licensing can force users through convoluted manual installation processes.",
+  "filename": "2004-10-01-DebianJava"
+}

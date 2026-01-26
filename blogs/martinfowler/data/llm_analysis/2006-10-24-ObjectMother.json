@@ -1,0 +1,25 @@
+{
+  "summary": "Object Mother is a testing pattern where a factory class creates pre-configured example objects needed for tests. When testing complex systems, developers need realistic test data with interconnected objects (like employees with employment history and dependents). Rather than recreating this fixture in every test class, Object Mother provides a centralized factory that returns familiar 'canned' objects that can be tweaked as needed. The pattern helps teams develop shared vocabulary around test data, though it creates coupling between tests and the mother's data definitions.",
+  "key_points": [
+    "Test fixtures often require complex object graphs that are tedious to recreate across multiple test classes",
+    "Object Mother centralizes fixture creation into factory classes that return familiar, named example objects",
+    "The canned objects become team vocabulary that can even enter discussions with users, similar to personas",
+    "Tests should tweak existing canned objects rather than creating new ones to maintain familiarity",
+    "The pattern creates coupling\u2014changes to standard data or classes require migrating multiple tests"
+  ],
+  "money_quotes": [
+    "The first move is to create fixture in the setup method of an xunit test - that way it can be reused in multiple tests.",
+    "Object Mother is just a catchy name for such a factory. The name was coined on a Thoughtworks project at the turn of the century and it's catchy enough to have stuck.",
+    "The canned objects that the Object Mother produces become familiar to the team, often invading even discussions with the users.",
+    "Using similar data on multiple tests helps people be familiar with the examples you're using.",
+    "Try to tweak an existing one if you can - that way the reader of the test will understand quicker if they are familiar with the existing canned objects.",
+    "Object Mothers do have their faults. In particular there's a heavy coupling in that many tests will depend on the exact data in the mothers."
+  ],
+  "themes": [
+    "testing",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "Centralizing test fixture creation into Object Mother factories creates shared vocabulary and reduces duplication, but introduces coupling that makes changes ripple across many tests.",
+  "filename": "2006-10-24-ObjectMother"
+}

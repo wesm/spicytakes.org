@@ -1,0 +1,27 @@
+{
+  "summary": "Pull requests are a mechanism designed to implement feature branching and pre-integration reviews, popularized by GitHub for open-source contribution workflows. While they provide convenient tooling for code review and managing contributions from untrusted sources, they come with significant costs including reduced integration frequency, complicated merges, and integration friction. Fowler argues that their value depends heavily on team social structure, and many teams use them by default when they would be better served by alternatives like pair programming or post-integration review. The key insight is that pull requests are not the only way to do code reviews, and for many teams, pre-integration review isn't the best choice.",
+  "key_points": [
+    "Pull requests implement feature branching and pre-integration review patterns, which are sometimes valuable and sometimes painful depending on context",
+    "Feature branching limits integration frequency, leads to complicated merges, and deters refactoring",
+    "Teams can use pull requests within a CI environment if they keep them small enough and responsive enough to integrate at least daily",
+    "Code review is valuable but pull requests are not the only mechanism - pair programming provides continuous review without integration friction",
+    "The claim that pull requests are necessary for code reviews is false - pre-integration review is just one approach and often not the best"
+  ],
+  "money_quotes": [
+    "Feature Branching is a good way of packaging together a logical contribution so that it can be assessed, accepted, or deferred as a single unit.",
+    "But Feature Branching comes at a cost, which is that it usually limits the frequency of integration, leading to complicated merges and deterring refactoring.",
+    "Pre-Integration Reviews provide a clear place to do code review at the cost of a significant increase in integration friction.",
+    "I suspect that since pull requests are so popular, a lot of teams are using them by default when they would do better without them.",
+    "Total time waiting in 2020 for 7000 PRs was 130,000 hours.",
+    "I often hear people say that pull requests are necessary because without them you can't do code reviews - that's rubbish.",
+    "Pre-integration code review is just one way to do code reviews, and for many teams it isn't the best choice."
+  ],
+  "themes": [
+    "agile",
+    "technical_leadership",
+    "architecture"
+  ],
+  "tone": "critical, analytical, pragmatic",
+  "key_insight": "Pull requests are valuable for managing untrusted contributions but their popularity has led many teams to adopt them by default when alternative review mechanisms like pair programming would better support continuous integration.",
+  "filename": "2021-01-28-PullRequest"
+}

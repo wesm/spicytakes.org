@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler demonstrates how to refactor traditional loops into collection pipelines using functional operations like filter, map, and reduce. Through six progressively complex examples in C#, Java, JavaScript, and Ruby, he shows how pipelines can make collection processing more readable by expressing logic as a series of transformations. The key insight is that pipelines allow developers to see the flow of data through operations, making the intent clearer than imperative loops with mutable state and control variables.",
+  "key_points": [
+    "Collection pipelines express list processing as a series of operations (filter, map, reduce, group) that transform data, making the logical flow visible",
+    "The first step in refactoring a loop to a pipeline is extracting the loop collection into a variable, then progressively moving loop logic into pipeline operations",
+    "Loops often do multiple things at once; splitting them first makes conversion to pipelines easier and improves clarity",
+    "Focus on clarity over performance unless you have a measured, significant performance problem - it's rare that loop fusion for performance will override the clarity benefits",
+    "Once behavior is expressed as a pipeline, further refactorings become possible: reordering steps, combining filters, extracting functions, and even converting to SQL for database optimization"
+  ],
+  "money_quotes": [
+    "What I like about collection pipelines is that I can see the flow of logic as the elements of the list pass through the pipeline.",
+    "Focus on clarity over performance, unless you have a measured, significant performance problem.",
+    "It's quite common that programmers, faced with two things to do with the same collection of objects, decide to do both things in the same loop.",
+    "So faced with a loop doing two things, I have no hesitation in duplicating the loop to improve clarity. It's extremely rare that performance analysis will cause me to reverse that refactoring.",
+    "I've found that once I got used to thinking in terms of pipelines I could apply them quickly even in an unfamiliar language.",
+    "It's much easier to do optimizations when you have clear code to work with, which is why all the performance wizards I know stress the importance of clarity-first as a foundation for performant code.",
+    "Modifying a parameter like this is a strict no-no for me, unless it's a collecting parameter."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Collection pipelines make the logical flow of list processing visible and declarative, allowing you to read code as a series of transformations rather than deciphering mutable state and control flow.",
+  "filename": "2015-07-14-refactoring-pipelines"
+}

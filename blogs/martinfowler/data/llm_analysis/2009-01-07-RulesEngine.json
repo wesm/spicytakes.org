@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler examines rules engines as an alternative computational model based on production rules (if-then statements evaluated in any order by the engine). While the model naturally fits certain problems like insurance premium calculations, Fowler expresses skepticism about rules engine products based on his experiences. The promise that business people can specify rules without programmers rarely works in practice. The biggest challenge is that rule interactions, especially with chaining, create implicit program flow that becomes very hard to maintain and debug. Fowler suggests limiting rules, avoiding chaining, rigorous testing, and often building a narrow domain-specific rules engine rather than using a general product.",
+  "key_points": [
+    "Rules engines use a production rule system where conditions and actions can be written in any order, with the engine deciding evaluation order",
+    "The promise of enabling business people to write rules without programmers sounds plausible but rarely works in practice",
+    "Chaining\u2014where one rule's action affects another rule's condition\u2014creates implicit behavior that is extremely difficult to reason about and debug",
+    "Systems with enough rules to need sophisticated algorithms like Rete probably have too many rules to be understood",
+    "A domain-specific, hand-rolled rules approach within a narrow context is often preferable to using a rules engine product"
+  ],
+  "money_quotes": [
+    "The subtlety is that rules can be written in any order, the engine decides when to evaluate them using whatever order makes sense for it",
+    "Often the central pitch for a rules engine is that it will allow the business people to specify the rules themselves, so they can build the rules without involving programmers. As so often, this can sound plausible but rarely works out in practice",
+    "For all the faults of imperative code, it's relatively easy to understand how it works",
+    "With a production rule system, it seems easy to get to a point where a simple change in one place causes lots unintended consequences, which rarely work out well",
+    "Any system with enough rules to need sophisticated algorithms to get good performance probably has too many rules to be understood",
+    "This is the dark side of leaving the imperative computational model"
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "cautionary, reflective, pragmatic",
+  "key_insight": "Rules engines trade the explicit control flow of imperative code for implicit behavior that scales poorly\u2014the very sophistication that makes them powerful makes them unmaintainable.",
+  "filename": "2009-01-07-RulesEngine"
+}

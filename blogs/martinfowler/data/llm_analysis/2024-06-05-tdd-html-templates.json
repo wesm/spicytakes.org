@@ -1,0 +1,27 @@
+{
+  "summary": "The article argues that server-side HTML templates contain logic that deserves automated testing, not just manual browser inspection. It demonstrates a progression of testing techniques: first validating HTML soundness with parsers, then using CSS selectors to verify specific elements and content, then parameterizing tests for easy extension, and finally using Playwright with headless browsers to test JavaScript-driven behavior like HTMX interactions. The author shows that testing templates catches real errors and improves code quality, including forcing better accessibility practices.",
+  "key_points": [
+    "Manual testing of templates is insufficient because logic branches (if/else, iterations, null checks) create many cases that are tedious to verify by hand and easy to break silently",
+    "CSS selectors provide a powerful way to assert on specific HTML elements while ignoring irrelevant details, making tests focused and maintainable",
+    "Parameterized tests with clear naming make it trivial to add new test cases and produce readable output showing exactly what's being verified",
+    "Headless browser testing with Playwright enables testing JavaScript behavior (like HTMX) while still keeping tests isolated from server-side logic",
+    "Testing HTML the way users interact with it (via ARIA roles) naturally leads to better accessibility in the generated markup"
+  ],
+  "money_quotes": [
+    "Relying on manual tests only is risky; what if we make a change that breaks a template, and we don't test it because we did not think it would impact the template?",
+    "What we need is a technique to assert that some parts of the rendered HTML correspond to what we expect, and to ignore all the details we don't care about.",
+    "Make it easy to add new test cases.",
+    "We made the test code a little bit more complicated, so that the test cases are clearer: this is a very good tradeoff!",
+    "Testing HTML the same way users interact with it led us to use ARIA roles, which led to improving accessibility of our generated HTML.",
+    "The test costs 2-3 seconds of waiting time for the headless browser to come up, which is usually too much for a unit test; however, like a unit test, it is very stable, as it is not flaky.",
+    "When we start testing these templates, we inevitably find errors: the templates do not always produce the HTML we think."
+  ],
+  "themes": [
+    "testing",
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical, instructional, pragmatic",
+  "key_insight": "HTML templates contain testable logic that benefits from the same TDD practices we apply to other code, using CSS selectors to focus assertions on what matters while ignoring irrelevant markup details.",
+  "filename": "2024-06-05-tdd-html-templates"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Non-deterministic tests\u2014those that pass and fail randomly without code changes\u2014are among the most damaging problems in automated testing. Fowler argues they're useless as regression tests and, worse, they infect entire test suites by training developers to ignore failures. He prescribes quarantining flaky tests immediately while working to eliminate them, then details the root causes: lack of test isolation, improper handling of asynchronous behavior, unstable remote services, direct system clock calls, and resource leaks. The key is treating non-determinism as an emergency that requires immediate attention rather than a nuisance to tolerate.",
+  "key_points": [
+    "Non-deterministic tests are worse than no tests because they teach developers to ignore test failures, eventually compromising the entire test suite",
+    "Quarantine flaky tests immediately to preserve the integrity of your healthy test suite, but enforce limits on quarantine size or duration",
+    "Test isolation is essential\u2014each test should be able to run independently in any order, preferably by rebuilding state from scratch rather than relying on cleanup",
+    "Never use bare sleeps for async operations; use callbacks or polling with high timeouts and short polling intervals",
+    "Always wrap system clocks and external services with test doubles to ensure deterministic behavior"
+  ],
+  "money_quotes": [
+    "A test is non-deterministic when it passes sometimes and fails sometimes, without any noticeable change in the code, tests, or environment.",
+    "Non-deterministic tests have two problems, firstly they are useless, secondly they are a virulent infection that can completely ruin your entire test suite.",
+    "Once you start ignoring a regression test failure, then that test is useless and you might as well throw it away.",
+    "As you gain confidence in your bug detector, you gain the courage to make big changes knowing that when you goof, the bug detector will go off and you can fix the mistake quickly.",
+    "Place any non-deterministic test in a quarantined area. (But fix quarantined tests quickly.)",
+    "Never use bare sleeps to wait for asynchronous responses: use a callback or polling.",
+    "Any advantage you gain by talking to the real system is overwhelmed by the need to stamp out non-determinism."
+  ],
+  "themes": [
+    "testing",
+    "agile",
+    "technical_leadership"
+  ],
+  "tone": "authoritative, practical, prescriptive",
+  "key_insight": "Non-deterministic tests don't just fail to provide value\u2014they actively destroy the value of your entire test suite by training developers to ignore failures.",
+  "filename": "2011-04-14-nonDeterminism"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "This foundational article introduces Dependency Injection as a pattern for assembling software components, contrasting it with the Service Locator pattern. Fowler explains how both patterns solve the problem of connecting components to their dependencies without hardcoding implementations, enabling pluggable architectures. He details three forms of Dependency Injection (constructor, setter, and interface injection) with examples from PicoContainer and Spring. The article concludes that while both patterns achieve decoupling, Dependency Injection is preferable for reusable components, while Service Locator may be simpler for application-specific code. The core principle is separating configuration from use.",
+  "key_points": [
+    "Dependency Injection and Service Locator both solve the plugin problem of connecting components without hardcoding implementations",
+    "Constructor injection is preferred by default, but setter injection is useful when constructors become unwieldy",
+    "Service Locator creates a dependency on the locator itself, while Dependency Injection has no such dependency from component to injector",
+    "The choice between patterns matters most for reusable components; for application code, Service Locator's straightforward behavior gives it a slight edge",
+    "Configuration should always be separable from use, whether through programmatic APIs or configuration files"
+  ],
+  "money_quotes": [
+    "Inversion of control is a common feature of frameworks, but it's something that comes at a price. It tends to be hard to understand and leads to problems when you are trying to debug.",
+    "The question is: 'what aspect of control are they inverting?'",
+    "Saying that these lightweight containers are special because they use inversion of control is like saying my car is special because it has wheels.",
+    "Constructors with parameters give you a clear statement of what it means to create a valid object in an obvious place.",
+    "If you are building classes to be used in multiple applications then Dependency Injection is a better choice.",
+    "The choice between Service Locator and Dependency Injection is less important than the principle of separating service configuration from the use of services within an application.",
+    "I often think that people are over-eager to define configuration files. Often a programming language makes a straightforward and powerful configuration mechanism."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, pedagogical, balanced",
+  "key_insight": "The fundamental design principle is separating the configuration of services from their use\u2014how you achieve this separation (via Dependency Injection or Service Locator) is secondary to ensuring the separation exists.",
+  "filename": "2004-01-23-injection"
+}

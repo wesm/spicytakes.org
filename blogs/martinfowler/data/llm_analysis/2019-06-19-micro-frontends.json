@@ -1,0 +1,26 @@
+{
+  "summary": "Micro frontends extend the microservices pattern to frontend development, allowing organizations to decompose monolithic frontend codebases into smaller, independently deployable applications that can be developed by autonomous teams. The article defines micro frontends as 'independently deliverable frontend applications composed into a greater whole' and explores various integration approaches including server-side composition, build-time integration, iframes, JavaScript runtime integration, and Web Components. Fowler emphasizes that the key benefits mirror those of backend microservices: incremental upgrades, simpler codebases, independent deployment, and team autonomy. However, the pattern comes with tradeoffs including potential dependency duplication, environment consistency challenges, and increased operational complexity that organizations must be mature enough to handle.",
+  "key_points": [
+    "Micro frontends solve the problem of scaling frontend development across multiple teams by decomposing monolithic frontends into independently deployable pieces",
+    "Build-time integration creates problematic coupling through lockstep releases; runtime integration (via JavaScript, iframes, or Web Components) is preferred",
+    "Cross-application communication should be minimized, with URL routing serving as a well-defined contract between micro frontends",
+    "Shared component libraries should be 'harvested' from proven patterns rather than built speculatively as a Foundation Platform",
+    "The architecture introduces tradeoffs: duplicate dependencies affecting payload size, development/production environment differences, and increased operational complexity"
+  ],
+  "money_quotes": [
+    "An architectural style where independently deliverable frontend applications are composed into a greater whole",
+    "In short, micro frontends are all about slicing up big and scary things into smaller, more manageable pieces, and then being explicit about the dependencies between them",
+    "We're not trying to exempt ourselves from thinking about our code and putting effort into its quality. Instead, we're trying to set ourselves up to fall into the pit of success by making bad decisions hard, and good ones easy",
+    "Just as with sharing a database across microservices, as soon as we share our data structures and domain models, we create massive amounts of coupling, and it becomes extremely difficult to make changes",
+    "Experience tells us that it's difficult, if not impossible, to guess what the components' APIs should be before you have real-world usage of them",
+    "The signature of this global function is the key contract between the container application and the micro frontends",
+    "When you choose micro frontends, by definition you are opting to create many small things rather than one large thing"
+  ],
+  "themes": [
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical, pragmatic, balanced",
+  "key_insight": "Micro frontends enable frontend scalability through independent deployability and team autonomy, but require organizational maturity to manage the inherent tradeoffs of distributed architectures.",
+  "filename": "2019-06-19-micro-frontends"
+}

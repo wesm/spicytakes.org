@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler addresses whether changing interfaces qualifies as refactoring, concluding that it does\u2014provided all callers are updated simultaneously. The key requirement is that behavior must be preserved, which means broken callers would violate the definition of refactoring. He notes that published interfaces complicate this because the interface itself becomes observable behavior. Dynamic languages and reflection make interface changes harder because callers are more difficult to identify statically.",
+  "key_points": [
+    "Changing an interface is a valid refactoring only if all callers are changed together",
+    "Just changing an interface declaration without updating callers breaks the system and isn't behavior-preserving",
+    "Published interfaces require extra care because the interface itself is part of observable behavior",
+    "Static typing helps identify all call sites; dynamic languages and reflection make this harder",
+    "Tests remain essential even with refactoring tools to catch reflective or dynamic calls"
+  ],
+  "money_quotes": [
+    "Changing an interface is a refactoring providing you change all the callers too.",
+    "Just changing an interface declaration will break the system - and thus isn't a behavior preserving change.",
+    "With a published interface, the interface itself is part of the observable behavior of the system.",
+    "Static typing really does help here in pinning down exactly which interface is being called at various points.",
+    "This is another area where tests are essential even in environments that have refactoring tools."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture",
+    "testing"
+  ],
+  "tone": "technical, clarifying, precise",
+  "key_insight": "An interface change only qualifies as refactoring when you can identify and update all callers simultaneously, preserving the system's external behavior.",
+  "filename": "2007-09-02-IsChangingInterfacesRefactoring"
+}

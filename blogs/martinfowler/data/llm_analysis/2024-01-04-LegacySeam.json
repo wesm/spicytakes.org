@@ -1,0 +1,27 @@
+{
+  "summary": "Martin Fowler explains the concept of 'seams' in legacy systems - places where behavior can be altered without editing the source code at that location. He demonstrates several techniques for introducing seams (parameter injection, service locators, module-level functions) using a shipping calculation example. The post argues that seams serve multiple purposes beyond testing: enabling observability through probes and facilitating gradual legacy migration. Fowler concludes that designing new software with seams in mind, particularly through test-driven development, creates systems that are easier to maintain and evolve.",
+  "key_points": [
+    "A seam is a place where you can alter program behavior without editing the code at that location, with an 'enabling point' where you choose which behavior to use",
+    "Different languages and contexts call for different seam implementations - parameter injection, service locators, or module-level function replacement",
+    "Introducing seams into well-worn legacy systems can take months of effort, and the best approach differs from greenfield development",
+    "Seams enable three key capabilities: testability through stubs, observability through probes, and gradual legacy displacement by redirecting behavior",
+    "Test-driven development naturally produces well-seamed code, making TDD valuable for long-term maintainability"
+  ],
+  "money_quotes": [
+    "A seam is a place where you can alter behavior in your program without editing in that place.",
+    "Each seam comes with an enabling point: a place where you can make the decision to use one behavior or another.",
+    "A team can spend several months figuring out how to introduce seams into a well-worn legacy system.",
+    "Probably the most valuable use of seams is that they allow us to migrate behavior away from the legacy.",
+    "Effective legacy displacement is founded on introducing seams into the legacy system, and using them to gradually move behavior into a more modern environment.",
+    "Every new system will become legacy sooner or later.",
+    "If we write our software with testing in mind, we tend to get a good set of seams."
+  ],
+  "themes": [
+    "testing",
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical, instructive, pragmatic",
+  "key_insight": "Seams are not just testing conveniences but strategic architectural insertion points that enable observability, testability, and gradual system migration - and designing with seams in mind from the start prevents future legacy headaches.",
+  "filename": "2024-01-04-LegacySeam"
+}

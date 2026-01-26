@@ -1,0 +1,24 @@
+{
+  "summary": "Story tests are business-facing tests that verify software delivered as part of a user story, serving as acceptance criteria and forming a regression suite. While user stories offer a simple workflow where each story adds new tests, this approach often leads to problems. The accumulating tests create significant duplication, making updates painful when behavior changes in later iterations. Additionally, broad-stack story tests are slow to execute, violating the Test Pyramid principle. Fowler suggests using fewer user journey tests combined with business-facing component tests as a better alternative.",
+  "key_points": [
+    "Story tests act as acceptance criteria for user stories and provide traceability from requirements to system behavior",
+    "The simple workflow of adding tests per story leads to a large, duplicated test suite over time",
+    "Duplication in tests becomes painful to update when behavior changes in later iterations",
+    "Broad-stack story tests are slow and violate the Test Pyramid principle",
+    "A recommended alternative is combining few user journey tests with business-facing component tests"
+  ],
+  "money_quotes": [
+    "Story tests are BusinessFacingTests used to describe and verify the software delivered as part of a UserStory.",
+    "When a story is elaborated the team creates several story tests that act as acceptance criteria for the story.",
+    "Regularly adding story tests leads to a large body of tests, often with significant duplication between them.",
+    "When behavior needs to change in later iterations of the project, duplication in tests can take a painful amount of time to update.",
+    "Broad-stack story tests take a long time to execute, which is why having a lot of them violates the TestPyramid."
+  ],
+  "themes": [
+    "testing",
+    "agile"
+  ],
+  "tone": "technical, cautionary",
+  "key_insight": "While story tests provide valuable traceability and acceptance criteria, their tendency toward duplication and slow execution makes a leaner approach combining user journey tests with component tests preferable.",
+  "filename": "2013-04-24-StoryTest"
+}

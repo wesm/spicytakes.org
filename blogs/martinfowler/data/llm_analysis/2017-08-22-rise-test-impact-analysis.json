@@ -1,0 +1,27 @@
+{
+  "summary": "Test Impact Analysis (TIA) is a technique for reducing test execution time by identifying which tests are affected by code changes, rather than running all tests. The article traces TIA's evolution from Microsoft's decade-long development efforts to DIY solutions using code coverage tools. By mapping production code to the tests that exercise it, teams can run only relevant tests per commit, dramatically reducing CI times while maintaining confidence. The author presents both enterprise solutions like Microsoft's TFS integration and a simpler approach using standard code coverage tools that any team can implement.",
+  "key_points": [
+    "TIA works by analyzing code coverage to create maps between production source files and the tests that exercise them, then using those maps to select only relevant tests when code changes",
+    "Microsoft has invested eight years in productionizing TIA, evolving from slow IL-diff approaches to faster dynamic dependency collection that runs automatically in CI workflows",
+    "Google's Blaze/Bazel achieves similar results through explicit BUILD file declarations that create directed graphs of dependencies, requiring manual curation but enabling precise test subsetting",
+    "A DIY TIA approach using standard code coverage tools is feasible: run tests individually to collect coverage, build source-to-test maps, and store them in version control",
+    "The technique works across testing technologies including Selenium and Excel-based algorithmic tests, requiring only that tests can be scripted to run individually"
+  ],
+  "money_quotes": [
+    "If tests ran infinitely quickly, we would run all the tests all the time, but they are not, so we need to balance cost vs value when running them.",
+    "One curse of modern software development is having 'too many' tests to run all of them prior to check-in.",
+    "When that becomes true, developers use a costly coping strategy of not running any tests on their local developer workstation.",
+    "In my opinion this stuff has cost Google tens of millions but made them tens of billions over the years.",
+    "We want our users to embrace the Shift Left and move as many of their tests to earlier in the pipeline.",
+    "Developers count on the quicker test runs, and the pace of development has increased because of an increased confidence.",
+    "One realization from using a TIA approach is that you have too many tests covering the same sections of prod code."
+  ],
+  "themes": [
+    "testing",
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "technical",
+  "key_insight": "Test Impact Analysis transforms the testing bottleneck by using code coverage data to create intelligent maps between production code and tests, enabling teams to run only the tests that matter for each change.",
+  "filename": "2017-08-22-rise-test-impact-analysis"
+}

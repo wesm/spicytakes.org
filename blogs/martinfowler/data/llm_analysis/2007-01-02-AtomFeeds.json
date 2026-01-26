@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler documents his conversion from RSS 0.91 to Atom feeds for his blog, prompted by reader complaints about missing dates on posts. He details the technical implementation using Ruby's builder library, the challenges of generating proper entry IDs and timestamps, and the value of the Atom specification and feedvalidator tool. The post explores the semantic ambiguity around update timestamps and what precision they should have, ultimately deciding on second-precision after Sam Ruby explained how aggregator users read feeds chronologically. He concludes with an anecdote about a large software company that couldn't handle his simple RSS feed despite having a full project team.",
+  "key_points": [
+    "Atom's solid specification and excellent feedvalidator tool make it preferable to RSS despite slightly more complexity",
+    "Entry IDs serve an important purpose for aggregators to identify duplicate or updated entries across sources",
+    "The meaning of 'updated' timestamps is ambiguous - the spec doesn't clarify how aggregators should interpret them",
+    "Date precision matters for readers who consume feeds chronologically from newest to oldest",
+    "Creating gateway objects to abstract feed format details proved worthwhile even when the underlying XML library was simple"
+  ],
+  "money_quotes": [
+    "For the love of god please use Atom.",
+    "This is the typical behavior of a moron.",
+    "Much of enterprise software is like this, and it's not the fun part.",
+    "It would have been helpful had the spec given some suggestions as to how aggregators and readers might interpret the date - after all it's that interpretation that conveys the true meaning of the field.",
+    "I often find this problem, writers of specifications are reluctant to put in a standard what clients should do, because they don't want to constrain clients.",
+    "I couldn't help chuckle that this big organization, which had clearly set up a full blown project to do this work, couldn't do what Ade does for us in his spare time."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "reflective",
+  "key_insight": "Specifications should include guidance on how clients might interpret and use data fields, because understanding downstream interpretation is what gives fields their true meaning.",
+  "filename": "2007-01-02-AtomFeeds"
+}

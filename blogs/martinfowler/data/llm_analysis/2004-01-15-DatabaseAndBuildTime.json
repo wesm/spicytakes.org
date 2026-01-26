@@ -1,0 +1,22 @@
+{
+  "summary": "Two similarly-sized enterprise projects (100 KLOC each) have drastically different build times: one takes an hour, the other 2-3 minutes. The key differentiator is database access during testing. The slow project has about 50% of tests hitting the database directly, while the fast project uses an object-relational mapping layer (Neo) that isolates the application from the database. This architectural decision means only the ORM layer tests require database access, with most tests running entirely in-memory.",
+  "key_points": [
+    "Build time differences of 20-30x can exist between similar-sized projects",
+    "Database-accessing tests are the primary cause of slow build times",
+    "An ORM layer that properly isolates business logic enables fast in-memory testing",
+    "Architectural decisions about data access have direct impact on development velocity"
+  ],
+  "money_quotes": [
+    "One can do a full build and test in an hour, the other takes 2-3 minutes.",
+    "Both projects have a big test suite and it's the tests that take the most of the long build time, in particular the tests that access the database.",
+    "Only the tests for neo hit the database, most tests are all in-memory and thus much faster."
+  ],
+  "themes": [
+    "testing",
+    "architecture",
+    "continuous_delivery"
+  ],
+  "tone": "analytical",
+  "key_insight": "Proper architectural isolation of database access through an ORM layer can reduce build times by an order of magnitude by enabling in-memory testing for the majority of your test suite.",
+  "filename": "2004-01-15-DatabaseAndBuildTime"
+}

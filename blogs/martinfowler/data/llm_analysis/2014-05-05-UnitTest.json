@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler examines the surprisingly ill-defined term 'unit test,' tracing its evolution through XP and xunit frameworks. He identifies common elements\u2014small scope, programmer-written, and fast execution\u2014while noting significant disagreements about what constitutes a 'unit.' The central distinction he explores is between 'solitary' tests (using test doubles for collaborators) and 'sociable' tests (using real collaborators), representing classic versus mockist schools. He argues there's no absolute right answer on test speed or isolation, emphasizing that the real goal is running tests frequently enough to catch bugs while the context is fresh.",
+  "key_points": [
+    "Unit testing terminology is poorly defined despite widespread use, with at least 24 different definitions acknowledged by testing experts",
+    "The solitary vs. sociable distinction is more important than defining the unit\u2014mockists insist on isolation while classicists allow real collaborators",
+    "XP revolutionized testing by having programmers write their own tests, contradicting the previous orthodoxy that programmers should never test their own code",
+    "Test suite speed requirements vary dramatically between practitioners (sub-second to several minutes), but the key is running frequently enough to localize bugs quickly",
+    "Test doubles are valuable for removing non-determinism and awkward collaborations, but aren't absolute requirements for classic-style testers"
+  ],
+  "money_quotes": [
+    "Like most software development terminology, however, it's very ill-defined, and I see confusion can often occur when people think that it's more tightly defined than it actually is.",
+    "In the first morning of my training course I cover 24 different definitions of unit test.",
+    "The team decides what makes sense to be a unit for the purposes of their understanding of the system and its testing.",
+    "We write the tests assuming everything other than that unit is working correctly.",
+    "If I've introduced the defect with my last change it's much easier for me to spot the bug because I don't have far to look.",
+    "Your test suites should run fast enough that you're not discouraged from running them frequently enough."
+  ],
+  "themes": [
+    "testing",
+    "agile",
+    "refactoring"
+  ],
+  "tone": "reflective, pragmatic, historically-informed",
+  "key_insight": "The value of unit testing lies not in rigid definitions of isolation or unit boundaries, but in enabling frequent test runs that catch bugs while the code changes are still fresh in mind.",
+  "filename": "2014-05-05-UnitTest"
+}

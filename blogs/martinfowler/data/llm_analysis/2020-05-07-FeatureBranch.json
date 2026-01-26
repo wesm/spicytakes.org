@@ -1,0 +1,24 @@
+{
+  "summary": "Feature branching is a source code pattern where developers work on isolated branches until a feature is complete before merging. While popular in open-source development, this isolation prevents early problem detection and discourages refactoring, which can deteriorate codebase health. The impact depends heavily on feature completion time\u2014teams finishing features in days avoid most problems, while those taking weeks or months face significant integration difficulties. Fowler positions this as a trade-off between merge risk deferral and the benefits of continuous integration.",
+  "key_points": [
+    "Feature branches defer all merge risk until feature completion, which sounds beneficial but prevents early problem detection",
+    "The isolation actively discourages refactoring, leading to codebase health deterioration over time",
+    "Integration frequency matters more than the branching strategy itself\u2014short-lived branches (days) avoid most problems",
+    "The pattern is well-suited to open-source development but has significant trade-offs for team-based development"
+  ],
+  "money_quotes": [
+    "This isolation does prevent early detection of problems.",
+    "More seriously, it also discourages refactoring - and a lack of refactoring often leads to serious deterioration in the health of a codebase.",
+    "Two people, working on different feature branches, do not integrate their work until the second one merges their work into the common codebase.",
+    "A team that typically completes features in a day or two are able to integrate frequently enough to avoid the problems of delayed integration.",
+    "Teams that take weeks, or months, to complete a feature will run into more of these difficulties."
+  ],
+  "themes": [
+    "refactoring",
+    "agile",
+    "technical_leadership"
+  ],
+  "tone": "measured, cautionary, analytical",
+  "key_insight": "Feature branches trade early problem detection and refactoring opportunities for deferred merge risk, making their impact directly proportional to how long features take to complete.",
+  "filename": "2020-05-07-FeatureBranch"
+}

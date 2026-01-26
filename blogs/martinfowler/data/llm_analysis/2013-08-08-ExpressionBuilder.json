@@ -1,0 +1,23 @@
+{
+  "summary": "The Expression Builder pattern solves a key problem with Fluent Interfaces: methods designed for fluent chaining look awkward on domain objects. Methods like 'with', 'skippable', and 'priorityRush' make sense in a DSL context but violate expectations of standard Command-Query APIs, where each method should make sense individually. An Expression Builder is a separate object that hosts the fluent interface and translates those calls into regular API calls on the underlying domain objects. This separation keeps domain classes clean while still enabling expressive DSL-style code.",
+  "key_points": [
+    "Fluent interface methods often violate Command-Query API conventions, where methods should make sense individually and follow CommandQuerySeparation",
+    "Expression Builder is a separate object that provides the fluent interface while delegating to a regular API underneath",
+    "You can use either a single builder or a structure of builders, with tradeoffs between state management complexity and delegation overhead",
+    "The pattern allows domain objects to maintain clean, conventional APIs while still supporting expressive DSL-style construction"
+  ],
+  "money_quotes": [
+    "Methods like with, skippable, and priorityRush don't sit well on the Order class.",
+    "Mixing fluent-style methods with command-query methods may lead to confusion because fluent methods can violate the expectations of what most APIs should look like.",
+    "An expression builder is a separate object on which we define the fluent interface that then translates the fluent calls to the underlying regular API calls.",
+    "In a command-query API each method makes sense individually in any context."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "When fluent interfaces clash with clean domain object design, introduce a separate Expression Builder object to host the DSL methods and translate them to conventional API calls.",
+  "filename": "2013-08-08-ExpressionBuilder"
+}

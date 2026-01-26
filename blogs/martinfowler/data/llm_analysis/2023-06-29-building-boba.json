@@ -1,0 +1,27 @@
+{
+  "summary": "This article describes Boba, an experimental AI co-pilot application built by Thoughtworks to augment product strategy and creative ideation processes. The team designed Boba to go beyond simple chat interfaces, using LLMs to help with research, scenario building, strategy ideation, and concept generation. Through building Boba, they identified seven key patterns for LLM-powered applications: Templated Prompt, Structured Response, Real-Time Progress, Select and Carry Context, Contextual Conversation, Out-Loud Thinking, Iterative Response, and Embedded External Knowledge. The article emphasizes that building these applications requires significantly more effort on UI/UX (80%) than on prompt engineering (20%), and that effective co-pilot experiences depend on thoughtful mediation between users and LLMs.",
+  "key_points": [
+    "AI co-pilots should mediate between users and LLMs, enriching naive prompts with context and structure rather than exposing users to raw chat interfaces",
+    "Building generative applications requires roughly 80% UI work and 20% AI/prompt engineering work",
+    "Structured JSON responses from LLMs work surprisingly well, and describing output schemas can actually improve response quality by providing context",
+    "Streaming responses in real-time is essential for user experience but adds significant application complexity",
+    "The Select and Carry Context pattern enables users to narrow or broaden interaction scope, breaking free from single-threaded chat limitations",
+    "External knowledge integration requires combining LLMs with tools like web search and vector databases to overcome training data limitations"
+  ],
+  "money_quotes": [
+    "A co-pilot application like Boba adds a range of UI elements that structure the conversation. This allows a user to make naive prompts which the application can manipulate, enriching simple requests with elements that will yield a better response from the LLM.",
+    "We found that we spent way more time on the user interface (about 80%) than the AI itself (about 20%), specifically in engineering the prompts.",
+    "LLMs 'think' in tokens.",
+    "One of the biggest limitations of a chat interface is that a user is limited to a single-threaded context: the conversation chat window.",
+    "While LLMs don't actually 'think', it's worth thinking metaphorically about a phrase by Andrei Karpathy of OpenAI: 'LLMs think in tokens.'",
+    "We were quite surprised by how well and consistently GPT returns well-formed JSON based on the instructions in our prompts.",
+    "We believe that the quality of a generative co-pilot experience depends on the ability of a user to have a fluid back-and-forth interaction with the co-pilot."
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms"
+  ],
+  "tone": "technical",
+  "key_insight": "Effective AI co-pilot applications succeed not through sophisticated prompting alone, but through thoughtful UI design that structures user-LLM interactions and maintains context across multiple exploration paths.",
+  "filename": "2023-06-29-building-boba"
+}

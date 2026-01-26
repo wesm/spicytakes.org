@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler explores the philosophy of open inheritance, contrasting it with designed inheritance in object-oriented programming. While acknowledging inheritance's inherent dangers, he argues that open inheritance advocates believe the choice to accept those risks should belong to library users, not library designers. The core tension lies in whether library writers can anticipate all useful variations of their classes. Fowler notes that designed inheritance assumes library writers are wiser than users, which is often false. He particularly highlights testing as a pain point where sealed classes create 'detestable' APIs that prevent test doubles.",
+  "key_points": [
+    "Open inheritance shifts risk acceptance from library designers to library users, who can then fix mistakes while still leveraging the library's work",
+    "Designing for inheritance requires anticipating use cases that are often unknowable, placing an unfair burden on library writers",
+    "Sealed classes without substitutable interfaces create testing nightmares by preventing test doubles",
+    "Open inheritors can still mark safe extension points through naming and documentation without blocking other overrides",
+    "Designed inheritance often assumes a directing attitude that underestimates how ingeniously people can circumvent restrictions anyway"
+  ],
+  "money_quotes": [
+    "Open inheritors believe that the choice of whether to take on those risks should be the decision of the users of the library.",
+    "Designed inheritance assumes that library writers are wiser than their users. Often this isn't the case.",
+    "Library writers make mistakes too, if inheritance is open then the user of the class has the opportunity to fix them and still take advantage of the library writers hard work.",
+    "Designing for inheritance is a very tricky task, particularly as you usually don't know what the use cases are.",
+    "Often design inheritance comes with a DirectingAttitude, which usually forgets that fools are ingenious when it comes to messing things up."
+  ],
+  "themes": [
+    "architecture",
+    "testing"
+  ],
+  "tone": "balanced, pragmatic, skeptical of paternalism",
+  "key_insight": "The decision to accept inheritance risks should belong to library users, not designers, because anticipating all useful variations is impossible and assuming designer wisdom over user wisdom is often wrong.",
+  "filename": "2006-10-06-OpenInheritance"
+}

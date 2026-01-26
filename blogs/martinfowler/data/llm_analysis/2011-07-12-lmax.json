@@ -1,0 +1,25 @@
+{
+  "summary": "LMAX is a retail financial trading platform that processes 6 million orders per second on a single thread, defying conventional wisdom about concurrent programming. The architecture centers on a Business Logic Processor that runs entirely in-memory with no database, using Event Sourcing for durability and recovery. Input and output operations are handled by custom concurrent components called Disruptors, which avoid traditional queue bottlenecks through careful attention to CPU cache behavior. The team arrived at this design after discovering that actor-model approaches spent more time managing queues than processing business logic, leading them to embrace 'mechanical sympathy' with modern hardware.",
+  "key_points": [
+    "Single-threaded business logic processing eliminates concurrency complexity while achieving 6 million TPS through cache-friendly design and elimination of locks",
+    "Event Sourcing enables in-memory processing by making state fully recoverable from input events, with nightly snapshots allowing full restart in under a minute",
+    "The Disruptor component solves concurrent IO without queues by using a ring buffer with sequence counters, following the single-writer principle",
+    "Traditional queues fail high-performance systems because write contention causes locks, context switches, and cache invalidation",
+    "The asynchronous programming model requires splitting operations at external service boundaries but provides better error handling and resilience"
+  ],
+  "money_quotes": [
+    "In fact they ended up by doing all the business logic for their platform: all trades, from all customers, in all markets - on a single thread.",
+    "The phrase Martin Thompson likes to use is 'mechanical sympathy'. The term comes from race car driving and it reflects the driver having an innate feel for the car, so they are able to feel how to get the best out of it.",
+    "To get the best caching behavior, you need a design that has only one core writing to any memory location.",
+    "What they found was that the processors spent more time managing queues than doing the real logic of the application. Queue access was a bottleneck.",
+    "Even good programmers are very good at constructing performance arguments that end up being wrong, so the best programmers prefer profilers and test cases to speculation.",
+    "These days, you can get more main memory into your servers than us old guys could get as disk space.",
+    "The LMAX team certainly feels that the days of the coordinating transactional database are numbered."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "By understanding how modern CPUs actually work and following the single-writer principle, you can achieve massive throughput with simple single-threaded code that outperforms complex concurrent systems.",
+  "filename": "2011-07-12-lmax"
+}

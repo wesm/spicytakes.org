@@ -1,0 +1,25 @@
+{
+  "summary": "This post defines serverless architectures as internet-based systems that replace traditional server processes with third-party services, client-side logic, and Functions as a Service (FaaS). The architecture shifts control flow from server-side controllers to rich client applications that coordinate multiple services via API calls. Custom code components have much shorter lifecycles, activating per-request rather than running continuously. While serverless offers cost savings for bursty traffic and easier scaling, it introduces conceptual overhead from service composition, harder local development and testing, and new operational challenges when third-party services experience outages.",
+  "key_points": [
+    "Serverless replaces traditional servers with third-party services, client-side logic, and FaaS, shifting control flow to rich JavaScript or mobile applications",
+    "Custom code lifecycles shrink from long-running processes to per-request activation, enabling pay-per-use pricing models",
+    "Cost savings are most significant for applications with bursty traffic patterns that would otherwise require over-provisioned servers",
+    "The conceptual overhead of weaving applications from multiple services is significant and increases with service variety",
+    "Operations don't disappear\u2014teams must still handle cascading impacts from third-party service outages, downtime, and slowdowns"
+  ],
+  "money_quotes": [
+    "In serverless applications, custom code components have a lifecycle that is much shorter, closer to the timeline of a single HTTP request/response cycle.",
+    "The code activates when a request arrives, processes the request and becomes dormant as soon as the activity dies down.",
+    "The cost of having a beefy server run cold the majority of the time in order to accommodate the bursts is both wasteful and expensive.",
+    "The conceptual overhead of splitting a single application into something that woven from a fabric of services is significant.",
+    "Local development and unit testing is also harder when applications have significant parts implemented and running in external services.",
+    "This doesn't mean teams can forget about operations. It still falls on development teams to deal with the problems caused by service outage, downtime, decommissioning and slowdowns."
+  ],
+  "themes": [
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical, balanced, explanatory",
+  "key_insight": "Serverless architectures trade traditional server management for new complexities around service composition, testing, and third-party dependency management\u2014operations shift but don't disappear.",
+  "filename": "2016-06-20-Serverless"
+}

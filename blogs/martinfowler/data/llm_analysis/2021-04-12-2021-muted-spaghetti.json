@@ -1,0 +1,22 @@
+{
+  "summary": "This post explains how to create muted-spaghetti line charts in R using ggplot2, a visualization technique that shows one highlighted data series against a background of related comparison series. Fowler demonstrates the technique using COVID-19 death rates, showing how Massachusetts data becomes more meaningful when contextualized against all other US states. The key insight is that raw numbers need context to be interpretable. The post includes practical R code for both single charts and faceted grids, with a clever trick of renaming the grouping column to make facets work correctly with background spaghetti lines.",
+  "key_points": [
+    "Raw numbers without context are meaningless - a $10M sales figure tells you nothing without comparison",
+    "Muted-spaghetti charts layer a highlighted line over grayed-out comparison lines to provide visual context",
+    "The technique requires plotting the background lines before the foreground to ensure the primary data pops",
+    "For faceted grids, renaming the grouping column prevents ggplot from faceting the background spaghetti lines",
+    "This visualization pattern has no generally accepted name, though 'spaghetti line chart' describes multiple overlaid lines"
+  ],
+  "money_quotes": [
+    "If someone tells me their sales last month was $10M - what do I make of it? With just the bare number, I don't know what to think.",
+    "To make sense of the number I need context, perhaps over time, perhaps compared to compatible companies.",
+    "Using a data visualization can help me put a number into a context that allows me to make sense of it.",
+    "As far as I can tell, there's no generally accepted term for this kind of plot.",
+    "Note that I plot the background before the foreground line to ensure the foreground line pops clearly on top.",
+    "By renaming the grouping column, ggplot only facets the primary line and plots the spaghetti on each facet."
+  ],
+  "themes": [],
+  "tone": "technical",
+  "key_insight": "Numbers only become meaningful when visualized with appropriate context, and muted-spaghetti charts provide an elegant way to show how a single data series compares against many related series.",
+  "filename": "2021-04-12-2021-muted-spaghetti"
+}

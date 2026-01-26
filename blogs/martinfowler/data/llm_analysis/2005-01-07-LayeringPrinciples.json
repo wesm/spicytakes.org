@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler reports on an informal voting exercise at an enterprise software workshop where participants proposed and voted on layering principles. Using dot voting with positive and negative votes, the group evaluated common design maxims. Strong consensus emerged around separation of concerns, loose coupling, and keeping UI logic out of business layers. The exercise revealed that some commonly heard principles (like separating teams by layer) were actually widely disliked, while some rarely-practiced principles (like abstracting technological services) had strong support. Fowler acknowledges the informal nature but suggests the results could provoke useful discussion.",
+  "key_points": [
+    "Classic principles like separation of concerns, loose coupling/high cohesion, and no business logic in UI layers received near-unanimous support",
+    "The principle of separating development teams by layer was heavily voted down (1/22), despite being commonly practiced",
+    "'Distribute at layer boundaries' was strongly rejected, reinforcing that layers are logical, not physical deployment units",
+    "Some well-supported principles like abstracting technological services from business logic are rarely implemented in practice",
+    "The group showed mixed feelings about strict adjacent-layer-only interaction and service layer wrapping"
+  ],
+  "money_quotes": [
+    "Layers are a logical artifact that does not imply distribution between layers.",
+    "A layer should be wary of exposing lower layers to upper layers.",
+    "Business layer only uses abstractions of technological services.",
+    "Every layer should have a secret.",
+    "Separate development teams by layer.",
+    "Rethrow exceptions at layer boundaries."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "observational",
+  "key_insight": "The gap between principles developers espouse and those they actually practice reveals interesting disconnects\u2014some widely heard advice is actually unpopular, while some strongly supported principles go unimplemented.",
+  "filename": "2005-01-07-LayeringPrinciples"
+}

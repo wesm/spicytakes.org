@@ -1,0 +1,25 @@
+{
+  "summary": "The article advocates for building simple demo front-ends for API-only products to solve the problem of meaningless demos where developers show raw JSON to confused stakeholders. Rather than using tools like Swagger UI or Postman, teams should create lightweight HTML/JavaScript interfaces bundled with the API that can generate valid requests automatically, parse responses into readable formats, and guide users through workflows. The demo front-end provides benefits beyond demos: developers use it for local testing, QA teams use it in test environments, and it can demonstrate API usage to potential partners. The author recommends avoiding dedicated build processes to keep the development loop fast, using inline JavaScript with minimal libraries instead of heavy frameworks.",
+  "key_points": [
+    "Demo front-ends solve the problem of showing incomprehensible JSON to non-technical stakeholders during API demos",
+    "The UI should be bundled with the API (e.g., in Spring Boot's public resources) so it's immediately available wherever the API runs",
+    "JavaScript can automate tedious tasks like generating unique IDs or setting future dates, reducing friction compared to Postman or Swagger UI",
+    "Avoid dedicated npm builds - use inline scripts with lightweight tools to keep the edit-compile-run-test loop fast",
+    "The demo front-end can evolve into documentation, workflow guidance, and even production troubleshooting tools"
+  ],
+  "money_quotes": [
+    "Have you ever attended a 'demo' where developers were proudly showing screen after screen of JSON output from their API, while users were confused and distracted, unable to make any sense of it?",
+    "The Demo Front-End is a gift that keeps on giving.",
+    "Any delay between the desire to test something and the moment we are actually executing the test slows down the development loop.",
+    "If you are used to 'big' Front-End frameworks such as Angular, you might be surprised at how much can be done just by loading jQuery or React in an inline <script> tag.",
+    "The client told us they were happy because they could now troubleshoot in minutes why a call didn't work as expected, compared to days in the previous system.",
+    "A simple HTML table can go a long way to make it easy for technical and non-technical users to verify the results of the API."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "practical, advisory, experience-driven",
+  "key_insight": "A lightweight demo front-end bundled with your API transforms stakeholder demos from confusing JSON dumps into comprehensible experiences, while also accelerating development, testing, and troubleshooting across the entire team.",
+  "filename": "2023-08-23-demo-front-end"
+}

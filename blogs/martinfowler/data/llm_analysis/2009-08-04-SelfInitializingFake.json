@@ -1,0 +1,23 @@
+{
+  "summary": "A self-initializing fake is a test double pattern for remote services that records responses on first call and replays them subsequently. Unlike traditional stubs that require manual setup, this pattern captures real service responses automatically. The approach handles cache invalidation by simply not attempting it\u2014saved responses remain static. When remote data changes, teams can either accept stale data for tests or create validation suites that verify saved responses still match the live service.",
+  "key_points": [
+    "Self-initializing fakes record real service responses on first call and replay them for subsequent tests, eliminating manual stub setup",
+    "The pattern avoids cache invalidation entirely by treating saved responses as permanent fixtures",
+    "When remote services change, teams can run validation suites comparing saved responses against live data",
+    "Unimportant parameters that vary between calls can be stripped from lookup keys to improve cache hits",
+    "Build pipelines can run fast stages against fakes and slow final stages against real services"
+  ],
+  "money_quotes": [
+    "Remote services are usually slow and often unreliable, so using a double is a good way to make your tests faster and more stable.",
+    "In a sense this is like a cache, but with the important difference that there is no attempt to handle cache invalidation, which is handy as that's one of the TwoHardThings.",
+    "The distinction here is that a stub needs setting up when you build the fixture, while fakes are autonomous.",
+    "Automated tests rely on getting the same answers to the same questions.",
+    "Usually tests don't care whether the data is up to date or not, so saving an old value worked just fine."
+  ],
+  "themes": [
+    "testing"
+  ],
+  "tone": "technical",
+  "key_insight": "Self-initializing fakes sidestep cache invalidation complexity by treating recorded responses as permanent test fixtures, trading data freshness for test stability and speed.",
+  "filename": "2009-08-04-SelfInitializingFake"
+}

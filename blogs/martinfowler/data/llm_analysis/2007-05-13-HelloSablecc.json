@@ -1,0 +1,23 @@
+{
+  "summary": "Fowler documents his experience getting SableCC, a Java-based LALR(1) parser generator, working with a minimal 'Hello World' example. He walks through the grammar definition, build process with Ant, and the visitor-based approach SableCC uses instead of embedded parser actions. He finds SableCC awkward to use due to poor documentation and unhelpful error messages, noting that Antlr's recursive descent approach is easier to follow and debug. The post serves as a practical tutorial while offering preliminary critical assessment of the tool.",
+  "key_points": [
+    "SableCC generates a parse tree automatically and provides a visitor pattern for walking it, rather than allowing embedded actions in the grammar",
+    "The build process requires running the compiler-compiler, compiling generated code alongside custom code, and copying data files for the parser tables",
+    "LALR parsers are notoriously hard to debug, making good error messages and documentation essential - areas where SableCC falls short",
+    "Tree transformation rules in newer SableCC versions create abstract syntax trees instead of parse trees, making tree walking easier",
+    "Starting with a trivial 'Hello World' example when learning new technology helps establish the basics before tackling interesting problems"
+  ],
+  "money_quotes": [
+    "Of course using a compiler-compiler for this is total overkill for this kind of case, but the point of a hello-world example is to get the environment working on a simple case so you can move onto the interesting cases with the basics working.",
+    "Whenever I play with a new technology I always like to get something like this going first, before I delve into the interesting aspects.",
+    "The whole point of this blog is to write half-formed thoughts.",
+    "LALR parsers are notoriously hard to follow, so I'm glad I didn't have to delve in there.",
+    "During my work I made a mistake in the grammar and found it tricky to get diagnostics. The error messages weren't too informative and I resorted to debuggers and print statements inside the generated parser code."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "When exploring new development tools, start with the simplest possible working example to establish the basics before tackling complex problems - and be prepared for documentation and debugging challenges with less mature tools.",
+  "filename": "2007-05-13-HelloSablecc"
+}

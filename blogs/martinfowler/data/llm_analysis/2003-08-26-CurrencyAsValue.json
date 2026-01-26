@@ -1,0 +1,23 @@
+{
+  "summary": "Fowler explores the design challenge of modeling currency in software systems. While currency typically works well as a simple value object using just the currency code, he describes a system that required mutable 'pip values' for UI nudge buttons. Since value objects should be immutable, the solution involved splitting currency into two classes: a value object for immutable data like the currency code, and a reference object for mutable data like pip values. This 'bi-semantic' pattern is rare, and most systems can use simple value objects for currency.",
+  "key_points": [
+    "Currency typically works well as a simple value object containing just the currency code",
+    "Value objects should be immutable, which becomes problematic when some currency attributes need to change",
+    "The solution was splitting into two classes: a value object for immutable data and a reference object for mutable data",
+    "The value object delegated certain methods (like pip value) to the reference object held in a lookup table",
+    "This bi-semantic pattern is unusual and rarely needed in practice"
+  ],
+  "money_quotes": [
+    "For many systems currency works well as a value, the key part you need is the internationally recognized currency code.",
+    "This violates a very useful rule of value objects - that they are immutable.",
+    "The value object was passed around most of the time, but some methods in the value object, such as pip value, delegated to the reference object.",
+    "This bi-semantic behavior is unusual - it's the only time I've seen it."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "When a concept needs both immutable identity and mutable attributes, split it into a value object and a reference object that work together.",
+  "filename": "2003-08-26-CurrencyAsValue"
+}

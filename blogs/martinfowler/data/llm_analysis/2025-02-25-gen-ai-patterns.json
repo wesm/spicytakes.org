@@ -1,0 +1,26 @@
+{
+  "summary": "This article catalogues emerging patterns for building production-ready generative AI systems, addressing the gap between proof-of-concept and production deployment. The authors argue that GenAI products are fundamentally different from traditional software, introducing challenges like hallucination, non-determinism, and unbounded data access. They present RAG (Retrieval Augmented Generation) as the primary approach for most use cases, supported by patterns like Evals for assessment, Guardrails for safety, and Hybrid Retrievers for better document retrieval. Fine-tuning is positioned as a last resort when RAG proves insufficient.",
+  "key_points": [
+    "Evals are essential for GenAI systems because traditional testing assumptions about deterministic behavior don't apply - combining LLM-as-judge with human evaluation provides the most comprehensive assessment",
+    "RAG is the preferred approach for extending LLM knowledge, with Fine Tuning reserved only for cases requiring deep domain-specific behavior changes that can't be achieved through prompt engineering or document retrieval",
+    "Hybrid Retrieval combining embeddings with traditional keyword search (TF/IDF, BM25) outperforms vector search alone, as single embeddings inevitably lose semantic detail when compressing multiple paragraphs",
+    "Guardrails are necessary for any user-facing system but add cost and latency - the trade-off depends on trust level and consequences of potential incidents",
+    "Query Rewriting and Reranking help address the 'lost in the middle' problem where LLMs struggle with information buried in lengthy contexts"
+  ],
+  "money_quotes": [
+    "A common metaphor for an LLM is a junior researcher. Someone who is articulate, well-read in general, but not well-informed on the details of the topic - and woefully over-confident, preferring to make up a plausible answer rather than admit ignorance.",
+    "There's another adjective we should apply: gullible. Our AI researchers are easily convinced to say things better left silent, revealing secrets, or making things up in order to appear more knowledgeable than they are.",
+    "We believe that a lot of these difficulties come from folks thinking that these products are merely extensions to traditional transactional or analytical systems.",
+    "When you're just starting with retrieval systems, it's a shock to realize that relying solely on document chunk embeddings in a vector store won't lead to efficient retrieval.",
+    "Fine tuning a model incurs significant skills, computational resources, expense, and time. Therefore it's wise to try other techniques first, to see if they will satisfy our needs - and in our experience, they usually do.",
+    "If you see fine-tuning as your competitive edge, prioritize curating high-quality data for your specific domain.",
+    "The trade-off is worth keeping in mind because guardrails don't come for free. The extra LLM calls involve costs and increase latency."
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms"
+  ],
+  "tone": "technical, pragmatic, educational",
+  "key_insight": "Production GenAI systems require a layered architecture of patterns\u2014Evals for measurement, RAG for knowledge extension, Guardrails for safety, and retrieval enhancements for accuracy\u2014with Fine Tuning reserved as a costly last resort.",
+  "filename": "2025-02-25-gen-ai-patterns"
+}

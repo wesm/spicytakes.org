@@ -1,0 +1,24 @@
+{
+  "summary": "The post argues that comparing groups of data using only averages (means) is dangerously misleading because it hides crucial information about the underlying distribution. Using a sales bonus decision as an example, Fowler demonstrates how one executive's seemingly superior 7.9% average actually stems from a single 80% outlier while all other accounts shrank. The article presents several visualization alternatives\u2014strip charts, histograms, density plots, box plots, and violin plots\u2014that reveal the true shape of data distributions. Fowler advocates for always examining distributions before drawing conclusions and suggests median is often more appropriate than mean for central tendency.",
+  "key_points": [
+    "Averages are extremely vulnerable to outliers\u2014one Bill Gates makes a hundred homeless people average billionaires, one hot account can mask overall poor performance",
+    "Two groups with identical averages can have completely different distributions (consistent vs bimodal performance)",
+    "Strip charts show every data point and work well for smaller datasets; adding a mean marker combines distribution visibility with summary statistics",
+    "Box plots excel at comparing many groups by showing quartiles, medians, and outliers in a compact form that summarizes thousands of data points",
+    "Tooling bias perpetuates the problem\u2014SQL has AVG built-in but typically lacks easy median functions, encouraging mean overuse"
+  ],
+  "money_quotes": [
+    "Remember the average net worth of a hundred homeless people is $1B once Bill Gates enters the room.",
+    "My disdain is for those who *only* use means, or use them without examining the overall distribution.",
+    "Whenever you see an 'average', you should always consider which is better: median or mean?",
+    "If some day I become supreme leader, I will decree that no platform can have a mean function unless they also supply a median.",
+    "There's no point eagerly collecting the data you need to be a data-driven enterprise unless you know how to examine that data properly.",
+    "Every kind of chart illuminates different features of a dataset, and it's wise to use several to get a sense of what the data may be telling us."
+  ],
+  "themes": [
+    "testing"
+  ],
+  "tone": "instructive, pragmatic, mildly exasperated",
+  "key_insight": "Always visualize the underlying distribution before comparing groups by averages, because summary statistics can mask critically important patterns like outliers, bimodal distributions, and inconsistent performance.",
+  "filename": "2020-09-24-dont-compare-averages"
+}

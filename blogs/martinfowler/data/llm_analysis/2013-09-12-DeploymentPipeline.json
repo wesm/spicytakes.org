@@ -1,0 +1,25 @@
+{
+  "summary": "A deployment pipeline addresses the tension between fast feedback and comprehensive testing in automated build environments by breaking the build into sequential stages. Each stage provides increasing confidence at the cost of additional time, with early stages catching most problems quickly while later stages perform more thorough validation. The pipeline's broader purpose is to detect any changes that could cause production problems, including performance, security, and usability issues. Fowler recommends modeling your current delivery process as a pipeline to identify bottlenecks and automation opportunities.",
+  "key_points": [
+    "Deployment pipelines solve the speed-vs-thoroughness tradeoff by breaking builds into stages with increasing confidence levels",
+    "Early stages provide fast feedback on most problems; later stages offer slower but more comprehensive validation",
+    "Pipelines detect production-threatening changes across multiple dimensions: performance, security, usability",
+    "Stages can be automatic or require human authorization, and may be parallelized for speed",
+    "Modeling your current delivery process as a pipeline reveals bottlenecks and collaboration opportunities"
+  ],
+  "money_quotes": [
+    "Each stage provides increasing confidence, usually at the cost of extra time.",
+    "Early stages can find most problems yielding faster feedback, while later stages provide slower and more thorough probing.",
+    "The deployment pipeline's job is to detect any changes that will lead to problems in production.",
+    "A deployment pipeline should enable collaboration between the various groups involved in delivering software and provide everyone visibility about the flow of changes in the system.",
+    "A good way to introduce continuous delivery is to model your current delivery process as a deployment pipeline, then examine this for bottlenecks, opportunities for automation, and collaboration points."
+  ],
+  "themes": [
+    "continuous_delivery",
+    "testing",
+    "technical_leadership"
+  ],
+  "tone": "explanatory, pragmatic, instructional",
+  "key_insight": "Deployment pipelines resolve the fundamental tension between fast feedback and comprehensive validation by structuring builds as progressive stages of increasing confidence.",
+  "filename": "2013-09-12-DeploymentPipeline"
+}

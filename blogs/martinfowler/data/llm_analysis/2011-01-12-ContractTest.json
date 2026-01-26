@@ -1,0 +1,26 @@
+{
+  "summary": "Contract tests verify that test doubles accurately represent external services, addressing the fundamental question of whether your mocks reflect reality. When communicating with services maintained by other teams, test doubles prevent slow and unreliable tests, but they create a risk of drift from the actual service contract. Contract tests run separately from the main deployment pipeline, typically on a daily cadence tied to external service changes rather than your own code changes. Failures should trigger either code updates or conversations with the service team, and ideally teams adopt Consumer Driven Contracts where suppliers run your contract tests in their pipeline.",
+  "key_points": [
+    "Test doubles solve the problem of slow and unreliable external services but create the risk of representing outdated contracts",
+    "Contract tests should run on a separate cadence from deployment pipelines, based on external service change rhythms rather than your own code changes",
+    "Contract test failures should trigger communication with service suppliers, not just code fixes",
+    "Consumer Driven Contracts reduce surprise breakages by letting suppliers run your contract tests in their build pipeline",
+    "Contract tests verify data format consistency, not necessarily exact data values"
+  ],
+  "money_quotes": [
+    "Testing against a double always raises the question of whether the double is indeed an accurate representation of the external service, and what happens if the external service changes its contract?",
+    "Your regular pipeline is based on the rhythm of changes to your code, but these tests need to be based on the rhythm of changes to the external service.",
+    "A failure in a contract test shouldn't necessarily break the build in the same way that a normal test failure would.",
+    "Just as likely it will trigger a conversation with the keepers of the external service to talk about the change and alert them to how their changes are affecting other applications.",
+    "You can facilitate this by letting the supplier team have copies of your contract tests so they can run them as part of their build pipeline.",
+    "Contract tests check the contract of external service calls, but not necessarily the exact data."
+  ],
+  "themes": [
+    "testing",
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical, practical, methodical",
+  "key_insight": "Contract tests bridge the gap between the convenience of test doubles and the reality of external services by verifying your mocks still match the actual service contract, running on a cadence tied to external changes rather than your own.",
+  "filename": "2011-01-12-ContractTest"
+}

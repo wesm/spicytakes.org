@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler examines the debate between Open Inheritance and Designed Inheritance in object-oriented programming, where the latter principle (articulated by Josh Bloch) advocates that developers should explicitly design for inheritance or seal classes to prevent it. He presents Elliote Rusty Harold's more compelling argument that library writers should protect users from complexity, not because users are stupid but because they shouldn't need domain expertise to use a library safely. Despite finding this argument persuasive, Fowler's enabling attitude leads him to prefer open inheritance with an escape hatch\u2014a mechanism to override seals when developers consciously accept responsibility. He concludes that our thinking about interfaces still has significant room for improvement.",
+  "key_points": [
+    "The standard argument for designed inheritance\u2014that subclasses can break superclasses\u2014is unconvincing to those with an enabling attitude",
+    "A stronger argument is that library writers should hide complexity from users, who shouldn't need deep domain knowledge to use APIs safely",
+    "The distinction isn't about intelligence but about specialized knowledge\u2014users should be free to remain ignorant of implementation details",
+    "Fowler proposes replacing 'prohibit' with 'discourage'\u2014allowing developers to explicitly override seals when they accept responsibility",
+    "Interface design, for both calling and inheritance, still needs significant conceptual advancement"
+  ],
+  "money_quotes": [
+    "Design and document for inheritance or else prohibit it",
+    "APIs are written by experts for non experts",
+    "Encapsulation is all about hiding secrets, so a good library should hide all sorts of complications and danger points from library users",
+    "This isn't about ability, but about detailed knowledge",
+    "I want to be as ignorant as I can be the sordid details of XML",
+    "By relieving me of needing to understand these kinds of details, I can use my brain power the actual task I want to accomplish",
+    "I'd prefer to replace Josh Bloch's 'prohibit' with a 'discourage'"
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "reflective",
+  "key_insight": "The best argument for designed inheritance isn't that users are incapable, but that good libraries should free users from needing domain expertise\u2014though an escape hatch for conscious override would satisfy both camps.",
+  "filename": "2006-10-06-DesignedInheritance"
+}

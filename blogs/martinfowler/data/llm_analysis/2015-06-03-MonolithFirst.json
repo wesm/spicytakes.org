@@ -1,0 +1,27 @@
+{
+  "summary": "Fowler argues that teams should start new projects as monoliths rather than microservices, based on his observation that successful microservice architectures almost always evolved from monoliths, while greenfield microservice projects often end in serious trouble. The microservices premium\u2014the overhead of managing distributed services\u2014slows teams down when speed and feedback cycles matter most. Starting with a monolith lets teams discover correct service boundaries through experience rather than guessing upfront, where mistakes are costly to fix. He outlines several migration paths: careful modular design, gradual peeling of services, sacrificial replacement, or starting with a few coarse-grained services. While acknowledging counterarguments about building microservice discipline early, Fowler concludes that without prior microservices experience, monolith-first is the safer approach.",
+  "key_points": [
+    "Almost all successful microservice stories started as monoliths that were later decomposed, while greenfield microservices projects frequently fail",
+    "The microservices premium (operational overhead) makes sense only for complex systems\u2014simpler applications benefit from monolithic simplicity",
+    "Getting service boundaries right at the start is extremely difficult even for experienced architects; monoliths let you discover boundaries through practice",
+    "Migration strategies include modular monolith design, gradual service peeling, complete replacement as sacrificial architecture, or starting with coarse-grained services",
+    "Teams without prior microservices experience should not start with a microservices architecture"
+  ],
+  "money_quotes": [
+    "Almost all the successful microservice stories have started with a monolith that got too big and was broken up",
+    "It may be hard to scale a poorly designed but successful software system, but that's still a better place to be than its inverse",
+    "Any refactoring of functionality between services is much harder than it is in a monolith",
+    "By building a monolith first, you can figure out what the right boundaries are, before a microservices design brushes a layer of treacle over them",
+    "You cannot assume that you can take an arbitrary system and break it into microservices",
+    "Don't be afraid of building a monolith that you will discard, particularly if a monolith can get you to market quickly",
+    "It takes a lot, perhaps too much, discipline to build a monolith in a sufficiently modular way that it can be broken down into microservices easily"
+  ],
+  "themes": [
+    "microservices",
+    "architecture",
+    "agile"
+  ],
+  "tone": "cautious, empirical, pragmatic",
+  "key_insight": "Start with a monolith to discover correct service boundaries through experience, because the cost of wrong boundaries in a microservices architecture far exceeds the cost of later decomposing a well-understood monolith.",
+  "filename": "2015-06-03-MonolithFirst"
+}

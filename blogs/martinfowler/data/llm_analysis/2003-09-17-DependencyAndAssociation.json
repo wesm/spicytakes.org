@@ -1,0 +1,23 @@
+{
+  "summary": "Fowler clarifies the distinction between dependency and association in UML modeling. Association represents a persistent link like a field in a class\u2014the relationship is always there. Dependency is broader and vaguer: it exists when changes to one element may cause changes to another, encompassing things like parameter types and temporary variables. Since dependencies are ubiquitous, diagrams should only show the important ones. Associations inherently imply dependency, so drawing both would be redundant. UML 2 resolved meta-model problems from UML 1 that had caused confusion with transient links and stereotypes like 'parameter'.",
+  "key_points": [
+    "Association represents persistent relationships like fields\u2014you can always ask an order for its customer",
+    "Dependency is a vague, general relationship where changes to one element may affect another",
+    "Be selective about which dependencies to show on diagrams\u2014there are far too many to display all of them",
+    "Associations already imply dependency, so showing both would be redundant",
+    "UML 2 fixed meta-model issues from UML 1 that had caused confusion around transient relationships"
+  ],
+  "money_quotes": [
+    "A dependency exists between two elements if changes to the definition of one element (the supplier) may cause changes to the other (the client).",
+    "You don't want to show every dependency on a UML diagram - there are far too many.",
+    "You need to be very selective and show only those that are important to whatever it is you are communicating.",
+    "Associations also imply dependency, if there is an association between two classes, there is also a dependency.",
+    "The difference between a permanent slot and a relationship that's only present within the context of a method is rather important."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical, clarifying, pragmatic",
+  "key_insight": "Association represents permanent structural relationships while dependency captures any potential for change impact\u2014and since associations already imply dependency, good UML diagrams show only the dependencies that matter for communication.",
+  "filename": "2003-09-17-DependencyAndAssociation"
+}

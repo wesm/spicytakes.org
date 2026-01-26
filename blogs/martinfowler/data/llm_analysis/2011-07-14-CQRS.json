@@ -1,0 +1,27 @@
+{
+  "summary": "CQRS (Command Query Responsibility Segregation) splits a system's conceptual model into separate models for updates (commands) and reads (queries), rather than using a single CRUD-based model for both. While this separation can be valuable for complex domains or high-performance applications with disparate read/write loads, Fowler strongly cautions that CQRS adds significant complexity and should only be applied to specific bounded contexts where the benefit justifies the cost. He notes that most systems fit a CRUD model well, and the majority of CQRS implementations he's encountered have caused serious difficulties rather than improvements.",
+  "key_points": [
+    "CQRS separates the conceptual model into distinct command (write) and query (read) models, often running in different processes or using different databases",
+    "The pattern naturally complements event-based architectures, eventual consistency, event sourcing, and domain-driven design",
+    "CQRS provides benefits for complex domains where command and query requirements differ significantly, and for high-performance systems needing independent read/write scaling",
+    "Most systems should use simple CRUD approaches; CQRS should only be applied to specific bounded contexts, not entire systems",
+    "A reporting database offers a simpler alternative for demanding queries without requiring full CQRS adoption"
+  ],
+  "money_quotes": [
+    "For some situations, this separation can be valuable, but beware that for most systems CQRS adds risky complexity.",
+    "The rationale is that for many problems, particularly in more complicated domains, having the same conceptual model for commands and queries leads to a more complex model that does neither well.",
+    "CQRS is a significant mental leap for all concerned, so shouldn't be tackled unless the benefit is worth the jump.",
+    "While I have come across successful uses of CQRS, so far the majority of cases I've run into have not been so good, with CQRS seen as a significant force for getting a software system into serious difficulties.",
+    "Using CQRS on a domain that doesn't match it will add complexity, thus reducing productivity and increasing risk.",
+    "You should be very cautious about using CQRS.",
+    "CQRS is a pattern that's good to have in the toolbox, beware that it is difficult to use well and you can easily chop off important bits if you mishandle it."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven",
+    "microservices"
+  ],
+  "tone": "cautionary, technical, balanced",
+  "key_insight": "CQRS is a powerful pattern for specific complex domains and high-performance scenarios, but its overuse on systems that fit a simpler CRUD model has caused more harm than good in most real-world implementations.",
+  "filename": "2011-07-14-CQRS"
+}

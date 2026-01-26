@@ -1,0 +1,21 @@
+{
+  "summary": "Fowler introduces the concept of 'subcutaneous testing' - tests that operate just beneath an application's UI layer. This approach is valuable for functional end-to-end testing when the UI itself is difficult to test. While faster and avoiding presentation layer complexities, it risks missing important behavior if logic leaks into the UI layer.",
+  "key_points": [
+    "Subcutaneous tests operate immediately below the UI, enabling end-to-end functional testing without UI complexity",
+    "This approach is faster than UI testing and avoids hard-to-test presentation technologies",
+    "The technique only works safely if you maintain strict separation of logic from UI code",
+    "Subcutaneous testing is a pragmatic middle ground between unit tests and full UI tests"
+  ],
+  "money_quotes": [
+    "I use subcutaneous test to mean a test that operates just under the UI of an application.",
+    "Subcutaneous testing can avoid difficulties with hard-to-test presentation technologies and usually is much faster than testing through the UI.",
+    "The big danger is that, unless you are a firm follower of keeping all useful logic out of your UI, subcutaneous testing will leave important behavior out of its test."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Subcutaneous testing offers a pragmatic balance between speed and coverage, but its effectiveness depends entirely on disciplined separation of business logic from the UI layer.",
+  "filename": "2011-02-14-SubcutaneousTest"
+}

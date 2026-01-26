@@ -1,0 +1,23 @@
+{
+  "summary": "Martin Fowler examines why Ant build scripts often devolve into imperative-style task sequences despite being designed for dependency-based programming. He traces this anti-pattern to Ant's naming convention, which encourages naming targets after activities (compile, test) rather than outputs, unlike Make which names targets after the files they produce. This subtle difference pulls developers away from thinking about dependencies and toward thinking imperatively. Fowler argues that focusing on outputs rather than activities leads to better build scripts that properly leverage the dependency model and avoid unnecessary work.",
+  "key_points": [
+    "Ant files tend to decompose into task-named targets (compile, unit-test) combined into imperative sequences, which mismatches the dependency-based computational model",
+    "Make names targets after output files while Ant names them after activities - this subtle difference affects how developers conceptualize their build logic",
+    "Ant relies on individual tasks to determine what needs rebuilding, unlike Make which compares modification times of output and input files",
+    "Targets should be named after their products, state dependencies directly, and ensure no significant work happens when unnecessary"
+  ],
+  "money_quotes": [
+    "This kind of style smells wrong because it's a mismatch with the dependency-based computational model that build files are based on.",
+    "When faced with a piece of apparent idiocy the easy thing to do is make some flippant comment... But often it's worth delving a little deeper.",
+    "I wonder how that naming convention pulls your brain away from thinking about dependencies and into thinking about imperative rules.",
+    "With any target you should be sure that it won't do any significant work unless something could have changed; focusing on the output is a good way to do this.",
+    "Name each target after its product (not the activity it does)."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "reflective, technical, analytical",
+  "key_insight": "How you name build targets fundamentally shapes how you think about them - naming after outputs encourages dependency thinking, while naming after activities encourages imperative thinking.",
+  "filename": "2007-04-26-OutputBuildTarget"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "This post introduces Martin Fowler's catalog of patterns for distributed systems, which addresses the fundamental challenges of building reliable software across multiple nodes with unreliable networks. The patterns emerged from observing how core distributed software (data storage, messaging, system management) solves common problems with similar solutions. Fowler began collecting these patterns in 2020 and published them as a book in 2023. The catalog now serves as a reference with short summaries linking to deeper content, covering everything from consensus algorithms to replication strategies to clock synchronization.",
+  "key_points": [
+    "Distributed systems face inherent challenges: multiple data copies needing synchronization, unreliable nodes, and network delays causing inconsistencies",
+    "Despite these challenges, organizations depend heavily on distributed software for storage, messaging, and compute",
+    "The patterns represent recurring solutions that different distributed systems have independently converged upon",
+    "The catalog covers consensus (Paxos, Two-Phase Commit), replication (Leader-Followers, Replicated Log), time ordering (Lamport Clock, Hybrid Clock), and operational concerns (Heartbeat, Gossip Dissemination)"
+  ],
+  "money_quotes": [
+    "Distributed systems provide a particular challenge to program.",
+    "They often require us to have multiple copies of data, which need to keep synchronized.",
+    "Yet we cannot rely on processing nodes working reliably, and network delays can easily lead to inconsistencies.",
+    "These systems face common problems which they solve with similar solutions.",
+    "Avoid two groups of servers making independent decisions by requiring majority for taking every decision.",
+    "Provide durability guarantee without the storage data structures to be flushed to disk, by persisting every state change as a command to the append only log."
+  ],
+  "themes": [
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical, encyclopedic, practical",
+  "key_insight": "Distributed systems, despite their inherent complexity around synchronization and reliability, converge on a common set of reusable patterns that can be studied and applied systematically.",
+  "filename": "2023-11-23-patterns-of-distributed-systems"
+}

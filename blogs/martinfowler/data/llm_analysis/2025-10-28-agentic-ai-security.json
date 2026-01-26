@@ -1,0 +1,28 @@
+{
+  "summary": "Agentic AI systems present severe security vulnerabilities that the industry has no reliable way to defend against. The fundamental problem is that LLMs cannot distinguish between data and instructions\u2014they process everything as text in a single context, making prompt injection attacks possible. Simon Willison's 'Lethal Trifecta' identifies the three factors that create attack vectors: access to sensitive data, exposure to untrusted content, and the ability to externally communicate. When all three exist, systems become vulnerable to data exfiltration through crafted prompts. The article provides practical mitigations including sandboxing, containerization, limiting privileges, splitting tasks, and maintaining human oversight, while acknowledging these are imperfect defenses against a fundamental architectural weakness.",
+  "key_points": [
+    "LLMs fundamentally cannot separate instructions from data\u2014everything they process is text, making prompt injection attacks inherent to the architecture",
+    "The 'Lethal Trifecta' (sensitive data access + untrusted content + external communication) creates attack vectors; eliminating any one factor reduces risk",
+    "Agentic browser extensions and tools with full browser access are likely 'fatally flawed and cannot be built safely'",
+    "Containerization and sandboxing provide meaningful isolation but are not panaceas\u2014the lethal trifecta risks still apply within containers",
+    "Splitting work into discrete tasks with minimal privileges, combined with human review at each stage, is both more secure and produces better results"
+  ],
+  "money_quotes": [
+    "We simply don't know how to defend against these attacks. We have zero agentic AI systems that are secure against these attacks.",
+    "The problem is that the LLM can't always tell safe text from unsafe text - it can't tell data from instructions.",
+    "Once you let an application execute arbitrary commands it is very hard to block specific tasks.",
+    "I strongly expect that the entire concept of an agentic browser extension is fatally flawed and cannot be built safely.",
+    "Any content that doesn't come directly from you is potentially untrusted.",
+    "As a software developer, you are responsible for the code you produce, and any side effects - you can't blame the AI tooling.",
+    "AI is the asbestos we are shoveling into the walls of our society and our descendants will be digging it out for generations.",
+    "Many MCP servers, prompt samples, scripts, and add-ons are vibe-coded by startups or hobbyists with little concern for security, reliability, or maintainability."
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms",
+    "technical_leadership"
+  ],
+  "tone": "cautionary, pragmatic, technically grounded",
+  "key_insight": "The inability of LLMs to distinguish instructions from data is a fundamental architectural flaw that makes prompt injection attacks inherent to agentic AI systems, requiring defense-in-depth strategies rather than point solutions.",
+  "filename": "2025-10-28-agentic-ai-security"
+}

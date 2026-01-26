@@ -1,0 +1,25 @@
+{
+  "summary": "Role interfaces are defined by examining specific interactions between suppliers and consumers, with suppliers implementing multiple role interfaces for different collaboration patterns. This contrasts with header interfaces where a supplier exposes a single interface mirroring all public methods. Using a PERT planning example, Fowler demonstrates how role interfaces expose only the methods actually needed by collaborators (e.g., Successor only needs latestStart, Predecessor only needs earliestFinish). While role interfaces require more upfront design effort, they communicate actual collaboration clearly and simplify substitutability by requiring implementers to only provide what's genuinely needed.",
+  "key_points": [
+    "Role interfaces are derived from how collaborating objects actually use each other, exposing only the methods needed for specific interactions",
+    "Header interfaces simply duplicate all public methods without considering actual usage patterns, requiring implementers to provide everything even if unused",
+    "Role interfaces clearly communicate the real collaboration between objects and make substitution easier by minimizing implementation requirements",
+    "In remoting contexts, role interfaces define what data must be present for type checking, but extra data can be ignored if supplied",
+    "The concept aligns with Robert Martin's Interface Segregation Principle and has roots in Trygve Reenskaug's role-based methodology"
+  ],
+  "money_quotes": [
+    "A role interface is defined by looking at a specific interaction between suppliers and consumers.",
+    "The strength of a role interface is that it clearly communicates the actual collaboration between an activity and its successors.",
+    "A header interface forces you to implement every method, even if you're not going to need them; but with a role interface you only need to implement exactly what's needed.",
+    "With a header interface all you have to do is duplicate the public methods, no thought needed.",
+    "My belief has always been that you should only use interfaces when you really need substitutability, and if you do need interfaces you should think hard about what the consumer of that interface needs.",
+    "If extra data can be ignored, then it's no crime to supply it; just as a class may implement multiple interfaces."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "Interfaces should be designed based on how consumers actually use collaborators, not by mechanically exposing all public methods, because this communicates real collaboration patterns and simplifies future substitution.",
+  "filename": "2006-12-22-RoleInterface"
+}

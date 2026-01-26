@@ -1,0 +1,25 @@
+{
+  "summary": "The post explains command-oriented interfaces as an alternative to traditional method-oriented interfaces, where each operation becomes its own command class that can be executed. While more complex than simple method calls, this pattern enables powerful capabilities like decoration for cross-cutting concerns, queuing, network transmission, and caching. Fowler notes that complaints about this pattern usually stem from bloated Transaction Scripts rather than the command pattern itself. He emphasizes that commands are primarily an interface choice\u2014the actual logic can live elsewhere, keeping command classes minimal.",
+  "key_points": [
+    "Command-oriented interfaces replace direct method calls with instantiated command objects that encapsulate operations",
+    "Key benefits include easy decoration for transactions/logging, command queuing, network serialization, and result caching",
+    "The pattern works best for significant interfaces like service layers and major subsystem boundaries, not routine method calls",
+    "Complaints about duplicated logic in commands usually reflect Transaction Script problems, not inherent issues with the command pattern",
+    "Commands should be thin interface wrappers\u2014their run method can simply delegate to other classes that contain the actual logic"
+  ],
+  "money_quotes": [
+    "Essentially you have one command class for each method that you would have in the method-oriented interface.",
+    "Command oriented interfaces have a number of benefits. One of the primary ones is the ability to easily add common behavior to commands by decorating the command executor.",
+    "Commands can be queued for later execution and (if the commands and their data are serializable) be passed across a network.",
+    "This problem is a general issue with Transaction Scripts. It may that command-oriented structure tends to exaggerate this, if only because many people feel that a class needs a page or two of code to be worthwhile.",
+    "The choice about using commands is primarily about the interface to clients rather than about the actual implementation of the command logic.",
+    "It's perfectly reasonable to have command classes whose run method is just a single line calling out to another method."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "Command-oriented interfaces are an interface design choice that enables decoration and queuing, but the command classes themselves should remain thin wrappers\u2014keeping logic elsewhere avoids the bloat that gives this pattern a bad reputation.",
+  "filename": "2004-01-24-CommandOrientedInterface"
+}

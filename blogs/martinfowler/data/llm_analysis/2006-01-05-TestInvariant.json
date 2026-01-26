@@ -1,0 +1,22 @@
+{
+  "summary": "Fowler proposes a way to merge Design by Contract (DbC) and Test Driven Development (TDD) approaches, inspired by a conversation with Daniel Jackson. In DbC, class invariants define properties that must always be true and are automatically checked before and after method calls. The idea is to bring this discipline into TDD by defining an explicit invariant-checking method in production classes that gets called during test setup and verification phases. Fowler presents a simple example with a Bowler class where non-negative values for overs, runs, and wickets form the invariant. He admits he hasn't tried this technique himself but offers it as an interesting thought experiment.",
+  "key_points": [
+    "Design by Contract uses class invariants that are automatically checked before and after method execution",
+    "TDD could incorporate DbC principles by adding explicit passesInvariant() methods to production classes",
+    "Invariant checks in tests should occur after setup and after the exercise phase",
+    "This hybrid approach brings formal contract verification into the more pragmatic TDD workflow",
+    "The technique remains theoretical\u2014Fowler presents it as an untested idea worth exploring"
+  ],
+  "money_quotes": [
+    "There's been a long-running, if low-key, argument between the advocates of Design by Contract (DbC) and Test Driven Development (TDD).",
+    "A object must always satisfy its invariant (unless it's in the middle of doing anything.)",
+    "Applying this idea to TDD means that you define a common method to test the invariant in your production classes and test it in your test code.",
+    "I haven't tried this myself, nor am I aware of anyone else who does. But I thought I'd mention it as an interesting thought."
+  ],
+  "themes": [
+    "testing"
+  ],
+  "tone": "exploratory, tentative, technical",
+  "key_insight": "TDD could adopt the rigor of Design by Contract by explicitly testing class invariants at setup and verification phases, bridging two historically separate testing philosophies.",
+  "filename": "2006-01-05-TestInvariant"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler introduces the concept of 'Humane Interface' as a design philosophy prevalent in the Ruby community, contrasting it with the minimalist approach common in Java. The humane interface prioritizes making common use cases easy by providing convenience methods like 'last' and 'flatten', rather than forcing users to compose basic operations. While this results in larger APIs (Ruby's Array has 78 methods vs Java List's 25), it reduces code duplication across clients and improves readability. Fowler argues that humane interfaces do more work upfront so clients don't have to, following the principle that good software makes life easy for users. He personally leans toward the humane approach, though acknowledging it's harder to design well.",
+  "key_points": [
+    "Humane interfaces prioritize common use cases over minimal method counts, resulting in larger but more convenient APIs",
+    "Ruby's Array provides methods like 'last', 'first', and 'flatten' that could be built from primitives but save clients from duplicating common code",
+    "Method naming follows usage frequency - common methods get short names (parse vs strptime), and Ruby even aliases methods (length/size) so users don't have to remember which one to use",
+    "The minimalist approach risks multiple clients duplicating code for common cases, forcing readers to learn indirect idioms",
+    "Good API design should think of users first and make their common tasks easy for both reading and writing"
+  ],
+  "money_quotes": [
+    "The essence of the humane interface is to find out what people want to do and design the interface so that it's really easy to do the common case.",
+    "Much of an object's strength lies in its behavior, not its data.",
+    "If you only try to provide the minimum, you end up with multiple clients duplicating code for common cases.",
+    "Even for simple cases like last, readers have to learn an idiom. Why should they have to see something indirect, when a simple method reads directly?",
+    "Good software thinks of the users first and makes life easy for them.",
+    "Humane interfaces do more work so that clients don't have to.",
+    "The rubyist view being that it's easier for the library to have both than to ask the users of a library to remember which one it is."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "reflective",
+  "key_insight": "API design should optimize for how users actually work, providing convenience methods for common cases rather than forcing them to compose primitives, because the cost of a larger interface is outweighed by reduced duplication and improved readability across all clients.",
+  "filename": "2005-12-21-HumaneInterface"
+}

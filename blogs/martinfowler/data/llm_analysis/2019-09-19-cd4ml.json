@@ -1,0 +1,28 @@
+{
+  "summary": "This article extends Continuous Delivery principles to Machine Learning systems, addressing the unique challenges of managing code, data, and models as three axes of change. The authors define CD4ML as a software engineering approach where cross-functional teams produce ML applications in small, safe increments that can be reproduced and reliably released at any time. Using a sales forecasting application as an example, they walk through technical components including data versioning, reproducible model training with DVC, model serving patterns, testing strategies, experiment tracking with MLflow, deployment orchestration with GoCD, and production monitoring. The article emphasizes that while ML model outputs may be non-deterministic, the release process itself should be reliable and automated, creating feedback loops for continuous improvement.",
+  "key_points": [
+    "ML systems have three axes of change\u2014code, data, and models\u2014each requiring different tools and versioning approaches, making traditional CD insufficient",
+    "Organizational silos between Data Engineers, Data Scientists, and ML Engineers create friction; cross-functional teams are essential for successful CD4ML",
+    "Model serving has three patterns: embedded models (simplest), model-as-service (independent deployment), and model-as-data (streaming/real-time scenarios)",
+    "Testing ML systems requires multiple strategies: data validation, contract tests for model interfaces, threshold tests for model quality, and bias/fairness checks",
+    "Production monitoring must capture model inputs, outputs, interpretability metrics, and user actions to close the feedback loop and detect training-serving skew"
+  ],
+  "money_quotes": [
+    "In real-world Machine Learning systems, only a small fraction is comprised of actual ML code. There is a vast array of surrounding infrastructure and processes to support their evolution.",
+    "A common symptom is having models that only work in a lab environment and never leave the proof-of-concept phase. Or if they make it to production, in a manual ad-hoc way, they become stale and hard to update.",
+    "The harder it is for Data Scientists to find the data they need, the longer it will take for them to build useful models.",
+    "While the model outputs can be non-deterministic and hard to reproduce, the process of releasing ML software into production is reliable and reproducible, leveraging automation as much as possible.",
+    "This makes the decision about when to release it a business decision rather than a technical one.",
+    "Closing this feedback loop is one of the main advantages of CD4ML, as it allows us to adapt our models based on learnings taken from real production data, creating a process of continuous improvement.",
+    "It is important to not just capture the input/output of a model, but also the ultimate decision taken by the consuming application to either use or override the model's output."
+  ],
+  "themes": [
+    "architecture",
+    "agile",
+    "testing",
+    "technical_leadership"
+  ],
+  "tone": "technical, comprehensive, pragmatic",
+  "key_insight": "Continuous Delivery for Machine Learning requires treating code, data, and models as three distinct but interconnected axes of change, each needing specialized versioning, testing, and deployment strategies while maintaining the core CD principle that software should always be in a releasable state.",
+  "filename": "2019-09-19-cd4ml"
+}

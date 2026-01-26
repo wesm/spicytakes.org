@@ -1,0 +1,29 @@
+{
+  "summary": "The article argues that centralized, monolithic data lake architectures have consistently failed enterprises across three generations of data platforms. Fowler proposes 'data mesh' as a paradigm shift: distributing data ownership to domain teams who treat their datasets as products, supported by self-serve infrastructure. The key insight is applying domain-driven design principles that succeeded in operational microservices to the data domain. Rather than flowing data into a central lake owned by specialized data engineers, domains should host and serve their own data products with clear ownership, discoverability, and quality guarantees.",
+  "key_points": [
+    "Three generations of enterprise data platforms (data warehouses, data lakes, cloud-based streaming) have all failed due to the same underlying architectural flaws: centralization, monolithic design, and domain-agnostic ownership",
+    "Pipeline-based decomposition is orthogonal to the axis of change - adding a new data domain requires changes across all pipeline stages, creating tight coupling and slow delivery",
+    "Data mesh applies domain-driven design to data: domains own and serve their datasets as products rather than flowing data into centralized platforms",
+    "Domain data products must be discoverable, addressable, trustworthy, self-describing, interoperable, and secure - with explicit data product owners and SLOs",
+    "Self-serve data infrastructure as a platform provides domain-agnostic capabilities (storage, pipelines, governance) so domain teams don't duplicate effort"
+  ],
+  "money_quotes": [
+    "We pride ourselves on creating the biggest monolith of them all, the big data platform.",
+    "The architectural quantum in a domain oriented data platform, is a domain and not the pipeline stage.",
+    "Instead of flowing the data from domains into a centrally owned data lake or platform, domains need to host and serve their domain datasets in an easily consumable way.",
+    "They need to consume data from teams who have no incentive in providing meaningful, truthful and correct data.",
+    "The main shift is to treat domain data product as a first class concern, and data lake tooling and pipeline as a second class concern - an implementation detail.",
+    "Let's break down the big data monolith into a harmonized, collaborative and distributed ecosystem of data mesh.",
+    "In the traditional data platforms it's acceptable to extract and onboard data that has errors, does not reflect the truth of the business and simply can't be trusted.",
+    "The needs are real and tools are ready. It is up to the engineers and leaders in organizations to realize that the existing paradigm of big data and one true big data platform or data lake, is only going to repeat the failures of the past."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven",
+    "microservices",
+    "technical_leadership"
+  ],
+  "tone": "visionary, critical, prescriptive",
+  "key_insight": "Applying domain-driven design to data architecture - where domains own and serve their data as products rather than feeding a centralized platform - solves the scalability and organizational failures that have plagued three generations of enterprise data platforms.",
+  "filename": "2019-05-20-data-monolith-to-mesh"
+}

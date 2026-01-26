@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler describes building a flexible Antlr grammar generation system using Ruby/Rake to handle multiple grammar files in his DSL exploration project. He needed automatic discovery of grammar files and conditional rebuilding based on timestamps. He implemented a solution that works with both standard Ruby (calling Antlr via command line) and JRuby (calling Antlr's Java facade directly). The punchline is that his optimization for JRuby to avoid multiple JVM startups was unnecessary\u2014C Ruby actually performed faster, making this a case of premature optimization.",
+  "key_points": [
+    "Multiple grammar files in a build system need automatic discovery and conditional rebuilding to avoid slow full rebuilds",
+    "Ruby's flexibility allows creating a single codebase that works with both standard Ruby and JRuby through runtime platform detection",
+    "JRuby's ability to require JAR files at runtime elegantly solves Java's notoriously painful classpath management",
+    "The command object pattern cleanly separates the logic of what needs building from how to invoke the tool",
+    "Premature optimization struck again\u2014the supposedly slower C Ruby approach was actually faster than the JRuby solution"
+  ],
+  "money_quotes": [
+    "With all the time I've spent tearing my hair out with classpaths I just love the fact that I can just require a jar at runtime here.",
+    "Especially since the code Dir['lib/*.jar'].each{|j| require j} loads all the jars in a directory - which is something that java makes horribly hard.",
+    "It may be possible to get ant to do this, but my ant is rusty and frankly I'm happy to keep it that way.",
+    "But there's a punch line and joke's on me.",
+    "For the moment it looks like I've fallen victim to premature optimization."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, self-deprecating, pragmatic",
+  "key_insight": "Even experienced developers fall prey to premature optimization\u2014build the simpler solution first and only optimize when measurements prove it necessary.",
+  "filename": "2007-04-17-FlexibleAntlrGeneration"
+}

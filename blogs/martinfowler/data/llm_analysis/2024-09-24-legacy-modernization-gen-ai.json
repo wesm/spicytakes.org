@@ -1,0 +1,28 @@
+{
+  "summary": "This article argues that while GenAI in software development has primarily focused on code generation, its greatest potential lies in understanding and modernizing legacy systems. Thoughtworks developed CodeConcise, an internal accelerator that uses LLMs combined with knowledge graphs to make legacy modernization more cost-effective. The approach treats code as data, parsing it into Abstract Syntax Trees stored in graph databases, then enriching it with LLM-generated explanations at various abstraction levels. In a proof of concept, they reduced reverse engineering time from 6 weeks to 2 weeks per module, potentially saving 240 FTE years for a complete mainframe modernization program. The authors acknowledge this is early-stage work with context-dependent results, but see significant promise in addressing problems that have made large-scale modernization prohibitively expensive.",
+  "key_points": [
+    "GenAI's most valuable application in software may be understanding existing code rather than generating new code, since developers spend more time reading code than writing it",
+    "CodeConcise uses a 'code as data' approach, parsing code into Abstract Syntax Trees stored in graph databases, then traversing and enriching the graph with LLM-generated explanations at multiple abstraction levels",
+    "The knowledge graph approach reduces noise by extracting granular relationships, allowing LLMs to analyze code independently of how developers originally organized it",
+    "A proof of concept reduced reverse engineering time by two-thirds, from 6 weeks to 2 weeks per 10,000-line module, with potential savings of 240 FTE years for a complete mainframe modernization",
+    "GenAI can help extract capability maps, generate abstracted flowcharts for business analysts, and reduce dependency on scarce subject matter experts who are often stretched thin 'just to keep the lights on'"
+  ],
+  "money_quotes": [
+    "We believe there is as much, if not more, value in understanding existing code than generating new code",
+    "Developers spend a lot more time reading code than writing it",
+    "The ability to traverse the codebase at such a level of granularity is particularly important as it reduces noise from the context provided to LLMs",
+    "This translates to a potential saving of 240 FTE years for the entire mainframe modernization program",
+    "Often, they are stretched too thin across multiple teams just to 'keep the lights on'",
+    "There is no one-size-fits-all solution for this; it will depend on the specific context, the insights one aims to extract from their code, and, ultimately, on the principles and approaches that the development teams followed when constructing the solution's codebase",
+    "Typically the produced code suffers from poor overall code quality, non-idiomatic code, and poor naming conventions"
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms",
+    "domain_driven",
+    "refactoring"
+  ],
+  "tone": "technical, pragmatic, optimistic but measured",
+  "key_insight": "GenAI's transformative potential for legacy modernization lies not in generating code but in systematically extracting understanding from existing codebases through knowledge graphs, reducing the prohibitive cost and expertise barriers that have long made large-scale modernization impractical.",
+  "filename": "2024-09-24-legacy-modernization-gen-ai"
+}

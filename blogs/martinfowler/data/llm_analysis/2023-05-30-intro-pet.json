@@ -1,0 +1,26 @@
+{
+  "summary": "This article introduces Privacy Enhancing Technologies (PETs) that provide rigorous privacy guarantees for data processing. The author covers three main production-ready technologies: differential privacy (which adds carefully calibrated noise to query results), federated/distributed learning (which keeps data at the edge rather than centralizing it), and encrypted computation (which allows computing on data without decrypting it). The piece argues that the proliferation of machine learning systems trained on personal data has made PETs increasingly urgent, as models can leak private information through memorization and inference attacks. The author advocates for incrementally engineering privacy into systems rather than treating it as an afterthought, while acknowledging that technology alone cannot solve the broader social and political dimensions of privacy.",
+  "key_points": [
+    "Differential privacy provides the 'gold standard' for measuring privacy loss by adding probabilistic noise that creates plausible deniability while still enabling useful analysis",
+    "Federated learning enables 'Datensparsamkeit' (data minimization) by shipping computation to the data rather than centralizing sensitive information",
+    "Encrypted computation through homomorphic encryption and secure multi-party computation allows computing on data without ever decrypting it",
+    "Large language models and ML systems create new privacy risks through training data memorization and inference attacks that can extract personal information",
+    "Clean rooms and other surveillance-based approaches often create false assumptions of security and are inferior to cryptographic privacy technologies"
+  ],
+  "money_quotes": [
+    "It's no longer acceptable to simply hoover all data with complete disregard to users' wishes and rights.",
+    "Storing personal data centrally is a na\u00efve way to do data science and analysis, generating essentially endless new risks and encouraging murky business models.",
+    "What if I told you you could actually compute on data without decrypting it? Sounds like magic, right? It's not\u2014it's cryptography!",
+    "Imagine a world where one employee's stolen credential just means leaking fuzzy aggregate results instead of your entire user database.",
+    "To be clear, no data is ever 100% accurate because all data is some representation of reality; so these tradeoffs are only more obvious when implementing privacy controls.",
+    "Technologies like clean rooms often create a false assumption of security\u2014making them less safe than no privacy technology at all.",
+    "Privacy technology is one tool of many to help address real inequalities in access to privacy and power in the world."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "technical, instructive, advocacy-oriented",
+  "key_insight": "Modern privacy-enhancing technologies have matured from research labs to production systems, offering rigorous mathematical guarantees that can replace naive data hoarding with user-centric architectures\u2014but they require technologists to actively engineer privacy in rather than treating it as an afterthought.",
+  "filename": "2023-05-30-intro-pet"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler critiques the JavaScript/jQuery convention of using the same function name for both getting and setting values, a pattern borrowed from Smalltalk. He argues that retrieving data is fundamentally different from setting it, so methods should have distinct names. The overloaded approach creates ambiguity, especially when getters take arguments, making it unclear whether a call is reading or mutating state. He prefers languages like C# and Ruby that use property syntax with assignment operators to clearly signal mutation. For JavaScript, he recommends bare getters with prefixed setters (e.g., height() and setHeight()). While acknowledging the importance of following language conventions, he notes JavaScript lacks strong conventions, making this a case where deviation is justified.",
+  "key_points": [
+    "Getting and setting are fundamentally different operations that deserve clearly different names",
+    "The overloaded pattern creates confusion when getters take arguments, as the extra argument acts as a flag argument",
+    "Property syntax with assignment operators (C#, Ruby) best signals mutation intent",
+    "For languages without property syntax, a bare getter with prefixed setter is preferable to overloading",
+    "Language conventions matter, but JavaScript's weak conventions make deviation acceptable"
+  ],
+  "money_quotes": [
+    "My principal objection is that the act of retrieving data is fundamentally different to that of setting a value, so the names should be more clearly different.",
+    "The presence of the extra argument acts as a FlagArgument, which is usually a Bad Thing.",
+    "The point here is that use of assignment clearly signals mutation.",
+    "I'm not proposing that Java's ugly getHeight() / setHeight(100) convention is better.",
+    "JavaScript, however, isn't noted for having strong conventions, so here I'd prefer to avoid this convention, even if it is used by jQuery."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "opinionated, analytical, pragmatic",
+  "key_insight": "APIs should make the distinction between reading and mutating state syntactically obvious, because these operations have fundamentally different consequences.",
+  "filename": "2011-08-02-OverloadedGetterSetter"
+}

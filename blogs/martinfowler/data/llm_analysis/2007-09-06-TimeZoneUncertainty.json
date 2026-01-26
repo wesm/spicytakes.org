@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler recounts frustrating experiences with calendar software that automatically converts time zones, causing him to miss meetings. He argues that the 'clever' approach of automatically adjusting meeting times based on the user's current location creates more problems than it solves. The core issue is that calendar software tries to use the same data model for both physical meetings (where you care about local time at the location) and phone meetings (where you care about simultaneous time across zones). He advocates for keeping physical meeting times fixed to their location and only doing special handling for the exceptional case of cross-timezone phone meetings.",
+  "key_points": [
+    "Calendar software that automatically converts time zones often creates confusion rather than helping users",
+    "Physical meetings should display the time at the meeting location, regardless of where you're viewing from",
+    "Phone meetings that span time zones are the exception and should be handled differently, not drive the design for all meetings",
+    "Trying to be 'clever' with time zones leads to trouble when the software isn't clever enough to handle all cases",
+    "Representing all-day meetings as midnight-to-midnight time points compounds timezone conversion problems"
+  ],
+  "money_quotes": [
+    "Donald Norman noted a while ago that we tend to blame ourselves for errors that are due to bad usability - like a door with a handle that you should push.",
+    "There is a temptation to try to be clever with handling time zones, but this temptation leads to trouble if the software isn't quite clever enough.",
+    "I'd prefer Notes ignore time zones completely. You set the time for the place the meeting occurs in and that's what it should show you.",
+    "Who cares about the time zones? It's only the time on the ground that usually matters.",
+    "The important lesson here is to make the most common case simple and only do complicated things for less common cases as exceptions.",
+    "Calendaring time zones get into trouble because they make the common and simple case be more complex.",
+    "The problem occurs because the designers wanted to use the same data for both the simple and phone cases - but that just gets the simple case in trouble."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "frustrated, practical, anecdotal",
+  "key_insight": "Software should optimize for the common case (physical meetings displayed in local time) and treat exceptions as exceptions, rather than building complexity into the default behavior to handle edge cases.",
+  "filename": "2007-09-06-TimeZoneUncertainty"
+}

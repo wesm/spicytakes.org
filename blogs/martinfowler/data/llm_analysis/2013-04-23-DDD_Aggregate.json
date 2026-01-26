@@ -1,0 +1,25 @@
+{
+  "summary": "This post defines the Aggregate pattern from Domain-Driven Design, explaining it as a cluster of domain objects treated as a single unit. Using the example of an order with its line-items, Fowler describes how aggregates have a root object through which all external references must pass, ensuring integrity. He emphasizes that aggregates are the basic unit for data storage operations and that transactions should not cross their boundaries. The post also clarifies the common confusion between DDD aggregates and generic collection classes.",
+  "key_points": [
+    "A DDD aggregate is a cluster of domain objects that can be treated as a single unit",
+    "All external references should only go through the aggregate root, which ensures integrity of the whole",
+    "Aggregates are the basic element of data storage transfer - you load or save whole aggregates",
+    "Transactions should not cross aggregate boundaries",
+    "DDD aggregates are domain concepts, not to be confused with generic collection classes"
+  ],
+  "money_quotes": [
+    "A DDD aggregate is a cluster of domain objects that can be treated as a single unit.",
+    "Any references from outside the aggregate should only go to the aggregate root.",
+    "The root can thus ensure the integrity of the aggregate as a whole.",
+    "Aggregates are the basic element of transfer of data storage - you request to load or save whole aggregates.",
+    "Transactions should not cross aggregate boundaries.",
+    "DDD aggregates are domain concepts (order, clinic visit, playlist), while collections are generic."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Aggregates define transactional and consistency boundaries in your domain model, with a single root object controlling all access to ensure integrity.",
+  "filename": "2013-04-23-DDD_Aggregate"
+}

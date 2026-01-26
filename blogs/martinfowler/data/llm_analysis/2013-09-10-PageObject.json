@@ -1,0 +1,27 @@
+{
+  "summary": "Page objects are a design pattern that wraps HTML pages or UI fragments with an application-specific API, shielding tests from brittle dependencies on UI implementation details. The pattern allows test code to interact with pages at a meaningful abstraction level\u2014using strings for text fields, booleans for checkboxes, and action-oriented methods for buttons\u2014rather than manipulating HTML directly. Fowler advocates for assertion-free page objects that provide access to page state while leaving assertion logic to test scripts. The pattern applies beyond web testing to any UI technology and represents a classic application of encapsulation that improves both maintainability and test readability.",
+  "key_points": [
+    "Page objects should model what makes sense to users, not mirror the technical structure of pages\u2014often meaning multiple page objects per page for significant UI elements",
+    "A good rule of thumb: imagine changing the concrete control; if your page object interface would need to change, the abstraction is leaky",
+    "Page objects should return fundamental types or other page objects, never exposing raw WebDriver or HTML manipulation to tests",
+    "Assertions belong in test scripts, not page objects\u2014duplication concerns can be addressed through assertion libraries instead",
+    "Patterns that move logic out of UI (Presentation Model, Passive View) reduce the need for page objects by making UI testing less necessary"
+  ],
+  "money_quotes": [
+    "The basic rule of thumb for a page object is that it should allow a software client to do anything and see anything that a human can.",
+    "If you have WebDriver APIs in your test methods, You're Doing It Wrong.",
+    "A good rule of thumb is to imagine changing the concrete control - in which case the page object interface shouldn't change.",
+    "Page objects are a classic example of encapsulation - they hide the details of the UI structure and widgetry from other components.",
+    "The name 'page object' is misleading because it makes you think you should have just one page object per page. Something like 'panel object' would be better - but the term 'page object' is what's become accepted.",
+    "Ask yourself 'how can I hide some details from the rest of the software?'",
+    "It makes the client (test) code easier to understand because the logic there is about the intention of the test and not cluttered by UI details."
+  ],
+  "themes": [
+    "testing",
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical, authoritative, balanced",
+  "key_insight": "Page objects apply encapsulation to UI testing by hiding structural details behind an application-meaningful API, making tests both more maintainable and more expressive of their actual intent.",
+  "filename": "2013-09-10-PageObject"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Feature toggles are a powerful technique for modifying system behavior without changing code, enabling teams to ship alternative codepaths and choose between them at runtime. The article categorizes toggles into four types based on longevity and dynamism: Release Toggles for trunk-based development, Experiment Toggles for A/B testing, Ops Toggles for operational control, and Permissioning Toggles for user-specific features. Fowler emphasizes that different toggle categories require different management approaches and that teams should treat toggles as inventory with carrying costs. The piece provides detailed implementation patterns including decoupling decision points from decision logic, using inversion of control, and avoiding scattered conditionals through strategy patterns.",
+  "key_points": [
+    "Feature toggles fall into four categories (Release, Experiment, Ops, Permissioning) with different lifespans and dynamism requirements that demand different management approaches",
+    "Toggle Points (where decisions are made) should be decoupled from Toggle Routers (the decision logic) to prevent scattered, brittle code",
+    "Static toggle configuration via source control is preferable when possible, as it enables the full benefits of Continuous Delivery pipelines",
+    "Feature flags introduce testing complexity through combinatoric explosion of states, but teams can focus on testing the expected production configuration plus fallback scenarios",
+    "Teams should treat feature toggles as inventory with carrying costs and proactively remove flags that are no longer needed"
+  ],
+  "money_quotes": [
+    "Release Toggles allow incomplete and un-tested codepaths to be shipped to production as latent code which may never be turned on.",
+    "It can be tempting to lump all feature toggles into the same bucket, but this is a dangerous path.",
+    "Any problem in software can be solved by adding a layer of indirection.",
+    "Turning on new features for a set of internal users is a Champagne Brunch - an early opportunity to drink your own champagne.",
+    "Savvy teams view their Feature Toggles as inventory which comes with a carrying cost, and work to keep that inventory as low as possible.",
+    "A good convention is to enable existing or legacy behavior when a Feature Flag is Off and new or future behavior when it's On.",
+    "Knight Capital Group's $460 million dollar mistake serves as a cautionary tale on what can go wrong when you don't manage your feature flags correctly."
+  ],
+  "themes": [
+    "architecture",
+    "agile",
+    "testing",
+    "technical_leadership"
+  ],
+  "tone": "technical",
+  "key_insight": "Feature toggles are not a monolithic technique but a family of patterns requiring different management strategies based on their longevity and dynamism, and teams who fail to recognize these distinctions will accumulate technical debt.",
+  "filename": "2017-10-09-feature-toggles"
+}

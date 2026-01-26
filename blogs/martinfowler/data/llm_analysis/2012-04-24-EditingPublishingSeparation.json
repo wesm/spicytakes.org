@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler observes that content management systems have become problematic tools that hinder development, particularly due to their single-copy architecture. He argues that editing and publishing have fundamentally different data access patterns\u2014editing involves few people doing frequent updates, while publishing serves many readers doing mostly reads. The solution is to separate these concerns into independent modules, with the editing module optimized for updates and workflow, and the publishing module optimized for serving content at scale. This separation enables benefits like different storage technologies, format transformations, staging previews, and independent scaling strategies.",
+  "key_points": [
+    "CMS tools are becoming invasively overused beyond their core purpose, hindering development",
+    "Editing and publishing have fundamentally different access patterns that warrant architectural separation",
+    "The publishing module can be freely replicated across clusters while editing should remain centralized",
+    "Format transformation (e.g., markdown to HTML) and page composition can happen at publish time rather than read time",
+    "Even user-generated content like wikis benefit from this separation since readers vastly outnumber writers"
+  ],
+  "money_quotes": [
+    "They aren't usually seen as helpful, indeed there is a clear sign that they are becoming a worryingly invasive tool - used for more than their core purpose in such a manner that they hinder overall development.",
+    "The idea of keeping a single copy of some piece of data is a common one. It's the underlying principle behind the relational concept of normalization, and enterprise architects often try to ensure that critical data has a single authoritative copy.",
+    "Yet for a CMS there's a clear downside - the data access patterns for editing and publication are very different.",
+    "The publishing module treats the article as largely read-only, updated rarely and only by the editing module.",
+    "The publishing module can be freely replicated across many nodes in a cluster, while it's usually better for the editing module to be centralized on a single node.",
+    "Separating these modules can also help with the editing workflow. Often people want to preview changes before publishing to the world."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "pragmatic, advisory, technical",
+  "key_insight": "When data access patterns differ significantly between use cases\u2014like editing versus publishing\u2014architectural separation into specialized modules yields better performance, scalability, and developer experience than the intuitive single-copy approach.",
+  "filename": "2012-04-24-EditingPublishingSeparation"
+}

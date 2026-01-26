@@ -1,0 +1,22 @@
+{
+  "summary": "The Humble Object pattern addresses the challenge of testing program elements that are inherently difficult or impossible to test automatically. By moving as much logic as possible out of hard-to-test elements into more testable parts of the codebase, developers reduce the risk of bugs hiding in untestable code. User interfaces are a prime example where this pattern applies, as UI controls often lack testing hooks or require complex setup. Patterns like Presentation Model (MVVM) and Passive View implement this principle by keeping UI controls behavior-minimal.",
+  "key_points": [
+    "Some program elements are inherently untestable, making any logic within them prone to bugs and difficult to evolve",
+    "The solution is to move logic out of hard-to-test elements into more testable parts of the codebase",
+    "User interfaces are a common example where the Humble Object pattern applies effectively",
+    "Patterns like MVVM and Passive View implement this principle by minimizing UI control behavior"
+  ],
+  "money_quotes": [
+    "Some program elements are inherently difficult, or even impossible to test.",
+    "Any logic in these elements is thus prone to bugs and difficult to evolve.",
+    "By making untestable objects humble, we reduce the chances that they harbor evil bugs.",
+    "We can often test effectively by ensuring these controls have the absolute minimum of behavior."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Untestable code becomes safer when you minimize its logic, pushing complexity into testable components where bugs can be caught.",
+  "filename": "2020-04-29-HumbleObject"
+}

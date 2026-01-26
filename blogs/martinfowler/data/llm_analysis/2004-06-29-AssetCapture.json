@@ -1,0 +1,24 @@
+{
+  "summary": "Asset capture is a strategy for gradually migrating from a legacy system to a new one by identifying and moving subsets of key assets (like employees, trades, or leases) rather than doing a big-bang replacement. The approach requires bi-directional migration capabilities so assets can move back to the old system when needed, reducing risk and handling edge cases. Success depends on event interception to capture relevant events for migrated assets while routing others appropriately. Fowler notes that most rewrites he's worked on used this approach, but teams often didn't capture assets at fine enough granularity due to lacking bi-directional migration.",
+  "key_points": [
+    "Applications can be viewed as managing key assets (employees, trades, leases), and migration can proceed by capturing subsets of these assets",
+    "Bi-directional migration is essential\u2014the ability to move assets back to the old system reduces risk and handles cases where assets change in ways the new system can't yet handle",
+    "Start with either simple assets (quick wins) or those with needs the old system handles poorly",
+    "Event interception is needed to route events to the correct system based on which assets have been captured",
+    "Finer-grained asset capturing enables more frequent releases, but requires bi-directional migration to be practical"
+  ],
+  "money_quotes": [
+    "To gradually cut over to a new system, you can begin by identifying a subset of assets that you'll start with the new system.",
+    "To make this work smoothly you'll need a mechanism to migrate assets from the old application to the strangler and back again.",
+    "Reverse migration sounds unnecessary, yet it's very effective both to reduce the risk and to handle cases where an asset may dynamically change in such a way that the new application can no longer handle it.",
+    "My only regret with it is that we didn't use finer grained capturing to allow more frequent releases.",
+    "Often the blocker was not having bi-directional migration. Once that's in place frequent releases are much easier."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "practical, reflective",
+  "key_insight": "Bi-directional migration between old and new systems is the key enabler for safe, incremental legacy modernization\u2014without it, teams end up with coarser-grained, riskier releases.",
+  "filename": "2004-06-29-AssetCapture"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "The article argues that QA should extend beyond pre-release testing to include systematic monitoring of production systems. Teams should identify critical success indicators tied to business outcomes and build feedback mechanisms using logging, metrics, and alerting to detect and respond to real-world issues. The author illustrates this through a job application system where iterative improvements to monitoring revealed email delivery problems that were impossible to predict through testing alone. While production QA can replace some expensive pre-production testing, it requires a foundation of automated testing and continuous delivery practices to be effective.",
+  "key_points": [
+    "Critical success indicators should be tied to business outcomes (what pays the bills), not just technical metrics like CPU usage",
+    "Tests can only validate scenarios you already know about; production monitoring reveals unexpected real-world complications",
+    "Structured logging and metrics enable searchable, actionable data that goes beyond traditional text file trawling",
+    "Good alerting should warn before problems occur, not just report failures, and must maintain a high signal-to-noise ratio",
+    "The right balance between pre-production testing and production QA depends on the stakes and speed of your feedback loop"
+  ],
+  "money_quotes": [
+    "Things always go wrong in production, but this doesn't have to be a bad thing.",
+    "Testing is great for finding defects you expect to happen, but many production defects are surprises.",
+    "It doesn't matter if your system serves thousands of requests per second if it fails to provide a service that your customers pay for or rely on.",
+    "QA is as much about learning the correct behaviour for a system as it is about safeguarding that behaviour.",
+    "The nice thing about waiting until an issue occurs in production is that you know it's worth fixing, because it really happened.",
+    "Tests can only help you with scenarios you already know about.",
+    "If all you're looking for is a point in your process to say 'yes, that looks fine,' you will not learn very much about how to make your system better."
+  ],
+  "themes": [
+    "testing",
+    "continuous_delivery",
+    "technical_leadership"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Production systems reveal quality issues that no amount of pre-release testing can anticipate, making production monitoring not a substitute for testing but an essential complement that grounds QA in real-world behavior.",
+  "filename": "2017-04-04-qa-in-production"
+}

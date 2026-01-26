@@ -1,0 +1,27 @@
+{
+  "summary": "Martin Fowler explains the Gateway pattern, which creates a single point of interaction between your code and external systems by translating foreign APIs into terms native to your application. The gateway wraps external services, libraries, or databases, converting their awkward interfaces into convenient ones while containing translation logic in one place. He distinguishes the gateway from similar GoF patterns (Facade, Adapter, Mediator) and connects it to Domain-Driven Design's Anticorruption Layer concept. The pattern provides significant testing benefits by allowing test doubles to be inserted at the connection layer, eliminating slow remote calls during testing.",
+  "key_points": [
+    "A gateway translates foreign APIs into the vocabulary and types your application uses, containing the translation logic in a single place rather than letting awkwardness spread through the codebase",
+    "The pattern differs from Facade (written by service provider for general use) and Adapter (assumes both interfaces already exist) - a gateway is written by the client, defining its interface as it wraps the foreign element",
+    "Adding a connection object to the gateway structure enables test doubles and encapsulates remote call mechanics like REST API manipulations",
+    "Teams must exercise judgment on whether to adopt external vocabulary or translate it - sometimes wrapping pervasive platform facilities isn't worth the effort",
+    "The gateway aligns with DDD's Bounded Context concept and implements what DDD calls an Anticorruption Layer"
+  ],
+  "money_quotes": [
+    "A gateway acts as a single point to confront this foreigner. Any code within our system interacts with the interface of the gateway, which is designed to work in the terms that our system uses.",
+    "Rather than let the awkwardness spread through my code, I contain to a single place in the gateway.",
+    "While Facade simplifies a more complex API, it's usually done by the writer of the service for general use. A gateway is written by the client for its particular use.",
+    "With a gateway I'm defining the gateway's interface as I wrap the foreign element.",
+    "Although this benefit is handy, its hardly ever a reason to use a gateway, since just encapsulating the foreign API is justification enough.",
+    "I have come across situations where a team has translated a widely-understood foreign vocabulary into a particular one for their code base because 'they didn't like the names'.",
+    "By doing this, the treatment planning application doesn't have to deal with the language of the equipment booking service. It can pretend that the equipment booking service works seamlessly in the world of treatment planning."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven",
+    "testing"
+  ],
+  "tone": "technical",
+  "key_insight": "A gateway contains foreign API awkwardness to a single place, allowing your application code to work entirely in its own vocabulary while gaining significant testing and maintainability benefits.",
+  "filename": "2021-08-10-gateway-pattern"
+}

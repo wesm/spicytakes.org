@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler argues that enterprise applications should separate their reporting needs from operational databases into dedicated reporting databases. The operational and reporting requirements differ significantly in schema design and data access patterns, making a unified approach suboptimal. A reporting database can be denormalized, use different technology, and store derived data without impacting operational performance. The main tradeoff is keeping data synchronized, though overnight batch updates often suffice since most reporting doesn't require real-time data.",
+  "key_points": [
+    "Operational and reporting database needs differ fundamentally in schema design and access patterns, justifying separation",
+    "Reporting databases can be freely denormalized and duplicated since they're read-only, making queries easier to write",
+    "Development teams can refactor operational databases independently without breaking reports",
+    "Data synchronization is the main challenge, but overnight batch updates work well for most reporting needs",
+    "Near-real-time analytics is often overvalued and can lead to 'information panic' from reacting to rapidly changing data"
+  ],
+  "money_quotes": [
+    "You don't need to normalize a reporting database, because it's read-only. Feel free to duplicate data as much as needed to make queries and reporting easier.",
+    "The development team can refactor the operational database without needing to change the reporting database.",
+    "Often when analyzing data trends you don't need to react right away, and your thinking improves when you give it time for a proper mulling.",
+    "Reacting too quickly leads to a form of information panic, where you react badly to data that's changing too rapidly to get a proper picture of what's going on.",
+    "I'm skeptical of the value of near-real time analytics."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, pragmatic, gently contrarian",
+  "key_insight": "Separating reporting from operational databases isn't just a performance optimization\u2014it's an architectural boundary that enables independent evolution of both systems while acknowledging that most analytical thinking benefits from slightly stale data anyway.",
+  "filename": "2014-04-02-ReportingDatabase"
+}

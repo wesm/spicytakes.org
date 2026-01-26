@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler addresses the common problem of static variables and methods that prevent polymorphic substitution, particularly problematic for testing with service stubs. He presents a refactoring approach that transforms static code into a singleton pattern, enabling test substitution through a loadInstance method. The technique involves converting static data to instance data, moving initialization to a constructor, and delegating static methods to instance methods. While this provides a useful first step, Fowler notes additional work may be needed to handle static initializers that create unwanted dependencies.",
+  "key_points": [
+    "Static variables prevent polymorphism, making it impossible to substitute implementations for testing",
+    "The 'Replace Statics With Singleton' refactoring converts static data to instance data while maintaining the same public interface",
+    "Adding a loadInstance method enables test substitution by allowing stub subclasses to replace the real implementation",
+    "Static initializers that create service instances cause dependency problems even when the service isn't used",
+    "Singletons and registries should always be designed with easy substitution and replaceable initialization in mind"
+  ],
+  "money_quotes": [
+    "One of the big problems with statics (in most languages) is you can't use polymorphism to substitute one implementation with another.",
+    "This bits us a lot because we are great fans of testing - and to test well it's important to be able to replace services with a Service Stub.",
+    "For testing we might not want to run it against a database at all - a simple stub would just return canned data.",
+    "As long as the stub subclasses the AddressBook, we can now test against a stub instead of the real thing.",
+    "If you use a singleton (or other form of Registry) make sure that they can be easily substituted and that their initialization can also be easily replaced."
+  ],
+  "themes": [
+    "testing",
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Static variables and methods should be refactored into substitutable singletons to enable proper testing through service stubs.",
+  "filename": "2004-10-20-StaticSubstitution"
+}

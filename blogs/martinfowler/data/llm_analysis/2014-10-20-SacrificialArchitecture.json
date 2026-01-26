@@ -1,0 +1,27 @@
+{
+  "summary": "Fowler challenges the notion that throwing away code represents failure, arguing that deliberately building systems you plan to replace can be the right architectural choice. Using eBay's multiple rewrites as an example, he shows how successful businesses are often built on discarded software because exponential growth invalidates early architectural decisions. He advocates for consciously accepting that current systems may need replacement while maintaining internal quality and good modularity. The key is recognizing that short-lived software can still deliver tremendous value, and the team that wrote the code should be the one deciding when to sacrifice it.",
+  "key_points": [
+    "Throwing away code isn't failure\u2014eBay's success was built on systems that were completely rewritten twice",
+    "Google's explicit rule is to design for 10X growth but plan to rewrite before 100X",
+    "Early systems should prioritize flexibility for changing features over performance or scalability",
+    "Good modularity remains essential even in sacrificial architecture because it enables gradual replacement",
+    "Monoliths often make better sacrificial architectures than microservices, which add unnecessary early complexity"
+  ],
+  "money_quotes": [
+    "But often the best code you can write now is code you'll discard in a couple of years time.",
+    "The right architecture to support 1996-ebay isn't going to be the right architecture for 2006-ebay.",
+    "Getting too many users on an unperformant code base is usually the better problem than its inverse.",
+    "Software designers rarely think about how to design their creation to support its graceful replacement.",
+    "Knowing your architecture is sacrificial doesn't mean abandoning the internal quality of the software.",
+    "A monolith is often a good sacrificial architecture, with microservices introduced later to gradually pull it apart.",
+    "It's easy to hate code you didn't write, without an understanding of the context in which it was written."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "refactoring"
+  ],
+  "tone": "reflective, pragmatic, contrarian",
+  "key_insight": "The best architectural decision for today may be building something you consciously plan to throw away tomorrow, because premature optimization for longevity can prevent you from learning what you actually need.",
+  "filename": "2014-10-20-SacrificialArchitecture"
+}

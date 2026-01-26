@@ -1,0 +1,23 @@
+{
+  "summary": "This post examines how different object-oriented languages implement access modifiers to control which classes can access features of other classes. Fowler traces the evolution from C++'s three-modifier system through Java and C#'s variations, contrasting these with Smalltalk's object-based (rather than class-based) approach to access control. He notes that access control can always be circumvented through reflection or memory manipulation, meaning its true purpose is communication rather than enforcement. The post concludes by introducing the concept of 'published' interfaces as a distinction more important than public vs private.",
+  "key_points": [
+    "C++, Java, and C# all have different interpretations of 'protected' access, creating subtle but important distinctions between languages",
+    "Smalltalk's access model is object-based rather than class-based\u2014instances of the same class cannot access each other's private data",
+    "Access modifiers can be circumvented through reflection or memory manipulation in virtually all languages",
+    "The distinction between 'published' interfaces (exposed to external teams) and merely 'public' ones (exposed within a project) is more significant than public vs private"
+  ],
+  "money_quotes": [
+    "In C++ friends can touch each others' private parts.",
+    "In Smalltalk's world view access is based on objects, so since Martin and Kent are different objects Martin has no business getting at Kent's fields.",
+    "The point of access control is not to prevent access, but more to signal that the class prefers to keep some things to itself.",
+    "Using access modifiers, like so many things in programming, is primarily about communication.",
+    "I believe that the distinction between published and public is more important than that between public and private."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "Access modifiers are fundamentally about communication between programmers rather than enforcement of access restrictions, and the most important distinction is not public vs private but published vs unpublished.",
+  "filename": "2003-05-13-AccessModifier"
+}

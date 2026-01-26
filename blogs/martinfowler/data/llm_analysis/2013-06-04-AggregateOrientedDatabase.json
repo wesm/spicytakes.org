@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler identifies a unifying concept across key-value, document, and column-family NoSQL databases: they all organize data around aggregates, which are rich structures of closely related data. This aggregate orientation emerged from the need to store data effectively on large clusters, where aggregates serve as natural units for sharding and distribution. While this model simplifies programming by avoiding the decomposition required for relational storage, it creates challenges when you need to access data in ways that cut across aggregate boundaries. Fowler argues this trade-off supports polyglot persistence\u2014using aggregate-oriented databases for clear aggregates and relational or graph databases when flexible data access is needed.",
+  "key_points": [
+    "Key-value, document, and column-family databases share a common characteristic: they use aggregates (in DDD terms) as their fundamental unit of storage",
+    "Aggregate orientation arose from cluster computing needs\u2014aggregates make natural units for sharding since related data stays together",
+    "The programming model benefit is significant: storing a screenful of information as an aggregate is simpler than decomposing it into relational rows",
+    "The major downside appears when access patterns cut across aggregates, like analyzing product sales across orders",
+    "Map-reduce and materialized views can reorganize data for different readers, but require more work than relational queries"
+  ],
+  "money_quotes": [
+    "In DDD terms, this group of data is an Aggregate.",
+    "Storing aggregates as fundamental units makes a lot of sense for running on a cluster.",
+    "An aggregate makes for a much simpler mapping - which is why many early adopters of NoSQL databases report that it's an easier programming model.",
+    "The advantage of not using an aggregate structure in the database is that it allows you to slice and dice your data different ways for different audiences.",
+    "Order entry naturally stores orders as aggregates, but analyzing product sales cuts across the aggregate structure."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, balanced, explanatory",
+  "key_insight": "NoSQL databases (excluding graph) share an aggregate-oriented model that aligns well with both cluster distribution and application programming, but sacrifices the flexible querying that relational databases provide.",
+  "filename": "2013-06-04-AggregateOrientedDatabase"
+}

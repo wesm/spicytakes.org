@@ -1,0 +1,27 @@
+{
+  "summary": "The Keystone Interface technique addresses the tension between frequent integration/deployment and not exposing incomplete features to users. Teams build and integrate all back-end code through multiple production releases while withholding only the user interface element that reveals the feature. This approach requires architecture that supports subcutaneous testing, allowing thorough validation without the UI. When the UI can't be reduced to a simple keystone, feature flags can be used, but should be limited to the UI layer to reduce complexity. The technique works best within an overall approach of building products through thin vertical slices.",
+  "key_points": [
+    "Build and integrate back-end code across multiple releases while hiding features by withholding only the UI element that exposes them",
+    "Testing latent code requires architecture supporting subcutaneous tests - tests that don't go through the UI but exercise the same functionality",
+    "Moving tests to lower levels of the test pyramid speeds up deployment pipelines and enables continuous delivery",
+    "When the UI can't be a simple keystone, use feature flags but limit them to the UI layer to avoid scattering toggle points through back-end code",
+    "The approach risks back-end code not fitting the UI properly; mitigate by building products through thin vertical slices"
+  ],
+  "money_quotes": [
+    "Software development teams find life can be much easier if they integrate their work as often as they can.",
+    "The feature can be integrated and tested, but the UI is held back until the end until, like a keystone, it's added to complete the feature, revealing it to the users.",
+    "The user is unaware of all this latent code.",
+    "The latent code does need to be tested to the same degree of confidence that it would be if it were active.",
+    "Tests running through the UI are always more trouble to setup, even with the best tools to automate the process.",
+    "This avoids scattering lots of toggle points through the back end code, reduces the complexity of applying the toggle, and makes it easier to remove when the time comes.",
+    "A keystone approach works best within an overall approach that encourages building a product through thin vertical slices that lead to releasing small but fully working features rapidly."
+  ],
+  "themes": [
+    "architecture",
+    "continuous delivery",
+    "testing"
+  ],
+  "tone": "technical, instructive, pragmatic",
+  "key_insight": "By treating the user interface as the final keystone that reveals a feature, teams can continuously integrate and test complex back-end functionality without exposing incomplete work to users.",
+  "filename": "2020-04-29-KeystoneInterface"
+}

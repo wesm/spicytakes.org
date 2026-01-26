@@ -1,0 +1,22 @@
+{
+  "summary": "Fowler describes a quick solution for interfacing Ruby with the Ploticus graphing library, built for a personal project. Rather than binding directly to the C API, he pipes commands into Ploticus via standard input. He creates a layered object design with PloticusScripter at the bottom, PloticusClusterBar for specific chart types, and a top-level grapher class. The approach demonstrates the Gateway pattern, transforming a convenient programming interface into the output format Ploticus requires.",
+  "key_points": [
+    "Piping scripts to command-line tools is a pragmatic alternative to C API bindings when you need quick results",
+    "The solution uses three layers of abstraction: scripter, chart-type handler, and domain-specific grapher",
+    "Ruby's method_missing enables a clean DSL for building Ploticus script commands",
+    "Even simple personal projects benefit from composed object designs that separate concerns",
+    "The Gateway pattern provides a convenient interface that transforms to match external system requirements"
+  ],
+  "money_quotes": [
+    "A sophisticated way to drive a C library like ploticus is to bind directly to the C API. Ruby makes this easy, so I'm told, but it's too much work for me (particularly if I want to be done before cocktail-hour).",
+    "First a caveat - this is literally something I knocked up one evening. It isn't intended to be robust, performant or otherwise enterprisey.",
+    "The PloticusClusterBar class is the gateway with the perfect interface for what I want to do. I make it transform between that convenient interface and what the real output needs to be.",
+    "Even for a simple thing like this I find a design of composed objects like this a good way to go. Which may only say how my brain's got twisted over the years."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "casual, practical, self-deprecating",
+  "key_insight": "Good object-oriented design habits like the Gateway pattern and layered abstractions remain valuable even for quick personal projects, making code easier to understand and modify.",
+  "filename": "2006-06-19-RubyPloticus"
+}

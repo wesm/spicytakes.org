@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler explores how Ruby achieves annotation-like functionality through metaprogramming, despite not having formal annotation syntax like Java or C#. He compares the explicit annotation constructs in curly-brace languages (like Java's @Annotation) with Ruby's approach using class methods executed at load time. While Java annotations attach metadata objects to language elements, Ruby's approach uses class methods that can directly modify classes through code generation. Fowler argues this represents a common cross-language technique, though Rubyists may not use the term 'annotation' for it.",
+  "key_points": [
+    "Ruby lacks formal annotation syntax but achieves similar results through class methods executed during class loading",
+    "Java/C# annotations place markers before elements; Ruby names elements within the annotation call, offering more placement flexibility",
+    "Ruby's dynamic nature enables more powerful capabilities like runtime code generation that can modify classes directly",
+    "The attr_accessor pattern exemplifies Ruby's annotation-like code generation, something Java's apt cannot replicate for the same class",
+    "Finding common techniques across languages helps identify patterns even when communities use different terminology"
+  ],
+  "money_quotes": [
+    "At first glance Ruby doesn't support annotations, but if tilt your head you'll find it does.",
+    "One of the things I like doing is to find common techniques that cross languages, for me this is a common technique and 'annotation' seems like a good generic word for it.",
+    "Ruby's annotations, on the other hand, are class methods usually defined in a superclass or included module. By writing them directly in the class definition they are executed when the class is loaded.",
+    "Due to Ruby's dynamic nature, you can do a lot more interesting things with annotations. In particular you can do code generation.",
+    "With build scripts and partial classes you probably could do something like this in C#, but this kind of run-time code generation is certainly more natural in Ruby, it's one of its Lispish elements."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, exploratory, comparative",
+  "key_insight": "Annotations are a cross-language pattern for declarative metadata, and Ruby's metaprogramming achieves this through class methods rather than special syntax, enabling more powerful runtime code generation.",
+  "filename": "2006-10-26-RubyAnnotations"
+}

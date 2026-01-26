@@ -1,0 +1,28 @@
+{
+  "summary": "This comprehensive guide explains the test pyramid metaphor for structuring automated test suites, arguing that teams should write many fast unit tests, fewer integration tests, and minimal end-to-end tests. The article walks through practical implementations of each test type using a Spring Boot microservice example, covering unit tests with mocks, database and API integration tests, consumer-driven contract tests with Pact, and UI/end-to-end tests with Selenium. It emphasizes that automated testing enables continuous delivery and fast feedback loops, while warning against common pitfalls like test duplication, over-reliance on slow end-to-end tests, and getting too attached to terminology debates.",
+  "key_points": [
+    "The test pyramid recommends many unit tests at the base, fewer integration tests in the middle, and minimal end-to-end tests at the top to create a fast, maintainable test suite",
+    "Integration tests should be narrow and focused on one external dependency at a time, using test doubles like Wiremock to avoid hitting real services",
+    "Consumer-driven contract tests allow teams to work autonomously by having consumers define interface expectations that providers must satisfy",
+    "End-to-end tests are valuable but should be limited to critical user journeys due to their flakiness, slow speed, and high maintenance cost",
+    "Test duplication across pyramid levels should be eliminated - push tests as far down the pyramid as possible while maintaining confidence"
+  ],
+  "money_quotes": [
+    "Stick to the pyramid shape to come up with a healthy, fast and maintainable test suite: Write lots of small and fast unit tests. Write some more coarse-grained tests and very few high-level tests that test your application from end to end.",
+    "How would you know if you accidentally broke stuff along the way? Well, you click through all your manual test cases, that's how. But let's be honest: do you really enjoy that?",
+    "At the end of the day it's not important to decide if you go for solitary or sociable unit tests. Writing automated tests is what's important.",
+    "Tests that are too close to the production code quickly become annoying. As soon as you refactor your production code your unit tests will break.",
+    "Consumer-Driven Contract tests can be a real game changer to establish autonomous teams that can move fast and with confidence.",
+    "If a higher-level test spots an error and there's no lower-level test failing, you need to write a lower-level test.",
+    "Don't get too hung up on sticking to ambiguous terms. It doesn't matter if you call it end-to-end or broad stack test or functional test.",
+    "Having redundant tests will become annoying in your daily work. Your test suite will be slower and you need to change more tests when you change the behaviour of your code."
+  ],
+  "themes": [
+    "testing",
+    "agile",
+    "microservices"
+  ],
+  "tone": "practical, instructive, opinionated",
+  "key_insight": "A well-structured test pyramid with many fast unit tests, targeted integration tests, and minimal end-to-end tests enables teams to move quickly with confidence while keeping maintenance costs low.",
+  "filename": "2018-02-26-practical-test-pyramid"
+}

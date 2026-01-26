@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler explores the trade-offs between putting domain logic in application code versus SQL queries when building enterprise applications. He presents three approaches to a business rule calculation: transaction scripts, domain models, and complex SQL queries. While SQL can be dramatically faster (20x in his example) and more concise for certain operations, in-memory approaches offer better modifiability, testability, and encapsulation. He advocates for keeping domain logic in memory by default, using optimized SQL only for performance hot spots, and notes that views can help avoid duplication when using SQL-based approaches.",
+  "key_points": [
+    "Complex SQL queries can dramatically outperform in-memory approaches (20x faster in his example) by doing selection and aggregation in the database rather than schlepping thousands of rows to the client",
+    "Domain models separate data access from business logic, meaning query optimizations don't require changing domain logic code, while transaction scripts require rewriting everything",
+    "Views are the SQL equivalent of avoiding duplication - they can encapsulate business logic definitions in one place, but this technique is underutilized in practice",
+    "Encapsulation through in-memory layers becomes essential when data comes from multiple sources (not just SQL databases), making SQL-only approaches insufficient",
+    "Testability favors in-memory approaches since you can use service stubs to replace database connections, enabling faster test execution"
+  ],
+  "money_quotes": [
+    "My philosophy is that most of the time you should focus on writing maintainable code. Then use a profiler to identify hot spots and then replace only those hot spots with faster but less clear code.",
+    "Performance isn't the only factor in deciding what route to go, but it's often a concluding one. If you have a hot spot that you absolutely need to improve, then other factors come second.",
+    "One of the biggest differences between the transaction script and the domain model is the impact of changing the query structure. For the transaction script, it pretty much means altering the entire script.",
+    "It seems that people rarely discuss using views like this to avoid duplication. Books I've seen on SQL don't seem to discuss doing this kind of thing.",
+    "SQL makes some things easy, but other things more difficult. Some people find SQL easy to work with, others find it horribly cryptic. The teams personal comfort is a big issue here.",
+    "If you want portability keep logic out of SQL.",
+    "Common practice in SQL seems to not test. Indeed it's not uncommon to find essential views and stored procedures not even held in configuration management tools."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, balanced, pragmatic",
+  "key_insight": "Default to keeping domain logic in memory for maintainability and encapsulation, but pragmatically use optimized SQL queries for performance-critical hot spots identified through profiling.",
+  "filename": "2003-01-01-dblogic"
+}

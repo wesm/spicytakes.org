@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler examines different strategies for loading and processing JSON documents in Java, arguing against the common practice of creating full object hierarchies when only partial data is needed. He demonstrates through progressive refactoring examples how to encapsulate JSON handling, use sparse object structures, store raw JSON alongside needed objects, and enrich documents without full databinding. The key principle is that code should only declare and process the data structures it actually uses, creating more resilient and maintainable systems.",
+  "key_points": [
+    "Encapsulation means hiding design decisions (including serialization mechanisms), not just data - turn decisions into secrets hidden from outside code",
+    "When you only need a subset of JSON data, declare only the properties you need to create a Tolerant Reader that's resilient to upstream changes",
+    "You can store both raw JSON strings and partial object structures together when you need full JSON output but only partial Java API access",
+    "Document enrichment can be done by traversing Java objects and modifying a tree model, avoiding the need to declare unnecessary intermediate classes",
+    "The choice of data representation should be based on how the data will be used, not on what the source document contains"
+  ],
+  "money_quotes": [
+    "The essence of encapsulation is turning a design decision into a secret",
+    "If I'm defining ten classes and 200 public methods, and only using five of them, that's a sign that something is wrong",
+    "If I only need part of the JSON data, there's no point in importing it all",
+    "By defining only the structure I use, I'm creating a Tolerant Reader, which makes my program much more resilient to changes in the input data",
+    "We should not expect that a module's interface should correspond to its internal storage",
+    "I don't prefer this in Java. Having and using the java objects is generally the best place to put behavior, particularly as it grows in volume and complexity"
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Your code's internal data structures should reflect what you actually need to process, not mirror the shape of incoming documents - encapsulate serialization decisions and declare only what you use.",
+  "filename": "2015-12-17-refactoring-document-load"
+}

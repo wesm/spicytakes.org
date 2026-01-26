@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler examines the ubiquitous pattern of representing data structures as composites of lists and hashmaps, noting their presence across virtually all modern programming languages. He explains how these structures enable flexible, schemaless data representation while acknowledging the implicit schemas that exist in practice. The post highlights the power of generic operations and collection pipelines for manipulating these structures without knowing specific keys. Fowler also discusses serialization options, favoring JSON over XML, while noting that richer tree representations with XPath-style navigation sometimes offer advantages these simpler structures lack.",
+  "key_points": [
+    "Lists and hashmaps together can represent most hierarchical data structures and have become standard equipment in modern languages",
+    "Schemaless structures are flexible but nearly always have an implicit schema that developers expect when manipulating them",
+    "Generic operations parameterized by keys allow powerful manipulation without coupling to specific data shapes",
+    "JSON is the preferred serialization format over XML, which is verbose and has the unnecessary attribute/element distinction",
+    "Richer tree representations with path-based navigation (XPath, CSS selectors) are sometimes preferable for complex documents"
+  ],
+  "money_quotes": [
+    "A list 'n' hash structure is by default schemaless, the lists can contain disparate elements and the hashes any combination of keys.",
+    "We nearly always have an implicit schema when we manipulate a schemaless data structure, in that we expect certain data to be represented with certain keys.",
+    "A strength of the list and hash structure is that you can manipulate it with generic operations which know nothing of the actual keys present.",
+    "JSON is a particularly effective form of serialization for such a data structure, and is my default choice for this.",
+    "The presence of rich lists and hashes as standard equipment in modern languages has been one of the definite improvements in my programming life since I started programming in Fortran IV, but there's no need to stop there.",
+    "I find it awkward that there's no generally accepted, cross-language term for this kind of data structure."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical, reflective, pragmatic",
+  "key_insight": "While list-and-hash composites have become the lingua franca of data representation across programming languages, we should remember that schemaless flexibility always comes with implicit schemas, and richer tree abstractions still have their place.",
+  "filename": "2015-12-03-ListAndHash"
+}

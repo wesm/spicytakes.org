@@ -1,0 +1,27 @@
+{
+  "summary": "This article addresses the challenges of evolving services in a service-oriented architecture without breaking existing consumers. Fowler introduces the Consumer-Driven Contract pattern, which inverts the traditional approach by deriving provider contracts from the explicit expectations expressed by consumers. The pattern recommends that consumers validate only the specific data they actually need (using tools like Schematron) rather than the entire schema, enabling providers to make changes without coordinated updates across all consumers. This approach excavates hidden coupling between services and provides providers with insight into which contract elements are actually being used, enabling more strategic evolution decisions.",
+  "key_points": [
+    "Traditional schema validation creates hidden coupling where consumers implicitly depend on entire schemas even when they only use portions, making any change expensive",
+    "The Robustness Principle (be conservative in sending, liberal in receiving) should guide service consumers to implement 'just enough' validation of only the data they actually process",
+    "Consumer contracts express explicit expectations of a provider contract, and when aggregated, they form a consumer-driven provider contract that represents only the mandatory elements",
+    "Consumer-driven contracts enable providers to identify truly breaking changes versus changes that affect no actual consumers, allowing safe removal of unused functionality",
+    "The pattern is most applicable within a single enterprise or closed community where providers can influence how consumers establish contracts"
+  ],
+  "money_quotes": [
+    "Contracts enable service independence; paradoxically, they can also couple service providers and consumers in undesirable ways.",
+    "In short, the enterprise becomes burdened with services.",
+    "Message receivers should implement 'just enough' validation: that is, they should only process data that contributes to the business functions they implement.",
+    "Services depend for success on their being consumed.",
+    "A service is of value to the business only to the extent it is consumed.",
+    "Consumer-driven contracts tie service evolution to business value by asserting the value of exportable service community elements.",
+    "Consumer-driven contracts do not necessarily reduce the coupling between services. What the pattern does do, however, is excavate and put on display some of those residual, 'hidden' couplings.",
+    "The underlying assumption here is that services, by themselves, are of no value to the business; their value is in being consumed."
+  ],
+  "themes": [
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical",
+  "key_insight": "Service providers should derive their contracts from the explicit expectations of their consumers rather than dictating schemas top-down, because the only valuable parts of a contract are those actually being consumed.",
+  "filename": "2006-06-12-consumerDrivenContracts"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler argues that web services should follow Postel's Law\u2014being liberal in what they accept\u2014to enable graceful evolution of service interfaces. Schema-driven binding approaches like generating code from XSD definitions create unnecessary brittleness, breaking clients even for non-breaking changes like adding fields. Instead, services should use tolerant readers that extract only needed data while ignoring unknown elements, using flexible queries like `//order` rather than rigid paths. Wrapping payloads in Data Transfer Objects provides additional insulation, and sharing reader code with providers enables Consumer-Driven Contracts for safe evolution.",
+  "key_points": [
+    "Schema-driven code generation from service definitions creates unnecessary coupling that breaks on benign changes",
+    "Tolerant readers should extract only needed elements and make minimal assumptions about structure",
+    "Data Transfer Objects provide an additional abstraction layer protecting code from payload changes",
+    "Even binary protocols benefit from tolerance\u2014use generic collections instead of direct object serialization",
+    "Sharing your reader code with service providers enables Consumer-Driven Contracts and safer evolution"
+  ],
+  "money_quotes": [
+    "be conservative in what you do, be liberal in what you accept from others.",
+    "Although there are some people who believe that you should just get your service definitions right first time so you never need to change them, my regular readers will not be surprised to find me absent from their parties.",
+    "Look ma, no programming. It works well until the provider needs to make any change to the interface, such as adding a field.",
+    "Adding field to an interface like this shouldn't be a breaking change for anyone - but often does break these schemes.",
+    "Your aim should be to allow the provider to make any change that ought not to break your code.",
+    "Rather than use an XPath search like /order-history/order-list/order use //order."
+  ],
+  "themes": [
+    "architecture",
+    "evolutionary design",
+    "application integration"
+  ],
+  "tone": "practical, opinionated, advisory",
+  "key_insight": "Service consumers should be maximally tolerant in parsing responses, extracting only what they need and ignoring the rest, to allow providers freedom to evolve their interfaces without breaking clients.",
+  "filename": "2011-05-09-TolerantReader"
+}

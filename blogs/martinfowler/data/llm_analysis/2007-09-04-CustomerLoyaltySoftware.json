@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler discusses insights from John Kordyback about customer loyalty software systems, arguing that these are fundamentally accounting systems tracking points as currency. Many complex problems in loyalty systems\u2014such as ad-hoc adjustments, multiple point types, and potential points\u2014become tractable when viewed through an accounting lens with well-established patterns. The post also explores how loyalty systems serve dual purposes: accounting for liabilities and tracking customer experience for data mining. Fowler suggests these could be decoupled into separate systems feeding off the same event stream, with independent 'miners' for different analyses.",
+  "key_points": [
+    "Loyalty systems are essentially accounting systems with points substituting for dollars, making accounting patterns directly applicable",
+    "Multiple point types (regular miles, elite qualifying miles, potential miles) can be modeled as multiple currencies in accounting terms",
+    "Test-driven development proved more effective than planned design for solving complex problems like potential miles tracking",
+    "Loyalty systems serve two distinct purposes\u2014liability accounting and customer experience tracking\u2014which could be architecturally decoupled",
+    "Event-sourced architecture with independent miners could enable flexible, independent analysis capabilities"
+  ],
+  "money_quotes": [
+    "Although it seems that most people don't see it this way, this is essentially an accounting system, just switching points for dollars.",
+    "John's observation was that repeatedly he runs into what people see as difficult problems that are much easier to deal with once you put accounting spectacles on.",
+    "A group of people spent a couple of weeks trying to sort out potential miles with planned design, but the core issue was cracked in a couple of days with TDD.",
+    "The crucial part of this was focusing on examples to make the problem concrete.",
+    "A notable difference between a loyalty program and most accounting systems is that a loyalty program is more about managing liabilities rather than managing assets.",
+    "Since they differ so much on the inside it may make more sense to treat them as two separate systems that feed off the same event stream."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture",
+    "testing"
+  ],
+  "tone": "reflective",
+  "key_insight": "Reframing loyalty systems as accounting systems unlocks well-established patterns that make seemingly difficult domain problems tractable.",
+  "filename": "2007-09-04-CustomerLoyaltySoftware"
+}

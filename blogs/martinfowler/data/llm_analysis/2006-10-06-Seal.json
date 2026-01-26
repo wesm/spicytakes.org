@@ -1,0 +1,22 @@
+{
+  "summary": "This brief post defines sealing in object-oriented programming and explains the controversy surrounding it. Sealing prevents subclasses from overriding methods or classes, with different languages taking different default approaches. The debate centers on whether to restrict extensibility for safety or allow flexibility with responsibility. Fowler positions himself on the enabling side of this divide.",
+  "key_points": [
+    "Sealing prevents subclasses from overriding methods or classes, implemented via 'sealed' in C# and 'final' in Java",
+    "Languages differ in defaults: C# and C++ seal by default (requiring 'virtual' to unseal), while Java leaves methods unsealed",
+    "The debate maps to two attitudes: DirectingAttitude (restrict for safety) versus EnablingAttitude (allow flexibility with responsibility)",
+    "Fowler identifies as an enabler, preferring to trust extenders rather than restrict them"
+  ],
+  "money_quotes": [
+    "Those with a DirectingAttitude like be very careful about what classes and features are available for overriding and confine extenders to only override things they consider safe.",
+    "Those with an EnablingAttitude take the view that they cannot predict what extenders may need to do and thus shouldn't deny them the flexibility.",
+    "Extenders can override whatever they like, but they have to take the responsibility to be careful.",
+    "As in most things I tend to being an enabler."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "explanatory, balanced, opinionated",
+  "key_insight": "The choice between sealing and leaving classes open reflects a deeper philosophical divide between directing users toward safe paths versus enabling them to take responsibility for their own extensions.",
+  "filename": "2006-10-06-Seal"
+}

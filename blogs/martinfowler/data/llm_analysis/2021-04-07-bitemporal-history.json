@@ -1,0 +1,26 @@
+{
+  "summary": "Bitemporal history addresses the complexity of tracking property changes over time when retroactive updates occur. The concept distinguishes between 'actual' history (when something truly changed) and 'record' history (when we learned about it). The author uses a payroll example where an employee's salary raise is communicated retroactively, creating discrepancies between what was recorded at the time of payroll and what was actually true. While bitemporal modeling adds significant complexity, it becomes necessary when actions are based on past states that later change retroactively. The pattern can be implemented through bitemporal data structures or event sourcing, with the latter offering more flexibility for different query needs.",
+  "key_points": [
+    "Time in data systems has two dimensions: actual history (when something truly occurred) and record history (when we learned about it)",
+    "Record history is append-only - we don't change what we thought we knew, we layer new knowledge on top",
+    "Bitemporal history should be avoided when possible due to complexity, but becomes necessary when retroactive changes affect actions already taken",
+    "The concept of 'perspective' generalizes record time to include different agents (departments, authorities) who learn facts at different times",
+    "Implementation can use either bitemporal data structures with date ranges or event sourcing where each event carries both actual and record timestamps"
+  ],
+  "money_quotes": [
+    "There is a difference between the actual history, and our record of the history.",
+    "Bitemporal history is a way of coming to terms that communication is neither perfect nor instantaneous.",
+    "By layering an append-only record history over the actual history, we allow the actual history to be modified while creating a reliable history of its modifications.",
+    "If we can avoid using bitemporal history, then that's usually preferable as it does complicate a system quite significantly.",
+    "One of the hardest parts of this is educating users on how bitemporal history works. Most people don't think of a historical record as something that changes.",
+    "A lot of effort goes into sorting out problems caused by different agents learning the same facts at different times.",
+    "Pay attention to the fact that if events need to support bitemporal history, they need to be bitemporal themselves."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "Bitemporal history separates what actually happened from when we learned about it, enabling systems to handle retroactive changes while maintaining an auditable record of how knowledge evolved over time.",
+  "filename": "2021-04-07-bitemporal-history"
+}

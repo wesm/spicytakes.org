@@ -1,0 +1,25 @@
+{
+  "summary": "The post argues that most JavaScript code isn't intrinsically asynchronous\u2014it merely supports async behavior through callbacks or promises. This distinction matters for testing because async-supporting code can be tested synchronously by stubbing external APIs. The author demonstrates testing patterns for both callback and promise-based code, strongly advocating for promises as they produce cleaner, more readable tests. Truly asynchronous tests should be aggressively limited because they're hard to maintain and often indicate code smell. The key technique is flattening potentially async operations into synchronous execution during tests.",
+  "key_points": [
+    "Most 'async' JavaScript code isn't inherently async\u2014it just uses async-capable APIs like callbacks or promises",
+    "Async-supporting code can be tested synchronously by stubbing dependencies to resolve immediately",
+    "When testing callbacks, you must verify the callback was actually invoked (Mocha's done() pattern helps)",
+    "Promises lead to cleaner tests because they reify async control flow as objects that can be passed around",
+    "Truly asynchronous tests should be rare\u2014isolate inherently async code and test it separately with integration tests"
+  ],
+  "money_quotes": [
+    "Another way to think about this is that method calls which operate synchronously are a special case of the more general asynchronous case.",
+    "If the tests look bad or are hard to write then there's probably something wrong with the way the code under test was designed.",
+    "I like to think of Promises as an object-oriented version of callbacks, with some bonus features tacked on.",
+    "Essentially promises allow us to separate the concern of invoking an operation from the concern of handling the result of that operation.",
+    "Aggressively limit the number of truly asynchronous tests you write and maintain.",
+    "If you do find yourself writing significant portions of inherently async code then it's likely you need to take a step back and identify a small, containable area of your code which handles all that icky async stuff."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Most JavaScript code isn't inherently asynchronous, just async-compatible, which means unit tests can stub dependencies and execute synchronously rather than requiring complex async test infrastructure.",
+  "filename": "2013-09-18-asyncJS"
+}

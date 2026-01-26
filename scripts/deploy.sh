@@ -37,11 +37,12 @@ get_project_name() {
         unclebob) echo "spicy-takes-unclebob" ;;
         hillel) echo "spicy-takes-hillel" ;;
         steveyegge) echo "spicy-takes-steveyegge" ;;
+        martinfowler) echo "spicy-takes-martinfowler" ;;
         *)         echo "" ;;
     esac
 }
 
-ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh mathbabe nayafia joereis ssp paulg atwood unclebob hillel steveyegge"
+ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh mathbabe nayafia joereis ssp paulg atwood unclebob hillel steveyegge martinfowler"
 
 PROD_FLAG=""
 DEPLOY_ALL=false

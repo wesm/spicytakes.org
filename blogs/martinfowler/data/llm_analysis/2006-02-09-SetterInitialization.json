@@ -1,0 +1,22 @@
+{
+  "summary": "Fowler describes setter initialization as an alternative to constructor initialization, where you create an empty object and configure it through setter methods. He presents this as offering maximum flexibility in object wiring, allowing incremental setup as collaborators become available. The approach avoids long constructor parameter lists and provides self-documenting method names. The piece is a brief, neutral comparison of initialization strategies rather than a strong advocacy for either approach.",
+  "key_points": [
+    "Setter initialization creates empty objects then configures them incrementally via setter methods",
+    "This approach provides flexibility when not all collaborators are available at construction time",
+    "Named setter methods are more readable than positional constructor parameters, especially with generic types like strings",
+    "Avoids the complexity of multiple constructor overloads and long parameter lists"
+  ],
+  "money_quotes": [
+    "This approach gives you the maximum flexibility in wiring up objects, allowing you to provide just the collaborators you need for a specific usage.",
+    "It frees you from having to set all the values at once - which is handy if some objects are only available at later times.",
+    "Setter methods have names that explain their use for the new object.",
+    "Constructor parameters with very general types (strings etc) can easily get very cryptic."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Setter initialization trades the safety of fully-constructed objects for flexibility and readability when configuring complex object graphs incrementally.",
+  "filename": "2006-02-09-SetterInitialization"
+}

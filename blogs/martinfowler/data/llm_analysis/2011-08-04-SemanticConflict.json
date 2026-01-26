@@ -1,0 +1,27 @@
+{
+  "summary": "Fowler argues that while modern version control tools have made textual merging easier, they cannot solve semantic conflicts\u2014situations where code merges cleanly but behaves incorrectly. He illustrates this with examples like method renaming and extracting side effects, where parallel development creates integration bugs that won't be caught by merge tools. The post advocates for self-testing code and frequent integration as the primary defenses against semantic conflicts, reinforcing his long-standing position against feature branching.",
+  "key_points": [
+    "Modern VCS tools solve textual conflicts but cannot detect semantic conflicts where merged code compiles but behaves incorrectly",
+    "Method renames and side-effect extractions create subtle integration bugs that slip through automated merging",
+    "Self-testing code is the primary defense for detecting semantic conflicts during integration",
+    "Frequent merging (continuous integration) reduces semantic conflict severity by catching changes within hours rather than days",
+    "DVCS advocates who promote feature branching based on easy merging are missing the semantic conflict problem"
+  ],
+  "money_quotes": [
+    "Branching is easy, but merging is hard.",
+    "By a semantic conflict I mean a situation where Jez and I make changes which can be safely merged on a textual level but cause the program to behave differently.",
+    "However powerful your tooling is, it will only protect you from textual conflicts.",
+    "The particularly annoying point is that semantic conflicts are harder to spot and harder to fix.",
+    "We can't automatically resolve semantic conflicts. Maybe some day tools will be able to tackle some of them, but I suspect some gnarly ones will always be with us.",
+    "Tests are effectively probing our code to see if their view of the code's semantics are consistent with what the code actually does.",
+    "Jez's difficulties are much less if he discovers my change in a few hours rather than in a few days."
+  ],
+  "themes": [
+    "agile",
+    "refactoring",
+    "testing"
+  ],
+  "tone": "technical, cautionary, pragmatic",
+  "key_insight": "Version control tools can only solve textual conflicts; semantic conflicts require self-testing code and continuous integration to catch, making feature branching inherently risky regardless of tooling sophistication.",
+  "filename": "2011-08-04-SemanticConflict"
+}

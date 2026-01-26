@@ -1,0 +1,27 @@
+{
+  "summary": "The article explains how codemods\u2014automated scripts that use Abstract Syntax Tree manipulation\u2014enable developers to apply large-scale code transformations consistently across codebases. Starting with the challenge library developers face when introducing breaking API changes, Fowler demonstrates how codemods parse code into ASTs, modify the tree structure, and rewrite the source. Through practical examples including feature toggle cleanup and React component refactoring, he shows how to write, test, and compose codemods using tools like jscodeshift. The piece also covers handling edge cases, applying these techniques in Java with JavaParser and OpenRewrite, and leveraging platforms like Hypermod and Codemod.com.",
+  "key_points": [
+    "Codemods automate code transformations by parsing source into ASTs, applying modifications, and rewriting\u2014the same process IDEs use for refactoring but at scale across entire codebases",
+    "Test-Driven Development works particularly well for codemods since inputs and outputs are clearly defined, and negative test cases prevent unintended changes",
+    "Complex transformations should be broken into smaller, composable codemods that can be tested independently and reused across different refactoring tasks",
+    "Edge cases from diverse coding styles (import aliases, variable assignments, logical negations) require careful handling through source graph analysis, linting standardization, and strategic use of TODO comments",
+    "The approach extends beyond JavaScript to Java via JavaParser and OpenRewrite, with OpenRewrite's Lossless Semantic Trees capturing both syntax and semantic meaning for more accurate transformations"
+  ],
+  "money_quotes": [
+    "By using this approach, codemods ensure that changes are applied consistently across every file in a codebase, reducing the chance of human error.",
+    "The codemod needs to *understand* the structure of the code to apply changes selectively.",
+    "This approach aligns well with Test-Driven Development (TDD), even if you don't practice TDD regularly. Knowing exactly what the transformation's inputs and outputs are before coding improves safety and efficiency.",
+    "A more maintainable approach is to treat codemod logic like product code: break the task into smaller, independent pieces\u2014just like how you would normally refactor production code.",
+    "In situations where we couldn't confidently automate the upgrade, we inserted comments or 'TODOs' at the call sites. This allowed the developers running the script to handle specific cases manually.",
+    "Relying solely on the cases you can anticipate is not enough. You need thorough testing to avoid breaking unintended parts of the code.",
+    "Codemods can be highly effective, but their success depends on thoughtful design and understanding the limitations they may face in more varied or complex codebases."
+  ],
+  "themes": [
+    "refactoring",
+    "technical_leadership",
+    "testing"
+  ],
+  "tone": "technical, instructional, pragmatic",
+  "key_insight": "Codemods bring the same AST-based transformation power that IDEs provide locally to the scale of entire codebases, but their effectiveness depends on breaking complex changes into composable, well-tested pieces and acknowledging that edge cases will require human judgment.",
+  "filename": "2025-01-22-codemods-api-refactoring"
+}

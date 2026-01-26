@@ -1,0 +1,24 @@
+{
+  "summary": "An Application Database is controlled and accessed by a single application, in contrast to an Integration Database shared across multiple systems. This single-application ownership enables a more concrete, less complex schema tailored to specific needs. Data sharing happens through services or read-only Reporting Databases rather than direct database access. The key benefit is evolvability\u2014since all access is encapsulated by one application, the schema can be safely refactored even in production.",
+  "key_points": [
+    "Application databases serve one application exclusively, leading to simpler, more focused schemas than integration databases",
+    "Data sharing with other applications should happen through services or read-only reporting databases, not direct database access",
+    "Single-application ownership enables evolutionary database design and production refactoring that would be dangerous with shared databases",
+    "The database should be owned by the application team, with an embedded database professional working closely with developers",
+    "The concept aligns with Service Oriented Architecture's notion of autonomous applications"
+  ],
+  "money_quotes": [
+    "Since only a single application accesses the database, the database can be defined specifically to make that one application's needs easy to satisfy.",
+    "One the great advantages of an application database is that it is easier to change since all its use is encapsulated by a single application.",
+    "Evolutionary database design and database refactoring can be used to make significant changes to an application database's design even after the database is put into production.",
+    "An application database schema is usually best designed and controlled by the application team themselves."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "Constraining database access to a single application enables schema evolution and refactoring that would be impossible with shared integration databases.",
+  "filename": "2004-08-03-ApplicationDatabase"
+}

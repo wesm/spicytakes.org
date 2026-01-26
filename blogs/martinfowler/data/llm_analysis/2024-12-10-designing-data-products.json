@@ -1,0 +1,26 @@
+{
+  "summary": "This article provides a practical methodology for designing data products as part of a data mesh implementation. The authors advocate for a 'working backwards' approach, starting from specific use cases rather than data sources, to avoid analysis paralysis. They define what data products are (self-contained, deployable units serving analytical data) and what they're not (dashboards, PDFs, or entire data warehouses). The process involves short workshops to identify data products, overlay multiple use cases to ensure reusability, assign clear domain ownership, and define service level objectives. The article concludes with implementation guidance including establishing reusable blueprints and automating governance.",
+  "key_points": [
+    "Data products must exhibit eight key characteristics: discoverable, addressable, understandable, trustworthy, natively accessible, interoperable, valuable on its own, and secure",
+    "Working backwards from use cases prevents over-design and analysis paralysis that occurs when starting from data sources",
+    "A well-defined data product should be describable in one or two simple sentences; difficulty doing so indicates poor definition",
+    "For structured data, a data product typically means a single denormalized table; anything larger is likely trying to do too much",
+    "No single data product should be owned by multiple domains, as this leads to confusion and finger-pointing over quality issues"
+  ],
+  "money_quotes": [
+    "There's a common tendency to start with the data sources and define data products. Without the constraints of a tangible use case, you won't know when your design is good enough to move forward with implementation, which often leads to analysis paralysis and lots of wasted effort.",
+    "If you find it difficult to describe a data product in one or two simple sentences, it's likely not well-defined.",
+    "No single data product should be owned by multiple domains, as this can lead to confusion and finger-pointing over quality issues.",
+    "For structured data, this usually means a single denormalized table, and for semi-structured or unstructured data, a single dataset. Anything larger is likely trying to do too much.",
+    "Conflating data product with too many different concepts not only creates confusion among teams but also makes it significantly harder to develop reusable blueprints.",
+    "The defined SLOs will guide the architecture, solution design and implementation of the data product.",
+    "If they need to prioritise one aspect of data mesh, it should be 'data as a product'. Focusing on getting that right establishes a strong foundation, enabling the other pillars to follow naturally."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "methodical, practical, prescriptive",
+  "key_insight": "Designing data products should start from concrete use cases and work backwards to data sources, ensuring each product represents a single cohesive information concept describable in one or two sentences.",
+  "filename": "2024-12-10-designing-data-products"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Xu Hao demonstrates an effective approach to using ChatGPT for generating useful, self-tested code. The technique involves priming the LLM with detailed architectural guidelines and implementation strategies, then asking it to produce a master plan before generating any code. This 'Generated Knowledge' approach\u2014combined with Chain of Thought prompting\u2014allows developers to verify alignment with their architecture before committing to code generation. The code produced isn't perfect but can be iteratively refined through targeted prompts, and the master plan structure helps manage context window limitations across multiple sessions.",
+  "key_points": [
+    "Never put confidential information like business rules or real project code into LLM prompts due to security risks",
+    "Use 'Generated Knowledge' prompting: first ask the LLM to outline its approach, then feed that back to generate code",
+    "Chain of Thought prompting\u2014describing desired architecture patterns as instructions\u2014helps produce cohesive code across separate sessions",
+    "The master plan with numbered tasks allows developers to verify architectural alignment before code generation and provides reference points throughout the session",
+    "Context window limitations require strategic session management, but the chain of thought approach helps maintain coherence when starting new conversations"
+  ],
+  "money_quotes": [
+    "One thing to be wary of when interacting with ChatGPT and the like is that we should never put anything that may be confidential into the prompt, as that would be a security risk.",
+    "With Generated Knowledge we split our interaction into separate steps: first ask the LLM to generate some useful information about the problem, and then we feed that information back into the LLM to generate the final product.",
+    "Even though the final goal of this session is to generate code and its tests, at this stage he specifically said 'Don't generate code.'",
+    "Overall this code is neither bad nor perfect. It won't run as it stands.",
+    "Xu Hao found that the chain of thought in the context was critical to making the generated code fit together despite being generated in separate sessions.",
+    "It's useful to interact with the LLM like a junior partner, starting them with architectural guidelines, asking them to show their reasoning, and tweaking their outputs as we go."
+  ],
+  "themes": [
+    "ai_llms",
+    "architecture",
+    "testing"
+  ],
+  "tone": "technical",
+  "key_insight": "Effective LLM-assisted programming requires treating the model like a junior developer\u2014providing architectural context upfront, requesting a plan before code, and iteratively refining outputs rather than expecting working code in one shot.",
+  "filename": "2023-04-13-2023-chatgpt-xu-hao"
+}

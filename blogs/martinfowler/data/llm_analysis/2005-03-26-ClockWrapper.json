@@ -1,0 +1,21 @@
+{
+  "summary": "Fowler advises against directly accessing system routines for current date/time in code. Instead, developers should create a wrapper that allows the current date/time to be overridden with specific values. This abstraction layer is essential for simplifying testing by making time-dependent code deterministic and controllable.",
+  "key_points": [
+    "Direct system calls for date/time should be avoided in application code",
+    "A wrapper abstraction allows overriding the current time with specific values",
+    "This pattern is primarily motivated by testing concerns",
+    "Deterministic time control enables reliable test scenarios"
+  ],
+  "money_quotes": [
+    "If you need to get the current date or time in your code, don't access the system routines for that data directly.",
+    "Put some form of wrapper around it that allows you to override it by setting the 'current date/time' to a particular value.",
+    "This is important to simplify testing."
+  ],
+  "themes": [
+    "testing",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "Wrapping system time access enables testable code by allowing controlled, deterministic time values during testing.",
+  "filename": "2005-03-26-ClockWrapper"
+}

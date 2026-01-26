@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler explains how first-class functions and closures can be used to create objects without explicit class syntax, a pattern called Function As Object. The constructor function returns a hashmap of methods that capture state in closures, providing data encapsulation. He walks through a JavaScript example showing how fields become local variables, methods become nested functions, and the returned hashmap defines the public interface. While acknowledging this pattern demonstrates classes aren't strictly necessary, Fowler personally prefers having both first-class functions and first-class classes, favoring ES6's class syntax.",
+  "key_points": [
+    "Objects fundamentally bundle data and behavior, providing a common data context and controlled access to that data",
+    "The Function As Object pattern uses closures to capture state and returns a hashmap of functions as the method selector",
+    "Variables in the constructor function become fields, nested functions become methods, and only functions in the returned hashmap are public",
+    "The pattern has been used in Lisp for decades and was widely used in JavaScript before ES6 classes",
+    "While this pattern proves class syntax isn't strictly necessary, Fowler prefers having both first-class functions and first-class classes available"
+  ],
+  "money_quotes": [
+    "In programming, the fundamental notion of an object is the bundling of data and behavior.",
+    "This provides a common data context when writing a set of related functions.",
+    "If you have a language with first-class functions and closures, you can use these constructs to create objects.",
+    "Nothing outside the constructor function can access the variables, preserving data encapsulation.",
+    "It's often used as an argument that a specific syntax for classes isn't necessary, which is the equivalent of object-aficionados arguing that you don't need first class functions when you can write a class with a single 'call' method.",
+    "Personally, I like having both first class functions and first class classes, and prefer ES6's class syntax."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "First-class functions and closures can emulate classical objects through the Function As Object pattern, but having explicit class syntax alongside first-class functions gives developers the best of both paradigms.",
+  "filename": "2017-02-13-FunctionAsObject"
+}

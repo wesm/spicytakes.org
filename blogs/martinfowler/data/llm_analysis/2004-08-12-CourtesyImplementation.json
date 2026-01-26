@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler introduces the concept of 'Courtesy Implementation' - adding methods to a class that don't naturally belong to it but simplify the overall system design. Using the composite pattern with boxes and elephants, he demonstrates how having an Elephant class implement num_elephants (returning 1) eliminates ugly type-checking conditionals in the traversal code. He argues this practice, while initially feeling semantically wrong, parallels mathematical conventions like x^0=1 that exist because they make everything else work better.",
+  "key_points": [
+    "Type-checking conditionals (like kind_of?) are a code smell that suggest polymorphism might be needed",
+    "Leaf classes in composite patterns can implement methods as a 'courtesy' to simplify tree traversal logic",
+    "Mathematical definitions like x^0=1 serve as analogies - they feel unintuitive but make the broader system work",
+    "Models should be designed to suit how we want to perceive and work with the world, not strict real-world accuracy",
+    "Courtesy implementations trade semantic purity for practical simplicity"
+  ],
+  "money_quotes": [
+    "The kind_of? test in num_elephants is a smell, since we should be wary of any conditional that tests the type of an object.",
+    "I think of it as getting the leaf class to provide a simple implementation as a courtesy to its role as a node in the hierarchy.",
+    "Intuitively I don't think it makes sense to say that any number multiplied by itself 0 times is 1 - why not zero? But the definition makes all the mathematics work out nicely.",
+    "Whenever we build a model we are designing a model to suit how we want to perceive the world.",
+    "Courtesy Implementations are worthwhile if they simplify our model."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "reflective, pragmatic, pedagogical",
+  "key_insight": "Adding methods that don't semantically belong to a class can be justified when they eliminate conditionals and simplify the overall design - pragmatic simplicity sometimes trumps semantic purity.",
+  "filename": "2004-08-12-CourtesyImplementation"
+}

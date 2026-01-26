@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler contrasts projectional editing with traditional source-based programming environments. In source editing, text files serve as both editable and storage representations, while projectional editing maintains an abstract representation as the core system definition, with multiple editable projections generated from it. This enables richer editing experiences including graphical and tabular views, but creates significant tooling challenges since there's no universal storage format. The lack of configuration control systems for projectional environments makes collaboration difficult, unlike source-based systems which benefit from mature version control tools.",
+  "key_points": [
+    "Source code uniquely combines editable and storage representations into one artifact, while projectional editing separates them entirely",
+    "Projectional systems can offer multiple editing views (graphical, tabular, textual) not constrained by the abstract representation's structure",
+    "Modern IDEs like post-IntelliJ tools already use abstract representations internally but treat source as primary",
+    "The lack of universal storage format for projectional systems means they must build their own tooling for version control, diffing, and collaboration",
+    "Projectional editing relates to Model-Driven Software Development but the concepts aren't synonymous"
+  ],
+  "money_quotes": [
+    "With projectional editing the abstract representation is the core definition of the system.",
+    "Projectional editing systems can choose any persistence mechanism that they choose, while source systems need to have some universal storage mechanism - which is why they are almost always text files.",
+    "The fact that programmer-readable text is the universal choice for source files means that a whole slew of tools can be built to process them: editors, source-code control, difference visualizers etc.",
+    "In particular many projectional environments suffer greatly because they don't have a decent configuration control system, which makes it much harder for multiple people to collaborate on the same system definition.",
+    "Sophisticated source based IDEs also show multiple projections... However these projections are usually very much secondary to a source editor."
+  ],
+  "themes": [
+    "architecture",
+    "programming environments"
+  ],
+  "tone": "analytical",
+  "key_insight": "The universal acceptance of text files as source storage enables a rich ecosystem of interoperable tools, giving source-based environments a significant practical advantage over projectional systems despite their theoretical flexibility.",
+  "filename": "2008-01-22-ProjectionalEditing"
+}

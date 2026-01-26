@@ -1,0 +1,28 @@
+{
+  "summary": "Fowler demonstrates how to refactor code that mixes external service access with domain logic by progressively extracting responsibilities into separate objects. Starting with a single method that reads local data, calls YouTube's API, parses responses, and calculates metrics, he systematically introduces a Connection object (handling raw API calls), a Gateway object (translating external data structures into the application's vocabulary), and a Domain object (encapsulating business logic). The refactoring doubles the code size but dramatically improves comprehension by ensuring each module handles only one concern. The key insight is that separation of concerns enables developers to work on one aspect without understanding the others.",
+  "key_points": [
+    "Separation of concerns improves comprehension by letting developers remain ignorant of code they don't need to understand",
+    "The Legacy Code Dilemma requires making minimal untested changes to introduce seams for test doubles",
+    "Connection objects should be 'Humble Objects' with minimal behavior since they're not easily tested",
+    "Gateway objects act as anti-corruption layers between bounded contexts, translating external data into your application's vocabulary",
+    "Refactoring must proceed through tiny behavior-preserving transformations, not arbitrary restructuring"
+  ],
+  "money_quotes": [
+    "In a well-modularized program each module should be about one topic, so I can remain ignorant of anything I don't need to understand.",
+    "The Legacy Code Dilemma: When we change code, we should have tests in place. To put tests in place, we often have to change code.",
+    "I prefer to keep connection objects as Humble Objects, because any behavior they do isn't tested.",
+    "YouTube organizes its data according to its context, while I want to organize mine according to a different one. Code that combines two bounded contexts gets convoluted because it's mixing two separate vocabularies together.",
+    "Refactoring isn't a term you should use to any restructuring of a code base. It specifically means the approach that applies a series of very small behavior-preserving changes.",
+    "By taking small steps, you end up going faster because you don't break anything and thus avoid debugging.",
+    "Most people find this counter-intuitive, I certainly did when Kent Beck first showed me how he refactored. But I quickly discovered how effective it is."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture",
+    "testing",
+    "domain_driven"
+  ],
+  "tone": "technical, instructive, methodical",
+  "key_insight": "Good modularity means separating code by concern\u2014connection, data translation, and domain logic\u2014so that changes to external services don't require understanding business rules, and vice versa.",
+  "filename": "2015-02-17-refactoring-external-service"
+}

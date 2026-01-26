@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler explains aliasing bugs, which occur when multiple references point to the same memory location and unexpected mutations affect all references. He demonstrates the problem with a date example where modifying a party date accidentally changes a retirement date. Fowler distinguishes between reference objects (where sharing is intentional) and value objects (where sharing causes bugs). He advocates making value objects immutable to prevent aliasing bugs, while acknowledging that immutability introduces its own complexity when changes are genuinely needed.",
+  "key_points": [
+    "Aliasing bugs occur when the same memory location is accessed through multiple references, causing unexpected shared mutations",
+    "The distinction between reference objects (deliberately shared) and value objects (should not share updates) is crucial for avoiding these bugs",
+    "Making value objects immutable is an effective way to prevent aliasing bugs",
+    "Functional languages prefer immutability by default, treating shared changes as the exception",
+    "While immutability prevents bugs, it introduces complexity when things genuinely need to change - it's not a free lunch"
+  ],
+  "money_quotes": [
+    "Aliasing occurs when the same memory location is accessed through more than one reference. Often this is a good thing, but frequently it occurs in an unexpected way, which leads to confusing bugs.",
+    "It's common to want to share records like this, and then if it changes, it changes for all references.",
+    "A good way to avoid shared updates of value objects is to make value objects immutable.",
+    "Immutability is a handy property, one that makes it harder to create several kinds of bugs.",
+    "But when things do need to change, immutability can introduce complexity, so it's by no means a free breakfast."
+  ],
+  "themes": [
+    "refactoring",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "The key to avoiding aliasing bugs is distinguishing between reference objects (where sharing is intentional) and value objects (which should be immutable to prevent unexpected shared mutations).",
+  "filename": "2016-11-14-AliasingBug"
+}

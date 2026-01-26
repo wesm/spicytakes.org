@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler argues against deploying data science notebooks directly into production codebases. Notebooks excel at interactive exploration and demos but conflate concerns that should be separated in production systems\u2014storage, visualization, and business logic. The real problem isn't technical but organizational: data scientists and software developers often don't understand each other's needs. The solution is embedding data scientists within delivery teams where they can learn software development practices while developers learn data science basics. Rather than productionizing notebooks, teams should extract the relevant domain logic into structured, testable codebases while building experimentation capabilities into the pipeline itself.",
+  "key_points": [
+    "Notebooks combine storage, visualization, and business logic in ways that work for exploration but violate separation of concerns needed for production systems",
+    "Putting notebooks in production includes experimental code, creates security risks through shell access, and undermines reproducibility and auditability",
+    "The underlying problem is poor communication between data scientists and software developers, not technical limitations",
+    "Data scientists should be embedded in delivery teams and learn software development fundamentals\u2014this actually makes them more productive",
+    "Experimentation should be built into the production pipeline through model registries and multi-environment execution rather than through notebook integration"
+  ],
+  "money_quotes": [
+    "The essence of the problem is that data scientists and software developers do not always communicate very well or understand what the other needs to do.",
+    "This is to say that data scientists should strive to learn software development and work fully embedded in the delivery team responsible for delivery of production software.",
+    "A notebook is also a fully powered shell, which is dangerous to include inside a production system.",
+    "They'll find that using many of the techniques of software development actually makes them more productive as data scientists.",
+    "The smaller the gap between the environment of the experiment and the actual implementation, the more we can be confident that the change really creates value.",
+    "Why would I use a database, a Java application and Javascript frontend just to do some simple operations to calculate the payroll for the dozen employees that I employ at my startup? That's what spreadsheets are great at. But that doesn't mean a spreadsheet should be used to handle payroll for a major international bank."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership",
+    "testing"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "The push to productionize notebooks is a symptom of organizational dysfunction between data science and engineering teams\u2014the solution is cross-functional collaboration and proper software practices, not better notebook tooling.",
+  "filename": "2020-11-18-productize-data-sci-notebooks"
+}

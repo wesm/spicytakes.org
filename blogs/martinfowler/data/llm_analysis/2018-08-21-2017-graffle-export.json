@@ -1,0 +1,22 @@
+{
+  "summary": "Martin Fowler shares a practical solution for batch-exporting OmniGraffle diagrams to web-friendly formats using a combination of AppleScript and Ruby. He explains that while exporting one or two diagrams manually is manageable, having a dozen or more makes scripting worthwhile. The post documents his approach of keeping AppleScript minimal (just the export functionality) while handling file iteration and update logic in Ruby. He notes that Omni Group is developing a JavaScript automation environment, but export functionality wasn't available there yet. The solution works around a permission error quirk by opening files via command line rather than AppleScript.",
+  "key_points": [
+    "Scripting batch exports becomes worthwhile when dealing with a dozen or more diagrams",
+    "The approach minimizes AppleScript usage by delegating file handling logic to Ruby",
+    "A JavaScript automation API is in development but lacks export functionality",
+    "The Ruby script only re-exports files when the source is newer than the output",
+    "A command-line workaround avoids permission errors that occur when opening files via AppleScript"
+  ],
+  "money_quotes": [
+    "If I only have one or two, then doing it each time works ok. But if I have a dozen or more, then I find it easier to have a script.",
+    "I'm not familiar with AppleScript, and didn't like it much when I have used it. So I like to keep any code in AppleScript to a minimum.",
+    "I did the usual googling around and cobbled together a small script that exports the current front document.",
+    "The reason I do that is that sometimes I get irritating errors opening an OmniGraffle document from within AppleScript (it says there's a permission error, but has no trouble if I open it manually or by the command line)"
+  ],
+  "themes": [
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "When automating workflows with unfamiliar tools, minimize exposure to problematic technologies by delegating as much logic as possible to languages you know well.",
+  "filename": "2018-08-21-2017-graffle-export"
+}

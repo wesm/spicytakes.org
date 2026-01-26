@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler argues that writing parsers for Domain Specific Languages is much easier than developers believe, and not significantly harder than processing XML. Using his own experience building multiple DSLs for a state machine example, he found that custom parsing with Antlr took roughly the same time as XML processing\u2014about 100 lines for XML versus 250 lines for Antlr, but similar development time. He attributes the widespread fear of parsers to how parsing is taught in universities within the context of complex general-purpose languages, rather than simpler DSLs. The key to tractable parsing is separating concerns by using a Semantic Model that the parser populates, rather than tangling parsing with code generation.",
+  "key_points": [
+    "Writing a custom parser for a DSL takes roughly the same effort as processing XML\u2014the 'free parser' for XML still requires significant code to walk the DOM and populate your model",
+    "Parser fear stems from university compiler classes that teach parsing in the context of complex general-purpose languages, not simpler DSLs",
+    "The key to manageable parsing is using a Semantic Model as an intermediate representation, keeping parsing separate from code generation",
+    "Modern tools like Antlr with IDE support make parser generators much more accessible than their reputation suggests",
+    "DSLs have fundamentally different concerns than general-purpose languages\u2014smaller grammars, simpler scripts, and often no need for code generation"
+  ],
+  "money_quotes": [
+    "When the word 'parser' seems to mean 'too complicated'",
+    "You didn't do the compiler class at university and therefore think parsers are scary. You did do the compiler class at university and are therefore convinced that parsers are scary.",
+    "Parsing a general purpose language is much harder than parsing a Domain Specific Language, if nothing else because the grammar will be much bigger and often contain nasty wrinkles which you can avoid with a DSL",
+    "I think that if you've got code generation statements inside your grammars, things are way too coupled together",
+    "For people to work effectively with external DSLs they have to be taught about it quite differently to how you'd teach parsing a general purpose language",
+    "What we're trying to do is introduce the tools that are often used in compilers but are much more general than that to an audience that associates the tools only with compilers, because that's how they've always been taught."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "pragmatic, encouraging, myth-busting",
+  "key_insight": "Parser fear is a learned response from how universities teach parsing in the context of complex general-purpose languages\u2014DSL parsing with modern tools and a clean Semantic Model architecture is far more approachable than its reputation suggests.",
+  "filename": "2008-05-20-ParserFear"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "The article explores how to apply architectural fitness functions to govern data products in a data mesh architecture. Traditional governance through data stewards doesn't scale with decentralized teams, so automation becomes essential. Fitness functions are tests that evaluate how close implementations are to design objectives, enabling 'shift left' governance where issues are caught early. The piece details specific assertions for key data product characteristics like discoverability, addressability, trustworthiness, and interoperability. Implementation patterns include running tests within data catalogs, using external processes with catalog APIs, and leveraging LLMs to interpret metadata quality. Publishing results on dashboards creates social incentives for teams to maintain governance standards.",
+  "key_points": [
+    "Data mesh decentralizes analytical data ownership to domain-aligned teams, requiring automated governance that scales better than manual data steward inspections",
+    "Fitness functions prioritize governance by rule over inspection, empowering teams to discover problems over independent audits, and continuous governance over dedicated audit phases",
+    "Key architectural characteristics to test include discoverability, addressability, self-descriptiveness, security, interoperability, trustworthiness, and standalone value",
+    "LLMs can evaluate subjective metadata quality like whether a data product is 'valuable on its own' or has meaningful descriptions",
+    "In one client implementation, over 80% of published data products failed basic fitness tests when evaluated retrospectively"
+  ],
+  "money_quotes": [
+    "Traditional ways of enforcing governance rules using data stewards work against the idea of autonomous teams and do not scale in a distributed setup.",
+    "By using fitness functions, we're aiming to 'shift left' on governance, meaning we identify potential governance issues earlier in the timeline of the software value stream.",
+    "Governance by rule over Governance by inspection. Empowering teams to discover problems over Independent audits. Continuous governance over Dedicated audit phase.",
+    "The term 'data product' has unfortunately taken on various self-serving meanings, and fully disambiguating them could warrant a separate article.",
+    "Publicly sharing these dashboards within the organization can serve as a powerful incentive for the teams to adhere to the governance standards. After all, no one wants to be the team with the most red marks.",
+    "In one of our client implementations, we found that over 80% of published data products failed to pass basic fitness tests when evaluated retrospectively."
+  ],
+  "themes": [
+    "architecture",
+    "testing",
+    "technical_leadership",
+    "ai_llms"
+  ],
+  "tone": "technical",
+  "key_insight": "Automated fitness functions that test data product metadata against governance standards provide scalable, continuous governance that empowers decentralized teams while ensuring interoperability across a data mesh.",
+  "filename": "2024-09-05-fitness-functions-data-products"
+}

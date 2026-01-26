@@ -26,6 +26,7 @@ import atwoodConfig from '../../config/atwood.json';
 import unclebobConfig from '../../config/unclebob.json';
 import hillelConfig from '../../config/hillel.json';
 import steveyeggeConfig from '../../config/steveyegge.json';
+import martinfowlerConfig from '../../config/martinfowler.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -50,6 +51,7 @@ const configs: Record<string, BlogConfig> = {
   unclebob: unclebobConfig as BlogConfig,
   hillel: hillelConfig as BlogConfig,
   steveyegge: steveyeggeConfig as BlogConfig,
+  martinfowler: martinfowlerConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -205,6 +207,15 @@ export function buildSourceUrl(
       const [, year, month, slug] = match;
       return `${cfg.sourceUrl}/${year}/${month}/${slug}.html`;
     }
+  }
+  // For martinfowler, URL is either /bliki/slug.html or /articles/slug.html
+  // The slug in filename already contains the correct path
+  if (cfg.scraper.type === 'martinfowler') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    // Most are bliki entries, but some are articles - check if slug starts with article-like pattern
+    // Actually the URL is stored in the post metadata, so we use it directly via source_url
+    // Fallback to /bliki/ path
+    return `${cfg.sourceUrl}/bliki/${slug}.html`;
   }
   return cfg.sourceUrl;
 }

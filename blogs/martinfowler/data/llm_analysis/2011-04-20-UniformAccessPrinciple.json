@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler explains the Uniform Access Principle, coined by Bertrand Meyer, which states that clients should use the same notation to access module services regardless of whether they're stored or computed. The principle is fundamental to encapsulation, allowing objects to change their implementation without affecting clients. Despite being essential to object-oriented programming, few languages properly support it, with most relying on accessor conventions. Fowler argues against naming conventions that betray implementation details and dismisses performance concerns as a special case that can be addressed through caching.",
+  "key_points": [
+    "The Uniform Access Principle means clients should neither know nor care whether a value is stored or computed",
+    "This principle is fundamental to encapsulation and data-hiding, yet remarkably few OO languages truly follow it",
+    "Naming conventions like 'getAge' vs 'calcAge' subvert the principle by revealing implementation details",
+    "Performance concerns about slow computations should be treated as special cases, not reasons to abandon the principle",
+    "The principle applies to both getters and setters, though computed accessors are often read-only"
+  ],
+  "money_quotes": [
+    "All services offered by a module should be available through a uniform notation, which does not betray whether they are implemented through storage or through computation.",
+    "It effectively means that a client of the person should neither know nor care whether the age is stored or computed.",
+    "Although it's a fundamental feature of object-oriented programming, remarkably few OO languages really follow it.",
+    "Often you'll see conventions that subvert uniform access. An example of this might be saying that data accessors are named getAge while computed accessors are named calcAge.",
+    "I prefer to treat this as a special case - follow the uniform access principle unless there is a particularly slow computation (and that should be one that's been measured to be slow, not just expected to be slow)."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical, instructive, principled",
+  "key_insight": "Good API design hides implementation details so completely that clients cannot distinguish between stored data and computed values, preserving the freedom to change implementations without breaking callers.",
+  "filename": "2011-04-20-UniformAccessPrinciple"
+}

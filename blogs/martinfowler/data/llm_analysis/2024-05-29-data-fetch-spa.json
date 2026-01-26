@@ -1,0 +1,26 @@
+{
+  "summary": "This article examines data fetching patterns in single-page applications, addressing the challenge of maintaining responsive UIs while handling asynchronous operations. Fowler's co-author Juntao Qiu presents five key patterns: Asynchronous State Handler (decoupling fetch logic from UI), Parallel Data Fetching (avoiding request waterfalls), Fallback Markup (declarative loading states with Suspense), Code Splitting (lazy loading non-critical components), and Prefetching (loading data before it's needed). The piece uses a Profile component example throughout, progressively adding complexity to demonstrate each pattern. While React is used for examples, the patterns apply broadly across frontend frameworks.",
+  "key_points": [
+    "Request waterfalls occur when components fetch data sequentially in nested hierarchies, significantly degrading performance - parallel fetching with Promise.all can eliminate this",
+    "The Asynchronous State Handler pattern separates data fetching concerns from UI rendering, making components more testable and reusable",
+    "Fallback Markup using Suspense enables declarative handling of loading states, shifting responsibility for loading indicators to component consumers",
+    "Code splitting with dynamic imports and lazy loading reduces initial bundle size but requires careful consideration of user experience during load",
+    "Prefetching on user interactions (like hover) can be combined with code splitting to parallelize bundle and data loading"
+  ],
+  "money_quotes": [
+    "The era of blank pages taking 5 seconds to load is long gone.",
+    "Data fetching is challenging, not only because the nature of async programming doesn't fit our linear mindset, and there are so many factors that can cause a network call to fail, but also there are too many not-obvious cases to consider under the hood.",
+    "The longest wait time depends on the slowest network request, which is much faster than the sequential ones.",
+    "Think of Friends and FriendsSkeleton as two distinct component states\u2014one representing the presence of data, and the other, the absence.",
+    "This approach is also known as Fetch-Then-Render, suggesting that the aim is to initiate requests as early as possible during page load.",
+    "Prefetching involves loading resources or data ahead of their actual need, aiming to decrease wait times during subsequent operations.",
+    "Don't implement complex patterns like prefetching until they are clearly needed."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "technical",
+  "key_insight": "Effective data fetching in SPAs requires combining multiple patterns\u2014parallel fetching, code splitting, and prefetching\u2014to eliminate request waterfalls while keeping the codebase maintainable through proper separation of concerns.",
+  "filename": "2024-05-29-data-fetch-spa"
+}

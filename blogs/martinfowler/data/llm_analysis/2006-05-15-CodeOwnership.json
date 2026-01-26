@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler categorizes code ownership into three models: strong (only owners modify their modules), weak (anyone can modify but owners maintain oversight), and collective (team-wide ownership). He strongly argues against strong code ownership because it creates friction and delays, particularly for simple cross-boundary changes like renaming methods. Weak ownership mitigates these problems while maintaining accountability. The choice between weak and collective ownership depends on team dynamics, though Fowler personally prefers collective ownership in XP contexts.",
+  "key_points": [
+    "Strong code ownership turns all inter-developer interfaces into published interfaces, creating unnecessary overhead for changes",
+    "Simple refactoring operations like renaming public methods become problematic when they cross module boundaries under strong ownership",
+    "Delays in getting changes from other module owners leads to copying code rather than proper reuse, creating technical debt",
+    "Weak ownership provides a middle ground where anyone can make changes but owners maintain oversight",
+    "The choice between weak and collective ownership is primarily about team social dynamics rather than technical factors"
+  ],
+  "money_quotes": [
+    "Of the three the one I really don't like is strong code ownership.",
+    "Persuading them to make the change and waiting for the change often takes so long that it leads to delays and deeper problems, this is particularly galling when the change is a simple one.",
+    "Essentially you've turned all interfaces between developers into PublishedInterfaces, with all the attendant overheads to change.",
+    "Even worse is when you want an implementation change, but because you can't get it quickly enough you make a copy of the foreign code into your module, call your copy of the code and make the change. Of course you intend to sort out the mess later.",
+    "Weak code ownership is a good way to mitigate these kinds of problems. People can make changes freely, the code owner just has to keep an eye on things.",
+    "The choice between weak and collective ownership has more to do with the social dynamics of the team."
+  ],
+  "themes": [
+    "agile",
+    "refactoring",
+    "technical_leadership"
+  ],
+  "tone": "practical, opinionated, reflective",
+  "key_insight": "Strong code ownership creates more friction than it prevents, forcing developers into workarounds that create technical debt rather than protecting code quality.",
+  "filename": "2006-05-15-CodeOwnership"
+}

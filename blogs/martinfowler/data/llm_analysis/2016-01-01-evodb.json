@@ -1,0 +1,26 @@
+{
+  "summary": "The article argues that database design must evolve alongside application development in agile methodologies, rather than being fixed upfront. Fowler and Sadalagi describe techniques developed over a decade at Thoughtworks for managing database schema changes through small, versioned migration scripts that are treated like application code. The approach treats every database change as a refactoring\u2014combining schema modifications, data migration, and access code changes into atomic units. Key enablers include close DBA-developer collaboration, individual database instances for each developer, continuous integration of database changes, and automation tools. The techniques have scaled to projects with 600+ tables, 100+ developers, and 24/7 uptime requirements.",
+  "key_points": [
+    "Database changes should be captured as versioned migration scripts stored in the same repository as application code, not made ad-hoc through schema editing tools",
+    "Every developer should have their own database instance to experiment freely, with automation making it trivial to create, destroy, and rebuild databases",
+    "Database refactorings have three dimensions that must change together: schema, data migration, and database access code",
+    "Transition phases using views and triggers allow destructive changes to coexist with legacy systems during migration periods",
+    "Frequent small integrations are exponentially easier than infrequent large ones\u2014the pain of integration increases exponentially with size"
+  ],
+  "money_quotes": [
+    "On an agile project you assume that you cannot fix the requirements of the system up-front.",
+    "Instead of thinking of design as a phase, which is mostly completed before you begin construction, you look at design as an on-going process that is interleaved with construction, testing, and even delivery.",
+    "Database environments should be phoenixes\u2014regularly burnt down and rebuilt at will.",
+    "The pain of integration increases exponentially with the size of the integration, so doing many small changes is much easier in practice, even though it appears counter-intuitive to many.",
+    "Being schemaless doesn't free us from worrying about schemas, there is still an implicit schema\u2014one that's implied by any code that accesses the database.",
+    "If you are determined to automate every task, you can handle lot of work with much less people."
+  ],
+  "themes": [
+    "agile",
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical, authoritative, pragmatic",
+  "key_insight": "Database schema evolution becomes manageable when every change is captured as a small, versioned migration script that travels through the same continuous integration pipeline as application code.",
+  "filename": "2016-01-01-evodb"
+}

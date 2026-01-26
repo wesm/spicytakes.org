@@ -1,0 +1,27 @@
+{
+  "summary": "Blue-green deployment is a technique for achieving zero-downtime releases by maintaining two identical production environments and switching between them via router configuration. The approach enables rapid rollback if issues arise, as the previous environment remains available. Fowler explains that both environments cycle between serving live traffic, acting as rollback targets, and staging the next release. Database schema changes require special handling by separating schema migrations from application deployments. The technique also doubles as disaster recovery testing since it validates hot-standby procedures with every release. Despite being well-established, Fowler notes the technique remains underused in practice.",
+  "key_points": [
+    "Blue-green deployment uses two identical production environments with a router switch to achieve zero-downtime releases and instant rollback capability",
+    "The environments continuously cycle roles: live production, rollback target, and staging for next release",
+    "Database schema changes require careful sequencing\u2014deploy schema changes that support both versions first, then deploy the application",
+    "The approach inherently tests disaster recovery procedures with every release since it validates the hot-standby mechanism",
+    "Implementation varies widely: hardware separation, virtual machines, partitioned zones, or even web server bouncing instead of router switching"
+  ],
+  "money_quotes": [
+    "Automating your deployment helps reduce the frictions and delays that crop up in between getting the software 'done' and getting it to realize its value.",
+    "One of the challenges with automating deployment is the cut-over itself, taking software from the final stage of testing to live production.",
+    "Blue-green deployment also gives you a rapid way to rollback - if anything goes wrong you switch the router back to your blue environment.",
+    "An advantage of this approach is that it's the same basic mechanism as you need to get a hot-standby working.",
+    "I hope that you release more frequently than you have a disaster.",
+    "The trick is to separate the deployment of schema changes from application upgrades.",
+    "This technique has been 'out there' for ages, but I don't see it used as often as it should be."
+  ],
+  "themes": [
+    "architecture",
+    "continuous delivery",
+    "technical_leadership"
+  ],
+  "tone": "technical, practical, advisory",
+  "key_insight": "Blue-green deployment transforms the risky cut-over moment into a simple router switch between identical environments, providing both zero-downtime releases and instant rollback capability.",
+  "filename": "2010-03-01-BlueGreenDeployment"
+}

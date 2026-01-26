@@ -1,0 +1,26 @@
+{
+  "summary": "Ship/Show/Ask is a branching strategy that reconciles Pull Requests with Continuous Integration by categorizing changes into three approaches: Ship (merge directly to mainline), Show (open a PR but merge immediately without waiting for approval), and Ask (open a PR and wait for feedback). The strategy addresses how Pull Requests have eroded the 'ready to ship' mentality of CI, causing delayed integration, stale PRs, and rubber-stamp approvals. The key innovation is the 'Show' option, which captures CI's speed while preserving PR tooling benefits for asynchronous feedback. Teams naturally fall somewhere on the Ship-to-Ask continuum, and the framework encourages consciously choosing the right approach for each change based on novelty, risk, and team trust levels.",
+  "key_points": [
+    "The 'Show' approach merges PRs immediately while still creating space for asynchronous feedback and conversation, combining CI speed with PR tooling benefits",
+    "Mandatory approval processes often mask underlying trust issues that should be addressed through training, team discussions, and ensemble programming rather than review gates",
+    "Pull Requests are not a replacement for other forms of conversation - teams should discuss approaches before starting work to avoid the sunk-cost bias of reviewing already-built solutions",
+    "The right balance depends on team maturity: established patterns and high trust favor Shipping, while new teams or novel work favor Showing and Asking",
+    "Branches should be short-lived and frequently rebased, with Feature Toggles and other CD techniques keeping mainline releasable"
+  ],
+  "money_quotes": [
+    "We've lost some of the 'Ready to Ship' mentality we had when we did Continuous Integration.",
+    "We also get tired of the number of Pull Requests we have to review, so we don't talk about the code anymore. We stop paying attention and we just click 'Approve' or say 'Looks good to me'.",
+    "By the time a Pull Request is opened, time has been invested in a solution that may be sub-optimal. Reviewers are influenced by the selected solution and find it harder to suggest alternative approaches.",
+    "'All changes must be approved' or 'Every pull request needs 2 reviewers' are common policies, but they show a lack of trust in the development team.",
+    "An approval step is only a band-aid \u2013 it won't fix your underlying trust issues.",
+    "Every time a developer 'Shows' rather than 'Asks' is an opportunity for them to build trust with their team.",
+    "Ship/Show/Ask reminds us that each team's approach sits on a continuum somewhere between 'Always Ship' and 'Always Ask'."
+  ],
+  "themes": [
+    "agile",
+    "technical_leadership"
+  ],
+  "tone": "practical",
+  "key_insight": "Mandatory code review approval is often a trust band-aid rather than a quality mechanism, and teams can ship faster while maintaining feedback culture by merging PRs immediately and treating reviews as post-hoc conversations.",
+  "filename": "2021-09-08-ship-show-ask"
+}

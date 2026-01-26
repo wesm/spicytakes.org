@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler addresses the complaint that object-oriented languages create unnecessary overhead when flowing JSON data through servers. Rather than converting JSON to full object graphs and back, he proposes wrapping generic data structures (parsed JSON) inside thin object wrappers that provide encapsulated access methods. This 'embedded document' pattern preserves the efficiency of working with raw data structures while maintaining the benefits of object-oriented encapsulation. The approach works best when data is stored and served in similar formats but requires some server-side manipulation. As processing complexity increases, converting to a full object graph may become worthwhile.",
+  "key_points": [
+    "The perceived overhead of OO languages with JSON isn't a problem with objects\u2014it's a failure to understand encapsulation",
+    "Generic data structures (lists, dictionaries) can be wrapped in objects that provide methods for manipulation without full deserialization to domain objects",
+    "Object wrappers on embedded documents have different semantics than normal objects, particularly around equality",
+    "The sweet spot is when input and output formats match but some manipulation is needed",
+    "Performance arguments against object conversion should always be backed by measurements"
+  ],
+  "money_quotes": [
+    "I agree with the point about waste, but I argue that it's not a problem with objects but a failure to understand encapsulation.",
+    "The point of encapsulated data is the hiding of the data structure, so that users of the object don't know or care about the internal structure.",
+    "I would certainly not accept a performance argument against converting to an object graph unless it was accompanied by measurements.",
+    "One of my pet annoyances is hearing some functional fans say that this style of code isn't object-oriented. While it may seem foreign to those with a C++/Java background, this style is perfectly natural to smalltalkers.",
+    "You can think of the object as providing a namespace for manipulating the generic data structures."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven",
+    "refactoring"
+  ],
+  "tone": "technical, instructive, pragmatic",
+  "key_insight": "Encapsulation doesn't require converting data to rich object graphs\u2014wrapping generic data structures in thin objects provides the benefits of OO while avoiding unnecessary transformation overhead.",
+  "filename": "2013-06-04-EmbeddedDocument"
+}

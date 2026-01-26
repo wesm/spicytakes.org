@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler addresses the misuse of Data Transfer Objects in local contexts, arguing that DTOs are specifically designed for expensive remote calls and should not be used within a single process. He acknowledges that while DTOs serve an important purpose for coarse-grained remote interfaces, using them locally creates unnecessary complexity and painful data mapping overhead. The post clarifies two valid exceptions: presentation-layer mismatches with domain models, and communication between isolated threads via message queues. Fowler warns against speculative distribution boundaries and advocates starting with locally invocable services that can add remotability later if needed.",
+  "key_points": [
+    "DTOs exist specifically to optimize expensive remote calls through coarse-grained interfaces, not for local use",
+    "Using DTOs locally is actively harmful: the API becomes harder to use and requires costly data mapping comparable to ORM pain",
+    "Designing for speculative future distribution violates Fowler's FirstLaw and adds unnecessary complexity",
+    "Valid local DTO-like patterns exist for presentation layer mismatches and inter-thread communication via message queues",
+    "Start with domain objects in service layers and add remote facades only when distribution is actually needed"
+  ],
+  "money_quotes": [
+    "Patterns always have two parts: the how and the when. Not just do you need to know how to implement them, you also have to know when to use them and when to leave them alone.",
+    "Not just do you not need them in a local context, they are actually harmful both because a coarse-grained API is more difficult to use and because you have to do all the work moving data from your domain or data source layer into the DTOs.",
+    "Don't underestimate the cost of [using DTOs].... It's significant, and it's painful - perhaps second only to the cost and pain of object-relational mapping.",
+    "Adding remote boundaries adds complexity.",
+    "Start with a locally invocable Service Layer whose method signatures deal in domain objects. Add remotability when you need it (if ever)."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "corrective, practical, authoritative",
+  "key_insight": "Patterns require understanding not just how to implement them but when to use them, and DTOs used outside their intended remote-call context create harmful complexity without benefit.",
+  "filename": "2004-10-21-LocalDTO"
+}

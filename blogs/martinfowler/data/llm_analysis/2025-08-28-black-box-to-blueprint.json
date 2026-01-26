@@ -1,0 +1,27 @@
+{
+  "summary": "The article describes a successful experiment using AI to reverse-engineer a massive legacy system that had become a 'black box'\u2014critical to operations but lacking source code, documentation, and institutional knowledge. The team faced a system with 650+ database tables, 1,200 stored procedures, 350 user screens, and 45 compiled DLLs with no surviving documentation. Rather than attempting to recover the original code, they focused on reconstructing the functional intent through a multi-lens approach: analyzing UI layers, using change data capture, inferring server logic, and performing 'binary archaeology' on compiled DLLs. The result was a validated functional specification detailed enough to drive implementation of a replacement system.",
+  "key_points": [
+    "Legacy 'black box' systems create a modernization deadlock: too risky to replace without understanding, too costly to maintain, too critical to ignore",
+    "The key principle was reconstructing functional intent rather than trying to recover original code",
+    "AI-assisted binary archaeology reduced the relevant function search from 4,000+ functions to ~40 by slicing DLLs by functional workflow rather than processing all code",
+    "Multi-pass enrichment and triangulation across multiple data sources (UI, database, binaries) prevented hallucination and built confidence",
+    "The approach transformed understanding timelines from months to weeks, with the team predicting more legacy systems will be retired in the next 2-3 years than in the last 20"
+  ],
+  "money_quotes": [
+    "These systems often live inside frozen environments: outdated databases, legacy operating systems, brittle VMs. Documentation is either missing or hopelessly out of sync with reality.",
+    "Don't try to recover the code \u2014 reconstruct the functional intent.",
+    "We treated binaries as artifacts to be decoded rather than rebuilt.",
+    "We learned about context poisoning in a hard way, in-advertely we passed what we were looking for into LLM. From that moment LLM started colouring its output targeted towards what we were looking for.",
+    "AI can accelerate analysis, but it cannot replace domain understanding.",
+    "Never rely on a single artifact. Confirm every hypothesis across at least two independent sources.",
+    "In the next 2-3 years we could expect more systems to be retired than in the last 20 years."
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms",
+    "technical_leadership"
+  ],
+  "tone": "practical, methodical, optimistic",
+  "key_insight": "AI-assisted reverse engineering can transform opaque legacy systems from modernization blockers into actionable blueprints by reconstructing functional intent through multi-source triangulation rather than attempting to recover original code.",
+  "filename": "2025-08-28-black-box-to-blueprint"
+}

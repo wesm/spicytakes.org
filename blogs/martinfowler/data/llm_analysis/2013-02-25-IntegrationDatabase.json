@@ -1,0 +1,25 @@
+{
+  "summary": "An integration database serves as a shared data store for multiple applications, contrasting with application-specific databases. While this approach eliminates the need for separate integration services and keeps data synchronized across applications, it creates significant architectural problems. The shared schema must accommodate all client applications, becoming overly general or complex. Most critically, the database becomes a deep coupling point between applications, making changes risky and evolution difficult. Fowler concludes that respected software architects recommend avoiding integration databases entirely.",
+  "key_points": [
+    "Integration databases unify what should be separate bounded contexts, forcing schema compromises",
+    "Database changes require negotiation between a central database group and multiple application teams",
+    "The synchronization benefit (immediate data availability across apps) comes at a high coupling cost",
+    "Deep coupling through shared databases significantly increases change risk and hampers application evolution"
+  ],
+  "money_quotes": [
+    "An integration database needs a schema that takes all its client applications into account.",
+    "The resulting schema is either more general, more complex or both - because it has to unify what should be separate BoundedContexts.",
+    "The database usually is controlled by a separate organization to those that develop applications and database changes are more complex because they have to be negotiated between the database group and the various applications.",
+    "On the whole integration databases lead to serious problems because the database becomes a point of coupling between the applications that access it.",
+    "This is usually a deep coupling that significantly increases the risk involved in changing those applications and making it harder to evolve them.",
+    "Most software architects that I respect take the view that integration databases should be avoided."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "domain_driven"
+  ],
+  "tone": "technical, definitive, cautionary",
+  "key_insight": "Sharing a database between applications creates deep coupling that makes evolution difficult, and the convenience of synchronized data access rarely justifies the architectural costs.",
+  "filename": "2013-02-25-IntegrationDatabase"
+}

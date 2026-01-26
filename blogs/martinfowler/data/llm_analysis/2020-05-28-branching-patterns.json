@@ -1,0 +1,28 @@
+{
+  "summary": "This comprehensive article examines source code branching patterns, arguing that while branching is easy, merging is the hard part that teams must plan for carefully. Fowler presents two main categories of patterns: integration patterns (how developers combine work) and production path patterns (how code reaches deployment). He contrasts Feature Branching with Continuous Integration, presenting research evidence that high-frequency integration correlates with higher software delivery performance. The article advocates for understanding trade-offs in context rather than following any single approach dogmatically, while noting that teams using Continuous Integration typically achieve better outcomes through smaller merges and faster conflict detection.",
+  "key_points": [
+    "Branching is easy but merging is harder - the cost of branching is paid at merge time, and this cost grows exponentially with time between integrations",
+    "High-frequency integration (Continuous Integration) reduces merge complexity and risk compared to Feature Branching, with scientific evidence from the State of DevOps Report supporting this",
+    "A healthy mainline with self-testing code is foundational - it enables developers to start work from a stable base and supports direct releases to production",
+    "Pre-integration reviews add friction that discourages frequent integration; pair programming and refinement reviews offer alternatives with faster feedback",
+    "Modularity and refactoring support each other with high-frequency integration - feature branching often discourages the refactoring needed to maintain good architecture"
+  ],
+  "money_quotes": [
+    "Branching is easy, merging is harder.",
+    "Feature Branching is a poor man's modular architecture, instead of building systems with the ability to easy swap in and out features at runtime/deploytime they couple themselves to the source control providing this mechanism through manual merging.",
+    "Integration is both a pull and a push - only once Scarlett has pushed is her work integrated with the rest of the project.",
+    "If it hurts - do it more often.",
+    "A source control system is a communication tool.",
+    "Pull requests add overhead to cope with low-trust situations. Imposing pull requests on devs in your own team is like making your family go through an airport security checkpoint to enter your home.",
+    "The difference between a beneficial drug and a poison is dosage."
+  ],
+  "themes": [
+    "architecture",
+    "agile",
+    "refactoring",
+    "technical_leadership"
+  ],
+  "tone": "technical, analytical, opinionated",
+  "key_insight": "The frequency of integration is the most critical decision in branching strategy - higher frequency reduces merge risk, enables refactoring, and correlates with better software delivery performance.",
+  "filename": "2020-05-28-branching-patterns"
+}

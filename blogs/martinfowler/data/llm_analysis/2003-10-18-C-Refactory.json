@@ -1,0 +1,23 @@
+{
+  "summary": "Martin Fowler discusses the notable absence of refactoring tools for C and C++ despite their existence for Smalltalk, Java, and C#. He explains that the complexity of C++, particularly the pre-processor, has hindered tool development. Research at UIUC led by Ralph Johnson and Alejandra Garrido is tackling C refactoring first, as it shares C++'s challenges while avoiding some complexity. The core technical problem is that accurate refactoring requires operating on abstract syntax trees, but macros and conditional compilation create distance between source text and the AST. The C Refactory project has made progress, including successfully parsing the Linux kernel source code.",
+  "key_points": [
+    "C++ lacks refactoring tools despite being the language of the first refactoring thesis by Bill Opdyke",
+    "The C pre-processor, particularly conditional compilation and macros, poses the biggest challenge for building refactoring tools",
+    "Accurate refactoring requires operating on abstract syntax trees, but macros create a gap between program text and the AST",
+    "The C Refactory project builds a 'macro-aware AST' that holds variants of code that would be compiled under different conditions",
+    "The research tool has been tested against the Linux kernel source code"
+  ],
+  "money_quotes": [
+    "One language conspicuous by its absence is C++, despite appeals.",
+    "Such difficulties don't stop the determined for long.",
+    "The essential problem is that accurate refactoring operates on the abstract syntax tree (AST) of the program, but macros distance the program text from the AST.",
+    "As a result a C refactoring tool needs to build a macro-aware AST which holds within it the variants of the AST that would be compiled.",
+    "It's hairy work but Alejandra has had some success, including reading in source to the Linux kernel as part of the testing for the research tool."
+  ],
+  "themes": [
+    "refactoring"
+  ],
+  "tone": "technical, informative, encouraging",
+  "key_insight": "Building refactoring tools for C requires solving the fundamental problem that macros and conditional compilation create distance between source code text and the abstract syntax tree that refactoring must operate on.",
+  "filename": "2003-10-18-C-Refactory"
+}

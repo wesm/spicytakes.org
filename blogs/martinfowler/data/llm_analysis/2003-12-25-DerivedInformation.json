@@ -1,0 +1,23 @@
+{
+  "summary": "Martin Fowler explores how to represent derived information in UML diagrams, using the example of a rectangle's area (derived from height and width). He contrasts showing derived values as operations versus using UML's derived property notation (prefixed with '/'). Fowler argues that from an encapsulation perspective, users of a class shouldn't know or care which properties are stored versus calculated. He suggests marking properties as derived indicates a constraint relationship, not implementation details. Ultimately, he emphasizes team consistency matters more than which convention you choose, noting UML is less rigorous than it claims to be.",
+  "key_points": [
+    "UML provides a derived property notation (prefix with '/') for values calculated from other attributes",
+    "Some teams only use attributes for fields while others use derived markers based on naming conventions",
+    "Encapsulation principle suggests users shouldn't know whether a property is stored or calculated",
+    "Derived markers indicate constraints between values, not implementation specifics",
+    "Team consistency in notation matters more than which approach you choose"
+  ],
+  "money_quotes": [
+    "One of the key properties of an object is that they are encapsulated.",
+    "If I'm the user of the rectangle class I actually should not know or care that the circumference is calculated.",
+    "The implementor might store the height and circumference and calculate the width - I shouldn't be able to tell.",
+    "It matters less which approach you take than it does that you follow a consistent style within your team.",
+    "It's one of the many cases where the UML is less rigorous than it would like to think it is."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical, pragmatic, reflective",
+  "key_insight": "Encapsulation means clients shouldn't know whether information is stored or derived, so UML's derived notation should indicate logical constraints rather than implementation choices.",
+  "filename": "2003-12-25-DerivedInformation"
+}

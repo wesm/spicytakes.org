@@ -1,0 +1,27 @@
+{
+  "summary": "This article demonstrates how to build a Domain Specific Language using JetBrains' Meta Programming System (MPS), a language workbench tool. Fowler walks through creating an 'Agreement DSL' that handles how a utility company reacts to customer events based on service plans. The article covers three core aspects: defining the schema (data model), building projectional editors, and creating code generators. Unlike traditional text-based DSLs, MPS uses projectional editing where users manipulate an abstract representation rather than raw text, enabling rich editor support and symbolic integration between languages. Fowler emphasizes that while the example resembles traditional textual DSLs, the real potential of language workbenches lies in creating entirely new kinds of DSLs we haven't yet imagined.",
+  "key_points": [
+    "Language workbenches use projectional editing - manipulating abstract representations that look like text but aren't, enabling intelligent editor support and context-aware assistance",
+    "DSLs can be composed from separate languages (like embedding Excel-style formulas) while maintaining seamless symbolic integration",
+    "A language workbench requires defining three interconnected elements: schema (structure), editor (projection), and generator (code output)",
+    "Unlike traditional structured editors, modern language workbenches must handle invalid/incomplete input gracefully, allowing programmers to work naturally",
+    "The real promise of language workbenches isn't recreating textual DSLs but enabling entirely new kinds of domain languages we can't yet envision"
+  ],
+  "money_quotes": [
+    "The first thing to note about these fragments is that they are very domain oriented and readable in terms of the domain. Although the COBOL inference hangs over me, I'd venture to say they are readable to a non-programmer domain expert.",
+    "It's much harder to see the domain logic in the Java, because Java's grammar does get in the way. This is particularly so for a non-programmer.",
+    "You may have noticed that the DSL examples used screen shots rather than text - and that's because although the DSLs look like text they aren't really text. Instead they are projections of the underlying abstract representation.",
+    "One of the past problems with these kind of intelligent, or structured, editors is that they couldn't deal with incorrect input. Each bit of input needs to be correct before you move on. Such a requirement is a big usability problem.",
+    "This kind of robust behavior in the face of wanton invalidity is an important feature of language workbenches.",
+    "Despite the modeling crowd's obsession with saying 'a picture is worth a thousand words', textual representations are still very useful.",
+    "I think the really interesting DSLs will actually be quite different. But part of the nature of this work is that we can't really see what they'll look like yet."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven",
+    "technical_leadership"
+  ],
+  "tone": "technical, exploratory, educational",
+  "key_insight": "Language workbenches enable creating domain-specific languages where the visible notation is a projection of an underlying abstract representation, allowing for intelligent editing, language composition, and the potential for entirely new forms of programming that we haven't yet conceived.",
+  "filename": "2005-06-12-mpsAgree"
+}

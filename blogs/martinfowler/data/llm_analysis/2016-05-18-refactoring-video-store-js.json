@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler revisits the video store example from his 1999 refactoring book, this time implementing it in modern JavaScript ES6. He demonstrates how to break down a single long function into smaller, well-named functions, then explores four different architectural approaches for organizing the code to support multiple output formats (text and HTML): parameter dispatch, top-level functions, classes, and data transformation. The article shows that refactoring is about improving code in a direction that suits your team's coding style, and JavaScript's flexibility allows multiple valid approaches where Java would naturally push toward OO.",
+  "key_points": [
+    "The first step in any refactoring of a long function is decomposition into smaller, well-named functions using Extract Method, Replace Temp with Query, and eliminating mutable variables",
+    "Four distinct organizational patterns emerge: parameter dispatch (format as argument), top-level functions (pure functions with explicit parameters), classes (common context via object instances), and data transformation (intermediate data structure)",
+    "Side effects in extracted functions make code hard to reason about - prefer returning values over modifying parent-scoped variables",
+    "Top-level functions suffer from repetitive parameter passing that obscures common context; classes and transforms make shared context explicit",
+    "Using literal values to dispatch to different behaviors is a code smell - let callers use named functions instead of recreating language dispatch mechanisms"
+  ],
+  "money_quotes": [
+    "Poorly factored code is a problem because it's hard to understand. Code that's hard to understand is hard to modify, whether to add new features or to debug.",
+    "Such side-effects make code hard to reason about, so I alter it so that it has no side-effects in its body.",
+    "Using literal values to indicate choice of function is a smell. Instead of this API, let the caller say what they want as part of the function name.",
+    "One of the difficulties in programming in JavaScript is that there is little consensus on what is good style.",
+    "Small functions, providing they are well-named, can be combined and manipulated to support varied needs both at the same time and over time.",
+    "Common contexts suggest grouping logic together, while much of the art of programming is deciding how to separate concerns into a clear set of such contexts."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical, pedagogical, exploratory",
+  "key_insight": "Different programming styles (functional, OO, transformational) are often observably equivalent implementations of the same computation - understanding what unites them (small well-named functions, explicit common context, clear separation of concerns) matters more than dogmatic style preferences.",
+  "filename": "2016-05-18-refactoring-video-store-js"
+}

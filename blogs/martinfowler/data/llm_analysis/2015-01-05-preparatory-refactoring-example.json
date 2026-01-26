@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler demonstrates preparatory refactoring through a real example from his publication toolchain. He needed to add a feature to highlight ranges of code lines, but instead of diving straight into implementation, he first refactored the existing code to create a place for the new functionality. By introducing no-op functions that preserve existing behavior, he gradually broke down the code while keeping tests green. The actual feature addition became trivial once the structure was in place, illustrating Kent Beck's principle: 'make the change easy, then make the easy change.'",
+  "key_points": [
+    "Preparatory refactoring means restructuring code before adding features, making the subsequent change trivial rather than fighting through existing structure",
+    "Introducing no-op functions that preserve behavior lets you refactor safely while keeping tests passing - you stay in 'refactoring mode' longer",
+    "The Pipes and Filters pattern enables easy insertion of new transformations because each step composes independently",
+    "Temporary tests that verify 'no change' behavior during refactoring help validate assumptions before making real changes",
+    "The approach reduces stress and speeds development because careful restructuring ('trilby') is faster than fighting through complex changes ('hard hat')"
+  ],
+  "money_quotes": [
+    "It's like I want to go 100 miles east but instead of just traipsing through the woods, I'm going to drive 20 miles north to the highway and then I'm going to go 100 miles east at three times the speed I could have if I just went straight there.",
+    "For each desired change, make the change easy (warning: this may be hard), then make the easy change.",
+    "This single refactoring is really the essence of this whole article, boiled down to a simple step.",
+    "By defining apply_ranges with this simple behavior-preserving implementation, as opposed to just leaving it blank, I can continue to run my tests and keep my refactoring hat on.",
+    "What I'm doing is steadily narrowing down the scope of the change in behavior I'm about to add.",
+    "I find that when I can spot how to do a preparatory refactoring it results in a faster and less-stressful programming experience, because the trilby is faster and less stressful than the hard hat."
+  ],
+  "themes": [
+    "refactoring",
+    "testing"
+  ],
+  "tone": "instructive",
+  "key_insight": "The fastest path to implementing a feature is often not direct - first refactoring code to create the right structure makes the actual change trivial and keeps you in a safe, test-passing state throughout.",
+  "filename": "2015-01-05-preparatory-refactoring-example"
+}

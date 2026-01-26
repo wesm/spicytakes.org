@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler challenges the assumption that the relational data model has definitively won the database wars. He observes that while SQL databases dominate persistent storage, in-memory data structures overwhelmingly use the network model, leading developers to constantly transform between the two. He argues that XML's rise has brought hierarchical data models back into relevance, and that growing memory capacities enabling in-memory databases may fundamentally shift our assumptions. Different data models suit different kinds of data, and developers should understand multiple approaches rather than defaulting to relational for everything.",
+  "key_points": [
+    "The relational model dominates databases, but the network model dominates in-memory data structures, creating constant translation overhead",
+    "Most developers find the network model easier to work with than the relational model, which partly explains the prevalence of Anemic Domain Models",
+    "XML technologies like XPath and XQuery have standardized ways to query hierarchical data, reviving interest in the hierarchic data model",
+    "Growing memory sizes and falling prices are enabling in-memory databases with fundamentally different performance characteristics",
+    "Different kinds of data work better with different models - relational excels at tabular data but fails for documents like literature"
+  ],
+  "money_quotes": [
+    "Most developers find the network model easier to deal with than the relational model.",
+    "The relational model is perfect for tabular data, but suck really badly if you want to store The Tempest.",
+    "People often go to great efforts to turn a relational model on disk to a network model in memory.",
+    "While SQL works well for databases, we don't have the equivalent for in-memory processing.",
+    "So maybe its time again to dust off those assumptions about which data models make sense.",
+    "As memory sizes grow as fast as prices drop, we are increasingly reaching the point where most databases can be kept entirely in memory."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "reflective",
+  "key_insight": "The supposed victory of the relational model is an illusion confined to persistent storage; in practice, developers constantly convert to network models in memory, suggesting we should embrace data model pluralism rather than relational monoculture.",
+  "filename": "2004-02-12-DataModels"
+}

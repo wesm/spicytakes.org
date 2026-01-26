@@ -1,0 +1,22 @@
+{
+  "summary": "Fowler explains the concept of observable state in object-oriented programming, distinguishing between methods that change state and those that don't. He argues that what matters is not whether internal state changes, but whether those changes are detectable from outside the object through its public query methods. Using a Ruby range class with lazy initialization as an example, he demonstrates how a cache variable changes real state without changing observable state. The key principle is that calling any method from outside should return the same result regardless of internal caching state.",
+  "key_points": [
+    "Separating methods into state-changing and non-state-changing (queries) enables safer composition since queries can be called in any order",
+    "Observable state is what can be detected through an object's query methods, not the totality of internal state",
+    "Caches and lazy initialization change real state but should never change observable state",
+    "The test is whether any external method call returns the same result regardless of internal state changes"
+  ],
+  "money_quotes": [
+    "Non-state changing methods (which I call queries), can be used in any context without worrying about how they sequence with other methods.",
+    "The key here is not so much that they don't change any state, but they don't change observable state.",
+    "Putting a value in the lengthCache clearly changes the real state of the object. It doesn't change the observable state because you can't tell that the object's state has changed from the outside.",
+    "Caches are an obvious case of state whose changes should never be observable."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "The distinction between real state and observable state enables powerful patterns like caching and lazy initialization while preserving the safety guarantees of query methods.",
+  "filename": "2006-01-05-ObservableState"
+}

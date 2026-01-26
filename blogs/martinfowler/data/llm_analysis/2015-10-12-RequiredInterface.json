@@ -1,0 +1,24 @@
+{
+  "summary": "A required interface is defined by the client of an interaction, specifying what a supplier component needs to provide to participate. Unlike typical interfaces where suppliers decide what to expose, required interfaces flip this relationship by letting clients specify their needs. The Comparable interface in Java exemplifies this pattern, where sort functions define what objects must implement to be sortable. When integrating independently-developed modules, adapters bridge the gap between a supplier's actual interface and a client's required interface, even when method signatures happen to match but types don't align.",
+  "key_points": [
+    "Required interfaces are defined by clients rather than suppliers, inverting the typical interface ownership model",
+    "The Comparable interface demonstrates this pattern - sort functions define what objects need to implement",
+    "Type systems enforce required interfaces even when method signatures accidentally match across unrelated classes",
+    "Adapters serve as bridges when supplier components don't directly implement the required interface",
+    "Thinking about what clients require leads to more useful interfaces and role-based interface design"
+  ],
+  "money_quotes": [
+    "A required interface is an interface that is defined by the client of an interaction that specifies what a supplier component needs to do so that it can be used in that interaction.",
+    "Often people think about interfaces as a decision by the supplier about what to expose to clients. But required interfaces are specified (and often defined) by the client.",
+    "You often get more useful interfaces by thinking about what clients require - leading towards thinking about RoleInterfaces.",
+    "Even though the activity has a method whose signature happens to match the required interface's, I (rightly) can't create a task list of activities because the type definitions don't match.",
+    "In this usage an adapter is an object that maps one object to the required interface of another."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "Better interfaces emerge when you design from the client's perspective, defining what they require rather than what suppliers choose to expose.",
+  "filename": "2015-10-12-RequiredInterface"
+}

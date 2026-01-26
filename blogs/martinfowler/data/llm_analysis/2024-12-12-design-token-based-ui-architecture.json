@@ -1,0 +1,26 @@
+{
+  "summary": "Design tokens are design decisions represented as data, serving as a single source of truth for both design and engineering teams. The article explains how tokens solve cross-team consistency problems (like z-index conflicts in micro-frontends) by providing a shared vocabulary. Tokens should be organized in layers\u2014option tokens define available styles, decision tokens specify how styles are applied, and component tokens map to specific UI elements. A deployment pipeline can automate token distribution, enabling design changes to propagate across multiple frontends in a single day. The author recommends starting with two layers and adding complexity only when needed, while also considering token scope to limit which tokens are exposed to developers.",
+  "key_points": [
+    "Design tokens act as a common language between disciplines, tools, and technologies\u2014enabling cross-platform consistency and efficient design-to-code workflows",
+    "A layered architecture (option, decision, component tokens) organizes design decisions at appropriate abstraction levels, balancing maintainability with developer experience",
+    "Automated deployment pipelines using Git, translation tools like Style Dictionary, and package registries can propagate design changes across teams within a single day",
+    "Token scope (public vs private) guides developers toward appropriate tokens while allowing internal tokens to change without breaking downstream code",
+    "Starting with two layers is pragmatic for stable designs; a third component layer adds flexibility for evolving decisions but increases maintenance overhead"
+  ],
+  "money_quotes": [
+    "Design tokens, or 'tokens' are fundamental design decisions represented as data.",
+    "Design tokens act as a common language that aligns designers, developers, product managers, and other disciplines.",
+    "A key benefit of design tokens is their ability to serve as a single source of truth for both design and engineering teams.",
+    "This overall setup has allowed teams at Thoughtworks to roll out smaller design changes across multiple front-ends and teams in a single day.",
+    "As a developer, I would mostly be interested in the decisions, not the options.",
+    "A three-layer architecture should offer the best developer experience. However, it also increases maintenance effort and token count.",
+    "Ultimately, the number of layers depends on your project's needs and how much flexibility and scalability are required."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "technical",
+  "key_insight": "Design tokens transform design decisions into versionable, distributable data that can be automatically propagated across platforms and teams through deployment pipelines.",
+  "filename": "2024-12-12-design-token-based-ui-architecture"
+}

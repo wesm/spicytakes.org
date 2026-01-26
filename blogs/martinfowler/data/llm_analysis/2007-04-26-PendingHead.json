@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler discusses a potential improvement to Continuous Integration: the 'pending head' pattern where commits don't go directly to mainline but to a staging branch that only promotes to true head after a successful build. He traces this idea back to the C3 project's use of Envy, a Smalltalk repository system that naturally supported this workflow through 'editions' and 'releases'. While tools like JetBrains TeamCity now offer 'delayed commit' functionality, Fowler notes that in practice broken builds weren't painful enough at Thoughtworks to warrant this complexity. He concludes that ensuring developers run private builds before committing is often a more effective solution than adding technological safeguards.",
+  "key_points": [
+    "When a CI build breaks, the entire team is affected until it's fixed - a fundamental weakness of standard CI practice",
+    "The C3 project used Envy's edition/release model to prevent broken code from ever reaching mainline",
+    "Modern version control systems make pending-head workflows trickier to implement than Envy did naturally",
+    "Tools like TeamCity's 'delayed commit' now provide this capability, but adoption requires weighing complexity against actual pain",
+    "The people-issue of developers not running private builds before committing is often more important to address than adding technology"
+  ],
+  "money_quotes": [
+    "However like most practices it has its flaws^H^H^H^H^H opportunities for improvement",
+    "An edition was like a private branch, visible to everyone but not blessed",
+    "This way you never got broken code into the mainline of the project",
+    "Ideally you want to create a working copy that updates from the true head but commits to a different pending-head branch",
+    "Despite my worries we didn't get enough pain from broken builds to want to install a pending head in 2000",
+    "As usual the people-issue is often a more important issue to deal with before introducing more complicated technology"
+  ],
+  "themes": [
+    "continuous delivery",
+    "version control",
+    "agile"
+  ],
+  "tone": "reflective, pragmatic",
+  "key_insight": "Before adding technological safeguards to prevent broken builds, consider whether the simpler discipline of running private builds before committing would solve the problem more effectively.",
+  "filename": "2007-04-26-PendingHead"
+}

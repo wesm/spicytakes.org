@@ -1,0 +1,25 @@
+{
+  "summary": "An Event Poster is a read-only reporting application that displays real-time state information to users, built on event sourcing principles. The application maintains all state in memory, receiving updates only through event streams rather than direct database writes. Because state can be reconstructed by replaying events from an initial snapshot, there's no need to persist application state to disk. This architecture yields dramatic performance improvements and eliminates object-relational mapping complexity. Updates flow through the source system and return via the event stream, ensuring consistency across multiple poster instances.",
+  "key_points": [
+    "Event posters combine real-time reporting displays with event sourcing, where all state changes come through queued event objects",
+    "Eliminating database persistence removes disk I/O bottlenecks\u2014one BBC news feed went from seconds per request to hundreds per second",
+    "Recovery is simple: reload initial state and replay all events from the queue",
+    "Clustering is trivial since all instances receive the same event broadcast and stay synchronized",
+    "Updates don't modify local state directly; they're sent to the source system and return through the event stream"
+  ],
+  "money_quotes": [
+    "There's no need for a database to save the in-memory state of the display.",
+    "Should the application fail, it just reloads the initial state and replays all the events in the queue.",
+    "All the complexities of mapping between in-memory and database are removed, which allows people to build a good domain model geared towards the display needs and never worry about persisting it.",
+    "These days main memory can hold a hell of a lot, it wasn't that long ago when gigabyte databases were considered pretty large.",
+    "It's trivially easy to cluster this kind of system. All you have to do is ensure events get broadcast to all the copies.",
+    "It doesn't update its own data directly, instead it waits for the appropriate event to come through the stream from the source application."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "By embracing event sourcing and in-memory state for read-heavy applications, you can eliminate database complexity entirely and gain massive performance improvements, with the event stream serving as both the update mechanism and the recovery log.",
+  "filename": "2005-12-30-EventPoster"
+}

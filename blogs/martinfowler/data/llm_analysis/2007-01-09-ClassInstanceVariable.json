@@ -1,0 +1,22 @@
+{
+  "summary": "This post explains the subtle but important distinction between class variables and class instance variables in object-oriented programming. Using Ruby examples, Fowler demonstrates how class variables are shared across an entire class hierarchy (including subclasses), which can produce unexpected behavior when you want per-class storage. He shows two solutions: a dictionary keyed by class name (portable to any OO language) and Ruby's native class instance variable syntax. The concept originated in Smalltalk and remains useful though uncommon.",
+  "key_points": [
+    "Class variables are shared across all instances including subclasses, which can cause surprising behavior in inheritance hierarchies",
+    "Class instance variables give each class in a hierarchy its own separate variable, unlike shared class variables",
+    "A dictionary keyed by class name provides a portable workaround in any OO language",
+    "Ruby has native support for class instance variables via the `class << self` syntax",
+    "This pattern is rare but valuable when you need per-class storage that respects inheritance boundaries"
+  ],
+  "money_quotes": [
+    "A class variable is shared across all instances of a class, which includes all subclasses. There are two classes but only one variable.",
+    "Sometimes this variable across a hierarchy is exactly what we want, but sometimes we'd prefer a different variable for each class.",
+    "Support for class instance variables isn't common in OO languages, but it's not too hard to do it yourself.",
+    "Class instance variables are pretty rare, but useful when you do need them."
+  ],
+  "themes": [
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "Class variables are shared across entire inheritance hierarchies, so when you need per-class storage, you must use class instance variables or simulate them with a class-keyed dictionary.",
+  "filename": "2007-01-09-ClassInstanceVariable"
+}

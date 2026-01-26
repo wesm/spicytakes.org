@@ -1,0 +1,23 @@
+{
+  "summary": "A threshold test is a deployment pipeline test that compares a measurable value in the current build against a defined threshold, failing the build if the threshold is exceeded. Performance testing is a common use case, where teams time representative operations and fail builds that show significant degradation. The key benefit is catching problems at the commit that introduced them, making issues easier to diagnose and preventing gradual accumulation of problems. Threshold tests can be combined with ratcheting to progressively improve values over time. Teams may sometimes consciously decide to relax a threshold, but the test ensures this is a deliberate decision rather than silent degradation.",
+  "key_points": [
+    "Threshold tests catch measurable degradations (like performance) at the exact commit that caused them, narrowing the search space for fixes",
+    "Preventing problem accumulation is crucial\u2014when many issues already exist, new ones are harder to detect",
+    "Ratcheting combines with threshold tests to drive gradual improvement by tightening thresholds after each improvement commit",
+    "Relaxing a threshold when a test fails is sometimes appropriate, but the test forces this to be a conscious team decision"
+  ],
+  "money_quotes": [
+    "By having a threshold test you can spot this kind of problem when it's first introduced.",
+    "This makes it easier to fix, since you know it's this commit which caused the failure - which cuts down where you have to search for the problem.",
+    "If you have many of these poor queries, then it's easier for more to creep in since their effects are obscured by the ones already present.",
+    "Using threshold tests with ratcheting is particularly helpful when you begin in a poor place and starting a program of improvement.",
+    "The threshold test helps here by making this decision a conscious one."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Threshold tests transform silent, gradual degradation into visible, actionable failures at the moment problems are introduced.",
+  "filename": "2013-09-12-ThresholdTest"
+}

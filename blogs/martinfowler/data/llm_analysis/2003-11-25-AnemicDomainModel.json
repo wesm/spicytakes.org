@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler describes the Anemic Domain Model anti-pattern, where domain objects contain data but no behavior, with all logic pushed into service classes. He argues this approach fundamentally violates object-oriented principles by separating data from process. The pattern incurs the costs of domain modeling (like O/R mapping complexity) without delivering the benefits of organizing complex logic through OO techniques. Fowler clarifies that while service layers are appropriate, they should coordinate thin orchestration tasks while the domain layer contains the actual business logic. He suspects the pattern's popularity stems from developers unfamiliar with proper domain models and technologies like J2EE Entity Beans that encouraged the separation.",
+  "key_points": [
+    "Anemic domain models look like real domain models with proper nouns and relationships, but lack behavior\u2014they're just bags of getters and setters with logic moved to services",
+    "The pattern violates core OO principles of combining data and process, essentially becoming procedural programming disguised as objects",
+    "You pay the full cost of domain modeling (O/R mapping complexity) while getting none of the benefits for organizing complex logic",
+    "Service layers are valid but should be thin coordination layers, not repositories for all business logic",
+    "Technologies like J2EE Entity Beans and data-centric backgrounds contribute to this anti-pattern's prevalence"
+  ],
+  "money_quotes": [
+    "The fundamental horror of this anti-pattern is that it's so contrary to the basic idea of object-oriented design; which is to combine data and process together.",
+    "What's worse, many people think that anemic objects are real objects, and thus completely miss the point of what object-oriented design is all about.",
+    "In essence the problem with anemic domain models is that they incur all of the costs of a domain model, without yielding any of the benefits.",
+    "The anemic domain model is really just a procedural style design, exactly the kind of thing that object bigots like me (and Eric) have been fighting since our early days in Smalltalk.",
+    "In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model.",
+    "If all your logic is in services, you've robbed yourself blind.",
+    "Now, the more common mistake is to give up too easily on fitting the behavior into an appropriate object, gradually slipping toward procedural programming."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture"
+  ],
+  "tone": "opinionated, technical, critical",
+  "key_insight": "Domain objects without behavior are a costly illusion\u2014you get all the complexity of domain modeling with none of its power to organize business logic.",
+  "filename": "2003-11-25-AnemicDomainModel"
+}

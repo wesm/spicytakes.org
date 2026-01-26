@@ -1,0 +1,21 @@
+{
+  "summary": "Touch files are empty marker files used in build systems like make and ant to track when tasks were last run. Rather than comparing modification dates across complex output structures, a touch file provides a single timestamp reference. While natural in make, this pattern is less common but equally useful in ant. The post illustrates this with Hibernate's Antlr parser generation, where a .antlr_run file determines whether grammar files need reprocessing.",
+  "key_points": [
+    "Touch files serve purely as timestamp markers - their contents don't matter, only their modification date",
+    "They simplify dependency checking when outputs are complex (multiple files, entire directory trees, or abstract results like test runs)",
+    "The pattern works in ant via uptodate tasks checking a touch file against source files",
+    "Hibernate's build demonstrates this by regenerating Antlr parsers only when grammar files are newer than the .antlr_run marker"
+  ],
+  "money_quotes": [
+    "For the purpose of determining whether a target needs to be run, you actually don't care about the contents of the output file, only its date.",
+    "A common idiom in make scripts is an empty file that's only used as a time marker.",
+    "Touch files are often useful when you are trying to compare dates over a range of files.",
+    "If your output is a whole tree of files, it can quicker to update a touch file than it is to navigate through the whole tree looking at update times."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "When build dependencies involve complex outputs, an empty marker file tracking only modification time provides a simpler and faster alternative to inspecting actual output contents or structures.",
+  "filename": "2007-04-26-TouchFile"
+}

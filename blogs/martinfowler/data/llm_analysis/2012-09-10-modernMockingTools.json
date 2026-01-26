@@ -1,0 +1,27 @@
+{
+  "summary": "Martin Fowler examines modern mocking tools like JMockIt that can bypass Java's language constraints to mock static methods and direct instantiations without modifying production code. While initially impressed by this capability for testing legacy code, he demonstrates that applying traditional refactoring techniques (instance delegators, method extraction, testing subclasses) produces cleaner, more maintainable tests. The article walks through testing a poorly-designed currency conversion method both ways, showing that the refactored approach yields simpler tests while also improving the production code. Fowler ultimately concludes that while powerful mocking tools have legitimate uses, they can short-circuit the feedback loop that drives developers to write better code in the first place.",
+  "key_points": [
+    "Modern mocking tools like JMockIt can replace static methods and intercept 'new' calls at the bytecode level, enabling tests for otherwise untestable code without modifying production code",
+    "The example currency conversion method violates multiple principles: Single Responsibility, Dependency Inversion, and unnecessary temporal coupling between validation and parsing",
+    "Traditional legacy refactoring techniques (instance delegators, method extraction) took only 3 minutes but produced cleaner, more maintainable tests than the JMockIt approach",
+    "Powerful mocking tools can remove the pain associated with poor design decisions, potentially short-circuiting the feedback loop that helps developers learn and improve",
+    "While JMockIt is valuable for characterization testing of legacy code, it requires more discipline during new development because it doesn't force addressing underlying design problems"
+  ],
+  "money_quotes": [
+    "In Working Effectively with Legacy Code Michael Feathers defines legacy code as code without automated tests.",
+    "If I think something is cool, then it may not be appropriate for real development. JMockIt makes my 'cool spider senses' tingle on overdrive.",
+    "I believe test-ability is more important than design. That's actually a false dichotomy but it sounds controversial so I like to say it anyway.",
+    "What happens when tools allow us to not learn from our mistakes? I'm concerned that powerful tools might loosen or remove the pain associated with failure, which will lead to stagnation.",
+    "If we are not always striving to make new stupid mistakes, then we aren't really learning, right?",
+    "Notice, a little bit of refactoring makes the final JMockIt test much better. JMockIt did not force this.",
+    "While parsing does follow validation in time, it should not therefore follow that validation must be required to allow us to verify parsing."
+  ],
+  "themes": [
+    "testing",
+    "refactoring",
+    "technical_leadership"
+  ],
+  "tone": "reflective, pedagogical, cautiously skeptical",
+  "key_insight": "Powerful tools that remove friction from testing poorly-designed code may inadvertently short-circuit the learning feedback loop that drives developers toward better design.",
+  "filename": "2012-09-10-modernMockingTools"
+}

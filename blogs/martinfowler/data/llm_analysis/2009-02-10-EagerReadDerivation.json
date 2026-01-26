@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler describes an architectural pattern called Eager Read Derivation, inspired by Greg Young's QCon talk. The pattern separates read and write operations by pre-computing derived data during writes rather than calculating it during reads. When updates occur, the domain model runs all necessary derivation logic and populates specialized reporting databases via message queues. Read requests then hit these pre-populated databases directly without involving domain logic. This approach improves performance and scalability in high-demand distributed systems, though it introduces eventual consistency rather than strong consistency.",
+  "key_points": [
+    "Domain logic can be classified into validations, consequences, and derivations - each applying differently to reads versus writes",
+    "Eager read derivation pre-computes all read derivations at write time and stores results in reporting databases structured to match read requests",
+    "Read operations bypass the main database entirely, pulling pre-computed data directly from reporting databases with no domain logic involved",
+    "The asynchronous message-based approach improves scalability but creates an inconsistency window where immediate reads may not reflect recent updates",
+    "In distributed systems, you must choose between consistency and availability - eventual consistency is often the pragmatic choice for high-volume systems"
+  ],
+  "money_quotes": [
+    "When we use a Domain Model, we use it because it contains complicated domain logic.",
+    "Eager read derivation does something quite different. Here reads don't touch the main database at all.",
+    "This asynchronous scheme is eventually consistent, but not strongly consistent. But this is the nature of the beast: in a distributed system you can get consistency or availability but not both.",
+    "Doing eager evaluation is hardly that new. The technique is older than me (possibly even older than Ron Jeffries) and most high-volume websites populate databases with derived data all the time.",
+    "But it's not a technique I see considered as often as it should be, and I liked the aggressive way Greg had used it in his design."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, explanatory, appreciative",
+  "key_insight": "Pre-computing derived data during writes and storing it in read-optimized reporting databases can dramatically improve read performance in high-demand distributed systems, at the cost of eventual rather than strong consistency.",
+  "filename": "2009-02-10-EagerReadDerivation"
+}

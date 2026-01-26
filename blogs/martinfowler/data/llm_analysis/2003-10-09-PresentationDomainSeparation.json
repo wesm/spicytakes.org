@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler advocates for strict separation between presentation (UI) and domain logic as a fundamental design principle. He outlines five key benefits: improved understandability, code reuse across multiple presentations, better testability, easier API creation, and recognition that these areas require different skills. He notes this principle is frequently violated due to ignorance and frameworks that make intermixing too easy. Fowler emphasizes this is a logical separation, not a physical client/server one, and extends the concept to include web services and APIs as forms of presentation.",
+  "key_points": [
+    "Separation makes both presentation and domain logic easier to understand independently",
+    "The same domain code can support multiple presentations without duplication, including programmatic APIs and services",
+    "UI code is hard to test, so pushing logic into the domain layer improves testability",
+    "Many frameworks inadvertently encourage mixing domain logic into presentation code",
+    "This is a logical separation principle, not a physical deployment concern"
+  ],
+  "money_quotes": [
+    "One of the most useful design principles that I've found and followed is that of keeping a good separation between the presentation aspects of a program (the user interface) and the rest of the functionality.",
+    "User interfaces are hard to test, separation keeps more logic in more testable places.",
+    "Don't make the mistake that this is a client/server physical separation. Even if all your code is running on the same machine, it's well worth making this logical separation.",
+    "Remember that such things as web services are also presentations, even though they are used by computer users rather than human users.",
+    "I often see this principle violated. I think this is partly due to lack of knowledge, and partly due to the fact that many frameworks make it much too easy to intermix domain logic into the presentation."
+  ],
+  "themes": [
+    "architecture",
+    "testing",
+    "domain_driven"
+  ],
+  "tone": "authoritative, practical, didactic",
+  "key_insight": "Presentation-domain separation is a logical design principle that improves testability, reusability, and comprehension\u2014and web services are presentations too.",
+  "filename": "2003-10-09-PresentationDomainSeparation"
+}

@@ -1,0 +1,19 @@
+{
+  "summary": "Fowler shares a practical testing tip from Rich Garzaniti for catching resource leaks in applications that use resource pools like database connections. The common problem is developers forgetting to release resources back to the pool. By setting the pool size to 1 during testing, any unreleased resource will immediately cause the next test to fail, making the leak easy to locate.",
+  "key_points": [
+    "Resource pools (like database connection pools) are prone to leaks when developers forget to release resources",
+    "Setting pool size to 1 in tests makes resource leaks immediately visible",
+    "This technique narrows down the culprit quickly since the failure occurs in the test immediately following the leak"
+  ],
+  "money_quotes": [
+    "Teams often get into trouble because people forget to release the resource back to the pool when they are done with it.",
+    "To help spot these in testing, make sure you set the resource pool size to 1 in your tests.",
+    "That way if some code doesn't release its resource the next test that uses that resource will fail, and you don't have too far to look for the culprit."
+  ],
+  "themes": [
+    "testing"
+  ],
+  "tone": "practical",
+  "key_insight": "Setting resource pool size to 1 in tests transforms subtle resource leaks into immediate, easily debuggable test failures.",
+  "filename": "2004-08-12-TestingResourcePools"
+}

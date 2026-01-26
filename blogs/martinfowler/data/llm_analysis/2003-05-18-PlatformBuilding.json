@@ -1,0 +1,23 @@
+{
+  "summary": "Fowler argues that refactoring is useful for platform building, but its effectiveness depends heavily on the platform's development approach. The key challenge is that platforms typically have Published Interfaces, which create ripple effects when changed and make refactoring more difficult. However, many refactorings don't affect the published interface and can be done freely within internal boundaries. Fowler contrasts two platform-building styles: FoundationPlatform (where APIs must be fixed early, limiting refactoring) and HarvestedPlatform (where refactoring is extremely useful). He advocates for the harvested approach, noting he's seen many failures with the foundation approach.",
+  "key_points": [
+    "Published interfaces are the main constraint on refactoring platforms, as changes create severe ripple effects for users",
+    "Many refactorings don't touch published interfaces and can be done freely within internal boundaries",
+    "Languages typically don't provide clean ways to mark published interfaces, requiring extra work to establish boundaries",
+    "FoundationPlatform approaches require early API stabilization, limiting refactoring's usefulness",
+    "HarvestedPlatform is a better approach where refactoring becomes extremely valuable"
+  ],
+  "money_quotes": [
+    "Published interfaces are usually a pain for refactoring because any refactoring that changes a published interface is made much more difficult.",
+    "Sadly languages usually don't allow you to mark published interfaces very cleanly, so you'll usually have to do some extra work to set up a properly published section to your interface.",
+    "I've seen a lot of failures in building platforms that way.",
+    "I think HarvestedPlatform is a much better way to go, and refactoring is *extremely* useful when you are building a HarvestedPlatform."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "practical, advisory",
+  "key_insight": "The viability of refactoring in platform development depends on your platform-building philosophy\u2014harvesting platforms from working code enables refactoring, while building foundation-first constrains it.",
+  "filename": "2003-05-18-PlatformBuilding"
+}

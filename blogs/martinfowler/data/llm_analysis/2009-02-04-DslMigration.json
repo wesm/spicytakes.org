@@ -1,0 +1,26 @@
+{
+  "summary": "DSL advocates must recognize that successful DSLs evolve over time, requiring strategies to migrate scripts written in earlier versions. This challenge parallels library versioning but is more acute for external DSLs since refactoring tools cannot help. Fowler presents two migration strategies: incremental migration (writing small migration scripts for each change, similar to evolutionary database design) and model-based migration (maintaining multiple parsers that populate a semantic model, then generating updated scripts). Both approaches have tradeoffs, and migration can be triggered manually or automatically if scripts record their version.",
+  "key_points": [
+    "DSL definitions are essentially published interfaces with the same versioning challenges as libraries",
+    "External DSLs face harder migration than internal DSLs because refactoring tools cannot assist",
+    "Incremental migration works best with many small migration scripts rather than one large one\u2014ten scripts are faster to write than one",
+    "Model-based migration uses multiple parsers feeding a semantic model, then generates updated scripts from that model",
+    "Model-based approaches risk losing non-semantic information like comments during transformation"
+  ],
+  "money_quotes": [
+    "One danger that DSL advocates need to guard against is the notion that first you design a DSL, then people use it.",
+    "Your DSL definition is essentially a PublishedInterface and you have to deal with the consequences just the same.",
+    "Don't create just one migration script to migrate from version 1 to 2, instead create at least 10 scripts.",
+    "Migrations are much easier to write if they are small, and it's easy to chain multiple migrations together.",
+    "As a result you'll be much faster writing ten scripts than one.",
+    "This is exacerbated if there's too much smarts in the parser, but then the need to migrate this way may help encourage the parsers to stay dumb - which is Good Thing."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring",
+    "domain_driven"
+  ],
+  "tone": "technical, pragmatic, balanced",
+  "key_insight": "Successful DSLs must be designed for evolution from the start, with explicit migration strategies that favor many small incremental changes over monolithic version jumps.",
+  "filename": "2009-02-04-DslMigration"
+}

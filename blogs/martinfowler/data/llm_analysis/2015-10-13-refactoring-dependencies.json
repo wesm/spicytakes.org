@@ -1,0 +1,27 @@
+{
+  "summary": "This article demonstrates how to refactor a monolithic codebase into well-separated modules using presentation-domain-data layering. Fowler walks through a practical example of extracting calculation logic (Gondorff number) from both UI code and data access code, then explores different approaches for managing dependencies between these modules. He compares linker substitution, passing dependencies as parameters, service locator pattern, and dependency injection, showing the trade-offs of each approach. The key insight is that splitting service configuration from service use enables both testability through substitution and cleaner code organization. He also introduces the Split Phase refactoring pattern as a general technique for separating computation into distinct stages with intermediate results.",
+  "key_points": [
+    "Module boundaries should be drawn so that code that changes together lives in the same or nearby modules - this is more important than following rigid architectural rules",
+    "Presentation-domain-data layering is useful but has limitations; adding a data field often requires changes across all three layers, making it unsuitable for team boundaries",
+    "Service Locator and Dependency Injection both solve the same problem of separating configuration from use, but DI removes the component's dependency on locator machinery",
+    "Split Phase is a powerful refactoring pattern: extract configuration into its own phase that passes results to later phases via intermediate data structures",
+    "Creation dependencies (knowing how to instantiate) are more intimate than usage dependencies (just calling methods), and good architecture minimizes creation dependencies in business logic"
+  ],
+  "money_quotes": [
+    "Perhaps the most important part of drawing good module boundaries is paying attention to the changes you make and refactoring your code so that code that changes together is in the same or nearby modules.",
+    "This illustrates the advantage of keeping a program factored into small pieces - it allows substitution of those pieces, even if the original writer didn't have any substitutions in mind. It enables unforeseen customization.",
+    "The more serious problem is that now every time I have an application module that uses gondorff I have to ensure I can create and configure the data source too.",
+    "Using a Required Interface like this is helpful because it makes explicit what functions gondorff is expecting from its data source.",
+    "Splitting computation like this into separate phases is a useful refactoring because it allows us to think separately about the different needs in each phase.",
+    "Like many great patterns it has that notion of obviousness - I feel like it's just putting a name to something that I've been doing for decades. But such a name isn't a small thing, once you name an oft-used technique like this, it makes it easier to talk to other people about.",
+    "The heart of the idea is that you should be able to write components like the gondorff object without needing to know about any special conventions or tools for configuring dependent components."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture",
+    "testing"
+  ],
+  "tone": "technical",
+  "key_insight": "The fundamental goal of module dependency refactoring is separating service configuration from service use, which enables both testability and clean component boundaries regardless of whether you use service locator or dependency injection patterns.",
+  "filename": "2015-10-13-refactoring-dependencies"
+}

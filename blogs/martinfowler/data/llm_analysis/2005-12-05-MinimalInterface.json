@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler contrasts Minimal Interface design with Humane Interface design in API development. A minimal interface provides only the smallest reasonable set of methods needed for clients to accomplish their goals, excluding convenience methods unless they clear a high bar. The approach prioritizes learnability, keeps classes focused on doing one thing well, and provides a clear stopping point for what to include. For published libraries especially, starting small is safer since removing methods later is nearly impossible.",
+  "key_points": [
+    "A minimal interface includes only methods that cannot be replicated using existing interface methods",
+    "Large interfaces are harder to learn and may discourage use of the class entirely",
+    "Focusing on essentials helps class designers avoid the common problem of making classes do too much",
+    "The minimalist guideline ('can the client already do this?') is simpler and clearer than the humane guideline ('is this useful?')",
+    "For published libraries, it's better to start too small and add than start too big and be unable to remove"
+  ],
+  "money_quotes": [
+    "Interfaces take time to learn. A class with a huge interface is not likely to be used well and may well be off-putting in the first place.",
+    "A common problem with class design is to make classes do too much. Focusing on the essentials helps keep cruft out of the class, allowing it to focus on doing one job and doing it well.",
+    "If you follow a humane approach, how do you know where to stop?",
+    "The minimalist one is simple - if the client can do it with the existing methods, then they don't need an extra one.",
+    "When you're working on a library, once you publish it it's very hard to take anything out. As a result it's better to start with something too small and add things, than to have something too big when you can't remove things."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "analytical",
+  "key_insight": "A minimal interface trades convenience for learnability and provides a clear, objective rule for what belongs in an API: if clients can already accomplish it with existing methods, don't add another one.",
+  "filename": "2005-12-05-MinimalInterface"
+}

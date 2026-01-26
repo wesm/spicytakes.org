@@ -1,0 +1,23 @@
+{
+  "summary": "Martin Fowler explores the challenge of allowing users to define their own fields in data structures, a common need in applications like address books. He explains that in-memory solutions using hashmaps (Variable State pattern) are straightforward, but persistence presents the real challenge. The article surveys five database approaches: Serialized LOB (storing fields as JSON/XML in a text column), attribute tables (key-value pairs in a separate table), pre-defined custom fields (schema columns like custom_field_1), and dynamic schema (using ALTER TABLE to add columns at runtime). Fowler notes that schemaless databases handle this naturally, while relational databases require tradeoffs between querying ease and flexibility.",
+  "key_points": [
+    "In-memory user-defined fields are easily implemented with hashmaps; the real complexity lies in persistence",
+    "Serialized LOB stores custom fields as JSON/XML documents, with increasingly good database support for indexing within the blob",
+    "Dynamic schema (ALTER TABLE at runtime) is an often-overlooked approach that Mingle successfully used, providing native indexing and querying",
+    "Pre-defined custom fields and attribute tables both make querying and indexing awkward",
+    "User-defined fields are related to non-uniform types (sparse tables), but differ in that developers never know what fields users will create"
+  ],
+  "money_quotes": [
+    "Often the trickiest part of this is figuring out how to persist this.",
+    "A dynamic schema is an approach that's often overlooked.",
+    "Remember that schemaless doesn't mean you don't have a schema.",
+    "The difference between non-uniform types and user-defined fields is that non-uniform types have all the potential fields known to developers, while user-defined fields allow fields to be created that developers will never know about.",
+    "If you want common user defined fields, you can use a class variable to keep a list of common keys for the hashmap."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "While in-memory user-defined fields are trivial to implement, the persistence layer\u2014particularly with relational databases\u2014requires choosing between querying convenience and schema flexibility, with dynamic schema being an underappreciated option that provides both.",
+  "filename": "2013-07-23-UserDefinedField"
+}

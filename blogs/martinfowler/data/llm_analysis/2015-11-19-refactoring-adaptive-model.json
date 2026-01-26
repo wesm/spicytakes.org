@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler demonstrates how to refactor imperative conditional logic into an Adaptive Model\u2014a data-driven approach where business rules are encoded in JSON and executed by a simple interpreter engine. The motivating problem is cross-platform duplication: the same recommendation logic must run on Node.js servers, iOS, and Android apps, making synchronized changes painful. By extracting the logic into a portable JSON structure using a Production Rule System pattern, the same rules can be loaded and interpreted anywhere. The refactoring proceeds incrementally, converting one conditional at a time while keeping tests passing, and introducing patterns like Range Picker to handle numeric thresholds elegantly.",
+  "key_points": [
+    "Adaptive Models separate business logic (data) from execution (interpreter engine), enabling portability across platforms and languages",
+    "Production Rule Systems organize computation as condition-action pairs, naturally fitting conditional business logic",
+    "Refactoring to an adaptive model should proceed incrementally\u2014convert one rule at a time, extending the model's expressiveness as needed",
+    "The trade-off is increased code size and complexity; the benefit is a single source of truth that's portable and often easier to modify",
+    "Sometimes the reverse refactoring is warranted\u2014adaptive models can be harder for teams to maintain than straightforward imperative code"
+  ],
+  "money_quotes": [
+    "When I'm looking to represent some imperative code with a data structure, my first task is to figure out what kind of model I should use to structure that data.",
+    "A good choice of model can do much to simplify the logic, indeed there are times when using an adaptive model is worth it when the only reason is to make the logic easier to follow.",
+    "With a larger set of rules, imperative code's flexibility can let it get more tangled easily, while the limited expressivity of an adaptive model can help keep logic easier to follow.",
+    "At any point I can stop and leave some logic in the model and some in imperative code.",
+    "It's common for people to get all excited with the possibilities of representing code as data when they first come across it, and consequently over-using it.",
+    "Replacing an adaptive model with imperative code is a similar process to its inverse, in that you first set things up so you can compose the outcome of the model with imperative code, then move logic into the imperative code in small chunks, testing as you go."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, pedagogical, methodical",
+  "key_insight": "When business logic must be portable across platforms, refactoring it from imperative code into a data-driven adaptive model traded off code simplicity for a single, shareable source of truth\u2014but this transformation should be incremental, reversible, and justified by real needs.",
+  "filename": "2015-11-19-refactoring-adaptive-model"
+}

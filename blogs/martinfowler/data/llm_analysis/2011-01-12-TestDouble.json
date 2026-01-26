@@ -1,0 +1,22 @@
+{
+  "summary": "Martin Fowler introduces Gerard Meszaros's taxonomy for test doubles, addressing the confusion around terms like stubs, mocks, and fakes. The term 'Test Double' serves as an umbrella concept (like a stunt double) for any object that replaces a production component during testing. Fowler outlines five distinct types: Dummy, Fake, Stub, Spy, and Mock, each serving different testing purposes. This vocabulary provides clarity for practitioners who often use these terms interchangeably or inconsistently.",
+  "key_points": [
+    "Test Double is the generic term for any object replacing a production object in tests, analogous to a stunt double in film",
+    "Dummies fill parameter lists but are never used; Fakes have working implementations but take shortcuts unsuitable for production",
+    "Stubs provide canned responses while Spies additionally record information about how they were called",
+    "Mocks are the most sophisticated\u2014pre-programmed with expectations that verify both the calls received and can fail if unexpected calls occur",
+    "This taxonomy comes from Gerard Meszaros's xUnit patterns work, which Fowler endorses as worth spreading"
+  ],
+  "money_quotes": [
+    "Test Double is a generic term for any case where you replace a production object for testing purposes.",
+    "Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.",
+    "Mocks are pre-programmed with expectations which form a specification of the calls they are expected to receive.",
+    "Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production."
+  ],
+  "themes": [
+    "testing"
+  ],
+  "tone": "technical, definitional, clarifying",
+  "key_insight": "Clear vocabulary matters in testing\u2014distinguishing between dummies, fakes, stubs, spies, and mocks helps teams communicate precisely about their test strategies.",
+  "filename": "2011-01-12-TestDouble"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "This post captures a video conversation between Martin Fowler and Badri Janakiraman exploring Hexagonal Architecture in the context of Ruby on Rails applications. They discuss when to use Active Record versus Data Mapper patterns, concluding that Data Mapper is warranted when you don't control the database or have complex domain logic, but Active Record is simpler and preferable otherwise. The conversation also examines whether frameworks like Rails should be treated as platforms (embraced fully) or suites of components (selectively used). They conclude that teams should make informed choices based on whether they're in the framework's sweet spot, while still isolating from truly external systems like version control or chat integrations.",
+  "key_points": [
+    "Data Mapper should be used when the domain model and data source need to evolve independently, or when you don't control the database schema",
+    "Application size and database complexity don't determine architecture choice - Mingle is 50 KLOC with 100+ tables but works well with Active Record",
+    "Frameworks take away design options in exchange for convenience, so teams should understand their design needs before committing to a framework",
+    "Running against the grain of a framework often has huge costs - attempting to circumvent framework patterns leads to reinventing major chunks",
+    "The key distinction is isolating from truly external systems (version control, chat) while embracing your platform for core functionality"
+  ],
+  "money_quotes": [
+    "The main idea of this architecture is that your domain is a self-contained entity with no dependencies on external components.",
+    "The reasons to use Data Mapper are if you don't control the database or if you have complex domain logic. But if these forces aren't in play, then Active Record is simpler (and hence better).",
+    "Perhaps the problem is that people decide on using frameworks too early.",
+    "Frameworks take away a lot of design options in return for a lot of convenience.",
+    "Using a framework as a Platform or as Suite of Components should be driven by need- and not by blindly going full-embrace of either mode.",
+    "This is the kind of cost that needs to be understood by teams who wish to run against the grain of a framework.",
+    "You don't want to isolate yourself from your platform- but you do want to isolate yourself from external pieces."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven",
+    "testing"
+  ],
+  "tone": "reflective",
+  "key_insight": "The decision to embrace or isolate from a framework should be driven by whether you're in its sweet spot, not by architectural dogma - embrace your platform but isolate from truly external systems.",
+  "filename": "2014-06-05-badri-hexagonal"
+}

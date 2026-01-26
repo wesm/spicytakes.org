@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler advocates for replacing Ant with Rake for Java builds, now that JRuby has matured enough to make this practical. He acknowledges that he and colleague Matt Foemmel previously made the mistake of believing XML-based build files were the right approach. The core argument is that build scripts need both declarative qualities (defining tasks and dependencies) and procedural capabilities (conditional logic, custom abstractions), which Rake provides through its internal DSL built on Ruby. JRake solves the previous performance problem of multiple JVM starts by running inside JRuby on the Java VM.",
+  "key_points": [
+    "Build scripts require both declarative structure (tasks/dependencies) and procedural power (conditionals, abstractions) - tools like Ant and Make only excel at the former",
+    "Rake combines declarative syntax with full Ruby scripting through an internal DSL, allowing seamless mixing of both paradigms",
+    "JRake running on JRuby eliminates the previous performance penalty of spawning multiple JVM processes",
+    "The argument that Rake adds another language to learn is flawed - Ant is effectively its own language despite being XML",
+    "Every programmer should be comfortable with at least one scripting language due to their broad utility"
+  ],
+  "money_quotes": [
+    "Around 2000 we both made the mistake of thinking an XML based build file was the way to go.",
+    "The thing with build scripts is that you need both declarative and procedural qualities.",
+    "As builds get more complex these structures aren't enough. You begin to need conditional logic; in particular you need the ability to define your own abstractions.",
+    "One argument against using rake for builds that I often hear is that it adds another language that people have to learn. What this argument misses, is the point that ant is really its own language anyway.",
+    "The fact that it's compliant XML doesn't alter the fact that you still have to understand how all the various ant tasks work and fit together.",
+    "I believe that every programmer should be comfortable with at least one scripting language - there's just so many useful things you can do with them."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "reflective, practical, opinionated",
+  "key_insight": "XML-based build tools like Ant provide declarative structure but lack the procedural power needed for complex builds, making internal DSLs like Rake built on real scripting languages the superior long-term solution.",
+  "filename": "2006-12-18-JRake"
+}

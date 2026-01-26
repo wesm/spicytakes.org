@@ -1,0 +1,23 @@
+{
+  "summary": "Fowler distinguishes between two database styles: Application Database (encapsulated within a single application) and Integration Database (shared across applications). He observes that the database community traditionally assumes integration databases, but this creates brittle interfaces with large surface areas that are difficult to change. The rise of Service Oriented Architecture represents a shift toward autonomous applications with their own databases communicating through services or messaging. Fowler advocates for this newer approach, particularly messaging-based integration, as a better default than shared database integration.",
+  "key_points": [
+    "Integration databases create interfaces with large surface areas and limited separation between interface and implementation",
+    "The traditional database community assumption of integration databases leads to brittle, hard-to-change application links",
+    "SOA represents a shift toward autonomous applications with encapsulated databases communicating via services or messaging",
+    "Messaging-based integration is preferable to shared database integration",
+    "Mismatched assumptions about database styles between discussion participants causes confusion"
+  ],
+  "money_quotes": [
+    "Integration databases end up with interfaces that have a large surface area and limited abilities to separate interface from implementation.",
+    "The resulting links between applications and databases end up being brittle and thus difficult to change.",
+    "In this view of the world the integration database is no longer the default assumption.",
+    "Beware of the difference between the two database styles and take it into account when you are discussing issues of database management."
+  ],
+  "themes": [
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical, advisory",
+  "key_insight": "The choice between application databases and integration databases fundamentally shapes system architecture, and the industry is rightly moving away from shared database integration toward messaging-based communication between autonomous applications.",
+  "filename": "2004-05-24-DatabaseStyles"
+}

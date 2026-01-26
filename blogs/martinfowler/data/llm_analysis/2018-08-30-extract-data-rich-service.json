@@ -1,0 +1,27 @@
+{
+  "summary": "This article presents a systematic nine-step pattern for extracting a data-rich service from a monolith while minimizing disruption to consumers. Using a catalog system example where product pricing is separated from core product functionality, Fowler's colleague outlines how to identify boundaries, create logical separations within the monolith first, migrate data to new tables, build the new service, migrate clients, and finally clean up the monolith. The approach emphasizes two guiding principles: maintaining a single write copy of data throughout the transition to avoid write conflicts, and completing all steps atomically to avoid leaving the architecture in a worse state than before.",
+  "key_points": [
+    "The hardest part of breaking up monoliths is separating the data, not the logic - connecting to a shared database creates tight coupling that undermines service independence",
+    "Creating logical separation within the monolith before physical extraction allows cheaper experimentation with service boundaries and easier refactoring",
+    "All database joins and constraints between the extracted service's data and the monolith must be moved to the logic layer - no foreign keys or triggers across boundaries",
+    "Getting organizational alignment from all client teams to migrate to the new service is often harder than the technical work and must happen before proceeding",
+    "Keep the new database schema identical to the monolith initially to simplify data migration; refactor internals only after extraction is complete"
+  ],
+  "money_quotes": [
+    "For services to be truly independent and thus teams to be 'master of their own destiny', they also need to have an independent database \u2013 the schema and the corresponding data for the service.",
+    "If the steps aren't executed in entirety (left midway) the architecture is in a worse off state than the state in which you started.",
+    "No table joins are permitted from tables that belong to the core product part of the system to the tables that belong to product pricing.",
+    "If the performance hurts at this stage, it is going to get worse when the data goes back and forth across the physical services over the wire.",
+    "One of the biggest hurdles in the service extraction pattern is actually not technical but getting organizational alignment to have all the existing clients of the monolith to move to the new service.",
+    "Too often teams leave old tables in the database forever because they are worried 'they might need it someday'.",
+    "Taking one step at a time, makes the process of breaking up the monolith less daunting, safe and predictable."
+  ],
+  "themes": [
+    "microservices",
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "methodical, practical, cautionary",
+  "key_insight": "Successfully extracting a service from a monolith requires breaking up the shared database, not just the code, and the organizational challenge of migrating all clients is often harder than the technical work.",
+  "filename": "2018-08-30-extract-data-rich-service"
+}

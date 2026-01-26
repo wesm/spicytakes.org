@@ -1,0 +1,29 @@
+{
+  "summary": "The article documents a seven-day engagement building an AI Concierge proof of concept, demonstrating that traditional software engineering practices remain essential for LLM application development. The team used AWS services for speech-to-text, Bedrock for LLM processing, and text-to-speech capabilities. They developed three testing approaches: example-based tests for deterministic intent verification, auto-evaluator tests using LLMs to assess harder-to-test properties, and adversarial tests for security vulnerabilities. The authors emphasize that LLM engineering encompasses far more than prompt design, including error handling, persistence, logging, and defense in depth. They conclude that lean engineering practices\u2014automated testing, refactoring, and iterative feedback\u2014provide the same competitive advantage for LLM applications as for traditional software.",
+  "key_points": [
+    "Automated testing for LLMs can use three complementary approaches: example-based tests for intent classification, auto-evaluator tests (LLM testing LLM) for subjective properties, and adversarial tests for security vulnerabilities",
+    "Prompts require regular refactoring just like code to maintain clarity, reduce cognitive load, and ensure the system remains adaptable to changing requirements",
+    "LLM engineering involves much more than prompt engineering\u2014it includes error handling, persistence, logging, monitoring, security layers, and ethical considerations",
+    "The open-closed principle applies to LLM testing: write tests open to extension via test data files but closed for modification in test code",
+    "Ethical guidelines from organizations like the EU provide concrete frameworks for navigating grey areas, such as whether AI should impersonate humans"
+  ],
+  "money_quotes": [
+    "We knew that manual inspection won't scale well, even for the relatively small number of scenarios that the AI concierge would need to handle.",
+    "This is where the unit testing paradigm, which depends primarily on equality assertions, reaches its limits when dealing with varied responses from an LLM.",
+    "Like code, LLM prompts can easily become messy over time, and often more rapidly so.",
+    "We've come to see that LLMs and prompt engineering constitute only a small part of what is required to develop and deploy an LLM application to production.",
+    "Gathering customer requirements about AI systems presents a unique challenge, primarily because customers may not know what are the possibilities or limitations of AI a priori.",
+    "AI ethics is not separate from other ethics, siloed off into its own much sexier space. Ethics is ethics.",
+    "Although Generative AI and LLMs have led to a paradigm shift in the methods we use to direct or restrict language models to achieve specific functionalities, what hasn't changed is the fundamental value of Lean product engineering practices."
+  ],
+  "themes": [
+    "testing",
+    "ai_llms",
+    "architecture",
+    "agile",
+    "refactoring"
+  ],
+  "tone": "practical, instructive, pragmatic",
+  "key_insight": "LLM application development benefits enormously from the same engineering disciplines\u2014automated testing, refactoring, and iterative delivery\u2014that make traditional software development successful.",
+  "filename": "2024-02-13-engineering-practices-llm"
+}

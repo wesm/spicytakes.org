@@ -1,0 +1,25 @@
+{
+  "summary": "Call Super is an anti-pattern in OO frameworks where subclasses must remember to call the superclass method\u2014a sign of poor API design. The solution is the Template Method pattern, where the superclass controls the flow and provides hook methods for subclasses to override. Fowler explores complications with multi-level frameworks (using JUnit as an example), where introducing new hook method names can confuse developers familiar with established conventions. He suggests overriding the calling method instead, going 'up a level' in the template hierarchy. The piece reflects Fowler's 'enabling attitude' toward inheritance, preferring guidance over restrictions like sealing methods.",
+  "key_points": [
+    "Requiring developers to remember to call super is a sign of bad API design\u2014the framework should handle this automatically",
+    "Template Method pattern with hook methods eliminates the call super requirement and gives superclass writers more control",
+    "Hook methods can be empty, provide defaults, or be abstract depending on expected subclass behavior",
+    "Multi-level frameworks create complications where new hook names confuse developers familiar with original conventions",
+    "Going 'up a level' to override the calling method can preserve familiar APIs while adding framework behavior"
+  ],
+  "money_quotes": [
+    "Whenever you have to remember to do something every time, that's a sign of a bad API.",
+    "The subclass writer now doesn't have to worry his ugly head about calls to super.",
+    "Inheritance is a very intimate relationship. Either the whole thing works or it doesn't.",
+    "I can't predict the subclass's needs, so I'd rather say 'go ahead, but on your own head be it', rather than 'no'.",
+    "This is always an option worth considering - if a template method doesn't work where you are, consider going up a level.",
+    "As usual the power of inheritance comes with responsibility, you have to keep an eye on what changes occur in the super-class."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical, pragmatic, instructive",
+  "key_insight": "When frameworks require developers to remember ritual calls to super, the solution is redesigning with Template Method\u2014but multi-level frameworks may need to override at a higher level to preserve familiar APIs.",
+  "filename": "2005-08-11-CallSuper"
+}

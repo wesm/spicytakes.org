@@ -1,0 +1,27 @@
+{
+  "summary": "Yagni (You Aren't Gonna Need It) argues against building presumptive features before they're actually needed. Fowler identifies four costs of ignoring yagni: the cost of build (wasted effort if the feature is never needed), cost of delay (revenue lost by not building something more immediately valuable), cost of carry (added complexity slowing down other work), and cost of repair (technical debt from building features before you understand them properly). Research suggests only one-third of carefully planned features actually improve their target metrics. Crucially, yagni is not an excuse to neglect code health\u2014it requires and enables malleable code through refactoring, testing, and continuous delivery practices.",
+  "key_points": [
+    "Four costs of presumptive features: build (wasted if unneeded), delay (lost revenue), carry (added complexity), and repair (technical debt from premature implementation)",
+    "Research shows only 1/3 of features actually improve their intended metrics, even with careful upfront analysis",
+    "Yagni applies to capabilities for future features, NOT to efforts making code easier to modify\u2014refactoring and testing are not yagni violations",
+    "The 'imagine the refactoring' thought experiment often reveals that building later won't be significantly more expensive",
+    "Small yagni decisions accumulate: an hour spent on a 'surely needed' abstraction multiplied across a team adds significant unnecessary complexity"
+  ],
+  "money_quotes": [
+    "Yagni only applies to capabilities built into the software to support a presumptive feature, it does not apply to effort to make the software easier to modify.",
+    "Yagni is not a justification for neglecting the health of your code base. Yagni requires (and enables) malleable code.",
+    "Any extensibility point that's never used isn't just wasted effort, it's likely to also get in your way as well.",
+    "Yagni has the curious property that it is both enabled by and enables evolutionary design.",
+    "One approach I use when mentoring developers in this situation is to ask them to imagine the refactoring they would have to do later to introduce the capability when it's needed.",
+    "Any abstraction that makes it harder to understand the code for current requirements is presumed guilty.",
+    "The tricky thing here is that these cases are hard to spot in advance, and much easier to remember than the cases where yagni saved effort."
+  ],
+  "themes": [
+    "agile",
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "analytical",
+  "key_insight": "Building features before they're needed incurs four compounding costs\u2014build, delay, carry, and repair\u2014that almost always outweigh the perceived savings of early implementation.",
+  "filename": "2015-05-26-Yagni"
+}

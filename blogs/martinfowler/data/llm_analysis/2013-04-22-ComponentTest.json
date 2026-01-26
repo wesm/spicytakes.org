@@ -1,0 +1,22 @@
+{
+  "summary": "A component test deliberately limits scope to a portion of a system, contrasting with broad-stack tests that exercise the full system. The distinction is one of degree rather than absolute difference, with component tests using internal interfaces and test doubles for isolation. While component tests are faster and easier to maintain, bugs tend to hide in component interactions. Fowler recommends combining many component tests with fewer broad-stack tests following the Test Pyramid approach.",
+  "key_points": [
+    "Component tests scope to portions of a system while broad-stack tests exercise the whole system",
+    "The difference between test types is one of degree, not an absolute distinction",
+    "Component tests use internal interfaces and test doubles for isolation",
+    "Bugs lurk in component interactions, so component coverage alone is insufficient",
+    "The Test Pyramid recommends many component tests with fewer broad-stack tests"
+  ],
+  "money_quotes": [
+    "The difference between broad-stack and component tests is one of degree rather than an absolute difference.",
+    "Component tests deliberately neglect parts of the system outside the scope of the test.",
+    "In theory a system with excellent component test coverage should be free of bugs, but in practice bugs like to lurk in the interactions between components."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Component tests trade completeness for speed and maintainability, but must be combined with broad-stack tests since bugs hide in component interactions.",
+  "filename": "2013-04-22-ComponentTest"
+}

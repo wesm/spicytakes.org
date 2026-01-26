@@ -1,0 +1,29 @@
+{
+  "summary": "This foundational article defines microservices as an architectural style where applications are built as suites of small, independently deployable services organized around business capabilities. The authors contrast microservices with monolithic architectures, explaining that while monoliths work well initially, they create frustrations as applications scale\u2014coupling change cycles, making modular structure difficult to maintain, and requiring full-application scaling. The piece systematically covers nine characteristics of microservice architectures, from componentization via services to evolutionary design. While clearly favorable toward microservices, the authors maintain cautious optimism, acknowledging that insufficient time has passed to fully judge how these architectures mature and warning that poor component boundaries simply shift complexity rather than eliminate it.",
+  "key_points": [
+    "Microservices achieve componentization through independently deployable services rather than libraries, providing explicit module boundaries and enabling polyglot development",
+    "Organization around business capabilities rather than technology layers avoids Conway's Law pitfalls and creates cross-functional teams that own products over their full lifetime",
+    "The 'smart endpoints and dumb pipes' philosophy favors simple REST APIs and lightweight messaging over complex ESBs, keeping business logic in services rather than communication infrastructure",
+    "Decentralized data management embraces eventual consistency and compensating operations rather than distributed transactions, matching how businesses actually handle inconsistency",
+    "The authors warn that microservices may mature poorly\u2014refactoring across service boundaries is harder than with libraries, and shifting complexity to connections between components can make systems harder to control"
+  ],
+  "money_quotes": [
+    "The microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms.",
+    "Any organization that designs a system will produce a design whose structure is a copy of the organization's communication structure.",
+    "If you need to change the allocation of responsibilities between components, such movements of behavior are harder to do when you're crossing process boundaries.",
+    "Not every problem is a nail and not every solution a hammer.",
+    "Being woken up at 3am every night by your pager is certainly a powerful incentive to focus on quality when writing your code.",
+    "If the components do not compose cleanly, then all you are doing is shifting complexity from inside a component to the connections between components.",
+    "A poor team will always create a poor system\u2014it's very hard to tell if microservices reduce the mess in this case or make it worse.",
+    "One of the challenges of software development is that you can only make decisions based on the imperfect information that you currently have to hand."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "domain_driven",
+    "agile"
+  ],
+  "tone": "technical, balanced, cautiously optimistic",
+  "key_insight": "Microservices trade the implicit coupling of monoliths for explicit service boundaries, but this architectural choice only succeeds when component boundaries align well with business capabilities\u2014otherwise you merely relocate complexity to harder-to-manage inter-service connections.",
+  "filename": "2015-06-03-microservices"
+}

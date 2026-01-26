@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler explores the concept of implicit interface implementation - the ability to implement a class's public interface without inheriting its implementation. While Java and C# require explicit interface declarations for substitution, this limitation creates friction when testing or replacing library classes. Dynamic languages handle this naturally through duck typing, and COM's strict separation of interfaces from classes also solved this problem. The main practical use case appears to be testing, where developers need to substitute implementations without the constraints of inheritance.",
+  "key_points": [
+    "Every class has an implicit interface (its public members) that languages like Java and C# don't allow you to implement independently",
+    "Implicit interface implementation would enable interface-inheritance without implementation-inheritance",
+    "The InterfaceImplementationPair pattern exists mainly to work around this limitation, but many developers consider it suboptimal",
+    "Dynamic languages sidestep this entirely - you just implement the methods you need and use the object",
+    "The practical value seems limited mostly to testing scenarios where you need to substitute implementations"
+  ],
+  "money_quotes": [
+    "One thing that neither Java nor C# allow you to do is to implement an implicit interface - that is you cannot write class ValuedCustomer implements Customer",
+    "There are lots of times when you want to stub out stuff, but it's difficult or impossible unless you have an interface.",
+    "It also leads to defining pure interface types when the only reason to do it is to support substitution for testing.",
+    "If you want to implement another class's interface all you need to do is implement the same methods and just use the object where you need it.",
+    "It's much harder to insert TestDoubles if you can't use a reimplementation - and often subclassing won't do the trick if the superclass wants a real connection to the database."
+  ],
+  "themes": [
+    "architecture",
+    "testing"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Static languages force artificial interface declarations primarily to enable testing substitution, a problem that dynamic languages and COM's interface-first design solved more elegantly.",
+  "filename": "2006-01-04-ImplicitInterfaceImplementation"
+}

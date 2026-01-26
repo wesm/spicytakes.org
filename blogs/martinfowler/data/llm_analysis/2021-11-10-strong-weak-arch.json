@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler argues against one-size-fits-all technology governance, proposing instead that architectural rigor should scale with organizational distance. Using MYOB's structure as an example, he introduces the concept of 'strong' and 'weak' forces of alignment between teams, where teams within the same domain can tolerate tighter coupling due to easy communication, while cross-organization integrations require strict decoupling and versioning. The model recognizes that coupling isn't inherently evil\u2014its cost depends on how easily affected parties can coordinate changes. This framework helps organizations achieve 'aligned autonomy' by matching governance strictness to the actual blast radius of decisions.",
+  "key_points": [
+    "Technology governance should vary based on organizational distance and coordination difficulty, not be uniformly strict or permissive",
+    "Teams within a domain have 'strong forces' of alignment, enabling tighter coupling with lower costs because changes can be negotiated quickly",
+    "Cross-organization integrations have 'weak forces' requiring strict schemas, versioning, and backwards compatibility",
+    "Shared code and infrastructure should be limited at org-wide levels to highly stable, well-encapsulated services",
+    "The goal is 'aligned autonomy'\u2014empowering teams to make decisions while maintaining appropriate coordination at each scope level"
+  ],
+  "money_quotes": [
+    "Neither of those approaches are ideal.",
+    "Coupling between systems at a domain level is not always the evil monster that must be vanquished at all costs, in fact coupling at this scope can be a useful thing.",
+    "The social distance between the people in one domain and another is getting stretched. This makes negotiation and reaching alignment more strained and slower.",
+    "It is quite hard to make changes atomically across the landscape - mostly because the prioritisation of work for each vertical is deliberately independent.",
+    "Even 'forbidden' approaches like database-level integration will have less impact within the systems in a single domain.",
+    "Being aware of these forces of alignment within our organisation allows us to understand what is going to be easy and what is going to be hard, and make better technology choices as a result."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "technical_leadership"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "The appropriate level of architectural coupling and governance rigor should be calibrated to the organizational distance between teams\u2014tight coupling is acceptable where coordination is easy, while strict decoupling is necessary where it's hard.",
+  "filename": "2021-11-10-strong-weak-arch"
+}

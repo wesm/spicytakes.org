@@ -1,0 +1,27 @@
+{
+  "summary": "This article presents a structured workflow called \"Research, Review, Rebuild\" for migrating legacy codebases using Generative AI augmented with Model Context Protocol (MCP). The author demonstrates this approach by modernizing Bahmni, an open-source hospital management system, migrating its AngularJS frontend to React/TypeScript while also transitioning from OpenMRS REST APIs to FHIR standards. The workflow emphasizes thorough analysis of existing code through MCP servers, expert validation of AI-generated plans, and disciplined code generation with human oversight. The complete migration of a display control took approximately 10 minutes of code generation at $2 cost, compared to 2-3 days of manual development, achieving 95% test coverage.",
+  "key_points": [
+    "MCP (Model Context Protocol) enables LLMs to access legacy codebases and documentation as context, transforming GenAI from a greenfield-only tool into a viable legacy modernization enabler",
+    "The three-phase workflow\u2014Research (AI analysis), Review (human validation), Rebuild (guided generation)\u2014ensures quality while dramatically accelerating delivery",
+    "Human expertise remains essential: domain experts must validate AI analysis, define clear intent, and review generated code to catch subtle issues like unnecessary optimizations",
+    "Interrupting AI mid-generation degrades output quality; clear upfront requirements and letting AI complete its task yields better results than constant course corrections",
+    "Well-structured prompts with coding standards, style guides, and clear test criteria minimize ambiguity and produce more consistent, maintainable code"
+  ],
+  "money_quotes": [
+    "Until recently, I held the belief that Generative Artificial Intelligence (GenAI) in software development was predominantly suited for greenfield projects. However, the introduction of the Model Context Protocol (MCP) marks a significant shift in this paradigm.",
+    "Modernization is not merely about replacing outdated technologies\u2014it is about reimagining the future of the system and the business it supports.",
+    "The allure of LLMs is undeniable; they offer a seemingly effortless solution to complex problems... This should not create a bias in the experts, succumbing to the allure of LLMs and eventually take their hands off the wheel.",
+    "LLMs, at their core, are predictive sequence generators that build narratives token by token. When you interrupt a model mid-stream to course-correct, you break the logical flow it was constructing.",
+    "The goal is not to replace human expertise but to amplify it\u2014to accelerate delivery timelines while ensuring that quality and maintainability are preserved, if not improved, during the transition.",
+    "This capability opens up the possibility for any individuals with decent technical expertise and strong domain knowledge to migrate any legacy codebase to a modern stack with minimal effort and in significantly less time."
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms",
+    "refactoring",
+    "technical_leadership"
+  ],
+  "tone": "methodical and optimistic",
+  "key_insight": "AI-assisted legacy migration succeeds not through brute-force code generation, but through structured workflows where human expertise validates AI analysis and guides generation with clear intent.",
+  "filename": "2025-08-27-research-review-rebuild"
+}

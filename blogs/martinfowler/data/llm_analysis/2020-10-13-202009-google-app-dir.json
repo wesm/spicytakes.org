@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler describes writing a Google Apps Script for a non-programmer friend to correlate data from Slack and Patreon. He argues that despite programmers' disdain for spreadsheets, Google Sheets provides an excellent deployment platform for simple scripts because users already know the interface, sharing is built-in, and no installation is required. The main technical challenges were OAuth authentication (which he mostly sidestepped) and poor documentation. He advocates for treating spreadsheet scripts with the same design discipline as regular code, separating data sheets from logic and avoiding cell-level manipulation in favor of JavaScript data structures.",
+  "key_points": [
+    "Google Sheets is an underappreciated deployment platform for simple scripts aimed at non-programmers who are uncomfortable with command lines",
+    "Authentication with OAuth remains unnecessarily complex even for simple use cases\u2014Google could simplify this dramatically",
+    "Spreadsheet scripts benefit from the same design principles as regular code: separating raw data, application logic, and output into distinct sheets with one-way data flow",
+    "Performance gotcha: appendRow is extremely slow; use Range.setValues with a defined range for acceptable speed",
+    "API designers should always support batch lookups, not just single-ID queries"
+  ],
+  "money_quotes": [
+    "Spreadsheets are often coerced into tasks that they are ill sorted for, often acting as cobbled together databases, tables whose relationships are a web of tangled VLOOKUPs.",
+    "But these spreadsheets are widely used for a good reason. The tabular metaphor is a simple yet effective way to handle structured data.",
+    "There is a real opportunity here for Google to simplify the whole authentication flow. I should be able to just call a fetch method on a remote service, and have the infrastructure sort out the authentication flows without me having to investigate and program them myself.",
+    "That's about the best thing I can say about it.",
+    "Should I get run over by a bus, he can easily share the sheet with someone else, who can easily edit and run the sheet.",
+    "It's not the comfortable home that I'm accustomed to, but it's fine for an overnight stay.",
+    "In particular, for any task that would be a simple shell script, but your users aren't comfortable with console windows and text files."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "practical, reflective, gently critical",
+  "key_insight": "Google Sheets scripts deserve consideration as a legitimate deployment platform for simple automation tasks, especially when your users aren't programmers\u2014the familiar interface and built-in sharing outweigh the crude development environment.",
+  "filename": "2020-10-13-202009-google-app-dir"
+}

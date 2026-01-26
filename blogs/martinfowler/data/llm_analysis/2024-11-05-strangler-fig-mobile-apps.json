@@ -1,0 +1,28 @@
+{
+  "summary": "This article demonstrates how Thoughtworks applied the Strangler Fig pattern to incrementally modernize a large legacy mobile application, avoiding the risks of a complete rewrite. By embedding React Native micro-apps within an existing native application and using domain-driven design to identify 'points of interception,' teams were able to replace functionality piece by piece. The approach leverages a modular architecture where each micro-app encapsulates a domain with its own Backend for Frontend acting as an anti-corruption layer. Results from the proof of concept showed first value delivered in 1 month (versus 2 years for a full rewrite) and a 50% reduction in median cycle time compared to the legacy application.",
+  "key_points": [
+    "The Strangler Fig pattern enables incremental replacement of legacy mobile apps by embedding new functionality (React Native micro-apps) inside the existing native application",
+    "Domain-driven design helps identify 'points of interception' where navigation routes can redirect users to new experiences while preserving the ability to fall back",
+    "The React Native Bridge facilitates bidirectional communication between legacy native code and new micro-apps, enabling seamless state sharing including sensitive data via secure keystores",
+    "Contract testing at domain boundaries allows independent teams to work on native and React Native code without coupling their build success to each other's changes",
+    "The proof of concept delivered first value in 1 month compared to a 2-year full rewrite estimate, with 50% faster cycle times for changes within micro-apps"
+  ],
+  "money_quotes": [
+    "A mobile application was never allowed to get so complicated, that it couldn't be torn down, split out or started from scratch again.",
+    "Taking an incremental approach to app replacement then is the key to avoiding the pitfalls associated with 'big bang releases'.",
+    "Our focus was not on delivering the most beautiful or cohesive full app experience. It was about obtaining confidence both in the stability of the iterative replacement pattern and also in how well the new product was being received.",
+    "Simply layering complexity to achieve our goals was only part of the problem to be solved.",
+    "It took around 1 month to implant the micro-app structure into the existing application, 3 months to build the first micro-app, and 5 months for the second.",
+    "Legacy Modernization, regardless of technology, is a multifaceted problem that demands significant analysis and alignment.",
+    "Putting in the investment upfront, will not only help you select the correct tool for your situation, but ensure that your app is better aligned to the customers it serves and the problems it solves."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "domain_driven",
+    "technical_leadership"
+  ],
+  "tone": "technical, pragmatic, measured",
+  "key_insight": "The Strangler Fig pattern, traditionally used for backend systems, can effectively modernize legacy mobile applications by embedding domain-encapsulated micro-apps that incrementally replace functionality while delivering value immediately rather than waiting years for a complete rewrite.",
+  "filename": "2024-11-05-strangler-fig-mobile-apps"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Martin Fowler clarifies that 'event-driven' architecture actually encompasses four distinct patterns that are often conflated: Event Notification, Event-Carried State Transfer, Event Sourcing, and CQRS. Event Notification provides loose coupling but can obscure logical flows. Event-Carried State Transfer improves resilience and reduces latency by distributing state copies. Event Sourcing treats the event log as the source of truth, similar to version control systems. Fowler notes that confusing these patterns leads to misdiagnosis when projects fail, and cautions that each pattern has appropriate contexts where it excels and others where it causes problems.",
+  "key_points": [
+    "Event-driven systems actually use four distinct patterns that are frequently confused: Event Notification, Event-Carried State Transfer, Event Sourcing, and CQRS",
+    "Event Notification enables loose coupling but creates a dangerous trap where logical flows become invisible and hard to debug",
+    "Event Sourcing doesn't require asynchronous processing\u2014git commits are synchronous\u2014and most system components shouldn't need to access the event log directly",
+    "CQRS isn't inherently about events and is often misused; the complexity of separate read/write models must be justified by domain complexity",
+    "Pattern conflation makes it nearly impossible to diagnose why event-driven projects fail"
+  ],
+  "money_quotes": [
+    "The biggest outcome of the summit was recognizing that when people talk about 'events', they actually mean some quite different things.",
+    "The danger is that it's very easy to make nicely decoupled systems with event notification, without realizing that you're losing sight of that larger-scale flow, and thus set yourself up for trouble in future years.",
+    "A simple example of this trap is when an event is used as a passive-aggressive command.",
+    "The core idea of event sourcing is that whenever we make a change to the state of a system, we record that state change as an event, and we can confidently rebuild the system state by reprocessing the events at any time in the future.",
+    "For programmers, the best example of this is a version-control system. The log of all the commits is the event store and the working copy of the source tree is the system state.",
+    "I find many of my colleagues are deeply wary of using CQRS, finding it often misused.",
+    "The core problem is confusing the different patterns."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "domain_driven"
+  ],
+  "tone": "analytical",
+  "key_insight": "The term 'event-driven' conflates four fundamentally different patterns\u2014Event Notification, Event-Carried State Transfer, Event Sourcing, and CQRS\u2014and this confusion is the root cause of many failed implementations.",
+  "filename": "2017-02-07-201701-event-driven"
+}

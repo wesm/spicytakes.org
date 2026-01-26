@@ -1,0 +1,30 @@
+{
+  "summary": "This article provides a comprehensive guide for decomposing monolithic systems into microservices, emphasizing that the journey requires careful planning and operational readiness. Fowler and co-author Zhamak Dehghani recommend starting with simple, decoupled edge services to build operational maturity before tackling core capabilities. The key strategies include minimizing dependencies back to the monolith, splitting sticky capabilities early, decoupling data along with services, and prioritizing capabilities that matter most to the business. The authors strongly advocate for rewriting capabilities rather than extracting existing code, and warn against creating too-small services prematurely. Every migration step should be atomic and leave the architecture in a better state.",
+  "key_points": [
+    "Start with simple edge services to build operational readiness before tackling core monolith decomposition",
+    "New microservices should minimize dependencies back to the monolith - prefer dependencies flowing from monolith to services, not the reverse",
+    "Decouple data along with services - without data decoupling, the architecture is not truly microservices",
+    "In most cases, rewriting a capability is better than extracting existing code due to boilerplate, unclear domain models, and code toxicity",
+    "Start with larger macro services around domain concepts and split into smaller services only when operationally ready",
+    "Every migration step must be atomic: decouple, redirect consumers, and retire old code - never leave two code paths"
+  ],
+  "money_quotes": [
+    "Microservices is a label and not the description.",
+    "Simply put, without decoupling the data, the architecture is not microservices.",
+    "The labor of building, no matter how painful the process or imperfect the result, make us grow love for it. This is in fact known as the IKEA Effect.",
+    "I've heard Neal Ford use the analogy of a careful organ surgery.",
+    "Far too often I see an overcorrection from large monolith to really small services, really small services whose design is inspired and driven by the existing normalized view of the data.",
+    "The size depends on how many services the delivery and operation teams can independently release, monitor and operate.",
+    "The idea of vanishing a legacy monolith into thin air by decoupling it into beautifully designed microservices is somewhat of a myth and arguably undesirable.",
+    "We can safely stop, revive and survive this long journey, slaying the monolith."
+  ],
+  "themes": [
+    "microservices",
+    "architecture",
+    "refactoring",
+    "domain_driven"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Successful monolith decomposition requires atomic evolutionary steps that always leave the system in a better state, prioritizing operational readiness and data decoupling over premature service granularity.",
+  "filename": "2018-04-24-break-monolith-into-microservices"
+}

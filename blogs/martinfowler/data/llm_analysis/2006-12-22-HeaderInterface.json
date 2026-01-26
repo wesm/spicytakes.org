@@ -1,0 +1,22 @@
+{
+  "summary": "A header interface is created by extracting all public methods of a class into an explicit interface, essentially mirroring the class's implicit public interface. This allows for alternative implementations to be substituted. Fowler positions this as the opposite approach to role interfaces, which are designed around specific interaction patterns rather than complete class surfaces. The post serves as a brief definition that references a more detailed discussion elsewhere.",
+  "key_points": [
+    "Header interfaces mirror all public methods of a class as an explicit interface",
+    "This approach enables alternative implementations to be provided",
+    "Header interfaces are the conceptual opposite of role interfaces",
+    "The pattern involves making implicit public interfaces explicit"
+  ],
+  "money_quotes": [
+    "A header interface is an explicit interface that mimics the implicit public interface of a class.",
+    "Essentially you take all the public methods of a class and declare them in an interface.",
+    "You can then supply an alternative implementation for the class.",
+    "This is the opposite of a RoleInterface."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "Header interfaces make a class's complete public surface explicit, enabling substitutability at the cost of coupling consumers to the full interface rather than just the parts they need.",
+  "filename": "2006-12-22-HeaderInterface"
+}

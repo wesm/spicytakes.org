@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler explains the concept of Immutable Servers as a logical evolution from Phoenix Servers, where servers are never modified after deployment but simply replaced with new instances. The approach builds on automated configuration tools but shifts focus from managing running servers to managing base images. All changes are made to the base image, tested through automated pipelines, and deployed as fresh instances. This pattern aligns with Continuous Integration and Continuous Delivery principles, treating server instances like compiled artifacts that should be built once and deployed consistently. Per-instance configuration should be minimized and externalized through metadata or central registries.",
+  "key_points": [
+    "Immutable servers eliminate configuration drift by never modifying running instances, only replacing them with new ones built from tested base images",
+    "The pattern shifts configuration management focus from running servers to base image management and automated testing",
+    "Per-instance configuration should be minimized and externalized through metadata services or central registries like Zookeeper",
+    "Data persistence requires special consideration\u2014logs can be shipped to central servers, and storage can use mountable devices or managed services",
+    "Netflix pioneered this approach at scale, driven by the need for fast instance creation to enable automatic scaling and recovery"
+  ],
+  "money_quotes": [
+    "An Immutable Server is the logical conclusion of this approach, a server that once deployed, is never modified, merely replaced with a new updated instance.",
+    "In practice it's not possible to manage a server's configuration completely, so there is considerable scope for configuration drift, and unexpected changes to running servers.",
+    "Any change to a running system introduces risk.",
+    "Once you've spun up a server instance from a well-tested base image, you shouldn't run configuration management tools, since they create opportunities for untested changes to the instance.",
+    "With an immutable server, you make each change to a base image, and then you know that all instances created from that image are consistent.",
+    "If servers are disposable, the data that lives on them often is not."
+  ],
+  "themes": [
+    "architecture",
+    "continuous delivery"
+  ],
+  "tone": "technical, methodical, explanatory",
+  "key_insight": "Treating servers as immutable artifacts that are replaced rather than modified eliminates configuration drift and brings the reliability benefits of continuous delivery to infrastructure management.",
+  "filename": "2013-06-13-ImmutableServer"
+}

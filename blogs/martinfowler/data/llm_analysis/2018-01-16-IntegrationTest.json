@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler clarifies the confused terminology around 'integration testing,' distinguishing between two fundamentally different approaches. Historically, integration tests meant combining separately developed modules and testing them together as a system. However, the 2010s perspective separates two concerns: testing that modules work together correctly, and testing that a complete system behaves as expected. Fowler advocates for 'narrow integration tests' that use test doubles to verify integration behavior without requiring live services. This approach, combined with contract tests, can eliminate the need for broad end-to-end testing while providing faster feedback in deployment pipelines.",
+  "key_points": [
+    "The term 'integration test' conflates two distinct concerns: verifying modules work together properly and verifying system-wide behavior",
+    "Narrow integration tests use test doubles to test integration code without activating real external services",
+    "Contract tests can verify that test doubles faithfully represent real services, making narrow integration tests reliable",
+    "Broad integration tests require live services and substantial infrastructure, while narrow tests run fast and early in pipelines",
+    "The term has been further muddied by some using 'integration test' to mean sociable unit tests"
+  ],
+  "money_quotes": [
+    "The point of integration testing, as the name suggests, is to test whether many separately developed modules work together as expected.",
+    "Using this combination of using narrow integration tests and contract tests, I can be confident of integrating against an external service without ever running tests against a real instance of that service, which greatly eases my build process.",
+    "If your only integration tests are broad ones, you should consider exploring the narrow style, as it's likely to significantly improve your testing speed, ease of use, and resiliency.",
+    "An obvious catch with integration testing against a double is whether that double is truly faithful. But we can test that separately using ContractTests.",
+    "All this is why I'm wary with 'integration test'. When I read it, I look for more context so I know which kind the author really means."
+  ],
+  "themes": [
+    "testing",
+    "architecture",
+    "microservices"
+  ],
+  "tone": "clarifying, technical, pragmatic",
+  "key_insight": "Integration testing is most effective when narrowly scoped to test only the integration code against faithful test doubles, rather than requiring full end-to-end system tests with live services.",
+  "filename": "2018-01-16-IntegrationTest"
+}

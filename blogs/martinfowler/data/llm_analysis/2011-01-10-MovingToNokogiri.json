@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler describes migrating his website's XML transformation system from REXML to Nokogiri, a faster Ruby XML library. After years of using REXML for his custom blog-to-HTML pipeline, performance needs and API preferences drove the change. He outlines a three-step migration strategy using an insulating layer to enable gradual transition while keeping the site buildable. The approach allows incremental change rather than a risky all-at-once swap, demonstrating practical refactoring principles on his own codebase.",
+  "key_points": [
+    "REXML was adequate but slow compared to libxml-based alternatives like Nokogiri, which offered both speed (10 seconds vs 1 minute) and a better API",
+    "The migration strategy uses an insulating layer between application code and the XML library, allowing gradual transition while maintaining a working build",
+    "The three-step approach: introduce insulation matching REXML's interface, implement Nokogiri behind the same interface, then refactor to Nokogiri's native API",
+    "He deliberately chose not to keep the insulating layer permanently, preferring to pay migration costs later rather than maintain unnecessary abstraction now",
+    "Functional testing by rebuilding the site and diffing against the released version provides confidence during the refactoring"
+  ],
+  "money_quotes": [
+    "While I got pretty good at programming XSLT I came to the conclusion that I was not enough of a masochist to want to continue using it.",
+    "Replacing the XML library in a program that mainly does XML processing is often seen as a fraught task.",
+    "Switching over to Nokogiri in one fell swoop is too big a change, instead I can gradually implement it while my site can still build fine with the REXML version.",
+    "I'd rather pay that price then than have to pay the price of dealing with an unnecessary layer now.",
+    "Since I'm the only programmer I can be more casual than if I was working on a team with this, but I still follow much the same habits."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "practical, reflective, technical",
+  "key_insight": "Large library migrations become manageable through insulating layers that enable gradual, reversible change while keeping the system functional throughout the transition.",
+  "filename": "2011-01-10-MovingToNokogiri"
+}

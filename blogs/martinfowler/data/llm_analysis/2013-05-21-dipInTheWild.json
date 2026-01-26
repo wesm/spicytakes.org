@@ -1,0 +1,29 @@
+{
+  "summary": "This article explores practical applications of the Dependency Inversion Principle (DIP) through real-world examples from production systems. The author distinguishes DIP from Dependency Injection and Inversion of Control, explaining that DIP is about raising the abstraction level of dependencies to match your domain. Through four examples\u2014simplifying logging APIs, hiding database details behind repositories, abstracting away messaging infrastructure, and controlling time in tests\u2014the article demonstrates how inverting dependencies toward higher-level domain concepts reduces risk, improves testability, and creates more maintainable systems.",
+  "key_points": [
+    "DIP is distinct from Dependency Injection and IoC: DI is about wiring, IoC is about direction, and DIP is about the shape and abstraction level of dependencies",
+    "Interfaces and abstract classes are not automatically good abstractions\u2014they must exist at a level appropriate to your domain, not expose irrelevant implementation details",
+    "Flexibility in APIs often leads to inconsistent use; narrowing interfaces to domain-specific needs reduces cognitive burden and prevents misuse",
+    "External constraints like messaging protocols or database choices should be hidden behind domain-relevant abstractions rather than allowed to diffuse throughout the system",
+    "Even seemingly fixed concepts like time can and should be controlled through abstraction when they cause testing or operational difficulties"
+  ],
+  "money_quotes": [
+    "A dependency is a risk.",
+    "Nothing + Nothing + Nothing \u2026 eventually equals something.",
+    "The larger the surface area of a class, the more likely it becomes easier to use the class incorrectly than it is to use it correctly.",
+    "DI is about wiring, IoC is about direction, and DIP is about shape.",
+    "Confusing a solution with the problem is a common mistake.",
+    "Make the implementation of the abstraction do the work once rather than all consumers of a lower-level abstraction duplicating the effort.",
+    "If something is causing problems, control it.",
+    "All software is a liability."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring",
+    "domain_driven",
+    "testing"
+  ],
+  "tone": "technical, pragmatic, instructive",
+  "key_insight": "The DIP is not about using interfaces or abstract classes, but about ensuring your code depends on abstractions that exist at the same conceptual level as your domain, hiding lower-level implementation details behind boundaries you control.",
+  "filename": "2013-05-21-dipInTheWild"
+}

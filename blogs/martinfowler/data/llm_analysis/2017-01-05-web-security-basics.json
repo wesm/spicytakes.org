@@ -1,0 +1,26 @@
+{
+  "summary": "This comprehensive guide covers fundamental web security practices that every developer should implement. Fowler and colleagues argue that security is often deprioritized until breaches occur, yet most vulnerabilities stem from predictable, preventable mistakes. The article walks through essential defensive techniques: validating and rejecting unexpected input, properly encoding output to prevent XSS, using parameterized queries to prevent SQL injection, enforcing HTTPS everywhere, hashing passwords with proper salts and slow algorithms, implementing secure session management, and building robust authorization systems. The core philosophy is 'trust nothing'\u2014every input from browsers, users, and even upstream services should be treated as potentially malicious.",
+  "key_points": [
+    "Input validation should use whitelisting (positive validation) rather than blacklisting, rejecting unexpected data entirely rather than trying to sanitize it",
+    "Output encoding must be context-aware\u2014HTML, JavaScript, and URLs each require different encoding strategies to prevent XSS attacks",
+    "SQL injection remains prevalent despite being easily preventable through parameter binding; stored procedures and ORMs don't automatically protect you",
+    "HTTPS should be used for everything, not just sensitive pages, and HSTS headers enforce this policy in browsers",
+    "Password storage requires slow hashing algorithms (bcrypt, scrypt) with unique salts per user\u2014never store passwords in plaintext or use fast hashes like MD5/SHA"
+  ],
+  "money_quotes": [
+    "That is, until something goes wrong, until the system you build is compromised, then suddenly security is, and always was, the most important thing.",
+    "HTML forms can create the illusion of controlling input. The form markup author might believe that because they are restricting the types of values that a user can enter in the form the data will conform to those restrictions. But rest assured, it is no more than an illusion.",
+    "Remember: if you don't control it, you can't trust it. If it violates the contract, reject it!",
+    "The developer is always one errant angle bracket away from running in a very different execution context than they intend.",
+    "Injection into the database tier continues to plague the modern web application even though it's relatively easy to prevent!",
+    "There is no limit to what the attacker can do, including stealing the user's session or their personal information, injecting malicious code that will be executed by the browser in the context of the website, or altering data the user is sending to the server.",
+    "Among the most critical mistakes a programmer can make is hiding capabilities rather than explicitly enforcing authorization on the server."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "technical, authoritative, instructional",
+  "key_insight": "Security is not a feature to be bolted on later but a fundamental discipline requiring systematic distrust of all external input and rigorous application of defensive coding practices at every layer of the stack.",
+  "filename": "2017-01-05-web-security-basics"
+}

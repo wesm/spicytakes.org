@@ -1,0 +1,27 @@
+{
+  "summary": "This article explores Rake, a Ruby-based build language that serves as an internal DSL for dependency-based programming. Fowler explains how Rake differs from make and ant by leveraging Ruby's full programming capabilities while maintaining readable build syntax. He covers file tasks, synthesizing dependencies, platform-specific XML processing, and debugging techniques. The article demonstrates how Rake's flexible dependency specification and Ruby integration enable cleaner, more maintainable build scripts than external DSLs can provide.",
+  "key_points": [
+    "Build languages like Rake use dependency-based computation rather than imperative style, which naturally fits build processes and avoids redundant task execution",
+    "Rake being an internal DSL means you get the full power of Ruby when needed, unlike ant and make which require dropping out of the DSL for complex logic",
+    "File tasks provide timestamp-based necessity checking similar to make, only rebuilding when outputs are older than inputs",
+    "Dependencies can be specified flexibly - either at the dependent task, the prerequisite task, or independently - enabling cleaner organization",
+    "The ability to synthesize tasks programmatically using Ruby loops and FileList eliminates tedious manual enumeration of source files"
+  ],
+  "money_quotes": [
+    "The fact that rake is an internal DSL for a general purpose language is a very important difference between it and the other two. It essentially allows me to use the full power of ruby any time I need it.",
+    "I've come to view that a build language is really ideally suited to an internal DSL because you do need that full language power just often enough to make it worthwhile.",
+    "I suspect that few people that knock up a build script realize they are programming in a funky computational model, but that's what it is.",
+    "Often when you come across something new it can be a good idea to overuse it in order to find out its boundaries.",
+    "The lesson from this is that with this kind of internal DSL you have the ability to interrogate the object structure to figure out what's going on.",
+    "After all, until we tried it I thought XML would be a good syntax for build files.",
+    "Sub-routines are one of the most elementary ways of structuring a program, and the lack of convenient sub-routine mechanisms is one of the great problems of ant and make."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring",
+    "domain_driven"
+  ],
+  "tone": "technical, exploratory, pragmatic",
+  "key_insight": "Build languages are most powerful when implemented as internal DSLs within full programming languages, because build automation frequently requires general-purpose programming capabilities that external DSLs cannot elegantly provide.",
+  "filename": "2014-12-29-rake"
+}

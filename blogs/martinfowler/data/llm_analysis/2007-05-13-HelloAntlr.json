@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler documents his first experience setting up ANTLR, a recursive descent parser generator, using a simple 'hello world' style grammar that parses item declarations into a domain model. He walks through the complete setup: Ant build configuration, grammar file structure with lexer definitions and semantic actions, and integration with Java code. He contrasts ANTLR's approach of allowing inline actions with SableCC's tree-walking approach, noting ANTLR's flexibility in supporting both patterns. The post highlights practical tooling benefits like AntlrWorks IDE support and an upcoming book, while candidly noting the stumbling blocks he encountered with EOF handling and Ant/JUnit classpath issues.",
+  "key_points": [
+    "ANTLR uses LL grammars and generates recursive descent parsers, unlike SableCC and lex/yacc which use LALR",
+    "ANTLR allows inline semantic actions in grammar files or tree-building with transformations, providing more flexibility than SableCC's tree-only approach",
+    "AntlrWorks IDE provides syntax highlighting, grammar visualization, and test parsing capabilities",
+    "Missing EOF in grammar rules can cause silent parsing failures where spurious input goes undetected",
+    "Build complexity with compiler-compilers requires careful Ant configuration to generate then compile parser code"
+  ],
+  "money_quotes": [
+    "As before - using a compiler-compiler for this problem is silly, but then is printing 'hello world' on a console.",
+    "For the same reason as I always write 'hello world' with a new environment, I like to write something dirt simple to just make sure I can get things working at all before I start doing anything real with it.",
+    "Compiler heads like to argue about whether LL or LALR are better, I'll not step into that debate here.",
+    "The more complex the language the more useful it is to have an intermediate tree representation.",
+    "I don't want to have to think about the amount of time I've spent over the years trying to diagnose classpath problems."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical, pragmatic, self-deprecating",
+  "key_insight": "When learning new tools like parser generators, start with a trivially simple example to verify the complete toolchain works before tackling real complexity.",
+  "filename": "2007-05-13-HelloAntlr"
+}

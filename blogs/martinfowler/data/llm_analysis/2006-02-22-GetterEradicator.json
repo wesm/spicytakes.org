@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler critiques the absolutist stance of 'Getter Eradicators' who treat all getter methods as encapsulation violations. While acknowledging that getters can enable procedural code in OO languages, he argues the real purpose of encapsulation is hiding design decisions that may change, not just data. He suggests more nuanced heuristics: watch for code calling multiple methods on one object, be suspicious of data-only classes, and remember that behavior allocation is about trade-offs, not rigid rules.",
+  "key_points": [
+    "Encapsulation is fundamentally about hiding design decisions and variability, not just hiding data",
+    "The real problem getters enable is procedural code that pulls data out instead of putting behavior in objects (Tell Don't Ask)",
+    "A better heuristic than eliminating getters: be wary when code invokes multiple methods on the same object",
+    "Data Classes (only fields and accessors) are warning signs that behavior should be moved into the object",
+    "Things that change together should be together - sometimes that's data and behavior, sometimes other groupings matter more"
+  ],
+  "money_quotes": [
+    "For me, the point of encapsulation isn't really about hiding the data, but in hiding design decisions, particularly in areas where those decisions may have to change.",
+    "When you are thinking about encapsulation I think it's better to ask yourself 'what piece of variability are you hiding and why' rather than 'am I exposing data'.",
+    "The OO community may have 'won' in the sense that modern languages are dominated by objects, but they are still yet to win in that OO programming is still not widely used.",
+    "I have a lot of sympathy with this motivation, but I fear that just telling people to avoid getters is a rather blunt tool.",
+    "If you ask an object for two bits of data, can you replace this with a single request for the bit of data you're calculating?",
+    "Allocation of behavior between objects is the essence of object-oriented design, so like any design, there isn't a hard and fast rule - rather a judging of trade-offs.",
+    "A good rule of thumb is that things that change together should be together."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "reflective, pragmatic, gently contrarian",
+  "key_insight": "Encapsulation is about hiding design decisions that may change, not rigidly avoiding data exposure - better to ask 'what variability am I hiding?' than 'am I exposing data?'",
+  "filename": "2006-02-22-GetterEradicator"
+}

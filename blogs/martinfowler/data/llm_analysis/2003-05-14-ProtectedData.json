@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler addresses whether using the protected access modifier for class data is good OO design. He argues there's no universal answer\u2014it depends on whether you're building for internal team use or external frameworks. For internal hierarchies, protected data is acceptable since you control all the code. For frameworks with external subclasses, protected fields become part of your published interface and should be avoided due to the fragile base class problem. His default is private fields, rarely changed to protected.",
+  "key_points": [
+    "The appropriateness of protected data depends on whether code will be extended by your team or external clients",
+    "Internal hierarchies using subclasses for polymorphic behavior can reasonably use protected data",
+    "Framework classes intended for external override should treat protected members as published interface",
+    "The fragile base class problem means subclasses can break superclasses when given deep access",
+    "Publishing fields directly is generally bad, so protected fields in published interfaces should be avoided"
+  ],
+  "money_quotes": [
+    "I think the reason this topic gets so difficult is because people look at it either from the angle of in-team or cross-team development, and it's this point of view that dominates.",
+    "After all it's all my code - I'm using the subclasses to provide polymorphic behavior, not to provide modularity.",
+    "If you're intending that clients outside your control will override a certain class, then you should treat your protected features as part of your published interface.",
+    "Subclasses can easily break superclasses if you're not careful - this is referred to as the fragile base class problem.",
+    "Publishing fields is a bad idea, so I wouldn't do it in that case.",
+    "I'll admit my default is to make fields private and I only rarely change it to protected."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Whether protected data is appropriate depends entirely on your audience: internal polymorphism justifies it, but external extensibility demands treating protected members as published interface.",
+  "filename": "2003-05-14-ProtectedData"
+}

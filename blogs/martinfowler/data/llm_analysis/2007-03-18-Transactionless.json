@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler discusses eBay's surprising architectural decision to largely avoid database transactions at scale. The rationale centers on performance concerns, particularly given eBay's heavy data partitioning across many physical databases, which would require distributed transactions. Despite initial skepticism, developers found transactionless programming manageable by carefully ordering commits and handling failures explicitly. Fowler sees this as a valuable reminder that alternatives to conventional wisdom exist and that transactionlessness is more common than acknowledged in multi-step business processes.",
+  "key_points": [
+    "eBay avoids database transactions due to performance concerns at massive scale, especially with heavily partitioned data",
+    "The architecture also forgoes referential integrity, sorting in the database, triggers, and stored procedures\u2014pushing this logic to application code",
+    "Developers adapt by ordering commits by importance and explicitly handling failures at each step",
+    "Transactionless patterns are more common than recognized, appearing in multi-step business processes and systems without transaction support",
+    "This challenges conventional wisdom without suggesting transactions should be abandoned universally"
+  ],
+  "money_quotes": [
+    "Using transactions is a very accepted part of working with databases. A lot of people, including myself, see transactions as one of the key benefits that databases give you.",
+    "The reply was that it was odd at first, but ended up not being a big deal - much less of a problem than you might think.",
+    "You have to pay attention to the order of your commits, getting the more important ones in first.",
+    "At each commit you have to check that it succeeded and decide what to do if it fails.",
+    "It's common to have multi-step business processes with multiple resources that either would need long-running distributed transactions, or resources that have no support for transactions.",
+    "eBay's example suggests that living without transactions is far less impossible than many people think."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "reflective",
+  "key_insight": "Conventional architectural wisdom like database transactions can be challenged at scale, and living without them may be far more practical than most developers assume.",
+  "filename": "2007-03-18-Transactionless"
+}

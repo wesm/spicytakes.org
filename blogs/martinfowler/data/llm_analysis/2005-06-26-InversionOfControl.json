@@ -1,0 +1,25 @@
+{
+  "summary": "Inversion of Control (IoC) is a fundamental principle distinguishing frameworks from libraries: instead of your code calling library functions, the framework calls your code at designated extension points. Fowler illustrates this with a command-line program (where your code controls the flow) versus a GUI application (where the windowing system controls when your methods are called). This pattern appears across many contexts\u2014event bindings, interface implementations like EJB lifecycle methods, and template methods in testing frameworks like JUnit. Fowler notes confusion has arisen because 'IoC containers' have become associated specifically with dependency injection, despite IoC being a much broader and older concept.",
+  "key_points": [
+    "A library is a set of functions you call; a framework calls your code\u2014this inversion of control is the defining difference",
+    "IoC manifests through various mechanisms: closures/lambdas, event subscriptions, interface implementations, and template methods",
+    "The Hollywood Principle ('Don't call us, we'll call you') is a colorful synonym for IoC dating to 1983",
+    "Modern IoC containers have caused confusion by associating the term specifically with dependency injection, when IoC is a much broader principle",
+    "EJB uses inversion of control extensively through lifecycle callbacks, making the framing of IoC containers as 'competitors to EJB' somewhat ironic"
+  ],
+  "money_quotes": [
+    "The control is inverted - it calls me rather me calling the framework.",
+    "Inversion of Control is a key part of what makes a framework different to a library.",
+    "A library is essentially a set of functions that you can call. A framework embodies some abstract design, with more behavior built in.",
+    "The framework's code then calls your code at these points.",
+    "You don't get to control when these methods are called, just what they do. The container calls us, we don't call it.",
+    "There is some confusion these days over the meaning of inversion of control due to the rise of IoC containers; some people confuse the general principle here with the specific styles of inversion of control that these containers use."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "Inversion of Control is not a specific technique like dependency injection, but the fundamental principle that distinguishes frameworks from libraries: the framework controls the flow and calls your code, rather than you calling it.",
+  "filename": "2005-06-26-InversionOfControl"
+}

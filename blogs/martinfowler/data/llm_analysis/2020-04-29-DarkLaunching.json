@@ -1,0 +1,24 @@
+{
+  "summary": "Dark launching is a deployment technique where new back-end functionality is called from production user flows without exposing results to users, allowing teams to assess performance and load impacts before public release. The approach integrates with Keystone Interface patterns to build features invisibly in production, while Feature Flags enable quick rollback if problems emerge. Dark launching also enables parallel running of reimplemented features to verify correctness before switching. The technique works best for features that enhance existing interactions rather than user-initiated actions, where Canary Releases are more appropriate.",
+  "key_points": [
+    "Dark launching calls new back-end code in production without showing results to users, measuring real performance impact",
+    "Combines with Keystone Interface (build without UI) and Feature Flags (quick on/off) for safe production testing",
+    "Enables parallel running of old and new implementations to verify correctness while only returning one result",
+    "Best suited for features that enhance existing flows, not user-initiated actions where Canary Releases fit better",
+    "The term has suffered semantic diffusion and is now often confused with canary releases and other partial release strategies"
+  ],
+  "money_quotes": [
+    "Dark launching a feature means taking a new or changed back-end behavior and calling it from existing users without the users being able to tell it's being called.",
+    "This way the recommendation does all the work it would do when it's released, but nobody can see that it's doing it.",
+    "If we use a Feature Flag we can switch the recommendation on and off easily in production, so if we do see an worrying impact on performance we switch it off before anyone really notices.",
+    "Dark launching can also enable parallel running of a re-implemented feature.",
+    "Dark launching works best when it's a process that enhances existing user interactions and isn't something users choose to do."
+  ],
+  "themes": [
+    "architecture",
+    "testing"
+  ],
+  "tone": "technical",
+  "key_insight": "Dark launching provides a risk-mitigation strategy for assessing real production impact of new features by executing them invisibly alongside existing user flows before public release.",
+  "filename": "2020-04-29-DarkLaunching"
+}

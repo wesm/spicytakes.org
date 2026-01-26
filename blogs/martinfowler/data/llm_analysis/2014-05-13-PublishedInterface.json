@@ -1,0 +1,21 @@
+{
+  "summary": "Fowler distinguishes between 'published' and 'public' interfaces, arguing that a published interface is one used outside its defining codebase, making it fundamentally different from merely public code. The key insight is that public interfaces within a single codebase can be freely refactored since all callers are accessible, while published interfaces require special handling because you cannot update external consumers. Fowler contends this distinction matters more than the traditional public/private divide.",
+  "key_points": [
+    "Published interfaces are used outside their defining codebase, beyond what language visibility modifiers indicate",
+    "The public/published distinction is more important than public/private",
+    "Internal public interfaces can be freely refactored with modern tools since all callers are reachable",
+    "Published interfaces require 'more complicated treatment' because you cannot update external calling code"
+  ],
+  "money_quotes": [
+    "The distinction between published and public is actually more important than that between public and private.",
+    "With a non-published interface you can change it and update the calling code since it is all within a single code base.",
+    "Anything published so you can't reach the calling code needs more complicated treatment."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "The critical API design distinction isn't what's visible to code, but what's visible to codebases you don't control\u2014published interfaces constrain evolution in ways that mere public interfaces do not.",
+  "filename": "2014-05-13-PublishedInterface"
+}

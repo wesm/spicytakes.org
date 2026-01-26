@@ -1,0 +1,24 @@
+{
+  "summary": "Command Query Separation (CQS), coined by Bertrand Meyer, divides object methods into two categories: queries that return results without side effects, and commands (or modifiers) that change state without returning values. The principle's value lies in enabling developers to use queries freely and confidently while being more careful with state-changing methods. While Meyer advocates strict adherence, Fowler acknowledges practical exceptions like stack pop operations. The post notes that language-level support for CQS would be valuable but is rare, with C++'s const modifier being one of the few examples.",
+  "key_points": [
+    "Methods should be divided into queries (return results, no side effects) and commands/modifiers (change state, no return value)",
+    "The return type serves as a useful convention for distinguishing between queries and commands",
+    "Queries can be safely reordered and introduced anywhere, while modifiers require more careful handling",
+    "Pragmatic exceptions exist\u2014stack pop is a useful idiom that violates CQS by both returning a value and modifying state",
+    "Language-level support for CQS is rare; C++'s const modifier is one of the few examples, and it only applies to observable state"
+  ],
+  "money_quotes": [
+    "The really valuable idea in this principle is that it's extremely handy if you can clearly separate methods that change state from those that don't.",
+    "You can use queries in many situations with much more confidence, introducing them anywhere, changing their order. You have to be more careful with modifiers.",
+    "Meyer correctly says that you can avoid having this method, but it is a useful idiom. So I prefer to follow this principle when I can, but I'm prepared to break it to get my pop.",
+    "The first edition is the one that had the influence, the second edition is good but you'll need several months in a gym before you can lift it.",
+    "The rule about not changing state really only applies to the ObservableState of the system."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical, pragmatic, witty",
+  "key_insight": "Separating methods that change state from those that don't makes code easier to reason about, but pragmatic exceptions are acceptable when they provide clear utility.",
+  "filename": "2005-12-05-CommandQuerySeparation"
+}

@@ -1,0 +1,21 @@
+{
+  "summary": "Martin Fowler describes a dangerous pattern where failover mechanisms, designed to improve reliability, can actually cascade failures across an entire cluster. When a request triggers a bug that crashes a server, the failover system dutifully moves that same toxic request to another server, which also crashes. This can create a loop where servers repeatedly crash and reboot while passing the deadly request between them. The solution is to limit failover attempts for any single request and consider using heterogeneous infrastructure to prevent the same bug from affecting all servers.",
+  "key_points": [
+    "Failover mechanisms can amplify failures when a request itself is the cause of the crash",
+    "A single bad request can systematically take down every server in a cluster through the failover chain",
+    "Systems should track and limit how many times a request has been failed over",
+    "Using diverse infrastructure (different app servers, operating systems, hardware) reduces the risk of a single bug affecting all nodes"
+  ],
+  "money_quotes": [
+    "So when the failover kicks in, the deadly requests gets moved to another server which it can then bring down in turn.",
+    "Get the timing just right and by the time the first server has rebooted, it will be ready to receive that request again.",
+    "It's good to failover, but you don't want your farm to do it too often.",
+    "If you're running a Java application, consider using a mix of different app servers, operating systems, and hardware."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "wry, cautionary, practical",
+  "key_insight": "Reliability mechanisms like failover can become vectors for cascading failure when they blindly retry the very operations that caused the original crash.",
+  "filename": "2005-03-07-CatastrophicFailover"
+}

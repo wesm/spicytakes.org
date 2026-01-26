@@ -1,0 +1,25 @@
+{
+  "summary": "Media websites face major performance challenges due to traffic spikes that can increase two orders of magnitude in minutes. While caching solves this for static content, dynamic features like personalized ads and related articles make caching difficult. The solution is to divide pages into segments based on how frequently each part changes (freshness), allowing independent caching of each segment. Rather than assembling pages server-side, client-side JavaScript can fetch and weave together segments from separate URLs, leveraging internet-wide caching infrastructure to reduce server load dramatically.",
+  "key_points": [
+    "Traffic spikes on media sites can be extreme\u2014two orders of magnitude in minutes\u2014making traditional architectures inadequate",
+    "Dynamic content like personalization, related articles, and targeted advertising ruins most straightforward caching strategies",
+    "Pages should be segmented by freshness: static article content, daily-changing related links, and personalized elements each cached independently",
+    "Client-side assembly via JavaScript allows each segment to have its own URL and caching policy, distributed across internet caches",
+    "This approach is a form of Progressive Enhancement that maintains accessibility while enabling sophisticated caching"
+  ],
+  "money_quotes": [
+    "You might not think there's much business logic on your average newspaper website, but once you start looking at advertising links, related stories, special features and the like, things get a good bit more interesting.",
+    "Such logic is complex in its own right, it makes for a lot of computation with each request, and crucially it ruins most caching strategies.",
+    "The way to deal with this is to divide a page up into segments where each segment has a similar determination of freshness.",
+    "Most calls for this web page don't even reach my web server since my page gets cached many times along the way.",
+    "An alternative is to assemble the page on the client and then draw each segment from its own URL. Each segment could be cached in different places with different caching policies.",
+    "If I browse the page with a browser that has no javascript, I'll get a useful link."
+  ],
+  "themes": [
+    "architecture",
+    "web development"
+  ],
+  "tone": "technical",
+  "key_insight": "By decomposing web pages into segments based on how frequently each part changes and assembling them client-side, you can leverage the internet's distributed caching infrastructure to handle massive traffic spikes without hitting your servers.",
+  "filename": "2008-06-24-SegmentationByFreshness"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler explains the collection pipeline pattern, a powerful technique for processing data through a sequence of operations where each step takes a collection as input and emits a collection as output. He traces its origins from Unix pipes through Smalltalk to modern languages like Ruby and Clojure, demonstrating how pipelines enable clear, composable code for filtering, transforming, and aggregating data. The article covers key operations (map, reduce, filter, group-by, flat-map), compares pipelines to loops and comprehensions, and addresses practical concerns like debugging, laziness, parallelism, and immutability. Fowler argues that while functional programmers often claim collection pipelines as their domain, Smalltalkers used them widely, and the pattern only declined in OO because popular languages like Java lacked lambdas until recently.",
+  "key_points": [
+    "Collection pipelines compose operations that each take a collection as input and return a collection as output, enabling complex transformations through simple, chainable steps",
+    "The pattern appears across paradigms\u2014Unix pipes, Smalltalk methods, Ruby chains, and functional languages like Clojure\u2014with the core concept remaining consistent despite syntactic differences",
+    "Key operations include map (transform elements), reduce (combine to single value), filter/select (keep matching elements), group-by (partition by key), and flat-map (map then flatten)",
+    "Pipelines work best when linear and small; larger ones should be factored into separate functions following the principle of extracting methods when 'what' differs from 'how'",
+    "Without good lambda support, collection pipelines become too syntactically messy to be worthwhile\u2014this is why they declined in early Java and C++"
+  ],
+  "money_quotes": [
+    "A collection pipeline lays out a sequence of operations that pass a collection of items between them. Each operation takes a collection as an input and emits another collection.",
+    "The reason people say that collection pipelines aren't a feature of OO programming is that the popular OO languages like C++, Java, and C# didn't adopt Smalltalk's use of lambdas.",
+    "Terse, powerful code is nice - but terseness is only valuable in the service of clarity.",
+    "Extract a method whenever there's a difference between what a block of code does and how it does it.",
+    "Without good language support for clean lambda expressions, this pattern usually ends up being more trouble than is worth it.",
+    "Transformations like this are usually much easier to reason about when you break the full transformation down into little pieces and string them together - which is the whole point of the collection pipeline pattern.",
+    "It's often useful to treat hashmaps as lists of key-value pairs."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "technical, instructive, historically-informed",
+  "key_insight": "Collection pipelines enable complex data transformations through simple, composable operations\u2014their power lies not in any single step but in how naturally the steps chain together.",
+  "filename": "2015-12-03-collection-pipeline"
+}

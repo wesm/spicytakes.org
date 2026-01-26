@@ -1,0 +1,27 @@
+{
+  "summary": "Martin Fowler advocates for the classic presentation-domain-data layering pattern as an effective way to modularize information-rich applications. The primary benefit is reducing cognitive scope\u2014allowing developers to focus on one concern at a time without being overwhelmed by the entire system. While the pattern supports substitutability and testability, Fowler emphasizes that the cognitive benefit alone justifies the approach. He warns against organizing development teams along these layer boundaries, arguing that while individual developers need not be full-stack, cross-functional teams are essential for effective collaboration.",
+  "key_points": [
+    "The main benefit of layering is reducing scope of attention, allowing focused thinking on one concern at a time",
+    "Layers are logical separations, not physical tiers\u2014they can be deployed in various configurations",
+    "As applications grow, don't use presentation-domain-data as top-level modules; instead create domain-oriented modules that are internally layered",
+    "Organizing development teams by layers is an antipattern that adds friction and reduces cross-layer understanding",
+    "Substitutability of data sources is often cited as a benefit but rarely actually exercised in practice"
+  ],
+  "money_quotes": [
+    "It's biggest advantage (for me) is that it allows me to reduce the scope of my attention by allowing me to think about the three topics relatively independently.",
+    "While substitutability and testability are certainly benefits of this layering, I must stress that even without either of these reasons I would still divide into layers like this.",
+    "I have to mention that while I often hear about data access substitution being a driver for separating the data source layer, I rarely hear of someone actually doing it.",
+    "Developers don't have to be full-stack but teams should be.",
+    "Once any of these layers gets too big you should split your top level into domain oriented modules which are internally layered.",
+    "Team boundaries add considerable friction, as well as reducing an individual's motivation to develop the important cross-layer understanding of a system."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven",
+    "technical_leadership",
+    "agile"
+  ],
+  "tone": "pragmatic, reflective, authoritative",
+  "key_insight": "The primary value of presentation-domain-data layering is cognitive\u2014it narrows the scope of attention\u2014and this benefit alone justifies the pattern even without substitutability or testability gains.",
+  "filename": "2015-08-26-PresentationDomainDataLayering"
+}

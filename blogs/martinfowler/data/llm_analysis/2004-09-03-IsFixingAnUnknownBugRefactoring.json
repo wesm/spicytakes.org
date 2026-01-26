@@ -1,0 +1,23 @@
+{
+  "summary": "Przemyslaw Pokrywka raised a thought-provoking question about whether Introduce Null Object counts as refactoring when it inadvertently fixes an unknown bug. Fowler argues that refactoring preserves 'observable behavior,' and if a bug wasn't known or cared about, that behavior wasn't truly observable. He concludes that fixing an unknown bug during refactoring doesn't disqualify the change as a refactoring. The post also highlights an important distinction between manual refactoring, which allows judgment calls, and tool-driven refactoring, which must be more conservative. Even automated tools can't guarantee preserved behavior in edge cases like reflection-based method calls.",
+  "key_points": [
+    "Introduce Null Object can alter behavior by replacing null pointer exceptions with default behavior, making it a tricky refactoring",
+    "The key criterion for refactoring is preserving 'observable behavior' - what the program essentially does from a user perspective",
+    "If a bug wasn't known or wasn't behavior worth preserving, fixing it incidentally still qualifies as refactoring",
+    "Manual refactoring allows human judgment calls that automated tools cannot safely make",
+    "Even tool-driven refactoring can break code in edge cases like reflection-based method invocation"
+  ],
+  "money_quotes": [
+    "If you fix a bug you don't know about is this still a refactoring?",
+    "I'd argue yes, since you didn't know or care (enough) about the buggy behavior then I'd say that behavior wasn't observable.",
+    "Even if you knew about the bug, I'd still argue that it's okay to call this a refactoring if the bug wasn't behavior you cared about preserving.",
+    "With manual refactoring you can make judgement calls like this, tools often have to be much more careful.",
+    "Even a rename method can be break on refactoring if that method is called by reflection with a name that's read from a file."
+  ],
+  "themes": [
+    "refactoring"
+  ],
+  "tone": "reflective",
+  "key_insight": "Observable behavior in refactoring is defined not by what technically changes, but by what users and developers actually know about and care to preserve.",
+  "filename": "2004-09-03-IsFixingAnUnknownBugRefactoring"
+}

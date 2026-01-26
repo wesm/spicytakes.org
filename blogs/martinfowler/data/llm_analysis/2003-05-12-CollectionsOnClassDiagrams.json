@@ -1,0 +1,22 @@
+{
+  "summary": "This brief post addresses a common UML diagramming question: how to represent collections like ArrayList in class diagrams. Fowler explains that collections shouldn't be shown as separate classes; instead, use associations with multiplicity markers. The asterisk (*) implies a collection relationship. For ordered collections like lists, use the {ordered} constraint. Special collection types can be indicated with stereotypes, but this should be rare.",
+  "key_points": [
+    "Collections are represented through associations with multiplicity, not as explicit classes on the diagram",
+    "UML strictly uses set semantics for multivalued properties; ordered collections require the {ordered} constraint",
+    "Most developers pragmatically use lists for collections despite UML's set-oriented default",
+    "Stereotypes like <<doubly linked list>> can indicate special collection types but should be used sparingly"
+  ],
+  "money_quotes": [
+    "Usually you don't show the collection on the class diagram as a class.",
+    "By marking the association with a * multiplicity you imply that a collection is in play.",
+    "To be strict with the UML you should always use a set for your collections since multivalued properties have set semantics in UML.",
+    "In practice most people use lists for collections (if nothing else it can help testing).",
+    "However you should find you only do this very rarely."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "UML class diagrams represent collections through association multiplicity rather than explicit collection classes, with set semantics as the default and {ordered} constraints for lists.",
+  "filename": "2003-05-12-CollectionsOnClassDiagrams"
+}

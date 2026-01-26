@@ -1,0 +1,22 @@
+{
+  "summary": "Fowler addresses the criticism that dynamic languages like Ruby require so many runtime type checks that developers effectively build their own type system. His team gathered empirical data from 11 real-world Ruby projects to test this claim. The data shows type checks (is_a?, kind_of?, instance_of?) are extremely rare, averaging roughly one per 500-2500 lines of code. Most uses occur when handling 'liberal input' in DSL-style APIs where methods accept multiple types for readability. The conclusion firmly refutes the accusation: explicit type checking is uncommon and was considered bad form even in Smalltalk circles.",
+  "key_points": [
+    "Empirical data from 11 production Ruby projects shows dynamic type checks are extremely rare (1 per 500-2500 LOC)",
+    "Type checking in dynamic languages was considered bad form even in historical Smalltalk communities",
+    "Most legitimate uses of type checks occur in DSL contexts where methods accept multiple input types for readability",
+    "Other potential type-check methods (respond_to?, ===) were found to be no more common than the ones measured"
+  ],
+  "money_quotes": [
+    "The moral of this data is that you shouldn't expect to see a lot of type check calls in your ruby code base.",
+    "It was generally considered bad form in Smalltalk circles I inhabited too.",
+    "Most uses are those of dealing with liberal input - eg where a method parameter can be a string, symbol, or array.",
+    "These crop up in DSLish situations where you want liberal input for the high readability."
+  ],
+  "themes": [
+    "refactoring",
+    "testing"
+  ],
+  "tone": "empirical, measured, authoritative",
+  "key_insight": "The claim that dynamic language programmers end up writing their own type systems through excessive type checks is empirically false\u2014well-written Ruby code rarely uses explicit type checking.",
+  "filename": "2009-06-02-DynamicTypeCheck"
+}

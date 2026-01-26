@@ -1,0 +1,26 @@
+{
+  "summary": "Reproducible builds are a foundational but often unstated assumption of Continuous Integration. While frequent releases with solid Continuous Delivery might seem to eliminate the need for reproducible builds, they remain essential for debugging scenarios where bugs cannot be reproduced on the current codebase. The ability to recreate past builds enables proper bug verification, ensures no tests are missing, and facilitates diff debugging to track down regressions. Even in modern release environments, reproducible builds provide critical debugging capabilities that forward-only releases cannot replace.",
+  "key_points": [
+    "Reproducible builds are considered so obvious in CI that they're rarely explicitly stated as a key practice",
+    "Even with weekly releases and solid CD pipelines, reproducible builds remain valuable for debugging",
+    "When bugs can't be reproduced on head, you need to build the released version to properly understand and test the fix",
+    "Diff debugging uses reproducible builds to bisect between known-good and known-bad versions to isolate when a bug was introduced",
+    "Modern version control systems like Git and Mercurial have bisect features specifically to support this debugging approach"
+  ],
+  "money_quotes": [
+    "By this we mean that at any point you should be able to take some older version of the system that you are working on and build it from source in exactly the same way as you did then.",
+    "I think that's because it's an underlying assumption - one that's considered so obvious there's no need to explain it.",
+    "What happens when you get a bug report and you can't reproduce it. Do you just declare it fixed and move on? I wouldn't be happy with that response.",
+    "To be confident in reproducing the bug, I'd need to reproduce the build.",
+    "Furthermore even if I'm confident that the bug got fixed en passant during recent development, I'd still argue that there's at least one test missing.",
+    "Such bugs can hide a long time before they wake up and wave their feelers at you."
+  ],
+  "themes": [
+    "continuous delivery",
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical, pragmatic, explanatory",
+  "key_insight": "Reproducible builds aren't just for supporting old releases\u2014they're essential debugging tools that let you verify bug understanding and use bisection to isolate when regressions were introduced.",
+  "filename": "2016-03-01-ReproducibleBuild"
+}

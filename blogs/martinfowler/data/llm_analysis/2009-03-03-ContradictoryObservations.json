@@ -1,0 +1,27 @@
+{
+  "summary": "Computer systems often assume data consistency, but some domains require capturing contradictory information. Drawing from healthcare work, Fowler explains how blood type records from different hospitals might conflict, yet both must be preserved for clinical integrity. The solution is modeling observations as first-class objects with metadata about when, who, and how they were recorded. Observations can be rejected but never deleted, maintaining an evidence web that tracks how information influenced decisions. This pattern acknowledges that real-world data is messy and systems must sometimes reflect that complexity rather than enforce artificial consistency.",
+  "key_points": [
+    "Contradictory data should sometimes be preserved rather than resolved, especially when we don't know which record is correct",
+    "Observations should be modeled as full objects with provenance metadata, not simple attributes on entities",
+    "Rejecting an observation marks it as believed-never-true but preserves it and links to the rejecting evidence",
+    "Observations form a web of evidence where rejecting one may cascade questions to dependent observations",
+    "Recording absence of something can be as diagnostically important as recording presence"
+  ],
+  "money_quotes": [
+    "But sometimes computer systems should record contradictory data and help humans deal with that.",
+    "Without further investigation we don't know which one is correct. Even if we test again and confirm one of them, we can't just throw away the bad one as it may have been the basis for further clinical action.",
+    "The key to handling this issue is to represent my blood type not as an attribute of a person class, but as a fully fledged class in its own right - which we called observation.",
+    "Often observing the absence of things is crucial in a diagnostic process.",
+    "Rejecting an observation says that we believe it was never true. We never delete the old observation, instead we mark it as rejected.",
+    "An important property of information is that it's used to guide behavior.",
+    "Observations thus form a web of evidence that we can examine as we learn more about the patient.",
+    "We mostly program in a world that we assume is consistent. But there are times where we have to step away from that comfortable assumption."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture"
+  ],
+  "tone": "reflective, technical, pragmatic",
+  "key_insight": "When reality is inherently contradictory or uncertain, systems should model observations as first-class objects with full provenance rather than forcing premature consistency.",
+  "filename": "2009-03-03-ContradictoryObservations"
+}

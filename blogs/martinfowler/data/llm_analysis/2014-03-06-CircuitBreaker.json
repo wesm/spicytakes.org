@@ -1,0 +1,26 @@
+{
+  "summary": "The Circuit Breaker pattern prevents cascading failures in distributed systems by wrapping remote calls in a monitoring object that trips after a failure threshold is reached. When open, the breaker fails fast without attempting the call, protecting both client resources and struggling servers. The pattern can self-reset by periodically attempting trial calls in a 'half-open' state. Fowler demonstrates the implementation in Ruby, progressing from a simple breaker requiring manual reset to a self-resetting version with three states: closed, open, and half-open. The pattern is valuable not just for fault tolerance but also as a monitoring and alerting mechanism for operational awareness.",
+  "key_points": [
+    "Remote calls differ fundamentally from in-memory calls because they can fail or hang, potentially causing cascading failures across systems",
+    "The circuit breaker monitors failures and trips at a threshold, returning errors immediately without attempting the protected call",
+    "Self-resetting breakers use a half-open state to periodically test if the underlying service has recovered",
+    "Circuit breakers should be integrated with monitoring systems and expose their state for operational visibility",
+    "Clients must implement fallback strategies when breakers trip, such as queuing operations or showing stale data"
+  ],
+  "money_quotes": [
+    "One of the big differences between in-memory calls and remote calls is that remote calls can fail, or hang without a response until some timeout limit is reached.",
+    "What's worse if you have many callers on a unresponsive supplier, then you can run out of critical resources leading to cascading failures across multiple systems.",
+    "You wrap a protected function call in a circuit breaker object, which monitors for failures.",
+    "This is a reasonable approach with electrical circuit breakers in buildings, but for software circuit breakers we can have the breaker itself detect if the underlying calls are working again.",
+    "You avoid waiting on timeouts for the client, and a broken circuit avoids putting load on a struggling server.",
+    "Circuit breakers are a valuable place for monitoring. Any change in breaker state should be logged and breakers should reveal details of their state for deeper monitoring.",
+    "Breaker behavior is often a good source of warnings about deeper troubles in the environment."
+  ],
+  "themes": [
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical",
+  "key_insight": "Circuit breakers transform unpredictable remote call failures into predictable, fast-failing responses that protect system resources and provide operational visibility into service health.",
+  "filename": "2014-03-06-CircuitBreaker"
+}

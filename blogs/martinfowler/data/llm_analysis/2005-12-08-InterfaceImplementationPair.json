@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler critiques the practice of creating an interface for every class (like ICustomer/Customer or Customer/CustomerImpl), which mirrors the C/C++ header file pattern. While this approach offers complete substitutability, Fowler argues it creates unnecessary maintenance overhead when multiple implementations don't actually exist. He distinguishes between application code, where Extract Interface refactoring can be applied on demand, and published libraries, where interfaces are more valuable but should be designed around client needs rather than mirroring implementation classes.",
+  "key_points": [
+    "Creating interface-implementation pairs for every class adds synchronization overhead without benefit when only one implementation exists",
+    "The pattern obscures cases where multiple implementations genuinely exist by making them indistinguishable from single-implementation classes",
+    "Application code can use Extract Interface refactoring on demand, making preemptive interfaces unnecessary",
+    "Published libraries benefit more from interfaces, but these should be designed for client needs, not as mirrors of implementation classes"
+  ],
+  "money_quotes": [
+    "Using interfaces when you aren't going to have multiple implementations is extra effort to keep everything in sync.",
+    "Furthermore it hides the cases where you actually do provide multiple implementations.",
+    "In an application if you ever need an interface where you don't have one you can just do Extract Interface and you're done.",
+    "Interfaces should be designed around your clients' needs, often these don't match the implementation.",
+    "Just mimicking the implementation classes in your PublishedInterfaces is rarely the best move."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring",
+    "api design"
+  ],
+  "tone": "pragmatic, critical, nuanced",
+  "key_insight": "Interfaces should emerge from actual need for abstraction rather than being created preemptively, and when they are needed, they should reflect client requirements rather than implementation structure.",
+  "filename": "2005-12-08-InterfaceImplementationPair"
+}

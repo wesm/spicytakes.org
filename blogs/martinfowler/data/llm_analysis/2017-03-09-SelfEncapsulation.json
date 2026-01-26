@@ -1,0 +1,25 @@
+{
+  "summary": "Self-encapsulation extends the principle of data encapsulation by requiring that even internal access to object fields go through accessor methods, not just external access. Fowler explains the concept with Java examples showing the difference between standard encapsulation and self-encapsulation. While some organizations have mandated self-encapsulation, Fowler takes a pragmatic stance: most of the time it adds unnecessary ceremony since classes are typically small and accessors are simple. However, he acknowledges specific cases where self-encapsulation proves valuable, particularly when setters contain logic or when working with inheritance hierarchies where accessors serve as override hooks.",
+  "key_points": [
+    "Self-encapsulation means all field access, including internal access within the class, should go through accessor methods",
+    "The value of encapsulation is proportional to the scope of data access\u2014small classes don't benefit much from internal encapsulation",
+    "Self-encapsulation becomes worthwhile when setters contain validation or consequential logic",
+    "Inheritance structures benefit from self-encapsulation because accessors provide hook points for subclasses to override behavior",
+    "Extracting a new class often resolves the same problems that would lead to self-encapsulation"
+  ],
+  "money_quotes": [
+    "Self-encapsulation goes a step further, indicating that all internal access to a data field should also go through accessor methods as well.",
+    "The value of encapsulation is proportional to the scope of the data access.",
+    "Classes are usually small (at least mine are) so direct access isn't going to be an issue within that scope.",
+    "Most accessors are simple assignments for the setter and retrieval for the getter, so there's little value in using them internally.",
+    "If there is logic in the setter, then it's wise to consider it for any internal updates too.",
+    "Often the forces that lead me to consider self-encapsulation I can resolve by extracting a new class."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "pragmatic, balanced, technical",
+  "key_insight": "Self-encapsulation is usually unnecessary overhead for small classes, but becomes valuable when setters contain logic or inheritance requires override hooks\u2014and often the need for it signals you should extract a new class instead.",
+  "filename": "2017-03-09-SelfEncapsulation"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Fowler addresses the apparent contradiction between his 'First Law of Distributed Object Design' (don't distribute your objects) and his interest in microservices. He clarifies that distributed objects from the late 90s/early 00s attempted to make remote calls transparent to developers, which fails because you cannot encapsulate the remote/in-process distinction. Microservices, by contrast, explicitly acknowledge distribution through coarse-grained APIs and messaging. While Fowler's default preference remains monolithic design due to distribution's complexity costs, he respects empirical evidence from successful microservices adopters like Netflix. He concludes that the matter remains unsettled and that writers should communicate lessons clearly while acknowledging uncertainty.",
+  "key_points": [
+    "The 'First Law' targeted distributed objects that claimed in-process/remote transparency, not microservices which explicitly design for distribution",
+    "Remote calls differ fundamentally from in-process calls in latency and failure modes, requiring different API design (coarse-grained vs fine-grained)",
+    "Distribution is a 'complexity booster' that pushes complexity into service interconnections where it's less explicit and harder to debug",
+    "Empirical evidence from successful microservices adopters (Netflix, Amazon) should trump theoretical preferences, even gut feelings",
+    "The counterfactual problem makes definitive architectural conclusions nearly impossible - we can't know if teams would have fared better with monoliths"
+  ],
+  "money_quotes": [
+    "My objection to the notion of distributed objects was although you can encapsulate many things behind object boundaries, you can't encapsulate the remote/in-process distinction.",
+    "While small microservices are certainly simpler to reason about, I worry that this pushes complexity into the interconnections between services, where it's less explicit and thus harder to figure out when it goes wrong.",
+    "I am by nature an empiricist, one that believes that empirical evidence trumps theory, even if that theory is rather better worked out than my gut feel.",
+    "Although organizations like Netflix and Spotify have trumpeted their earlier success with microservices there are also examples like Etsy or Facebook that have had success with much more monolithic architectures.",
+    "However successful a team may think itself to have been with microservices, the only real comparison would be the counter-factual - would they have fared better with a monolith?",
+    "Given this uncertainty, the most important thing a writer like myself can do is to communicate as clearly as I can the lessons we think we've learned, even if they are contradictory."
+  ],
+  "themes": [
+    "microservices",
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "reflective, nuanced, intellectually honest",
+  "key_insight": "Microservices don't violate the First Law because they explicitly design for distribution rather than hiding it, but distribution remains a complexity cost that should make monoliths the default choice absent compelling empirical evidence.",
+  "filename": "2014-08-13-distributed-objects-microservices"
+}

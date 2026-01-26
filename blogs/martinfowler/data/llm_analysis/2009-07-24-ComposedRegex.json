@@ -1,0 +1,23 @@
+{
+  "summary": "Martin Fowler applies Kent Beck's Composed Method pattern to regular expressions, arguing that complex regexes should be broken into well-named smaller pieces rather than left as monolithic strings or merely commented. He demonstrates progressive refactoring of a hotel points regex, showing how extracting named constants for logical chunks makes the pattern readable without diving into regex syntax. The post explores variations including separating whitespace tokens and creating a helper method to join patterns. Fowler concludes that code should be readable without mental parsing, and composition works whether using raw regex or fluent interfaces.",
+  "key_points": [
+    "The Composed Method pattern that works for methods applies equally well to regular expressions",
+    "Comments are not bad, but self-documenting structure through naming is usually a better option",
+    "Breaking regexes into named string constants allows readers to understand structure before diving into syntax details",
+    "Programming abstractions like helper methods can further clean up repetitive patterns like whitespace handling",
+    "Named capture groups and fluent interfaces help but don't replace the fundamental benefit of composition"
+  ],
+  "money_quotes": [
+    "People can read your programs much more quickly and accurately if they can understand them in detail, then chunk those details into higher level structures.",
+    "Comments are not bad - but there are often better options. I always try to write code that doesn't need comments, usually by good naming and structure.",
+    "Code should not need to be figured out, it should be just read.",
+    "The point of composition is that it breaks the overall regex into small pieces that are easier to understand.",
+    "I've broken down the pattern into logical chunks and put them together again at the end."
+  ],
+  "themes": [
+    "refactoring"
+  ],
+  "tone": "technical",
+  "key_insight": "The same composition principle that makes methods readable\u2014breaking them into well-named smaller pieces\u2014applies to regular expressions and other code structures that tend toward unreadable complexity.",
+  "filename": "2009-07-24-ComposedRegex"
+}

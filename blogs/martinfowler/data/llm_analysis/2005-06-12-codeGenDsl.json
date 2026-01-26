@@ -1,0 +1,24 @@
+{
+  "summary": "This article explores different approaches to making Domain Specific Languages executable through code generation. Fowler walks through progressively more sophisticated techniques: a simple single-pass parser that directly configures a framework, a two-pass approach that builds an Abstract Syntax Tree (AST) as an intermediate representation, and finally template-based generation using Velocity. The key insight is that separating parsing from generation via an AST enables multiple input formats (custom syntax, XML) to share the same generator, and that templates allow generating optimized compile-time code rather than runtime configuration.",
+  "key_points": [
+    "A single-pass parser that directly configures the target framework is quick and simple for basic cases",
+    "Separating parsing from generation via an Abstract Syntax Tree allows multiple concrete syntaxes (custom text, XML) to share the same generator",
+    "Templates enable generating compile-time code with direct method calls rather than runtime reflection-based configuration",
+    "Parser generator tools become worthwhile for anything more complex than trivial languages",
+    "The AST takes a central role in language workbenches, serving as the bridge between multiple human-readable representations and code generation"
+  ],
+  "money_quotes": [
+    "The real advantage in the AST lies when we want to read or write multiple formats.",
+    "In a language workbench, the abstract representation takes a much more central role than it does in conventional programming - together with the idea that you can have multiple human readable forms for the same abstract representation.",
+    "You don't have to get much more complex than this example to make these tools worthwhile.",
+    "When I'm doing templating I usually like to first write a hard coded class for a single case, get that class working and debugged, and then (as gradually as I can) replace the hard coded elements with templated elements.",
+    "Indeed the lisp style of language oriented programming is more like this, you write a generator that generates lisp code that's executed at run time. This is where lisp's macro capabilities shine."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "The Abstract Syntax Tree serves as a crucial decoupling layer that enables multiple input syntaxes and output generators to be combined independently, which is fundamental to how language workbenches operate.",
+  "filename": "2005-06-12-codeGenDsl"
+}

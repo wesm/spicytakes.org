@@ -1,0 +1,27 @@
+{
+  "summary": "The author advocates for a 'function-first' approach to dependency composition in TypeScript, using partial application to inject dependencies rather than traditional DI frameworks. Starting from frustrations with inconsistent patterns across a codebase, he demonstrates building a REST service through TDD, creating factory functions that return configured handlers. The approach emphasizes minimal coupling between modules, keeping types private by default, and leveraging TypeScript's structural typing to maintain type safety without explicit type sharing. The result is discrete, testable modules that can evolve independently.",
+  "key_points": [
+    "Dependency injection is a means to achieve codebase qualities like minimal coupling and testable business logic, not an end in itself",
+    "Partial application (functions returning functions with context) serves as the foundation for injecting dependencies without frameworks",
+    "Types should not be exported by default; TypeScript's structural typing allows modules to remain decoupled while maintaining compile-time safety",
+    "Duplicate types across modules are preferable to shared types when the coupling risk outweighs the DRY violation",
+    "The approach leaves 'trails' in code design: rigid structures where change is unlikely, flexible factories where evolution is expected"
+  ],
+  "money_quotes": [
+    "Dependency injection is a means, not an end.",
+    "In retrospect, I should have guided the team towards asking a different question: what are the desired qualities of our codebase, and what approaches should we use to achieve them?",
+    "Types are very cheap in a structurally-typed language like Typescript, so the cost of doing so is very low.",
+    "By maintaining two distinct types, one for each layer of my application, I'm much less likely to couple those layers unnecessarily.",
+    "As unintuitive as this may seem, I believe it is the right choice: collapsing the entities is very cheap and easy at this point. If they begin to diverge, I probably shouldn't merge them anyway, but pulling them apart once they are bound can be very tricky.",
+    "The design choice provides a trail, so to speak, indicating how I anticipate the software might evolve.",
+    "There are many ways to put a system together, each with a complex set of tradeoffs. That makes software architecture often difficult and always engaging."
+  ],
+  "themes": [
+    "architecture",
+    "testing",
+    "refactoring"
+  ],
+  "tone": "technical, instructive, pragmatic",
+  "key_insight": "Rather than debating which DI framework to adopt, teams should focus on the qualities they want in their codebase and use partial application with structural typing to achieve minimal coupling and maximum testability.",
+  "filename": "2023-05-23-dependency-composition"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Parallel change (or expand and contract) is a three-phase pattern for making backward-incompatible interface changes safely: expand the interface to support both old and new versions, migrate all clients to the new version, then contract by removing the old version. The post illustrates this with a Grid class example where x,y coordinates are refactored to a Coordinate object. This pattern is essential for continuous delivery because code can be released at any phase. It applies broadly to refactoring, database migrations, deployments (canary/blue-green), and REST API evolution.",
+  "key_points": [
+    "Breaking interface changes into expand-migrate-contract phases separates the concerns of implementing change from updating usages",
+    "During expand, both old and new versions coexist; during migrate, clients incrementally adopt the new version; during contract, the old version is removed",
+    "Even with full control over clients, this pattern prevents spreading breakage across the entire codebase at once",
+    "The pattern applies to refactoring, database design, deployment strategies, and remote API evolution",
+    "Feature flags can control which version clients use during migration, decoupling supplier and client releases"
+  ],
+  "money_quotes": [
+    "Making a change to an interface that impacts all its consumers requires two thinking modes: implementing the change itself, and then updating all its usages.",
+    "Parallel change is a pattern to implement backward-incompatible changes to an interface in a safe manner, by breaking the change into three distinct phases: expand, migrate, and contract.",
+    "This pattern is particularly useful when practicing ContinuousDelivery because it allows your code to be released in any of these three phases.",
+    "Even when you have control over all usages of the interface, following this pattern is still useful because it prevents you from spreading breakage across the entire codebase all at once.",
+    "The migrate phase can be short, but it is an alternative to leaning on the compiler to find all the usages that need to be fixed.",
+    "The downside of using parallel change is that during the migrate phase the supplier has to support two different versions, and clients could get confused about which version is new versus old."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture",
+    "microservices",
+    "agile"
+  ],
+  "tone": "technical, instructive, methodical",
+  "key_insight": "Backward-incompatible changes become safe and manageable when decomposed into expand, migrate, and contract phases that allow incremental client migration while maintaining a releasable codebase throughout.",
+  "filename": "2014-05-13-ParallelChange"
+}

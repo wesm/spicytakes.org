@@ -1,0 +1,27 @@
+{
+  "summary": "Martin Fowler explains the concept of value objects\u2014compound objects whose equality is determined by their property values rather than memory references. He contrasts them with reference objects (entities), demonstrates implementation across JavaScript, Java, and Clojure, and emphasizes that value objects should be immutable to avoid aliasing bugs. The post argues that while small objects like points and money are obvious candidates, larger structures can also benefit from value object treatment. Fowler concludes that value objects are often overlooked but can dramatically simplify codebases when properly identified and implemented.",
+  "key_points": [
+    "Value objects are equal when their properties match, while reference objects are equal when they share identity (same memory reference or unique identifier)",
+    "Value objects should be immutable to prevent aliasing bugs where changes in one place have unexpected consequences elsewhere",
+    "Whether to model something as a value or reference object depends on context\u2014a postal address might be a value object in one system and a reference object in another",
+    "Replacing primitive types with domain-specific value objects improves type safety, enables validation, and prevents inappropriate operations",
+    "Small value objects are often overlooked but can serve as powerful refactoring focal points that dramatically simplify systems"
+  ],
+  "money_quotes": [
+    "Value objects should be immutable.",
+    "I find that value objects, particularly small ones, are often overlooked - seen as too trivial to be worth thinking about.",
+    "It's often a good idea to replace common primitives, such as strings, with appropriate value objects.",
+    "I often run into code bases where domain-specific value objects like this can act as a focus for refactoring, leading to a drastic simplification of a system.",
+    "Whether to treat a concept as a reference object or value object depends on your context.",
+    "As with most modeling problems, different contexts lead to different solutions.",
+    "There is robust competition for the worst feature of the pre-Java-8 date and time system - but my vote would be this one."
+  ],
+  "themes": [
+    "domain_driven",
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical, instructive, pragmatic",
+  "key_insight": "Value objects\u2014immutable compounds compared by their properties rather than identity\u2014are deceptively simple yet serve as powerful refactoring leverage points that can dramatically simplify complex codebases.",
+  "filename": "2016-11-14-ValueObject"
+}

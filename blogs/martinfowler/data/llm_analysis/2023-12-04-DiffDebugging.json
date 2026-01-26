@@ -1,0 +1,25 @@
+{
+  "summary": "Diff debugging is a technique for hunting regression bugs by identifying which specific code change caused the bug to appear. The approach requires version control, reproducible builds, and benefits greatly from small, frequent commits. The method uses a binary search between a known good version and the buggy version to efficiently locate the guilty commit. Git bisect can automate this process, especially when combined with an automated test that detects the bug. Fowler advocates for extremely frequent commits during development sessions to enable this debugging technique even for bugs caught by slower-running tests.",
+  "key_points": [
+    "Regression bugs can be efficiently tracked by finding the specific commit that introduced them through binary search",
+    "Prerequisites for effective diff debugging include version control, reproducible builds, and small frequent commits",
+    "Git bisect automates the binary search process and can be fully automated with a test that detects the bug",
+    "Committing after every green test run enables diff debugging even within a single programming session",
+    "Even commits that will later be squashed have value for short-term debugging purposes"
+  ],
+  "money_quotes": [
+    "Looking at that change can give invaluable clues about where the bug is and how to squash it.",
+    "Diff debugging only works if we have our code in version control, but fortunately these days that's the norm.",
+    "It helps greatly to have small commits, due to high-frequency integration. That way when we find the guilty commit, we can more easily narrow down what happened.",
+    "If we can write a test that will show the presence of the bug, then git bisect can use that too, automating the whole process of finding the guilty commit.",
+    "Such is the value of committing extremely frequently, even if they are so small that I feel its best to squash them for the long-term history."
+  ],
+  "themes": [
+    "testing",
+    "agile",
+    "technical_leadership"
+  ],
+  "tone": "technical",
+  "key_insight": "Small, frequent commits aren't just good hygiene\u2014they're a debugging superpower that enables efficient binary search through your code's history to pinpoint exactly when bugs were introduced.",
+  "filename": "2023-12-04-DiffDebugging"
+}

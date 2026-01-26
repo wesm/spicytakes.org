@@ -1,0 +1,25 @@
+{
+  "summary": "Hidden precision occurs when data contains more precision than expected, leading to subtle bugs. The post illustrates this with two common examples: date/time handling where creating a 'date' actually creates an instant at midnight, causing range checks to fail unexpectedly, and floating point arithmetic where values like 0.10 don't represent exactly, causing sums to miss expected thresholds. Fowler argues these issues stem from poor naming and modeling in APIs. The solution for money is to use integers representing the smallest currency unit, while floating point comparisons generally require explicit precision tolerances.",
+  "key_points": [
+    "Date APIs often create instants (with time components) when you think you're creating dates, causing off-by-one-day bugs in range checks",
+    "Floating point numbers cannot exactly represent many decimal values, leading to invisible precision errors in calculations",
+    "Money should never be represented with floating point; use integers on the fractional value instead",
+    "Test framework assertions include precision parameters for floating point comparisons precisely because of these issues",
+    "Hidden precision problems stem from poor API naming and inadequate modeling of domain concepts like dates"
+  ],
+  "money_quotes": [
+    "Sometimes when I work with some data, that data is more precise than I expect. One might think that would be a good thing, after all precision is good, so more is better. But hidden precision can lead to some subtle bugs.",
+    "I didn't actually specify dates, but instants in time, so I'm not marking the end date as November 8th, I'm marking the end as the time 00:00 on November 8th.",
+    "Hidden precision is a common problem with dates, because it's sadly common to have a date creation function that actually provides an instant like this.",
+    "It's an example of poor naming, and indeed general poor modeling of dates and times.",
+    "You should be extremely wary of representing money with a floating point number.",
+    "The more general conclusion is that floating point is tricksy when it comes to comparisons."
+  ],
+  "themes": [
+    "architecture",
+    "testing"
+  ],
+  "tone": "technical",
+  "key_insight": "When APIs provide more precision than their names suggest\u2014dates that are really instants, decimals that are really approximations\u2014the hidden precision creates subtle bugs that only surface at the worst times.",
+  "filename": "2016-11-22-HiddenPrecision"
+}

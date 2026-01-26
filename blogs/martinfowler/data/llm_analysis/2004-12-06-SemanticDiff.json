@@ -1,0 +1,21 @@
+{
+  "summary": "Fowler introduces the concept of 'semantic diff' - a version control capability that would understand the purpose behind code changes rather than just their textual effects. Current diff tools can show what changed between versions but cannot recognize that changes resulted from intentional refactoring operations. This limitation makes both code review and merging more difficult than necessary. A semantic diff would identify that an Extract Method refactoring occurred, rather than just showing scattered text modifications.",
+  "key_points": [
+    "Current diff algorithms only understand the effect of changes, not their intent or purpose",
+    "Refactoring operations create changes that are semantically unified but appear scattered in traditional diffs",
+    "Understanding the purpose of changes would improve both diff readability and merge operations",
+    "Tool-assisted refactoring creates an opportunity for capturing semantic intent that current version control misses"
+  ],
+  "money_quotes": [
+    "A semantic diff would understand the purpose of the change, rather than just the effect.",
+    "With current tools they see the change in the program text, but they don't know that I did a refactoring.",
+    "Good diff (and merge) algorithms are around for text and binary files. The trouble with these diffs is that they are rather dumb."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Version control tools that understood the semantic intent behind changes\u2014like recognizing a refactoring operation\u2014would make code review and merging significantly more effective than treating code as mere text.",
+  "filename": "2004-12-06-SemanticDiff"
+}

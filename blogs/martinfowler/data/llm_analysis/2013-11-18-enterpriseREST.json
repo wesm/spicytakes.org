@@ -1,0 +1,29 @@
+{
+  "summary": "This article argues that successful enterprise REST integration depends far more on engineering practices than on REST's technical nuances. The author contends that large legacy replacements are among IT's hardest challenges, and organizations often underestimate integration complexity. The piece advocates for logical environment isolation, disciplined deployment pipelines with consumer-based testing, domain-driven bounded contexts for data modeling, and epic-level program management. The conclusion emphasizes that scaling RESTful integration requires addressing social and organizational issues rather than obsessing over hypermedia mechanics.",
+  "key_points": [
+    "Logical environments should be defined per need, allowing developers isolation and control over release schedules rather than forcing everyone into shared, inflexible environments",
+    "Versioning should be a last resort\u2014techniques like Postel's Law, tolerant deserialization, and semantic versioning can delay or avoid the complexity of maintaining multiple service versions",
+    "Consumer-based testing, where consumers write tests for producers, catches integration problems early and enables deployable artifact sets that are proven to work together",
+    "Bounded contexts from Domain-Driven Design prevent the disaster of trying to create universal data models\u2014each business unit should have its own definition of common entities",
+    "Epics rather than user stories should be the primary metric for tracking velocity in large SOA projects, as story-level metrics can give a false sense of progress"
+  ],
+  "money_quotes": [
+    "Large-scale legacy replacement is the hardest job in the entire IT industry.",
+    "Some people, when confronted with a problem, think 'I know, I'll use versioning.' Now they have 2.1.0 problems.",
+    "Automatic deserialization usually falls into the WSDL pitfall of coupling consumers and producers by duplicating a static class structure in both.",
+    "Defining data boundaries poorly is one of the most expensive mistakes an architect can make.",
+    "In any large system, some of it will be poorly designed. Our principal goal of integration, therefore, is to ensure that we insulate ourselves from another subsystem's design.",
+    "Ease of deployment and environment management should be one of the criteria by which packages are selected.",
+    "The symptom to watch for is when velocity burnups show the program delivering on time, but nothing seems to work."
+  ],
+  "themes": [
+    "architecture",
+    "microservices",
+    "testing",
+    "domain_driven",
+    "agile"
+  ],
+  "tone": "pragmatic, experienced, opinionated",
+  "key_insight": "Success in enterprise REST integration depends far less on understanding HATEOAS and far more on deployment strategies, consumer-based testing, bounded contexts, and epic-level coordination.",
+  "filename": "2013-11-18-enterpriseREST"
+}

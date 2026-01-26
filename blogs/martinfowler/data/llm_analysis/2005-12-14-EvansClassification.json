@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler explains Eric Evans' classification system for domain objects from Domain Driven Design, which divides objects into Entities (objects with persistent identity), Value Objects (objects defined by their attributes), and Services (standalone operations). He provides practical guidance on distinguishing between these categories, noting that while the definitions are somewhat intuitive, clear implementation patterns exist. Fowler emphasizes that value objects should be immutable and override equality methods, while entities typically don't. He acknowledges the terminology is problematic due to overloaded meanings in other contexts like databases and SOA.",
+  "key_points": [
+    "Entities have distinct identity through time; Value Objects are defined entirely by their attributes; Services are standalone operations typically accessing external resources",
+    "Value objects should always be immutable to avoid aliasing bugs - you replace them rather than modify them",
+    "The distinction between entities and values is reflected in code: values override equality/hash methods, entities typically don't",
+    "Service objects are usually singular within a processing context but implementation mechanism should be hidden from other domain objects",
+    "The terminology is heavily overloaded and conflicts with database entities, SOA services, and service layers"
+  ],
+  "money_quotes": [
+    "The trouble is that the trio are hard to define precisely, they are of the 'I know them when I see them' category.",
+    "Entities are usually big things like Customer, Ship, Rental Agreement. Values are usually little things like Date, Money, Database Query.",
+    "One important rule to follow is that value objects should be immutable (otherwise you get into all sorts of trouble with aliasing bugs).",
+    "To change a value (such as my height) you don't change the height object, you replace it with a new one.",
+    "You should ensure that your implementation mechanism is hidden from other domain objects so you can easily change it.",
+    "So be wary of assuming people are using these words like this - they are heavily overloaded. Sadly there's not much alternative."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture"
+  ],
+  "tone": "technical, practical, cautionary",
+  "key_insight": "Domain objects fall into three categories - Entities, Value Objects, and Services - but recognizing which is which requires intuition and experience rather than rigid definitions, and the terminology is unfortunately overloaded with conflicting meanings elsewhere.",
+  "filename": "2005-12-14-EvansClassification"
+}

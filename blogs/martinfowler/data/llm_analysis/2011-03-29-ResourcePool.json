@@ -1,0 +1,22 @@
+{
+  "summary": "Resource pools provide an efficient way to manage expensive-to-create resources like database connections and threads. Rather than creating resources on demand, clients borrow them from a pre-initialized pool and return them when finished. Pools can be configured to grow dynamically when demand exceeds capacity, with limits to prevent unbounded growth. The pattern also requires strategies for handling resource leaks, with testing techniques to detect clients that fail to return resources.",
+  "key_points": [
+    "Resource pools manage expensive resources (database connections, threads) by lending them to clients rather than creating new ones each time",
+    "Pools can respond to exhaustion by throwing exceptions, blocking clients, or dynamically growing to meet demand",
+    "Dynamic pool growth should still have upper limits, with optional shrinking when resources sit idle",
+    "Resource leaks can be detected by setting pool limit to 1 during testing and throwing exceptions when exceeded"
+  ],
+  "money_quotes": [
+    "Many programs need to make use of resources that are expensive to create and maintain.",
+    "When a client needs to use a database connection, rather than create one itself, it asks the pool to give it one.",
+    "Often the best response, if possible, is to grow the pool by creating further connections.",
+    "One problem you often run into with resource pools is clients not handing back the resources - which is a resource leak.",
+    "A good way of combating that is to set the pool limit to 1 during testing, and configure the pool so that asking for a resource at limit raises an exception."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Resource pools transform expensive resource creation into a borrowing pattern, with the key challenge being leak detection rather than allocation strategy.",
+  "filename": "2011-03-29-ResourcePool"
+}

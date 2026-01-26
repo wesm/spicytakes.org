@@ -1,0 +1,23 @@
+{
+  "summary": "This post demonstrates how to use Racc, Ruby's built-in yacc-style parser generator, through a practical example of parsing a simple item catalog format. Fowler walks through creating a grammar file, implementing a lexer using StringScanner, and integrating both into a working parser. Finding the default lexer approach too messy, he refactors it into a cleaner wrapper class that provides a more declarative interface. The post emphasizes that Racc is easy to use for those familiar with yacc, though documentation is sparse.",
+  "key_points": [
+    "Racc generates a parser class from a grammar file with familiar BNF-style production rules",
+    "The lexer integration is the most complex part, requiring a method that yields token type-value pairs",
+    "StringScanner from Ruby's standard library is the preferred approach over raw regex matching",
+    "A custom lexer wrapper can provide a cleaner, more declarative interface for defining token patterns",
+    "Having the grammar call the lexer one token at a time enables future implementation of lexical states"
+  ],
+  "money_quotes": [
+    "The most complicated part of using racc is to sort out the lexer.",
+    "Forwardable is a handy library that allows me to delegate methods to an instance variable.",
+    "I really just want it to tell the lexer what patterns to match and what to return with them.",
+    "On the whole racc is pretty easy to set up and use - providing you know yacc.",
+    "The documentation is on the minimal side of sketchy."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "While Racc makes parser generation accessible in Ruby, the real work lies in crafting a clean lexer interface that balances flexibility with simplicity.",
+  "filename": "2007-05-30-HelloRacc"
+}

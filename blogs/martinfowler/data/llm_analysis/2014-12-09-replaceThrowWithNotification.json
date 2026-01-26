@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler demonstrates how to refactor validation code that throws exceptions into code using the Notification pattern. He argues that exceptions should be reserved for truly unexpected events, not validation failures which are expected behavior. The Notification pattern collects all errors rather than failing on the first one, providing better user experience. He walks through a step-by-step refactoring of a booking request validator, emphasizing the importance of taking small behavior-preserving steps and working backwards through the validation chain to avoid breaking code.",
+  "key_points": [
+    "Exceptions should not be used for expected behaviors like validation failures - they signal something outside expected bounds",
+    "The Notification pattern collects all errors into an object, allowing users to see and fix all problems at once instead of playing 'whack-a-mole'",
+    "Whether to use exceptions depends on context - reading a missing /etc/hosts file warrants an exception, but a user-typed path does not",
+    "When refactoring, work backwards through validation checks to avoid breaking code with null pointer exceptions",
+    "Refactoring should use the smallest behavior-preserving steps possible to reduce debugging risk"
+  ],
+  "money_quotes": [
+    "if a failure is expected behavior, then you shouldn't be using exceptions",
+    "Exceptions are a very useful technique for handling exceptional behavior and getting it away from the main flow of logic. This refactoring is a good one to use only when the outcome signaled by the exception isn't really exceptional",
+    "A notification is an object that collects errors, each validation failure adds an error to the notification",
+    "It's better to report all errors with the incoming data, not just the first. That way a client can choose to display all errors for the user to fix in a single interaction rather than give her the impression she's playing a game of whack-a-mole with the computer",
+    "when we refactor we should always try to take the smallest steps we can that preserve behavior. By doing this we reduce the chances of an error that will trap us in the debugger",
+    "We believe that exceptions should rarely be used as part of a program's normal flow: exceptions should be reserved for unexpected events"
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Validation failures are expected behavior, not exceptional conditions, so they deserve their own pattern (Notification) that collects all errors for a better user experience rather than failing fast with exceptions.",
+  "filename": "2014-12-09-replaceThrowWithNotification"
+}

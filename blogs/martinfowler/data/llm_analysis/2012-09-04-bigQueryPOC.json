@@ -1,0 +1,24 @@
+{
+  "summary": "Thoughtworks partnered with AutoTrader UK to test Google BigQuery's capability to analyze large datasets, using 750 million rows of historical car advertisement data. The proof-of-concept aimed to help dealers determine car pricing and selling timeframes. While data transfer from Amazon EC2 to Google Cloud Storage was slow (12 hours), once loaded, BigQuery delivered query results in 7-10 seconds. The team built a web frontend using Google App Engine and Charts for visualization. Overall, BigQuery proved viable for organizations wanting Big Data insights without expensive infrastructure investments.",
+  "key_points": [
+    "Transferring 750 million rows from Amazon to Google Cloud Storage was the slowest part, taking 12 hours, while parallel loading into BigQuery could have reduced the 8-hour import to 15 minutes",
+    "Query performance stabilized at 7-10 seconds after an initial slow period, possibly due to internal data distribution processes",
+    "BigQuery offers a low-investment option for testing theories on large datasets, even for organizations with existing enterprise data warehouses",
+    "The proof-of-concept encountered practical issues including timestamp format incompatibilities, JSON format mismatches between BigQuery and Charts, and Python version conflicts",
+    "Data usage costs can accumulate quickly during development since fast query returns mask the large result sets being processed"
+  ],
+  "money_quotes": [
+    "For organisations longing to gain insights into very large datasets, BigQuery could be a viable option that requires no purchases of specialised software or additional infrastructure.",
+    "Even for organisations that already have an enterprise data warehouse, BigQuery is an option for testing out theories, or for other instances where the keepers of the data warehouse place restrictions on use.",
+    "Queries come back so fast, you forget that return sets can be many gigabytes\u00e2and they add up fast.",
+    "We were able to experiment with different ways of visualising and querying a very large volume of data with a relatively low investment in terms of time and without needing expensive infrastructure.",
+    "Initially these queries were taking a few minutes, but the next morning things took around 7 to 10 seconds and this remained reasonably consistent for the remainder of the exercise."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "technical",
+  "key_insight": "BigQuery enables rapid experimentation with Big Data analytics at low cost, making it valuable both as a primary solution for organizations lacking infrastructure and as a sandbox for those with existing data warehouses.",
+  "filename": "2012-09-04-bigQueryPOC"
+}

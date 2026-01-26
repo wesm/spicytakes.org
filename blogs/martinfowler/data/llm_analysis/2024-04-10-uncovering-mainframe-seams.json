@@ -1,0 +1,26 @@
+{
+  "summary": "This article describes Thoughtworks' approach to incrementally migrating a 40-year-old, 7-million-line-of-code mainframe system to the cloud for a UK client's data platform. Rather than attempting a risky 'Big Bang' cutover, they advocated for identifying 'seams'\u2014junction points in the legacy code where new behavior could be inserted with minimal changes. The approach involved dual-running both systems in parallel, comparing outputs to verify behavioral parity, then gradually retiring mainframe capabilities. The team identified multiple seam types: external interfaces (batch inputs, APIs), internal interfaces (database readers/writers, batch pipeline handoffs), and granular data characteristics. While Thoughtworks was only involved for the first year and didn't reach production, they validated multiple approaches for incremental legacy displacement.",
+  "key_points": [
+    "Seams are junction points where code or modules meet, allowing behavior modification with minimal mainframe code changes\u2014they enable incremental migration rather than Big Bang replacement",
+    "Dual Run architecture runs both legacy and new systems in parallel with identical inputs, comparing outputs to verify behavioral parity before retiring mainframe capabilities",
+    "External seams (file transfers, APIs) allow silent migration from customers' perspective using Dark Launching and Canary Release patterns",
+    "Database interactions serve as major seams\u2014separating readers (replicated via CDC to cloud) from writers (migrated incrementally with data replicated back to mainframe)",
+    "Complex identity rules required granular data characteristic seams with fallback mechanisms, since running identity-minting in parallel would cause drift"
+  ],
+  "money_quotes": [
+    "We were wary of the risks and potential pitfalls of a Big Design Up Front, so we advised our client to work on a 'just enough, and just in time' upfront design, with engineering during the first phase.",
+    "You can think of them as the junction points where code, programs, or modules meet... they can be employed strategically to alter the behaviour of applications, for example to intercept data flows within the Mainframe allowing for capabilities to be offloaded to a new system.",
+    "The client's workload was largely analytical, processing mostly external data to produce insight which was sold on to clients. We therefore saw an opportunity to split our transformation programme in two parts, one around data curation, the other around data serving.",
+    "Our goal was to achieve a silent migration process, where customers would seamlessly transition between systems without any noticeable impact.",
+    "How much this will cost depends on various factors, but you cannot expect to save on costs via dual running two systems in parallel.",
+    "Being capability-driven helps ensure that you are not building another tangled system, and keeps responsibilities and concerns separate at their appropriate layers.",
+    "Unless you take steps to abstract the schema when replicating a database, then your new cloud products will be coupled to the legacy schema as soon as they're built."
+  ],
+  "themes": [
+    "architecture",
+    "technical_leadership"
+  ],
+  "tone": "technical, methodical, pragmatic",
+  "key_insight": "Successful mainframe modernization requires identifying architectural seams\u2014natural boundaries in legacy code\u2014that enable incremental migration with dual-run verification, rather than risky wholesale replacement.",
+  "filename": "2024-04-10-uncovering-mainframe-seams"
+}

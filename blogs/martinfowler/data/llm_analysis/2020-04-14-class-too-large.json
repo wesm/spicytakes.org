@@ -1,0 +1,27 @@
+{
+  "summary": "Clare Sudbery walks through a real-world refactoring of a personal accounting application where the ReconciliationIntro class had grown too large to reason about. The article demonstrates how to break a bloated class into smaller, focused classes (FileLoader, BudgetingMonthService, Communicator, PathSetter, DebugModeSwitcher) using tiny, incremental steps that keep tests passing at all times. The key insight is that refactoring neglect creates a vicious cycle where code becomes increasingly difficult to modify, and the solution is methodical extraction following Kent Beck's advice to 'make the change easy, then make the easy change.'",
+  "key_points": [
+    "Large classes create a feedback loop: code that's hard to reason about discourages refactoring, making it even harder to modify over time",
+    "Moving in tiny steps is the most important refactoring principle - keep code compiling and tests passing after every small change",
+    "Before extracting a new class, analyze method relationships with diagrams to identify dependencies and plan the extraction order",
+    "When moving methods, start with the lowest leaves in the call hierarchy (methods with no internal dependencies) and work upward",
+    "Refactoring doesn't require writing new tests - existing tests verify functionality still works, and you simply move them to new test classes"
+  ],
+  "money_quotes": [
+    "In these circumstances it's horribly easy to think things like, 'Well I know this code is a mess, but I don't have time to get my head round it and fix it now...'",
+    "It's horribly easy to embark on a relatively simple refactor, only to find it has repercussions beyond your original intention.",
+    "'Fits In My Head' is one of the patterns in Dan Terhorst-North's Software, Faster book. He talks about the importance of being able to comprehend any chunk of code by 'fitting it in your head.'",
+    "As Kent Beck says, 'Make the change easy, then make the easy change.'",
+    "People can get so used to the TDD concept of writing tests before writing code that they assume you need to write new tests whenever you work on code. This is often not the case when refactoring.",
+    "By extracting this code into a separate class and giving it its own clear context, I'm already making this code a bit better.",
+    "Often what I'm doing is setting things up so that the next change will be as small and simple as possible. I'm making small changes to facilitate more small changes."
+  ],
+  "themes": [
+    "refactoring",
+    "testing",
+    "architecture"
+  ],
+  "tone": "practical, instructional, candid",
+  "key_insight": "Refactoring large classes requires moving in tiny incremental steps that keep tests passing, starting by analyzing method relationships and extracting from the bottom of the call hierarchy upward.",
+  "filename": "2020-04-14-class-too-large"
+}

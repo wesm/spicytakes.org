@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler explains the Richardson Maturity Model (RMM), a framework developed by Leonard Richardson that describes the progression toward RESTful API design in three levels. Starting from Level 0 (HTTP as a tunnel for RPC), systems evolve through Level 1 (individual resources with URIs), Level 2 (proper use of HTTP verbs and status codes), and finally Level 3 (hypermedia controls/HATEOAS). Fowler emphasizes that while Level 3 is a precondition for true REST according to Roy Fielding, the model is best used as a learning tool rather than an assessment mechanism. He notes the practical benefits of each level, from caching enabled by proper GET usage to the discoverability and flexibility that hypermedia controls provide.",
+  "key_points": [
+    "Level 0 uses HTTP purely as transport for RPC-style calls to a single endpoint, ignoring web mechanisms",
+    "Level 1 introduces addressable resources with individual URIs, similar to object identity in OOP",
+    "Level 2 leverages HTTP verbs (GET for safe operations, POST/PUT for state changes) and response codes, enabling caching and standardized error handling",
+    "Level 3 adds hypermedia controls (HATEOAS) that tell clients what actions are available and where to perform them, enabling URI scheme changes without breaking clients",
+    "Roy Fielding considers Level 3 a precondition for REST, not just a nice-to-have"
+  ],
+  "money_quotes": [
+    "The web is an existence proof of a massively scalable distributed system that works really well, and we can take ideas from that to build integrated systems more easily.",
+    "To an object guy like me this is like the notion of object identity. Rather than calling some function in the ether and passing arguments, we call a method on one particular object.",
+    "HTTP defines GET as a safe operation, that is it doesn't make any significant changes to the state of anything. This allows us to invoke GETs safely any number of times in any order and get the same results each time.",
+    "The point of hypermedia controls is that they tell us what we can do next, and the URI of the resource we need to manipulate to do it.",
+    "One obvious benefit of hypermedia controls is that it allows the server to change its URI scheme without breaking clients.",
+    "Roy Fielding has made it clear that level 3 RMM is a pre-condition of REST.",
+    "I don't think we have enough examples yet to be really sure that the restful approach is the right way to integrate systems, I do think it's a very attractive approach and the one that I would recommend in most situations."
+  ],
+  "themes": [
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical, pedagogical, pragmatic",
+  "key_insight": "The Richardson Maturity Model provides a practical progression for understanding REST, where each level\u2014resources, HTTP verbs, and hypermedia controls\u2014addresses a distinct design challenge: complexity management, standardization, and discoverability.",
+  "filename": "2010-03-18-richardsonMaturityModel"
+}

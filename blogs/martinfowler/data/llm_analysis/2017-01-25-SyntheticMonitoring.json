@@ -1,0 +1,25 @@
+{
+  "summary": "Synthetic monitoring runs automated tests against live production systems on a regular schedule to detect business requirement failures in real-time. The technique addresses the challenge of testing microservices environments where pre-production cannot replicate exact production version combinations. By shifting focus from Mean-Time-Between-Failures to Mean-Time-To-Recovery, teams can extend testability into production. The article illustrates this with a car marketplace example running Selenium tests every 5 minutes against production, using parameters to exclude test traffic from analytics. Broad stack tests from the top of the test pyramid are well-suited for this approach.",
+  "key_points": [
+    "Synthetic monitoring combines automated testing with production monitoring to catch failures in business requirements",
+    "In microservices with frequent deployments, pre-production environments cannot match exact production version combinations",
+    "The approach shifts mindset from preventing failures (MTBF) to recovering quickly (MTTR)",
+    "Test requests should be marked to exclude from analytics using URL parameters, headers, or identifiable test accounts",
+    "Broad stack tests like UI tests, user journey tests, and consumer-driven contracts are ideal candidates for synthetic monitoring"
+  ],
+  "money_quotes": [
+    "In the age of small independent services and frequent deployments it's very difficult to test pre-production with the exact same combination of versions as they will later exist in production.",
+    "MTTR > MTBF, for most types of F",
+    "Doing this shifts the mindset from a focus on Mean-Time-Between-Failures (MTBF) towards a focus on Mean-Time-To-Recovery (MTTR).",
+    "One way to mitigate this problem is to extend testability from pre-production into production environments - the idea behind QA in production.",
+    "A selection of Broad Stack Tests at the top of the Test Pyramid are well suited to use for synthetic monitoring."
+  ],
+  "themes": [
+    "testing",
+    "microservices",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "When production complexity exceeds what pre-production environments can replicate, extending automated testing into production via synthetic monitoring becomes essential for detecting real business failures.",
+  "filename": "2017-01-25-SyntheticMonitoring"
+}

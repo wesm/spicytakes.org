@@ -1,0 +1,26 @@
+{
+  "summary": "Bounded Context is a central pattern in Domain-Driven Design that addresses the challenge of building unified models across large systems. Rather than attempting total unification\u2014which DDD recognizes as neither feasible nor cost-effective\u2014the pattern divides large systems into distinct contexts, each maintaining its own internally consistent model. Different contexts may share concepts like 'Customer' or 'Product' but represent them differently, with explicit mapping mechanisms handling integration. The boundaries between contexts are typically drawn along human cultural lines, since models serve as a Ubiquitous Language that changes across organizational groups.",
+  "key_points": [
+    "Total unification of domain models for large systems is neither feasible nor cost-effective, necessitating bounded contexts",
+    "Polysemes\u2014words like 'meter,' 'customer,' or 'product' that mean subtly different things to different groups\u2014cause confusion that can be smoothed over in conversation but not in software",
+    "Bounded contexts can share concepts but with completely different models, requiring explicit mapping mechanisms for integration",
+    "Context boundaries are primarily drawn by human culture and language differences, not just technical considerations",
+    "Context maps help visualize and manage relationships between bounded contexts"
+  ],
+  "money_quotes": [
+    "DDD deals with large models by dividing them into different Bounded Contexts and being explicit about their interrelationships.",
+    "As you try to model a larger domain, it gets progressively harder to build a single unified model.",
+    "These subtle polysemes could be smoothed over in conversation but not in the precise world of computers.",
+    "Total unification of the domain model for a large system will not be feasible or cost-effective.",
+    "Usually the dominant one is human culture, since models act as Ubiquitous Language, you need a different model when the language changes.",
+    "Different contexts may have completely different models of common concepts with mechanisms to map between these polysemic concepts for integration."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture",
+    "microservices"
+  ],
+  "tone": "technical, explanatory, authoritative",
+  "key_insight": "Large systems require multiple bounded contexts with explicit interrelationships because the precision software demands cannot accommodate the natural polysemy of language across organizational boundaries.",
+  "filename": "2014-01-15-BoundedContext"
+}

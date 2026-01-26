@@ -1,0 +1,24 @@
+{
+  "summary": "Martin Fowler distinguishes between two styles of internal DSLs (domain-specific languages embedded within a host language): internal minilanguages and language enhancements. Internal minilanguages use a deliberate subset of a general-purpose language to create code that reads almost like a custom DSL, while language enhancements use metaprogramming to make the host language appear to have new keywords or capabilities. Both approaches avoid the need to build a parser while being constrained by the host language's syntax. The distinction matters for understanding how Ruby and Lisp communities think about DSLs.",
+  "key_points": [
+    "Internal DSLs are embedded within existing host languages, popular in Lisp and Ruby communities",
+    "Internal minilanguages deliberately use a subset of the host language to achieve an external DSL-like effect",
+    "Language enhancements use metaprogramming to make code appear as if the host language has new keywords",
+    "Internal DSLs trade syntactic flexibility for the convenience of not building a parser",
+    "The boundary between these two styles is fuzzy\u2014tools like Rake could be classified either way"
+  ],
+  "money_quotes": [
+    "An internal DSL is a DomainSpecificLanguage that is written inside an existing host language.",
+    "This is all valid ruby, but its use of a subset of ruby makes it seem almost like a custom DSL.",
+    "Unlike an external DSL you are limited by the syntax and programming model of your host language, but you don't need to bother with building a parser.",
+    "Reading these bits of Rails's validation, it looks like we've given the ruby language new keywords. Of course we haven't modified ruby, this is all clever metaprogramming.",
+    "But it feels like we've enhanced the ruby language."
+  ],
+  "themes": [
+    "architecture",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "Internal DSLs come in two distinct flavors\u2014minilanguages that mimic external DSLs and language enhancements that extend the host language's apparent capabilities through metaprogramming.",
+  "filename": "2006-10-24-InternalDslStyle"
+}

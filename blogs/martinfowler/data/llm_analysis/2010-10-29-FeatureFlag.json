@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler explains feature flags as an alternative to feature branches for managing incomplete features across release cycles. The technique involves configuration-controlled toggles that hide pending features from users while allowing continuous integration on mainline. He categorizes flags into release toggles, experiment toggles, ops toggles, and permissioning toggles. Fowler emphasizes minimizing toggle points and retiring flags promptly to avoid technical debt. Crucially, he argues that release flags should be a last resort\u2014teams should first try breaking features into smaller releasable pieces or using keystone interfaces.",
+  "key_points": [
+    "Feature flags enable continuous integration by hiding incomplete features through configuration rather than code branches",
+    "Toggle points should be minimized to entry points only\u2014don't protect every code path, just the user-facing access points",
+    "Testing doesn't require combinatorial explosion: test with expected-release flags on, and with all flags on",
+    "Release flags must be retired once features ship, or you accumulate unmaintainable toggle debt",
+    "Feature flags should be the last choice after small releases and keystone interfaces"
+  ],
+  "money_quotes": [
+    "Your first choice should be to break the feature down so you can safely introduce parts of the feature into the product.",
+    "Don't try to protect every code path in the new feature code with a flag, focus on just the entry points that would lead users there and toggle those entry points.",
+    "It's very important to retire release flags once the pending features have bedded down in production.",
+    "In one memorable example I heard of, it required making a special recompilation of the linux kernel to handle enough command line switches.",
+    "Only if you can't do small releases or a Keystone Interface should you employ release flags.",
+    "The advantages of doing this are the same ones as any strategy based on small, frequent releases."
+  ],
+  "themes": [
+    "continuous_delivery",
+    "architecture",
+    "agile"
+  ],
+  "tone": "pragmatic, instructive, cautionary",
+  "key_insight": "Feature flags are a useful technique for hiding incomplete features, but they should be your last resort after attempting to break features into smaller releasable pieces or using keystone interfaces.",
+  "filename": "2010-10-29-FeatureFlag"
+}

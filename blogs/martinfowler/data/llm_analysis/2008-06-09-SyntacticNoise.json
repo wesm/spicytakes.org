@@ -1,0 +1,25 @@
+{
+  "summary": "Syntactic noise refers to extraneous characters in code that exist only to satisfy language requirements rather than express meaningful domain information. Fowler distinguishes between 'domain text' (information about the specific problem, like state names) and 'punctuation' (everything else), arguing that while some punctuation is necessary, too much obscures meaning. He demonstrates this by comparing the same state machine DSL across different syntaxes: custom external DSL, Ruby internal DSL, Java command-query API, fluent Java, and XML. The external DSL has minimal punctuation while XML and traditional Java APIs have substantially more. The key insight is that punctuation-to-domain-text ratio matters\u2014having more punctuation than domain text is a code smell.",
+  "key_points": [
+    "Syntactic noise is subjective but can be analyzed by separating domain text from punctuation",
+    "Some punctuation is necessary and beneficial\u2014the goal isn't minimization but appropriate balance",
+    "External custom DSLs typically have less syntactic noise than internal DSLs in host languages",
+    "The ratio of punctuation to domain text is a useful heuristic for evaluating DSL quality",
+    "Different language paradigms (fluent APIs, XML, Ruby) make different noise tradeoffs"
+  ],
+  "money_quotes": [
+    "By Syntactic Noise, what people mean is extraneous characters that aren't part of what we really need to say, but are there to satisfy the language definition.",
+    "Noise characters are bad because they obscure the meaning of our program, forcing us to puzzle out what it's doing.",
+    "Punctuation isn't the same as noise, I would say that the wrong kind of punctuation is noise, or too much punctuation is noise.",
+    "I don't think it's a good idea to try to reduce punctuation to the absolute minimum, too little punctuation also makes a DSL harder to comprehend.",
+    "One of the main themes in my DSL thinking is that a DSL is a way to populate a framework.",
+    "Having more characters of punctuation than you do of domain text in a DSL is a smell."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Syntactic noise should be evaluated not by minimizing all punctuation, but by examining the ratio of punctuation to domain text\u2014when punctuation exceeds domain content, the DSL has a design smell.",
+  "filename": "2008-06-09-SyntacticNoise"
+}

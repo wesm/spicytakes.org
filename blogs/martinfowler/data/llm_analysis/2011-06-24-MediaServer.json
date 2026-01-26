@@ -1,0 +1,23 @@
+{
+  "summary": "Martin Fowler documents his home server upgrade project, replacing an aging 2005 Debian box with an HP N36L server and adding a WD TV for video streaming. He walks through his requirements including samba shares, backups, music streaming via Squeezebox, and DHCP services, while also wanting to reduce power consumption and add Netflix capability. After evaluating options like Mac Mini, all-in-one HTPC builds, and NAS solutions, he chose to keep server and video functions separate for independent upgradeability. The post serves as a practical log of his decision-making process rather than a technical tutorial.",
+  "key_points": [
+    "Separating server and video functions into distinct devices allows for independent upgrades and flexibility",
+    "RAID mirroring provides limited protection compared to regular automated backups, which also protect against user errors like accidental deletion",
+    "Familiarity with a platform (Debian/Unix) is a valid factor when choosing home server solutions",
+    "Hot-swapping capabilities in NAS units are often unnecessary for home use where drive changes are rare",
+    "Starting with simpler solutions (WD TV over Boxee) allows for future upgrades if needs change"
+  ],
+  "money_quotes": [
+    "I also see little point in RAID mirroring. It does protect you from a hard drive failure - but that's not the only thing that can go wrong.",
+    "RAID won't protect you from rm important_file.",
+    "So my preference is regular, automated, backups. This also allows the backup hard drive to be well away from the server box.",
+    "I ended up not fancying having it all in a single machine - preferring the ability to upgrade them independently.",
+    "I felt the WDTV would do for now and I could always change later should I need to."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "practical",
+  "key_insight": "Regular automated backups provide better protection than RAID mirroring because they guard against a wider range of failures including human error, not just hardware failure.",
+  "filename": "2011-06-24-MediaServer"
+}

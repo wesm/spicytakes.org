@@ -1,0 +1,27 @@
+{
+  "summary": "Martin Fowler clarifies the often-confused distinction between mock objects and stubs in testing, explaining that the core difference lies in verification approach: stubs use state verification (checking the final state of objects) while mocks use behavior verification (checking that correct method calls were made). He further identifies two distinct schools of Test Driven Development: classical TDD, which uses real objects whenever possible and doubles only when necessary, versus mockist TDD, which always uses mocks for collaborators. Fowler examines the trade-offs between these approaches across multiple dimensions including fixture setup, test isolation, coupling to implementation, and design influence. He ultimately declares himself a classical TDDer, expressing concern about mockist testing's tight coupling to implementation details, while acknowledging that mockists he respects find value in the approach.",
+  "key_points": [
+    "Test doubles come in five varieties (dummy, fake, stub, spy, mock), but only mocks insist on behavior verification - the others typically use state verification",
+    "Classical TDD uses real objects when possible and doubles only for awkward collaborations, while mockist TDD always mocks objects with interesting behavior",
+    "Mockist testing couples tests to implementation details, making refactoring more likely to break tests but providing clearer guidance through outside-in development",
+    "Classical tests are essentially mini-integration tests that can catch interaction bugs, while mockist tests provide better isolation but may mask errors through incorrect expectations",
+    "The mockist approach encourages 'Tell Don't Ask' design and role interfaces, while classical testing is more compatible with domain-model-first development"
+  ],
+  "money_quotes": [
+    "On the one hand there is a difference in how test results are verified: a distinction between state verification and behavior verification.",
+    "Of these kinds of doubles, only mocks insist upon behavior verification.",
+    "Mock objects always use behavior verification, a stub can go either way.",
+    "I really like the fact that while writing the test you focus on the result of the behavior, not how it's done. A mockist is constantly thinking about how the SUT is going to be implemented in order to write the expectations. This feels really unnatural to me.",
+    "In essence classic xunit tests are not just unit tests, but also mini-integration tests.",
+    "Coupling to the implementation also interferes with refactoring, since implementation changes are much more likely to break tests than with classic testing.",
+    "One of the hardest things for people to understand in OO design is the 'Tell Don't Ask' principle, which encourages you to tell an object to do something rather than rip data out of an object to do it in client code."
+  ],
+  "themes": [
+    "testing",
+    "refactoring",
+    "technical_leadership"
+  ],
+  "tone": "technical, analytical, balanced",
+  "key_insight": "The mock versus stub distinction is really about verification philosophy - behavior versus state - which reflects a deeper divide between mockist and classical approaches to test-driven development, each with legitimate trade-offs around coupling, isolation, and design influence.",
+  "filename": "2007-01-02-mocksArentStubs"
+}

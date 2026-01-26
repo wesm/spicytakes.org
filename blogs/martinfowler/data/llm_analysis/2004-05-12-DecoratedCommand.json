@@ -1,0 +1,24 @@
+{
+  "summary": "The Decorated Command pattern applies the classic decorator pattern to command objects, allowing behavior like transactions and security checks to be layered onto domain commands dynamically. Each decorator wraps a command and adds functionality before or after executing the wrapped command. This pattern is commonly used with Command-Oriented Interfaces and is related to aspect-oriented programming concepts. While it provides the benefits of AOP-style advice, it's limited to advising only the Execute method, unlike full AOP tools like AspectJ that can advise any method or field access.",
+  "key_points": [
+    "Decorated Command is simply the decorator pattern applied to command objects with execute methods",
+    "Decorators like TransactionalDecorator and SecurityDecorator can be composed to layer multiple behaviors",
+    "The pattern enables dynamic addition of cross-cutting concerns without modifying domain logic",
+    "This approach is related to AOP and interceptors but is more limited since only the Execute method can be advised",
+    "Full AOP tools like AspectJ offer more flexibility by allowing advice on any method or field access"
+  ],
+  "money_quotes": [
+    "This is a very common pattern and also very simple, it's really just the decorator pattern applied to commands.",
+    "Indeed this ability to add behavior dynamically is one of the big benefits of a CommandOrientedInterface.",
+    "This is aspectish, but there's more to aspect oriented programming than this.",
+    "In aspect terms, the decorators provide advice to the domain command's Execute method.",
+    "However in order to do this, you have to organize everything around the commands, since only the Execute method can be advised."
+  ],
+  "themes": [
+    "architecture",
+    "api design"
+  ],
+  "tone": "technical",
+  "key_insight": "The Decorated Command pattern offers a simple, composable way to add cross-cutting concerns to command objects, providing aspect-oriented benefits within the constraints of a command-oriented architecture.",
+  "filename": "2004-05-12-DecoratedCommand"
+}

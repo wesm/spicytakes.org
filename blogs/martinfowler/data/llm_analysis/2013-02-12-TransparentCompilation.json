@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler distinguishes 'transparent' compilers like CoffeeScript and SCSS from other source-to-source compilers by their design intention: the output must remain readable and debuggable by developers. This constraint fundamentally shapes what the source language can do, requiring it to follow the target language's semantics and program structure. Despite these limitations, transparent compilation provides significant value through useful language features and improved code readability. The tradeoff is worthwhile because cleaner source code is easier to understand even when debugging the generated output.",
+  "key_points": [
+    "Transparent compilation differs from regular source-to-source compilation by its intention that developers will read and debug the output code",
+    "The transparency constraint limits language design freedom - you must follow the target language's semantics and maintain clear structural correspondence",
+    "Superset languages like SCSS and TypeScript make the correspondence even clearer by ensuring any target code is also valid source code",
+    "The value of transparent compilation lies in adding missing language features and improving readability, even when debugging happens in the target language",
+    "An experienced JavaScript programmer concluded CoffeeScript was worthwhile because the source is easier to read, even when debugging generated JavaScript"
+  ],
+  "money_quotes": [
+    "This is the essence of what makes the compilation process transparent - the intention that you will work in the output language.",
+    "If you're going to generate JavaScript for the browser, this ignorance is hard to live with.",
+    "It's this difference in intention which is what separates the transparent style of transpilation from the more common approach.",
+    "The fact that you have to work at keeping the compilation transparent puts limits on what you can do in the source language.",
+    "These constraints haven't been widely talked about as a feature of language design.",
+    "It's easier to understand what is going on when you're reading the CoffeeScript, even when you're debugging in the generated JavaScript code.",
+    "The transformation may not look like such a big deal for small fragments, but it makes a big difference once you're up to hundreds of lines of code."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical, analytical, pragmatic",
+  "key_insight": "Transparent compilation succeeds not despite the constraint of readable output, but because that constraint forces a clear correspondence that makes both source and target code easier to understand.",
+  "filename": "2013-02-12-TransparentCompilation"
+}

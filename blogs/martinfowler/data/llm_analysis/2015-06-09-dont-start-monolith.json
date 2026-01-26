@@ -1,0 +1,27 @@
+{
+  "summary": "Stefan Tilkov challenges the popular advice that microservices architectures should always start as monoliths. He argues that once you build a monolith, the tight coupling between parts makes it extremely difficult to later extract services. The ideal approach is to start with separated subsystems from the beginning, provided you know your domain well\u2014ideally when building a second version of an existing system. He acknowledges this adds complexity that smaller projects may not need, but emphasizes that microservices' main value is establishing hard boundaries that prevent unintended coupling.",
+  "key_points": [
+    "Starting with a monolith creates tight coupling that makes later extraction into microservices extremely difficult\u2014that's the very definition of a monolith",
+    "The main benefit of microservices is enabling parallel development by establishing hard-to-cross boundaries between system parts",
+    "If you can build a well-structured monolith, you probably don't need microservices in the first place",
+    "The ideal scenario for microservices is building a second version of a system where you already know the domain well",
+    "Beware of overly simple architectural recipes\u2014the right choice depends on your specific context"
+  ],
+  "money_quotes": [
+    "I'm firmly convinced that starting with a monolith is usually exactly the wrong thing to do.",
+    "If you are actually able to build a well-structured monolith, you probably don't need microservices in the first place.",
+    "Microservices' main benefit, in my view, is enabling parallel development by establishing a hard-to-cross boundary between different parts of your system.",
+    "But if you start with a monolith, the parts will become extremely tightly coupled to each other. That's the very definition of a monolith.",
+    "Even the very fact that it's easy to refactor things and move them around \u2013 all in the convenience of your IDE's view of a single project \u2013 is what makes it extremely hard to cut things apart again.",
+    "Refactoring in the small becomes easier, refactoring in the large becomes much harder.",
+    "As is always the case with architecture discussions, there is no way to get around the fact that you need to make that decision on your own, in each and every individual case."
+  ],
+  "themes": [
+    "microservices",
+    "architecture",
+    "refactoring"
+  ],
+  "tone": "opinionated, contrarian, pragmatic",
+  "key_insight": "The ease of refactoring within a monolith is precisely what creates the tight coupling that makes extracting microservices later nearly impossible.",
+  "filename": "2015-06-09-dont-start-monolith"
+}

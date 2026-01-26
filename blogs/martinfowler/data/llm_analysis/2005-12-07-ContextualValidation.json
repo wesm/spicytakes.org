@@ -1,0 +1,25 @@
+{
+  "summary": "Martin Fowler argues that validation should not be thought of as a context-free property of objects, but rather as something bound to specific actions or contexts. He critiques the common pattern of implementing generic 'isValid' methods, suggesting instead that validation should be tied to specific operations like 'isValidForCheckIn'. The post also challenges the assumption that all validation failures should prevent database saves, referencing Alan Cooper's principle that users should be able to save incomplete information. Fowler concludes that developers tend to be overly restrictive about when objects can be saved.",
+  "key_points": [
+    "Validation should be context-dependent, tied to specific actions rather than abstract object state",
+    "Methods like 'isValidForCheckIn' are more useful than generic 'isValid' methods",
+    "Saving to a database is itself an action that requires its own validation context",
+    "Not all validation failures should prevent an object from being persisted",
+    "Developers tend to over-restrict saving, preventing users from storing incomplete work"
+  ],
+  "money_quotes": [
+    "I think it's much more useful to think of validation as something that's bound to a context - typically an action that you want to do.",
+    "Is this order valid to be filled, is this customer valid to check in to the hotel. So rather than have methods like isValid have methods like isValidForCheckIn.",
+    "One of the consequences of this is that saving an object to a database is itself an action.",
+    "The various validity checks that make this up should be interrogated with the question 'should failing this test prevent saving?'",
+    "Alan Cooper advocated that we shouldn't let our ideas of valid states prevent a user from entering (and saving) incomplete information.",
+    "While I'm not convinced that this should be an absolute rule, I do think people tend to prevent saving more than they ought."
+  ],
+  "themes": [
+    "domain_driven",
+    "architecture"
+  ],
+  "tone": "reflective, pragmatic, advisory",
+  "key_insight": "Validation is not an intrinsic property of an object but a contextual question tied to specific actions, and the decision to prevent saving should be deliberately interrogated rather than assumed.",
+  "filename": "2005-12-07-ContextualValidation"
+}

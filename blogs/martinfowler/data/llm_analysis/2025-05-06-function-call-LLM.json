@@ -1,0 +1,26 @@
+{
+  "summary": "This article explains function calling, a capability that allows LLMs to interact with external systems by generating structured JSON outputs containing function names and parameters rather than executing functions directly. Using a Shopping Agent example, the author demonstrates how to build an agent that interprets user intent and invokes appropriate APIs. The piece covers system prompts, function schemas, security guardrails against prompt injection, and the use of libraries like instructor to reduce boilerplate. It also explores how LLM-based approaches might offer advantages over traditional rules engines and explains the Model Context Protocol (MCP) for dynamic tool discovery.",
+  "key_points": [
+    "Function calling enables LLMs to analyze natural language, extract intent, and generate structured JSON for function invocation\u2014but the LLM itself never executes functions",
+    "Security is critical: restrict the agent's action space with explicit conditional logic rather than dynamic eval, and implement guardrails against prompt injection attacks",
+    "The instructor library can reduce boilerplate by automatically serializing Pydantic objects into OpenAI-compatible JSON schemas",
+    "LLM-based systems may offer a compelling alternative to rules engines because they reason about context and intent rather than relying on rigid, hard-to-maintain rule chains",
+    "The Model Context Protocol (MCP) enables dynamic tool discovery at runtime, decoupling agents from hardcoded function sets for greater extensibility"
+  ],
+  "money_quotes": [
+    "It's important to emphasize that when using function calling, the LLM itself does not execute the function. Instead, it identifies the appropriate function, gathers all required parameters, and provides the information in a structured JSON format.",
+    "It's essential to restrict the agent's action space using explicit conditional logic. While dynamically invoking functions using eval might seem convenient, it poses significant security risks, including prompt injections that could lead to unauthorized code execution.",
+    "When building a user-facing agent that communicates in natural language and performs background actions via function calling, it's critical to anticipate adversarial behavior. Users may intentionally try to bypass safeguards and trick the agent into taking unintended actions\u2014like SQL injection, but through language.",
+    "The core issue with rules engines lies in their complexity over time. As the number of rules grows, so does the risk of unintended interactions between them.",
+    "LLM-based systems offer a compelling alternative. While they don't yet provide full transparency or determinism in their decision making, they can reason about user intent and context in a way that traditional static rule sets cannot.",
+    "The core problem MCP addresses is flexibility and dynamic tool discovery.",
+    "It's prudent to start by enabling function calling for low-risk operations and gradually extend it to more critical ones as safety mechanisms mature."
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms"
+  ],
+  "tone": "technical",
+  "key_insight": "Function calling bridges the gap between LLM reasoning and real-world system interactions, but requires careful security guardrails and explicit action space restrictions to prevent prompt injection attacks.",
+  "filename": "2025-05-06-function-call-LLM"
+}

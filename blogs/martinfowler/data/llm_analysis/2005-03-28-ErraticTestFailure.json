@@ -1,0 +1,25 @@
+{
+  "summary": "Fowler recounts debugging an intermittent test failure where tests passed in Ant but failed in IntelliJ, and passed after restarting the IDE. The root cause was shared static data between tests\u2014specifically, a ClockWrapper that wasn't being reinitialized in all tests. Depending on test execution order, some tests would fail because they inherited stale state from previous tests. The key lesson is that test isolation is critical, and intermittent failures almost always stem from shared, improperly initialized data between tests.",
+  "key_points": [
+    "Intermittent test failures that vary between runs or test suites almost always indicate shared data that isn't properly reinitialized",
+    "Even with JUnit's strong isolation via new instance per test, static data can still cause coupling between tests",
+    "The instinct to blame tools (IDE, compiler) is usually wrong\u2014the bug is in your code",
+    "Test isolation requires creating fresh data for each test, though this trades off against test speed",
+    "When debugging intermittent failures, trace any shared or static data and verify it's fully initialized in each test"
+  ],
+  "money_quotes": [
+    "The bug's always in your code, not the compiler.",
+    "If tests sometimes pass and sometimes fail on a run without any code changes, or tests pass when run in some suites but fail when run in others; nine times out of eight the reason is that there is some shared data between tests that isn't being properly reinitialized.",
+    "The result is an intermittent failure - always the worst because you can't reliably reproduce it.",
+    "Do everything you can to keep your test data isolated.",
+    "Try to create fresh data every time (although there is a trade-off here with getting fast test runs).",
+    "The more you practice good test isolation, the less chance you have of running into this kind of problem."
+  ],
+  "themes": [
+    "testing",
+    "refactoring"
+  ],
+  "tone": "reflective, self-deprecating, instructive",
+  "key_insight": "Intermittent test failures are almost always caused by shared state between tests that isn't properly initialized, making test isolation the fundamental discipline for reliable test suites.",
+  "filename": "2005-03-28-ErraticTestFailure"
+}

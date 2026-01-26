@@ -1,0 +1,22 @@
+{
+  "summary": "Fowler presents two practical approaches for substituting service stubs during testing while keeping real implementations for production. The first approach, from Jeremy Stell-Smith, uses an Abstract Factory with a stack-based implementation that simplifies test setup and teardown. The second approach, from Kraig Parkinson, uses a prototype pattern where individual services can be replaced directly. Both patterns solve the common problem of isolating code under test from external dependencies like persistence layers.",
+  "key_points": [
+    "Abstract Factory pattern with a stack of implementations makes managing test stubs cleaner and easier to set up/tear down",
+    "Prototype pattern offers a lighter-weight alternative where individual facades can be swapped for testing",
+    "Both approaches use static getInstance() methods as the seam for substituting test doubles",
+    "The prototype approach with inline anonymous classes resembles Mock Objects' expectation-setting pattern",
+    "Cleanup code can go either in finally blocks within tests or in tearDown methods"
+  ],
+  "money_quotes": [
+    "A common problem with test-enhanced designs is how to create Service Stubs in test mode while letting the real thing be there for production (and for some tests).",
+    "As well as the Abstract Factory capability the test factory also has the nice ability to have a stack of implementations - this makes setup of factories easier.",
+    "You can think of this as a lightweight way of doing Mock Objects."
+  ],
+  "themes": [
+    "testing",
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Strategic use of factories and prototypes as seams in your design enables clean substitution of service stubs for testing without polluting production code.",
+  "filename": "2003-06-10-MakingStubs"
+}

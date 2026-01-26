@@ -1,0 +1,27 @@
+{
+  "summary": "The article argues that while observability is critical for modern distributed systems, adding instrumentation directly to domain code creates cluttered, hard-to-maintain codebases. The solution is Domain-Oriented Observability, implemented through the Domain Probe pattern\u2014a class that presents a high-level, domain-focused instrumentation API while encapsulating the low-level details of logging, metrics, and analytics systems. This separation keeps domain code clean and readable while making observability testable. The pattern also addresses how to inject contextual metadata (request IDs, user identifiers) without polluting domain classes with technical concerns.",
+  "key_points": [
+    "Higher-level, product-oriented metrics are more valuable than low-level technical metrics because they directly reflect business goals",
+    "Instrumentation code mixed into domain logic can reduce the actual business logic to just 25% of a method's code",
+    "The Domain Probe pattern extracts instrumentation into dedicated classes that speak the language of the domain, not the language of logging frameworks",
+    "Testing observability becomes significantly easier with Domain Probes because tests can verify domain observations without coupling to instrumentation implementation details",
+    "Contextual metadata like request IDs can be injected through factory patterns and partial application, keeping domain classes unaware of technical metadata"
+  ],
+  "money_quotes": [
+    "Higher-level, product-oriented metrics are more valuable because, by definition, they more closely reflect that the system is performing toward its intended business goals.",
+    "A Domain Probe enables us to add observability to domain logic while still talking in the language of the domain.",
+    "Keeping domain code focused on the domain pays rich dividends in terms of keeping a codebase readable, maintainable, and extensible.",
+    "It's rare to see good test coverage of instrumentation logic.",
+    "Our tests capture the essential complexity of adding observability without dragging in too much accidental complexity.",
+    "A simple rule to follow is that your domain classes should never have a direct reference to any instrumentation systems.",
+    "Don't allocate a dedicated effort to moving everything over in one go. This way you will be sure that 'hot spots' in your code\u2014areas that are frequently changing and likely more valuable to the business\u2014are made more observable and easier to test."
+  ],
+  "themes": [
+    "architecture",
+    "testing",
+    "domain_driven"
+  ],
+  "tone": "technical, pragmatic, instructional",
+  "key_insight": "Observability code should be treated as a first-class architectural concern that speaks the domain's language, not as low-level plumbing scattered throughout business logic.",
+  "filename": "2019-04-09-domain-oriented-observability"
+}

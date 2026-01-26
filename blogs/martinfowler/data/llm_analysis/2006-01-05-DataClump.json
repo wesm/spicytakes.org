@@ -1,0 +1,20 @@
+{
+  "summary": "Data Clump is a code smell where the same few data items are constantly passed around together instead of being grouped into an object. The refactoring solution is to identify these recurring value groups (like start/end pairs that should be ranges) and turn them into proper objects. Beyond cleaning up parameter lists, this refactoring opens opportunities to move related behavior into the new objects, making the codebase more object-oriented and maintainable.",
+  "key_points": [
+    "Data clumps are groups of values that consistently appear together throughout code, signaling they should be a single object",
+    "Primitive values are often the culprits because developers don't think to wrap them in objects",
+    "Converting data clumps to objects immediately shrinks parameter lists",
+    "The real value comes from discovering behavior that can be moved into the new objects"
+  ],
+  "money_quotes": [
+    "Whenever two or three values are gathered together - turn them into a $%#$%^ object.",
+    "Often data clumps are primitive values that nobody thinks to turn into an object.",
+    "The interesting stuff happens as you begin to look for behavior to move into the new objects."
+  ],
+  "themes": [
+    "refactoring"
+  ],
+  "tone": "instructional",
+  "key_insight": "Recognizing and refactoring data clumps not only simplifies parameter lists but reveals opportunities to create richer objects with meaningful behavior.",
+  "filename": "2006-01-05-DataClump"
+}

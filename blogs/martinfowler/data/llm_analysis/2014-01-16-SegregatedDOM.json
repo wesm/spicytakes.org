@@ -1,0 +1,26 @@
+{
+  "summary": "Martin Fowler addresses the common problem of 'jQuery soup' in single-page web applications, where application logic, DOM manipulation, and server access become tangled together. He proposes Segregated DOM as a modularization tactic that isolates all DOM manipulation into dedicated JavaScript objects. Using his eurogames catalog page as an example, he demonstrates how a controller class can manage application logic while communicating with DOM gateway classes through DOM-independent interfaces. This separation improves code reasoning, maintainability, and crucially enables testing the controller logic without a browser or mock browser environment.",
+  "key_points": [
+    "Segregated DOM separates all DOM manipulation into dedicated JavaScript objects, keeping the controller free of jQuery and HTML structure concerns",
+    "DOM objects act as Gateways between bounded contexts - translating application vocabulary into HTML DOM operations",
+    "The pattern enables testing controller logic in Node.js without PhantomJS or browser dependencies by using simple test doubles",
+    "Applying the Humble Object pattern by shifting logic out of DOM gateways maximizes testable code",
+    "Good modular design correlates directly with testability - each class can be tested in relative isolation"
+  ],
+  "money_quotes": [
+    "Single-page web applications often turn into jQuery soup, where application logic, DOM manipulation, and server access are all mixed together.",
+    "The principal benefit of doing this is to make it easier to reason about each class by keeping it focused on a single task.",
+    "Like any gateway the DOM object has an interface that speaks the vocabulary of its client (the application) and an implementation that translates this into the barbaric (HTML DOM) land beyond.",
+    "A good modular design tends to correlate to testability.",
+    "A particular advantage with a Segregated DOM is that I can test the controller without using a browser or mock browser such as PhantomJS.",
+    "By shifting as much logic out of the DOM gateway as possible, I can increase how much testing I can do without resorting to PhantomJS and the like."
+  ],
+  "themes": [
+    "architecture",
+    "testing",
+    "domain_driven"
+  ],
+  "tone": "technical, instructive, pragmatic",
+  "key_insight": "Treating DOM manipulation as a Gateway between bounded contexts enables cleaner separation of concerns and dramatically improves testability by allowing application logic to be tested without browser dependencies.",
+  "filename": "2014-01-16-SegregatedDOM"
+}

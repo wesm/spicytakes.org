@@ -1,0 +1,24 @@
+{
+  "summary": "Fowler argues that the right question about function length isn't about line counts or reuse, but about separating intention from implementation. If you need to spend effort figuring out what code does, extract it into a well-named function. He advocates for very small functions\u2014typically just a few lines\u2014noting that half the methods in his own codebase are two lines or less. Performance concerns about function calls are largely outdated, and the approach only works with careful attention to naming.",
+  "key_points": [
+    "The key principle is separation between intention and implementation\u2014extract code when you have to think about what it's doing",
+    "Function names can be longer than their implementations and that's perfectly fine if it bridges the intention-implementation gap",
+    "Performance concerns about small functions are largely obsolete; modern compilers often optimize shorter functions better",
+    "Good naming is essential\u2014without it, small functions don't work; with it, code becomes remarkably self-documenting",
+    "Fowler's own codebase shows half of methods are two lines or less, with functions over six lines being suspicious"
+  ],
+  "money_quotes": [
+    "If you have to spend effort into looking at a fragment of code to figure out what it's doing, then you should extract it into a function and name the function after that 'what'.",
+    "The name of the method was longer than its implementation\u2014but that didn't matter because there was a big distance between the intention of the code and its implementation.",
+    "Any function more than half-a-dozen lines of code starts to smell to me, and it's not unusual for me to have functions that are a single line of code.",
+    "Small functions like this only work if the names are good, so you need to pay good attention to naming.",
+    "Larger scale functions can read like a story, and the reader can choose which functions to dive into for more detail as she needs it."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "pragmatic, instructive, experience-based",
+  "key_insight": "Extract functions not based on length or reuse, but whenever there's a gap between what code does and how it does it\u2014then name the function after the 'what'.",
+  "filename": "2016-11-30-FunctionLength"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "Martin Fowler explores JFlex and CUP, Java implementations of the classic lex and yacc parser generators, as part of his series on tools for building external Domain Specific Languages. He walks through a simple example that parses item declarations into Java objects, demonstrating the lexer/parser separation and integration with build tools. Fowler notes that while these tools faithfully mimic the lex/yacc style, their error handling is inferior to ANTLR. He concludes that ANTLR is better for newcomers due to documentation, but JFlex/CUP serve those already familiar with lex and yacc.",
+  "key_points": [
+    "JFlex and CUP are separate but interoperable Java implementations of lex and yacc's lexer/parser approach",
+    "The lexer sends tokens to the parser, which uses recursive rules instead of EBNF notation to handle repetition",
+    "CUP allows labeled rule elements instead of yacc's positional $1/$2 convention, improving readability",
+    "Error handling in JFlex/CUP is notably worse than in ANTLR",
+    "For parser generator newcomers, ANTLR with its book is the recommended choice over the lex/yacc style tools"
+  ],
+  "money_quotes": [
+    "As Erich Gamma quipped, I've got too lazy to take out my own garbage.",
+    "Grumpy me thinks it's a case of Stockholm Syndrome.",
+    "Even when less grumpy I'm keeping my eye on things like Raven and BuildR which has now got some documentation. I'm so ready to ditch ant.",
+    "My biggest beef so far is the error handling, which caused me much more fuss than antlr.",
+    "My feeling so far is that if you're new to parser generators then antlr is the better choice (particularly due to its book)."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical, pragmatic, mildly sardonic",
+  "key_insight": "While JFlex and CUP faithfully replicate the lex/yacc paradigm for Java developers, ANTLR remains the better choice for parser generator newcomers due to superior documentation and error handling.",
+  "filename": "2007-05-30-HelloCup"
+}

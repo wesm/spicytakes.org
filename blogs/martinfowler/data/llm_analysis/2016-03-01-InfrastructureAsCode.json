@@ -1,0 +1,26 @@
+{
+  "summary": "Infrastructure as code defines computing and network infrastructure through source code that can be version-controlled, tested, and delivered continuously. Fowler contrasts the old 'Iron Age' of months-long hardware provisioning with the 'Cloud Age' where servers spin up in seconds. The approach treats infrastructure configuration files as first-class software artifacts, eliminating manual server adjustments that create snowflake configurations. Key practices include using definition files exclusively, versioning everything, continuous testing, making small incremental changes, and maintaining service availability. This methodology becomes essential when adopting microservices at scale.",
+  "key_points": [
+    "All infrastructure configuration should be defined in executable files (scripts, playbooks, manifests) with no manual server adjustments allowed",
+    "Version control enables auditability, reproducible builds, and the ability to diagnose and revert problematic changes",
+    "Small, frequent infrastructure updates are safer than large batches because errors are easier to detect and fix",
+    "Code-defined configuration eliminates snowflake servers with subtle differences that cause hard-to-debug faults",
+    "Infrastructure as code is a necessary capability for serious microservices adoption at scale"
+  ],
+  "money_quotes": [
+    "At no time should anyone log into a server and make on-the-fly adjustments.",
+    "This is a dynamic infrastructure where software commands are used to create servers, provision them, and tear them down, all without going anywhere near a screwdriver.",
+    "The bigger the infrastructure update, the more likely it is to contain an error and the harder it is to detect that error, particularly if several errors interact.",
+    "With manual provisioning different interpretations of imprecise instructions (let alone errors) lead to snowflakes with subtly different configurations, which often leads to tricky faults that are hard to debug.",
+    "Most importantly using configuration code makes changes safer, allowing upgrades of applications and system software with less risk.",
+    "When changing infrastructure FrequencyReducesDifficulty."
+  ],
+  "themes": [
+    "microservices",
+    "architecture",
+    "testing"
+  ],
+  "tone": "technical, authoritative, pragmatic",
+  "key_insight": "Treating infrastructure configuration as version-controlled, testable code eliminates the configuration drift and manual errors that plague traditional server management, making it essential for cloud-native and microservices architectures.",
+  "filename": "2016-03-01-InfrastructureAsCode"
+}

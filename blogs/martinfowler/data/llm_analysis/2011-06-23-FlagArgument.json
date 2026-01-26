@@ -1,0 +1,25 @@
+{
+  "summary": "Flag arguments are function parameters that change the function's behavior based on their value, such as a boolean determining premium vs regular booking. Fowler advocates replacing flag arguments with separate, clearly-named methods that communicate intent more explicitly. When implementation logic is tangled between the flag states, he suggests keeping a private flag-based method hidden behind public explicit methods. The exception is when the flag value comes directly from a data source like a UI checkbox, where passing through the boolean may be cleaner than wrapping it in conditionals.",
+  "key_points": [
+    "Flag arguments obscure caller intent - book(martin, false) is less clear than regularBook(martin)",
+    "For tangled implementations with shared logic, use a private hidden method with explicit public wrapper methods",
+    "When behavior is derived from object state (like customer status), the caller shouldn't need to specify the flag",
+    "Boolean setters face the same tradeoff: prefer setOn()/setOff() unless the caller is passing through a boolean from a data source",
+    "API design should prioritize making things easier for the caller, considering where the data originates"
+  ],
+  "money_quotes": [
+    "My general reaction to flag arguments is to avoid them.",
+    "I can easily read regularBook(martin).",
+    "The point here is that only the regular and premium book methods should call hiddenBookImpl.",
+    "I like to telegraph this by using an ugly name - which also has the bonus that, if you have to, you can easily add a regex probe to ensure nobody else is calling it.",
+    "You only want different methods when the caller needs to specify which one she wants.",
+    "This is an example that an API should be written to make it easier for the caller."
+  ],
+  "themes": [
+    "refactoring",
+    "architecture"
+  ],
+  "tone": "technical, practical, advisory",
+  "key_insight": "Replace flag arguments with explicitly-named methods to make caller intent self-documenting, unless the flag value flows directly from an external data source.",
+  "filename": "2011-06-23-FlagArgument"
+}
