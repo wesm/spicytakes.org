@@ -390,7 +390,7 @@ def main():
     blog_id = os.environ.get("BLOG_ID")
     if not blog_id:
         print("Error: BLOG_ID environment variable required")
-        print("Usage: BLOG_ID=fowler python martinfowler.py")
+        print("Usage: BLOG_ID=martinfowler python martinfowler.py")
         sys.exit(1)
 
     scraper = MartinFowlerScraper(blog_id)
