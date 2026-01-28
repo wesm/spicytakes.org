@@ -19,12 +19,12 @@ export default defineConfig({
     {
       name: 'landing',
       use: { ...devices['Desktop Chrome'], baseURL: 'http://localhost:4173' },
-      testMatch: /landing\.spec\.ts/,
+      testMatch: /(landing|analytics)\.spec\.ts/,
     },
     {
       name: 'blog-benn',
       use: { ...devices['Desktop Chrome'], baseURL: 'http://localhost:4174' },
-      testIgnore: /landing\.spec\.ts/,
+      testIgnore: /(landing|analytics)\.spec\.ts/,
     },
   ],
   webServer: [

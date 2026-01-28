@@ -36,6 +36,15 @@
     <p class="mt-4 text-stone-500 max-w-xl mx-auto">
       {landing.description}
     </p>
+    <a
+      href="{base}/analytics"
+      class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-red-500 text-white font-medium rounded-xl hover:bg-red-600 transition-colors shadow-sm"
+    >
+      📊 Spicy Analytics Dashboard
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
   </header>
 
   <!-- Blog Cards Grid -->
