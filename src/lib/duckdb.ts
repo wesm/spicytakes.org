@@ -25,44 +25,52 @@ export async function initDuckDB(): Promise<duckdb.AsyncDuckDBConnection> {
   if (initPromise) return initPromise;
 
   initPromise = (async () => {
-    // Select bundles based on browser capabilities
-    const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+    try {
+      // Select bundles based on browser capabilities
+      const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
 
-    // Select a bundle based on browser capabilities
-    const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+      // Select a bundle based on browser capabilities
+      const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
 
-    const worker_url = URL.createObjectURL(
-      new Blob([`importScripts("${bundle.mainWorker!}");`], { type: 'text/javascript' })
-    );
+      const worker_url = URL.createObjectURL(
+        new Blob([`importScripts("${bundle.mainWorker!}");`], { type: 'text/javascript' })
+      );
 
-    // Instantiate the async worker
-    const worker = new Worker(worker_url);
-    const logger = new duckdb.ConsoleLogger();
-    db = new duckdb.AsyncDuckDB(logger, worker);
-    await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
-    URL.revokeObjectURL(worker_url);
+      // Instantiate the async worker
+      const worker = new Worker(worker_url);
+      const logger = new duckdb.ConsoleLogger();
+      db = new duckdb.AsyncDuckDB(logger, worker);
+      await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+      URL.revokeObjectURL(worker_url);
 
-    // Connect
-    conn = await db.connect();
+      // Connect
+      conn = await db.connect();
 
-    // Fetch the parquet file and register it
-    const parquetUrl = `${base}/data/analytics_quotes.parquet`;
-    const response = await fetch(parquetUrl);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch parquet file: ${response.statusText}`);
+      // Fetch the parquet file and register it
+      const parquetUrl = `${base}/data/analytics_quotes.parquet`;
+      const response = await fetch(parquetUrl);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch parquet file: ${response.statusText}`);
+      }
+      const parquetBuffer = await response.arrayBuffer();
+
+      // Register the file with DuckDB
+      await db.registerFileBuffer('analytics.parquet', new Uint8Array(parquetBuffer));
+
+      // Load the parquet file into a table
+      await conn.query(`
+        CREATE TABLE quotes AS
+        SELECT * FROM read_parquet('analytics.parquet')
+      `);
+
+      return conn;
+    } catch (error) {
+      // Reset state on failure so retry is possible
+      initPromise = null;
+      conn = null;
+      db = null;
+      throw error;
     }
-    const parquetBuffer = await response.arrayBuffer();
-
-    // Register the file with DuckDB
-    await db.registerFileBuffer('analytics.parquet', new Uint8Array(parquetBuffer));
-
-    // Load the parquet file into a table
-    await conn.query(`
-      CREATE TABLE quotes AS
-      SELECT * FROM read_parquet('analytics.parquet')
-    `);
-
-    return conn;
   })();
 
   return initPromise;
@@ -154,7 +162,7 @@ export async function getTopQuotes(limit = 25, year?: number): Promise<{
   post_year: number;
   themes: string[];
 }[]> {
-  const yearFilter = year ? `AND post_year = ${year}` : '';
+  const yearFilter = year ? `AND post_year = ${safeInt(year)}` : '';
   return query(`
     SELECT
       quote_text,
@@ -169,7 +177,7 @@ export async function getTopQuotes(limit = 25, year?: number): Promise<{
     FROM quotes
     WHERE spiciness IS NOT NULL ${yearFilter}
     ORDER BY spiciness DESC, quote_length DESC
-    LIMIT ${limit}
+    LIMIT ${safeInt(limit)}
   `);
 }
 
@@ -184,7 +192,7 @@ export async function getAuthorStats(year?: number): Promise<{
   max_spiciness: number;
   perfect_10s: number;
 }[]> {
-  const yearFilter = year ? `WHERE post_year = ${year}` : '';
+  const yearFilter = year ? `WHERE post_year = ${safeInt(year)}` : '';
   return query(`
     SELECT
       author_id,
@@ -198,6 +206,25 @@ export async function getAuthorStats(year?: number): Promise<{
     GROUP BY author_id, author_name
     ORDER BY avg_spiciness DESC
   `);
+}
+
+/**
+ * Escape a string value for safe SQL interpolation
+ */
+function escapeString(value: string): string {
+  // Replace single quotes with escaped single quotes
+  return value.replace(/'/g, "''");
+}
+
+/**
+ * Validate that a value is a safe integer
+ */
+function safeInt(value: number): number {
+  const int = Math.floor(value);
+  if (!Number.isFinite(int) || int < 0 || int > 1000000) {
+    throw new Error(`Invalid integer value: ${value}`);
+  }
+  return int;
 }
 
 /**
@@ -223,10 +250,10 @@ export async function getFilteredQuotes(options: {
   const conditions: string[] = ['spiciness IS NOT NULL'];
 
   if (authorId) {
-    conditions.push(`author_id = '${authorId}'`);
+    conditions.push(`author_id = '${escapeString(authorId)}'`);
   }
   if (year) {
-    conditions.push(`post_year = ${year}`);
+    conditions.push(`post_year = ${safeInt(year)}`);
   }
 
   const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
@@ -246,7 +273,7 @@ export async function getFilteredQuotes(options: {
     FROM quotes
     ${whereClause}
     ORDER BY spiciness DESC, post_year DESC
-    LIMIT ${limit}
+    LIMIT ${safeInt(limit)}
   `);
 }
 
@@ -278,9 +305,9 @@ export async function getQuotesForYear(year: number, limit = 50): Promise<{
       post_month,
       themes
     FROM quotes
-    WHERE post_year = ${year}
+    WHERE post_year = ${safeInt(year)}
     ORDER BY spiciness DESC, post_month
-    LIMIT ${limit}
+    LIMIT ${safeInt(limit)}
   `);
 }
 

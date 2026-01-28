@@ -20,6 +20,12 @@ except ImportError:
     print("DuckDB not installed. Run: pip install duckdb")
     exit(1)
 
+try:
+    import pyarrow  # noqa: F401 - required by duckdb for parquet export
+except ImportError:
+    print("PyArrow not installed. Run: pip install pyarrow")
+    exit(1)
+
 
 def parse_date_from_filename(filename: str) -> tuple[int | None, int | None, str | None]:
     """Extract year, month, and date string from filename like '2024-01-15-post-slug'."""

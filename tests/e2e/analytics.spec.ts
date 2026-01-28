@@ -113,6 +113,30 @@ test.describe('Analytics Page', () => {
     const classes = await firstBadge.getAttribute('class');
     expect(classes).toMatch(/bg-(red|orange|yellow|green)-(100|200)/);
   });
+
+  test('clicking year bar filters quotes', async ({ page }) => {
+    await analytics.goto();
+    await analytics.waitForDataLoad();
+
+    // Get the Vega chart SVG - click on a bar element
+    const chart = page.locator('svg.marks');
+    await expect(chart).toBeVisible();
+
+    // Find a bar rect in the chart and click it
+    const bars = chart.locator('path[aria-roledescription="bar"]');
+    const barCount = await bars.count();
+
+    if (barCount > 0) {
+      // Click the first bar
+      await bars.first().click();
+
+      // Should show the year filter badge (red) after clicking
+      await expect(page.locator('span.bg-red-100')).toBeVisible({ timeout: 5000 });
+
+      // Reset button should appear
+      await expect(analytics.resetFilterButton).toBeVisible();
+    }
+  });
 });
 
 test.describe('Analytics Navigation', () => {
