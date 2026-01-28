@@ -406,7 +406,8 @@
 
   // Re-render chart when data, selection, or screen size changes
   $effect(() => {
-    // Track reactive dependencies
+    // Svelte 5 runes require reading reactive state to establish dependencies.
+    // These variables appear unused but are necessary - removing them breaks reactivity.
     const _yearly = displayedYearlyStats;
     const _monthly = displayedMonthlyStats;
     const _mode = chartMode;
@@ -554,7 +555,11 @@
     displayedQuotes = allTimeQuotes;
     displayedAuthorStats = allTimeAuthorStats;
     if (chartMode === 'monthly') {
-      displayedMonthlyStats = await getMonthlyStats();
+      try {
+        displayedMonthlyStats = await getMonthlyStats();
+      } catch (e) {
+        console.error('Failed to refresh monthly stats:', e);
+      }
     }
   }
 

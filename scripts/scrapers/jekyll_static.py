@@ -141,6 +141,9 @@ class JekyllStaticScraper(BaseScraper):
             if not content_elem:
                 content_elem = soup.find("body")
 
+            # Extract h1 from content BEFORE decomposing (it may be inside a <header>)
+            content_h1 = content_elem.find("h1")
+
             # Remove header/footer/nav from content
             for tag in content_elem.find_all(["header", "footer", "nav", "script", "style"]):
                 tag.decompose()
@@ -148,7 +151,6 @@ class JekyllStaticScraper(BaseScraper):
             # Extract title: prefer h1 inside content element, then fall
             # back to og:title, <title> tag, or page-level h1
             title = "Untitled"
-            content_h1 = content_elem.find("h1")
             if content_h1:
                 title = content_h1.get_text(strip=True)
             else:
@@ -157,10 +159,11 @@ class JekyllStaticScraper(BaseScraper):
                     title = og_title["content"]
                 elif soup.title and soup.title.string:
                     # Strip common site name suffixes from <title>
+                    # Use rsplit to only remove the last segment (the site name)
                     raw = soup.title.string.strip()
                     for sep in [" | ", " - ", " — ", " · "]:
                         if sep in raw:
-                            title = raw.split(sep)[0].strip()
+                            title = raw.rsplit(sep, 1)[0].strip()
                             break
                     else:
                         title = raw
