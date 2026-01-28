@@ -666,7 +666,7 @@
                 </tr>
               </thead>
               <tbody class="divide-y divide-stone-100">
-                {#each displayedAuthorStats.slice(0, 15) as author, i}
+                {#each displayedAuthorStats as author, i}
                   <tr
                     class="cursor-pointer transition-colors {selectedAuthor?.id === author.author_id ? 'bg-red-50' : 'hover:bg-stone-50'}"
                     onclick={() => handleAuthorClick(author.author_id, author.author_name)}
