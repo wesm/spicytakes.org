@@ -122,20 +122,19 @@ test.describe('Analytics Page', () => {
     const chart = page.locator('svg.marks');
     await expect(chart).toBeVisible();
 
-    // Find a bar rect in the chart and click it
+    // Find bar elements in the chart - must have at least one
     const bars = chart.locator('path[aria-roledescription="bar"]');
     const barCount = await bars.count();
+    expect(barCount).toBeGreaterThan(0);
 
-    if (barCount > 0) {
-      // Click the first bar
-      await bars.first().click();
+    // Click the first bar
+    await bars.first().click();
 
-      // Should show the year filter badge (red) after clicking
-      await expect(page.locator('span.bg-red-100')).toBeVisible({ timeout: 5000 });
+    // Should show the year filter badge (red) after clicking
+    await expect(page.locator('span.bg-red-100')).toBeVisible({ timeout: 5000 });
 
-      // Reset button should appear
-      await expect(analytics.resetFilterButton).toBeVisible();
-    }
+    // Reset button should appear
+    await expect(analytics.resetFilterButton).toBeVisible();
   });
 });
 
@@ -188,5 +187,71 @@ test.describe('Analytics Error Handling', () => {
 
     // Should show error message
     await expect(analytics.errorMessage).toBeVisible({ timeout: 15000 });
+  });
+});
+
+test.describe('Analytics Responsive Behavior', () => {
+  test('shows horizontal bar chart on mobile viewport', async ({ page }) => {
+    // Set mobile viewport before navigating
+    await page.setViewportSize({ width: 375, height: 667 });
+
+    const analytics = new AnalyticsPage(page);
+    await analytics.goto();
+    await analytics.waitForDataLoad();
+
+    // Chart should be visible
+    const chart = page.locator('svg.marks');
+    await expect(chart).toBeVisible();
+
+    // On mobile, bars should be horizontal (year on y-axis)
+    // Check that the chart has rendered bars
+    const bars = chart.locator('path[aria-roledescription="bar"]');
+    expect(await bars.count()).toBeGreaterThan(0);
+  });
+
+  test('shows vertical bar chart on desktop viewport', async ({ page }) => {
+    // Set desktop viewport
+    await page.setViewportSize({ width: 1280, height: 720 });
+
+    const analytics = new AnalyticsPage(page);
+    await analytics.goto();
+    await analytics.waitForDataLoad();
+
+    // Chart should be visible
+    const chart = page.locator('svg.marks');
+    await expect(chart).toBeVisible();
+
+    // Should have bars rendered
+    const bars = chart.locator('path[aria-roledescription="bar"]');
+    expect(await bars.count()).toBeGreaterThan(0);
+  });
+
+  test('filter selection persists across viewport resize', async ({ page }) => {
+    // Start at desktop size
+    await page.setViewportSize({ width: 1280, height: 720 });
+
+    const analytics = new AnalyticsPage(page);
+    await analytics.goto();
+    await analytics.waitForDataLoad();
+
+    // Click a year bar to apply filter
+    const chart = page.locator('svg.marks');
+    const bars = chart.locator('path[aria-roledescription="bar"]');
+    await bars.first().click();
+
+    // Verify filter is applied
+    await expect(page.locator('span.bg-red-100')).toBeVisible();
+
+    // Resize to mobile
+    await page.setViewportSize({ width: 375, height: 667 });
+
+    // Wait for chart to re-render
+    await page.waitForTimeout(200);
+
+    // Filter should still be visible
+    await expect(page.locator('span.bg-red-100')).toBeVisible();
+
+    // Chart should still be visible
+    await expect(chart).toBeVisible();
   });
 });

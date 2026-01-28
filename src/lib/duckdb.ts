@@ -25,6 +25,9 @@ export async function initDuckDB(): Promise<duckdb.AsyncDuckDBConnection> {
   if (initPromise) return initPromise;
 
   initPromise = (async () => {
+    let worker_url: string | null = null;
+    let worker: Worker | null = null;
+
     try {
       // Select bundles based on browser capabilities
       const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
@@ -32,16 +35,19 @@ export async function initDuckDB(): Promise<duckdb.AsyncDuckDBConnection> {
       // Select a bundle based on browser capabilities
       const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
 
-      const worker_url = URL.createObjectURL(
+      worker_url = URL.createObjectURL(
         new Blob([`importScripts("${bundle.mainWorker!}");`], { type: 'text/javascript' })
       );
 
       // Instantiate the async worker
-      const worker = new Worker(worker_url);
+      worker = new Worker(worker_url);
       const logger = new duckdb.ConsoleLogger();
       db = new duckdb.AsyncDuckDB(logger, worker);
       await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+
+      // Revoke URL after successful instantiation
       URL.revokeObjectURL(worker_url);
+      worker_url = null;
 
       // Connect
       conn = await db.connect();
@@ -65,7 +71,14 @@ export async function initDuckDB(): Promise<duckdb.AsyncDuckDBConnection> {
 
       return conn;
     } catch (error) {
-      // Reset state on failure so retry is possible
+      // Clean up resources on failure
+      if (worker_url) {
+        URL.revokeObjectURL(worker_url);
+      }
+      if (worker) {
+        worker.terminate();
+      }
+      // Reset state so retry is possible
       initPromise = null;
       conn = null;
       db = null;
@@ -217,14 +230,13 @@ function escapeString(value: string): string {
 }
 
 /**
- * Validate that a value is a safe integer
+ * Validate that a value is a safe integer (rejects non-integers)
  */
 function safeInt(value: number): number {
-  const int = Math.floor(value);
-  if (!Number.isFinite(int) || int < 0 || int > 1000000) {
+  if (!Number.isInteger(value) || value < 0 || value > 1000000) {
     throw new Error(`Invalid integer value: ${value}`);
   }
-  return int;
+  return value;
 }
 
 /**

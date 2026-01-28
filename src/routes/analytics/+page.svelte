@@ -67,15 +67,27 @@
   let selectedAuthor = $state<{ id: string; name: string } | null>(null);
   let loadingData = $state(false);
 
-  // Chart container ref
+  // Chart container ref and Vega view tracking
   let chartContainer: HTMLDivElement;
+  let currentView: any = null;
+  let renderToken = 0;
 
-  // Responsive state for mobile detection
+  // Responsive state
   let isMobile = $state(false);
+  let resizeObserver: ResizeObserver | null = null;
 
-  // Check if mobile on mount and resize
-  function checkMobile() {
-    isMobile = window.innerWidth < 768;
+  // Debounced resize handler
+  let resizeTimeout: ReturnType<typeof setTimeout> | null = null;
+  function handleResize() {
+    if (resizeTimeout) clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const wasMobile = isMobile;
+      isMobile = window.innerWidth < 768;
+      // Force re-render even within same breakpoint for width changes
+      if (wasMobile === isMobile && yearlyStats.length > 0 && chartContainer) {
+        renderChart(selectedYear, isMobile);
+      }
+    }, 100);
   }
 
   // Build permalink to author's spicytakes site
@@ -87,6 +99,15 @@
   // Render Vega-Lite chart when data is ready
   async function renderChart(selected: number | null = null, mobile: boolean = false) {
     if (!chartContainer || yearlyStats.length === 0) return;
+
+    // Increment render token to track this render
+    const thisRender = ++renderToken;
+
+    // Finalize previous view to prevent memory leaks and stacked handlers
+    if (currentView) {
+      currentView.finalize();
+      currentView = null;
+    }
 
     // Add selection state to data
     const dataWithSelection = yearlyStats.map(d => ({
@@ -213,6 +234,15 @@
       renderer: 'svg'
     });
 
+    // Check if this render is still current (prevents race conditions)
+    if (thisRender !== renderToken) {
+      result.view.finalize();
+      return;
+    }
+
+    // Store the view for cleanup
+    currentView = result.view;
+
     // Handle click events for drill-down
     result.view.addEventListener('click', (_event: any, item: any) => {
       if (item?.datum?.year) {
@@ -231,8 +261,15 @@
   // Load data on mount
   onMount(async () => {
     // Set up responsive detection
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    isMobile = window.innerWidth < 768;
+    window.addEventListener('resize', handleResize);
+
+    // Set up ResizeObserver on chart container for width-based re-renders
+    resizeObserver = new ResizeObserver(() => {
+      if (yearlyStats.length > 0) {
+        handleResize();
+      }
+    });
 
     try {
       await initDuckDB();
@@ -252,13 +289,23 @@
       displayedAuthorStats = authors;
       overallStats = overall;
       loading = false;
+
+      // Start observing chart container after data loads
+      if (chartContainer) {
+        resizeObserver?.observe(chartContainer);
+      }
     } catch (e) {
       error = e instanceof Error ? e.message : 'Failed to load analytics';
       loading = false;
     }
 
     return () => {
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('resize', handleResize);
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeObserver?.disconnect();
+      if (currentView) {
+        currentView.finalize();
+      }
     };
   });
 
