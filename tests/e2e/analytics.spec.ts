@@ -257,12 +257,16 @@ test.describe('Analytics Responsive Behavior', () => {
     await page.setViewportSize({ width: 375, height: 667 });
 
     // Wait for chart to re-render with horizontal orientation (width > height)
-    // Poll until the bar dimensions indicate horizontal layout
+    // Re-query locator inside poll to avoid stale element references after re-render
     await expect(async () => {
-      const box = await bars.first().boundingBox();
+      const newBars = page.locator('svg.marks path[aria-roledescription="bar"]');
+      const box = await newBars.first().boundingBox();
       expect(box).not.toBeNull();
       expect(box!.width).toBeGreaterThan(box!.height);
     }).toPass({ timeout: 5000 });
+
+    // Verify chart is still visible after resize
+    await expect(chart).toBeVisible();
 
     // Filter should still be visible
     await expect(page.locator('span.bg-red-100')).toBeVisible();
