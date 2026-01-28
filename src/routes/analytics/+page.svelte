@@ -4,6 +4,7 @@
   import {
     initDuckDB,
     getYearlyStats,
+    getMonthlyStats,
     getTopQuotes,
     getAuthorStats,
     getOverallStats,
@@ -43,6 +44,13 @@
     perfect_10s: number;
   };
 
+  type MonthlyStats = {
+    year: number;
+    month: number;
+    avg_spiciness: number;
+    quote_count: number;
+  };
+
   type OverallStats = {
     total_quotes: number;
     total_authors: number;
@@ -64,8 +72,14 @@
 
   // Filter state
   let selectedYear = $state<number | null>(null);
+  let selectedMonth = $state<{ year: number; month: number } | null>(null);
   let selectedAuthor = $state<{ id: string; name: string } | null>(null);
   let loadingData = $state(false);
+
+  // Chart mode toggle
+  let chartMode = $state<'yearly' | 'monthly'>('yearly');
+  let displayedYearlyStats = $state<YearStats[]>([]);
+  let displayedMonthlyStats = $state<MonthlyStats[]>([]);
 
   // Chart container ref and Vega view tracking
   let chartContainer: HTMLDivElement;
@@ -84,8 +98,9 @@
       const wasMobile = isMobile;
       isMobile = window.innerWidth < 768;
       // Force re-render even within same breakpoint for width changes
-      if (wasMobile === isMobile && yearlyStats.length > 0 && chartContainer) {
-        renderChart(selectedYear, isMobile);
+      const data = chartMode === 'monthly' ? displayedMonthlyStats : displayedYearlyStats;
+      if (wasMobile === isMobile && data.length > 0 && chartContainer) {
+        renderChart(isMobile);
       }
     }, 100);
   }
@@ -96,9 +111,30 @@
     return `https://${quote.author_id}.spicytakes.org/post/${filename}`;
   }
 
+  // Month name helper
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  // Refresh chart data based on current mode and author filter
+  async function refreshChartData() {
+    try {
+      const authorId = selectedAuthor?.id;
+      if (chartMode === 'monthly') {
+        displayedMonthlyStats = await getMonthlyStats(authorId);
+      } else {
+        displayedYearlyStats = authorId ? await getYearlyStats(authorId) : yearlyStats;
+      }
+    } catch (e) {
+      console.error('Failed to refresh chart data:', e);
+    }
+  }
+
   // Render Vega-Lite chart when data is ready
-  async function renderChart(selected: number | null = null, mobile: boolean = false) {
-    if (!chartContainer || yearlyStats.length === 0) return;
+  async function renderChart(mobile: boolean = false) {
+    if (!chartContainer) return;
+
+    const isMonthly = chartMode === 'monthly';
+    const sourceData = isMonthly ? displayedMonthlyStats : displayedYearlyStats;
+    if (sourceData.length === 0) return;
 
     // Increment render token to track this render
     const thisRender = ++renderToken;
@@ -109,11 +145,11 @@
       currentView = null;
     }
 
-    // Add selection state to data
-    const dataWithSelection = yearlyStats.map(d => ({
-      ...d,
-      isSelected: selected === null || d.year === selected
-    }));
+    // Hover highlight parameter
+    const hoverParam = {
+      name: 'hover',
+      select: { type: 'point', on: 'pointerover', clear: 'pointerout' }
+    };
 
     // Common encoding properties
     const colorEncoding = {
@@ -127,107 +163,222 @@
         },
         legend: null
       },
-      value: '#d6d3d1'  // Gray for unselected
+      value: '#d6d3d1'
     };
 
     const opacityEncoding = {
-      condition: {
-        test: 'datum.isSelected',
-        value: 1
-      },
+      condition: [
+        { param: 'hover', empty: false, value: 0.85 },
+        { test: 'datum.isSelected', value: 1 }
+      ],
       value: 0.4
     };
 
-    const tooltipEncoding = [
-      { field: 'year', title: 'Year' },
-      { field: 'avg_spiciness', title: 'Avg Spiciness', format: '.1f' },
-      { field: 'quote_count', title: 'Quotes', format: ',' }
-    ];
-
-    // Build spec based on mobile vs desktop
-    const spec = mobile ? {
-      // Mobile: horizontal bar chart, taller
-      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-      data: { values: dataWithSelection },
-      width: 'container',
-      height: Math.max(400, yearlyStats.length * 20),
-      mark: {
-        type: 'bar',
-        cornerRadiusBottomRight: 3,
-        cornerRadiusTopRight: 3,
-        cursor: 'pointer'
-      },
-      encoding: {
-        y: {
-          field: 'year',
-          type: 'ordinal',
-          sort: 'descending',
-          axis: {
-            title: null,
-            labelFontSize: 11
-          }
-        },
-        x: {
-          field: 'avg_spiciness',
-          type: 'quantitative',
-          scale: { domain: [0, 10] },
-          axis: {
-            title: null,
-            grid: true,
-            gridDash: [2, 2]
-          }
-        },
-        color: colorEncoding,
-        opacity: opacityEncoding,
-        tooltip: tooltipEncoding
-      },
-      config: {
-        view: { stroke: null },
-        axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
-        background: 'transparent'
-      }
-    } : {
-      // Desktop: vertical bar chart
-      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-      data: { values: dataWithSelection },
-      width: 'container',
-      height: 180,
-      mark: {
-        type: 'bar',
-        cornerRadiusTopLeft: 3,
-        cornerRadiusTopRight: 3,
-        cursor: 'pointer'
-      },
-      encoding: {
-        x: {
-          field: 'year',
-          type: 'ordinal',
-          axis: {
-            title: null,
-            labelAngle: -45,
-            labelFontSize: 10
-          }
-        },
-        y: {
-          field: 'avg_spiciness',
-          type: 'quantitative',
-          scale: { domain: [0, 10] },
-          axis: {
-            title: null,
-            grid: true,
-            gridDash: [2, 2]
-          }
-        },
-        color: colorEncoding,
-        opacity: opacityEncoding,
-        tooltip: tooltipEncoding
-      },
-      config: {
-        view: { stroke: null },
-        axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
-        background: 'transparent'
-      }
+    const strokeWidthEncoding = {
+      condition: { param: 'hover', empty: false, value: 1.5 },
+      value: 0
     };
+
+    const strokeEncoding = {
+      condition: { param: 'hover', empty: false, value: '#78716c' },
+      value: null
+    };
+
+    let spec: any;
+
+    if (isMonthly) {
+      // Monthly view — selection is by individual month
+      const selectedSortKey = selectedMonth
+        ? selectedMonth.year * 100 + selectedMonth.month
+        : null;
+
+      const monthlyData = displayedMonthlyStats.map(d => {
+        const sortKey = d.year * 100 + d.month;
+        return {
+          ...d,
+          label: `${monthNames[d.month - 1]} ${d.year}`,
+          sortKey,
+          isSelected: selectedSortKey === null || sortKey === selectedSortKey
+        };
+      });
+
+      const tooltipEncoding = [
+        { field: 'label', title: 'Month' },
+        { field: 'avg_spiciness', title: 'Avg Spiciness', format: '.1f' },
+        { field: 'quote_count', title: 'Quotes', format: ',' }
+      ];
+
+      // Only show year label at January entries to avoid crowding
+      const yearBoundaryLabelExpr = "slice(datum.value, 0, 3) === 'Jan' ? slice(datum.value, 4) : ''";
+
+      spec = mobile ? {
+        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        data: { values: monthlyData },
+        params: [hoverParam],
+        width: 'container',
+        height: Math.max(400, monthlyData.length * 16),
+        mark: {
+          type: 'bar',
+          cornerRadiusBottomRight: 3,
+          cornerRadiusTopRight: 3,
+          cursor: 'pointer'
+        },
+        encoding: {
+          y: {
+            field: 'label',
+            type: 'ordinal',
+            sort: { field: 'sortKey', order: 'descending' },
+            axis: {
+              title: null,
+              labelFontSize: 10,
+              labelExpr: yearBoundaryLabelExpr
+            }
+          },
+          x: {
+            field: 'avg_spiciness',
+            type: 'quantitative',
+            scale: { domain: [0, 10] },
+            axis: { title: null, grid: true, gridDash: [2, 2] }
+          },
+          color: colorEncoding,
+          opacity: opacityEncoding,
+          strokeWidth: strokeWidthEncoding,
+          stroke: strokeEncoding,
+          tooltip: tooltipEncoding
+        },
+        config: {
+          view: { stroke: null },
+          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          background: 'transparent'
+        }
+      } : {
+        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        data: { values: monthlyData },
+        params: [hoverParam],
+        width: 'container',
+        height: 180,
+        mark: {
+          type: 'bar',
+          cornerRadiusTopLeft: 3,
+          cornerRadiusTopRight: 3,
+          cursor: 'pointer'
+        },
+        encoding: {
+          x: {
+            field: 'label',
+            type: 'ordinal',
+            sort: { field: 'sortKey' },
+            axis: {
+              title: null,
+              labelAngle: 0,
+              labelFontSize: 10,
+              labelExpr: yearBoundaryLabelExpr
+            }
+          },
+          y: {
+            field: 'avg_spiciness',
+            type: 'quantitative',
+            scale: { domain: [0, 10] },
+            axis: { title: null, grid: true, gridDash: [2, 2] }
+          },
+          color: colorEncoding,
+          opacity: opacityEncoding,
+          strokeWidth: strokeWidthEncoding,
+          stroke: strokeEncoding,
+          tooltip: tooltipEncoding
+        },
+        config: {
+          view: { stroke: null },
+          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          background: 'transparent'
+        }
+      };
+    } else {
+      // Yearly view
+      const dataWithSelection = displayedYearlyStats.map(d => ({
+        ...d,
+        isSelected: selectedYear === null || d.year === selectedYear
+      }));
+
+      const tooltipEncoding = [
+        { field: 'year', title: 'Year' },
+        { field: 'avg_spiciness', title: 'Avg Spiciness', format: '.1f' },
+        { field: 'quote_count', title: 'Quotes', format: ',' }
+      ];
+
+      spec = mobile ? {
+        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        data: { values: dataWithSelection },
+        params: [hoverParam],
+        width: 'container',
+        height: Math.max(400, displayedYearlyStats.length * 20),
+        mark: {
+          type: 'bar',
+          cornerRadiusBottomRight: 3,
+          cornerRadiusTopRight: 3,
+          cursor: 'pointer'
+        },
+        encoding: {
+          y: {
+            field: 'year',
+            type: 'ordinal',
+            sort: 'descending',
+            axis: { title: null, labelFontSize: 11 }
+          },
+          x: {
+            field: 'avg_spiciness',
+            type: 'quantitative',
+            scale: { domain: [0, 10] },
+            axis: { title: null, grid: true, gridDash: [2, 2] }
+          },
+          color: colorEncoding,
+          opacity: opacityEncoding,
+          strokeWidth: strokeWidthEncoding,
+          stroke: strokeEncoding,
+          tooltip: tooltipEncoding
+        },
+        config: {
+          view: { stroke: null },
+          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          background: 'transparent'
+        }
+      } : {
+        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        data: { values: dataWithSelection },
+        params: [hoverParam],
+        width: 'container',
+        height: 180,
+        mark: {
+          type: 'bar',
+          cornerRadiusTopLeft: 3,
+          cornerRadiusTopRight: 3,
+          cursor: 'pointer'
+        },
+        encoding: {
+          x: {
+            field: 'year',
+            type: 'ordinal',
+            axis: { title: null, labelAngle: -45, labelFontSize: 10 }
+          },
+          y: {
+            field: 'avg_spiciness',
+            type: 'quantitative',
+            scale: { domain: [0, 10] },
+            axis: { title: null, grid: true, gridDash: [2, 2] }
+          },
+          color: colorEncoding,
+          opacity: opacityEncoding,
+          strokeWidth: strokeWidthEncoding,
+          stroke: strokeEncoding,
+          tooltip: tooltipEncoding
+        },
+        config: {
+          view: { stroke: null },
+          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          background: 'transparent'
+        }
+      };
+    }
 
     const result = await embed(chartContainer, spec as any, {
       actions: false,
@@ -240,12 +391,14 @@
       return;
     }
 
-    // Store the view for cleanup
     currentView = result.view;
 
-    // Handle click events for drill-down
+    // Handle click events — dispatch to month or year handler
     result.view.addEventListener('click', (_event: any, item: any) => {
-      if (item?.datum?.year) {
+      if (!item?.datum) return;
+      if (isMonthly && item.datum.year && item.datum.month) {
+        handleMonthClick(item.datum.year, item.datum.month);
+      } else if (item.datum.year) {
         handleYearClick(item.datum.year);
       }
     });
@@ -253,8 +406,17 @@
 
   // Re-render chart when data, selection, or screen size changes
   $effect(() => {
-    if (yearlyStats.length > 0 && chartContainer) {
-      renderChart(selectedYear, isMobile);
+    // Track reactive dependencies
+    const _yearly = displayedYearlyStats;
+    const _monthly = displayedMonthlyStats;
+    const _mode = chartMode;
+    const _year = selectedYear;
+    const _month = selectedMonth;
+    const _mobile = isMobile;
+
+    const data = _mode === 'monthly' ? _monthly : _yearly;
+    if (chartContainer && data.length > 0) {
+      renderChart(_mobile);
     }
   });
 
@@ -283,6 +445,7 @@
       ]);
 
       yearlyStats = yearly;
+      displayedYearlyStats = yearly;
       allTimeQuotes = quotes;
       displayedQuotes = quotes;
       allTimeAuthorStats = authors;
@@ -313,14 +476,15 @@
   async function refreshQuotes() {
     loadingData = true;
     try {
-      if (!selectedYear && !selectedAuthor) {
+      if (!selectedYear && !selectedMonth && !selectedAuthor) {
         // No filters - use cached all-time data
         displayedQuotes = allTimeQuotes;
       } else {
         // Apply filters
         displayedQuotes = await getFilteredQuotes({
           authorId: selectedAuthor?.id,
-          year: selectedYear ?? undefined,
+          year: selectedMonth?.year ?? selectedYear ?? undefined,
+          month: selectedMonth?.month,
           limit: 100
         });
       }
@@ -330,23 +494,41 @@
     loadingData = false;
   }
 
-  // Handle year click
+  // Handle year click (yearly chart mode)
   async function handleYearClick(year: number) {
     if (selectedYear === year) {
-      // Toggle off - remove just year filter
       selectedYear = null;
     } else {
+      selectedYear = year;
+    }
+    selectedMonth = null;
+
+    loadingData = true;
+    try {
+      displayedAuthorStats = await getAuthorStats(selectedYear ?? undefined);
+      await refreshQuotes();
+    } catch (e) {
+      console.error('Failed to load year data:', e);
+    }
+    loadingData = false;
+  }
+
+  // Handle month click (monthly chart mode)
+  async function handleMonthClick(year: number, month: number) {
+    if (selectedMonth?.year === year && selectedMonth?.month === month) {
+      selectedMonth = null;
+      selectedYear = null;
+    } else {
+      selectedMonth = { year, month };
       selectedYear = year;
     }
 
     loadingData = true;
     try {
-      // Update author stats for the year (or all time if no year selected)
       displayedAuthorStats = await getAuthorStats(selectedYear ?? undefined);
-      // Refresh quotes with current filters
       await refreshQuotes();
     } catch (e) {
-      console.error('Failed to load year data:', e);
+      console.error('Failed to load month data:', e);
     }
     loadingData = false;
   }
@@ -360,15 +542,20 @@
       selectedAuthor = { id: authorId, name: authorName };
     }
 
-    await refreshQuotes();
+    await Promise.all([refreshChartData(), refreshQuotes()]);
   }
 
   // Reset filter to show all time
-  function resetFilter() {
+  async function resetFilter() {
     selectedYear = null;
+    selectedMonth = null;
     selectedAuthor = null;
+    displayedYearlyStats = yearlyStats;
     displayedQuotes = allTimeQuotes;
     displayedAuthorStats = allTimeAuthorStats;
+    if (chartMode === 'monthly') {
+      displayedMonthlyStats = await getMonthlyStats();
+    }
   }
 
   // Spiciness badge color (light background, dark text) - matches sub-site
@@ -424,7 +611,35 @@
       <div class="grid lg:grid-cols-3 gap-6 mb-8">
         <!-- Bar Chart (2/3 width) -->
         <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-stone-200 p-4">
-          <h2 class="text-lg font-semibold text-stone-900 mb-3">Spiciness by Year</h2>
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <h2 class="text-lg font-semibold text-stone-900">Spiciness</h2>
+              {#if selectedAuthor}
+                <span class="px-2 py-0.5 bg-orange-100 text-orange-700 text-sm font-medium rounded-lg flex items-center gap-1">
+                  {selectedAuthor.name}
+                  <button
+                    onclick={() => handleAuthorClick(selectedAuthor!.id, selectedAuthor!.name)}
+                    class="ml-0.5 hover:text-orange-900"
+                    title="Remove author filter"
+                  >×</button>
+                </span>
+              {/if}
+            </div>
+            <div class="flex items-center rounded-lg border border-stone-200 text-sm overflow-hidden">
+              <button
+                onclick={async () => { chartMode = 'yearly'; selectedMonth = null; await refreshChartData(); }}
+                class="px-3 py-1 transition-colors {chartMode === 'yearly' ? 'bg-stone-800 text-white' : 'text-stone-500 hover:bg-stone-100'}"
+              >
+                Yearly
+              </button>
+              <button
+                onclick={async () => { chartMode = 'monthly'; selectedYear = null; selectedMonth = null; await refreshChartData(); }}
+                class="px-3 py-1 transition-colors {chartMode === 'monthly' ? 'bg-stone-800 text-white' : 'text-stone-500 hover:bg-stone-100'}"
+              >
+                Monthly
+              </button>
+            </div>
+          </div>
           <div bind:this={chartContainer} class="w-full"></div>
           <p class="text-xs text-stone-400 mt-2">Click a bar to filter quotes</p>
         </div>
@@ -490,7 +705,11 @@
             <h2 class="text-lg font-semibold text-stone-900">
               🔥 Spiciest Quotes
             </h2>
-            {#if selectedYear}
+            {#if selectedMonth}
+              <span class="px-2 py-1 bg-red-100 text-red-700 text-sm font-medium rounded-lg">
+                {monthNames[selectedMonth.month - 1]} {selectedMonth.year}
+              </span>
+            {:else if selectedYear}
               <span class="px-2 py-1 bg-red-100 text-red-700 text-sm font-medium rounded-lg">
                 {selectedYear}
               </span>
@@ -500,7 +719,7 @@
                 {selectedAuthor.name}
               </span>
             {/if}
-            {#if selectedYear || selectedAuthor}
+            {#if selectedYear || selectedMonth || selectedAuthor}
               <button
                 onclick={resetFilter}
                 class="text-sm text-stone-500 hover:text-stone-700 underline"

@@ -116,15 +116,20 @@ export async function query<T = Record<string, unknown>>(sql: string): Promise<T
 }
 
 /**
- * Get yearly spiciness statistics
+ * Get yearly spiciness statistics, optionally filtered by author
  */
-export async function getYearlyStats(): Promise<{
+export async function getYearlyStats(authorId?: string): Promise<{
   year: number;
   avg_spiciness: number;
   std_spiciness: number;
   quote_count: number;
   max_spiciness: number;
 }[]> {
+  const conditions = ['post_year IS NOT NULL'];
+  if (authorId) {
+    conditions.push(`author_id = '${escapeString(authorId)}'`);
+  }
+  const whereClause = `WHERE ${conditions.join(' AND ')}`;
   return query(`
     SELECT
       post_year as year,
@@ -133,21 +138,26 @@ export async function getYearlyStats(): Promise<{
       COUNT(*) as quote_count,
       MAX(spiciness) as max_spiciness
     FROM quotes
-    WHERE post_year IS NOT NULL
+    ${whereClause}
     GROUP BY post_year
     ORDER BY post_year
   `);
 }
 
 /**
- * Get monthly spiciness statistics
+ * Get monthly spiciness statistics, optionally filtered by author
  */
-export async function getMonthlyStats(): Promise<{
+export async function getMonthlyStats(authorId?: string): Promise<{
   year: number;
   month: number;
   avg_spiciness: number;
   quote_count: number;
 }[]> {
+  const conditions = ['post_year IS NOT NULL', 'post_month IS NOT NULL'];
+  if (authorId) {
+    conditions.push(`author_id = '${escapeString(authorId)}'`);
+  }
+  const whereClause = `WHERE ${conditions.join(' AND ')}`;
   return query(`
     SELECT
       post_year as year,
@@ -155,7 +165,7 @@ export async function getMonthlyStats(): Promise<{
       ROUND(AVG(spiciness), 2) as avg_spiciness,
       COUNT(*) as quote_count
     FROM quotes
-    WHERE post_year IS NOT NULL AND post_month IS NOT NULL
+    ${whereClause}
     GROUP BY post_year, post_month
     ORDER BY post_year, post_month
   `);
@@ -245,6 +255,7 @@ function safeInt(value: number): number {
 export async function getFilteredQuotes(options: {
   authorId?: string;
   year?: number;
+  month?: number;
   limit?: number;
 }): Promise<{
   quote_text: string;
@@ -258,7 +269,7 @@ export async function getFilteredQuotes(options: {
   post_month: number;
   themes: string[];
 }[]> {
-  const { authorId, year, limit = 100 } = options;
+  const { authorId, year, month, limit = 100 } = options;
   const conditions: string[] = ['spiciness IS NOT NULL'];
 
   if (authorId) {
@@ -266,6 +277,9 @@ export async function getFilteredQuotes(options: {
   }
   if (year) {
     conditions.push(`post_year = ${safeInt(year)}`);
+  }
+  if (month) {
+    conditions.push(`post_month = ${safeInt(month)}`);
   }
 
   const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
