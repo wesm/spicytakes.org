@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Mapping out the tribes of climate"
 date: 2022-11-30
 url: https://nadia.xyz/climate-tribes
 word_count: 8703
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Mapping out the tribes of climate
 

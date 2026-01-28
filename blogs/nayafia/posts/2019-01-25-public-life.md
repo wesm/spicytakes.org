@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Reclaiming public life"
 date: 2019-01-25
 url: https://nadia.xyz/public-life
 word_count: 3718
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Reclaiming public life
 

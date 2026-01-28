@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Mapping digital worlds"
 date: 2023-04-17
 url: https://nadia.xyz/mapping-digital-worlds
 word_count: 4566
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Mapping digital worlds
 

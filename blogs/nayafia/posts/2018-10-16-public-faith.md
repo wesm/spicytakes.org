@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Public faith"
 date: 2018-10-16
 url: https://nadia.xyz/public-faith
 word_count: 833
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Public faith
 

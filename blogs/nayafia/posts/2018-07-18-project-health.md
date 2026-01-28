@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Methodologies for measuring project health"
 date: 2018-07-18
 url: https://nadia.xyz/project-health
 word_count: 2422
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Methodologies for measuring project health
 

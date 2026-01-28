@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The Atlantic Was Wrong. Software Engineers Do Exist."
 date: 2015-11-05
 url: https://nadia.xyz/software-engineers
 word_count: 900
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The Atlantic Was Wrong. Software Engineers Do Exist.
 

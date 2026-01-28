@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Breaking, Not Building, Sectors"
 date: 2015-02-23
 url: https://nadia.xyz/breaking-not-building
 word_count: 742
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Breaking, Not Building, Sectors
 

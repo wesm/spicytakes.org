@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The New Materialism of Silicon Valley"
 date: 2014-04-09
 url: https://nadia.xyz/new-materialism
 word_count: 495
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The New Materialism of Silicon Valley
 

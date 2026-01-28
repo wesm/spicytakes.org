@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Es Muss Sein"
 date: 2015-05-12
 url: https://nadia.xyz/es-muss-sein
 word_count: 362
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Es Muss Sein
 

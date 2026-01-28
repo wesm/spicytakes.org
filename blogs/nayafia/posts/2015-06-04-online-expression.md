@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "How to Express Ourselves Online"
 date: 2015-06-04
 url: https://nadia.xyz/online-expression
 word_count: 493
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # How to Express Ourselves Online
 

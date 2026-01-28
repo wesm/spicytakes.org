@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Work Hard and Be Nice to People"
 date: 2015-05-26
 url: https://nadia.xyz/work-hard-be-nice
 word_count: 374
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Work Hard and Be Nice to People
 

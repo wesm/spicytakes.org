@@ -126,32 +126,48 @@ class JekyllStaticScraper(BaseScraper):
 
             soup = BeautifulSoup(response.text, "html.parser")
 
-            # Extract title
-            title = "Untitled"
-            h1 = soup.find("h1")
-            if h1:
-                title = h1.get_text(strip=True)
-
-            # Extract date
+            # Extract date (before content manipulation)
             pub_date = self.extract_date_from_page(soup)
 
-            # Extract content
+            # Extract content element first so we can find the title within it
             content_elem = None
             if self.content_selector:
                 content_elem = soup.select_one(self.content_selector)
             if not content_elem:
-                # Try common content containers
                 for selector in ["article", "main", ".post-content", ".content", ".entry-content"]:
                     content_elem = soup.select_one(selector)
                     if content_elem:
                         break
-
             if not content_elem:
                 content_elem = soup.find("body")
 
             # Remove header/footer/nav from content
             for tag in content_elem.find_all(["header", "footer", "nav", "script", "style"]):
                 tag.decompose()
+
+            # Extract title: prefer h1 inside content element, then fall
+            # back to og:title, <title> tag, or page-level h1
+            title = "Untitled"
+            content_h1 = content_elem.find("h1")
+            if content_h1:
+                title = content_h1.get_text(strip=True)
+            else:
+                og_title = soup.find("meta", property="og:title")
+                if og_title and og_title.get("content"):
+                    title = og_title["content"]
+                elif soup.title and soup.title.string:
+                    # Strip common site name suffixes from <title>
+                    raw = soup.title.string.strip()
+                    for sep in [" | ", " - ", " — ", " · "]:
+                        if sep in raw:
+                            title = raw.split(sep)[0].strip()
+                            break
+                    else:
+                        title = raw
+                else:
+                    page_h1 = soup.find("h1")
+                    if page_h1:
+                        title = page_h1.get_text(strip=True)
 
             markdown = self.html_to_markdown(content_elem, self.base_url)
 

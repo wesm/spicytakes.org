@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Product Hunt Analysis: Categories! Contributors!"
 date: 2014-07-03
 url: https://nadia.xyz/product-hunt-analysis
 word_count: 1921
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Product Hunt Analysis: Categories! Contributors!
 

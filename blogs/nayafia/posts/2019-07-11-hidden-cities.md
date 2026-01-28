@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Hidden cities"
 date: 2019-07-11
 url: https://nadia.xyz/hidden-cities
 word_count: 1666
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Hidden cities
 

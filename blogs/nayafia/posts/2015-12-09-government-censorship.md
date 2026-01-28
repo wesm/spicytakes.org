@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Why do millennials support government censorship?"
 date: 2015-12-09
 url: https://nadia.xyz/government-censorship
 word_count: 654
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Why do millennials support government censorship?
 

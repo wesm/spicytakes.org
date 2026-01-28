@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Doing Good Doesn't Always Look Like Doing Good"
 date: 2014-04-13
 url: https://nadia.xyz/doing-good
 word_count: 889
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Doing Good Doesn't Always Look Like Doing Good
 

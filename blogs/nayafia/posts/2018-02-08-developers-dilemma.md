@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The developer's dilemma"
 date: 2018-02-08
 url: https://nadia.xyz/developers-dilemma
 word_count: 1488
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The developer's dilemma
 

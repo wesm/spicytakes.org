@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Early stage funding markets for science - an analysis"
 date: 2023-01-23
 url: https://nadia.xyz/early-stage-science
 word_count: 536
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Early stage funding markets for science - an analysis
 

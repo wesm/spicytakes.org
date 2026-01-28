@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "I'm joining Protocol Labs"
 date: 2018-04-11
 url: https://nadia.xyz/protocol-labs
 word_count: 470
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # I'm joining Protocol Labs
 

@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Understanding user support systems in open source"
 date: 2018-09-27
 url: https://nadia.xyz/user-support
 word_count: 3991
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Understanding user support systems in open source
 

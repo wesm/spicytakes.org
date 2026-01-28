@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Today's Entrepreneurs Are This Generation's Artists"
 date: 2014-07-17
 url: https://nadia.xyz/entrepreneur-artists
 word_count: 435
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Today's Entrepreneurs Are This Generation's Artists
 

@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Who pays the toolmakers?"
 date: 2018-06-13
 url: https://nadia.xyz/toolmakers
 word_count: 1522
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Who pays the toolmakers?
 

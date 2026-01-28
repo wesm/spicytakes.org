@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Do financial incentives increase the threat of forks?"
 date: 2018-07-02
 url: https://nadia.xyz/money-forks
 word_count: 809
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Do financial incentives increase the threat of forks?
 

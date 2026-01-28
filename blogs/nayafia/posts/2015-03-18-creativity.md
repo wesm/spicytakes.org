@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The Value of Creativity"
 date: 2015-03-18
 url: https://nadia.xyz/creativity
 word_count: 332
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The Value of Creativity
 

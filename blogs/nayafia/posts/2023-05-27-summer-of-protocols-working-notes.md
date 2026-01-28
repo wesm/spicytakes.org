@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Working notes for Summer of Protocols"
 date: 2023-05-27
 url: https://nadia.xyz/summer-of-protocols-working-notes
 word_count: 4862
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Working notes for Summer of Protocols
 

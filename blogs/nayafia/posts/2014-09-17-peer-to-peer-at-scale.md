@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "What Does Peer-to-Peer Look Like at Scale?"
 date: 2014-09-17
 url: https://nadia.xyz/peer-to-peer-at-scale
 word_count: 533
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # What Does Peer-to-Peer Look Like at Scale?
 

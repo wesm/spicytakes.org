@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "What If Facebook Were a Nonprofit?"
 date: 2014-03-26
 url: https://nadia.xyz/facebook-nonprofit
 word_count: 1342
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # What If Facebook Were a Nonprofit?
 

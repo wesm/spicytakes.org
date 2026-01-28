@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The creator economy"
 date: 2021-11-17
 url: https://nadia.xyz/creator-economy
 word_count: 1374
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The creator economy
 

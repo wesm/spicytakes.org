@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Funding Businesses With More Businesses"
 date: 2014-10-01
 url: https://nadia.xyz/funding-businesses
 word_count: 337
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Funding Businesses With More Businesses
 

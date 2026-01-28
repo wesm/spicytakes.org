@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Seed stage philanthropy"
 date: 2019-01-08
 url: https://nadia.xyz/seed-philanthropy
 word_count: 2786
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Seed stage philanthropy
 

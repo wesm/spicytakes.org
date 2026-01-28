@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Technical conversations"
 date: 2018-09-26
 url: https://nadia.xyz/technical-conversations
 word_count: 449
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Technical conversations
 

@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "What's Next For Crowdfunding?"
 date: 2015-10-28
 url: https://nadia.xyz/crowdfunding
 word_count: 575
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # What's Next For Crowdfunding?
 

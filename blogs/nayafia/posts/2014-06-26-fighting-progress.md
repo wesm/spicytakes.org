@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Fighting Progress"
 date: 2014-06-26
 url: https://nadia.xyz/fighting-progress
 word_count: 682
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Fighting Progress
 

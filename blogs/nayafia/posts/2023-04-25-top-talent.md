@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Explaining tech's notion of talent scarcity"
 date: 2023-04-25
 url: https://nadia.xyz/top-talent
 word_count: 3512
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Explaining tech's notion of talent scarcity
 

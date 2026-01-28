@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Corporations Are The New Governments of the Internet"
 date: 2014-04-23
 url: https://nadia.xyz/corporations-are-governments
 word_count: 508
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Corporations Are The New Governments of the Internet
 

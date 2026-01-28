@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Not voting as a form of protest"
 date: 2020-09-04
 url: https://nadia.xyz/not-voting
 word_count: 663
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Not voting as a form of protest
 

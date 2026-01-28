@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Keeping my mouth shut"
 date: 2017-10-17
 url: https://nadia.xyz/keeping-my-mouth-shut
 word_count: 1885
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Keeping my mouth shut
 

@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Doing good and being quiet"
 date: 2018-07-17
 url: https://nadia.xyz/being-quiet
 word_count: 1118
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Doing good and being quiet
 

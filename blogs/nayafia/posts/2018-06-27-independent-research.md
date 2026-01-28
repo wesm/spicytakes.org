@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The independent researcher"
 date: 2018-06-27
 url: https://nadia.xyz/independent-research
 word_count: 1242
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The independent researcher
 

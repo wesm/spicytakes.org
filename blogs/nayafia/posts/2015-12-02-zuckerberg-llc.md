@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "There's Nothing Wrong - Or Even New - About Zuckerberg's New LLC"
 date: 2015-12-02
 url: https://nadia.xyz/zuckerberg-llc
 word_count: 905
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # There's Nothing Wrong - Or Even New - About Zuckerberg's New LLC
 

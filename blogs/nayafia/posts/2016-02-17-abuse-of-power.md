@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Abuse of power comes as no surprise"
 date: 2016-02-17
 url: https://nadia.xyz/abuse-of-power
 word_count: 587
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Abuse of power comes as no surprise
 

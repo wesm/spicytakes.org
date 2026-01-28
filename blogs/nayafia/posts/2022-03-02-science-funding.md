@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Understanding science funding in tech, 2011-2021"
 date: 2022-03-02
 url: https://nadia.xyz/science-funding
 word_count: 7447
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Understanding science funding in tech, 2011-2021
 

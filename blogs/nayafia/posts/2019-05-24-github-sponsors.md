@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The Twitch argument for GitHub Sponsors"
 date: 2019-05-24
 url: https://nadia.xyz/github-sponsors
 word_count: 1752
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The Twitch argument for GitHub Sponsors
 

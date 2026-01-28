@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Equity for third-party developers"
 date: 2018-08-21
 url: https://nadia.xyz/developer-equity
 word_count: 735
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Equity for third-party developers
 

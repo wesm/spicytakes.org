@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The games we play"
 date: 2017-03-23
 url: https://nadia.xyz/the-games-we-play
 word_count: 421
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The games we play
 

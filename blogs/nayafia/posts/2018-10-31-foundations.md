@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Governance without foundations"
 date: 2018-10-31
 url: https://nadia.xyz/foundations
 word_count: 2069
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Governance without foundations
 

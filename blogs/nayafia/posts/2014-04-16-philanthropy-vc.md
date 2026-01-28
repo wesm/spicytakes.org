@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "What Philanthropic Funders and VC Can Learn From Each Other"
 date: 2014-04-16
 url: https://nadia.xyz/philanthropy-vc
 word_count: 713
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # What Philanthropic Funders and VC Can Learn From Each Other
 

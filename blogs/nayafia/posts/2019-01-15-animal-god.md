@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Between animal and God"
 date: 2019-01-15
 url: https://nadia.xyz/animal-god
 word_count: 1047
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Between animal and God
 

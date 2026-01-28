@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Don't Predict the Future With the Past"
 date: 2014-05-08
 url: https://nadia.xyz/predict-the-future
 word_count: 804
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Don't Predict the Future With the Past
 

@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The Freakonomics of Graduate School vs. Entrepreneurship"
 date: 2014-11-12
 url: https://nadia.xyz/graduate-school
 word_count: 435
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The Freakonomics of Graduate School vs. Entrepreneurship
 

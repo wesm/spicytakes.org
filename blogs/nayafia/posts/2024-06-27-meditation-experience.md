@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Does meditation experience improve success with the jhanas?"
 date: 2024-06-27
 url: https://nadia.xyz/meditation-experience
 word_count: 2338
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Does meditation experience improve success with the jhanas?
 

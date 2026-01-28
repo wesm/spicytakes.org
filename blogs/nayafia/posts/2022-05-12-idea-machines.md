@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Idea machines"
 date: 2022-05-12
 url: https://nadia.xyz/idea-machines
 word_count: 3976
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Idea machines
 

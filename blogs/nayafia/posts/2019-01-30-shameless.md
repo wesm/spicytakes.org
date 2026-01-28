@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Shamelessness as a strategy"
 date: 2019-01-30
 url: https://nadia.xyz/shameless
 word_count: 966
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Shamelessness as a strategy
 

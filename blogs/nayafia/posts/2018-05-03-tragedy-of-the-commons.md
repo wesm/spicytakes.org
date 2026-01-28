@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "An alternate ending to the tragedy of the commons"
 date: 2018-05-03
 url: https://nadia.xyz/tragedy-of-the-commons
 word_count: 963
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # An alternate ending to the tragedy of the commons
 

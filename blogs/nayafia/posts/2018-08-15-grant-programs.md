@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "Decentralized funding? An analysis of three programs"
 date: 2018-08-15
 url: https://nadia.xyz/grant-programs
 word_count: 4476
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # Decentralized funding? An analysis of three programs
 

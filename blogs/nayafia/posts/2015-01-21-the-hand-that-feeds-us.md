@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "The Hand That Feeds Us"
 date: 2015-01-21
 url: https://nadia.xyz/the-hand-that-feeds-us
 word_count: 431
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # The Hand That Feeds Us
 

@@ -1,19 +1,10 @@
 ---
-title: "Nadia Asparouhova"
+title: "I Still Have Something Interesting Left to Say"
 date: 2015-10-20
 url: https://nadia.xyz/something-to-say
 word_count: 325
 ---
 
-
-# [Nadia Asparouhova](https://nadia.xyz/)
-
-- [projects](https://nadia.xyz/projects)
-- [notes](https://nadia.xyz/notes)
-- [newsletter](https://nayafia.substack.com/)
-- [twitter](https://twitter.com/nayafia)
-
-[<-- home](https://nadia.xyz/)
 
 # I Still Have Something Interesting Left to Say
 
