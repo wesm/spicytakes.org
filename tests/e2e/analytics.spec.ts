@@ -203,10 +203,15 @@ test.describe('Analytics Responsive Behavior', () => {
     const chart = page.locator('svg.marks');
     await expect(chart).toBeVisible();
 
-    // On mobile, bars should be horizontal (year on y-axis)
-    // Check that the chart has rendered bars
+    // Verify bars exist
     const bars = chart.locator('path[aria-roledescription="bar"]');
     expect(await bars.count()).toBeGreaterThan(0);
+
+    // On mobile (horizontal bars), bars should be wider than tall
+    const firstBar = bars.first();
+    const box = await firstBar.boundingBox();
+    expect(box).not.toBeNull();
+    expect(box!.width).toBeGreaterThan(box!.height);
   });
 
   test('shows vertical bar chart on desktop viewport', async ({ page }) => {
@@ -221,9 +226,15 @@ test.describe('Analytics Responsive Behavior', () => {
     const chart = page.locator('svg.marks');
     await expect(chart).toBeVisible();
 
-    // Should have bars rendered
+    // Verify bars exist
     const bars = chart.locator('path[aria-roledescription="bar"]');
     expect(await bars.count()).toBeGreaterThan(0);
+
+    // On desktop (vertical bars), bars should be taller than wide
+    const firstBar = bars.first();
+    const box = await firstBar.boundingBox();
+    expect(box).not.toBeNull();
+    expect(box!.height).toBeGreaterThan(box!.width);
   });
 
   test('filter selection persists across viewport resize', async ({ page }) => {
@@ -245,13 +256,15 @@ test.describe('Analytics Responsive Behavior', () => {
     // Resize to mobile
     await page.setViewportSize({ width: 375, height: 667 });
 
-    // Wait for chart to re-render
-    await page.waitForTimeout(200);
+    // Wait for chart to re-render with horizontal orientation (width > height)
+    // Poll until the bar dimensions indicate horizontal layout
+    await expect(async () => {
+      const box = await bars.first().boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.width).toBeGreaterThan(box!.height);
+    }).toPass({ timeout: 5000 });
 
     // Filter should still be visible
     await expect(page.locator('span.bg-red-100')).toBeVisible();
-
-    // Chart should still be visible
-    await expect(chart).toBeVisible();
   });
 });
