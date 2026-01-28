@@ -70,6 +70,14 @@
   // Chart container ref
   let chartContainer: HTMLDivElement;
 
+  // Responsive state for mobile detection
+  let isMobile = $state(false);
+
+  // Check if mobile on mount and resize
+  function checkMobile() {
+    isMobile = window.innerWidth < 768;
+  }
+
   // Build permalink to author's spicytakes site
   function getPermalink(quote: Quote): string {
     const filename = quote.post_filename?.replace('.md', '') || '';
@@ -77,7 +85,7 @@
   }
 
   // Render Vega-Lite chart when data is ready
-  async function renderChart(selected: number | null = null) {
+  async function renderChart(selected: number | null = null, mobile: boolean = false) {
     if (!chartContainer || yearlyStats.length === 0) return;
 
     // Add selection state to data
@@ -86,7 +94,79 @@
       isSelected: selected === null || d.year === selected
     }));
 
-    const spec = {
+    // Common encoding properties
+    const colorEncoding = {
+      condition: {
+        test: 'datum.isSelected',
+        field: 'avg_spiciness',
+        type: 'quantitative',
+        scale: {
+          domain: [3, 5, 7, 10],
+          range: ['#22c55e', '#eab308', '#f97316', '#ef4444']
+        },
+        legend: null
+      },
+      value: '#d6d3d1'  // Gray for unselected
+    };
+
+    const opacityEncoding = {
+      condition: {
+        test: 'datum.isSelected',
+        value: 1
+      },
+      value: 0.4
+    };
+
+    const tooltipEncoding = [
+      { field: 'year', title: 'Year' },
+      { field: 'avg_spiciness', title: 'Avg Spiciness', format: '.1f' },
+      { field: 'quote_count', title: 'Quotes', format: ',' }
+    ];
+
+    // Build spec based on mobile vs desktop
+    const spec = mobile ? {
+      // Mobile: horizontal bar chart, taller
+      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      data: { values: dataWithSelection },
+      width: 'container',
+      height: Math.max(400, yearlyStats.length * 20),
+      mark: {
+        type: 'bar',
+        cornerRadiusBottomRight: 3,
+        cornerRadiusTopRight: 3,
+        cursor: 'pointer'
+      },
+      encoding: {
+        y: {
+          field: 'year',
+          type: 'ordinal',
+          sort: 'descending',
+          axis: {
+            title: null,
+            labelFontSize: 11
+          }
+        },
+        x: {
+          field: 'avg_spiciness',
+          type: 'quantitative',
+          scale: { domain: [0, 10] },
+          axis: {
+            title: null,
+            grid: true,
+            gridDash: [2, 2]
+          }
+        },
+        color: colorEncoding,
+        opacity: opacityEncoding,
+        tooltip: tooltipEncoding
+      },
+      config: {
+        view: { stroke: null },
+        axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+        background: 'transparent'
+      }
+    } : {
+      // Desktop: vertical bar chart
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
       data: { values: dataWithSelection },
       width: 'container',
@@ -117,31 +197,9 @@
             gridDash: [2, 2]
           }
         },
-        color: {
-          condition: {
-            test: 'datum.isSelected',
-            field: 'avg_spiciness',
-            type: 'quantitative',
-            scale: {
-              domain: [3, 5, 7, 10],
-              range: ['#22c55e', '#eab308', '#f97316', '#ef4444']
-            },
-            legend: null
-          },
-          value: '#d6d3d1'  // Gray for unselected
-        },
-        opacity: {
-          condition: {
-            test: 'datum.isSelected',
-            value: 1
-          },
-          value: 0.4
-        },
-        tooltip: [
-          { field: 'year', title: 'Year' },
-          { field: 'avg_spiciness', title: 'Avg Spiciness', format: '.1f' },
-          { field: 'quote_count', title: 'Quotes', format: ',' }
-        ]
+        color: colorEncoding,
+        opacity: opacityEncoding,
+        tooltip: tooltipEncoding
       },
       config: {
         view: { stroke: null },
@@ -163,15 +221,19 @@
     });
   }
 
-  // Re-render chart when data or selection changes
+  // Re-render chart when data, selection, or screen size changes
   $effect(() => {
     if (yearlyStats.length > 0 && chartContainer) {
-      renderChart(selectedYear);
+      renderChart(selectedYear, isMobile);
     }
   });
 
   // Load data on mount
   onMount(async () => {
+    // Set up responsive detection
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     try {
       await initDuckDB();
 
@@ -194,6 +256,10 @@
       error = e instanceof Error ? e.message : 'Failed to load analytics';
       loading = false;
     }
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
   });
 
   // Refresh displayed quotes based on current filters
