@@ -96,10 +96,9 @@ class TranscriptOnlyScraper(BaseScraper):
             else:
                 pub_date = datetime.fromtimestamp(md_file.stat().st_mtime)
 
-        # Create slug from filename
+        # Create slug from filename, including date prefix to avoid collisions
         filename = md_file.stem
-        slug_match = re.match(r'^\d{4}-\d{2}-\d{2}-(.+)$', filename)
-        slug = slug_match.group(1) if slug_match else filename
+        slug = filename  # Use full filename (with date) as slug
 
         # Create tags
         tags = []
@@ -202,6 +201,14 @@ class TranscriptOnlyScraper(BaseScraper):
             index_entry = {k: v for k, v in post.items() if k != "content"}
             all_posts.append(index_entry)
             total_new += 1
+
+        # Validate no duplicate slugs
+        seen_slugs = {}
+        for p in all_posts:
+            s = p["slug"]
+            if s in seen_slugs:
+                print(f"  WARNING: Duplicate slug '{s}' in {p.get('filename')} and {seen_slugs[s]}")
+            seen_slugs[s] = p.get("filename", "unknown")
 
         # Save index
         self.save_index(all_posts)

@@ -3,7 +3,7 @@ title: "DuckDB with Hannes Mühleisen (SE Daily 2022)"
 summary: "Podcast at Software Engineering Daily"
 date: 2022-03-18T00:00:00
 tags: ["podcast", "transcript"]
-slug: software-engineering-daily
+slug: software-engineering-daily-2022
 word_count: 6519
 source_file: transcripts/2022-03-18-software-engineering-daily.md
 content_type: transcript

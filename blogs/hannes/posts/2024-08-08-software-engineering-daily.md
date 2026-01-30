@@ -3,7 +3,7 @@ title: "DuckDB with Hannes Mühleisen"
 summary: "Podcast at Software Engineering Daily"
 date: 2024-08-08T00:00:00
 tags: ["podcast", "transcript"]
-slug: software-engineering-daily
+slug: software-engineering-daily-2024
 word_count: 8995
 source_file: transcripts/2024-08-08-software-engineering-daily.md
 content_type: transcript
