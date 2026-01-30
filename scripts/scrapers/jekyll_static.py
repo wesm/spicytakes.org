@@ -141,7 +141,8 @@ class JekyllStaticScraper(BaseScraper):
             if not content_elem:
                 content_elem = soup.find("body")
 
-            # Extract h1 from content BEFORE decomposing (it may be inside a <header>)
+            # Extract h1 from content BEFORE decomposing header/footer/nav elements,
+            # because the h1 may live inside a <header> tag that gets destroyed
             content_h1 = content_elem.find("h1")
 
             # Remove header/footer/nav from content

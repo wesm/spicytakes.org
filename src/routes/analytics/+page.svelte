@@ -559,6 +559,8 @@
         displayedMonthlyStats = await getMonthlyStats();
       } catch (e) {
         console.error('Failed to refresh monthly stats:', e);
+        // Keep previous displayedMonthlyStats value as fallback (may be stale)
+        displayedMonthlyStats = [];
       }
     }
   }
