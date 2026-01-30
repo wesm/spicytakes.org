@@ -1,0 +1,38 @@
+{
+  "id": "hannes",
+  "name": "Hannes Mühleisen",
+  "tagline": "DuckDB, databases, and analytical data management",
+  "description": "Exploring Hannes's talks and podcasts on DuckDB, database internals, query optimization, and the future of analytical data systems.",
+  "sourceUrl": "https://hannes.muehleisen.org",
+  "sourceLabel": "hannes.muehleisen.org",
+
+  "scraper": {
+    "type": "transcript_only",
+    "transcriptsPath": "transcripts"
+  },
+
+  "themes": {
+    "duckdb": { "label": "DuckDB", "icon": "🦆" },
+    "database_internals": { "label": "Database Internals", "icon": "⚙️" },
+    "query_optimization": { "label": "Query Optimization", "icon": "⚡" },
+    "data_architecture": { "label": "Data Architecture", "icon": "🏗️" },
+    "open_source": { "label": "Open Source", "icon": "📖" },
+    "academic_research": { "label": "Academic Research", "icon": "🎓" },
+    "lakehouse": { "label": "Lakehouse & Formats", "icon": "🏠" },
+    "embedded_databases": { "label": "Embedded Databases", "icon": "📦" },
+    "industry_observations": { "label": "Industry", "icon": "🔍" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a talk or podcast transcript by Hannes Mühleisen, co-creator of DuckDB and CEO of DuckDB Labs. He is known for deep technical insights on database systems, strong opinions on data architecture, and candid observations about the database industry. He often discusses why in-process analytics is superior to client-server architectures, the importance of simplicity, and lessons from building DuckDB at CWI. IMPORTANT: For podcast/interview transcripts with multiple speakers, ONLY extract quotes spoken by Hannes Mühleisen (labeled as 'Hannes Mühleisen:', 'Hannes:', or 'HM:'). Never include quotes from interviewers, hosts, or other guests.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Hannes is known for provocative takes on database technology, strong criticism of overcomplicated data architectures, skepticism of hype cycles (especially around 'big data' and distributed systems), and entertaining observations about the database industry. He often challenges conventional wisdom about when you actually need distributed systems."
+  }
+}
