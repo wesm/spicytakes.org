@@ -256,24 +256,24 @@ class BaseScraper(ABC):
         lines.append("\n")
         return lines
 
-    # Tag dispatch map
+    # Tag dispatch map — stores method names so subclass overrides are respected
     _TAG_HANDLERS = {
-        "h1": _handle_heading, "h2": _handle_heading, "h3": _handle_heading,
-        "h4": _handle_heading, "h5": _handle_heading, "h6": _handle_heading,
-        "p": _handle_paragraph,
-        "blockquote": _handle_blockquote,
-        "ul": _handle_list, "ol": _handle_list,
-        "pre": _handle_pre,
-        "a": _handle_link,
-        "img": _handle_img,
-        "div": _handle_container, "section": _handle_container,
-        "article": _handle_container, "span": _handle_container,
-        "main": _handle_container,
-        "figure": _handle_figure,
-        "hr": _handle_hr,
-        "em": _handle_inline_block, "i": _handle_inline_block,
-        "strong": _handle_inline_block, "b": _handle_inline_block,
-        "table": _handle_table,
+        "h1": "_handle_heading", "h2": "_handle_heading", "h3": "_handle_heading",
+        "h4": "_handle_heading", "h5": "_handle_heading", "h6": "_handle_heading",
+        "p": "_handle_paragraph",
+        "blockquote": "_handle_blockquote",
+        "ul": "_handle_list", "ol": "_handle_list",
+        "pre": "_handle_pre",
+        "a": "_handle_link",
+        "img": "_handle_img",
+        "div": "_handle_container", "section": "_handle_container",
+        "article": "_handle_container", "span": "_handle_container",
+        "main": "_handle_container",
+        "figure": "_handle_figure",
+        "hr": "_handle_hr",
+        "em": "_handle_inline_block", "i": "_handle_inline_block",
+        "strong": "_handle_inline_block", "b": "_handle_inline_block",
+        "table": "_handle_table",
     }
 
     _SKIP_TAGS = frozenset(["script", "style", "nav", "header", "footer", "aside", "noscript", "iframe"])
@@ -292,9 +292,9 @@ class BaseScraper(ABC):
             if not hasattr(child, 'name') or child.name in self._SKIP_TAGS:
                 continue
 
-            handler = self._TAG_HANDLERS.get(child.name)
-            if handler:
-                lines.extend(handler(self, child, base_url))
+            method_name = self._TAG_HANDLERS.get(child.name)
+            if method_name:
+                lines.extend(getattr(self, method_name)(child, base_url))
 
         return "\n".join(lines)
 
