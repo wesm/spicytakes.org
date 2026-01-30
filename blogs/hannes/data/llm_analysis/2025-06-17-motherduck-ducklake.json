@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen discusses DuckLake, a new open data format he and Mark Raasveldt created as an alternative to Iceberg and Delta Lake. He argues that Iceberg's fundamental problems are conceptual, not implementation-based, particularly the bolted-on catalog server that broke its original file-only design philosophy. DuckLake's key insight is using an existing database (like Postgres) to store all metadata\u2014tables, columns, files, statistics\u2014eliminating the need for Avro, JSON, REST APIs, and Java catalog servers. The approach enables sub-second query planning even at petabyte scale with 100 million snapshots, high-frequency transactional updates, and dramatically simpler implementation for connector authors.",
+  "key_points": [
+    "Iceberg's problems are conceptual and baked into the specification, unlike Hadoop whose problems were implementation-based",
+    "DuckLake eliminates roughly 15 technologies from the stack by using a standard database for metadata instead of Avro files, REST APIs, and Java catalog servers",
+    "DuckLake is database-agnostic for metadata storage\u2014Postgres, BigQuery, Snowflake, or any SQL engine with tables and transactions can serve as the catalog",
+    "High-frequency updates are practical because Postgres handles thousands of transactions per second versus Iceberg's struggle with one per second, and changes can be inlined into database tables before flushing to Parquet",
+    "The lack of competent Iceberg writers after years of existence demonstrates the format's excessive complexity"
+  ],
+  "money_quotes": [
+    "I think Iceberg's problems are conceptual, fundamental, and baked in the specification, which is an entirely different way of being wrong.",
+    "One thing I can see is that storing data you're not really looking at in a traditional data management system is insanely expensive.",
+    "You basically say, here's all this complicated interconnected metadata of which we have to change small bits all the time and then say, yeah, let's write a bunch of Avro files. Or you can say, well, that sounds like a job for a database.",
+    "We are, as a field, not very critical. We far too easily say, this is what this thing does, okay, fine.",
+    "I have heard that Iceberg is struggling with like one transaction per second even with a catalog server. That's a bit problematic.",
+    "One of the things in Duck Lake that we managed to do is to cut, I want to say, like 15 technologies out of this stack.",
+    "By putting things behind an API, you're basically condemning everybody to the access pattern that you have chosen.",
+    "Wes McKinney has tweeted 15 years ago that big metadata is the next big problem, and I agree. That's why we should just use the formats that we have to deal with data, also deal with metadata."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "lakehouse",
+    "database_internals",
+    "open_source",
+    "industry_observations"
+  ],
+  "tone": "opinionated, candid, technically grounded with irreverent humor",
+  "key_insight": "If you already need a database to manage your data lake catalog, you should redesign the entire metadata layer around that database rather than bolting one onto a file-based format that was designed to avoid needing one.",
+  "filename": "2025-06-17-motherduck-ducklake"
+}

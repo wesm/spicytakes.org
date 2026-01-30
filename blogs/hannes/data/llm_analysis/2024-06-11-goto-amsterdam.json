@@ -1,0 +1,30 @@
+{
+  "summary": "Hannes M\u00fchleisen traces data management from 5,000-year-old Sumerian clay tablets to modern cloud databases, arguing that tables, SQL, and ACID transactions form an unbreakable 'holy trifecta.' He recounts how the NoSQL era saw companies abandon SQL for MapReduce due to hardware constraints, only to bring it back within years\u2014MongoDB added schemas, Cassandra added ACID, and Databricks restored integrated storage. He predicts relational systems will absorb key-value stores, document databases, time series, vector databases, and graph databases, since all reduce to trivial table representations. Finally, he argues 'big data is dead' because modern single-node hardware is so powerful that distributing computation often makes things slower.",
+  "key_points": [
+    "Tables, SQL, and ACID form an eternal trifecta that every NoSQL movement eventually rediscovers\u2014MongoDB added schemas, Cassandra added ACID, Hive brought SQL back to MapReduce",
+    "Relational systems will eat most specialized databases (key-value, document, time series, vector, graph) because their data models reduce to trivial table representations",
+    "The NoSQL era forced application developers to handle schema, query optimization, and consistency\u2014all tasks better left to database systems",
+    "Modern single-node hardware (400 GB/s RAM, 5.5 GB/s SSDs) makes distribution unnecessary for most workloads\u2014DuckDB on one machine beats Spark on 32 nodes",
+    "Only array-shaped data like images and video truly resists being absorbed into relational tables"
+  ],
+  "money_quotes": [
+    "Tables were there before our civilization, and they will be there after our civilization.",
+    "There's this holy trifecta: Tables, SQL, ACID. The alternative is to have app developers do this themselves. And having app developers do this themselves is really not a great idea.",
+    "If the idea is to say, let's have a separate database because embeddings are so fundamentally different, I need 200 million in VC money to start a new database company... Well, it's just a table that has a list of fixed size as its value. And that's all there is to it.",
+    "The first tables that we have are about 1,000 years older than the first texts that we have. Record-keeping actually predates literature by about 1,000 years.",
+    "If I were working at a vector database company, I would be a bit worried at this point.",
+    "Once you start distributing a problem, it becomes just so much harder that you're very often better off with a single computer.",
+    "Even if we add 32 computers to this problem, and over 1,000 CPU cores versus the 32 we started with, Spark will still be slower than DuckDB on a single machine.",
+    "If your problem can be reduced to a two-column table, it's probably something that relational systems will eat."
+  ],
+  "themes": [
+    "duckdb",
+    "database_internals",
+    "data_architecture",
+    "industry_observations",
+    "embedded_databases"
+  ],
+  "tone": "opinionated, witty, historically grounded",
+  "key_insight": "The history of data management is a recurring cycle of abandoning and rediscovering the same fundamentals\u2014tables, SQL, and ACID\u2014and modern hardware has made distributed systems unnecessary for most workloads.",
+  "filename": "2024-06-11-goto-amsterdam"
+}

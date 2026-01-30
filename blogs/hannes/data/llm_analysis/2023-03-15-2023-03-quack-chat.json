@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen recounts the origin story of DuckDB, which grew out of research at CWI in the Netherlands. After engaging with R community data practitioners, he discovered they avoided databases entirely despite working with large datasets, due to slow client protocols and the burden of managing database servers. A prototype called MonoDB Lite proved the concept of in-process analytical databases but hit architectural limits, leading Hannes and Mark Raasveldt to build DuckDB from scratch\u2014a multi-year effort that created an entirely new class of database system.",
+  "key_points": [
+    "R community practitioners avoided databases entirely, preferring CSV files and hand-rolled data frame engines, because client-server setup was too burdensome",
+    "Database client protocols built in the 1980s were a major bottleneck\u2014row-based, heavy serialization, never modernized",
+    "Running in-process is a harsher environment than client-server: you can't crash, can't modify global state like locale or working directory",
+    "The MonoDB Lite prototype validated product-market fit before DuckDB was built from scratch, reducing risk of the rewrite",
+    "Academic impact in data systems comes from building widely-used systems, not writing papers\u2014citing Stonebraker's Turing Award as evidence"
+  ],
+  "money_quotes": [
+    "It turns out that they weren't using databases at all, right? They were storing their data in CSV files.",
+    "The client protocols of databases, built in the eighties, have never been touched, row-based, hardcore serialization stuff, not great.",
+    "Maybe we need to do something like SQLite, where there is actually no database server, but the database is in process. It's a library. But for analytics.",
+    "It turns out we invented a whole new class of database systems.",
+    "If you're running in-process, it's a much more harsh environment. You cannot just exit the process if things go wrong, because you're running in somebody else's process.",
+    "I decided that I'm going to start with Mark together to build a new database system, which is a monumental undertaking. It doesn't happen very often, and it's not successful 99% of the time.",
+    "My definition of success is not to write papers, it's to have impact.",
+    "We have a Turing Award in computer science for Mike Stonebraker, not because he writes amazing theoretical papers, but because he made systems like Ingress and Postgres."
+  ],
+  "themes": [
+    "duckdb",
+    "embedded_databases",
+    "data_architecture",
+    "academic_research",
+    "industry_observations",
+    "open_source"
+  ],
+  "tone": "reflective, candid, conversational",
+  "key_insight": "DuckDB was born from discovering that data practitioners refused to use databases due to client-server complexity, revealing an entirely missing category: the in-process analytical database.",
+  "filename": "2023-03-15-2023-03-quack-chat"
+}

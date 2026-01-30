@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen and Mark Raasveldt introduce DuckLake, a new lakehouse format that replaces the file-based metadata layers of Iceberg and Delta with a standard database (like Postgres or DuckDB) for metadata storage while keeping Parquet files on blob storage for data. They argue that existing lakehouse formats made poor design decisions by trying to avoid databases, only to eventually require catalog servers backed by databases anyway. DuckLake simplifies the architecture to just two components\u2014a metadata database and file storage\u2014enabling multi-table transactions, fast small commits, data inlining, and zero-trust encryption. The format is an open standard using simple SQL, and the DuckDB extension implementation is MIT-licensed.",
+  "key_points": [
+    "Existing lakehouse formats like Iceberg and Delta tried to avoid databases but ended up needing catalog servers backed by Postgres anyway, creating unnecessary architectural complexity with multiple layers of Avro, JSON, and Parquet metadata files",
+    "DuckLake stores all metadata in a standard database using simple SQL tables, reducing query planning from four dependent blob store round trips to a single database query",
+    "The format enables multi-table ACID transactions, schema-level time travel, and consistent cross-catalog snapshots\u2014capabilities that are extremely difficult with file-based formats",
+    "Data inlining allows small changes to be written directly to the metadata database, solving the small commits problem that limits Iceberg to roughly one transaction per few seconds versus thousands per second",
+    "DuckLake achieves zero-trust encrypted data lakes by storing encryption keys in the metadata database while writing standard encrypted Parquet files to untrusted blob storage"
+  ],
+  "money_quotes": [
+    "They tried so hard not to have a database in this because databases are evil. They don't scale.",
+    "In order to solve the problem of multi-table management and atomic commits, we'll invent a new system and this is no longer going to be file-based. It's going to be a service. And how does it store that? Well, it uses a system that is specifically designed to manage data. A database management system, if you will.",
+    "We are now talking about less than a transaction per second versus hundreds of thousands or tens of thousands of transactions per second that any respectable database can do.",
+    "Somehow blockchain has a higher transactions per second than these formats, which is kind of interesting to think about.",
+    "The epiphany from COD is really not that crazy if you think about it afterwards. We'll use the database for more because it's there already anyway.",
+    "You are the compute node. Wherever your application runs, is it your app server? Is it your application? Is it your local laptop, whatever? You are the compute node.",
+    "Any company that is managing any sort of serious amount of data will have a database server somewhere. And they will know how to back it up. They will know how to replicate it. In some sense, it's a commodity.",
+    "It took us 10 years to standardize on Parquet. And now for some reason people are trying to replace it. Let's just move on and innovate on something else."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "lakehouse",
+    "database_internals",
+    "open_source",
+    "industry_observations"
+  ],
+  "tone": "opinionated, conversational, satirical",
+  "key_insight": "Since every lakehouse format already requires a database for its catalog server, the logical step is to store all metadata directly in that database, eliminating the complex file-based metadata layers and unlocking multi-table ACID transactions, fast small commits, and zero-trust encryption.",
+  "filename": "2025-05-27-introducing-ducklake"
+}

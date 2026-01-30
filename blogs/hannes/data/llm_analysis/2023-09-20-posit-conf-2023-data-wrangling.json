@@ -1,0 +1,33 @@
+{
+  "summary": "Hannes M\u00fchleisen presents DuckDB as the answer to the long-standing frustration that databases are slow and difficult to use. He demonstrates how traditional databases like Postgres require painful setup and CSV ingestion compared to data science tools, then shows how DuckDB eliminates this friction as an in-process analytical database. He argues that single-node computing is increasingly sufficient for virtually all datasets, backing this with a thought experiment about data creation rates versus hardware improvements, and demonstrates DuckDB outperforming a 1,024-core Spark cluster on a single machine.",
+  "key_points": [
+    "Traditional databases prioritized engine internals over end-to-end user experience because sales happened on the golf course, not with actual users",
+    "DuckDB's in-process architecture eliminates setup friction while providing full database features like transactions, views, macros, and atomic operations in a single portable file",
+    "Single-node compute capabilities are growing faster than useful data, approaching a 'data singularity' where 99% of datasets fit comfortably on a laptop",
+    "DuckDB on a single node outperforms Apache Spark on 1,024 cores due to per-core efficiency and elimination of distributed coordination costs",
+    "The DuckDplyr integration brings DuckDB's optimized execution to familiar R syntax through lazy evaluation with AltRep, achieving 10x speedups transparently"
+  ],
+  "money_quotes": [
+    "Record-keeping predates literature by about 1,000 years. So we've been making tables 1,000 years before we have the first text.",
+    "The data management community in the past has really just never cared about CSV reading, but also about people, really.",
+    "How do you sell Oracle to somebody? Well, it's very easy. You meet the other CEO on the golf court. Done. You don't have to talk to the people that actually have to use Oracle.",
+    "DuckDB is this culmination of decades of research in execution engines, but then really wrapped in a user-friendly package.",
+    "The maximum sort of output in usable data of the entire Netherlands working population would easily fit on these two hard disks.",
+    "Even if we use 1,024 cores, it will still be slower than the single node DuckDB instance.",
+    "We have our high paid analysts waiting for the EMR cluster to come up, which I think is even more expensive than the actual compute here.",
+    "Just put your data in DuckDB. Not doing so will only be slower and more frustrating."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "embedded_databases",
+    "database_internals",
+    "query_optimization",
+    "open_source",
+    "industry_observations",
+    "academic_research"
+  ],
+  "tone": "opinionated, humorous, evangelical",
+  "key_insight": "Single-node compute is growing faster than useful data creation, making distributed big data systems unnecessary for 99% of workloads, and DuckDB's in-process architecture proves databases can be neither slow nor frustrating.",
+  "filename": "2023-09-20-posit-conf-2023-data-wrangling"
+}

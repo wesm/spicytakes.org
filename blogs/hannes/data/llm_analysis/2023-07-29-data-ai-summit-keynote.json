@@ -1,0 +1,30 @@
+{
+  "summary": "Hannes M\u00fchleisen presents DuckDB at the Data + AI Summit 2023, explaining how he and Mark Raasveldt identified a fundamental mismatch in the data world: people were using massive distributed systems to solve relatively small data problems. He argues that the separation of storage and compute, combined with efficient formats like Parquet, means compute can scale down dramatically\u2014often to a single laptop. DuckDB was built as an in-process analytical database with no dependencies, a 20MB footprint, and MIT licensing. He demonstrates querying a billion-row dataset in 160ms and 90GB of Parquet data in under 10 seconds on a MacBook, making the case that client-server architecture has been unquestioned since 1984 but is unnecessary for most analytical workloads.",
+  "key_points": [
+    "People were using big distributed systems like Hadoop for data problems that didn't require that scale, leading to poor ergonomics",
+    "The separation of storage and compute means compute can scale down far more than people realize\u2014a laptop is more powerful than most think",
+    "The database community focused too much on internals (join algorithms) while ignoring end-to-end user experience",
+    "DuckDB's in-process architecture eliminates client-server overhead and enables zero-copy data access within Python processes",
+    "DuckDB fits into ML workflows by handling data preparation in the same process where ML libraries run"
+  ],
+  "money_quotes": [
+    "What was happening is that there were people using very big iron systems like Hadoop to solve fairly small data problems.",
+    "It's a difference between knowing that something is happening and appreciating all the possible consequences of it.",
+    "You would be really, really, really surprised how small you can scale down data problems. In fact, the laptop in front of you is more powerful than you think.",
+    "The community was spending a lot of time thinking about the meat of the hamburger. But the problem is you're not looking at the whole hamburger. You're ignoring the end-to-end user experience.",
+    "DuckDB is not a client-server system. All data systems under the sun are client-server. That has been unquestioned since 1984.",
+    "A whole new class of data systems was required. And the first instance of that class is DuckDB.",
+    "DuckDB is free. It's free as in free beer. It's MIT licensed. Do whatever you want. Build a company on top of it."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "embedded_databases",
+    "industry_observations",
+    "academic_research",
+    "open_source"
+  ],
+  "tone": "evangelistic, accessible, opinionated",
+  "key_insight": "Most analytical data problems are far smaller than the infrastructure people use to solve them, and an in-process database on a laptop can replace cluster-scale systems for the majority of exploration and analysis work.",
+  "filename": "2023-07-29-data-ai-summit-keynote"
+}

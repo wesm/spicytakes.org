@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen argues that the era of big data requiring distributed systems is effectively over, as research from Redshift and Snowflake shows median query scans use only 100MB and P99.9 scans fit under 300GB. This means single-node systems like DuckDB can handle virtually all analytical workloads. With smaller effective data sizes, we can reclaim ACID transaction properties that were sacrificed during the Hadoop era. He demonstrates how atomicity, consistency, isolation, and durability bring real value to analytics pipelines. He also expresses skepticism about Lakehouse formats like Iceberg, viewing them as limited workarounds for change management on object stores.",
+  "key_points": [
+    "Research from Redshift and Snowflake shows median query scans use 100MB of data, with P99.9 under 300GB \u2014 both easily handled by a single machine",
+    "The data industry sacrificed convenience, ACID properties, and usability during the Hadoop era in exchange for raw distributed scale that most workloads never needed",
+    "ACID transactions provide concrete value for analytics: atomic CSV loading, primary key enforcement, concurrent dashboard refreshes, and durable writes",
+    "Lakehouse formats like Iceberg are essentially replicating database features in a limited way on object stores, and a proper open-source data warehouse could make them redundant",
+    "Hardware capability growth is outpacing data size growth, suggesting a 'data singularity' where any analytical question can be answered on a single node"
+  ],
+  "money_quotes": [
+    "Tables are a civilization technique that is older than writing things down.",
+    "The median scan of data uses 100 megabytes of data. That's not a lot. That can probably, you know, if you want it to fit on your watch.",
+    "We traded away a lot of convenience and sort of capabilities in data pipelines just for the vast and the raw scale capabilities.",
+    "Big data is somewhat dead.",
+    "Iceberg in the end is just a layer of stuff on top of parquet files. And I think it's only really interesting if you have no other choice for managing updates.",
+    "MongoDB manages to not actually ensure durability of data that you've written to it because it's performance. I don't know.",
+    "If you use something like dbt, it runs these endless chains of create table as select from blah, blah, blah, which is really the opposite of change.",
+    "Somebody, I think in the near future, will make an open source data warehouse with separate storage and compute that hopefully will make the Lakehouse formats redundant."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "database_internals",
+    "lakehouse",
+    "industry_observations",
+    "embedded_databases"
+  ],
+  "tone": "opinionated, conversational, provocative",
+  "key_insight": "Since hardware growth is outpacing data size growth and most analytical queries scan under 300GB, single-node ACID-compliant databases can replace both distributed big data systems and Lakehouse format workarounds.",
+  "filename": "2024-11-25-truth-large-tables"
+}

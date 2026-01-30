@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen presents the State of the Duck at DuckCon #3, covering DuckDB releases 0.7 and 0.8 from the preceding four months. Key features include multi-database attach support with pluggable storage backends, parallel JSON reading, hive-partition writes, pivot/unpivot operations, and as-of joins. He previews version 0.9 plans including out-of-core hash aggregation, compressed materialization, Apache Iceberg support, and better cloud platform integration. Adoption metrics show 1.3 million Python installs per month and 10K GitHub stars.",
+  "key_points": [
+    "DuckDB's pluggable database architecture lets users attach SQLite and custom storage backends, enabling cross-database queries and writes",
+    "Out-of-core hash aggregation uses radix-partitioned hash tables for graceful degradation when data exceeds memory, spilling to disk incrementally rather than failing",
+    "Compressed materialization reduces memory footprint of intermediate results by applying frame-of-reference compression and converting strings to integers during processing",
+    "DuckDB deliberately preserves row order unlike standard SQL, enabling features like positional joins that bridge the gap with dataframe libraries",
+    "Apache Iceberg integration is coming as a pluggable database type, but won't replace DuckDB's native storage since Iceberg's cloud-native overhead is unnecessary for local workloads"
+  ],
+  "money_quotes": [
+    "Something that's super cool about the way we've done it is that you can create your own database type. So it's actually like a pluggable database architecture.",
+    "Something we always try to do is try to make things easy to use so that while you don't bother us, you don't ask any questions to us.",
+    "Because people are wrangling quite large datasets with DuckDB on often very small machines, I mean, that's also what we tell you to do. So that's not your fault, of course.",
+    "You get this super graceful degradation so that even if your hash table, if it's, say, 80% of the hash table fits in memory, you won't end up with a big performance penalty.",
+    "Our storage is compressed, but the materializations are not. And while we can offload those to disk for many operators, having them be uncompressed increases the memory footprint quite significantly.",
+    "If you are running on your local computer, Iceberg introduces a lot of overheads that you may not really want to deal with. It's just not as efficient, but it's doing all these things in order to be compatible with things like S3, with the object stores.",
+    "Something that's actually kind of funny that we discovered later is this GDAL library also allows you to read Excel files. So through the spatial extension, you can now read Excel files. That was not intentional, but it just kind of happened."
+  ],
+  "themes": [
+    "duckdb",
+    "database_internals",
+    "query_optimization",
+    "data_architecture",
+    "open_source",
+    "lakehouse",
+    "embedded_databases"
+  ],
+  "tone": "technical, enthusiastic, conversational",
+  "key_insight": "DuckDB's architecture is evolving to handle datasets larger than memory through out-of-core operators and compressed materialization while maintaining its core philosophy of simplicity and pluggable extensibility.",
+  "filename": "2023-06-29-duckcon3"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Hannes M\u00fchleisen traces the evolution of data architecture from the 1985 three-tier model through cloud data warehouses to a new client-empowered paradigm. He argues that the traditional top-down architecture, where a central data warehouse holds all power, has barely changed despite moving to the cloud. Demonstrating that modern hardware can handle surprisingly large datasets on single machines, he makes the case that compute should move to the edge. He proposes flipping the architecture so clients do their own processing while lakehouse formats and commodity storage provide shared coordination.",
+  "key_points": [
+    "The traditional three-tier data architecture (client-server-warehouse) hasn't fundamentally changed with cloud migration \u2014 it just moved the same problems to S3 and Snowflake",
+    "Single-node computing is dramatically underestimated: a 13-year-old MacBook can crunch a terabyte of data, and median queries at leading cloud warehouses scan only 100MB",
+    "Database client-server data transfer is often slower than simply copying a CSV file, possibly due to strategic incompetence that keeps data hostage",
+    "The 2025 data architecture should flip the pyramid: empower clients with local compute and use commodity storage plus lakehouse formats for coordination",
+    "More users means more compute in a client-empowered architecture, eliminating the need to scale central cloud infrastructure per user"
+  ],
+  "money_quotes": [
+    "What you can do on a single computer is insane. You would not believe it if you wouldn't see it.",
+    "A halfway competent, single-threaded implementation can beat most distributed systems.",
+    "These things are criminally incompetent at transferring data. And it might actually be strategic incompetence. Because if you're keeping the data hostage, then you can keep charging them for your superyacht purposes.",
+    "DuckDB really is the answer to the question, what if academic research can actually have impact?",
+    "Wes McKinney really is the original revolutionary that took this data wrangling tech and took it from the gods of Oracle and put it into the hands of everyone.",
+    "If you have more users, you have more compute. It's insane, right? You're running stuff on local devices.",
+    "We basically decided that we were going to stop writing research papers for good. It's a very career-destructive move, by the way.",
+    "Think about what you can do if you maybe start trusting your clients with application code and also the coordination of storage."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "lakehouse",
+    "embedded_databases",
+    "industry_observations",
+    "academic_research",
+    "open_source"
+  ],
+  "tone": "opinionated, humorous, evangelistic",
+  "key_insight": "The future of data architecture is flipping the pyramid \u2014 empowering edge devices with capable local query engines while using commodity lakehouse formats for coordination, eliminating the need for expensive centralized data warehouses.",
+  "filename": "2025-04-10-2025-pydata-amsterdam"
+}

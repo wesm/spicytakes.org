@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen introduces DuckLake, an evolution of open table formats that replaces complex metadata layers (Avro files, JSON, REST APIs) with a standard SQL database for metadata management while keeping Parquet files on blob storage. He explains how examining Iceberg's specification revealed unnecessary complexity born from an emotional reaction to vendor lock-in rather than sound technical reasoning. DuckLake separates storage, compute, and metadata into three independently scalable axes, enabling features like cross-table commits, efficient small writes, per-file encryption, and time travel without the snapshot management overhead of existing formats. The system works with any SQL database supporting transactions and primary keys as the metadata store.",
+  "key_points": [
+    "Open table formats like Iceberg added unnecessary complexity by avoiding databases for metadata, then bolted on Postgres catalogs anyway",
+    "DuckLake stores all metadata in standard SQL tables, enabling cross-table atomic commits, cheap small writes, and thousands of snapshots without performance degradation",
+    "The architecture separates storage (blob store), compute (any DuckDB instance), and metadata (any SQL database) as independently scalable concerns",
+    "Per-file encryption with keys stored in the metadata catalog enables untrusted blob storage",
+    "Zero-copy Iceberg import/export is planned, using identical Parquet data and delete file formats"
+  ],
+  "money_quotes": [
+    "People sort of threw the whole tech stack out of the window and went with something else, which is, to me, isn't sort of a logical reaction.",
+    "The crazy thing is that these formats, they were built to work with files and blob stores, and that's great. And then they realized they couldn't do it, and they added the Postgres to it in the form of the catalog server.",
+    "Getting a single row to Iceberg means you're writing four files and you're writing a new snapshot and it's all pretty terrible.",
+    "Instead of having three file formats and a REST API and another thing, you have to manage a service, we're just also cleaning up the stack.",
+    "We can have a thousand or tens of thousands of snapshots in DuckLake and nobody bats an eye. It's fine. It's just a table.",
+    "The files are completely useless to anyone without access to your metadata catalog. Because they're all encrypted, and the only way to get the keys is in the metadata server.",
+    "I think at this point, we can all agree that Parquet is kind of good enough and it's fine.",
+    "These were all problems that were solved 20 years ago. But it is different in terms of how much data you can store without paying a shit ton of money."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "lakehouse",
+    "open_source",
+    "database_internals",
+    "industry_observations"
+  ],
+  "tone": "opinionated, technical, candid",
+  "key_insight": "Open table formats unnecessarily reinvented metadata management outside databases due to vendor lock-in fears, and DuckLake corrects this by putting metadata back where it belongs\u2014in a SQL database\u2014while keeping the good parts of decoupled blob storage.",
+  "filename": "2025-06-04-joe-reis-ducklake"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Hannes M\u00fchleisen presents DuckLake, a new lakehouse format that replaces Iceberg's complex file-based metadata architecture with a simple SQL database for catalog management. He traces the evolution from single-node databases through shared-nothing architectures to separated storage and compute, showing how Iceberg ironically reintroduced the database it tried to eliminate via its REST catalog. DuckLake acknowledges this reality by using a proper database for metadata alongside object storage for data files, eliminating layers of Avro and JSON metadata files. The result is dramatically simpler setup, fewer round trips, and 4x better performance than Iceberg in benchmarks.",
+  "key_points": [
+    "Iceberg's architecture evolved to require a database catalog anyway, but retained its complex file-based metadata layers, creating unnecessary complexity",
+    "DuckLake replaces the entire Iceberg metadata stack (JSON, Avro, manifest lists) with simple SQL tables in any transactional database",
+    "The three scaling dimensions\u2014storage, compute, and metadata\u2014can be independently chosen and scaled from laptop to global deployment",
+    "DuckLake achieves 4x faster performance than Iceberg by reducing query planning from 5 sequential round trips to just one database query plus data file reads",
+    "Features like row inlining, per-file encryption, multi-table transactions, and Iceberg import/export come naturally from having a real database for metadata"
+  ],
+  "money_quotes": [
+    "You just told us you're doing all this stuff to not have a database. And now you're adding the database back, but you never go back to your original design decisions about not having a database and having all these files.",
+    "I will never understand the decision of having four different encodings for data in one file format. You have JSON, you have Avro, and you have Parquet, and you have the whole REST thing for the catalog. It's kind of crazy.",
+    "The biggest reaction we got was like, oh, it's so obvious. And we're like, yes, but you didn't do it.",
+    "It takes a PhD in computer science and a day of screaming to get this done. This is like 10 seconds.",
+    "Yesterday, somebody told me that databases are considered legacy. And I'm like, yeah, it's a 5,000 year cultural technology. It's not legacy.",
+    "If all you have is files, then making everything be a file is kind of logical.",
+    "Cutting out things is making them better. Having fewer dependencies, having fewer things that can go wrong, having fewer random Avro problems impacting the performance of your data storage.",
+    "I actually managed to crash the JVM by running the official Iceberg Spark plugin on my laptop. I thought, how on earth has nobody tried this? This is the first thing you try."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "lakehouse",
+    "database_internals",
+    "open_source",
+    "industry_observations",
+    "embedded_databases"
+  ],
+  "tone": "opinionated, humorous, technically grounded",
+  "key_insight": "The lakehouse world spent years trying to eliminate databases from metadata management only to add them back via catalogs, proving that a simple SQL database for metadata plus object storage for data was always the right architecture.",
+  "filename": "2025-06-19-ducklake-datacouncil"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Hannes M\u00fchleisen recounts the origin story of DuckDB, born from frustration with the state of analytical data management in 2015, when options were expensive enterprise systems, Hadoop, immature cloud services, or bolted-on columnar extensions. He and Mark Raasveldt decided to build 'the SQLite for analytics' at CWI Amsterdam, making key design decisions: single-node over distributed, vectorized execution over JIT compilation, CPU-only with no GPU support, no hardware-specific SIMD code, and MIT-style open source licensing. He demonstrates DuckDB's out-of-core hash join capabilities and argues that the embedded architecture liberates data management by allowing DuckDB to run anywhere from browsers to Raspberry Pis to outer space.",
+  "key_points": [
+    "DuckDB was born from 'spite engineering' \u2014 frustration that superior academic database technology was being swallowed by corporations and never reaching users",
+    "The single-node design decision was the biggest departure from conventional wisdom, validated by data showing median queries scan only 100MB and P99.9 under 300GB",
+    "DuckDB's 'never give up, never surrender' approach to memory management ensures queries complete even when data exceeds available RAM, unlike systems that crash or hit performance cliffs",
+    "Avoiding hardware-specific code (no explicit SIMD, no GPU, no JIT) enabled extreme portability \u2014 DuckDB ran on Apple M1 within five minutes of its release",
+    "The embedded architecture fundamentally changes data system design: DuckDB runs on clients, browsers, lambdas, application servers, and Raspberry Pis, eliminating the need for separate database clusters"
+  ],
+  "money_quotes": [
+    "We can't just pip import the state of the art in data. We might have to build this ourselves.",
+    "We needed to build the SQLite for analytics. That was obvious.",
+    "I'm telling you not to do it because it is a risky undertaking. We were only able to start building a new database because we were basically an academic research institute.",
+    "In my opinion, there's absolutely no point of making data transformations run on GPUs.",
+    "If you had a JIT engine, you would still be working on rewriting your JIT. Some people here are clearly working on that. Sorry.",
+    "We really believe that a system that people rely on should never say, oh, I cannot finish this because I don't have enough memory to do this.",
+    "We used to be so used to the fact that we scaled the application server and the database server differently. They're different things. I'm sorry. But now you can just run DuckDB on the application server.",
+    "Just as a tip, if you're making the benchmark, this is embarrassing. Probably you should change the benchmark until your system is the fastest."
+  ],
+  "themes": [
+    "duckdb",
+    "database_internals",
+    "query_optimization",
+    "data_architecture",
+    "open_source",
+    "academic_research",
+    "embedded_databases",
+    "industry_observations"
+  ],
+  "tone": "opinionated, humorous, technically deep, triumphant",
+  "key_insight": "The most impactful design decisions in DuckDB were acts of deliberate simplification \u2014 single-node, no GPU, no SIMD, no JIT \u2014 which maximized portability and enabled analytics to run anywhere, from browsers to Raspberry Pis.",
+  "filename": "2025-04-22-data-council"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Hannes M\u00fchleisen and Mark Raasveldt present the State of the Duck at DuckCon #2, covering DuckDB's progress over the past year. Major achievements include persistent indexes, parallel data loading, advanced lightweight compression algorithms, out-of-core query execution for joins and sorting, and significant storage format improvements. DuckDB Labs has grown to 15 staff in Amsterdam, with adoption reaching one million Python installs per month. The talk outlines upcoming features including multi-database support, JSON reading, Hive partitioned writes, and plans for storage format finalization and V1.0.",
+  "key_points": [
+    "DuckDB's out-of-core execution allows queries to gracefully spill to disk without out-of-memory errors, squeezing maximum performance from a single machine",
+    "Lightweight specialized compression algorithms approach Parquet-level compression ratios while maintaining faster read speeds than general-purpose compression",
+    "DuckDB adoption exploded to 1 million Python installs/month and 600K Java downloads, signaling enterprise adoption",
+    "The DuckDB Foundation as a non-profit ensures the project remains MIT-licensed independent of DuckDB Labs' commercial interests",
+    "Storage format finalization and V1.0 remain the top priority, with the team wanting to get it right before committing for the next decade"
+  ],
+  "money_quotes": [
+    "One of our goals is to basically be able to squeeze as much out of a single machine, out of the laptop as possible, so that you can always get your queries running without having to resort to any sort of distributed system setup that's very complex to set up, very complex to run.",
+    "It's quite a lot of technological anxiety to commit to a storage format for the next 10 years, and we want to get this right.",
+    "We are not evil, we don't have telemetry in DuckDB, there's no callback features or anything like that. We literally do not know who is using DuckDB.",
+    "We can just yell at each other over coffee if we have a disagreement instead of writing passive aggressive emails.",
+    "The entire database lives in that JDBC driver, so you don't actually connect to something, you run DuckDB inside your JVM, which is wild.",
+    "It is in the statutes of the foundation that DuckDB has to remain under the MIT license. That is one of the things that we wanted to make absolutely sure that no matter what happens, this is insured.",
+    "Now is the time where I can complain that I really don't like the term Lakehouse. But I think the data formats that the Lakehouse people have generated, they're here to stay.",
+    "It's probably going to happen that you will not see changes for a long time, and at some point we'll just miraculously declare it stable because we haven't changed it in so long that we're comfortable."
+  ],
+  "themes": [
+    "duckdb",
+    "database_internals",
+    "query_optimization",
+    "open_source",
+    "embedded_databases",
+    "data_architecture",
+    "industry_observations",
+    "lakehouse"
+  ],
+  "tone": "technical, candid, community-oriented",
+  "key_insight": "DuckDB's strategy of squeezing maximum performance from a single machine through lightweight compression, out-of-core execution, and pervasive parallelism eliminates the complexity of distributed systems for the vast majority of analytical workloads.",
+  "filename": "2023-02-03-duckcon2"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen and Mark Raasveldt introduce DuckLake, a reimagined lakehouse format that replaces file-based metadata (JSON, Avro) with a SQL relational database for all metadata management while keeping data files on object stores. The project emerged from critically examining the Iceberg and Delta tech stacks while implementing support in DuckDB, realizing the catalog database could handle everything. DuckLake dramatically reduces complexity, cutting query round trips from ~7 to 2, and enables features like data inlining (small writes go directly to the metadata store), per-file encryption with a single boolean flag, and cheap snapshots. The format scales from local single-file setups to thousands of distributed compute nodes, and can serve as a backend for Iceberg REST catalogs.",
+  "key_points": [
+    "DuckLake replaces file-based metadata with a SQL database, cutting round trips from ~7 to 2 and eliminating JSON/Avro file management complexity",
+    "Data inlining allows small writes directly to the metadata store with immediate visibility, solving the streaming buffer problem that plagues Iceberg setups",
+    "Per-file encryption stores keys in the metadata catalog, making object store files useless without catalog access\u2014enabled by a single boolean flag",
+    "The concept separates from the DuckDB implementation: any engine (Spark, Trino) can use DuckLake's SQL metadata approach, and DuckDB's embeddability makes integration trivial",
+    "Snapshots are just rows in a database rather than expensive file operations, enabling thousands of snapshots without performance degradation"
+  ],
+  "money_quotes": [
+    "We just looked at that stack at some point, because we are obviously the people that have to implement this in the end, and at some point thought, hey, hang on, there is this catalog up there that has a database, maybe we should use this for all.",
+    "I think what surprised me the most was that it wasn't that hard. When I first got acquainted with Lakehouse formats, I thought this was very complex. But then when we got started on Duck Lake, at every step of the way, we didn't really face any big hurdles.",
+    "Your client or your local machine is no longer the smallest light in the architecture. It's suddenly actually the prominent player because it's where the compute happens.",
+    "We switch on encryption and we will generate a unique encryption key for every Parquet file we write out to object storage and actually store the key in the metadata catalog. Whoever has access to it can do absolutely nothing with those files.",
+    "If the ecosystem maybe admittedly or unadmittedly adopt some of these ideas, we also consider this a huge success. Whether that's our ducky logo on it or not isn't such a huge thing.",
+    "There's still such a huge gap between what is kind of possible and what is the daily reality of the data practitioners. Sometimes we see what people are doing and you just want to cry a little bit.",
+    "It's almost like there's half of the population has to drive a car from the 1920s. That would not be considered great. Let's maybe get them a 1980s car.",
+    "Once we accept that storage and compute are disconnected, what gravity is really left?"
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "lakehouse",
+    "open_source",
+    "embedded_databases",
+    "industry_observations"
+  ],
+  "tone": "confident, pragmatic, candid",
+  "key_insight": "By replacing file-based lakehouse metadata with a standard SQL database, DuckLake eliminates enormous complexity while preserving all the benefits of open table formats, enabling deployment scenarios from a single laptop to thousands of distributed nodes.",
+  "filename": "2025-09-09-data-engineering-ducklake"
+}

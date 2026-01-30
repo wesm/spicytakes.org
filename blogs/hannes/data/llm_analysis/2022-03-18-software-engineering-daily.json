@@ -1,0 +1,33 @@
+{
+  "summary": "Hannes M\u00fchleisen explains DuckDB as the first in-process OLAP database, designed to bring analytical SQL processing directly into applications like Python without a client-server architecture. He describes how DuckDB's vectorized execution engine processes data in chunks of 1,024 values to optimize CPU cache usage and amortize interpretation overhead. He contrasts DuckDB's single-node efficiency against distributed systems like Spark, arguing that most datasets fit on a laptop and distributed coordination often dominates execution time. He also discusses DuckDB's WebAssembly compilation for browser-based analytics, the 'never give up, never surrender' out-of-memory project, and the bootstrapped business model of DuckDB Labs.",
+  "key_points": [
+    "DuckDB invented the in-process OLAP category, running as a library inside applications to eliminate client-server overhead and enable zero-copy data interchange",
+    "The vectorized execution engine processes 1,024-value chunks to keep intermediates in CPU cache and amortize interpretation overhead, achieving low cycles-per-value without JIT compilation complexity",
+    "Single-node performance has been neglected for 20 years in favor of distributed systems, yet a single DuckDB node can match 32 Spark nodes on the taxi dataset benchmark",
+    "DuckDB's minimal dependencies enabled cross-compilation to WebAssembly, running full OLAP queries in the browser with only ~30% performance overhead",
+    "DuckDB Labs is bootstrapped without VC funding, monetizing through contract work with companies that use DuckDB as infrastructure, while keeping DuckDB free and open source"
+  ],
+  "money_quotes": [
+    "DuckDB is very different there because it's a database as a library. We call it the in-process OLAP. And it's the first one because we kind of invented this as a class of systems.",
+    "People for the last 20 or so years have been working really hard on building distributed execution engines. And in my opinion, people have been neglecting the single node execution performance a lot. As a matter of fact, they've been neglecting it so much that single node execution has actually become slower.",
+    "We ran a query on this taxi dataset, used DuckDB. And then we looked how big does the Spark cluster have to be to match this performance. And I think the answer was 32 or something like that. And that's a 32X increase in cost.",
+    "We want to make sure that even if you're running out of memory, we still are able to complete the query successfully. So this is where we actively work on what we call the 'never give up, never surrender' project.",
+    "We've decided we don't want to have these hard cuts in operator implementation because it creates these unexpected performance cliffs. It's something people really dislike about relational systems.",
+    "There have been some issues reported where people said my computer suddenly becomes much hotter than it has ever been. But that's something we have to live with.",
+    "We're not sitting on a giant pile of cash that we're slowly shoveling into a big fire.",
+    "You have to give up on your columnar dreams in hash tables."
+  ],
+  "themes": [
+    "duckdb",
+    "database_internals",
+    "query_optimization",
+    "data_architecture",
+    "open_source",
+    "embedded_databases",
+    "industry_observations",
+    "academic_research"
+  ],
+  "tone": "technical, candid, opinionated",
+  "key_insight": "The database industry's obsession with distributed systems has caused it to neglect single-node performance so badly that an in-process analytical engine on a laptop can outperform clusters costing 32 times as much.",
+  "filename": "2022-03-18-software-engineering-daily"
+}

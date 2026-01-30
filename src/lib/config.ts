@@ -27,6 +27,7 @@ import unclebobConfig from '../../config/unclebob.json';
 import hillelConfig from '../../config/hillel.json';
 import steveyeggeConfig from '../../config/steveyegge.json';
 import martinfowlerConfig from '../../config/martinfowler.json';
+import hannesConfig from '../../config/hannes.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -52,6 +53,7 @@ const configs: Record<string, BlogConfig> = {
   hillel: hillelConfig as BlogConfig,
   steveyegge: steveyeggeConfig as BlogConfig,
   martinfowler: martinfowlerConfig as BlogConfig,
+  hannes: hannesConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'

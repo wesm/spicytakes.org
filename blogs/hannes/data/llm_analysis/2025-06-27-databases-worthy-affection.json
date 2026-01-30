@@ -1,0 +1,31 @@
+{
+  "summary": "Hannes M\u00fchleisen argues that database abstractions\u2014tables, SQL, and ACID\u2014are fundamental civilizational technologies deserving of enthusiasm rather than dismissal. He traces tables back 5,000 years to Mesopotamian clay tablets, predating written text by a millennium. He contends that criticisms of databases conflate old implementations (like Oracle) with the underlying abstractions, which remain elegant and powerful. He uses MongoDB as a cautionary tale: by initially rejecting tables, SQL, and ACID, it forced developers to reimplement those concepts poorly in application code. He concludes with a technical demonstration of DuckDB's vectorized execution achieving near-theoretical hardware limits.",
+  "key_points": [
+    "Tables are a 5,000-year-old civilizational technique that predates written text by 1,000 years, making them arguably the most fundamental data abstraction",
+    "The 'holy trinity' of databases\u2014tables, SQL, and ACID\u2014are elegant abstractions whose value should not be judged by the quality of old implementations",
+    "MongoDB's rejection of tables, SQL, and ACID forced developers to reimplement schema validation, joins, and consistency in application code\u2014and MongoDB eventually added all three back",
+    "DuckDB was born from the frustration of using Spark, aiming to process large datasets without requiring a cluster of Java VMs",
+    "Vectorized query execution enables DuckDB to achieve near-theoretical hardware speed limits, processing 3.7 billion operations per second on a 4 GHz CPU"
+  ],
+  "money_quotes": [
+    "We had tables 1,000 years before we had text. So this is a fundamental civilization technique that's older than the written text.",
+    "Tables, SQL and ACID do spark joy, and MongoDB does not.",
+    "If you don't have tables, SQL and ACID, your developers will have to implement them by hand.",
+    "There is a schema, it's just you don't know what it is.",
+    "Just because something is new and shiny doesn't mean it's better from an abstraction perspective.",
+    "The elegance of the abstractions isn't affected by the shittiness of the implementations.",
+    "Databases are the most complex pieces of software out there. You need kind of all of computer science to do it.",
+    "We managed to implement this subtraction in such a way that it runs very close to the actual speed of hardware."
+  ],
+  "themes": [
+    "duckdb",
+    "database_internals",
+    "query_optimization",
+    "data_architecture",
+    "industry_observations",
+    "embedded_databases"
+  ],
+  "tone": "enthusiastic, opinionated, humorous",
+  "key_insight": "The enduring abstractions of tables, SQL, and ACID are fundamental civilizational technologies whose elegance should not be confused with the limitations of their oldest implementations.",
+  "filename": "2025-06-27-databases-worthy-affection"
+}
