@@ -63,14 +63,25 @@ class MediumScraper(BaseScraper):
             title = title_elem.text if title_elem is not None else "Untitled"
             url = link_elem.text if link_elem is not None else ""
 
-            # Parse date: "Sat, 18 Jan 2025 20:42:07 GMT"
+            # Parse date: "Sat, 18 Jan 2025 20:42:07 GMT" or ISO 8601
             pub_date = None
             if pub_date_elem is not None and pub_date_elem.text:
+                date_str = pub_date_elem.text.strip()
+                # Try RFC 2822 first
                 try:
-                    dt = parsedate_to_datetime(pub_date_elem.text.strip())
-                    pub_date = dt.strftime("%Y-%m-%d")
-                except (ValueError, TypeError):
+                    dt = parsedate_to_datetime(date_str)
+                    if dt is not None:
+                        pub_date = dt.strftime("%Y-%m-%d")
+                except (ValueError, TypeError, AttributeError):
                     pass
+                # Fallback to ISO 8601
+                if pub_date is None:
+                    try:
+                        from datetime import datetime
+                        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+                        pub_date = dt.strftime("%Y-%m-%d")
+                    except (ValueError, TypeError):
+                        pass
 
             content_html = ""
             if content_elem is not None and content_elem.text:
