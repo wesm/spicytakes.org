@@ -7,7 +7,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+_scrapers_dir = str(Path(__file__).resolve().parent)
+if _scrapers_dir not in sys.path:
+    sys.path.insert(0, _scrapers_dir)
 
 from transcript_only import TranscriptOnlyScraper
 
