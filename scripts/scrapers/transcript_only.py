@@ -204,11 +204,17 @@ class TranscriptOnlyScraper(BaseScraper):
 
         # Validate no duplicate slugs
         seen_slugs = {}
+        duplicates = []
         for p in all_posts:
             s = p["slug"]
             if s in seen_slugs:
-                print(f"  WARNING: Duplicate slug '{s}' in {p.get('filename')} and {seen_slugs[s]}")
+                duplicates.append(f"Duplicate slug '{s}' in {p.get('filename')} and {seen_slugs[s]}")
             seen_slugs[s] = p.get("filename", "unknown")
+
+        if duplicates:
+            for d in duplicates:
+                print(f"  ERROR: {d}")
+            raise ValueError(f"Found {len(duplicates)} duplicate slug(s) in index. Aborting.")
 
         # Save index
         self.save_index(all_posts)
