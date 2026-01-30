@@ -96,9 +96,9 @@ class TranscriptOnlyScraper(BaseScraper):
             else:
                 pub_date = datetime.fromtimestamp(md_file.stat().st_mtime)
 
-        # Create slug from filename, including date prefix to avoid collisions
-        filename = md_file.stem
-        slug = filename  # Use full filename (with date) as slug
+        # Prefer frontmatter slug when present; otherwise use full filename
+        # (with date prefix) to avoid collisions between similarly-named transcripts
+        slug = frontmatter.get("slug") or md_file.stem
 
         # Create tags
         tags = []
