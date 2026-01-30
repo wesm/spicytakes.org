@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Tests for Medium scraper date parsing."""
 
+import sys
 import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from medium import parse_pub_date
 
