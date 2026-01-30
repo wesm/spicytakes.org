@@ -2,38 +2,8 @@
 """Tests for Medium scraper date parsing."""
 
 import unittest
-from email.utils import parsedate_to_datetime
-from datetime import datetime
 
-
-def parse_pub_date(date_str: str) -> str | None:
-    """Parse a date string (RFC 2822 or ISO 8601) into YYYY-MM-DD format.
-
-    Mirrors the parsing logic in MediumScraper.fetch_posts_from_feed.
-    """
-    if not date_str:
-        return None
-
-    date_str = date_str.strip()
-    pub_date = None
-
-    # Try RFC 2822 first
-    try:
-        dt = parsedate_to_datetime(date_str)
-        if dt is not None:
-            pub_date = dt.strftime("%Y-%m-%d")
-    except (ValueError, TypeError, AttributeError):
-        pass
-
-    # Fallback to ISO 8601
-    if pub_date is None:
-        try:
-            dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-            pub_date = dt.strftime("%Y-%m-%d")
-        except (ValueError, TypeError):
-            pass
-
-    return pub_date
+from medium import parse_pub_date
 
 
 class TestPubDateParsing(unittest.TestCase):
@@ -50,8 +20,7 @@ class TestPubDateParsing(unittest.TestCase):
         self.assertEqual(parse_pub_date("2025-01-18T20:42:07+00:00"), "2025-01-18")
 
     def test_none_input(self):
-        self.assertIsNone(parse_pub_date(""))
-        self.assertIsNone(parse_pub_date(None) if False else parse_pub_date(""))
+        self.assertIsNone(parse_pub_date(None))
 
     def test_invalid_input(self):
         self.assertIsNone(parse_pub_date("not a date"))

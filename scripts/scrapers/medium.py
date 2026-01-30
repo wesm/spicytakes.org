@@ -9,7 +9,9 @@ import re
 import sys
 import time
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from email.utils import parsedate_to_datetime
+from typing import Optional
 
 import requests
 from bs4 import BeautifulSoup
@@ -17,6 +19,33 @@ from bs4 import BeautifulSoup
 from base import BaseScraper
 
 REQUEST_DELAY = 1.0
+
+
+def parse_pub_date(date_str: Optional[str]) -> Optional[str]:
+    """Parse a date string (RFC 2822 or ISO 8601) into YYYY-MM-DD format."""
+    if not date_str:
+        return None
+
+    date_str = date_str.strip()
+    pub_date = None
+
+    # Try RFC 2822 first
+    try:
+        dt = parsedate_to_datetime(date_str)
+        if dt is not None:
+            pub_date = dt.strftime("%Y-%m-%d")
+    except (ValueError, TypeError, AttributeError):
+        pass
+
+    # Fallback to ISO 8601
+    if pub_date is None:
+        try:
+            dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+            pub_date = dt.strftime("%Y-%m-%d")
+        except (ValueError, TypeError):
+            pass
+
+    return pub_date
 
 
 class MediumScraper(BaseScraper):
@@ -66,22 +95,7 @@ class MediumScraper(BaseScraper):
             # Parse date: "Sat, 18 Jan 2025 20:42:07 GMT" or ISO 8601
             pub_date = None
             if pub_date_elem is not None and pub_date_elem.text:
-                date_str = pub_date_elem.text.strip()
-                # Try RFC 2822 first
-                try:
-                    dt = parsedate_to_datetime(date_str)
-                    if dt is not None:
-                        pub_date = dt.strftime("%Y-%m-%d")
-                except (ValueError, TypeError, AttributeError):
-                    pass
-                # Fallback to ISO 8601
-                if pub_date is None:
-                    try:
-                        from datetime import datetime
-                        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-                        pub_date = dt.strftime("%Y-%m-%d")
-                    except (ValueError, TypeError):
-                        pass
+                pub_date = parse_pub_date(pub_date_elem.text)
 
             content_html = ""
             if content_elem is not None and content_elem.text:
