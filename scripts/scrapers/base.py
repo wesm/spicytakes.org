@@ -82,13 +82,15 @@ class BaseScraper(ABC):
     def save_index(self, posts: list):
         """Save the posts index."""
         index_file = self.data_dir / "posts_index.json"
+        sorted_posts = sorted(posts, key=lambda p: p.get("pub_date", ""), reverse=True)
         index = {
-            "total_posts": len(posts),
-            "last_updated": datetime.now().isoformat(),
-            "posts": posts
+            "total_posts": len(sorted_posts),
+            "last_updated": datetime.utcnow().isoformat() + "Z",
+            "posts": sorted_posts
         }
         with open(index_file, "w") as f:
             json.dump(index, f, indent=2)
+            f.write("\n")
 
     def get_existing_slugs(self) -> set[str]:
         """Get set of already-scraped post slugs."""
