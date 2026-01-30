@@ -1,0 +1,26 @@
+{
+  "summary": "Steve Yegge shares an emergency user manual for Gas Town, his AI-powered development tool that orchestrates multiple AI agents to work on code simultaneously. He describes merging over 100 PRs from nearly 50 contributors in 12 days, growing the project to 189k lines of Go code across 2684 commits. The post outlines his three-loop developer workflow (outer, middle, inner) for managing swarms of AI workers, crew members, and automated PR sheriffs. He warns the tool is still unstable but enthusiasts are using it anyway, and addresses the challenge of maintaining code quality when no human reads the generated code.",
+  "key_points": [
+    "Gas Town orchestrates multiple AI agents (Mayor, Crew, Polecats) in a tmux-based workflow to parallelize software development at unprecedented scale",
+    "The three-loop developer model (outer/middle/inner) structures how humans supervise AI workers: strategic direction, task assignment, and real-time response cycling",
+    "Code quality in AI-generated codebases requires constant vigilance against 'heresies' \u2014 wrong assumptions that propagate through agent-written code",
+    "The developer's role shifts from writing code to reading agent output, giving direction, and maintaining architectural principles",
+    "PR Sheriffs and automated workflows allow the system to self-maintain, merging easy PRs and flagging complex ones for human review"
+  ],
+  "money_quotes": [
+    "I've merged over 100 PRs from nearly 50 contributors, adding 44k lines of code that no human has looked at.",
+    "Gas Town's User Safety Index has been upgraded from 'randomly rips user's face off' to 'randomly kicks user in groin.'",
+    "Don't watch your agents work. Make sure they have their marching orders, and let them do their thing.",
+    "When you work with Gas Town, you don't usually have time to inspect the code you're creating. That's not your role.",
+    "Agents are very approximate workers and they like to guess at stuff. If that wrong guess makes it into the code, sneaking through the review process, then it becomes enshrined and other agents may notice it and propagate the heresy.",
+    "It's like you're Jeff Bezos and your team is presenting results to you, one at a time.",
+    "There is no such thing as an idle polecat; it's not a pool, and they vanish when their work is done."
+  ],
+  "themes": [
+    "software_engineering",
+    "tech_industry"
+  ],
+  "tone": "conversational, enthusiastic, irreverent",
+  "key_insight": "Managing swarms of AI coding agents transforms the developer role from writing code to tending an invisible garden \u2014 reviewing output, stamping out architectural heresies, and maintaining guiding principles that keep approximate AI workers aligned.",
+  "filename": "2026-01-13-gas-town-emergency-user-manual"
+}

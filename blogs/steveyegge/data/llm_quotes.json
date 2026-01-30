@@ -1,6 +1,6 @@
 {
-  "total_posts": 91,
-  "successful": 86,
+  "total_posts": 99,
+  "successful": 94,
   "posts": [
     {
       "summary": "Yegge explains why he's reluctantly starting a blog despite hating the blog format. He critiques blogs for their chronological ordering, lack of threaded and inline comments, no version history, and poor content editing tools. After considering building his own solution in Ruby on Rails but realizing it would be another multi-year project like his 7-year game development effort, he pragmatically chooses Blogger. The post serves as both a manifesto for better self-publishing software and an explanation for why he's settling for imperfect tools.",
@@ -2186,6 +2186,33 @@
       "filename": "2025-11-17-cheese-wars-rise-of-the-vibe-coder"
     },
     {
+      "summary": "Steve Yegge shares best practices for Beads, his git-native issue tracking tool designed for AI coding agents. He positions Beads as an execution tool rather than a planning tool, emphasizing its small scope and passive design. He describes meeting Jeffrey Emanuel, creator of MCP Agent Mail, who combines it with Beads to create 'agent villages' where multiple AI agents collaborate autonomously. The post details practical tips for solo development including regular cleanup, frequent agent restarts, and planning outside Beads before importing work. Yegge notes Beads is 130k lines of entirely vibe-coded Go and growing rapidly in adoption.",
+      "key_points": [
+        "Beads is an execution/tracking tool, not a planning or orchestration tool \u2014 it deliberately keeps scope small and expects agents to use it as a passive tool",
+        "Combining Beads (shared memory) with MCP Agent Mail (messaging) creates autonomous 'agent villages' where AI agents self-organize, pick leaders, and split work without human coordination",
+        "Beads is 100% vibe coded at 130k lines of Go, with sometimes 50k lines changing per day \u2014 none reviewed by human contributors",
+        "Crummy architectures that would fail for humans can work fine when AI compensates for edge cases, a pattern Yegge calls AI 'hydrating' bad architecture",
+        "Practical workflow: plan outside Beads, import as epics/issues, restart agents frequently per task, and keep the issue database small for performance"
+      ],
+      "money_quotes": [
+        "Everyone is focused on making planning tools, and Beads is an execution tool. It's like putting your coding agent on waxed skis.",
+        "It is 100% vibe coded, currently at 130k lines of Go code total, roughly half tests. And tens of thousands of people are using it in their daily workflows.",
+        "Beads gives the agents shared memory, and MCP Agent Mail gives them messaging\u2026 and that's all they need.",
+        "There's no ego, so they quickly decide on a leader and just split things up.",
+        "It's a crummy architecture that requires AI in order to work around all its edge cases where it breaks. But AI can always get it working.",
+        "So AI 'hydrates' the crummy architecture and makes it uncrummy. Well, less crummy.",
+        "I was enthralled, all the while being amused that he still wanted his agents grubbing around in a single folder like raccoons in a dumpster.",
+        "Dev preferences are so unpredictable."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_industry"
+      ],
+      "tone": "conversational, enthusiastic, digressive",
+      "key_insight": "AI agents need only shared memory (issue tracking) and messaging to self-organize into effective autonomous teams, making simple 'crummy' architectures viable because AI compensates for their edge cases.",
+      "filename": "2025-11-24-beads-best-practices"
+    },
+    {
       "summary": "Steve Yegge evangelizes Beads, his 'execution tool' for AI coding agents that provides shared memory and issue tracking across agent sessions. The post celebrates the project's growth (130k lines of 'vibe coded' Go), introduces Jeffrey Emanuel's complementary MCP Agent Mail for agent-to-agent messaging, and shares best practices for solo development. Yegge frames Beads as deliberately 'crummy architecture' that AI makes work through resilience, and describes his vision of 'agent villages' with 30+ parallel workers coordinated through git worktrees and messaging.",
       "key_points": [
         "Beads is an execution/tracking tool, not a planning tool - it gives AI agents 'waxed skis' by providing persistent memory between sessions",
@@ -2210,6 +2237,34 @@
       "tone": "enthusiastic, conversational, promotional",
       "key_insight": "AI agents don't need perfect architecture - they need simple, 'crummy' systems like Beads that they can resilient work around, enabling swarm-like parallel development that would be impossible with traditional tooling.",
       "filename": "2025-11-27-beads-best-practices"
+    },
+    {
+      "summary": "Yegge shares six new strategies for working with AI coding agents, drawn from his ongoing experience and collaboration with Gene Kim. He argues software now has a sub-one-year shelf life since regenerating code is easier for AIs than modifying it. He emphasizes agent UX design, dedicating 40% of time to code health, knowing when projects are too early for current models, iterating reviews five times for convergence, and managing agent swarms despite merge conflicts. He predicts 2026 will produce 'super-engineers' running 50-100 agents simultaneously, rivaling teams of 50+ developers.",
+      "key_points": [
+        "Software should now be treated as disposable with less than one year shelf life, since AI can regenerate entire codebases faster than it can fix them",
+        "Agent UX is an emerging discipline \u2014 getting AIs to actually use your tools requires iterative ergonomic tweaks, not just good design on paper",
+        "Spend 30-40% of time on code health reviews or invisible technical debt will slow your agents dramatically",
+        "The Rule of Five: have agents review their own work 4-5 times before trusting it, as each pass catches things previous passes missed",
+        "Agent swarming is extraordinarily powerful but faces a hard merge problem that may never be fully automatable"
+      ],
+      "money_quotes": [
+        "We are entering a surprising new phase of software development, in which rewriting things is often easier (and smarter) than trying to fix them.",
+        "For all the code I write, I now expect to throw it away in about a year, to be replaced by something better.",
+        "Naturally, Claude never uses our fuckin' bridge we built together. I've given up even asking.",
+        "AI cognition takes a hit every time it crosses a boundary in the code. Every RPC, IPC, FFI call, database call, client/server call, every eval \u2014 it gets a little dumber.",
+        "I plan for the models to get smarter, by building tools that don't work that well with today's models.",
+        "With vibe coding, reading code is pretty much all you do all day. It's hard for most developers.",
+        "A new class of 100x (or maybe 1000x) engineer will emerge \u2014 people who have figured out how to wield coding agent orchestrators effectively.",
+        "Working with AIs is a little messy and nondeterministic. And I think that's here to stay."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_industry",
+        "career"
+      ],
+      "tone": "enthusiastic, opinionated, conversational",
+      "key_insight": "AI coding agents have fundamentally changed the economics of software, making code disposable and regeneration cheaper than maintenance, but wielding this power effectively requires new disciplines around agent UX, iterative review, code health, and swarm orchestration.",
+      "filename": "2025-12-07-six-new-tips-for-better-coding-with-agents"
     },
     {
       "summary": "Steve Yegge argues that Google Cloud Platform's aggressive deprecation policy is driving away developers and contributing to GCP's failure to catch AWS. He contrasts Google's approach\u2014where customers bear the burden of constant API changes\u2014with successful long-lived platforms like Emacs, Android, Java, and the Web, which prioritize backwards compatibility. The post traces this problem to Google's internal culture, where automated refactoring tools make breaking changes easy internally but that attitude transfers poorly to external customers. Yegge concludes that Google must fundamentally change its philosophy to compete in the cloud market.",
@@ -2240,6 +2295,89 @@
       "filename": "2025-12-14-dear-google-cloud-your-deprecation-policy-is-killing-you"
     },
     {
+      "summary": "Steve Yegge introduces Gas Town, his fourth-generation AI agent orchestrator that coordinates 20-30 concurrent Claude Code instances to work on software projects simultaneously. Built on his earlier Beads issue tracker, Gas Town uses a Mad Max-themed hierarchy of worker roles (Mayor, Polecats, Refinery, Witness, Deacon, Dogs, Crew) managed through tmux. The system implements the MEOW (Molecular Expression of Work) stack, where workflows are expressed as chains of Beads issues that agents execute step-by-step, surviving crashes and context window limits. Yegge argues this represents the next evolution beyond single-agent coding, comparing Gas Town's architecture to Kubernetes and Temporal while noting it optimizes for work completion rather than uptime. He warns the system is expensive, chaotic, and only suitable for developers already comfortable juggling multiple AI coding agents.",
+      "key_points": [
+        "Gas Town orchestrates 20-30 concurrent Claude Code instances through defined worker roles, using tmux as its primary UI",
+        "The MEOW stack (Beads, Epics, Molecules, Protomolecules, Formulas) provides durable workflow execution that survives agent crashes and context window limits",
+        "GUPP (Gastown Universal Propulsion Principle) keeps agents working by persisting work state in Git-backed Beads, so new sessions automatically resume interrupted work",
+        "The system achieves 'Nondeterministic Idempotence' \u2014 workflows complete reliably even though individual agent execution paths are unpredictable",
+        "Yegge presents an 8-stage evolution of AI-assisted development, positioning Gas Town as a tool only for developers at Stage 7+ who already manage 10+ concurrent agents"
+      ],
+      "money_quotes": [
+        "The industry is an embarrassing little kid's soccer team chasing the 2025 CLI form factor of Claude Code, rather than building what's next.",
+        "Gas Town is an industrialized coding factory manned by superintelligent robot chimps, and when they feel like it, they can wreck your shit in an instant.",
+        "Work becomes fluid, an uncountable substance that you sling around freely, like slopping shiny fish into wooden barrels at the docks.",
+        "Gas Town is me marching into the Church of Public Opinion on AI-Assisted Coding, lifting my leg, and ripping a fart that will be smelt all around the world.",
+        "You are a Product Manager, and Gas Town is an Idea Compiler.",
+        "Kubernetes asks 'Is it running?' while Gas Town asks 'Is it done?'",
+        "I'm tired of walking around and telling people the future, just waving it right in their faces, and not being believed.",
+        "17 days, 75k lines of code, 2000 commits."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_industry",
+        "rants"
+      ],
+      "tone": "bombastic, irreverent, evangelical",
+      "key_insight": "The next frontier in AI-assisted development isn't better individual coding agents but orchestration systems that coordinate dozens of agents into durable, self-healing workflows.",
+      "filename": "2026-01-01-welcome-to-gas-town"
+    },
+    {
+      "summary": "Yegge argues that the future of coding belongs not to individual coding agents but to orchestrated colonies of agents working together, as exemplified by his tool Gas Town. He traces Gas Town through four prior iterations and explains why it will improve automatically through smarter models, community contributions, training corpus inclusion, and agent vendors adapting to support colony-style work. He predicts big companies will be disrupted because small teams using agent swarms achieve velocities that larger organizations simply cannot coordinate around. The post also covers his preference for Go in vibe-coded projects and warns that developers who haven't adopted coding agents are falling behind.",
+      "key_points": [
+        "The future of coding agents is colonies and factories, not bigger individual agents \u2014 nature prefers ant colonies over giant ants",
+        "Gas Town will improve passively through smarter models, community growth, training corpus inclusion, and agent vendors adding orchestration APIs",
+        "Go is surprisingly well-suited for AI-assisted coding because its boring simplicity means diffs are always readable, unlike TypeScript's verbose type gymnastics",
+        "Big companies face an existential threat because small teams with agent swarms move so fast that coordination across large orgs becomes nearly impossible",
+        "Coding agent vendors need to shift from building 'human pair programmers' to building 'colony workers' with proper automation APIs"
+      ],
+      "money_quotes": [
+        "When work needs to be done, nature prefers colonies.",
+        "Claude Code is 'the world's biggest fuckin' ant.' It will bite you in half and take all your resources.",
+        "Colonies are going to win. Factories are going to win. Automation is going to win. Of course they're gonna fucking win.",
+        "The entire world is going to explode into tiny companies, which will then aggregate and re-form into larger ones.",
+        "2 hours ago!? That's ancient!",
+        "When the diffs go by in TypeScript, half the time you're like, what awful thing is my computer up to now? But with Go, it's just boring.",
+        "At this rate I'll be more impressed if a 100-person startup can make a billion dollars in 2027.",
+        "Programming has always been a best-effort, we'll-fix-shit-later endeavor."
+      ],
+      "themes": [
+        "software_engineering",
+        "programming_languages",
+        "tech_industry",
+        "rants"
+      ],
+      "tone": "opinionated, evangelical, conversational",
+      "key_insight": "The competitive advantage in AI-assisted coding will shift from making individual agents smarter to orchestrating colonies of agents into automated factories, fundamentally disrupting how companies are sized and organized.",
+      "filename": "2026-01-05-the-future-of-coding-agents"
+    },
+    {
+      "summary": "Steve Yegge shares an emergency user manual for Gas Town, his AI-powered development tool that orchestrates multiple AI agents to work on code simultaneously. He describes merging over 100 PRs from nearly 50 contributors in 12 days, growing the project to 189k lines of Go code across 2684 commits. The post outlines his three-loop developer workflow (outer, middle, inner) for managing swarms of AI workers, crew members, and automated PR sheriffs. He warns the tool is still unstable but enthusiasts are using it anyway, and addresses the challenge of maintaining code quality when no human reads the generated code.",
+      "key_points": [
+        "Gas Town orchestrates multiple AI agents (Mayor, Crew, Polecats) in a tmux-based workflow to parallelize software development at unprecedented scale",
+        "The three-loop developer model (outer/middle/inner) structures how humans supervise AI workers: strategic direction, task assignment, and real-time response cycling",
+        "Code quality in AI-generated codebases requires constant vigilance against 'heresies' \u2014 wrong assumptions that propagate through agent-written code",
+        "The developer's role shifts from writing code to reading agent output, giving direction, and maintaining architectural principles",
+        "PR Sheriffs and automated workflows allow the system to self-maintain, merging easy PRs and flagging complex ones for human review"
+      ],
+      "money_quotes": [
+        "I've merged over 100 PRs from nearly 50 contributors, adding 44k lines of code that no human has looked at.",
+        "Gas Town's User Safety Index has been upgraded from 'randomly rips user's face off' to 'randomly kicks user in groin.'",
+        "Don't watch your agents work. Make sure they have their marching orders, and let them do their thing.",
+        "When you work with Gas Town, you don't usually have time to inspect the code you're creating. That's not your role.",
+        "Agents are very approximate workers and they like to guess at stuff. If that wrong guess makes it into the code, sneaking through the review process, then it becomes enshrined and other agents may notice it and propagate the heresy.",
+        "It's like you're Jeff Bezos and your team is presenting results to you, one at a time.",
+        "There is no such thing as an idle polecat; it's not a pool, and they vanish when their work is done."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_industry"
+      ],
+      "tone": "conversational, enthusiastic, irreverent",
+      "key_insight": "Managing swarms of AI coding agents transforms the developer role from writing code to tending an invisible garden \u2014 reviewing output, stamping out architectural heresies, and maintaining guiding principles that keep approximate AI workers aligned.",
+      "filename": "2026-01-13-gas-town-emergency-user-manual"
+    },
+    {
       "summary": "Steve Yegge presents six new insights for working with AI coding agents, building on his Vibe Coding book. The key themes include treating software as disposable (expect <1 year shelf life), designing tools specifically for agent usability rather than just humans, spending 40% of time on code health to prevent technical debt, recognizing some projects are ahead of current AI capabilities, using the 'Rule of Five' (having agents review their work 4-5 times for convergence), and managing the complexity of agent swarming while avoiding merge conflicts. He predicts 2026 will see the rise of 'super-engineers' who can orchestrate 50-100 agents simultaneously, becoming as productive as teams of 50+ regular developers.",
       "key_points": [
         "Software now has a sub-one-year shelf life - rewriting is often easier than fixing, fundamentally changing Joel Spolsky's classic advice",
@@ -2267,6 +2405,33 @@
       "filename": "2026-01-13-six-new-tips-for-better-coding-with-agents"
     },
     {
+      "summary": "Steve Yegge recounts discovering he had tens of thousands of dollars in unclaimed creator royalties on BAGS, a cryptocurrency trading platform that generates fees from speculation on creator-associated tokens. Despite a lifetime of skepticism toward 'free money' schemes, he claimed $68-76k in trading fees from the $GAS token created by speculators betting on his Gas Town project. He argues BAGS represents a new kind of market that fuels individual creators the way stock markets fuel corporations, and predicts the creator economy will explode as AI tools enable individuals to rival corporate output. The post is part promotion, part genuine bewilderment, and part economic thesis about creator-focused financial markets.",
+      "key_points": [
+        "BAGS is a crypto trading platform where speculators bet on creators, and trading fees flow back to creators as royalties \u2014 Yegge received $75k+ from $GAS token trading",
+        "Unlike Bitcoin which derives value purely from scarcity and popularity, BAGS is designed to anchor speculation on real-world creator value, similar to how stock markets reward corporate outcomes",
+        "AI tools like Gas Town will enable individual creators to rival corporate output, creating massive demand for markets that can identify and fund promising creators",
+        "The stock market is too inflexible to serve the emerging long tail of individual creators, leaving room for new market mechanisms like BAGS",
+        "Yegge draws parallels to early Bitcoin \u2014 he watched Google engineers buy bitcoin at pennies and slept on it, and sees similar early-stage energy around creator economy markets"
+      ],
+      "money_quotes": [
+        "In other words, this unknown Internet Person was telling me that blah blah blah blah stuff stuff stuff blah there's a lot of money waiting for me blah blah blah more stuff\u2026 as long as I buy some Solana to unlock my earnings.",
+        "I figured, what's the worst that could happen? My bank account gets drained, identity theft, my other accounts get drained\u2026 meh! I've still got Gas Town, which is gonna be the biggest thing ever.",
+        "He looks at me like I said it's for bioterrorism and asks me a bunch of increasingly incredulous questions. The more I explain the less he believes me.",
+        "BAGS is a trading market targeted at predicting and fostering creators: individuals or maybe small teams who are out there creating amazing things.",
+        "Bitcoin is sort of soulless. It has the world's fanciest ledger just to prove someone dug it out of the mathematical soil and then sold it to someone else.",
+        "With AI, big software companies are facing an onslaught later this year: hordes of ravenous creators who have Gas Town and clusters of local GPUs.",
+        "There is a sense of static in the air, like I felt back in 1998 at Amazon, where you can tell something really big is happening.",
+        "On January 1st I took all my chips and pushed them to the center of the table. I already placed my bet."
+      ],
+      "themes": [
+        "tech_industry",
+        "career"
+      ],
+      "tone": "conversational, self-deprecating, promotional, speculative",
+      "key_insight": "As AI enables individual creators to rival corporate output, new financial markets like BAGS that channel speculative energy into funding creators could become as important to the creator economy as stock markets are to the corporate economy.",
+      "filename": "2026-01-15-bags-and-the-creator-economy"
+    },
+    {
       "summary": "Yegge recounts how he skeptically investigated a claim that he had tens of thousands of dollars waiting for him on BAGS, a cryptocurrency trading platform for creators. Despite his lifelong distrust of 'free money' schemes stemming from Publisher's Clearing House and Nigerian Prince scams, he took the plunge and successfully claimed $68k-75k in trading fees generated by speculators betting on his Gas Town project. He argues BAGS represents something genuinely new: a market mechanism that channels speculation into fuel for independent creators, positioning it as the stock market equivalent for the coming AI-powered creator economy.",
       "key_points": [
         "BAGS is a crypto market where speculators bet on creators, and 99% of trading fees go directly to the creator - turning speculation into innovation fuel",
@@ -2292,6 +2457,33 @@
       "tone": "irreverent, enthusiastic, self-deprecating",
       "key_insight": "Speculation markets like BAGS could become the stock market for the creator economy, channeling betting money into fuel for independent innovation at exactly the moment AI tools make individual creators as powerful as companies.",
       "filename": "2026-01-17-bags-and-the-creator-economy"
+    },
+    {
+      "summary": "Yegge's birthday post surveys five themes from his week: Money (turning down VCs and navigating an unexpected $300k crypto windfall), Time (discovering that high-intensity agentic coding causes involuntary 'nap strikes' from decision fatigue), Power (the exponential productivity gains from running dozens of AI agents simultaneously), Control (comparing four agent orchestrators\u2014Ralph Wiggum, Loom, Claude Flow, and Gas Town\u2014and how they complement each other), and Direction (his roadmap for Gas Town evolving into a customizable orchestration toolkit called Gas City). He argues we're at the start of an industrial revolution in software development where single engineers with enough agents and tokens can clone entire technology stacks.",
+      "key_points": [
+        "Running 20+ concurrent AI coding agents causes intense cognitive exhaustion and involuntary naps, which Yegge calls 'Bezos Mode'\u2014constant high-stakes decision review that overwhelms human processing capacity",
+        "Agentic coding is pushing developer productivity from the traditional 10-100x range toward 1000-10000x, with power users spending thousands per month on Claude subscriptions",
+        "Gas Town differentiates from other orchestrators by treating work itself as the core primitive, recording execution in an auditable ledger, rather than focusing on orchestration patterns",
+        "The four main agent orchestrators (Ralph Wiggum, Loom, Claude Flow, Gas Town) solve complementary problems: quality via self-review loops, super-workers, coordination, and work tracking",
+        "Yegge is deliberately avoiding VC funding and crypto community obligations to maintain full creative control over his orchestration trilogy"
+      ],
+      "money_quotes": [
+        "Money wants the fuck in.",
+        "Your buffer just fills up and you're gone. I've fallen asleep slower at the anesthesiologist.",
+        "With agentic coding, it's about to go to 1000x or even 10000x.",
+        "Everyone is going to learn how this stuff works this year, or die not trying. The industry won't be kind to the people who sleep on this.",
+        "I contend that Beads was like the discovery of oil. Right now everyone is playing with it and lighting lanterns, not realizing it's going to turn into the global petroleum industry for data.",
+        "2026 will be a year where you see single engineers cloning, say, the entire Java/JVM stack and core ecosystem by themselves.",
+        "I'm aiming bigger. They both build directly toward the third movie in my software orchestration trilogy, and I need to be relentlessly focused on that, not chasing ARR."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_industry",
+        "career"
+      ],
+      "tone": "exuberant, visionary, conversational",
+      "key_insight": "The convergence of AI agent orchestrators is creating an industrial revolution in software development where the key bottleneck shifts from writing code to managing the cognitive load of reviewing agent output at scale.",
+      "filename": "2026-01-19-steveys-birthday-blog"
     },
     {
       "summary": "Yegge announces that his Gas Town orchestrator represents the future of coding: factory-style agent colonies rather than individual super-agents. He argues that coding agents will evolve from 'pair programmers' into 'colony workers' optimized for orchestration, and that this shift will devastate large companies while enabling tiny teams to achieve unprecedented productivity. The post traces Gas Town's evolution through four prior orchestrator attempts and explains why Go emerged as his preferred language for AI-coded projects. He predicts 2026 will see massive industry churn as solo developers and tiny teams dramatically outperform large organizations that can't adapt to the coordination challenges of high-velocity AI coding.",
@@ -2378,6 +2570,33 @@
       "tone": "exuberant, prophetic, conversational",
       "key_insight": "Running swarms of AI coding agents has become so cognitively intense that it triggers involuntary sleep, signaling we've entered an era where individual engineers can achieve previously impossible productivity\u2014but only if they learn to orchestrate agents effectively.",
       "filename": "2026-01-23-steveys-birthday-blog"
+    },
+    {
+      "summary": "Yegge proposes a framework for predicting which software will survive in Karpathy's 'Software 3.0' era where AI writes all code. He argues that resource constraints (tokens, energy, money) create selection pressure favoring software that saves cognition. He presents a 'Survival Ratio' with six levers: insight compression (crystallized knowledge like Git), substrate efficiency (CPU beats GPU for tasks like grep), broad utility, publicity/awareness, minimizing friction for agents, and a human coefficient for human-preferred software. He concludes optimistically that demand for software is infinite and builders have multiple paths forward.",
+      "key_points": [
+        "Software survives if it saves more cognition than it costs to know about and use, expressed as a survival ratio of savings over awareness and friction costs",
+        "Hard-won knowledge crystallized in tools like Git, Kubernetes, and databases would be economically irrational to re-synthesize from scratch",
+        "Agent UX is critically undervalued \u2014 making tools intuitive to AI agents by implementing their hallucinated expectations ('desire paths') dramatically reduces friction",
+        "The attention/awareness problem for agents mirrors historical attention economies, and 'SEO for agents' including paid model training partnerships is emerging",
+        "Human-created software will survive in domains where people specifically prefer human involvement, regardless of efficiency"
+      ],
+      "money_quotes": [
+        "All of my predictive power comes from believing the curves. It's that simple.",
+        "Software tends to survive if it saves cognition.",
+        "An AI reimplementing Git from first principles would have to re-traverse that entire intellectual history, burning tokens all the way. It would be economically irrational.",
+        "Nobody is coming for grep.",
+        "Our ambition will always outstrip available cognition. Token costs will fall, but we'll keep moving the frontier, generating more work than there are tokens to perform it.",
+        "If even North Korean hackers understand Agent UX, then it's probably time you did too.",
+        "Build something that would be crazy to re-synthesize. Make it easy to find. Make it easy to use. Then I think you've got a solid shot."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_industry",
+        "rants"
+      ],
+      "tone": "opinionated, conversational, optimistic",
+      "key_insight": "In a world of AI-written software, the selection pressure of constrained compute resources will favor tools that save more cognition than they cost to discover and use \u2014 crystallized knowledge and substrate-efficient computation become the ultimate survival advantages.",
+      "filename": "2026-01-29-software-survival-3-0"
     }
   ]
 }

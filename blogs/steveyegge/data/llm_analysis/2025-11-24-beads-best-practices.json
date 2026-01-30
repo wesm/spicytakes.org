@@ -1,0 +1,27 @@
+{
+  "summary": "Steve Yegge shares best practices for Beads, his git-native issue tracking tool designed for AI coding agents. He positions Beads as an execution tool rather than a planning tool, emphasizing its small scope and passive design. He describes meeting Jeffrey Emanuel, creator of MCP Agent Mail, who combines it with Beads to create 'agent villages' where multiple AI agents collaborate autonomously. The post details practical tips for solo development including regular cleanup, frequent agent restarts, and planning outside Beads before importing work. Yegge notes Beads is 130k lines of entirely vibe-coded Go and growing rapidly in adoption.",
+  "key_points": [
+    "Beads is an execution/tracking tool, not a planning or orchestration tool \u2014 it deliberately keeps scope small and expects agents to use it as a passive tool",
+    "Combining Beads (shared memory) with MCP Agent Mail (messaging) creates autonomous 'agent villages' where AI agents self-organize, pick leaders, and split work without human coordination",
+    "Beads is 100% vibe coded at 130k lines of Go, with sometimes 50k lines changing per day \u2014 none reviewed by human contributors",
+    "Crummy architectures that would fail for humans can work fine when AI compensates for edge cases, a pattern Yegge calls AI 'hydrating' bad architecture",
+    "Practical workflow: plan outside Beads, import as epics/issues, restart agents frequently per task, and keep the issue database small for performance"
+  ],
+  "money_quotes": [
+    "Everyone is focused on making planning tools, and Beads is an execution tool. It's like putting your coding agent on waxed skis.",
+    "It is 100% vibe coded, currently at 130k lines of Go code total, roughly half tests. And tens of thousands of people are using it in their daily workflows.",
+    "Beads gives the agents shared memory, and MCP Agent Mail gives them messaging\u2026 and that's all they need.",
+    "There's no ego, so they quickly decide on a leader and just split things up.",
+    "It's a crummy architecture that requires AI in order to work around all its edge cases where it breaks. But AI can always get it working.",
+    "So AI 'hydrates' the crummy architecture and makes it uncrummy. Well, less crummy.",
+    "I was enthralled, all the while being amused that he still wanted his agents grubbing around in a single folder like raccoons in a dumpster.",
+    "Dev preferences are so unpredictable."
+  ],
+  "themes": [
+    "software_engineering",
+    "tech_industry"
+  ],
+  "tone": "conversational, enthusiastic, digressive",
+  "key_insight": "AI agents need only shared memory (issue tracking) and messaging to self-organize into effective autonomous teams, making simple 'crummy' architectures viable because AI compensates for their edge cases.",
+  "filename": "2025-11-24-beads-best-practices"
+}
