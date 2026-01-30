@@ -82,7 +82,7 @@ class BaseScraper(ABC):
     def save_index(self, posts: list):
         """Save the posts index."""
         index_file = self.data_dir / "posts_index.json"
-        sorted_posts = sorted(posts, key=lambda p: p.get("pub_date", ""), reverse=True)
+        sorted_posts = sorted(posts, key=lambda p: p.get("pub_date") or "", reverse=True)
         index = {
             "total_posts": len(sorted_posts),
             "last_updated": datetime.utcnow().isoformat() + "Z",
