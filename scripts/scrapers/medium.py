@@ -9,7 +9,7 @@ import re
 import sys
 import time
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from email.utils import parsedate_to_datetime
 
 import requests
 from bs4 import BeautifulSoup
@@ -67,14 +67,10 @@ class MediumScraper(BaseScraper):
             pub_date = None
             if pub_date_elem is not None and pub_date_elem.text:
                 try:
-                    dt = datetime.strptime(pub_date_elem.text.strip(), "%a, %d %b %Y %H:%M:%S %Z")
+                    dt = parsedate_to_datetime(pub_date_elem.text.strip())
                     pub_date = dt.strftime("%Y-%m-%d")
-                except ValueError:
-                    # Try ISO format fallback
-                    try:
-                        pub_date = pub_date_elem.text.strip()[:10]
-                    except Exception:
-                        pass
+                except (ValueError, TypeError):
+                    pass
 
             content_html = ""
             if content_elem is not None and content_elem.text:
@@ -90,14 +86,10 @@ class MediumScraper(BaseScraper):
         return posts
 
     def make_slug(self, url: str) -> str:
-        """Extract slug from Medium URL."""
+        """Extract slug from Medium URL, keeping the unique ID suffix."""
         # Medium URLs: https://medium.com/@user/title-slug-abc123def456?source=rss-...
         from urllib.parse import urlparse
         path = urlparse(url).path.rstrip("/").split("/")[-1]
-        # Remove the hex ID suffix (last 12 chars after final hyphen)
-        match = re.match(r"^(.+)-[0-9a-f]{8,}$", path)
-        if match:
-            return match.group(1)
         return path
 
     def make_filename(self, post: dict) -> str:

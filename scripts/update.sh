@@ -67,6 +67,9 @@ case "$SCRAPER_TYPE" in
     blogger)
         BLOG_ID="$BLOG_ID" python3 scripts/scrapers/blogger.py
         ;;
+    medium)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/medium.py
+        ;;
     rss_nextjs)
         BLOG_ID="$BLOG_ID" python3 scripts/scrapers/rss_nextjs.py
         ;;
