@@ -5,7 +5,9 @@ import sys
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+_scraper_dir = str(Path(__file__).resolve().parent)
+if _scraper_dir not in sys.path:
+    sys.path.insert(0, _scraper_dir)
 
 from medium import parse_pub_date
 
