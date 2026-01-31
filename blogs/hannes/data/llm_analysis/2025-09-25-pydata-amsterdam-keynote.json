@@ -1,0 +1,32 @@
+{
+  "summary": "Hannes M\u00fchleisen traces the evolution of data architecture from the 1985 three-tier model through cloud data warehouses to a proposed inverted architecture where compute happens on client devices. He argues that the traditional top-down pyramid\u2014where a central data warehouse holds all power\u2014has barely changed despite moving to the cloud, and that modern single-node query engines like DuckDB combined with lakehouse formats can flip this model. He demonstrates DuckDB processing 6 billion rows on a laptop with only 2GB of memory, and shows examples of running analytics on 13-year-old laptops, phones, satellites, and cars. The core proposal is that clients should be empowered with local compute while sharing data through commodity storage and open metadata formats.",
+  "key_points": [
+    "The traditional three-tier data architecture from 1985 barely changed when moving to the cloud\u2014it just became someone else's expensive server",
+    "Database client-server protocols are so slow at transferring data that simply copying a CSV file is often faster, possibly by strategic design to create vendor lock-in",
+    "Single-threaded implementations on modern hardware can beat distributed systems for the vast majority of real workloads, where the median query scans only 100MB and P99.9 uses under 300GB",
+    "The proposed inverted architecture puts compute on client devices and treats storage/metadata as commodity infrastructure, meaning more users equals more compute rather than more cloud costs",
+    "Lakehouse formats like Iceberg and DuckLake provide the coordination layer needed to prevent the chaos of everyone having their own disconnected data files"
+  ],
+  "money_quotes": [
+    "Wes McKinney really is the original revolutionary that took this data wrangling tech and took it from the gods of Oracle and put it into the hands of everyone.",
+    "What you can do on a single computer is insane. You would not believe it if you wouldn't see it.",
+    "If you have more users, you have more compute. It's insane, right? You're running stuff on local devices.",
+    "These things are criminally incompetent at transferring data. And it might actually be strategic incompetence. Because if you're keeping the data hostage, then you can keep charging them for your superyacht purposes.",
+    "A halfway competent, single-threaded implementation can beat most distributed systems.",
+    "We decided that we were going to stop writing research papers for good. It's a very career-destructive move, by the way. And put all our efforts into writing software.",
+    "We have this architecture where I don't think we have even figured out yet what the business models are that could be enabled by a data architecture where we're not creating cloud costs for every additional user.",
+    "The ingredients are competent single-node query engines and Lakehouse formats to basically glue them all together."
+  ],
+  "themes": [
+    "duckdb",
+    "data_architecture",
+    "lakehouse",
+    "embedded_databases",
+    "industry_observations",
+    "academic_research",
+    "open_source"
+  ],
+  "tone": "opinionated, humorous, evangelistic",
+  "key_insight": "The data architecture should be flipped upside down: instead of powerful central servers serving dumb clients, empowered client devices with local query engines should do the compute while sharing data through commodity storage and open lakehouse formats.",
+  "filename": "2025-09-25-pydata-amsterdam-keynote"
+}
