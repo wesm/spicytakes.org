@@ -12,7 +12,7 @@
 set -e
 
 OUTPUT_FILE="${1:--}"
-LLM_BACKEND="${LLM_BACKEND:-codex}"
+LLM_BACKEND="${LLM_BACKEND:-claude}"
 
 # Read prompt from stdin
 PROMPT=$(cat)

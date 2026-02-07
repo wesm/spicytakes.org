@@ -118,9 +118,14 @@ analyze_post() {
     local output_file="$OUTPUT_DIR/${filename}.json"
 
     # Skip if already analyzed (unless FORCE=1)
+    # Always retry posts that had errors
     if [[ -f "$output_file" && "$FORCE" != "1" ]]; then
-        echo "Skipping $filename (already analyzed)"
-        return 0
+        if ! python3 -c "import json,sys; d=json.load(open('$output_file')); sys.exit(1 if 'error' in d else 0)" 2>/dev/null; then
+            echo "Retrying $filename (previous analysis had error)"
+        else
+            echo "Skipping $filename (already analyzed)"
+            return 0
+        fi
     fi
 
     echo "Analyzing: $filename"
@@ -224,7 +229,7 @@ export POST_FILE
 export SCRIPT_DIR
 export LLM_BACKEND
 
-LLM_BACKEND="${LLM_BACKEND:-codex}"
+LLM_BACKEND="${LLM_BACKEND:-claude}"
 echo "=== $AUTHOR_NAME Post Analysis with ${LLM_BACKEND} ==="
 echo "Posts directory: $POSTS_DIR"
 echo "Output directory: $OUTPUT_DIR"
@@ -239,22 +244,25 @@ echo ""
 if [[ -n "$POST_FILE" ]]; then
     echo "Single post mode: $POST_FILE"
     analyze_post "$PROJECT_DIR/$POST_FILE"
-    exit 0
+    # Fall through to combining step so llm_quotes.json gets updated
 fi
 
-# Count total posts
-total=$(ls "$POSTS_DIR"/*.md 2>/dev/null | wc -l | tr -d ' ')
-echo "Total posts to analyze: $total"
-echo "Parallel jobs: $PARALLEL_JOBS"
-echo ""
+# Bulk processing (skip if single post mode)
+if [[ -z "$POST_FILE" ]]; then
+    # Count total posts
+    total=$(ls "$POSTS_DIR"/*.md 2>/dev/null | wc -l | tr -d ' ')
+    echo "Total posts to analyze: $total"
+    echo "Parallel jobs: $PARALLEL_JOBS"
+    echo ""
 
-# Process in parallel
-if command -v parallel &> /dev/null; then
-    echo "Using GNU parallel..."
-    ls "$POSTS_DIR"/*.md | parallel -j "$PARALLEL_JOBS" analyze_post {}
-else
-    echo "Using xargs (install GNU parallel for better progress)..."
-    ls "$POSTS_DIR"/*.md | xargs -P "$PARALLEL_JOBS" -I {} bash -c 'analyze_post "$@"' _ {}
+    # Process in parallel
+    if command -v parallel &> /dev/null; then
+        echo "Using GNU parallel..."
+        ls "$POSTS_DIR"/*.md | parallel -j "$PARALLEL_JOBS" analyze_post {}
+    else
+        echo "Using xargs (install GNU parallel for better progress)..."
+        ls "$POSTS_DIR"/*.md | xargs -P "$PARALLEL_JOBS" -I {} bash -c 'analyze_post "$@"' _ {}
+    fi
 fi
 
 echo ""
