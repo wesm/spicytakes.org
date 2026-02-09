@@ -39,7 +39,7 @@ export interface ThemeConfig {
 }
 
 export interface ScraperConfig {
-  type: 'substack' | 'github_markdown' | 'quarto_blog' | 'static_html' | 'hugo_rss' | 'hugo_homepage' | 'jekyll_feed' | 'wordpress' | 'jekyll_static' | 'rss_generic' | 'paulgraham' | 'blogger' | 'rss_nextjs';
+  type: 'substack' | 'github_markdown' | 'quarto_blog' | 'static_html' | 'hugo_rss' | 'hugo_homepage' | 'jekyll_feed' | 'wordpress' | 'jekyll_static' | 'rss_generic' | 'paulgraham' | 'blogger' | 'rss_nextjs' | 'ghost';
   substackUrl?: string;
   baseUrl?: string;
   indexUrl?: string;
@@ -48,6 +48,8 @@ export interface ScraperConfig {
   blogPath?: string;
   transcriptsPath?: string;
   sourcePostPath?: string;  // URL path template for post links, e.g., '/blog/{slug}/'
+  ghostUrl?: string;
+  contentApiKey?: string;
 }
 
 export interface BlogConfig {

@@ -28,6 +28,7 @@ import hillelConfig from '../../config/hillel.json';
 import steveyeggeConfig from '../../config/steveyegge.json';
 import martinfowlerConfig from '../../config/martinfowler.json';
 import hannesConfig from '../../config/hannes.json';
+import mempkoConfig from '../../config/mempko.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -54,6 +55,7 @@ const configs: Record<string, BlogConfig> = {
   steveyegge: steveyeggeConfig as BlogConfig,
   martinfowler: martinfowlerConfig as BlogConfig,
   hannes: hannesConfig as BlogConfig,
+  mempko: mempkoConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -201,6 +203,11 @@ export function buildSourceUrl(
   if (cfg.scraper.type === 'paulgraham') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${cfg.sourceUrl}/${slug}.html`;
+  }
+  // For ghost blogs, URL is /{slug}/
+  if (cfg.scraper.type === 'ghost') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${cfg.sourceUrl}/${slug}/`;
   }
   // For blogger blogs, URL is /YYYY/MM/slug.html
   if (cfg.scraper.type === 'blogger') {
