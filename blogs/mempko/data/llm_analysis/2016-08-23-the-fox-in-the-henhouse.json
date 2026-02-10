@@ -1,0 +1,24 @@
+{
+  "summary": "Khailo argues that Design by Contract, a programming technique where functions explicitly declare preconditions and postconditions as executable assertions, is far superior to unit testing for finding bugs. He demonstrates this through a real example where contracts in his C++ time series database caught a subtle multi-threading bug that unit tests would have missed entirely, preventing silent data corruption.",
+  "key_points": [
+    "Design by Contract establishes executable relationships between code units, testing preconditions and postconditions millions of times per second on real data",
+    "Unlike defensive programming, DbC fails early and fast with no recovery - it aborts violently when contracts are violated",
+    "Unit tests would not have caught the parallel threading bug because they test individual points rather than ranges and relationships",
+    "Combining DbC with randomized testing and fuzz testing creates far more comprehensive coverage than hand-written unit tests",
+    "Without the contract, the threading bug resulted in silent data corruption that went undetected for a full day of testing"
+  ],
+  "money_quotes": [
+    "Want a guaranteed way to have a fairly bug free system? Make sure the system can detect bugs, and then can find your family and send them down river.",
+    "Design by Contract is one of those secret weapons nobody teaches you.",
+    "The important bit to understand here is that a RELATIONSHIP is established between pieces of code. Not just an informal relationship, but an executable one! A relationship that can be tested millions of times a second.",
+    "Why should I write many manually created unit tests when I can create a test that makes tests! A typical project using unit testing has tens of thousands of hand written tests. Look Ma! I just made a million!",
+    "Stop unit testing, do it, be brave."
+  ],
+  "themes": [
+    "cpp_programming",
+    "open_source"
+  ],
+  "tone": "passionate, provocative, irreverent",
+  "key_insight": "Design by Contract catches bugs that unit tests fundamentally cannot, because contracts test executable relationships on real data continuously in production rather than testing isolated points with fake data in development.",
+  "filename": "2016-08-23-the-fox-in-the-henhouse"
+}

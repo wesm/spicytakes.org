@@ -1,0 +1,739 @@
+{
+  "total_posts": 31,
+  "successful": 31,
+  "posts": [
+    {
+      "summary": "The post argues that TDD's core cycle of test-code-refactor produces many small, highly coupled modules that concentrate defects, citing Koru and Emam's 'Theory of Relative Dependency' research. The author contends that refactoring is fundamentally a symptom of poor upfront design, and that TDD creates a catch-22 where the rapid refactoring it encourages generates the very coupling problems that necessitate extensive testing.",
+      "key_points": [
+        "Refactoring is the result of poor planning and poor design, not a virtue",
+        "Research shows smaller modules have proportionally higher coupling and defect rates",
+        "TDD creates a catch-22: it produces small, coupled modules that need the very tests driving their creation",
+        "Unit tests are themselves highly coupled code that must be maintained, effectively doubling tightly coupled code",
+        "TDD can serve as a crutch that replaces deliberate upfront thinking and design"
+      ],
+      "money_quotes": [
+        "Refactoring is the result of poor planning and poor design. How can poor planning be a good thing?",
+        "If you took some software designed by TDD and removed the tests, you would be left with many small modules that are highly dependent. This is a difficult design to reason about and change.",
+        "The unit tests themselves are highly coupled pieces of code! And with a typical one-to-one ratio between unit tests and code, this means half your code is tightly coupled code!",
+        "I feel that TDD is used by people as a crutch, as a replacement for thinking. Not thinking is built into the process.",
+        "For those adventurous enough to swim in the mental ether, to think, to feel, to care, avoid it."
+      ],
+      "themes": [
+        "cpp_programming",
+        "philosophy_society"
+      ],
+      "tone": "critical",
+      "key_insight": "TDD's test-code-refactor cycle creates a self-reinforcing dependency trap where constant refactoring produces small, highly coupled modules that require ever more tests to manage, ultimately replacing deliberate design thinking with mechanical process.",
+      "filename": "2010-08-15-theory-of-relative-dependency-and-tdd"
+    },
+    {
+      "summary": "The post argues that brilliant software engineers are wasting their talents on morally questionable or trivial work at financial institutions and defense contractors, instead of solving the world's real problems. Drawing on Zimbardo's prison experiment and Milgram's obedience studies, Khailo suggests that smart people aren't inherently evil but are shaped by their contexts into rationalizing harmful or useless work.",
+      "key_points": [
+        "Talented programmers are drawn to lucrative but morally dubious industries like finance and defense",
+        "Software has become ubiquitous and touches every aspect of modern life, giving it outsized societal influence",
+        "People are shaped by their context, as demonstrated by the Stanford prison experiment and Milgram's obedience studies",
+        "The tech industry needs to redirect its talent toward solving meaningful problems"
+      ],
+      "money_quotes": [
+        "As flies swarm to shit, we have these MIT grads buzzing around financial institutions.",
+        "We have these blokes deciding for themselves that being rich is cool, and it's best to write software that skims the cream off the top of some morally reprehensible if not murderous dealings.",
+        "Because we make software in context. We are a shape that is molded by the world. It is just that some people forget what shape they became.",
+        "The world has so many problems to solve, how can we get people solving them. I mean, sure the MIT genius working for a financial company is solving problems. I guess, Mr Software, constipation is a problem too."
+      ],
+      "themes": [
+        "philosophy_society",
+        "economics_finance",
+        "politics_culture"
+      ],
+      "tone": "satirical",
+      "key_insight": "The software industry's brightest minds aren't evil, but they've been contextually shaped into rationalizing work that enriches themselves while ignoring the world's real problems.",
+      "filename": "2011-03-25-strange-things-are-afoot-at-the-circle-k"
+    },
+    {
+      "summary": "Khailo announces Firestr v0.1, a peer-to-peer platform where users send running software to each other instead of text messages. Built on a decentralized, push-based model using Lua, it aims to make programming so easy that children can create and share networked applications without understanding server infrastructure.",
+      "key_points": [
+        "Firestr is a P2P platform where software is pushed to peers and runs immediately, rather than being downloaded from servers",
+        "Apps are written in Lua with a built-in collaborative code editor, eliminating the complexity of web development stacks",
+        "The platform is designed to be simple enough for children to start programming and sharing creations",
+        "Communication is decentralized and trust-based, with planned encryption for all connections",
+        "The UI deliberately mimics a chat application to make interactivity and time flow feel natural"
+      ],
+      "money_quotes": [
+        "Imagine a P2P chat program where instead of sending messages of text, sound, or video, you send software, that runs immediately and automatically connected.",
+        "A child understands the idea of passing a note to another, and this is how Firestr works.",
+        "It is a push model, not a pull model. Software is not downloaded from someone, but uploaded to someone.",
+        "Even open source and free software web applications require understanding how to setup http servers, databases, etc. You cannot simply give someone software for them to copy and modify."
+      ],
+      "themes": [
+        "p2p_distributed",
+        "open_source",
+        "cpp_programming"
+      ],
+      "tone": "optimistic",
+      "key_insight": "By reimagining software distribution as peer-to-peer message passing rather than client-server downloading, programming and sharing networked applications can become as intuitive as passing notes between friends.",
+      "filename": "2013-03-02-firestr-v0-1"
+    },
+    {
+      "summary": "A step-by-step tutorial demonstrating how to build a distributed whiteboard application using Firestr, a peer-to-peer communication platform. The post walks through creating a drawing canvas with color selection in Lua, then adds networking capabilities so multiple users can draw together in real-time by sending line coordinates as messages.",
+      "key_points": [
+        "Firestr uses Lua scripting with a custom widget API to build peer-to-peer applications",
+        "The whiteboard app supports multi-color drawing with a simple canvas and button interface",
+        "Network functionality is added by serializing draw events into messages with key-value pairs",
+        "The distributed drawing synchronization requires only about 20 lines of networking code",
+        "Testing P2P apps locally is possible by running a second Firestr instance with a different home directory and port"
+      ],
+      "money_quotes": [
+        "I have just added a widget to draw lines, so of course the natural thing to do is create a drawing program.",
+        "Let's make it more fun by making it work where you can draw together with a friend.",
+        "I need to add more wiz bang. Oh, and I need help with security!"
+      ],
+      "themes": [
+        "p2p_distributed",
+        "open_source",
+        "cpp_programming"
+      ],
+      "tone": "enthusiastic",
+      "key_insight": "Building a real-time distributed drawing application can be surprisingly simple when the underlying peer-to-peer platform handles the networking complexity, requiring only basic message serialization to synchronize state between users.",
+      "filename": "2013-03-23-write-a-distributed-white-board-app-using-firestr"
+    },
+    {
+      "summary": "The post advocates for Design by Contract (DBC) over Test-Driven Development (TDD), arguing that embedding preconditions and postconditions directly in code catches more bugs than isolated unit tests. Using the metaphor of an egg, Khailo explains how input validation forms the hard shell while contracts enforce correctness in the internal logic, enabling random testing techniques that achieve far greater coverage than traditional TDD.",
+      "key_points": [
+        "Design by Contract embeds executable assumptions (REQUIRE/ENSURE) directly in code rather than in separate test files",
+        "Contracts run against all real input rather than specific test cases, catching threading bugs and integration issues",
+        "The 'egg' model separates input sanitization (hard shell) from internal logic (gooey inside) where hard contracts apply",
+        "DBC enables QuickCheck-style random testing that achieves hundreds of thousands of tests vs thousands with TDD",
+        "Most bugs happen in how modules are connected, not in modules in isolation"
+      ],
+      "money_quotes": [
+        "While TDD tests software modules in isolation, most bugs happen in how modules are connected.",
+        "By stating your requirements as executable code, your code will find the bugs for you.",
+        "This creates a clean separation between where input is assumed to be dirty, and when input is assumed to be valid for your logic.",
+        "TDD is like touching your code blind, DBC is like crushing your code flat.",
+        "Write tests that write tests for you. Crush your code."
+      ],
+      "themes": [
+        "cpp_programming",
+        "open_source"
+      ],
+      "tone": "persuasive",
+      "key_insight": "Embedding contracts directly in code is more powerful than external unit tests because they run against all real inputs and catch bugs at module boundaries where most failures actually occur.",
+      "filename": "2013-04-05-why-i-do-design-by-contract"
+    },
+    {
+      "summary": "The post proposes an 'Inverse Web' - a peer-to-peer, encrypted, stateful alternative to the current client/server web architecture where corporations stand between users' communications. Inspired by NSA surveillance revelations and corporate control of communication, the author outlines four criteria for this inverted model and introduces Firestr, his open-source project implementing these principles.",
+      "key_points": [
+        "The modern web operates as a star network with corporations at the center, despite TCP/IP being inherently decentralized",
+        "The Dot Com bubble's investment in HTTP/browser technology locked us into client/server architectures",
+        "The Inverse Web should be peer-to-peer, encrypted by default, stateful, and connect known people rather than anonymous servers",
+        "Firestr is a working implementation of these principles with encrypted P2P communication",
+        "Society can choose to fund decentralized alternatives without relying on VC and Silicon Valley"
+      ],
+      "money_quotes": [
+        "Great power plus great incompetency leads to great abuse.",
+        "Instead of browsers downloading software from anonymous servers, software is uploaded to people you know.",
+        "They stand in the middle of you and me. This position has allowed greater power and control of our communications and abuse by these companies.",
+        "We don't have to rely on the VCs and Valley to fund it. We can start another experiment in political economy."
+      ],
+      "themes": [
+        "p2p_distributed",
+        "philosophy_society",
+        "open_source",
+        "politics_culture"
+      ],
+      "tone": "passionate, activist, visionary",
+      "key_insight": "The web's client/server architecture has been co-opted into centralized star networks that enable surveillance and corporate control, and we need to invert this model toward peer-to-peer, encrypted communication systems built on the internet's inherently decentralized foundation.",
+      "filename": "2013-08-28-the-inverse-web"
+    },
+    {
+      "summary": "The post draws a parallel between Soviet centralized economic planning via computer systems (Gosplan) and modern Big Data infrastructure run by tech giants like Google and Facebook. While the Soviet approach was top-down rational modeling and Big Data uses bottom-up machine learning, both share the same goal: centralizing vast amounts of information for the purpose of societal control. The author argues this centralization has produced modern absurdities comparable to those of Soviet society.",
+      "key_points": [
+        "Big Data and Soviet Gosplan share the same fundamental goal of centralizing information for control",
+        "The internet's distributed promise has been crushed by client-server Web architecture",
+        "Modern tech control is indirect and bottom-up through advertising, unlike Soviet top-down control",
+        "Centralization of information has produced societal absurdities analogous to Soviet-era distortions",
+        "The death of private life serves consumerism and economic growth"
+      ],
+      "money_quotes": [
+        "Big Data and the machine learning tools bring a ghostly vision to the software world that Soviet technocrats, who ran the Soviet Union, experimented with during the 60s and 70s.",
+        "The dream of the internet being a distributed system has been crushed by the client-server architecture of the Web.",
+        "Just as the centralized Soviet economy and computer systems produced gross absurdities in Soviet society, the centralization of information has produced vast obscurities in the lives of this generation.",
+        "The private life is dead, so that google and facebook can help others sell you things you don't need to keep the economy humming.",
+        "The control the Soviet Union used was straight-forward top down. The control modern western industry employs is indirect and bottom up."
+      ],
+      "themes": [
+        "p2p_distributed",
+        "economics_finance",
+        "philosophy_society",
+        "politics_culture"
+      ],
+      "tone": "critical",
+      "key_insight": "Modern Big Data centralization by tech giants is the Western capitalist mirror of Soviet central planning \u2014 different in method but identical in its ambition to control society through information, and equally capable of producing societal absurdities.",
+      "filename": "2013-09-08-big-data-and-the-soviet-ghosts"
+    },
+    {
+      "summary": "Khailo describes building a peer-to-peer file transfer application on top of his Fire\u2605 platform, using a pull-based chunked transfer protocol written in Lua. The post walks through the algorithm design, where receivers request chunks from senders, enabling natural multiplexing with other activities like chat and drawing.",
+      "key_points": [
+        "File transfer app built on Fire\u2605's basic primitives rather than being hardcoded into the platform",
+        "Pull-based chunk transfer model enables natural rate limiting and multiplexing",
+        "Multiple simultaneous file transfers and multi-peer sends work seamlessly",
+        "All messages are encrypted and sent peer-to-peer with no central server"
+      ],
+      "money_quotes": [
+        "This pull model provides an obvious advantage, which is that it allows a limited rate of transfer allowing multiplexing with other messages that would be sent. So you can keep chatting, or drawing, or whatever while the file transferred.",
+        "Another obvious advantage to the pull model is that you can send multiple files at a time and they will be properly multiplexed. And if you have multiple people you are sending the file to, each one can receive it at their own speed.",
+        "This file transfer application is not built into Fire\u2605, but is built on basic building blocks.",
+        "You can now chat, draw, and transfer files with multiple peers via p2p where all messages are encrypted and private."
+      ],
+      "themes": [
+        "p2p_distributed",
+        "open_source",
+        "cpp_programming"
+      ],
+      "tone": "technical, enthusiastic",
+      "key_insight": "A pull-based chunked file transfer protocol naturally solves multiplexing and multi-peer rate control problems, and building it as a user-space app rather than a platform primitive demonstrates the extensibility of the Fire\u2605 P2P framework.",
+      "filename": "2013-12-27-p2p-file-sharing-with-fire-e2-98-85"
+    },
+    {
+      "summary": "Khailo argues that choosing C++ over Java for computationally intensive projects is not just a technical decision but a moral one, since C++ offers better performance per watt and thus lower energy consumption. He critiques Silicon Valley's cognitive dissonance in promising a utopian tech future while ignoring the realities of climate change and resource consumption.",
+      "key_points": [
+        "C++ offers superior performance per watt compared to Java, requiring less hardware and energy for computationally massive workloads",
+        "Silicon Valley's promised future of technological abundance conflicts with climate science's warnings about resource limits",
+        "The software industry suffers from cognitive dissonance, ignoring the environmental impact of inefficient code",
+        "Programming language choice has real-world energy and environmental consequences at scale"
+      ],
+      "money_quotes": [
+        "My argument to him to keep it C++ was not just technical but moral. I told him 'C++ will use less energy. Performance per Watt is higher. We will need less hardware.'",
+        "Somehow the promised future of Silicon Valley and the disaster of climate change is not in conflict in peoples minds.",
+        "The worst of it is that the software culture is completely ignoring this cognitive dissonance.",
+        "I know it may sound stupid, but using C++ in this case, for me, was a conscious moral decision, not just a technical one. Because if we want anything like the future the Valley is promising us, we need to start using less now."
+      ],
+      "themes": [
+        "cpp_programming",
+        "philosophy_society",
+        "politics_culture"
+      ],
+      "tone": "passionate, contrarian",
+      "key_insight": "Programming language choices at scale are moral decisions with real environmental consequences, and the tech industry's refusal to reckon with this reflects a deeper cognitive dissonance between its utopian promises and ecological reality.",
+      "filename": "2014-04-01-c-and-climate-change"
+    },
+    {
+      "summary": "A practical tutorial on embedding Entypo pictograph fonts directly into Qt applications as vector icons. The post walks through converting font files to C byte arrays using xxd, loading them via QFontDatabase, and rendering Unicode characters as styled button icons using C++11 literals.",
+      "key_points": [
+        "Vector pictograph fonts like Entypo can replace bitmap icons in Qt apps for cleaner, scalable graphics",
+        "The xxd tool converts font files into C include files containing hex byte arrays",
+        "QFontDatabase::addApplicationFontFromData allows embedding fonts directly in the binary without external resource files",
+        "QApplication must be initialized before calling addApplicationFontFromData to avoid segfaults",
+        "Qt's rcc resource system is actually the superior approach for embedding binary data (acknowledged in the edit)"
+      ],
+      "money_quotes": [
+        "Once you learn about Entypo, you see these pictographs everywhere!",
+        "One very important note here, make sure you create your QApplication object before you call addApplicationFontFromData otherwise you will get a segfault. I figured this out the hard way.",
+        "It was mentioned to me that it is better to use rcc instead of xxd for storing binaries in a Qt app. This is superior, so don't use my silly silly way."
+      ],
+      "themes": [
+        "cpp_programming",
+        "open_source"
+      ],
+      "tone": "instructional",
+      "key_insight": "Embedding vector font files directly as byte arrays in C++ code provides a simple way to add scalable icons to Qt applications without external resource dependencies, though Qt's built-in resource compiler (rcc) is the more idiomatic solution.",
+      "filename": "2014-11-28-using-entypo-fonts-as-icons-in-your-qt-application"
+    },
+    {
+      "summary": "The post argues that the Open Source and Free Software movements embody fundamentally different conceptions of freedom rooted in history. Open Source freedom derives from the Roman notion of property rights and slave ownership\u2014the freedom to dominate\u2014while Free Software embraces the older, more universal idea of freedom as equality among peers and the absence of masters.",
+      "key_points": [
+        "The Open Source vs Free Software debate is fundamentally about competing historical conceptions of freedom",
+        "Roman property law conflated freedom with the power of a slave owner over their domain, creating a contradictory notion where even slaves are technically 'free'",
+        "Copyleft restrictions exist to prevent the conversion of open works into instruments of domination",
+        "Proprietary software creates unequal power relations enforced ultimately by state violence",
+        "Free Software's conception of freedom aligns with the older, cross-cultural meaning: not being subject to a master"
+      ],
+      "money_quotes": [
+        "If you can do anything you like, except for those things you can't, then slaves must be free too, because they can do anything they like except for the things they can't.",
+        "In Roman law, a free person is someone who has slaves, or some private domain, where they can do whatever they please.",
+        "You can turn open bits and bytes into closed guns and bullets.",
+        "Imagine a world where all software is proprietary, would the argument then be you are free to choose your master?",
+        "The Free Software movement believes in the more conventional idea of freedom, that of friendship and brotherly/sisterly love. That freedom means your social relations with others are relations of equals."
+      ],
+      "themes": [
+        "open_source",
+        "philosophy_society",
+        "politics_culture"
+      ],
+      "tone": "polemical, philosophical, historically-grounded",
+      "key_insight": "The Open Source movement's notion of freedom descends from Roman slave law\u2014freedom as the right to dominate\u2014while Free Software upholds the older human meaning of freedom as equality and the absence of masters.",
+      "filename": "2015-01-20-the-master-and-the-slave-the-open-and-the-free"
+    },
+    {
+      "summary": "Khailo acknowledges that his peer-to-peer application Fire\u2605 is technically inferior to Skype in nearly every measurable way, but argues it is 'infinitely better' because it is Free Software under GPL. The post celebrates the philosophical value of software freedom\u2014transparency, user control, and privacy\u2014over polished features backed by corporate resources.",
+      "key_points": [
+        "Fire\u2605 is a peer-to-peer application platform where users define their own modes of interaction using Lua",
+        "The author honestly admits his software is worse than Skype in features, usability, and stability",
+        "Free Software provides freedoms that proprietary software never will: transparency, modifiability, and privacy",
+        "The median number of contributors to a Free Software project is one, and the author accepts this reality",
+        "Success is redefined not by feature parity or market share but by the freedoms the software grants its users"
+      ],
+      "money_quotes": [
+        "You can think of it as an extensible Skype, where the modes of real time interaction are defined by the users and not the engineers.",
+        "It is infinitely better in a way Skype will never be because it is Free Software.",
+        "You can read it and know what it is doing. You can change it for the better. And you know it isn't spying on you.",
+        "I am a realist. It will never be better than Skype for communication and features. It doesn't have a multi billion dollar company behind it. However, I still consider it a success because it will benefit whoever uses it in a way that Skype can't."
+      ],
+      "themes": [
+        "p2p_distributed",
+        "open_source",
+        "philosophy_society"
+      ],
+      "tone": "reflective",
+      "key_insight": "Software freedom is an axis of quality that no amount of corporate engineering can replicate, making even a rough Free Software tool infinitely superior to its polished proprietary counterpart in the ways that matter most.",
+      "filename": "2015-02-24-my-software-is-infinitely-better-than-skype"
+    },
+    {
+      "summary": "The post argues that the internet was originally decentralized but has been systematically centralized by capital investment, as corporations need central control to monetize their investments. Khailo coins 'Grass Computing' \u2014 running decentralized free software on your own hardware \u2014 as the antidote to cloud computing, and warns that decentralized systems are perpetually at risk of being co-opted.",
+      "key_points": [
+        "The internet moved from decentralized to centralized, not the other way around",
+        "Capital investment favors centralized services because they enable control and monetization",
+        "Email, chat, and Git are all examples of inherently decentralized systems that became centralized",
+        "Convenience gaps between centralized and decentralized software are a funding problem, not a technical one",
+        "Basic income could fund more decentralized software development as a form of social capital investment"
+      ],
+      "money_quotes": [
+        "If Cloud Computing is running decentralized software on rented machines corralled behind a wall, Grass Computing is running decentralized free software on your own hardware in the open.",
+        "Their systems can be co-opted and centralized at any time.",
+        "Capitalists didn't understand what the internet was but knew it was important and started buying everything they could.",
+        "There is no technical reason why they could not do it. But there is no incentive for them to do it.",
+        "It is a constant fight not to have decentralized software become co-opted and centralized."
+      ],
+      "themes": [
+        "p2p_distributed",
+        "open_source",
+        "economics_finance",
+        "philosophy_society"
+      ],
+      "tone": "activist",
+      "key_insight": "The centralization of the internet is not a technical inevitability but a consequence of capital flowing toward controllable, monetizable architectures \u2014 and reversing it requires both engineering effort and social investment like basic income.",
+      "filename": "2015-04-02-the-shadow-of-the-cloud-on-grass-computing"
+    },
+    {
+      "summary": "Khailo argues that software has become the primary force shaping who we are as people, replacing old media, economic structures, and social institutions. He calls on software makers to ask not what software creates the most wealth, but what software creates the best people, especially as humanity faces existential challenges like climate change.",
+      "key_points": [
+        "Software has replaced old media not just in form but as the primary 'people maker' in society",
+        "Crowdfunding and political fundraising platforms demonstrate software democratizing economic and political power",
+        "Filter bubbles and algorithmic feeds are narrowing the diversity of ideas people encounter",
+        "Software makers bear moral responsibility for the kind of people their creations produce",
+        "A moral transformation is needed in software development, shifting focus from wealth creation to people creation"
+      ],
+      "money_quotes": [
+        "While Mother Earth creates everything that keeps us alive, it is Mother Software that now is creating who we are.",
+        "The production output of society is not the creation of things, but the creation of people.",
+        "It is time we, the software makers, start thinking whether the software we are creating, is creating the friends we would want to have.",
+        "Instead of getting opinions about information and ideas from those around us, we get it from those around the world like us.",
+        "What is the software that creates the best people?"
+      ],
+      "themes": [
+        "philosophy_society",
+        "politics_culture"
+      ],
+      "tone": "reflective",
+      "key_insight": "Software developers must shift from asking what creates the most wealth to asking what creates the best people, because software has become the dominant force shaping human identity and society.",
+      "filename": "2016-04-23-the-mother-software"
+    },
+    {
+      "summary": "Khailo argues that Design by Contract, a programming technique where functions explicitly declare preconditions and postconditions as executable assertions, is far superior to unit testing for finding bugs. He demonstrates this through a real example where contracts in his C++ time series database caught a subtle multi-threading bug that unit tests would have missed entirely, preventing silent data corruption.",
+      "key_points": [
+        "Design by Contract establishes executable relationships between code units, testing preconditions and postconditions millions of times per second on real data",
+        "Unlike defensive programming, DbC fails early and fast with no recovery - it aborts violently when contracts are violated",
+        "Unit tests would not have caught the parallel threading bug because they test individual points rather than ranges and relationships",
+        "Combining DbC with randomized testing and fuzz testing creates far more comprehensive coverage than hand-written unit tests",
+        "Without the contract, the threading bug resulted in silent data corruption that went undetected for a full day of testing"
+      ],
+      "money_quotes": [
+        "Want a guaranteed way to have a fairly bug free system? Make sure the system can detect bugs, and then can find your family and send them down river.",
+        "Design by Contract is one of those secret weapons nobody teaches you.",
+        "The important bit to understand here is that a RELATIONSHIP is established between pieces of code. Not just an informal relationship, but an executable one! A relationship that can be tested millions of times a second.",
+        "Why should I write many manually created unit tests when I can create a test that makes tests! A typical project using unit testing has tens of thousands of hand written tests. Look Ma! I just made a million!",
+        "Stop unit testing, do it, be brave."
+      ],
+      "themes": [
+        "cpp_programming",
+        "open_source"
+      ],
+      "tone": "passionate, provocative, irreverent",
+      "key_insight": "Design by Contract catches bugs that unit tests fundamentally cannot, because contracts test executable relationships on real data continuously in production rather than testing isolated points with fake data in development.",
+      "filename": "2016-08-23-the-fox-in-the-henhouse"
+    },
+    {
+      "summary": "Khailo contrasts his pre-internet experience learning to program\u2014where tedious reference lookups forced active recall and deep memorization\u2014with the modern StackOverflow-driven approach of passively finding and copying solutions. He argues that the old method cultivated an 'incremental theory' mindset (believing intelligence grows with effort), creativity, and the hacker spirit, while the modern approach may be producing programmers who lack those qualities.",
+      "key_points": [
+        "Learning to program without the internet forced active recall, which builds stronger long-term memory",
+        "Modern development workflows favor passive review (searching and copying) over active problem-solving",
+        "Active recall cultivates an incremental theory of intelligence \u2014 the belief that ability improves with effort",
+        "The ease of finding answers online may be eroding curiosity, creativity, and the hacker mindset"
+      ],
+      "money_quotes": [
+        "The process of trying to remember and guessing is called Active Recall. It is an incredibly efficient way of developing long-term memory.",
+        "With google at your finger tips, there seems to be no reason to try and guess. With StackOverflow the distance between you having a problem and there being an answer is very short. Looking things up is not tedious anymore.",
+        "There is little reason left to guess and develop that muscle. There is also very little reason to be creative and come up with a solution, when you can simply search for one very quickly.",
+        "I squarely have the Incremental Theory mindset and I believe this mindset promotes growth and creativity and above all what I like to call 'The Fighting Spirit', which I believe is central to the hacker mindset."
+      ],
+      "themes": [
+        "philosophy_society",
+        "cpp_programming"
+      ],
+      "tone": "reflective",
+      "key_insight": "The friction of learning to program without easy internet access forced active recall and creative problem-solving, cultivating a growth mindset and hacker spirit that frictionless modern tools may be quietly eroding.",
+      "filename": "2017-06-03-total-recall"
+    },
+    {
+      "summary": "Khailo argues that Geoffrey Hinton's new Capsule Network model vindicates Chomsky's position in the Chomsky vs. Norvig debate about AI methodology. While deep learning's success with opaque probabilistic models seemed to support Norvig's view, Hinton's brain-inspired approach\u2014which requires far fewer training examples\u2014represents the kind of theory-driven 'real science' Chomsky advocated for.",
+      "key_points": [
+        "The Chomsky vs Norvig debate centers on whether opaque probabilistic models constitute real science or merely successful engineering",
+        "Deep learning's dependence on massive training data and vulnerability to adversarial examples suggest it doesn't reflect how the brain actually works",
+        "Hinton's Capsule Network model uses unsupervised learning to extract features into linear manifolds, requiring very few labeled examples",
+        "The Capsule model represents theory-driven science: hypothesizing how the brain processes images, then building a model to validate the theory"
+      ],
+      "money_quotes": [
+        "Most researchers in the know will tell you that Deep Learning is highly problematic because it requires a huge amount of data to train a good system.",
+        "Because of how these systems are trained is so different from how the brain learns they simply cannot be evidence of a scientifically correct model.",
+        "What is exciting to me is that Geoffrey is doing real science. He has come up with a theory about how the brain must do image processing and created a computer model to validate the theory.",
+        "Not only did he come up with a computer model, but one that could possibly blow away any of the existing probabilistic models by requiring orders of magnitude fewer examples with the same or better performance."
+      ],
+      "themes": [
+        "ai_ml",
+        "philosophy_society"
+      ],
+      "tone": "analytical",
+      "key_insight": "Hinton's Capsule Networks, which model how the brain actually processes images rather than relying on brute-force data, represent the theory-driven scientific approach Chomsky argued AI needed all along.",
+      "filename": "2017-11-02-my-bet-is-on-chomsky"
+    },
+    {
+      "summary": "The essay argues that computer programmers should stop viewing software as merely modeling the 'real world' and instead recognize that computers are reality-making machines that create genuine new experiences for users. Drawing on philosophy of perception and quantum mechanics, the author contends that all models\u2014whether from our senses or software\u2014are equally 'real,' and that the mechanical worldview still dominant in programming culture is outdated.",
+      "key_points": [
+        "There is no meaningful distinction between 'real' and 'not real' \u2014 everything we experience is constructed through models, whether sensory or conceptual",
+        "Software developers mistakenly view their work as modeling reality rather than creating new realities for users",
+        "The mechanical worldview that dominates programming culture was abandoned by physicists over a century ago",
+        "AI and deep learning represent computers automatically creating new models and realities from their data-based 'senses'",
+        "Software development should embrace Douglas Engelbart's vision of extending human potential rather than clinging to static, mechanical thinking"
+      ],
+      "money_quotes": [
+        "Computers are reality making machines, and computer programmers are the gods of that little world they are creating for users to explore.",
+        "Computer people need to accept that software is reality construction, not reality modeling and that they build dynamic systems, not static.",
+        "Computer people tend to have a mechanical view of the world but a ghostly view of software as a nonphysical thing which resides in the body of the machine.",
+        "If you have ever seen the real anger and stress that software provokes from your loved ones when it acts in ways they don't expect, then you quickly realize that the software we make isn't a joke."
+      ],
+      "themes": [
+        "philosophy_society",
+        "ai_ml",
+        "cpp_programming"
+      ],
+      "tone": "reflective",
+      "key_insight": "Software is not a model of reality but a construction of new realities, and programmers should embrace this role as reality-makers rather than clinging to an outdated mechanical worldview.",
+      "filename": "2018-04-07-the-reality-making-machines"
+    },
+    {
+      "summary": "Khailo shares his experience creating bar charts in Julia using the Gadfly library for a Merit blog article. He walks through the code for generating a styled bar chart, highlighting tricks for custom colors, bar labels, and spacing that weren't well-documented elsewhere.",
+      "key_points": [
+        "Julia has a matlab-like syntax but is type safe and uses LLVM for strong performance",
+        "Gadfly library produces nice-looking charts but lacks good bar chart tutorials",
+        "Custom color schemes, label workarounds, and bar spacing were the main challenges"
+      ],
+      "money_quotes": [
+        "It being like matlab is definitely at a superficial level because Julia is type safe and seems to use LLVM to precompile your code to get some pretty nice performance.",
+        "I used another array called Ls to control the labels of the bars in the chart because using the Winners array didn't work because of type conversion errors."
+      ],
+      "themes": [
+        "cpp_programming"
+      ],
+      "tone": "instructional",
+      "key_insight": "Julia's Gadfly library can produce polished bar charts, but requires some non-obvious workarounds for colors, labels, and spacing that aren't covered in existing tutorials.",
+      "filename": "2018-08-31-bar-charts-with-julia"
+    },
+    {
+      "summary": "The post argues that software engineers must adopt 'system-system thinking' \u2014 recognizing that the systems they build exist within larger ecological and social systems. Drawing parallels between the internet's design and natural ecosystems, the author warns that global warming and ecological collapse pose existential threats to the technology industry itself, since high technology depends on organized human civilization.",
+      "key_points": [
+        "Software systems have physical manifestations through hardware and people, connecting them to larger real-world systems",
+        "The internet's success comes from design principles inspired by ecosystems, but ecosystems themselves are now collapsing",
+        "Global warming and mass extinction threaten the social infrastructure that technology depends on",
+        "Purely technical solutions like P2P systems are insufficient; the underlying social and ecological systems must be preserved",
+        "Technologists must either design systems robust against social collapse or work to maintain organized human life"
+      ],
+      "money_quotes": [
+        "A system-system thinker is someone who understands that the system they are building is part of a larger whole of other systems.",
+        "High technology needs organized human life to develop and function, and it won't be possible with systemic failure.",
+        "If the total collapse of our ecosystem causes mass social upheaval, the internet will stop functioning.",
+        "By understanding that our computer systems are connected to much larger systems, I don't believe in a purely technical solution anymore.",
+        "Only 4% of all mammals are wild."
+      ],
+      "themes": [
+        "philosophy_society",
+        "p2p_distributed",
+        "economics_finance"
+      ],
+      "tone": "urgent-analytical",
+      "key_insight": "The technology industry's survival depends not on technical resilience alone but on the health of the ecological and social systems it is embedded within, making environmental collapse an existential threat to software itself.",
+      "filename": "2019-01-25-we-must-become-system-system-thinkers"
+    },
+    {
+      "summary": "The post argues that deep learning's requirement for massive labeled datasets is fundamentally inferior to how humans learn, who can acquire concepts from as few as one example. Khailo proposes combining deep feature extraction, capsule networks, and Peter G\u00e4rdenfors' Conceptual Spaces theory to create 'Deep Latent Space Maps' \u2014 a system that partitions learned latent spaces using Voronoi diagrams and voting mechanisms to enable few-shot learning.",
+      "key_points": [
+        "Children learn ~60,000 words by age 18, often from a single example, while neural networks require thousands to millions of examples",
+        "Deep feature extraction can map data to latent spaces unsupervised, separating representation learning from label learning",
+        "Combining Conceptual Spaces theory with capsule networks and Voronoi partitioning could enable one-shot learning",
+        "Grid cell research from neuroscience validates the idea of abstract spatial representations for concepts"
+      ],
+      "money_quotes": [
+        "I think it's clear to most researchers that Deep Learning has a deep problem because these systems learn in clearly inferior ways.",
+        "As I watch my children learn, I am deeply unsatisfied with current techniques and know there must be a better way.",
+        "In other words, you can train it using only as little as one example of an object, word or thing.",
+        "The interesting bit here is to explore using Peter G\u00e4rdenfors idea of how learning works in our brain which new research is increasingly validating. It just feels right."
+      ],
+      "themes": [
+        "ai_ml"
+      ],
+      "tone": "exploratory",
+      "key_insight": "By combining deep feature extraction with Voronoi space partitioning and capsule network voting mechanisms, it may be possible to build learning systems that, like children, can learn new concepts from just one example.",
+      "filename": "2019-03-06-deep-latent-space-maps"
+    },
+    {
+      "summary": "Khailo revisits Richard Gabriel's 'Worse is Better' debate, arguing that software only gains value when it's running and touching human hands. He reconciles the tension between shipping quickly and shipping correctly by proposing that both frequent delivery and fault-free code are achievable with discipline, concluding that 'Serving is Better.'",
+      "key_points": [
+        "Software has no value until it is running and serving people",
+        "All software is fundamentally a service, even without a network connection",
+        "Fault-free software is achievable through discipline, good design, and fixing bugs immediately",
+        "The 'Worse is Better' vs 'Right is Better' debate is a false dichotomy",
+        "Frequent release and high quality can coexist through disciplined practice"
+      ],
+      "money_quotes": [
+        "Ultimately what we build is sculpted by human hands, and only when it touches our hands does it form.",
+        "ALL software is a service, even when it doesn't have a network connection, all software is there to serve our needs and therefore when it isn't running, it serves nobody.",
+        "Our role as professionals and human beings is to build software that serves and prevent software that harms.",
+        "Where I conclude is not Worse is Better, or Right is Better, but Serving is Better."
+      ],
+      "themes": [
+        "philosophy_society",
+        "open_source",
+        "cpp_programming"
+      ],
+      "tone": "reflective",
+      "key_insight": "The debate between shipping fast and shipping right is a false dichotomy \u2014 what matters is serving people, which requires both frequent delivery and disciplined quality.",
+      "filename": "2019-08-09-tools-were-made-born-were-hands"
+    },
+    {
+      "summary": "GitHub Copilot, powered by GPT-3, will accelerate code production but also accelerate bug propagation, since AI-generated code trained on open source repositories will likely have even higher defect rates than human-written code. The author warns that when programmers become accustomed to auto-completed code that compiles, they may fail to deeply review it, creating dangerous scenarios especially as AI systems are increasingly built on AI-generated scaffolding.",
+      "key_points": [
+        "Copilot represents impressive engineering but will produce code with more than 50 bugs per 1000 lines based on its training data",
+        "The industry average defect rate is 15-50 bugs per 1000 lines of code, and open source projects often have even more",
+        "AI-generated code that compiles easily may reduce human scrutiny, compounding the bug problem",
+        "The recursive danger of using AI to build scaffolding for AI systems creates new vectors for bug propagation",
+        "GPT-3 doesn't understand meaning, making it fundamentally unsuited to the meaning-laden work of software construction"
+      ],
+      "money_quotes": [
+        "With Copilot, bugs will be transmitted faster than the speed of thought.",
+        "Building software is building a small world. It's about meaning, and we know GPT-3 doesn't understand meaning.",
+        "Now imagine your scaffolding itself is written mostly by Copilot. Bugs will propagate in new ways, via systems that build systems.",
+        "When programmers get used to auto-complete code that compiles, how deep will they go into it? Will they review it carefully?"
+      ],
+      "themes": [
+        "ai_ml",
+        "cpp_programming",
+        "philosophy_society"
+      ],
+      "tone": "cautionary",
+      "key_insight": "AI-powered code generation tools like Copilot will accelerate not just coding speed but bug propagation, especially as developers grow complacent reviewing auto-generated code that superficially appears correct.",
+      "filename": "2021-06-30-bugs-faster-than-the-speed-of-thought"
+    },
+    {
+      "summary": "The post argues that AI's promise of increased efficiency comes with a dangerous hidden cost: reduced resilience. Drawing on examples from supply chains, Boeing's safety failures, and Jevons Paradox, the author contends that AI-driven efficiency will accelerate resource consumption and increase fragility, precisely the opposite of what humanity needs as it approaches planetary boundaries.",
+      "key_points": [
+        "AI-driven efficiency gains inherently reduce resilience by eliminating safety margins and redundancy",
+        "Jevons Paradox means efficiency gains in resource use actually increase aggregate consumption, not decrease it",
+        "COVID exposed the fragility of hyper-efficient just-in-time supply chains",
+        "Humanity is approaching planetary boundaries and needs resilience, not further acceleration of growth",
+        "The author poses an open question: can AI be redirected toward resilience rather than optimization?"
+      ],
+      "money_quotes": [
+        "On the other side of the efficiency coin is resiliency. As you make anything more efficient, you lose resilience.",
+        "When you take efficiency to the extreme, you get deadly fragility.",
+        "Nobody is talking about using AI for resiliency. Nobody wants to pay for a technology which will increase their costs in the long run.",
+        "Utilizing AI as an approach to increase our efficiency is a kiss of death. We now need resiliency, not efficiency.",
+        "Efficiency gains will NOT reduce our usage of fossil fuels in the aggregate. We need fossil fuels to be more expensive to use, not less."
+      ],
+      "themes": [
+        "ai_ml",
+        "economics_finance",
+        "philosophy_society"
+      ],
+      "tone": "critical",
+      "key_insight": "AI's core sales pitch of making everything more efficient will paradoxically accelerate resource depletion and increase systemic fragility at the precise moment humanity needs resilience against planetary limits.",
+      "filename": "2024-01-24-ai-efficiency-and-the-acceleration-of-everything"
+    },
+    {
+      "summary": "Drawing on Adam Curtis's documentary and a Nature paper on AI model collapse, the post argues that AI training on its own generated data leads not to a static world but a degenerating, nonsensical one. As AI-generated content exponentially grows and poisons both machine and human knowledge, rare perspectives and marginalized voices will be systematically forgotten, accelerating the worst effects of content bubbles.",
+      "key_points": [
+        "A Nature paper demonstrates that AI trained on recursively generated data suffers 'model collapse' - losing rare events and producing repetitive nonsense within a few generations",
+        "The exponential growth of AI-generated content online will inevitably contaminate training data for future models",
+        "Content bubbles and model collapse share a deep structural similarity: both reduce variance and diversity, leading to strange groupthink",
+        "Marginalized voices represent the tails of the distribution of human experience and will be the first casualties of model collapse",
+        "Adam Curtis predicted a static world controlled by machines, but the reality may be worse: a degenerating one"
+      ],
+      "money_quotes": [
+        "Maybe Adam Curtis was wrong! Maybe we are headed, not for a static world, but a nonsensical one.",
+        "Diversity of content creates richness and intelligence, while lower variance, lower diversity, degenerates into nonsense.",
+        "We have now seen several generations of new models being trained, with the content they produce growing exponentially. We have no regulations to mark content created by AI, or even partially created by AI.",
+        "The voices of marginalized groups will literally be forgotten as their experiences are improbable compared to the rest. Their experiences are the tails of the distribution of human experience, and with this forgetting we will forget ourselves and what the whole of human experience is.",
+        "There seems to be a deep connection here between model collapse and content bubbles. After all, content bubbles are just people creating content and learning from that content, and only that content, reducing the variance of what they see and hear."
+      ],
+      "themes": [
+        "ai_ml",
+        "philosophy_society",
+        "politics_culture"
+      ],
+      "tone": "critical, warning",
+      "key_insight": "AI model collapse and human content bubbles are fundamentally the same phenomenon \u2014 recursive self-training that erases diversity \u2014 and their convergence threatens to accelerate a global degeneration of knowledge that will erase marginalized perspectives first.",
+      "filename": "2024-07-25-all-watched-over-by-machines-of-insanity"
+    },
+    {
+      "summary": "Generative AI is to visual artists what the camera was to painters - a new tool that will change what kind of art we value rather than eliminate art itself. Just as photography pushed painting toward abstraction and away from realism, AI will push human art toward something more authentically human and imperfect.",
+      "key_points": [
+        "The camera didn't kill painting but changed what paintings we appreciate",
+        "Generative AI is essentially a 'different kind of camera' for art",
+        "The Japanese aesthetic of Wabi-Sabi explains why human art will endure",
+        "AI art will make us value imperfection and humanity in art more"
+      ],
+      "money_quotes": [
+        "I believe Generative AI will just be a different kind of camera.",
+        "There is a Japanese aesthetic called Wabi-Sabi that I believe captures why we will continue to care about human art, and we will treat Generative AI 'art' the way we treat photos. Wabi-sabi is the appreciation of the 'imperfect, impermanent, and incomplete'.",
+        "Generative AI, like a photo, no matter how detailed, captures one projection of what these artists make.",
+        "I believe it will push us to value something more human, something we haven't seen before. Something that captures being imperfect, impermanent, and incomplete."
+      ],
+      "themes": [
+        "ai_ml",
+        "philosophy_society"
+      ],
+      "tone": "reflective, optimistic",
+      "key_insight": "Just as photography didn't kill painting but redirected it toward abstraction, generative AI won't kill human art but will push us to value the imperfect, impermanent, and incomplete qualities that only humans can authentically express.",
+      "filename": "2024-12-08-a-different-kind-of-camera"
+    },
+    {
+      "summary": "The post critiques Curtis Yarvin's dark enlightenment ideology, which frames monarchical and hierarchical power structures as natural and inevitable. Using the metaphor of the 'Queen Bee' misnomer, the author argues that Yarvin employs clever linguistic framing to obscure the viability of decentralized governance, and draws on archaeological evidence from Graeber and Wengrow's 'Dawn of Everything' to demonstrate that egalitarian complex societies have existed throughout history.",
+      "key_points": [
+        "Curtis Yarvin uses linguistic manipulation to make hierarchical power structures seem natural and inevitable",
+        "The 'Queen Bee' metaphor illustrates how language obscures decentralized realities",
+        "Archaeological evidence from Graeber and Wengrow contradicts the claim that inequality is a natural byproduct of civilization",
+        "Yarvin's ideas provide intellectual cover for accelerating inequality under the current political establishment",
+        "Many ancient complex societies actively created safeguards against power concentration"
+      ],
+      "money_quotes": [
+        "Just as the misleading term 'Queen Bee' obscures the decentralized reality of beehive governance, an obscure 'thinker' called Curtis Yarvin, similarly uses clever linguistic framing to make hierarchical power structures appear natural and inevitable, when they are anything but.",
+        "Words are powerful and understanding this basic concept is why propaganda works.",
+        "Instead of criticizing this reality, Yarvin praises it. His fundamental argument is democratic, decentralized, institutions are ineffective, claiming we would be better governed by a monarchy-style system where power is concentrated in a single authority\u2014similar to how corporations operate.",
+        "The most powerful challenge to Yarvin in Graeber's scientific work is against the idea that inequality emerges naturally with civilization's complexity. Many ancient complex societies actively created institutional safeguards against accumulation of power by individuals.",
+        "We live in a beehive and let the cynic wasps in."
+      ],
+      "themes": [
+        "philosophy_society",
+        "politics_culture",
+        "p2p_distributed"
+      ],
+      "tone": "critical",
+      "key_insight": "Archaeological and anthropological evidence demonstrates that hierarchical power structures are neither natural nor inevitable, and ideologies like Yarvin's that claim otherwise use linguistic manipulation to justify accelerating inequality.",
+      "filename": "2025-03-27-the-cynic-wasps-in-the-beehive"
+    },
+    {
+      "summary": "The post argues that AI possesses accumulated knowledge rather than genuine creativity, and that the apparent scarcity of human creativity is caused by structural constraints like lack of time, autonomy, and economic security rather than innate limitations. Using examples from Adam Smith to Leonardo da Vinci, Khailo contends that AI makes everyone a 'Henry Ford' who can synthesize existing knowledge, but cannot replace the perspective-shifting creativity that comes from lived human experience.",
+      "key_points": [
+        "AI excels at knowledge synthesis and execution but lacks the ability to shift paradigms or create genuinely new perspectives",
+        "Most humans appear uncreative not due to lack of talent but due to structural constraints: no time, autonomy, or economic security",
+        "Repetitive labor causes measurable cognitive decline, confirming Adam Smith's 1776 warning about division of labor",
+        "LLMs have fundamental limitations (no persistent state, no online learning, no internal reward, no embodied experience) that prevent genuine creativity",
+        "AI democratizes knowledge and boosts creative productivity, but the real opportunity is unlocking latent human potential at scale"
+      ],
+      "money_quotes": [
+        "We're confusing knowledge accumulation with genuine creativity. More importantly, we're misdiagnosing why so few humans appear creative.",
+        "AI is to intelligence as airplanes are to flight. Airplanes fly faster than birds, but certainly can't land on a tree branch.",
+        "AI makes everyone Henry Ford, but we still need Leonardo da Vincis.",
+        "What most people lack isn't creative ability or intelligence. It's not even knowledge anymore. It's what they've always lacked: time, autonomy, and space to develop their unique perspective.",
+        "We mistake systemic constraints for individual limitations, then marvel at AI's 'creativity' when it's really accessible knowledge."
+      ],
+      "themes": [
+        "ai_ml",
+        "philosophy_society",
+        "economics_finance"
+      ],
+      "tone": "analytical, humanist, optimistic",
+      "key_insight": "AI democratizes knowledge synthesis the way the printing press democratized information, but genuine creativity \u2014 the ability to shift paradigms and generate new perspectives \u2014 remains uniquely human and is constrained not by talent but by socioeconomic structures that deny most people the time and autonomy to develop it.",
+      "filename": "2025-07-23-why-ai-has-knowledge-but-humans-have-creativity"
+    },
+    {
+      "summary": "The post draws a direct line between anti-immigrant rhetoric from influential tech figures like DHH and the reality of masked federal agents detaining people in American cities. Khailo argues that when powerful voices in tech normalize ideas about who 'belongs,' they build the ideological infrastructure for authoritarian enforcement. Writing as a refugee who came to America from Eastern Europe, he urges people not to be divided by nationalism.",
+      "key_points": [
+        "Anti-immigrant rhetoric from tech leaders normalizes and enables authoritarian enforcement actions",
+        "The tech elite played a key role in bringing Trump to power and shaping the current political climate",
+        "DHH's nostalgia about demographic changes in London is hypocritical given he is himself a foreigner",
+        "Historical lessons about not being manipulated by divisive rhetoric are being forgotten"
+      ],
+      "money_quotes": [
+        "When powerful voices in tech normalize the idea that some people don't belong based on how they look or where they're from, they're building the ideological infrastructure for the enforcement we're now seeing.",
+        "The irony of DHH talking about foreigners is that he himself is a foreigner. It doesn't take a genius to understand he isn't talking about foreigners like himself but 'that kind of foreigner,' the kind with darker skin and strange food.",
+        "It's like he forgot we are on a tiny ball floating in space and that if you look down, you can't see the lines we put on the maps.",
+        "The lines on the map are only as real as we allow them to be."
+      ],
+      "themes": [
+        "politics_culture",
+        "philosophy_society"
+      ],
+      "tone": "impassioned, personal, critical",
+      "key_insight": "Rhetoric from influential tech figures about who 'belongs' in a place isn't harmless nostalgia \u2014 it's the ideological groundwork for the authoritarian enforcement actions now playing out in American cities.",
+      "filename": "2025-10-13-dont-be-a-sucker"
+    },
+    {
+      "summary": "The US government's $20-60 billion bailout of Argentina follows the same pattern as the 1997-98 Asian Financial Crisis bailouts: IMF loans flow into the country and immediately flow back out to Western bondholders, enriching Wall Street investors while saddling Argentina with debt. The author draws a direct line between Treasury Secretary Bessent's personal connections to hedge fund managers like Rob Citrone and the suspicious timing of bond purchases before the bailout announcement.",
+      "key_points": [
+        "The Argentina bailout mirrors the 1997-98 Asian Financial Crisis pattern where IMF money protected Western creditors at the expense of debtor nations",
+        "Approximately 56% of Argentina's $200 billion public debt is dollar-denominated, held by major US institutions like BlackRock, PIMCO, and Fidelity",
+        "Hedge funds bought Argentine distressed debt at 20-30 cents on the dollar and stand to profit enormously from the bailout",
+        "Treasury Secretary Bessent has personal ties to bondholder Rob Citrone, who reportedly purchased additional Argentine bonds weeks before the bailout announcement",
+        "Congressional oversight is examining potential conflicts of interest in the bailout"
+      ],
+      "money_quotes": [
+        "This is not a bailout of Argentina, but foreign bond holders.",
+        "Instead of letting the creditors take the losses, the Fed facilitated a rollover agreement that protected the Western banks while South Korea took on $58 billion in IMF debt with harsh conditions.",
+        "Money in the forms of IMF loans will flow into Argentina and immediately leave, bailing out Western bondholders like Bessent's Wall Street associates.",
+        "Sophisticated hedge funds bought this distressed debt at 20-30 cents on the dollar and stand to profit enormously from this 2025 bailout.",
+        "As with most economic news, the key question is: Cui bono? Who benefits?"
+      ],
+      "themes": [
+        "economics_finance",
+        "politics_culture"
+      ],
+      "tone": "investigative, critical",
+      "key_insight": "International bailouts labeled as economic reform support are structurally designed to protect Western creditors and enrich connected insiders, following a pattern that has repeated from the 1997 Asian crisis to Argentina in 2025.",
+      "filename": "2025-11-04-what-the-argentina-bailout-is-really-about"
+    },
+    {
+      "summary": "The post argues that money is not a natural phenomenon but a technology of governance, invented by states to provision armies and extract labor through taxation. Drawing on anthropological evidence from David Graeber and chartalist economics, it dismantles the textbook barter-to-money narrative and shows how states create monetary demand through tax obligations, then explores how money could be redesigned \u2014 particularly using multi-dimensional pricing to account for externalities like carbon emissions.",
+      "key_points": [
+        "Money originated not from barter but from state needs to provision armies and collect taxes, as demonstrated by historical evidence from Lydia to British colonial hut taxes",
+        "Writing itself was invented for accounting and bureaucratic record-keeping, not storytelling, with 85% of proto-cuneiform texts being administrative records",
+        "Most modern money (historically ~90%) is created by commercial banks through lending, not by government printing, though post-2020 fiscal policy has shifted this balance",
+        "Money's scalar denomination is an artifact of human-era accounting limitations; computers could enable multi-dimensional monetary systems that price externalities like carbon",
+        "Cryptocurrencies fail as money because no state stands behind them with tax obligations, making their value purely speculative"
+      ],
+      "money_quotes": [
+        "The real attribute that makes something money is this: a state that demands it for tax payments and punishes you if you don't have it.",
+        "No example of a barter economy, pure and simple, has ever been described, let alone the emergence from it of money... The standard economics textbook story of the origins of money has almost nothing to do with how money actually came about.",
+        "Cryptocurrency enthusiasts often say they're creating 'money without the state.' But that's like saying you're creating 'law without enforcement' or 'property without courts.' The state isn't an unfortunate add-on to money. The state is what makes money work.",
+        "Once you see money as technology, you can start asking the right question: what kind of money should we build next?",
+        "Money is a tool of power, and its design shapes the societies that use it."
+      ],
+      "themes": [
+        "economics_finance",
+        "philosophy_society",
+        "politics_culture"
+      ],
+      "tone": "analytical",
+      "key_insight": "Money is a deliberately designed technology of state power \u2014 created through taxation and legal obligation rather than emerging naturally from markets \u2014 which means it can and should be consciously redesigned to address modern challenges like climate externalities.",
+      "filename": "2026-01-09-money-is-a-technology"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "A practical tutorial on embedding Entypo pictograph fonts directly into Qt applications as vector icons. The post walks through converting font files to C byte arrays using xxd, loading them via QFontDatabase, and rendering Unicode characters as styled button icons using C++11 literals.",
+  "key_points": [
+    "Vector pictograph fonts like Entypo can replace bitmap icons in Qt apps for cleaner, scalable graphics",
+    "The xxd tool converts font files into C include files containing hex byte arrays",
+    "QFontDatabase::addApplicationFontFromData allows embedding fonts directly in the binary without external resource files",
+    "QApplication must be initialized before calling addApplicationFontFromData to avoid segfaults",
+    "Qt's rcc resource system is actually the superior approach for embedding binary data (acknowledged in the edit)"
+  ],
+  "money_quotes": [
+    "Once you learn about Entypo, you see these pictographs everywhere!",
+    "One very important note here, make sure you create your QApplication object before you call addApplicationFontFromData otherwise you will get a segfault. I figured this out the hard way.",
+    "It was mentioned to me that it is better to use rcc instead of xxd for storing binaries in a Qt app. This is superior, so don't use my silly silly way."
+  ],
+  "themes": [
+    "cpp_programming",
+    "open_source"
+  ],
+  "tone": "instructional",
+  "key_insight": "Embedding vector font files directly as byte arrays in C++ code provides a simple way to add scalable icons to Qt applications without external resource dependencies, though Qt's built-in resource compiler (rcc) is the more idiomatic solution.",
+  "filename": "2014-11-28-using-entypo-fonts-as-icons-in-your-qt-application"
+}

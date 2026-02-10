@@ -1,0 +1,24 @@
+{
+  "summary": "The post argues that TDD's core cycle of test-code-refactor produces many small, highly coupled modules that concentrate defects, citing Koru and Emam's 'Theory of Relative Dependency' research. The author contends that refactoring is fundamentally a symptom of poor upfront design, and that TDD creates a catch-22 where the rapid refactoring it encourages generates the very coupling problems that necessitate extensive testing.",
+  "key_points": [
+    "Refactoring is the result of poor planning and poor design, not a virtue",
+    "Research shows smaller modules have proportionally higher coupling and defect rates",
+    "TDD creates a catch-22: it produces small, coupled modules that need the very tests driving their creation",
+    "Unit tests are themselves highly coupled code that must be maintained, effectively doubling tightly coupled code",
+    "TDD can serve as a crutch that replaces deliberate upfront thinking and design"
+  ],
+  "money_quotes": [
+    "Refactoring is the result of poor planning and poor design. How can poor planning be a good thing?",
+    "If you took some software designed by TDD and removed the tests, you would be left with many small modules that are highly dependent. This is a difficult design to reason about and change.",
+    "The unit tests themselves are highly coupled pieces of code! And with a typical one-to-one ratio between unit tests and code, this means half your code is tightly coupled code!",
+    "I feel that TDD is used by people as a crutch, as a replacement for thinking. Not thinking is built into the process.",
+    "For those adventurous enough to swim in the mental ether, to think, to feel, to care, avoid it."
+  ],
+  "themes": [
+    "cpp_programming",
+    "philosophy_society"
+  ],
+  "tone": "critical",
+  "key_insight": "TDD's test-code-refactor cycle creates a self-reinforcing dependency trap where constant refactoring produces small, highly coupled modules that require ever more tests to manage, ultimately replacing deliberate design thinking with mechanical process.",
+  "filename": "2010-08-15-theory-of-relative-dependency-and-tdd"
+}

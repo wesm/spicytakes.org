@@ -1,0 +1,24 @@
+{
+  "summary": "The post advocates for Design by Contract (DBC) over Test-Driven Development (TDD), arguing that embedding preconditions and postconditions directly in code catches more bugs than isolated unit tests. Using the metaphor of an egg, Khailo explains how input validation forms the hard shell while contracts enforce correctness in the internal logic, enabling random testing techniques that achieve far greater coverage than traditional TDD.",
+  "key_points": [
+    "Design by Contract embeds executable assumptions (REQUIRE/ENSURE) directly in code rather than in separate test files",
+    "Contracts run against all real input rather than specific test cases, catching threading bugs and integration issues",
+    "The 'egg' model separates input sanitization (hard shell) from internal logic (gooey inside) where hard contracts apply",
+    "DBC enables QuickCheck-style random testing that achieves hundreds of thousands of tests vs thousands with TDD",
+    "Most bugs happen in how modules are connected, not in modules in isolation"
+  ],
+  "money_quotes": [
+    "While TDD tests software modules in isolation, most bugs happen in how modules are connected.",
+    "By stating your requirements as executable code, your code will find the bugs for you.",
+    "This creates a clean separation between where input is assumed to be dirty, and when input is assumed to be valid for your logic.",
+    "TDD is like touching your code blind, DBC is like crushing your code flat.",
+    "Write tests that write tests for you. Crush your code."
+  ],
+  "themes": [
+    "cpp_programming",
+    "open_source"
+  ],
+  "tone": "persuasive",
+  "key_insight": "Embedding contracts directly in code is more powerful than external unit tests because they run against all real inputs and catch bugs at module boundaries where most failures actually occur.",
+  "filename": "2013-04-05-why-i-do-design-by-contract"
+}

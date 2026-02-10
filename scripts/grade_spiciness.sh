@@ -36,7 +36,7 @@ SPICY_CONTEXT=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['
 
 export AUTHOR_NAME
 export SPICY_CONTEXT
-export LLM_BACKEND="${LLM_BACKEND:-codex}"
+export LLM_BACKEND="${LLM_BACKEND:-claude}"
 export LLM_CALL_SCRIPT="$SCRIPT_DIR/llm_call.sh"
 
 echo "=== Grading Spiciness with ${LLM_BACKEND} ==="

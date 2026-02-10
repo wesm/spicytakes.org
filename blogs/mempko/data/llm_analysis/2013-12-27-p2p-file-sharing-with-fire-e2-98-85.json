@@ -1,0 +1,23 @@
+{
+  "summary": "Khailo describes building a peer-to-peer file transfer application on top of his Fire\u2605 platform, using a pull-based chunked transfer protocol written in Lua. The post walks through the algorithm design, where receivers request chunks from senders, enabling natural multiplexing with other activities like chat and drawing.",
+  "key_points": [
+    "File transfer app built on Fire\u2605's basic primitives rather than being hardcoded into the platform",
+    "Pull-based chunk transfer model enables natural rate limiting and multiplexing",
+    "Multiple simultaneous file transfers and multi-peer sends work seamlessly",
+    "All messages are encrypted and sent peer-to-peer with no central server"
+  ],
+  "money_quotes": [
+    "This pull model provides an obvious advantage, which is that it allows a limited rate of transfer allowing multiplexing with other messages that would be sent. So you can keep chatting, or drawing, or whatever while the file transferred.",
+    "Another obvious advantage to the pull model is that you can send multiple files at a time and they will be properly multiplexed. And if you have multiple people you are sending the file to, each one can receive it at their own speed.",
+    "This file transfer application is not built into Fire\u2605, but is built on basic building blocks.",
+    "You can now chat, draw, and transfer files with multiple peers via p2p where all messages are encrypted and private."
+  ],
+  "themes": [
+    "p2p_distributed",
+    "open_source",
+    "cpp_programming"
+  ],
+  "tone": "technical, enthusiastic",
+  "key_insight": "A pull-based chunked file transfer protocol naturally solves multiplexing and multi-peer rate control problems, and building it as a user-space app rather than a platform primitive demonstrates the extensibility of the Fire\u2605 P2P framework.",
+  "filename": "2013-12-27-p2p-file-sharing-with-fire-e2-98-85"
+}
