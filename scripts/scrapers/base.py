@@ -9,6 +9,7 @@ import os
 from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
+from types import MappingProxyType
 from typing import Optional
 
 from bs4 import NavigableString
@@ -108,7 +109,7 @@ class BaseScraper(ABC):
             return base_url + url
         return url
 
-    def _inline_to_markdown(self, element, base_url: str = "") -> str:
+    def _inline_to_markdown(self, element, base_url: str = "", exclude_tags: set | None = None) -> str:
         """Convert inline HTML elements to markdown, preserving links and formatting."""
         if isinstance(element, str):
             return element
@@ -121,9 +122,17 @@ class BaseScraper(ABC):
 
         tag = element.name
 
+        # Skip tags like script/style/nav etc. even when nested
+        if tag in self._SKIP_TAGS:
+            return ""
+
+        # Skip excluded tags (e.g., nested lists that will be rendered separately)
+        if exclude_tags and tag in exclude_tags:
+            return ""
+
         if tag == "a":
             href = element.get("href", "")
-            text = "".join(self._inline_to_markdown(c, base_url) for c in element.children)
+            text = "".join(self._inline_to_markdown(c, base_url, exclude_tags) for c in element.children)
             if href and text and not href.startswith("#"):
                 href = self._abs_url(href, base_url)
                 return f"[{text}]({href})"
@@ -133,18 +142,18 @@ class BaseScraper(ABC):
             return f"`{element.get_text()}`"
 
         if tag in ["strong", "b"]:
-            text = "".join(self._inline_to_markdown(c, base_url) for c in element.children)
+            text = "".join(self._inline_to_markdown(c, base_url, exclude_tags) for c in element.children)
             return f"**{text}**"
 
         if tag in ["em", "i"]:
-            text = "".join(self._inline_to_markdown(c, base_url) for c in element.children)
+            text = "".join(self._inline_to_markdown(c, base_url, exclude_tags) for c in element.children)
             return f"*{text}*"
 
         if tag == "br":
             return "\n"
 
         # For other elements, recurse into children
-        return "".join(self._inline_to_markdown(c, base_url) for c in element.children)
+        return "".join(self._inline_to_markdown(c, base_url, exclude_tags) for c in element.children)
 
     def _get_direct_text(self, element, base_url: str = "", exclude_tags=None) -> str:
         """Get text content with inline formatting, excluding certain child tags."""
@@ -158,7 +167,7 @@ class BaseScraper(ABC):
             elif hasattr(child, 'name'):
                 if child.name in exclude_tags:
                     continue
-                parts.append(self._inline_to_markdown(child, base_url))
+                parts.append(self._inline_to_markdown(child, base_url, exclude_tags))
         return "".join(parts).strip()
 
     # -- Block-level tag handlers --
@@ -192,10 +201,10 @@ class BaseScraper(ABC):
             if text:
                 lines.append(f"{prefix} {text}")
             for nested_list in li.find_all(["ul", "ol"], recursive=False):
-                nested_md = self.html_to_markdown(nested_list, base_url)
-                if nested_md.strip():
-                    indented = "\n".join("  " + line for line in nested_md.split("\n") if line.strip())
-                    lines.append(indented)
+                nested_lines = self._handle_list(nested_list, base_url)
+                for line in nested_lines:
+                    if line.strip():
+                        lines.append(f"  {line}")
         lines.append("")
         return lines
 
@@ -257,7 +266,9 @@ class BaseScraper(ABC):
         return lines
 
     # Tag dispatch map — stores method names so subclass overrides are respected
-    _TAG_HANDLERS = {
+    # Immutable to prevent accidental cross-instance mutation; subclasses should
+    # override via class attribute rather than mutating at runtime.
+    _TAG_HANDLERS = MappingProxyType({
         "h1": "_handle_heading", "h2": "_handle_heading", "h3": "_handle_heading",
         "h4": "_handle_heading", "h5": "_handle_heading", "h6": "_handle_heading",
         "p": "_handle_paragraph",
@@ -274,7 +285,7 @@ class BaseScraper(ABC):
         "em": "_handle_inline_block", "i": "_handle_inline_block",
         "strong": "_handle_inline_block", "b": "_handle_inline_block",
         "table": "_handle_table",
-    }
+    })
 
     _SKIP_TAGS = frozenset(["script", "style", "nav", "header", "footer", "aside", "noscript", "iframe"])
 

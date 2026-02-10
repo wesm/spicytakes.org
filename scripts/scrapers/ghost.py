@@ -24,7 +24,17 @@ class GhostScraper(BaseScraper):
             raise ValueError(f"Blog {blog_id} is not configured as ghost")
 
         self.ghost_url = self.config["scraper"]["ghostUrl"].rstrip("/")
-        self.content_api_key = self.config["scraper"]["contentApiKey"]
+        # Load API key from env var (preferred) or fall back to config
+        api_key_env = self.config["scraper"].get("contentApiKeyEnv")
+        if api_key_env:
+            self.content_api_key = os.environ.get(api_key_env, "")
+            if not self.content_api_key:
+                raise ValueError(
+                    f"Environment variable {api_key_env} not set. "
+                    f"Set it with: export {api_key_env}=<your-ghost-content-api-key>"
+                )
+        else:
+            self.content_api_key = self.config["scraper"]["contentApiKey"]
 
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
@@ -112,10 +122,17 @@ class GhostScraper(BaseScraper):
             # Convert HTML content to markdown
             html = api_post.get("html", "")
             if html:
+                # Remove Ghost card markers before parsing
+                html = re.sub(r'<!--\s*kg-card-(begin|end):\s*\w+\s*-->', '', html)
                 soup = BeautifulSoup(html, "html.parser")
+                # Remove bookmark card elements (link cards with icon/favicon dumps)
+                for bookmark in soup.find_all("figure", class_="kg-bookmark-card"):
+                    bookmark.decompose()
                 markdown = self.html_to_markdown(soup, self.ghost_url)
-                # Strip Ghost card markers (kg-card-begin/end)
+                # Strip any remaining Ghost card markers in text
                 markdown = re.sub(r'\n?kg-card-(begin|end): \w+\n?', '\n', markdown)
+                # Remove placeholder links (e.g., [text](link) where href is literally "link")
+                markdown = re.sub(r'\[([^\]]+)\]\(link\)', r'\1', markdown)
             else:
                 markdown = ""
 

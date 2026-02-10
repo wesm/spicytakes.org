@@ -6,7 +6,7 @@
 #
 # Environment variables:
 #   BLOG_ID: required - which blog to process
-#   LLM_BACKEND: "codex" (default) or "claude"
+#   LLM_BACKEND: "claude" (default) or "codex"
 
 set -e
 

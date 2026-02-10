@@ -7,7 +7,7 @@
 #
 # Environment variables:
 #   BLOG_ID: required - which blog to process
-#   LLM_BACKEND: "codex" (default) or "claude"
+#   LLM_BACKEND: "claude" (default) or "codex"
 #   POST_FILE: optional - process single post only
 #   FORCE: set to 1 to reprocess already-analyzed posts
 #   PARALLEL_JOBS: number of parallel jobs (default 5)
@@ -288,14 +288,21 @@ for f in sorted(glob.glob(os.path.join(output_dir, "*.json"))):
 
 # Save combined results
 combined_file = os.path.join(data_dir, "llm_quotes.json")
+total_posts = len(results)
+successful = len([r for r in results if "error" not in r])
+
+# Validate count invariants
+assert successful <= total_posts, f"successful ({successful}) > total_posts ({total_posts})"
+
 with open(combined_file, "w") as fp:
     json.dump({
-        "total_posts": len(results),
-        "successful": len([r for r in results if "error" not in r]),
+        "total_posts": total_posts,
+        "successful": successful,
         "posts": results
     }, fp, indent=2)
+    fp.write("\n")
 
-print(f"Combined {len(results)} analyses into {combined_file}")
+print(f"Combined {total_posts} analyses into {combined_file}")
 
 # Extract all money quotes
 all_quotes = []
@@ -311,6 +318,7 @@ for r in results:
 quotes_file = os.path.join(data_dir, "best_quotes.json")
 with open(quotes_file, "w") as fp:
     json.dump({"total": len(all_quotes), "quotes": all_quotes}, fp, indent=2)
+    fp.write("\n")
 
 print(f"Extracted {len(all_quotes)} money quotes into {quotes_file}")
 PYEOF
