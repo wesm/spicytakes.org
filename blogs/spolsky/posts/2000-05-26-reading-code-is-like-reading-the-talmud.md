@@ -1,0 +1,9 @@
+---
+title: "Reading Code is Like Reading the Talmud"
+date: 2000-05-26
+url: https://www.joelonsoftware.com/2000/05/26/reading-code-is-like-reading-the-talmud/
+word_count: 289
+---
+
+
+Seth Gordon emailed me some great tips for reading other people’s source code: I started working as a technical writer in Boston after about eight months studying at an Israeli yeshiva.  A year or so ago, I and a co-worker were trying to decipher a yacc-and-Perl monstrosity that generated some of our documentation. We sat down with printouts of the code and went through it, virtually line by line. “Now, because of the way yacc works, when it encounters *this* kind of data, it will run *this* function … what does *this* line do? … at *this* point, what does that messy data structure look like?…”  Another co-worker asked me how it was going, and I told him, “It’s just like reading Talmud.”  The following Talmud-reading tactics are, I think, also useful for code-reading:    Work in pairs, thinking out loud to one another.  Argue. If your partner says “this means X”, and you either don’t understand why or you have another opinion, demand an explanation.  Sometimes, when dealing with a chunk of text, it’s easier to figure out the middle *after* you understand what’s on both ends. Therefore, if a fragment of text has you stumped, try skipping over it and seeing if you can come back to it later. (But you still have to come back to it eventually.)  Read the text both “inside” and “outside”. An inside reading translates the text into English (or whatever your native language is) phrase-by-phrase; an outside reading translates a larger chunk into an idiomatic paragraph. If you only read inside, you can miss the forest for the trees; if you only read outside, you can fool yourself by making broad guesses and not verifying them with details. Thanks, Seth! Great ideas!

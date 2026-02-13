@@ -96,9 +96,13 @@ echo "Step 3/4: Grading spiciness on new quotes..."
 BLOG_ID="$BLOG_ID" bash scripts/grade_spiciness.sh
 echo ""
 
-# Step 4: Rebuild the site
-echo "Step 4/4: Rebuilding site..."
-VITE_BLOG_ID="$BLOG_ID" npm run build
+# Step 4: Rebuild the site (skip with NO_BUILD=1)
+if [[ -n "$NO_BUILD" ]]; then
+    echo "Step 4/4: Skipping build (NO_BUILD is set)"
+else
+    echo "Step 4/4: Rebuilding site..."
+    VITE_BLOG_ID="$BLOG_ID" npm run build
+fi
 echo ""
 
 echo "=== Update Complete ==="
