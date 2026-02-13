@@ -81,6 +81,26 @@ Each blog config (`config/<blog_id>.json`) contains:
 - `llmAnalysis` - Prompts and settings for LLM analysis
 - `spiciness` - Context prompt for spiciness grading
 
+## Adding a New Blog
+
+Every new blog requires updates in ALL of these places (do not skip any):
+
+1. `config/<blog_id>.json` - Create blog config (scraper, themes, LLM prompts, spiciness)
+2. `src/lib/config.ts` - Add import AND add to the `configs` map (both are required)
+3. `package.json` - Add `dev:<blog_id>` and `build:<blog_id>` scripts
+4. `scripts/deploy.sh` - Add to `ALL_BLOGS` list AND add case in `get_project_name()`
+5. `config/landing.json` - Add entry to the `blogs` array with initial stats `{ "posts": 0, "quotes": 0 }`
+
+After all registration is done, run the full pipeline:
+
+```bash
+BLOG_ID=<id> python3 scripts/scrapers/<scraper_type>.py   # Scrape posts
+BLOG_ID=<id> ./scripts/llm_analyze.sh                     # LLM analysis
+BLOG_ID=<id> ./scripts/grade_spiciness.sh                 # Spiciness grading
+```
+
+Verify with `npm run dev:<blog_id>` before deploying.
+
 ## Notes
 
 - Posts are archived for personal research purposes
