@@ -1,0 +1,27 @@
+{
+  "summary": "Spolsky recounts a disastrous week at Fog Creek Software where multiple systems failed in cascade: a CVS server crash led to days of backup restoration problems, a Verizon fire knocked out their T1 internet through a chain of outsourced providers, and frozen pipes caused by a faulty furnace installation. Each incident illustrates how backup plans and redundancy measures that seem adequate can fail when tested by real disasters. The central lesson is that weak systems appear healthy until neighboring systems break down, creating cascading failures. Spolsky argues for defense in depth: RAID mirroring plus backups, direct service providers instead of outsourced layers, and fixing all related vulnerabilities at once rather than just the immediate problem.",
+  "key_points": [
+    "Backups alone aren't sufficient \u2014 a hard drive failure triggered a multi-day cascade of restore problems despite daily offsite backups, leading Spolsky to mandate RAID mirroring on all non-laptop machines",
+    "Outsourced services create accountability gaps: their T1 outage involved Savvis outsourcing to WorldCom outsourcing to Verizon, making a trivial fix take over 36 hours because no one in the chain felt urgency",
+    "Weak systems appear perfectly healthy until a neighboring system fails, then hidden vulnerabilities cascade \u2014 like hayfever triggering a sneeze that throws out a bad back",
+    "The correct response to cascading failures is to fix all the problems at once rather than just the proximate cause, building defense in depth across every layer"
+  ],
+  "money_quotes": [
+    "Backups aren't good enough. I want RAID mirroring from now on. When a drive dies I want to spend 15 minutes putting in a new drive and resume working exactly where I left off.",
+    "This is not the first time that a hard drive failure has led to a series of other problems that wound up wasting days and days of work.",
+    "Honestly, it's like pushing on string.",
+    "When you're buying a service from a company that's just outsourcing that service, one level deep, it's difficult to get decent customer service. When there are two levels of outsourcing, it's nearly impossible.",
+    "The technical problem was relatively trivial and could have been diagnosed and fixed in minutes if we weren't dealing with so many idiot companies.",
+    "Weak systems may appear perfectly healthy until neighboring systems break down.",
+    "People with allergies and back problems may go for months without suffering from either one, but suddenly an attack of hayfever makes them sneeze hard enough to throw out their back.",
+    "Use these opportunities to fix all the problems at once."
+  ],
+  "themes": [
+    "software-development",
+    "management",
+    "startups"
+  ],
+  "tone": "frustrated, candid, instructive",
+  "key_insight": "Redundancy and backups create an illusion of safety \u2014 true resilience requires defense in depth, because cascading failures exploit every weak link simultaneously.",
+  "filename": "2003-01-25-20030125"
+}

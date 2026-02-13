@@ -1,0 +1,27 @@
+{
+  "summary": "Joel Spolsky examines how the Windows team at Microsoft organized their source control to manage thousands of developers working on a massive codebase. He shares a Windows engineer's account of how the pre-Longhorn approach of seven shared branches failed to scale, leading to a restructured system of tiered feature branches with quality gates at each merge point. The post argues that this hierarchical branching model, where teams own sub-branches and QA owns the merge points, is the right way to handle source control at scale. Spolsky endorses the pattern of giving developers private branches for frequent check-ins, with code only merging upward when it meets quality bars.",
+  "key_points": [
+    "Shared branches with thousands of developers lead to either frequent build breakage or infrequent check-ins, both of which are harmful",
+    "The solution is a hierarchical branch structure mirroring the team organization, with sub-feature branches rolling up to aggregation branches and then to main",
+    "Quality gates at each merge point are essential \u2014 they're costly (days to run) but without them the OS would never have shipped",
+    "Teams that were more disciplined about quality could reverse-integrate faster and more frequently, creating a virtuous cycle",
+    "The ideal model gives every developer a private branch with QA owning the junction points between merge levels"
+  ],
+  "money_quotes": [
+    "Of all the things broken at Microsoft, the way they use source control on the Windows team is not one of them.",
+    "You check in frequently, and there's a very high chance of either breaking the build, or breaking functionality in the OS.",
+    "These gates were essential in upholding the quality of the main branch, and had they not existed, the OS would have never shipped.",
+    "Generally, the more disciplined teams were about quality, the faster and more frequently they'd RI.",
+    "From what you know about the varying levels of stability/quality of components of the OS, it's pretty easy to map that back to RI velocity and so forth, since it all goes hand-in-hand pretty nicely.",
+    "So they can check in as often as they want, only merging up when they feel that their code is stable.",
+    "Your QA department owns the junction points above each merge."
+  ],
+  "themes": [
+    "software-development",
+    "management",
+    "programming"
+  ],
+  "tone": "technical",
+  "key_insight": "At massive scale, source control must mirror organizational structure with hierarchical branches and quality gates at each merge point, so developers can check in freely while QA ensures only stable code flows toward the trunk.",
+  "filename": "2006-11-29-using-source-control-tools-on-huge-projects"
+}

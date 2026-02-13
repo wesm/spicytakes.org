@@ -1,0 +1,25 @@
+{
+  "summary": "Joel Spolsky reviews VMware 4.0's new snapshot feature, which allows instant restoration of complete virtual machine states including RAM and disk. He praises the time savings for configuration testing but complains about CMOS changes that broke backward compatibility with existing VMs. The post then pivots to a forward-looking idea: running production servers inside virtual machines. Joel outlines five implications of server virtualization, including instant rollback from security breaches, service isolation without extra hardware, and near-zero-downtime OS upgrades, while acknowledging the CPU overhead cost. He predicts that running servers as VMs will become standard practice for system administrators.",
+  "key_points": [
+    "VMware 4.0's snapshot feature eliminates boot time by storing complete machine state including RAM, making configuration testing significantly faster",
+    "Breaking backward compatibility with existing VMs through CMOS changes caused painful Plug 'n' Play rediscovery, especially for non-English OS installations",
+    "Server virtualization enables instant rollback from security compromises to a known-good state, though frequently-changing state must be stored separately",
+    "Virtual machines allow near-zero-downtime OS upgrades by preparing patched copies offline and swapping them in, with zero risk of failed boots",
+    "Joel predicts server virtualization will become standard practice for all but the most CPU-intensive applications"
+  ],
+  "money_quotes": [
+    "Instead of having a blank Win 98 machine ready to boot up at any time, I have a blank Win 98 machine that is already booted and logged on, ready to restore at any time.",
+    "I gave up, throwing away my Win 98 OSes and recreating them from scratch, a serious annoyance (especially since I have VMs running in languages which I don't understand, so I can't really tell what they're yelling at me about.)",
+    "If anyone hacks into the machine, installing trapdoors or defacing the website, a single click gets us back to a known-good condition.",
+    "You can split up functions among different VMs without buying more hardware. Isolate your mail server from your web server from your DNS server, all on one machine.",
+    "You can replace the whole operating system on a live server with only seconds of down time, zero risk that the new OS won't come up, and only one physical box.",
+    "Everything runs emulated, so you're paying for all this convenience with a lot of CPU cycles.",
+    "I think it's going to be an increasingly standard policy of good system administrators to build servers as VMs for all but the most CPU-intensive applications."
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Server virtualization enables snapshot-based security rollback, service isolation, and near-zero-downtime OS upgrades, making it an inevitable standard for server administration despite the CPU overhead.",
+  "filename": "2003-06-02-news"
+}

@@ -153,51 +153,55 @@ Example for {len(batch)} quotes: {json.dumps(list(range(5, 5 + len(batch))))}
 
 JSON array of scores:"""
 
-    # Call LLM via llm_call.sh helper
-    result_file = tempfile.mktemp(suffix='.txt')
+    # Call LLM via llm_call.sh helper (with retries)
+    import re
+    import time as _time
 
-    try:
-        result = subprocess.run([
-            LLM_CALL_SCRIPT,
-            result_file
-        ], input=prompt, text=True, timeout=180, stdout=subprocess.PIPE)
+    MAX_RETRIES = 3
+    batch_success = False
 
-        with open(result_file) as f:
-            result_text = f.read().strip()
+    for attempt in range(1, MAX_RETRIES + 1):
+        result_file = tempfile.mktemp(suffix='.txt')
+        try:
+            result = subprocess.run([
+                LLM_CALL_SCRIPT,
+                result_file
+            ], input=prompt, text=True, timeout=180, stdout=subprocess.PIPE)
 
-        # Parse scores
-        import re
-        match = re.search(r'\[[\d,\s]+\]', result_text)
-        if match:
-            scores = json.loads(match.group())
-            if len(scores) == len(batch):
-                for j, q in enumerate(batch):
-                    q['spiciness'] = scores[j]
-                    graded_quotes.append(q)
-                print(f"  Scores: {scores}")
+            with open(result_file) as f:
+                result_text = f.read().strip()
+
+            # Parse scores
+            match = re.search(r'\[[\d,\s]+\]', result_text)
+            if match:
+                scores = json.loads(match.group())
+                if len(scores) == len(batch):
+                    for j, q in enumerate(batch):
+                        q['spiciness'] = scores[j]
+                        graded_quotes.append(q)
+                    print(f"  Scores: {scores}")
+                    batch_success = True
+                    break
+                else:
+                    print(f"  Attempt {attempt}/{MAX_RETRIES}: got {len(scores)} scores for {len(batch)} quotes")
+                    print(f"  Raw response: {result_text[:200]}")
             else:
-                print(f"  FATAL: got {len(scores)} scores for {len(batch)} quotes")
+                print(f"  Attempt {attempt}/{MAX_RETRIES}: couldn't parse scores from response")
                 print(f"  Raw response: {result_text[:200]}")
-                # Save progress before exiting
-                if graded_quotes:
-                    output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
-                    with open(OUTPUT_FILE, 'w') as f:
-                        json.dump(output, f, indent=2)
-                    print(f"  Saved {len(graded_quotes)} quotes before failure")
-                exit(1)
-        else:
-            print(f"  FATAL: couldn't parse scores from response")
-            print(f"  Raw response: {result_text[:200]}")
-            # Save progress before exiting
-            if graded_quotes:
-                output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
-                with open(OUTPUT_FILE, 'w') as f:
-                    json.dump(output, f, indent=2)
-                print(f"  Saved {len(graded_quotes)} quotes before failure")
-            exit(1)
 
-    except Exception as e:
-        print(f"  FATAL: {e}")
+        except Exception as e:
+            print(f"  Attempt {attempt}/{MAX_RETRIES}: {e}")
+
+        finally:
+            if os.path.exists(result_file):
+                os.unlink(result_file)
+
+        if attempt < MAX_RETRIES:
+            print(f"  Retrying in {attempt * 2}s...")
+            _time.sleep(attempt * 2)
+
+    if not batch_success:
+        print(f"  FATAL: batch {batch_num} failed after {MAX_RETRIES} attempts")
         # Save progress before exiting
         if graded_quotes:
             output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
@@ -205,9 +209,6 @@ JSON array of scores:"""
                 json.dump(output, f, indent=2)
             print(f"  Saved {len(graded_quotes)} quotes before failure")
         exit(1)
-    finally:
-        if os.path.exists(result_file):
-            os.unlink(result_file)
 
     # Save progress every 10 batches
     if batch_num % 10 == 0:

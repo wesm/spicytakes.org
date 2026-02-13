@@ -1,0 +1,19 @@
+{
+  "summary": "Joel highlights a CSS fix shared by a Flickr developer that improves image scaling quality in Internet Explorer. The fix requires adding a non-standard CSS property to enable bicubic interpolation for image resizing. Joel points out that every other browser already uses bicubic interpolation by default, making IE's choice of a lower-quality default an obvious mistake. He uses this as a small example of poor default choices in software.",
+  "key_points": [
+    "IE required a non-standard CSS extension (-ms-interpolation-mode:bicubic) to achieve smooth image scaling that other browsers provided by default",
+    "Choosing the wrong default setting can degrade user experience across an entire product, even when the correct behavior is technically supported",
+    "Browser inconsistencies force web developers to add workarounds for what should be standard behavior"
+  ],
+  "money_quotes": [
+    "All the other browsers use bicubic interpolation for scaling by default, because that's the only thing that make sense, but IE requires a non-standard CSS extension."
+  ],
+  "themes": [
+    "ui-design",
+    "software-development",
+    "programming"
+  ],
+  "tone": "satirical",
+  "key_insight": "Choosing poor defaults forces users and developers to work around problems that should never have existed in the first place.",
+  "filename": "2008-12-22-from-the-department-of-badly-chosen-defaults"
+}

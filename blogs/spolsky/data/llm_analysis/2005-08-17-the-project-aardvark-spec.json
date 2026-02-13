@@ -1,0 +1,25 @@
+{
+  "summary": "Joel Spolsky publishes the original specification for Project Aardvark (later Copilot.com) as a historical artifact, using it to illustrate the value of writing detailed specs before coding. He acknowledges one major error in the spec regarding SSL proxy server behavior, which added about 10% unplanned work. He argues that specs don't need to be perfect\u2014they just need to minimize surprises during development. Spolsky strongly defends Big Design Up Front (BDUF) against Extreme Programming advocates, citing concrete examples where spec-level decisions saved weeks of coding time. He also notes how usability testing led to a late but inexpensive design change.",
+  "key_points": [
+    "The spec's one major error (assuming port 443 would bypass proxy servers) only added ~10% to overall development effort, demonstrating that specs don't need to be perfect to be valuable",
+    "Simplifying the flowchart so only the helper could initiate the process took 1-2 hours in the spec but would have added weeks if discovered during coding",
+    "Usability testing revealed users were confused by auto-deletion of the application, leading to a small 2-hour fix that made the product better",
+    "Specs are written not to solve every problem in advance but to minimize surprises during development",
+    "The team shipped with all planned features and even some version 2 features, validating the spec-driven approach"
+  ],
+  "money_quotes": [
+    "The reason you write a spec is not to solve every possible problem in advance: the reason you write a spec is to solve as many problems as you possibly can in advance so that you minimize the number of surprises that come up during development.",
+    "Making this change in the spec took an hour or two. If we had made this change in code, it would have added weeks to the schedule.",
+    "I can't tell you how strongly I believe in Big Design Up Front, which the proponents of Extreme Programming consider anathema.",
+    "I have consistently saved time and made better products by using BDUF and I'm proud to use it, no matter what the XP fanatics claim. They're just wrong on this point and I can't be any clearer than that.",
+    "This, it turns out, was erroneous, false, and incorrect, and after shipping the first beta we discovered just how wrong it was.",
+    "I seriously expected we would have to cut features; instead, we shipped with everything we wanted in version 1 and even did some of the features this spec refers to as version 2 features."
+  ],
+  "themes": [
+    "software-development",
+    "management"
+  ],
+  "tone": "opinionated, reflective, pragmatic",
+  "key_insight": "Writing detailed specifications before coding is a high-leverage investment because catching design mistakes in a spec costs hours, while catching them in code costs weeks.",
+  "filename": "2005-08-17-the-project-aardvark-spec"
+}

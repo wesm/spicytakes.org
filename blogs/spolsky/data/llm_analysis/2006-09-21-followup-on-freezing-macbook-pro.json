@@ -1,0 +1,23 @@
+{
+  "summary": "Joel follows up on his earlier complaint about his MacBook Pro freezing with spinning beach balls. After running diagnostics that found nothing, a reader suggested checking the console logs, which revealed repeated DNS lookup failures. The root cause turned out to be a known bug in Apple's lookupd process where a crash leaves the process in a zombie state, hanging any application that tries to do DNS resolution. Joel notes that Apple has left this bug unfixed for over two years despite it being filed in their bug tracker.",
+  "key_points": [
+    "Console logs revealed repeated NetInfo connection failures for lookupd, corresponding exactly to the freezing behavior",
+    "The bug involves lookupd crashing but not being properly terminated by CrashReporter, preventing mach_init from respawning it",
+    "A third-party developer created a workaround daemon (Unlockupd) to watch and restart lookupd when it gets stuck",
+    "Apple had known about the bug (rdar://3632865) for over two years without fixing it"
+  ],
+  "money_quotes": [
+    "Lookupd has a bug in its cache cleanup code that causes it to randomly crash.",
+    "CrashReporter, the system crash log agent, does not properly handle lookupd crashes, and as a result, when lookupd crashes, the process is not terminated.",
+    "From this point, any application that attempts to access lookupd, either directly or indirectly, will hang.",
+    "It's odd that Apple hasn't fixed this bug in over two years.",
+    "Suddenly any app that tried to do a DNS lookup of any sort would go into permanent beachball mode and never recover."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "technical",
+  "key_insight": "A seemingly mysterious system-wide freeze turned out to be a known but unfixed OS bug, discoverable through console logs \u2014 a reminder that checking system logs should be an early debugging step, and that even Apple leaves critical bugs unfixed for years.",
+  "filename": "2006-09-21-followup-on-freezing-macbook-pro"
+}

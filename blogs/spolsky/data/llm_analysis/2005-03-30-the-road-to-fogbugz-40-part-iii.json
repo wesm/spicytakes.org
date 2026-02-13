@@ -1,0 +1,27 @@
+{
+  "summary": "Joel describes the creation of Thistle, Fog Creek's ASP-to-PHP compiler, built to produce a Unix version of FogBugz from their existing Windows/ASP codebase. A summer intern named Jimmy prototyped the compiler in Java, which lexes, parses, and generates PHP from VBScript/ASP source code. Joel explains why Thistle is a true compiler (not a translator or regex hack), defends Hungarian notation as a coding convention that enabled key compiler optimizations, and argues the effort was worthwhile despite Unix sales being only 10% of revenue. The post also details how they handled COM objects and runtime libraries through reimplementation.",
+  "key_points": [
+    "Thistle is a genuine compiler with lexer, parser, and AST that outputs PHP instead of machine code, analogous to how Cfront compiled C++ by outputting C",
+    "The compiler exploits Fog Creek's Hungarian notation conventions (e.g., 'rs' prefix for recordsets) to resolve ambiguous VBScript expressions that would otherwise require expensive runtime type checks",
+    "Thistle was purpose-built for one program (FogBugz) and takes shortcuts based on their coding conventions, making it unsuitable as a general-purpose commercial product",
+    "The Unix port cost roughly 20% additional effort but generated 10% of sales, plus gave Windows customers confidence they could switch platforms",
+    "Joel strongly advocates Apps Hungarian notation (semantic prefixes) as invented by Simonyi, distinguishing it from the 'grotesque' Systems Hungarian misinterpretation"
+  ],
+  "money_quotes": [
+    "In computer science jargon a translator IS a compiler. It's exactly the same thing. Those are synonyms.",
+    "I've been calling Thistle a 'compiler' sort of to make a point, but mostly because I'm a pedantic windbag who can't resist the opportunity to teach a little lesson to the younguns who think that a compiler has to generate machine code.",
+    "Based on your age you will either call this an evil hack (if you're young) or an elegant hack (if you're old); in either case it's a huge optimization made possible by the fact that Thistle only has one program to compile.",
+    "Thanks to Hungarian notation, so callously dissed by developers who would not recognize a superb coding convention if it walked up to them on the Shanghai Maglev train and shook their pants leg, every recordset at Fog Creek starts with the letters 'rs'.",
+    "I'm especially driven crazy by people who keep blabbing on their blogs that Hungarian makes code 'less' readable. Yes, it's less readable if you don't know the convention, but it takes about 10 minutes to learn the convention.",
+    "We had a hard-and-fast requirement that the generated PHP code had to work without further tweaks. That's because the ASP code is a living thing which changes all the time, and we constantly regenerate the PHP code automatically.",
+    "It would be a very simple matter to change Thistle to generate the new flavor of the week\u2026 be it Ruby.Net, Eiffel, C#, or this Language."
+  ],
+  "themes": [
+    "software-development",
+    "programming",
+    "startups"
+  ],
+  "tone": "technical, opinionated, humorous",
+  "key_insight": "Building a purpose-built compiler that exploits your own coding conventions can be a pragmatic way to achieve cross-platform compatibility from a single codebase, even when a general-purpose solution would be impractical.",
+  "filename": "2005-03-30-the-road-to-fogbugz-40-part-iii"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Spolsky argues that software development advice is often given without specifying which type of software it applies to, leading to misunderstandings and misapplied methodologies. He identifies five distinct worlds of software development: shrinkwrap, internal, embedded, games, and throwaway code, each with different constraints around usability, quality, economics, and deployment. He illustrates the problem by examining Kent Beck's claim that Extreme Programming eliminates the need for bug tracking, showing that while this might hold for internal corporate software, it fails for shrinkwrap products that must handle diverse real-world environments like Polish keyboard layouts. The post concludes that methodology advice should always be evaluated in the context of what kind of software you're actually building.",
+  "key_points": [
+    "Software development methodologies are almost always presented as universal truths, but they're usually written for internal corporate development because corporations hire the consultants who write the books.",
+    "Shrinkwrap software faces unique challenges: it must handle enormous environmental variation (OS versions, locales, browsers) and demands higher usability standards because users have alternatives.",
+    "Games and embedded software share a 'one chance to get it right' constraint that makes their quality requirements fundamentally different from iterative shrinkwrap or internal software.",
+    "An empirical review of 106 bugs in CityDesk showed only 5 could have been prevented by XP practices like pair programming or test-driven development \u2014 most were field-discovered environmental issues.",
+    "The value proposition of development investment varies dramatically: Microsoft can spend $500M on software worth $80/user across millions, while internal software must justify its cost for a single company."
+  ],
+  "money_quotes": [
+    "There are several different worlds of software development, and different rules apply to different worlds.",
+    "One gets the feeling that they don't actually do anything, they are just an excuse to get an army of consultants in the door billing at $300/hour.",
+    "Whenever you read one of those books about programming methodologies written by a full time software development guru/consultant, you can rest assured that they are talking about internal, corporate software development.",
+    "Trust me, id software is not about to hire Ed Yourdon to talk about structured analysis.",
+    "Out of 106 bugs we fixed for the service pack release of CityDesk, exactly 5 of them could have been prevented through pair programming or test driven design.",
+    "We actually had more bugs that we knew about and thought weren't important than bugs that could have been caught by XP methods.",
+    "Program crashes on invalid input? Run it again, and this time watch your {${?'s!",
+    "When somebody tells you about methodology, think about how it applies to the work you're doing."
+  ],
+  "themes": [
+    "software-development",
+    "management",
+    "programming"
+  ],
+  "tone": "opinionated, pragmatic, empirical",
+  "key_insight": "Software development advice is not universal \u2014 methodologies, quality bars, and best practices must be evaluated against which of the five worlds of software development you actually inhabit.",
+  "filename": "2002-05-06-five-worlds"
+}

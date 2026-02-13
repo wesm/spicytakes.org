@@ -1,0 +1,22 @@
+{
+  "summary": "Joel describes his sysadmin week spent upgrading infrastructure for Joel on Software. He visited Peer 1 Networks' colocation facility to install a hot backup server alongside the main one, which had been running for a year and a half with only Windows Update-related downtime. He plans to set up replication using robocopy and SQL log shipping for near-zero-downtime failover. The post also notes Peer 1's rapid growth from 20% to 90% capacity in their data center.",
+  "key_points": [
+    "Windows Update reboots were the primary source of server downtime, and sometimes caused the server to fail to come back up properly",
+    "Dell's remote management hardware (RAC) crashed more often than the server itself, defeating its purpose as a remote recovery tool",
+    "Joel's backup strategy uses simple, proven tools (robocopy for files, SQL log shipping for databases) rather than complex solutions",
+    "Peer 1 Networks grew from 20% to 90% data center capacity in roughly a year, reflecting the mid-2000s hosting boom"
+  ],
+  "money_quotes": [
+    "Sometimes the server didn't come back up properly after one of the reboots required for patching Windows, so we installed a remote controlled power strip, which has a web interface allowing us to power cycle the server.",
+    "There's supposed to be such a thing built into the server itself, something Dell makes called RAC, but it crashes more often than the server, requiring a full power cycle to get it back to life, which defeats the purpose\u2026",
+    "Don't get me started.",
+    "I couldn't be happier with their hosting services and they're the nicest people, so even though I'm completely tainted since they host my site for free, I most heartily recommend them.",
+    "A nice problem to have."
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "casual",
+  "key_insight": "Practical server administration often relies on simple, unglamorous solutions like remote power strips and file-copy replication when the sophisticated tools designed for the job prove unreliable.",
+  "filename": "2004-06-23-news-10"
+}

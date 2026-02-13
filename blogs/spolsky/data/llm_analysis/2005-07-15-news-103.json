@@ -1,0 +1,22 @@
+{
+  "summary": "Joel provides a brief update on the beta launch of Fog Creek Copilot, a remote assistance tool. The product is being rolled out gradually, starting with 50 beta testers and expanding to 150. The team is fixing deployment bugs related to running on a multi-server web farm versus the single-server development environment. Joel highlights the engineering work going into high-availability features like connection draining and automatic failover.",
+  "key_points": [
+    "Fog Creek Copilot's appeal is strong enough that users jokingly worry about being recruited as family tech support if their relatives discover it",
+    "The gradual beta rollout (50, then 100 more testers) reflects a deliberate approach to finding bugs before wider release",
+    "Moving from single-server development to a multi-server production web farm surfaced small but important deployment issues",
+    "High-availability engineering like connection draining and automatic server failover are essential for an online service product"
+  ],
+  "money_quotes": [
+    "One of the most common reactions we keep getting to Fog Creek Copilot is, \"Please don't tell my mom about this!\"",
+    "Since we're deploying the service on a web farm with two servers, and most of the development has been done on a single server, we found a few tiny details that needed to be fixed.",
+    "When we upgrade the reflector part of the service, anybody still using the old reflector can continue to use it until they're done, while the new reflector picks up the new traffic; this is called \"draining.\"",
+    "If one of the servers goes down, even while people are using it, the clients automatically reconnect to the other server."
+  ],
+  "themes": [
+    "software-development",
+    "startups"
+  ],
+  "tone": "casual",
+  "key_insight": "Shipping a reliable online service requires solving deployment and high-availability challenges that simply don't exist in single-server development environments.",
+  "filename": "2005-07-15-news-103"
+}

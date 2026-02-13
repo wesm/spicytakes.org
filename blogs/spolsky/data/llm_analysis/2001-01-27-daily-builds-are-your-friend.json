@@ -1,0 +1,26 @@
+{
+  "summary": "Joel Spolsky argues that daily builds are essential for productive software development teams. He traces the concept from the personal productivity gains of faster compilers (the Edit-Compile-Test loop) to the team-level Report-Fix-Retest loop, showing how both benefit from speed. Daily builds should be automatic, scheduled, and compile every version from a clean checkout. The practice catches broken builds quickly, keeps testers supplied with fresh code, enables binary search through build history to find bugs, and ensures no single person holds institutional knowledge about the build process. Joel draws on his experience at Microsoft Excel and Juno to provide practical implementation advice.",
+  "key_points": [
+    "The Edit-Compile-Test loop is fractal: the same principle that makes fast compilers boost individual productivity applies at team scale through the Report-Fix-Retest loop",
+    "Daily builds must be automatic, daily (or more frequent), and complete \u2014 building every version from a clean checkout, not relying on incremental compilation",
+    "The build process should be fully scripted end-to-end so no institutional knowledge lives in one person's head",
+    "Broken builds should stop the team until fixed, and the person who broke it should babysit builds until someone else breaks them",
+    "Maintaining an archive of daily builds enables binary search to pinpoint exactly when a bug was introduced"
+  ],
+  "money_quotes": [
+    "A crucial observation here is that you have to run through the loop again and again to write a program, and so it follows that the faster the Edit-Compile-Test loop, the more productive you will be, down to a natural limit of instantaneous compiles.",
+    "This is the equivalent of the Blue Screen of Death for an entire programming team, and happens a lot when a programmer forgets to add a new file they created to the repository.",
+    "You never get into a situation where you can't release a product because only Shaniqua knows how to create the installer, and she was hit by a bus.",
+    "There is nothing worse for your sanity then when you are trying to ship the code, and there's one tiny bug, so you fix that one tiny bug right on the daily build server and ship it.",
+    "As a golden rule, you should only ship code that has been produced by a full, clean daily build that started from a complete checkout.",
+    "Whoever broke the build became responsible for babysitting builds until somebody else broke it."
+  ],
+  "themes": [
+    "software-development",
+    "management",
+    "programming"
+  ],
+  "tone": "practical, anecdotal, opinionated",
+  "key_insight": "The speed of feedback loops at every scale \u2014 from compiler speed for individual developers to daily builds for entire teams \u2014 is the primary determinant of software development productivity.",
+  "filename": "2001-01-27-daily-builds-are-your-friend"
+}

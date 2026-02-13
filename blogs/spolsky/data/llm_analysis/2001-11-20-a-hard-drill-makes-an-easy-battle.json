@@ -1,0 +1,26 @@
+{
+  "summary": "Joel Spolsky describes the challenges of making software work across all versions of Windows, using VMWare to test CityDesk on dozens of configurations. He illustrates how subtle API behavior differences between Windows versions cause bugs, using a GlobalSize function change as a case study. He argues against Postel's Law ('be liberal in what you accept'), contending that strict development environments catch problems early. He advocates for deliberately harsh testing conditions during development \u2014 unusual fonts, foreign locales, odd settings \u2014 so that software becomes robust. The three weeks spent fixing configuration bugs across a one-year development cycle was a worthwhile investment to reach all Windows users worldwide.",
+  "key_points": [
+    "VMWare virtual machines enable testing across dozens of Windows configurations, from Win95 to Win2000 in multiple languages, catching bugs that only appear on specific platforms.",
+    "Subtle undocumented changes in API behavior between Windows versions (like GlobalSize returning exact vs. rounded-up sizes) cause real bugs that are nearly impossible to catch without cross-platform testing.",
+    "Postel's Law ('be strict in what you emit, liberal in what you accept') has been proven wrong by the evolution of HTML \u2014 strict APIs produce more reliable code than lenient ones.",
+    "Developers should use deliberately hostile development environments (foreign locales, unusual settings, edge-case configurations) to catch compatibility issues early rather than discovering them in production.",
+    "Java's 'write once, run anywhere' promise was appealing but fragile in practice, with threading behavior differences across platforms causing real bugs."
+  ],
+  "money_quotes": [
+    "A hard drill makes an easy battle.",
+    "Not every programmer studies every line of the documentation for every function they use, and if the code is working, they tend to move on to something else.",
+    "The stricter the API is about its input, the more likely the code is going to work in funny situations.",
+    "You want your compiler and your development environment to be as strict as possible; you want it to literally generate random return values for GlobalSize so that you don't get into the habit of counting on something that won't be there everywhere.",
+    "I think that the evolution of HTML has proven that this isn't such a great idea.",
+    "Those of you who develop apps that only have to run on one computer or in a controlled environment have it easy, but you're getting flabby.",
+    "Ha. I eat commas for breakfast, your code will say, with a Russian accent."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "opinionated, practical, humorous",
+  "key_insight": "Deliberately strict and hostile development environments catch compatibility bugs early, making software robust \u2014 leniency in APIs and testing breeds fragile code that breaks in the real world.",
+  "filename": "2001-11-20-a-hard-drill-makes-an-easy-battle"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "Joel shares his experience building an internal business dashboard with ASP.NET, noting how productive the framework is for rapid feature development. He implemented two new features in just 20 minutes. However, he identifies several significant drawbacks: IDE performance issues, the lack of deterministic destructors requiring manual resource management, and the large 20MB runtime requirement. He concludes with a suspicion that Microsoft deliberately optimizes .NET for internal corporate applications rather than shrinkwrap software, since the latter is where Microsoft competes.",
+  "key_points": [
+    "ASP.NET enables rapid development of internal business tools, with Joel adding two features in 20 minutes",
+    "The lack of deterministic destructors in .NET's garbage-collected environment forces manual resource cleanup, a step backward from C++/Delphi",
+    "The 20MB .NET runtime requirement is a showstopper for commercial shrinkwrap software distribution",
+    "Microsoft may be strategically optimizing .NET for corporate/internal use where they don't compete, while leaving it unsuitable for commercial software where they do"
+  ],
+  "money_quotes": [
+    "Elapsed time to implement both features: 20 minutes.",
+    "To be fair not everything about .NET is peaches and cream.",
+    "Since destructors aren't called when an object drops out of scope, if you have a SqlConnection object, you positively have to remember to close it because you can't wait for the garbage collector to come around.",
+    "That 20 MB runtime is a real showstopper.",
+    "I'm starting to suspect that Microsoft doesn't care \u2014 they are perfectly happy to have a development environment that is excellent for internal/corporate applications, where they don't compete, but borderline useless for shipping, commercial, shrinkwrap, where they do compete."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Microsoft's .NET is optimized for rapid internal tool development but its runtime size and resource management limitations make it poorly suited for commercial shrinkwrap software \u2014 a gap Joel suspects is deliberate since Microsoft only competes in the latter category.",
+  "filename": "2002-04-19-20020419"
+}

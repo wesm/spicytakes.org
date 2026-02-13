@@ -1,0 +1,20 @@
+{
+  "summary": "Joel briefly describes a bug that only affected users running Hebrew or Greek versions of Windows 2000. With the help of beta testers, developer Michael tracked it down to a library using Chr(255) as a separator character, which got remapped through non-Latin code pages. They used VMWare to install Hebrew Windows 2000 for debugging. The post illustrates how character encoding assumptions can cause subtle, locale-specific bugs.",
+  "key_points": [
+    "A library's use of Chr(255) as a separator character caused bugs on non-Latin Windows locales",
+    "The bug only manifested on Hebrew and Greek versions of Windows 2000 due to code page character remapping",
+    "VMWare was used as a practical tool for reproducing locale-specific bugs without dedicated hardware",
+    "Beta testers were essential in identifying and tracking down the internationalization issue"
+  ],
+  "money_quotes": [
+    "One of the libraries we were using was using Chr(255) as a separator character in lists.",
+    "This got mapped through the Hebrew and Greek code pages to a different character (y umlaut was mapped to plain y)."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "anecdotal",
+  "key_insight": "Using high-ASCII characters as sentinel values in code is fragile because code page mappings differ across locales, causing subtle bugs for international users.",
+  "filename": "2001-11-07-20011107"
+}

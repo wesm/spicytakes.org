@@ -1,0 +1,28 @@
+{
+  "summary": "Spolsky responds to reader feedback about his FogBUGZ Setup program, defending several design decisions. He explains why setup operations should be reversible rather than batched at the end, since failures mid-batch still require rollback. He defends using VC++/MFC over Delphi by arguing productivity depends on what the developer already knows, not abstract language superiority. Most notably, he argues that investing in a good setup program pays off through reduced tech support costs, customer delight that drives upgrades, and better software reviews.",
+  "key_points": [
+    "Setup operations should be reversible because failures can occur at any step, and leaving a system in an indeterminate state is unacceptable \u2014 the rollback code needs to exist anyway",
+    "Language productivity is personal, not absolute: a developer who knows VC++/MFC deeply will outperform themselves as a beginner in a supposedly more productive language like Delphi",
+    "Good setup programs pay for themselves through decreased tech support costs, customer willingness to upgrade, and favorable software reviews",
+    "Validating user input immediately at each step is better UX than collecting everything upfront and reporting errors pages later during a long install process",
+    "The painful memory of a bad installation experience (like SpamAssassin) can permanently deter users from upgrading, costing real business"
+  ],
+  "money_quotes": [
+    "Somehow I managed to figure out in high school that language advocacy and religious arguments are unbelievably boring.",
+    "Even if Delphi were more productive, the only pertinent question, since I am writing the code, is what is more productive for Joel Spolsky.",
+    "I would definitely outcode a completely inexperienced Delphi programmer (which is me), certainly over a short 4 week project.",
+    "I'm still using an old version of SpamAssassin that is becoming increasingly ineffective, even though I know the new version is much better, because I just can't bear the thought of another morning wasted.",
+    "If SpamAssassin was making money off of upgraders they would have lost my business because they don't have a SETUP program.",
+    "A single flaw in setup is guaranteed to be mentioned in every review because every reviewer will see it and say 'Aha!'",
+    "It would be extremely rude to leave IIS not running."
+  ],
+  "themes": [
+    "software-development",
+    "ui-design",
+    "programming",
+    "startups"
+  ],
+  "tone": "opinionated, pragmatic, sardonic",
+  "key_insight": "A polished setup experience is a business investment that reduces support costs, encourages upgrades, and wins reviews \u2014 and the engineering decisions behind it (reversibility, immediate validation, familiar tools) should be driven by practical reality, not theoretical ideals.",
+  "filename": "2002-10-08-20021008"
+}

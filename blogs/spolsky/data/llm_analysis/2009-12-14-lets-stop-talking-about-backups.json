@@ -1,0 +1,22 @@
+{
+  "summary": "Spolsky argues that the industry's focus on 'backups' sets the bar too low for data protection. He contends that having backups is meaningless if you can't actually restore from them. Through several real-world failure scenarios, he demonstrates how backups can fail silently at restore time. He proposes reframing the conversation entirely: instead of asking whether you have backups, ask whether you've successfully performed a restore.",
+  "key_points": [
+    "Backups are necessary but insufficient \u2014 the real test is whether you can restore from them",
+    "Many backup failures are only discovered at restore time, such as encryption keys stored on the lost machine, silent file truncation, or missing configuration data",
+    "The minimum bar for a reliable service should be demonstrating a full restore to new infrastructure without accessing the original data center",
+    "Reframing the question from 'do you back up?' to 'do you restore?' changes the standard of practice"
+  ],
+  "money_quotes": [
+    "Doing a backup is too low a bar. Any experienced system administrator will tell you that they have a great backup plan, the trouble comes when you have to restore.",
+    "The minimum bar for a reliable service is not that you have done a backup, but that you have done a restore.",
+    "Let's stop asking people if they're doing backups, and start asking if they're doing restores.",
+    "The backed-up files were encrypted with a cryptographically-secure key, the only copy of which was on the machine that was lost",
+    "Your backups were on an LTO drive which was lost with the data center, and you can't get another LTO drive for three days"
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "opinionated",
+  "key_insight": "A backup you've never restored from is just a hope \u2014 the true measure of data protection is proving you can rebuild everything from scratch on new infrastructure.",
+  "filename": "2009-12-14-lets-stop-talking-about-backups"
+}

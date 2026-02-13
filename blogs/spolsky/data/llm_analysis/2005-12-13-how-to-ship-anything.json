@@ -1,0 +1,26 @@
+{
+  "summary": "Joel Spolsky describes building an in-house shipping system ('FogShip') to handle the overwhelming volume of orders for Aardvark DVDs. The initial ad-hoc process using Mail Merge and manual customs forms took about three minutes per order and required technical skills. After researching tools, he spent three days building a barcode-driven system using Microsoft Access, a Zebra label printer, Endicia for postage, and HP LaserJets for customs forms. The new system reduced shipping time to 35 seconds per order and eliminated the need for SQL expertise, turning a painful process into something anyone could operate.",
+  "key_points": [
+    "Small ergonomic problems compound into massive headaches at scale \u2014 signing customs forms, keeping packing slips outside envelopes, and printer toner logistics all became significant bottlenecks when shipping thousands of orders to 60 countries.",
+    "Microsoft Access reports, often dismissed as obsolete, turned out to be the perfect tool for generating packing slips and customs forms with precise layout control.",
+    "The barcode-scanning workflow eliminated multiple manual steps by combining three actions (marking shipped, displaying order info, printing labels) into a single scan.",
+    "Choosing the right physical tools matters enormously: Code 39 barcodes need no checksum code, Zebra printers peel labels automatically, and printing on card stock instead of paper eliminates a folding step.",
+    "The three-day investment reduced per-order time from 3 minutes to 35 seconds and removed the skill barrier, making shipping accessible to anyone in the office."
+  ],
+  "money_quotes": [
+    "It was amazing how small ergonomic problems turn into huge headaches when you're shipping thousands of orders to 60 different countries.",
+    "Worse, it took someone skilled in SQL queries and Mail Merge to create the labels.",
+    "I've never, ever used the Access 'report' feature in my life; I always imagined it was intended for old-fashioned people who need to have their data printed out for some obscure reason and can't fathom the idea of looking things up on a computer.",
+    "Well, it turns out that Access reports are perfect for generating packing slips. This is what they were born to do.",
+    "Without any setup, when you scan a barcode, your scanner will type the letters that barcode represents on the keyboard and press Enter.",
+    "I'm pretty shocked that in this day and age HP is still shipping printers that just can't be set up by normal humans.",
+    "Shipping an international order now takes about 35 seconds, down from 3 minutes, and can be done by anyone, whether or not they have SQL and Mail Merge skills."
+  ],
+  "themes": [
+    "software-development",
+    "startups"
+  ],
+  "tone": "practical",
+  "key_insight": "Investing a few days in building the right system can turn a painful, skill-dependent manual process into something fast, reliable, and accessible to anyone \u2014 the key is obsessing over the small ergonomic details that compound at scale.",
+  "filename": "2005-12-13-how-to-ship-anything"
+}

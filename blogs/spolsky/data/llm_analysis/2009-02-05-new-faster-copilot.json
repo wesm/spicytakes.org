@@ -1,0 +1,24 @@
+{
+  "summary": "Joel describes Fog Creek's experiment with Akamai's IP Application Accelerator service to improve the performance of Copilot, their remote desktop product. He was initially skeptical that routing packets through Akamai's network could meaningfully improve speed for a real-time application that can't use caching. After testing, they found roughly 100% throughput improvement on cross-country connections and noticeably better usability. A particularly impressive test from a hotel in Munich with terrible internet showed Copilot performing better than the hotel's native connectivity, suggesting Akamai's network routing around poor infrastructure genuinely works.",
+  "key_points": [
+    "Default internet routing is not necessarily efficient \u2014 packets can travel slow, congested paths analogous to the Cross-Bronx Expressway",
+    "Akamai's IP Application Accelerator routes traffic through their private network of global nodes, improving speed even for non-cacheable real-time applications",
+    "Copilot saw roughly 100% throughput improvement on Boston-to-LA connections and usability jumped from 'tolerable' to 'pretty snappy'",
+    "The most compelling evidence came from a Munich hotel with terrible connectivity, where Akamaized Copilot outperformed the hotel's native internet access",
+    "Joel emphasizes the experiment is early and the final verdict will come from customer feedback"
+  ],
+  "money_quotes": [
+    "Something I knew: if you just put traffic on the Internet, it's not necessarily going to go by the most efficient route.",
+    "The default routes can be slow, clogged, and high latency. Think Cross-Bronx Expressway.",
+    "I have to admit to being extremely skeptical. Isn't that what the Internet is supposed to do anyway?",
+    "Performance is the biggest complaint about Copilot, so we were ready to try anything that increased the 'speed of light.'",
+    "Our exhaustive scientific experiments using beakers and chemicals and graph paper and slide rules proved that the usability of Copilot jumped from 'tolerable' to 'pretty snappy.'",
+    "Copilot's speed and reliability doing remote desktop was actually better than the native internet access in the hotel."
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "conversational",
+  "key_insight": "Internet routing is surprisingly inefficient by default, and services that optimize packet paths through private networks can dramatically improve real-time application performance even when caching isn't possible.",
+  "filename": "2009-02-05-new-faster-copilot"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Joel Spolsky lambasts ADP's web programming quality, detailing how their 401K site's misuse of the tabindex attribute locks users out of their accounts through normal keyboard navigation. He extends the criticism beyond one page to ADP's entire web platform, describing how their payroll product EasyPayNet was riddled with JavaScript bugs that corrupted employee data, locked users out, and made forms unusable due to overly clever validation logic. Fog Creek switched to Intuit QuickBooks as a result. He also warns against SMC Networks' wireless products, which barely functioned at short range.",
+  "key_points": [
+    "ADP's misuse of HTML's tabindex attribute created a trap where normal tab-and-space keyboard navigation locked users out of their accounts, requiring a new PIN sent by postal mail",
+    "Overly clever JavaScript validation can make forms completely unusable when controls have interdependencies that prevent users from making sequential changes",
+    "Even the most trivial usability testing would have caught these bugs, indicating ADP did none whatsoever",
+    "Bad UI on business-critical software like payroll has real consequences \u2014 corrupted employee data and inability to pay people"
+  ],
+  "money_quotes": [
+    "Because the morons who wrote that page are using the \"tabindex\" attribute without understanding it, this actually activates a button way down at the bottom of the page which locks you out of your account and mails a new PIN to you via snail mail.",
+    "This kind of horrific programming shows evidence of no usability testing whatsoever.",
+    "The most trivial usability test would uncover this.",
+    "Way-too-clever JavaScript validation routines made it impossible to change values on certain forms.",
+    "The UI was full of stupid JavaScript bugs that screwed up my payroll every single time I tried to pay people.",
+    "It copied employee's data on top of other employee's data."
+  ],
+  "themes": [
+    "ui-design",
+    "software-development",
+    "programming"
+  ],
+  "tone": "critical",
+  "key_insight": "Enterprise software that skips even basic usability testing creates infuriating traps for users, and when that software handles critical functions like payroll, the consequences are not merely annoying but actively harmful.",
+  "filename": "2001-01-19-20010119"
+}

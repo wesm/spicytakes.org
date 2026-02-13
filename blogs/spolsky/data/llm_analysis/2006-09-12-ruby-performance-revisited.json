@@ -1,0 +1,26 @@
+{
+  "summary": "Joel Spolsky clarifies that his performance concerns are with the Ruby language itself, not the Rails framework, citing benchmark data showing Ruby is dramatically slower than alternatives. He argues that Ruby's duck typing and late binding make it fundamentally difficult to optimize method calls down to efficient CPU instructions. Using FogBugz as a concrete example, he describes computation-intensive features that would be impossible to implement in Ruby. He pushes back against the 'developer cycles vs CPU cycles' talking point as an oversimplification that dismisses legitimate performance concerns, noting that even simple CRUD apps eventually need compute-intensive features like Bayesian spam filtering.",
+  "key_points": [
+    "Ruby's duck typing and late binding prevent the compiler from optimizing method calls to simple CPU instructions, creating a fundamental performance ceiling",
+    "The 'developer cycles vs CPU cycles' tradeoff is a bumper-sticker slogan that dismisses real-world performance constraints where applications hit computational walls",
+    "Even simple CRUD applications eventually need compute-intensive features, making language performance relevant to nearly all projects over time",
+    "FogBugz has specific features requiring millions of calculations per page render and Bayesian filtering that would be infeasible in Ruby",
+    "When you need 100 servers instead of 10, the economics of developer time savings quickly reverse"
+  ],
+  "money_quotes": [
+    "I understand the philosophy that developer cycles are more important than cpu cycles, but frankly that's just a bumper-sticker slogan and not fair to the people who are complaining about performance.",
+    "In FogBugz 6 there's one place where we need to do literally millions of calculations to display a single chart on a single web page.",
+    "With a duck-typed function call I really don't think we could do it before the web browser gave up and timed out and the sun cooled down a couple of degrees.",
+    "Even classic, simple CRUD applications often discover somewhere down the line that there's something enormously computationally intensive that they want to do.",
+    "If your language of choice is 10x slower than the competition, you may be simply unable to add that feature.",
+    "Even if you aren't doing compute-intensive things, if you find yourself needing to buy 100 servers instead of 10 servers, you may suddenly revisit the whole developer cycle vs. CPU cycle equation.",
+    "I stand by my claim that it's not appropriate for every situation."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "technical, opinionated",
+  "key_insight": "Language performance isn't just about current needs \u2014 even simple applications eventually hit compute-intensive requirements, and a language that's orders of magnitude slower can make those features impossible to implement.",
+  "filename": "2006-09-12-ruby-performance-revisited"
+}

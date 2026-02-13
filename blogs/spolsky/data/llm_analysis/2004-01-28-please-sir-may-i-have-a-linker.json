@@ -1,0 +1,28 @@
+{
+  "summary": "Joel Spolsky argues that Microsoft's .NET development environment has a critical omission: a linker that can produce standalone executables. Instead, .NET requires a 22 MB runtime to be installed on every user's machine, creating massive friction for software distribution. He illustrates the problem with a story about needing hours of downloads and reboots just to run a simple countdown app on three computers at a New Year's Eve party. For downloadable consumer software like his product CityDesk, requiring users to install the runtime would lose an estimated 95% of prospective customers. He dismisses the argument that runtime adoption will eventually reach critical mass, noting that Microsoft ships new incompatible runtime versions every six to twelve months, resetting adoption to near zero each time.",
+  "key_points": [
+    "Linkers have been standard development tools since the 1950s, but .NET shipped without one, forcing all apps to depend on a large shared runtime",
+    "The .NET runtime installation process involved downloading 70-80 MB and rebooting multiple times, creating an unacceptable barrier for end users",
+    "Runtime version incompatibilities cause real bugs, like sales figures suddenly rounding to four decimal places after a minor version upgrade",
+    "For trial/downloadable software, requiring runtime installation would lose the vast majority of prospective customers who haven't committed to the product yet",
+    "Microsoft's frequent new runtime versions prevent the installed base from ever reaching critical mass, undermining the 'eventually everyone will have it' argument"
+  ],
+  "money_quotes": [
+    "For some reason, Microsoft's brilliant and cutting-edge .NET development environment left out one crucial tool\u2026 a tool that has been common in software development environments since, oh, about 1950.",
+    "Instead, .NET has this idea of a \"runtime\" \u2026 a big 22 MB steaming heap of code that is linked dynamically and which everybody has to have on their computers before they can use .NET applications.",
+    ".NET includes an extensive technology system called \"manifests\" which are manifestly complicated and intended to insure that somehow only the right runtime will be used with a given application, but nobody I know can figure out how to use them.",
+    "Double click the EXE, and I got a ridiculously user-hostile error message about mscoree.dll or something, followed by a gratuitous dump of my path.",
+    "If we asked our trial users, usually small organizations and home users, to go through a movie-length installation hell just to try our app, I think we'd probably lose 95% of them.",
+    "I thought that too, then I realized that every six or twelve months Microsoft ships a new version of the runtime, and the gradually increasing number of people that have it deflates again to zero.",
+    "I just want to link everything I need in a single static EXE that runs without any installation prerequisites.",
+    "Otherwise .NET is fatally flawed for consumer, downloaded software."
+  ],
+  "themes": [
+    "software-development",
+    "programming",
+    "ui-design"
+  ],
+  "tone": "critical, frustrated, satirical",
+  "key_insight": "A development platform that requires end users to install a large, frequently-updated runtime before they can run your software is fatally flawed for consumer distribution, no matter how nice the development experience is.",
+  "filename": "2004-01-28-please-sir-may-i-have-a-linker"
+}

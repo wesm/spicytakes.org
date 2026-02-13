@@ -1,0 +1,20 @@
+{
+  "summary": "Joel responds to a reader's confusion about Fog Creek's server infrastructure, clarifying that they run a mixed environment with both Linux and Windows servers. Linux handles network services like DNS and routing, while Windows servers run the web front ends (IIS) and database back ends (MS SQL 2005) for FogBugz On Demand. He emphasizes their strategy of standardizing on common hardware to enable easy server swaps and spare parts management.",
+  "key_points": [
+    "Fog Creek runs a mixed OS environment: Linux for network infrastructure, Windows for application hosting",
+    "Hardware standardization across servers enables quick failover and parts interchangeability",
+    "Practical infrastructure decisions trump ideological purity about OS choices",
+    "Even with standardization goals, real-world vendor changes (like Dell's SCSI-to-SAS transition) create unavoidable inconsistencies"
+  ],
+  "money_quotes": [
+    "The Linux servers tend to be used for routers and assorted network services like DNS. The Windows servers are either working as web front ends (IIS) or database back ends (MS SQL 2005).",
+    "We try very hard to stick to a single hardware architecture so any server can be swapped with any other in case of problems, and parts can be moved hither and yon as needed.",
+    "In fact, one backup server even has an extra NIC in it so it can replace the router if it comes to that."
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Standardizing server hardware for interchangeability and easy failover matters more than committing to a single OS platform.",
+  "filename": "2007-07-10-mixed-environment"
+}

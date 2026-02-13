@@ -1,0 +1,24 @@
+{
+  "summary": "Joel Spolsky enthusiastically reviews VMware Workstation 5.0, highlighting its new snapshot tree feature as a major advancement for software testing. He explains how the ability to create branching snapshots with different configurations saves disk space and dramatically speeds up testing workflows. Using FogBugz as an example, he demonstrates how VMware enables testing prerequisite detection code and upgrade paths by quickly reverting to known states. He also notes VMware's role in cross-platform Linux testing and describes Fog Creek's hardware setup for intern projects requiring multi-machine environments.",
+  "key_points": [
+    "VMware 5.0's snapshot tree feature allows branching configurations similar to object-oriented inheritance, saving disk space when testing systems with small variations",
+    "Virtual machines are essential for testing installer prerequisite detection by creating environments that deliberately lack specific components",
+    "Snapshots enable rapid iteration on upgrade testing by letting developers instantly revert to a clean pre-upgrade state after failures",
+    "VMware is critical for cross-platform development, allowing testing across multiple Linux distributions from a single workstation",
+    "Fog Creek invested in high-end dual-Xeon workstations with 2GB RAM to support running multiple VMs simultaneously for multi-machine development environments"
+  ],
+  "money_quotes": [
+    "It has the very slick ability to store multiple snapshots and build up a tree of systems with slightly different configurations, sort of like object-oriented inheritence.",
+    "In order to develop and test that code, I need virtual machines that are missing the prerequisites, so I can test all the code paths.",
+    "Now I run my upgrade code on that, and, of course, it fails, thanks to Murphy's law, but it leaves FogBugz in a \"half-upgraded\" state.",
+    "The brilliant part of VMware is that I can click to go back to the 2.0 snapshot and in about 30 seconds I'm back to a pristine FogBugz 2.0 installation.",
+    "In about one minute I can be running a pristine copy of Windows 2000 that looks just like the day it was installed."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "enthusiastic, practical, technical",
+  "key_insight": "Virtual machine snapshots with branching configurations transform software testing by making it trivial to create, destroy, and switch between precisely controlled environments.",
+  "filename": "2005-05-02-news-82"
+}

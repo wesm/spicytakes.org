@@ -1,0 +1,24 @@
+{
+  "summary": "Joel Spolsky explains his policy of never throwing exceptions and always catching them immediately at the call site. He argues that exceptions are worse than goto statements because they create invisible, unpredictable jumps through code that leave data in inconsistent states. He advocates for explicit error return values instead, acknowledging the verbosity but arguing it produces more robust code. The post also includes a brief aside about PHP's poor Unicode support, noting that its mbstring extension is confusing and not enabled by default.",
+  "key_points": [
+    "Exceptions are worse than gotos because they are invisible in source code \u2014 you cannot tell which functions might throw or where control flow will jump by reading the code",
+    "Every uncaught exception creates an unexpected exit point that can leave data in an inconsistent state, making it nearly impossible to reason about all code paths",
+    "Explicit error return values are preferable despite verbosity, because they force programmers to handle every failure case visibly",
+    "The popularity of exceptions in C/C++/Java stems from those languages lacking concise syntax for returning multiple values, unlike ML and Haskell",
+    "PHP's Unicode support is poorly documented, not enabled by default, and appears to support only a limited set of encodings"
+  ],
+  "money_quotes": [
+    "I consider exceptions to be no better than \"goto's\", considered harmful since the 1960s, in that they create an abrupt jump from one point of code to another.",
+    "They are invisible in the source code. Looking at a block of code, including functions which may or may not throw exceptions, there is no way to see which exceptions might be thrown and from where.",
+    "Every time you call a function that can raise an exception and don't catch it on the spot, you create opportunities for surprise bugs caused by functions that terminated abruptly, leaving data in an inconsistent state.",
+    "It is true that what should be a simple 3 line program often blossoms to 48 lines when you put in good error checking, but that's life, and papering it over with exceptions does not make your program more robust.",
+    "This is ugly and annoying but it's better than getting magic unexpected gotos sprinkled throughout your code at unpredictable places."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Exceptions create invisible, unpredictable control flow that is worse than goto statements, and explicit error return values \u2014 though verbose \u2014 produce more robust and comprehensible code.",
+  "filename": "2003-10-13-13"
+}

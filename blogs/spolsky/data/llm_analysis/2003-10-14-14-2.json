@@ -1,0 +1,19 @@
+{
+  "summary": "Joel shares a brief note about handling Unicode in PHP, pointing readers to two approaches: Scott Reynen's manual method using integer arrays and PHP's built-in Multi-Byte String Functions. He notes that despite documentation suggesting the mbstring functions are only for Japanese characters, they actually handle many encodings including Unicode. However, he points out the practical obstacle that mbstring is turned off by default and requires recompiling PHP to enable.",
+  "key_points": [
+    "PHP's Unicode handling circa 2003 required workarounds like manual integer arrays",
+    "PHP's Multi-Byte String Functions support many encodings beyond Japanese despite misleading documentation",
+    "The mbstring extension was disabled by default, requiring PHP recompilation to use"
+  ],
+  "money_quotes": [
+    "Please ignore the part in the documentation that says that this is \"developed to handle Japanese characters.\"",
+    "It actually appears to handle lots of encodings including the Unicode ones. However it is turned off by default so you must recompile PHP to enable it."
+  ],
+  "themes": [
+    "programming",
+    "software-development"
+  ],
+  "tone": "informational",
+  "key_insight": "PHP's Unicode support existed but was poorly documented and disabled by default, reflecting the broader struggle of early 2000s software to handle internationalization properly.",
+  "filename": "2003-10-14-14-2"
+}

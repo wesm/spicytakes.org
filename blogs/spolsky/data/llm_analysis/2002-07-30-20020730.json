@@ -1,0 +1,22 @@
+{
+  "summary": "This short post covers two practical problems Joel encountered: providing remote tech support through firewalls and the declining effectiveness of SpamAssassin. For remote support, he needed a way to control customers' computers to fix FogBUGZ installations, but existing tools required complex setup and didn't work behind firewalls. He settled on TightVNC in 'listen' mode as a solution. On spam, he observed that SpamAssassin's effectiveness dropped from 99% to 75% because spammers were actively studying its publicly documented scoring rules to evade detection.",
+  "key_points": [
+    "Remote tech support that takes 3 minutes in person can take over an hour by phone, making remote control tools essential for server products",
+    "Existing remote control solutions in 2002 suffered from two problems: complex installation and inability to work behind firewalls",
+    "SpamAssassin's transparency about its scoring rules is a design flaw that helps spammers evade it",
+    "Arms races in spam filtering are inherently asymmetric when the defender publishes their exact detection methodology"
+  ],
+  "money_quotes": [
+    "If we could somehow remote-control our customers' computers, it would take us about 3 minutes to get FogBUGZ up and running. Instead we have to try to tell them what to do over the phone, without seeing what's going on, which can take an hour or more.",
+    "SpamAssassin has one major design flaw: whenever it decides to flag a message as spam, it includes a detailed reason why, with exact scores.",
+    "There's even a web page which might as well be titled Evading SpamAssassin.",
+    "It takes about 5 minutes for a spammer to figure out how to avoid the filters.",
+    "I'm not sure what's to stop spammers from keeping their versions of SpamAssassin up to date, though\u2026"
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "practical",
+  "key_insight": "Transparency in adversarial systems is a double-edged sword \u2014 publishing your exact detection rules makes it trivial for adversaries to work around them.",
+  "filename": "2002-07-30-20020730"
+}

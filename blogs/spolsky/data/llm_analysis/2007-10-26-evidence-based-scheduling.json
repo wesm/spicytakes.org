@@ -1,0 +1,28 @@
+{
+  "summary": "Joel Spolsky introduces Evidence-Based Scheduling (EBS), a method that uses developers' historical timesheet data to produce probabilistic ship date predictions via Monte Carlo simulation. The system requires breaking tasks into small units (under 16 hours), tracking actual time spent, and computing each developer's velocity history. Rather than producing a single unreliable ship date, EBS generates a confidence distribution curve showing the probability of shipping by any given date. Spolsky argues this approach automatically compensates for developer optimism, interruptions, and individual estimation patterns without requiring obsessive time tracking. He also discusses broader scheduling wisdom: only programmers should estimate their own work, managers shouldn't pressure developers into shorter estimates, and realistic schedules force beneficial feature cuts.",
+  "key_points": [
+    "Tasks must be broken into units of 16 hours or less, which forces developers to actually design features in detail before estimating them.",
+    "Each developer's historical velocity (estimate divided by actual time) creates a personal correction factor that automatically accounts for optimism, interruptions, and work style.",
+    "Monte Carlo simulation using historical velocities produces a probability distribution of ship dates rather than a single unreliable date, giving honest confidence levels.",
+    "The system works even when developers don't track interruptions separately\u2014leaving the clock running on the current task naturally incorporates interruption probability into the velocity data.",
+    "Realistic schedules force teams to cut low-value features, which paradoxically produces better products that ship sooner."
+  ],
+  "money_quotes": [
+    "When you haven't thought about what you're going to do, you can't know how long it will take.",
+    "If you have a hand-wavy three week feature called 'Ajax photo editor' without a detailed design, I'm sorry to be the one to break it to you but you are officially doomed.",
+    "It compensates precisely, based exactly on this developer's actual, proven, historical optimism.",
+    "When I'm behind schedule, I feel doomed and depressed and unmotivated. When I'm working ahead of schedule, I'm cheerful and productive. The schedule is not the place to play psychological games.",
+    "When you think of writing code without thinking about all the steps you have to take, it always seems like it will take n time, when in reality it will probably take more like 4n time.",
+    "A schedule is a box of wood blocks. If you have a bunch of wood blocks, and you can't fit them into a box, you have two choices: get a bigger box, or remove some blocks.",
+    "You can never get 4n from n, ever, and if you think you can, please email me the stock symbol for your company so I can short it.",
+    "The process of culling features to fit a schedule was the best thing we could have done."
+  ],
+  "themes": [
+    "software-development",
+    "management",
+    "programming"
+  ],
+  "tone": "opinionated",
+  "key_insight": "By feeding developers' actual historical estimation accuracy back into Monte Carlo simulations, you can transform unreliable gut-feel schedules into honest probability distributions that automatically correct for individual biases and interruptions.",
+  "filename": "2007-10-26-evidence-based-scheduling"
+}

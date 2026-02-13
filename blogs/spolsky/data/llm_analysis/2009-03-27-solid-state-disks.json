@@ -1,0 +1,24 @@
+{
+  "summary": "Joel Spolsky describes his experiment with replacing traditional hard drives with Intel X25-M solid state drives to speed up developer productivity. After a developer requested weeks of engineering time to parallelize their compiler, Joel decided to try throwing money at the problem first. The SSDs dramatically improved boot times and application launching, but failed to improve the 30-second compile time since the compiler was CPU-bound rather than IO-bound. He concludes the SSD upgrades were still worthwhile for overall snappiness but acknowledges they'll still need to invest developer time in parallelizing the compiler.",
+  "key_points": [
+    "When developer time is expensive and scarce, try solving performance problems with hardware upgrades before investing in engineering effort",
+    "SSDs produced dramatic improvements in boot times (2:11 to 0:34) and application launches, but had zero impact on CPU-bound compilation",
+    "Drive cloning tools are unreliable \u2014 Clonezilla was too time-consuming, and Ghost/Acronis both failed on ThinkPads due to MBR quirks",
+    "Understanding whether a bottleneck is IO-bound or CPU-bound is essential before choosing a solution, as throwing hardware at the wrong bottleneck wastes money"
+  ],
+  "money_quotes": [
+    "He asked if it would be OK if someone spent a few weeks looking for ways to parallelize and speed it up, since we all have multiple CPU cores and plenty of memory.",
+    "I thought it might be a good idea to just try throwing money at the problem first, before we spent a lot of (expensive and scarce) developer time.",
+    "There's an open source app called Clonezilla, which, I have to say, is only free if your time is worthless.",
+    "This little laptop is now the fastest computer I've ever used.",
+    "But\u2026 compile time. Hmm. That wasn't much better. I got it down from 30 seconds to \u2026 30 seconds.",
+    "Our compiler is single threaded, and, I guess, a lot more CPU-bound than IO bound."
+  ],
+  "themes": [
+    "software-development",
+    "management"
+  ],
+  "tone": "conversational",
+  "key_insight": "Before investing expensive developer time in optimization, try throwing money at the problem with hardware upgrades \u2014 but first understand whether the bottleneck is IO-bound or CPU-bound, or you'll solve the wrong problem.",
+  "filename": "2009-03-27-solid-state-disks"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "Spolsky recounts trying to sign up for a website where his apostrophe-containing secret answer triggered a raw MySQL error, revealing a SQL injection vulnerability. He explains how the site's programmers were concatenating user input directly into SQL queries, a common but dangerous practice. He walks through exactly how an attacker could exploit this to execute arbitrary SQL, such as deleting an entire database table. He notes that many programming tutorials teach this flawed pattern, and cites research showing 11.3% of web applications had SQL injection vulnerabilities at the time.",
+  "key_points": [
+    "The site exposed raw MySQL error messages to users, immediately revealing its vulnerability to SQL injection",
+    "Many programming books and tutorials teach the dangerous pattern of concatenating user input directly into SQL queries",
+    "SQL injection allows attackers to close a string, terminate the original query, and execute arbitrary SQL commands",
+    "Research found that 11.3% of web applications had SQL injection vulnerabilities, making it an extremely common problem"
+  ],
+  "money_quotes": [
+    "This means that the programmers are in the habit of taking strings that they got from the user (i.e. GET or POST parameters) and concatenating them together with other bits and pieces of SQL to generate SQL statements.",
+    "I'm not surprised that they are in the habit of doing this; a lot of programming books, tutorials, and documentation use examples like this.",
+    "Unfortunately it's a gigantic security hole called SQL injection.",
+    "The user, if malicious, can close the string that you opened, finish your select statement, put in a semicolon (the SQL statement separator), and then type any SQL code they want, and it will run.",
+    "This is an extremely common problem: Michael Sutton did a little research project and found that 11.3% of web applications have SQL injection vulnerabilities."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "instructive",
+  "key_insight": "SQL injection remains pervasive because the vulnerable pattern of concatenating user input into queries is what most tutorials teach, making the insecure approach the default one developers learn.",
+  "filename": "2006-11-01-whats-a-sql-injection-bug"
+}

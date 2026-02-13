@@ -1,0 +1,26 @@
+{
+  "summary": "Spolsky describes two features added to FogBugz 4.0 that emerged from using their own product. First, after discovering that human operators were incorrectly marking real customer emails as spam at a higher rate than Bayesian filters would, they implemented client-side Bayesian filtering directly in FogBugz, then generalized it to automatically sort incoming email into categories. Second, after noticing that terse customer service replies were perceived as rude, they built a 'snippets' feature for inserting canned text fragments to produce warmer, more polished responses efficiently.",
+  "key_points": [
+    "Dogfooding revealed that human operators had a 1% false positive rate classifying spam, far worse than Bayesian filtering's 0.01%, making the case that automated filtering is more reliable than manual sorting for high-volume email",
+    "Bayesian filtering must be implemented in the email client rather than the server because it needs to learn what legitimate email looks like for a specific user or organization",
+    "The Bayesian classifier was generalized beyond spam detection into a tournament-based document sorter that could categorize email into arbitrary buckets with over 90% accuracy",
+    "Terse but technically correct customer service emails are often perceived as rude, and the solution is templated snippets that add warmth without requiring manual effort each time",
+    "Both features exemplify how using your own product surfaces real problems that lead to genuinely useful improvements"
+  ],
+  "money_quotes": [
+    "While everybody is worried about how spam filters might inadvertently delete the proverbial crucial email from a customer, in practice, in the presence of lots of spam, human beings are far more likely to delete a real email than a well-implemented Bayesian filter.",
+    "Here I am paying a college graduate to go through email and decide whether or not it's spam, and he's flagging 1% of email incorrectly, when there's this algorithm called Bayesian filtering which in my experience has far fewer false positives.",
+    "This paper is the ultimate rebuttal to those grumpy people who email me, barely able to conceal their disgust, saying, 'why do you need to hire such smart people to work on bug tracking software?'",
+    "The cool thing about the implementation in FogBugz is that if the sorter makes a mistake, it's OK. You just correct it and get on with your life, and it learns from its mistake.",
+    "The moral of the story is that given two email messages with the same semantic content, the terse one is more likely to come across sounding rude.",
+    "It's sort of like translating from English to Japanese. You would hear four or five minutes of nonstop Japanese and then the English translation would be 'The train to Osaka is on platform 4.'"
+  ],
+  "themes": [
+    "software-development",
+    "management",
+    "ui-design"
+  ],
+  "tone": "conversational, pragmatic, anecdotal",
+  "key_insight": "Using your own product reveals problems that purely analytical thinking misses \u2014 in this case, that humans are worse than algorithms at filtering spam, and that technically correct but terse communication fails socially.",
+  "filename": "2005-03-29-the-road-to-fogbugz-40-part-ii"
+}

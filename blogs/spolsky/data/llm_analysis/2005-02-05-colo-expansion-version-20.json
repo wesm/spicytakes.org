@@ -1,0 +1,28 @@
+{
+  "summary": "Joel Spolsky documents his real-time planning process for expanding Fog Creek's colocation server infrastructure from a single Dell 2650 to a six-server setup with redundancy and scalability. He outlines the key problems driving the upgrade: insufficient capacity for FogBugz online trials, the need to switch from Windows to Linux email, eliminating single points of hardware failure, and building a scalable architecture. The post takes an unusual 'live article' format where he publishes his plan before implementation, soliciting reader feedback and updating the post with their suggestions. He details the specific hardware choices (Dell PowerEdge 2850s), network architecture with separate segments, and open questions about power management, remote control, and RAID compatibility with Unix. The total project budget is around $20K, reflecting Fog Creek's growth from scrappy startup to a company that can afford professional infrastructure.",
+  "key_points": [
+    "Fog Creek's daily revenue has grown enough that 24-hour recovery times and 15-30 minute maintenance windows are no longer acceptable, driving a move toward eliminating single points of hardware failure.",
+    "Using standardized, identical server hardware (Dell PowerEdge 2850s) across the rack simplifies maintenance, enables hot-swapping, and reduces costs through volume purchasing.",
+    "The architecture separates concerns across six servers: two mirrored web servers, a dedicated SQL Server, a Linux mail server, a routing/firewall server, and a cold backup spare.",
+    "Publishing infrastructure plans before implementation and soliciting reader feedback produces better outcomes than the traditional approach of writing about it after the fact.",
+    "Dell offers significantly better price-performance than HP (at least 2x cheaper) despite having terrible software and management tools."
+  ],
+  "money_quotes": [
+    "In the past I would have upgraded the system, installed it all, and written an article about it. And then people would have emailed me to suggest better ways to do things, but it would be too late.",
+    "One of the great things about Fog Creek in its fifth year is that when we need to do something, we have the money to do it.",
+    "There will always be single points of failure. The ozone layer, for example.",
+    "If something happens to the colo facility, its power supply, or the City of New York, well, we go off the air for a while.",
+    "Somehow you always get a lower price than you would have gotten on the website.",
+    "I've also been told that if you call during the last week of Dell's fiscal quarter, which I just missed, you get great deals as they spaz out trying to make their numbers for Wall Street in a classic display of American public company mismanagement.",
+    "Dell has really, really crappy software skills, and their management software sucks big rocks.",
+    "When you call Dell you get a nice, cheerful, competent kid in Austin, Texas who laughs at your jokes, no matter how dumb, and actually has the ability to do sophisticated things like read email that you sent him and then actually reply to it!"
+  ],
+  "themes": [
+    "software-development",
+    "startups",
+    "management"
+  ],
+  "tone": "conversational, practical, self-deprecating",
+  "key_insight": "As a software company grows, infrastructure reliability transitions from a nice-to-have to a revenue-critical concern, and the smartest approach is to plan publicly, solicit expert feedback before committing, and hire specialists rather than improvising with consumer-grade equipment.",
+  "filename": "2005-02-05-colo-expansion-version-20"
+}

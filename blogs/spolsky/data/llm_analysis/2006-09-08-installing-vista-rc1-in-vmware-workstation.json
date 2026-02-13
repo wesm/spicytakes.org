@@ -1,0 +1,22 @@
+{
+  "summary": "Joel reports that Windows Vista RC1 fails to install properly in VMWare Workstation due to a graphics mode switching issue. He finds it suspicious that Microsoft's new OS doesn't work on a competitor's virtualization product while Microsoft sells the competing Virtual PC. He provides a workaround involving forcing VGA mode in the VMX configuration file, and speculates that Vista's Aero/Glass UI may be fundamentally incompatible with VMWare's virtual graphics.",
+  "key_points": [
+    "Vista RC1 appears to hang during installation in VMWare because it silently switches to graphics mode in a way VMWare can't render",
+    "Joel suspects Microsoft's failure to test with VMWare is deliberate anticompetitive behavior, given that Microsoft sells the competing Virtual PC product",
+    "A workaround exists: forcing 640x480 VGA mode in the VMX config file allows installation to proceed",
+    "Vista's Aero/Glass UI demands on the graphics card may make full-featured VMWare testing impossible"
+  ],
+  "money_quotes": [
+    "Since Microsoft makes a competitive product, Virtual PC, it is Highly Suspicious that they come out with a major new test release of an operating system that just happens to not work on VMWare Workstation.",
+    "Shabby and slimy, Microsoft.",
+    "They're probably testing Windows Vista with tens of thousands of applications; not testing with VMWare is inexcusable.",
+    "VMWare Workstation, something which is practically the de facto standard for developers testing new operating systems.",
+    "I'm assuming that the Aero/Glass UI's heavy demands on the graphic card may mean that it can't be tested under VMWare, but I'd love to be wrong."
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "critical",
+  "key_insight": "When a platform vendor also sells competing products, compatibility failures with rivals' tools look less like accidents and more like anticompetitive strategy.",
+  "filename": "2006-09-08-installing-vista-rc1-in-vmware-workstation"
+}

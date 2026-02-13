@@ -1,0 +1,24 @@
+{
+  "summary": "Joel describes spending four weeks writing the FogBUGZ 3.0 setup program from scratch in VC++ and MFC because no commercial installer toolkit could handle even a quarter of what was needed. He imposed a requirement that every step of the installation wizard be completely reversible, allowing users to back up through the wizard while the installer silently undoes all changes. He acknowledges this may have been overkill but considers the result a great setup program.",
+  "key_points": [
+    "Commercial setup toolkits (Wise, InstallShield, Windows Installer) couldn't handle more than 25% of what the FogBUGZ installer needed",
+    "Joel built the entire installer from scratch in VC++ and MFC with full reversibility \u2014 every wizard step could be undone including file moves, account creation, permissions, and database setup",
+    "The project took longer than expected due to the self-imposed reversibility requirement, which Joel admits was 'a tad overkill'",
+    "A side benefit of writing a custom installer was full control over the UI, replacing generic clip-art with a personal photograph"
+  ],
+  "money_quotes": [
+    "For various reasons none of the commercial setup toolkits (Wise, InstallShield, Windows Installer) could do even 25% of what our setup program needed to do, so I ended up writing it from scratch.",
+    "I had this weird conviction that the entire setup process should be completely reversable, and as you go backwards through the wizard it should automatically and silently undo any changes it had already made.",
+    "Even if you're looking at the last screen, if you decide you want to change where to extract the files, you can just back up and change it and everything moves and all the old files you overwrote are put back and all the Windows accounts you created are uncreated and all the permissions we granted are ungranted and the SQL database you made is unmade.",
+    "The end result is a great setup program, but it may be a tad overkill.",
+    "One benefit of writing a setup program from scratch is that I don't have to have someone else's stupid cartoon-of-a-computer-and-floppy-disks in the upper right hand corner."
+  ],
+  "themes": [
+    "software-development",
+    "ui-design",
+    "programming"
+  ],
+  "tone": "reflective",
+  "key_insight": "Joel's insistence on full reversibility in an installer illustrates his characteristic attention to user experience even in mundane software components, while honestly acknowledging the diminishing returns of perfectionism.",
+  "filename": "2002-10-02-20021002"
+}

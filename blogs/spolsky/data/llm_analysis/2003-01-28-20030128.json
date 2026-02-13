@@ -1,0 +1,23 @@
+{
+  "summary": "Joel describes using a binary search technique on source control history to find a performance regression in CityDesk's publish times, which had doubled from one minute to two minutes. After a profiler identified general bottlenecks but not the specific regression, he systematically checked out old versions by date and timed them, narrowing down the offending change to a single day. The culprit was an inadvertent change to a cache key that turned 99% cache hits into 100% misses. He credits the technique to a colleague named Gabi at Juno and notes it took about an hour to find the bug.",
+  "key_points": [
+    "A profiler can show general bottlenecks but may not pinpoint a specific regression introduced between releases",
+    "Binary search through source control history by date is an efficient way to isolate when a performance regression was introduced",
+    "A subtle cache key mismatch caused 100% cache misses instead of 99% hits, doubling publish time",
+    "Keeping daily builds around makes this binary search debugging technique practical for larger codebases"
+  ],
+  "money_quotes": [
+    "The next thing I tried was a method I learned from Gabi at Juno: the old binary search method.",
+    "I discovered four things that were changed that day, one of which was a function that DevPartner had told me was kind of slow, anyway.",
+    "Within minutes I found the culprit \u2014 that function was originally written to cache its results because it's often called with the same inputs, and I had inadvertently changed the cache key in one place and not another, so we were getting 100% misses instead of 99% hits.",
+    "Total elapsed time to find this bug: about an hour.",
+    "This is as good a reason as any to keep all your old daily builds around."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "technical",
+  "key_insight": "When a profiler can't isolate a specific regression, binary searching through your source control history by date is a fast, systematic way to pinpoint exactly when a bug was introduced.",
+  "filename": "2003-01-28-20030128"
+}

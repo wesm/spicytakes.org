@@ -1,0 +1,22 @@
+{
+  "summary": "Spolsky discusses installation and patching tools for Windows software distribution. He highlights Wise Solutions' installer features that match his wish list from building the FogBUGZ 3.0 installer. He defends the concept of distributing upgrade patches rather than complete files, arguing that modern tools handle edge cases like corrupted files automatically. Despite the appeal of patching technology, he decides to stick with Inno Setup for CityDesk's next release because the bandwidth savings don't justify the switching cost.",
+  "key_points": [
+    "Wise Installation System implemented features Spolsky had wished for during FogBUGZ 3.0 development, including IIS and SQL Server administration",
+    "Patching technology saves bandwidth by only distributing diffs rather than complete files, and tools verify file integrity with hash functions before applying patches",
+    "Even first-time installs benefit from patching because many system files and runtimes like MSVCRT are already present on most machines",
+    "Despite the technical merits of switching installers, the practical cost of migration didn't justify the bandwidth savings for CityDesk"
+  ],
+  "money_quotes": [
+    "These tools check the version of each file on the user's machine and also compute a hash function to make sure that the file is not corrupted.",
+    "Using patching technology saves a lot of bandwidth, even for the first-time installer, because a lot of the bytes you're distributing may be system files and runtimes that users already have.",
+    "For consumer software which may well be downloaded over a modem, this makes a big difference.",
+    "The bandwidth savings don't quite justify the effort of switching installers."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Even when a technically superior tool exists, the practical cost of switching must be weighed against the actual benefits \u2014 a classic build-vs-switch tradeoff.",
+  "filename": "2003-04-18-20030418"
+}

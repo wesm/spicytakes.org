@@ -1,0 +1,27 @@
+{
+  "summary": "Joel Spolsky explains why Fog Creek built Wasabi, a custom programming language and compiler for FogBugz. Because FogBugz is deployed on customers' own servers across diverse environments, they needed to target multiple platforms (VBScript on Windows, PHP4/PHP5 on Unix) without maintaining separate codebases. Wasabi compiles a single codebase\u2014backwards-compatible with VBScript but with modern features like closures and lambdas\u2014to all target platforms. Joel argues that building a custom compiler is only about two months of work for one skilled developer, and the benefits of domain-specific languages extend well beyond their particular use case.",
+  "key_points": [
+    "FogBugz's on-premise deployment model forces targeting the lowest common denominator across diverse server environments, making a cross-compiling language practical",
+    "Wasabi is backwards-compatible with VBScript but adds modern language features like closures, lambdas, and embedded SQL",
+    "Writing a single-purpose compiler is far less work than people assume\u2014about two months for one developer\u2014because it only needs to compile one codebase",
+    "The same code can compile to both server-side and client-side (JavaScript) targets, eliminating duplication for features like Ajax previews",
+    "Domain-specific languages are broadly useful whenever your problem domain is sufficiently different from what general-purpose tools serve well"
+  ],
+  "money_quotes": [
+    "Since we don't want to program in VBScript or PHP4 or even PHP5 and we certainly don't want to have to port everything to three target platforms, the best solution for us is a custom language that compiles to our target platforms.",
+    "Since we are not blub programmers, we like closures, active records, lambdas, embedded SQL a la LINQ, etc. etc. and so those are the kinds of features we put into Wasabi.",
+    "Most people don't realize that writing a compiler like this is only about 2 months work for one talented person who read the Dragon book.",
+    "Since the compiler only has one body of code to compile, it is much easier to write. It doesn't have to be a general-purpose compiler.",
+    "We have the ability to add any feature to the language that we want easily\u2026 this is the same power Paul Graham talks about in On Lisp, the power to invent new language features that suit your exact application domain.",
+    "There's a good chance that the domain you're working in could really use a domain-specific language.",
+    "Should you write your own compiler? Maybe, if you're doing something that's different enough from the mainstream and if there's no good off-the-shelf technology for your problem."
+  ],
+  "themes": [
+    "software-development",
+    "programming",
+    "startups"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Building a custom compiler for a specific codebase is far more practical than most developers assume, and the ability to target multiple platforms from a single source while adding domain-specific features can be well worth the investment.",
+  "filename": "2006-09-01-wasabi"
+}

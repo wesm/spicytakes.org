@@ -1,0 +1,26 @@
+{
+  "summary": "Spolsky argues that the highest level of programming skill is deliberately architecting code so that bugs are visually obvious during normal reading. Using a bakery cleanliness analogy, he shows how experienced programmers develop eyes for 'dirty' code, then demonstrates with a web security (XSS) example how naming conventions\u2014specifically Apps Hungarian notation\u2014can make wrong code look wrong on every single line. He rehabilitates Hungarian notation by distinguishing Simonyi's original 'Apps Hungarian' (semantic prefixes like 'us' for unsafe string) from the widely-despised 'Systems Hungarian' (type prefixes like 'dw' for double word), arguing the former was misunderstood and discarded along with the latter. He also critiques exceptions as violating the principle of collocation\u2014keeping all relevant information visible in one place.",
+  "key_points": [
+    "There are four levels of code cleanliness perception: not seeing problems, seeing style violations, smelling subtle issues, and deliberately designing conventions that make bugs visible",
+    "Apps Hungarian notation (semantic prefixes indicating the 'kind' of data) was Simonyi's original intent and is genuinely valuable, while Systems Hungarian (data type prefixes) was a misunderstanding that deserved its bad reputation",
+    "The core principle is collocation: keeping all information needed to verify correctness physically close together on screen, so your eyes can catch bugs during normal code reading",
+    "Naming conventions like 'us' for unsafe strings and 's' for safe strings let you verify XSS safety line-by-line without tracing data flow across files",
+    "Exceptions violate collocation by hiding control flow, making it impossible to verify correctness by looking at local code alone"
+  ],
+  "money_quotes": [
+    "This is the real art: making robust code by literally inventing conventions that make errors stand out on the screen.",
+    "Every line of code can be inspected by itself, and if every line of code is correct, the entire body of code is correct.",
+    "I'm using the word kind on purpose, there, because Simonyi mistakenly used the word type in his paper, and generations of programmers misunderstood what he meant.",
+    "This was a subtle but complete misunderstanding of Simonyi's intention and practice, and it just goes to show you that if you write convoluted, dense academic prose nobody will understand it and your ideas will be misinterpreted and then the misinterpreted ideas will be ridiculed even when they weren't your ideas.",
+    "The way to write really reliable code is to try to use simple tools that take into account typical human frailty, not complex tools with hidden side effects and leaky abstractions that assume an infallible programmer.",
+    "In general, I have to admit that I'm a little bit scared of language features that hide things.",
+    "The more information about what code is doing is located right in front of your eyes, the better a job you'll do at finding the mistakes."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "conversational, persuasive, storytelling",
+  "key_insight": "The highest form of code quality comes not from external tools or language features, but from deliberately designing naming conventions and code structure so that bugs become visually obvious during normal reading.",
+  "filename": "2005-05-11-making-wrong-code-look-wrong"
+}

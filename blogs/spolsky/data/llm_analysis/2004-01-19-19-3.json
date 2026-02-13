@@ -1,0 +1,23 @@
+{
+  "summary": "Joel Spolsky describes dedicating time to fix neglected system administration issues at Fog Creek Software, focusing on their backup infrastructure. He details their approach of using hard drives instead of tapes for backups, explaining the tools they use (Veritas NetBackup Pro and Dantz Retrospect) with their respective advantages and frustrations. He also notes a cost optimization discovery, switching from expensive Dell SCSI RAID arrays to cheaper LaCie USB drives for backup storage. The post ends with a brief mention of growing Joel on Software meetup groups.",
+  "key_points": [
+    "Hard drive-based backups are not much more expensive than tape but significantly more convenient, with features like deduplication saving enormous space",
+    "Dantz Retrospect's Macintosh-heritage architectural decisions create frustrating usability problems on Windows, like running as a single app instead of a service/console pair",
+    "Windows 2000's copy-on-write feature enables atomic snapshots of open files, making live database backups possible",
+    "Massive cost savings are available by choosing appropriate hardware for the task \u2014 $1.20/GB for USB storage vs $6/GB for SCSI RAID when RAID isn't needed"
+  ],
+  "money_quotes": [
+    "After a bit of a scare discovering that a few of our critical files were not getting backed up, and with various system administration things starting to cross from annoying into the category of downright emergencies, I am going to spend a few days focused on improving our network infrastructure.",
+    "It's not that much more expensive than tape, and it's a lot more convenient.",
+    "If two people have the same file it is only stored once. This saves gigs and gigs of space because almost every machine here has the same OS files, the same development environment, the same full text of MSDN.",
+    "The number of new concepts you need to learn to set up simple server backups is astonishing.",
+    "It seems to get flaky and decide it doesn't want to backup and doesn't want to tell anyone that it doesn't want to backup, so I have a weekly scheduled task to kick the sucker.",
+    "I have no experience with other server backup products and suspect the others are just as bad."
+  ],
+  "themes": [
+    "software-development"
+  ],
+  "tone": "practical",
+  "key_insight": "Even small software companies need to invest real time in system administration fundamentals like backups, and the tools available for the job are often frustratingly poorly designed despite the critical nature of the task.",
+  "filename": "2004-01-19-19-3"
+}

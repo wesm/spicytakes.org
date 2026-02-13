@@ -1,0 +1,27 @@
+{
+  "summary": "Joel Spolsky recounts a 3 AM network outage at Fog Creek's data center caused by a switch left in auto-negotiate mode, and uses it to explore why traditional SLAs are statistically meaningless for measuring reliability. He argues that internet outages are 'black swan' events \u2014 rare, unpredictable outliers that defy normal statistical analysis. Rather than chasing expensive ultra-high uptime guarantees, he advocates for finding a 'sweet spot' where all expected failures are handled. Fog Creek adopted Toyota's 'Five Whys' root-cause analysis method, which revealed the real issue was a missing checklist for production configurations. Instead of an SLA, they launched a public status blog documenting outages, post-mortems, and preventive actions as a continuous improvement process.",
+  "key_points": [
+    "SLAs are statistically meaningless when outages are rare \u2014 with only two or three data points per year, the numbers don't predict future reliability",
+    "Internet outages are 'black swan' events: extremely low-probability surprises where normal statistical methods like mean time between failure don't apply",
+    "There's a sweet spot between unreliable and impossibly expensive six-nines availability, where all 'expected unexpecteds' are handled but you accept that 'unexpected unexpecteds' will still occur",
+    "Toyota's Five Whys method traces symptoms to root causes \u2014 in this case, the root cause wasn't a misconfigured switch but the absence of a written checklist for production deployments",
+    "Transparent post-mortems and continuous improvement processes are more valuable than contractual uptime guarantees with trivial penalties"
+  ],
+  "money_quotes": [
+    "It's the unexpected unexpecteds, not the expected unexpecteds, that kill you.",
+    "If your six nines system goes down mysteriously just once and it takes you an hour to figure out the cause and fix it, well, you've just blown your downtime budget for the next century.",
+    "Measuring the number of minutes of downtime per year does not predict the number of minutes of downtime you'll have the next year.",
+    "A black swan is an outlier, an event that lies beyond the realm of normal expectations.",
+    "Documentation is often thought of as an aid for when the sysadmin isn't around or for other members of the operations team, whereas, it should really be thought of as a checklist.",
+    "Rather than imposing a statistically meaningless measurement and hoping that the mere measurement of something meaningless would cause it to get better, what we really needed was a process of continuous improvement.",
+    "SLAs can be a little bit meaningless that way, and given how low the penalties are, a lot of network providers just started advertising 100% uptime.",
+    "Michael knew this could be a problem, but when he installed the switch, he had forgotten to set the speed, so the switch was still in the factory-default autonegotiate mode, which seemed to work fine. Until it didn't."
+  ],
+  "themes": [
+    "software-development",
+    "management"
+  ],
+  "tone": "reflective",
+  "key_insight": "Instead of chasing statistically meaningless uptime metrics, apply root-cause analysis like Five Whys and invest in continuous improvement processes \u2014 checklists, post-mortems, and transparency \u2014 to systematically eliminate the preventable failures.",
+  "filename": "2008-01-22-five-whys"
+}

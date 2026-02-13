@@ -1,0 +1,21 @@
+{
+  "summary": "Joel shares a brief excerpt from Clive Thompson's New York Times piece about voting machine bugs. The post highlights a specific Diebold voting machine defect where machines running Windows CE would crash every few hundred ballots. The root cause was that voters accidentally dragging their finger while tapping 'cast vote' triggered an unanticipated drag-and-drop event. The programmers had never accounted for this OS-level behavior, leaving the machine unable to cope. Joel presents this without commentary, letting the absurdity speak for itself.",
+  "key_points": [
+    "Diebold voting machines running Windows CE crashed intermittently when voters cast their ballots",
+    "The bug was caused by the OS interpreting a slight finger drag as a drag-and-drop command that the software never handled",
+    "The failure illustrates how building critical systems atop general-purpose consumer platforms introduces unexpected failure modes",
+    "Even a simple UI interaction can become catastrophic when edge cases in the underlying platform aren't understood"
+  ],
+  "money_quotes": [
+    "their voting software runs on top of Windows CE, and if a voter accidentally dragged his finger downward while touching 'cast vote' on the screen, Windows CE interpreted this as a 'drag and drop' command",
+    "The programmers hadn't anticipated that Windows CE would do this, so they hadn't programmed a way for the machine to cope with it. The machine just crashed."
+  ],
+  "themes": [
+    "software-development",
+    "programming",
+    "ui-design"
+  ],
+  "tone": "satirical",
+  "key_insight": "Building mission-critical systems on top of general-purpose platforms without fully understanding their behavior invites catastrophic, hard-to-diagnose failures.",
+  "filename": "2008-01-05-voting-machine-bugs"
+}

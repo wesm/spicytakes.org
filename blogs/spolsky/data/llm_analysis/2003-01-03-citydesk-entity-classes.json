@@ -1,0 +1,25 @@
+{
+  "summary": "Joel shares Fog Creek's internal documentation for CityDesk's entity classes, a thin abstraction layer over DAO database access in VB 6.0. The entity classes map to database tables with a naming convention (prefix 'E') and provide standardized Load, Save, and List/GetNext methods for the four most common database operations. The design emphasizes simplicity and consistency while explicitly forbidding inefficient database patterns. The article serves as a practical example of how Fog Creek isolates database access behind simple object interfaces rather than scattering SQL throughout application code.",
+  "key_points": [
+    "Entity classes provide a thin mapping layer between VB objects and database tables, isolating all SQL and DAO code from the rest of the application",
+    "The 'Golden Rule' forbids letting the abstraction cause inefficient database usage, such as looping updates instead of using SQL UPDATE statements",
+    "Large blob fields use deferred loading via property get/lets to avoid unnecessary data extraction during enumeration",
+    "The Save method handles both INSERT and UPDATE transparently based on whether the primary key is -1 (new) or set (existing)",
+    "The List/GetNext pattern eliminates the common DAO bug of forgetting MoveNext at the bottom of enumeration loops"
+  ],
+  "money_quotes": [
+    "About 99% of what we do with databases consists of: select one record, enumerate records, possibly matching a query, change a record, add a new record.",
+    "Golden Rule: Never let entity classes cause you to do something inefficient with the database.",
+    "A lot of times people using the entity classes forget about what's involved in the underlying query, and end up writing code that's ridiculously inefficient.",
+    "These are not implemented as property get/lets, that just makes the code ugly; they are implemented as plain members.",
+    "One of the most maddening things about SQL is the numerous, inconsistent and unreliable ways of getting the identity field you just inserted.",
+    "A common mistake in writing DAO code is forgetting the MoveNext at the bottom of your loop. This eliminates the need for it."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "technical",
+  "key_insight": "A good database abstraction layer should make the four common operations (select, enumerate, change, add) easy and consistent while never hiding the performance implications of the underlying queries.",
+  "filename": "2003-01-03-citydesk-entity-classes"
+}

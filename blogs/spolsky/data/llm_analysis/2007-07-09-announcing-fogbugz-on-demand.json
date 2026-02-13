@@ -1,0 +1,26 @@
+{
+  "summary": "Joel Spolsky announces FogBugz On Demand, a hosted version of their web-based project management tool that was previously only available as a download. He explains that Fog Creek was previously too small to reliably host customer data, but spent the past year building infrastructure including hiring a sysadmin, setting up high-end servers, and establishing two live data centers. The post details their infrastructure decisions, including choosing Windows/SQL Server over LAMP for familiarity despite higher cost, and using Peer 1 Network for both New York and Los Angeles data centers. He describes their warm backup strategy using SQL transaction log shipping between cities, acknowledging it's not instantaneous failover but provides solid disaster recovery.",
+  "key_points": [
+    "Fog Creek transitioned from selling downloadable web software to offering a hosted SaaS model, requiring significant infrastructure investment for a small company.",
+    "They chose expensive but familiar Windows/SQL Server stack over cheaper LAMP, reasoning that per-customer cost is inconsequential when spread across many users, though they'd switch to LAMP at larger scale.",
+    "Both data centers run as fully live production environments rather than active/passive, ensuring the backup facility is always verified working.",
+    "They abandoned a Chicago data center provider after discovering a six-hour outage and inadequate reliability standards, consolidating on Peer 1's backbone.",
+    "The warm backup system uses SQL transaction log shipping between cities, with plans to reduce the recovery point from one day to 15 minutes."
+  ],
+  "money_quotes": [
+    "Selling web software has always been a slightly strange aspect of the way Fog Creek operates. Since FogBugz is a web-based project management tool, why should customers have to download it and install it on their own servers?",
+    "I can't tell you how scary it is to be responsible for our customers' mission-critical data, so I didn't want to have any single point of failure, no matter how fortified it is.",
+    "Rather than setting up Los Angeles as a mere backup, we decided it would be completely live. Half our customers will be hosted from Los Angeles, and half from New York. That way we know at any time that both data centers are working and set up correctly, and we don't have to wait until a massive failure to discover the problems with the backup data center.",
+    "Their concept of building reliable systems did not use the same definition of 'reliable' as we do.",
+    "The first FogBugz 1.0 trial server, believe it or not, was a Thinkpad laptop with a broken screen plugged into our office T1!",
+    "We've been running IIS and Microsoft SQL Server here for six years without data loss, so that's what we know and trust."
+  ],
+  "themes": [
+    "startups",
+    "software-development",
+    "management"
+  ],
+  "tone": "candid, pragmatic, confident",
+  "key_insight": "When transitioning to hosted SaaS, prioritize proven reliability and active-active infrastructure over cost optimization, because earning customer trust with their mission-critical data demands higher standards than internal systems.",
+  "filename": "2007-07-09-announcing-fogbugz-on-demand"
+}
