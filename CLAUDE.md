@@ -99,7 +99,31 @@ BLOG_ID=<id> ./scripts/llm_analyze.sh                     # LLM analysis
 BLOG_ID=<id> ./scripts/grade_spiciness.sh                 # Spiciness grading
 ```
 
+Then update `config/landing.json` stats with the correct counts (see below).
+
 Verify with `npm run dev:<blog_id>` before deploying.
+
+## Post and Quote Counts
+
+There are three different post counts — do not confuse them:
+
+- `posts_index.json` `total_posts`: Raw scrape count (all posts fetched from the blog)
+- `llm_quotes.json` posts without `"error"`: Posts with successful LLM analysis
+- The website only shows posts with successful analysis
+
+**The `config/landing.json` stats `posts` field must use the successful analysis count** (posts without errors from `llm_quotes.json`), NOT the raw scrape count. The quote count comes from `spicy_quotes.json` `total`.
+
+To get the correct counts for landing.json:
+
+```bash
+# Successful posts (what the site actually shows)
+python3 -c "import json; d=json.load(open('blogs/<id>/data/llm_quotes.json')); print(sum(1 for p in d['posts'] if 'error' not in p))"
+
+# Total graded quotes
+python3 -c "import json; d=json.load(open('blogs/<id>/data/spicy_quotes.json')); print(d['total'])"
+```
+
+Note: `scripts/update_all.sh` currently uses `posts_index.json` `total_posts` (the raw count), which overstates the number. This is a known bug.
 
 ## Notes
 
