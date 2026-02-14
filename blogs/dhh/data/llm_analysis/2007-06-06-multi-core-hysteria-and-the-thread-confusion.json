@@ -1,0 +1,23 @@
+{
+  "summary": "DHH argues that the panic over multi-core CPUs being a problem for Rails is misplaced. While single-threaded applications like games face genuine challenges adapting to multi-core architectures, web applications don't share this problem. Web apps need to serve thousands of concurrent requests, not speed up individual ones, making processes a perfectly viable alternative to threads. Rails already scales across cores using multiple processes, and 37signals runs its entire suite across ~25 cores without needing threads.",
+  "key_points": [
+    "Multi-core scaling is a real challenge for single-threaded apps like games, but not for web applications",
+    "Web app performance is about concurrent request throughput, not single-request speed",
+    "Processes achieve nearly the same multi-core utilization as threads with far less complexity",
+    "Rails already scales horizontally across cores via multiple processes at 37signals"
+  ],
+  "money_quotes": [
+    "The fear of that transition has bled into places where it's largely not relevant, like web-application development.",
+    "Multiple cores are laughably easy to utilize for web applications because our problems are rarely in the speed of serving 1 request.",
+    "The problem is in serving thousands or tens or hundreds of thousands of requests. Preferably per second.",
+    "Threads are not the only way to do that. Processes do the job nearly as well with a drop of the complexity.",
+    "The 37signals suite is currently using some ~25 cores for the application servers that all the applications have dips on."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "dismissive, confident, pragmatic",
+  "key_insight": "Web applications don't need threads to exploit multi-core CPUs \u2014 processes scale just as well with far less complexity, making the thread-based criticism of Rails irrelevant.",
+  "filename": "2007-06-06-multi-core-hysteria-and-the-thread-confusion"
+}

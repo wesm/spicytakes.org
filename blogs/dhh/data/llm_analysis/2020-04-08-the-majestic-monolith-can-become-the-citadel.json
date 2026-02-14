@@ -1,0 +1,26 @@
+{
+  "summary": "DHH introduces 'The Citadel' as an architectural pattern that extends his earlier 'Majestic Monolith' concept. The Citadel keeps the monolith at the center but allows small 'Outposts' to handle specific responsibilities that diverge in performance or organizational needs. He uses Basecamp's Campfire chat polling service as a concrete example\u2014a tiny service rewritten in multiple languages over the years while the rest of the app stayed in Rails. He argues this is the natural evolution for the rare monolith that genuinely needs to scale beyond its original constraints, rather than jumping to full microservices.",
+  "key_points": [
+    "Most web apps should be monoliths for their entire lifespan\u2014the scaling limits are much higher than architects imagine",
+    "The Citadel pattern keeps the monolith central while extracting only specific, divergent responsibilities into small Outposts",
+    "Basecamp's Campfire polling service exemplified a perfect Outpost: 99% of traffic but only ~20 lines of Ruby logic",
+    "The first instinct when hitting limits should always be to improve the monolith, not decompose it",
+    "The microservices trend is a blind alley, and the pendulum is swinging back toward monolithic architectures"
+  ],
+  "money_quotes": [
+    "The vast majority of web applications should start life as a Majestic Monolith: A single codebase that does everything the application needs to do.",
+    "The limits upon which this pattern is constrained are high. Much higher than most people like to imagine when they fantasize about being capital-a Architects.",
+    "Your first instinct should be to improve the Majestic Monolith until it can cope, but, having done that and failed, you may look to the next step.",
+    "We didn't try to carve the entire app up into little services, each written in a different language. No, we just extracted a single Outpost.",
+    "As more and more people come to realize that the chase for microservices ended in a blind alley, the pendulum is going to swing back.",
+    "The Majestic Monolith is here waiting for microservice refugees."
+  ],
+  "themes": [
+    "software_development",
+    "rails_ruby",
+    "startups_business"
+  ],
+  "tone": "opinionated",
+  "key_insight": "When a monolith genuinely hits its limits, the answer isn't microservices but a Citadel\u2014a monolith supported by a few small, purpose-built outposts that handle only the responsibilities that truly diverge.",
+  "filename": "2020-04-08-the-majestic-monolith-can-become-the-citadel"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "DHH provides a detailed outage report for Basecamp 2 and Basecamp 3's search feature, which were mostly offline for over 8 hours due to catastrophic network failures at their cloud provider. The outage took down primary, backup, and multiple ad-hoc network connections between critical services. DHH takes full ownership of the failure despite it originating with the cloud provider, arguing that architecture decisions are always within Basecamp's control. The post includes a minute-by-minute timeline showing repeated cycles of restoration and failure as the team tried to route around the damage.",
+  "key_points": [
+    "A cloud provider network failure took down both primary and backup network links, causing an 8+ hour outage affecting Basecamp 2 entirely and Basecamp 3's search feature",
+    "DHH takes full responsibility despite the root cause being external, arguing that system architecture choices are always within their control",
+    "The team attempted multiple workarounds including secondary and tertiary backup connections, all of which were repeatedly disrupted",
+    "The incident exposed limitations of redundant and double-redundant backup connections as a reliability strategy",
+    "DHH commits to changing how Basecamp works with cloud providers and architects systems to prevent similar outages"
+  ],
+  "money_quotes": [
+    "Even in this new world of cloud services, it's still always our fault when Basecamp isn't available.",
+    "Whatever the underlying problem for an outage, there's always something you could have done to prevent it.",
+    "While this incident may have been triggered by network issues outside of our immediate control, it's always within our control how we architect our systems, how we prepare for disasters, and how we ensure something like this never has the power to inflict such a traumatic outage.",
+    "We've learned some hard lessons about network availability, the limitations of redundant, and double redundant backup connections.",
+    "So I want to make absolutely clear that this is our failure.",
+    "We won't rest until it's all sorted and stable."
+  ],
+  "themes": [
+    "software_development",
+    "startups_business",
+    "management_culture"
+  ],
+  "tone": "apologetic, accountable, transparent",
+  "key_insight": "Even when outages originate with third-party cloud providers, the responsibility lies with your own architectural decisions and disaster preparedness \u2014 it's always your fault when your service goes down.",
+  "filename": "2019-03-07-basecamp-2-and-basecamp-3-search-outage-report"
+}

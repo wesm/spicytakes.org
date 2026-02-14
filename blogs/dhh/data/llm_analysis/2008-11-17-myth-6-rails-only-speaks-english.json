@@ -1,0 +1,24 @@
+{
+  "summary": "DHH addresses the myth that Rails can only handle English-language content. He explains that early Ruby string operations worked at the byte level rather than character level, causing issues with multibyte UTF-8 characters, but Rails solved this long ago with a character proxy and UTF-8 defaults throughout the stack. Rails 2.2 introduced a built-in internationalization framework for translations and locales, replacing the previous need for third-party plugins. He also highlights Rails 2.1's time zone support as another key piece of global readiness.",
+  "key_points": [
+    "Ruby's original byte-level string operations caused UTF-8 surprises, but Rails introduced a character proxy making all string operations UTF-8 safe",
+    "Rails assumes UTF-8 everywhere by default \u2014 responses, database operations, and all internal manipulation",
+    "Rails 2.2 shipped a built-in internationalization framework for translations and locales, eliminating the need for third-party plugins in most cases",
+    "Rails 2.1 added comprehensive time zone support that made complex timezone handling simple across the full stack",
+    "Basecamp already operated with content in 70+ languages, serving as proof that Rails handled internationalization well in production"
+  ],
+  "money_quotes": [
+    "If you were to do a string[0,2] operation and expected to get the two first characters back, you'd get \"I\\303\" because Ruby operated on the byte level, not the character level.",
+    "Rails assumes that everything coming in, everything going out, and all that's being manipulated is UTF-8.",
+    "Basecamp, for example, has content in some 70+ languages at least. It works very well.",
+    "Rails 2.2 ships with a simple internationalization framework that makes it silly easy to do translations and locales.",
+    "It's amazing how Geoff and team were able to reduce something so complex to something so simple. And it shows the great power of being a full-stack framework."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "technical",
+  "key_insight": "Rails overcame Ruby's early UTF-8 limitations and evolved into a fully internationalization-ready framework with built-in UTF-8 defaults, translation support, and time zone handling.",
+  "filename": "2008-11-17-myth-6-rails-only-speaks-english"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "DHH argues that microservices architecture is almost always premature and unnecessary, pointing to the Prime Video case study and examples like GitHub and Shopify running massive monoliths. He provides a five-step recovery guide for teams that adopted microservices too early: stop creating new ones, consolidate critical paths, leave isolated hotspots for last, prune esoteric language diversity, and learn to use modules instead of network boundaries. He cites John Gall's principle that complex working systems must evolve from simple working ones. The post concludes with specific criteria for when microservices actually make sense: large evolved systems with clear boundaries and proven performance or organizational needs.",
+  "key_points": [
+    "GitHub and Shopify run millions of lines of code as monoliths with thousands of programmers, undermining the argument that scale requires microservices",
+    "The worst microservice damage comes from splintering coherent flows (signup, checkout) across multiple systems, making coordinated changes cumbersome and error-prone",
+    "Microservice culture leads to proliferation of programming languages and frameworks, destroying conceptual comprehension so nobody can work on the whole system",
+    "Network boundaries are not a substitute for proper modular architecture\u2014if you can't organize code with modules and namespaces, distributing it won't help",
+    "Microservices are only justified for large systems that evolved from simple ones, with clearly modularized boundaries and proven performance or organizational needs"
+  ],
+  "money_quotes": [
+    "The vast majority of systems are much better served by starting and staying with a majestic monolith.",
+    "You can't clean up a mess before you stop making more of it.",
+    "So much of the motivation for microservices has been driven by the fallacy that if you can't figure out how to properly architect a large system using programming tools like modules and namespaces, then you can solve this problem by partitioning it with network boundaries. No, no, no.",
+    "A complex system that works is invariably found to have evolved from a simple system that works. The inverse proposition also appears to be true: A complex system designed from scratch never works and cannot be made to work.",
+    "This is murder for conceptual comprehension, and leads to the common microservices symptom of 'nobody understands or can work on the whole system'.",
+    "Yes, 'it depends' is technically correct. But we offer no guidance to those looking to design better systems by simply saying that; we need to be willing to say WHAT IT DEPENDS ON.",
+    "Our industry is full of bright, passionate people. Many of them eager to start an Iron Man before they've done a 5K run."
+  ],
+  "themes": [
+    "software_development",
+    "rails_ruby"
+  ],
+  "tone": "opinionated, prescriptive, sardonic",
+  "key_insight": "Microservices are a recovery destination for large evolved systems, not a starting architecture\u2014most teams should build majestic monoliths and use modules instead of network boundaries to manage complexity.",
+  "filename": "2023-05-05-how-to-recover-from-microservices-ce3803cc"
+}

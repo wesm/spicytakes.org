@@ -1,0 +1,23 @@
+{
+  "summary": "DHH describes the process of re-syncing Basecamp with the latest version of Rails after months of working on separate branches. During the re-sync, he was able to refactor significant cruft out of the codebase, resulting in a 10% reduction in code size even while adding new features. He reflects on the satisfaction of seeing a production system shrink in lines of code as functionality grows, calling it a sign of well-maintained maintainability. He notes Basecamp's control-flow and model logic sits just above 4 KLOC and aims to push it lower.",
+  "key_points": [
+    "Uncoupling Basecamp from Rails trunk during rapid framework development was sensible but created dangerous mental overhead from API version mismatches",
+    "Re-syncing Basecamp with current Rails allowed refactoring that removed 10% of the codebase while adding new features",
+    "Shrinking code while growing functionality is the hallmark of well-maintained software, and DHH felt it concretely for the first time in a production system",
+    "Basecamp's core logic at ~4 KLOC demonstrates the power of a high-level framework to keep a real product small and manageable"
+  ],
+  "money_quotes": [
+    "It's about features because customers rarely care about what you had to do to get there.",
+    "The code base lost about 10% of it's weight while I was adding a bunch of new features.",
+    "So were going higher in terms of functionality and going down in terms of KLOC.",
+    "That's what's supposed to happen when you maintain your maintainability, but it's probably one of the first times I've really felt that to be true for a system that had been in production for almost six months.",
+    "With the control-flow and model logic hovering at just above 4 KLOC, it's going to feel even greater as I'm able to simplify further."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "reflective",
+  "key_insight": "A maturing framework should let you add features while reducing code size \u2014 growing functionality and shrinking complexity at the same time is the true measure of maintainability.",
+  "filename": "2004-08-01-loud-thinking-000282"
+}

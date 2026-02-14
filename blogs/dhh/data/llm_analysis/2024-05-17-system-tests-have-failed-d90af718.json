@@ -1,0 +1,26 @@
+{
+  "summary": "DHH declares that system tests, which he helped introduce as a default in Rails 5.1 in 2016, have not lived up to their promise. Despite the theoretical advantages of driving a headless browser through the actual interface, he finds them slow, brittle, and plagued by false negatives. He argues that model and controller tests handle business logic better, while UI testing is best done by humans clicking around in a real browser. HEY is cutting its 300+ system tests down significantly, acknowledging the sunk cost fallacy that kept them running too long.",
+  "key_points": [
+    "System tests remain slow, brittle, and full of false negatives despite years of investment, making them not worth the effort for most use cases",
+    "Model and controller tests handle business logic testing better and more cheaply than system tests",
+    "System tests should be retained only as top-level smoke tests to catch configuration or loading issues",
+    "Human testing provides more confidence for UI logic because it captures both 'does it work' and 'does it feel right'",
+    "HEY is undergoing a grand review to drastically cut its 300+ system tests, overcoming sunk cost fallacy"
+  ],
+  "money_quotes": [
+    "System tests remain as slow, brittle, and full of false negatives as they did a decade ago.",
+    "I've wasted far more time getting system tests to work reliably than I have seen dividends from bugs caught.",
+    "We do it for the quick feedback loop on changes, we do it to catch regressions, but most of all, we do it to become confident that the system works.",
+    "System tests work well for the top-level smoke test.",
+    "The method that gives me the most confidence that my UI logic is good to go is not system tests, but human tests. Literally clicking around in a real browser by hand.",
+    "Half the time UI testing is not just about 'does it work' but also 'does it feel right'. No automation can tell you that.",
+    "The sunk cost fallacy has kept us running this brittle, cumbersome suite for too long."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "reflective, candid, opinionated",
+  "key_insight": "System tests have failed to deliver on their promise of reliable confidence, and most should be replaced by focused unit tests and human exploratory testing.",
+  "filename": "2024-05-17-system-tests-have-failed-d90af718"
+}

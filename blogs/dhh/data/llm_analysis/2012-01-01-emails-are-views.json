@@ -1,0 +1,26 @@
+{
+  "summary": "DHH argues against placing email delivery logic inside ActiveRecord model callbacks, a pattern he finds violates MVC separation. He traces the anti-pattern to a misapplication of DRY (Don't Repeat Yourself), where developers see the same Notifier call in two controllers and feel compelled to extract it into the model. He contends that having the same one-line call in two controllers is perfectly acceptable and that premature extraction leads to worse code with conditionals. The post reaffirms that emails are views and belong in the controller layer, not the model layer, and that MVC separation should win over DRY when the two principles conflict.",
+  "key_points": [
+    "Email sending is a view concern and belongs in controller actions, not model callbacks \u2014 ActionMailer descends from AbstractController for a reason",
+    "DRY can be taken too far: a single repeated method call across two controllers does not warrant extraction into the model layer",
+    "Premature extraction of shared controller logic typically leads to conditionals and worse code than the duplication it aimed to eliminate",
+    "Import jobs and background workers are themselves a kind of controller \u2014 they receive params, interact with models, and render views",
+    "When MVC separation and DRY conflict, maintaining layer boundaries should take priority"
+  ],
+  "money_quotes": [
+    "Why on earth would you have your model be responsible for generating HTML emails?",
+    "Don't Repeat Yourself is like holy water to programmers and mostly for good reason.",
+    "Having a Notifier appear twice in two separate controllers is just fine. It's fine in the same way it's fine to reuse a partial twice.",
+    "The email generation code has already been abstracted \u2014 that's why the Notifier call is just that, a call, and not five lines of mail preparation code. It does not need further abstraction than that.",
+    "Then they'll realize that the steps needed when an admin invites a user versus when that user signs up on their own are actually not quite the same. So they'll introduce conditionals in the supposedly shared class and now we're back to being worse than where we came from.",
+    "The simplicity of the system is downgraded in order to ease the job of mocking. Terrible idea.",
+    "When in doubt, keeping your foods from touching is more important."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "opinionated, technical, didactic",
+  "key_insight": "When DRY and MVC separation conflict, preserving clean architectural boundaries matters more than eliminating a duplicated one-liner.",
+  "filename": "2012-01-01-emails-are-views"
+}

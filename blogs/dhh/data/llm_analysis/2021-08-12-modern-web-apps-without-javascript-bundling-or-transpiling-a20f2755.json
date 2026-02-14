@@ -1,0 +1,26 @@
+{
+  "summary": "DHH argues that three converging changes\u2014universal ES6 browser support, HTTP2 becoming the norm, and import maps\u2014eliminate the need for JavaScript bundling and transpiling in most web applications. He traces the history from RJS and CoffeeScript through Babel and Webpack, acknowledging their value as transitional tools while arguing their complexity is no longer justified. With ES6 running natively in all major browsers and HTTP2 enabling efficient delivery of many small files, the performance rationale for bundling has collapsed. He announces that Rails 7.0 will default to import maps instead of Webpacker, while acknowledging that frameworks requiring compilation (like React with JSX) still need traditional toolchains.",
+  "key_points": [
+    "Universal ES6 support across all major browsers eliminates the need for transpiling JavaScript",
+    "HTTP2 multiplexing removes the performance penalty for serving many small files, making bundling unnecessary and even counterproductive for caching",
+    "Import maps solve the module reference problem by decoupling logical imports from digest-stamped filenames",
+    "Rails 7.0 will default to import maps via the new importmap-rails gem, making Node.js installation optional for modern web development",
+    "Frameworks requiring compilation steps like React's JSX still need traditional bundling toolchains"
+  ],
+  "money_quotes": [
+    "I didn't much care for vanilla JavaScript prior to ES6. Through all of the 2000s, I chased different approaches to avoid writing too much of it.",
+    "Transpiling with Babel ushered in the era of horrendously complicated transpiling pipelines and tooling. Writing the JavaScript of the future wasn't free. The price was an ever expanding web of complexity.",
+    "Five years later, the facts on the ground have finally changed. I no longer believe that this bargain is worth it for most new applications.",
+    "When you keep each module separate, they can expire independently. So if you have 20 modules, and only one change, the other 19 remain cached. This is the kind of caching dynamics that performance enthusiasts crave.",
+    "Can you see where we're getting to? No need for transpiling to write the kind of JavaScript that makes you smile, no need for bundling to package all your modules.",
+    "It's hard to convey what a difference it makes to the development experience to cut out this massive tumor of complexity. It feels like a new lease on life.",
+    "We're way overdue a correction back to simplicity for the frontend."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "optimistic, technical, opinionated",
+  "key_insight": "The convergence of universal ES6 support, HTTP2 multiplexing, and import maps finally makes JavaScript bundling and transpiling unnecessary for most web applications, and Rails 7.0 will embrace this simplicity as its default.",
+  "filename": "2021-08-12-modern-web-apps-without-javascript-bundling-or-transpiling-a20f2755"
+}

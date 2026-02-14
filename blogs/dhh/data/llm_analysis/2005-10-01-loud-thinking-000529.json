@@ -1,0 +1,25 @@
+{
+  "summary": "DHH discusses how Rails has prepared technical defenses against Google Web Accelerator's destructive pre-fetching behavior, which triggers state-altering GET requests and can wipe user data. Rails now ships with button_to and link_to helpers that convert actions to POST requests, plus controller-level verify guards. However, DHH argues that the real problem isn't whether frameworks can protect against GWA\u2014it's that Google knowingly released software that wreaks havoc on the vast existing web of applications using state-altering GETs. He condemns the reckless cost-benefit tradeoff of marginally faster browsing versus potential data destruction.",
+  "key_points": [
+    "Google Web Accelerator returned without reporting pre-fetching intentions, making it impossible to detect and block",
+    "Rails added button_to, POST-generating link_to, and controller verify guards to protect against destructive GET pre-fetching",
+    "The technical ability to protect against GWA is beside the point\u2014the real web is full of state-altering GETs that won't change overnight",
+    "Google's cost-benefit calculation is completely wrong: marginal speed gains don't justify the risk of wiping user data across countless applications"
+  ],
+  "money_quotes": [
+    "It no longer reports its pre-fetching intentions, so now you can't detect whether its either or. In other words, you can't block the fucker.",
+    "A complete package to Do The Right Thing And Look Pretty While You Do It.",
+    "The problem with the GWA is not that you can protect against it. It's not whether Rails makes it easy or not to do so. It's the fact that we know the Real Web doesn't behave uniformly like this.",
+    "To willfully release an application that wrecks havoc, potentially wiping data left and right, is malicious.",
+    "Your web experience may or may not get a little bit faster. Are you kidding?!",
+    "The sense of proportions, of gain vs risk, of price vs reward, is completely and utterly out of whack."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development",
+    "big_tech"
+  ],
+  "tone": "combative",
+  "key_insight": "Having a technical defense against bad behavior doesn't excuse the bad behavior\u2014Google's Web Accelerator was reckless because the real web is full of applications that will never conform to pure REST conventions.",
+  "filename": "2005-10-01-loud-thinking-000529"
+}

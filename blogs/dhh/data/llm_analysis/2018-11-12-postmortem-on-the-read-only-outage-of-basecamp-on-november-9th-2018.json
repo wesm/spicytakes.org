@@ -1,0 +1,27 @@
+{
+  "summary": "DHH writes a transparent postmortem about Basecamp 3's worst outage in a decade: nearly five hours of read-only mode caused by hitting the 32-bit integer ceiling (2,147,483,647) on their events table. The fix had already been implemented as a default in Rails 5.1 a year earlier, making it an avoidable failure. DHH accepts full personal responsibility as CTO and Rails creator, noting they were actively working on the fix but didn't complete it in time. The post emphasizes accountability over spin, refusing to downplay the outage as 'partial' despite read-only access remaining available.",
+  "key_points": [
+    "Basecamp's events table hit the 32-bit integer max (2,147,483,647), freezing all write operations for nearly five hours",
+    "Rails 5.1 had already solved this exact problem with 64-bit integer defaults a year earlier, but Basecamp hadn't migrated its own schema",
+    "DHH refuses to minimize the incident as a 'partial outage' despite read-only access remaining available, taking the full hit to their uptime record",
+    "The outage dropped Basecamp 3's uptime from 99.998% to 99.978%, which DHH frames as a humbling reminder rather than still-impressive stat"
+  ],
+  "money_quotes": [
+    "The root cause was that our database hit the ceiling of 2,147,483,647 on our very busy events table.",
+    "It's bad enough that we had the worst outage at Basecamp in probably 10 years, but to know that it was avoidable is hard to swallow.",
+    "We pride ourselves at Basecamp on being \"boring software\" because it just works and it's always available.",
+    "Some companies might choose to weasel around an outage like ours by claiming that it was only a \"partial outage\". But that's not what we're going to do at Basecamp.",
+    "We're going to take the scar in our uptime record as a reminder to do better.",
+    "As the CTO of Basecamp and the creator of Ruby on Rails, I accept full responsibility for our failures.",
+    "We can't promise to be perfect, but we promise always to keep you informed in a timely and completely transparent manner."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development",
+    "management_culture",
+    "startups_business"
+  ],
+  "tone": "contrite, transparent, accountable",
+  "key_insight": "True accountability means refusing to minimize avoidable failures and accepting the full weight of responsibility, especially when the fix was already known and within reach.",
+  "filename": "2018-11-12-postmortem-on-the-read-only-outage-of-basecamp-on-november-9th-2018"
+}

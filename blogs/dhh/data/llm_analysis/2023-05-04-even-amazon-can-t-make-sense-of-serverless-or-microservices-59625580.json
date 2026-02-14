@@ -1,0 +1,26 @@
+{
+  "summary": "DHH celebrates Amazon Prime Video's decision to abandon their serverless microservices architecture in favor of a monolith, which saved them 90% on operating costs. He argues this vindicates his long-standing position that microservices are a harmful pattern when applied outside their original context of massive cross-organizational coordination. He traces the pattern of distributed architecture hype through J2EE, WS-Deathstar, and now microservices/serverless, calling it a 'zombie architecture' that keeps returning. He concludes that replacing method calls with network invocations within a single team is madness, and that the industry must stay vigilant against this recurring bad idea.",
+  "key_points": [
+    "Amazon Prime Video saved 90% on costs by replacing serverless microservices with a monolith, validating monolith-first architecture",
+    "Service-oriented architecture made sense at Amazon's organizational scale but became toxic when adopted as microservices inside single applications",
+    "Microservices are a recurring zombie pattern \u2014 the same distributed-everything mistake has resurfaced through J2EE, WS-Deathstar, and now serverless",
+    "The microservices craze was driven by theoretical benefits that collapsed under real-world conditions, hitting hard scaling limits at 5% of expected load",
+    "The hype cycle around distributed architectures is sustained by vendor spending, hiring, and marketing rather than genuine engineering need"
+  ],
+  "money_quotes": [
+    "In theory, this would allow us to scale each service component independently. However, the way we used some components caused us to hit a hard scaling limit at around 5% of the expected load.",
+    "Now the real-world results of all this theory are finally in, and it's clear that in practice, microservices pose perhaps the biggest siren song for needlessly complicating your system.",
+    "As with many good ideas, this pattern turned toxic as soon as it was adopted outside its original context, and wreaked havoc once it got pushed into the internals of single-application architectures.",
+    "In many ways, microservices is a zombie architecture. Another strain of an intellectual contagion that just refuses to die.",
+    "You went from writing bad code to building bad infrastructure.",
+    "Replacing method calls and module separations with network invocations and service partitioning within a single, coherent team and application is madness in almost all cases.",
+    "Some bad ideas simply refuse to die no matter how many times you kill them."
+  ],
+  "themes": [
+    "software_development",
+    "big_tech"
+  ],
+  "tone": "vindicated, polemical, combative",
+  "key_insight": "Microservices and serverless are a recurring zombie architecture that trades simple method calls for needless network complexity, and Amazon's own 90% cost reduction by returning to a monolith proves the pattern fails even at the scale that supposedly demands it.",
+  "filename": "2023-05-04-even-amazon-can-t-make-sense-of-serverless-or-microservices-59625580"
+}

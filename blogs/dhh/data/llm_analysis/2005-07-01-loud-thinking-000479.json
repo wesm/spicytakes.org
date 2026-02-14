@@ -1,0 +1,26 @@
+{
+  "summary": "DHH argues that scaling Ruby on Rails is a boring, solved problem that follows the same patterns used by Yahoo!, LiveJournal, and eBay. The real architecture is shared-nothing with load balancers between tiers, allowing horizontal scaling of web and app servers. Database scaling through partitioning is the harder part but also well-understood. He reframes the debate from scalability to economics: even if Rails is half as fast as alternatives, the productivity gains of developers easily offset the additional hardware costs, since hardware keeps getting cheaper while programmer time does not.",
+  "key_points": [
+    "Rails scaling follows the same shared-nothing, load-balanced architecture used by every major LAMP stack \u2014 there's nothing novel about it",
+    "Database scaling through master-slave replication and user partitioning handles millions of pageviews and is a solved problem",
+    "The real question isn't scalability but economics: comparing the cost of additional servers against developer productivity gains",
+    "Even with conservative assumptions (Rails half as fast as alternatives), a developer only needs to be 10% more productive to break even on hardware costs",
+    "The cost per request is plummeting while programming costs remain constant, making developer productivity the dominant economic factor"
+  ],
+  "money_quotes": [
+    "There's nothing interesting about how Ruby on Rails scales.",
+    "So the scaling part is solved. What's left is judging whether the economics of it are sensible to you. And that's really a performance issue, not a scalability one.",
+    "How much is productivity worth to you?",
+    "The point is that the cost per request is plummeting, but the cost of programming is not.",
+    "Thus, we have to find ways to trade efficiency in the runtime for efficiency in the 'thought time' in order to make the development of applications cheaper.",
+    "I believed we've long since entered an age where simplicity of development and maintenance is where the real value lies."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development",
+    "startups_business"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Scaling is a solved infrastructure problem; the real competitive advantage lies in developer productivity, because hardware costs keep dropping while programmer costs do not.",
+  "filename": "2005-07-01-loud-thinking-000479"
+}

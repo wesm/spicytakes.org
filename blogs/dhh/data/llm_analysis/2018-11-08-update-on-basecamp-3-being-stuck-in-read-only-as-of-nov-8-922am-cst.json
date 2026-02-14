@@ -1,0 +1,29 @@
+{
+  "summary": "DHH provides a real-time incident report on Basecamp 3's nearly five-hour outage caused by an integer overflow in a database tracking table. The column was configured as a regular integer (max ~2.1 billion) instead of a big integer, and when IDs were exhausted, the system was forced into read-only mode. The fix required a database migration across 8 databases in two datacenters, followed by careful verification. DHH candidly admits the root cause was a known issue that Rails itself had fixed two years prior by changing its default to big integer, making it an avoidable failure. He takes full personal responsibility and promises a detailed postmortem.",
+  "key_points": [
+    "An integer column overflow at 2,147,483,647 forced Basecamp 3 into read-only mode for nearly five hours",
+    "The fix required migrating a very large production table from integer to big integer across 8 databases in two datacenters",
+    "Rails, which DHH's team created, had already changed its default from integer to big integer two years earlier",
+    "DHH takes full personal responsibility for not heeding a known issue in their own framework",
+    "The outage was their worst in roughly a decade, against a normal uptime of 99.998%"
+  ],
+  "money_quotes": [
+    "That's the most catastrophic failure we've had a Basecamp in maybe as much as decade, and we could not be more sorry.",
+    "We've let you down on an avoidable issue that we should have been on top of.",
+    "The integer runs out of numbers at 2147483647. The big integer can grow until 9223372036854775807.",
+    "Changing a production database is serious business, so we had to test this fix on a staging database to make sure it was safe.",
+    "We need to be absolutely certain that all the data is in proper sync before we can go back online. It's looking good, but 99% sure isn't good enough. Need 100%.",
+    "It's embarrassing to admit, but the root cause of this issue with running out of integers has been a known problem in our technical community.",
+    "We use the development framework Rails (which we created!), and the default setting for that framework move from integer to big integer two years ago.",
+    "I accept full responsibility for failing to heed that warning, and by extension for causing the multi-hour outage today."
+  ],
+  "themes": [
+    "software_development",
+    "rails_ruby",
+    "startups_business",
+    "management_culture"
+  ],
+  "tone": "candid, apologetic, technical",
+  "key_insight": "Even the creators of a framework can be bitten by not adopting their own improvements, and the right response is radical transparency and personal accountability.",
+  "filename": "2018-11-08-update-on-basecamp-3-being-stuck-in-read-only-as-of-nov-8-922am-cst"
+}

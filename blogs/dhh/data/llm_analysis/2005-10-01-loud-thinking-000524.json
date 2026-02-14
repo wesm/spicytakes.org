@@ -1,0 +1,24 @@
+{
+  "summary": "DHH announces Writeboard integration with Basecamp, using it to illustrate 37signals' 'app-less app' design philosophy. A single Writeboard codebase powers a standalone application at writeboard.com plus integrated features in both Backpack and Basecamp. The architecture uses REST and an observer pattern where Writeboards notify 'folder' URLs when updated, keeping indexes current without expensive lookups. DHH frames this as a force multiplier for small teams, getting three products from one codebase at roughly a third of the cost.",
+  "key_points": [
+    "A single Writeboard codebase serves triple duty: standalone app, Backpack feature, and Basecamp feature, each with slightly different UI configuration",
+    "The architecture uses a REST-based observer pattern where Writeboards ping registered folder URLs on updates, avoiding expensive per-request lookups",
+    "The 'app-less app' or 'document/single-url' design pattern lets small teams scale their product suite at a fraction of normal cost",
+    "37signals was already planning to apply the same pattern to a second application under development"
+  ],
+  "money_quotes": [
+    "This is interesting because it shows how the 'app-less app' design allows us to reap the benefits of development thrice.",
+    "From a single code base, we've provided a stand-alone application at writeboard.com and decorated both Backpack and Basecamp with Writeboard-powered 'features' integrated deeply into each of the applications.",
+    "Behind the scenes its all a simple REST-powered architecture following a simple observer pattern.",
+    "Programming-wise, it's been trivial to implement. But functionally it's a big win and a great way for a small team like us to scale our suite of applications at near 1/3 of the cost.",
+    "Develop once, launch many times."
+  ],
+  "themes": [
+    "software_development",
+    "startups_business",
+    "rails_ruby"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "Designing applications as self-contained, single-URL documents with REST interfaces lets small teams multiply their product surface from a single codebase at a fraction of the development cost.",
+  "filename": "2005-10-01-loud-thinking-000524"
+}

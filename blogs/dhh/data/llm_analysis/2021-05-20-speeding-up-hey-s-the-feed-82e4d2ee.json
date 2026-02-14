@@ -1,0 +1,25 @@
+{
+  "summary": "DHH explains how the HEY email team optimized The Feed, their newsletter reading feature, which renders multiple HTML emails on a single scrollable page. The original approach of loading 8 HTML emails upfront was taxing devices, essentially like opening 8 browser tabs simultaneously. They solved this by implementing staged loading: render 2 emails first, asynchronously load 6 more, then paginate in increasingly larger batches. The solution uses geared pagination, a Stimulus-based controller with IntersectionObserver, and keeps server-side code simple by returning full pages while the client handles appending.",
+  "key_points": [
+    "Rendering HTML emails inside a web email client is uniquely difficult because each email is essentially a full HTML page that must be quarantined from interfering with the client UI and other emails",
+    "Loading 8 HTML emails upfront is like opening 8 browser tabs concurrently, which crushes performance on mobile devices",
+    "Geared pagination loads emails in escalating batches (2, then 6, then 9, then 12) to optimize for both sequential reading and fast scrolling",
+    "The server-side code remains oblivious to pagination \u2014 it returns full responses while the Stimulus controller handles client-side appending",
+    "The total work is the same but perceived speed improves dramatically by front-loading only what fills the screen"
+  ],
+  "money_quotes": [
+    "Modern emails are essentially HTML pages.",
+    "It's basically like opening 8 browser tabs concurrently.",
+    "This combination means that the server-side code can essentially be written oblivious to the fact that pagination is going on.",
+    "Ultimately, this is all about improving the perceived speed. We still end up loading and rendering the same number of emails, but by doing it in intelligent chunks, preloading some, paginating the rest, we can make a dramatic improvement to how the feature feels.",
+    "That's really the essence of performance design for most web apps. Optimize that first rendering where people are literally just waiting, then do more of the work when they don't care what the computer is doing in the background."
+  ],
+  "themes": [
+    "software_development",
+    "rails_ruby",
+    "startups_business"
+  ],
+  "tone": "technical",
+  "key_insight": "Web performance optimization is fundamentally about perceived speed \u2014 load only what fills the screen first, then do the heavier work in the background while users are occupied reading.",
+  "filename": "2021-05-20-speeding-up-hey-s-the-feed-82e4d2ee"
+}

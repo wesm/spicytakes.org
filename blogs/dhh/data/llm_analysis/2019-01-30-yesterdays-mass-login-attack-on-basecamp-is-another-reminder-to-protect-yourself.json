@@ -1,0 +1,24 @@
+{
+  "summary": "DHH reports a credential stuffing attack on Basecamp where over 30,000 login attempts were made using stolen username/password combinations from major data breaches. Of those attempts, 124 accounts were successfully accessed, though no actions were taken within the compromised accounts. The ops team quickly detected the attack, blocked offending IPs, enabled CAPTCHA, and reset passwords for affected accounts. DHH uses the incident as a call to action for users to adopt password managers, breach notification services, and two-factor authentication. A follow-up attack the next day was even larger, using 5,000 IP addresses, but was similarly contained.",
+  "key_points": [
+    "Credential stuffing attacks exploit password reuse \u2014 all 124 compromised accounts used credentials found in known breaches like Collection #1",
+    "Detection speed matters: the ops team identified the attack within minutes and contained it before any account data was actually exploited",
+    "CAPTCHA, while imperfect and sometimes annoying, proved effective at stopping automated credential testing at scale",
+    "No amount of server-side defense can fully protect users who reuse passwords and don't enable two-factor authentication",
+    "The attack escalated from 30,000 attempts to 5,000+ IP addresses the next day, showing attackers adapt their tactics quickly"
+  ],
+  "money_quotes": [
+    "All of the unauthorized access was gained using the correct username and password for the account.",
+    "It seemed like the attack focused on first validating which accounts were vulnerable, perhaps with a plan to later exploit these vulnerable accounts.",
+    "You should never share the same password between multiple services.",
+    "If someone has your username and password, and you don't have 2FA protection, there are limits to how effective this protection can be.",
+    "CAPTCHA isn't perfect, and some times it's annoying, but it has provided effective protection against this wave of attack."
+  ],
+  "themes": [
+    "software_development",
+    "startups_business"
+  ],
+  "tone": "transparent, urgent, instructive",
+  "key_insight": "When attackers have your correct credentials from other breaches, the only reliable defenses are unique passwords and two-factor authentication \u2014 no amount of server-side protection can substitute for basic personal security hygiene.",
+  "filename": "2019-01-30-yesterdays-mass-login-attack-on-basecamp-is-another-reminder-to-protect-yourself"
+}

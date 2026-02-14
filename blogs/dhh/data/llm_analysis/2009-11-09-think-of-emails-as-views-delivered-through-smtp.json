@@ -1,0 +1,24 @@
+{
+  "summary": "DHH argues that ActionMailers in Rails are fundamentally more like controllers than models, despite Rails historically placing them in app/models. He traces the confusion to an over-literal interpretation of 'Skinny Controller, Fat Model,' which led some developers to believe controllers should have zero logic. He advocates for controllers as the proper coordination layer and announces that Rails 3 will move mailers out of app/models to end the mixed messaging. He acknowledges the organizational mistake and apologizes for the confusion it caused.",
+  "key_points": [
+    "ActionMailers share more DNA with controllers (actions, templates, layouts) than models, and Rails 3 formalizes this through AbstractController",
+    "The 'Skinny Controller, Fat Model' mantra was taken too literally, leading to the false conclusion that controllers should be completely anemic",
+    "Controllers are meant to be the coordination layer that wires together encapsulated components \u2014 they need logic and they need tests",
+    "Rails 3 will fix the organizational mistake of placing mailers in app/models to stop sending mixed signals to developers"
+  ],
+  "money_quotes": [
+    "Think of emails as views delivered through SMTP.",
+    "Taken too literally, you end up with the erroneous idea that controllers shouldn't have any logic at all.",
+    "The controller is the melting pot for putting the individual pieces of the application to work.",
+    "Don't think you can get off the hook just because you made the controller completely anemic.",
+    "Accept that controllers need testing love too and it won't seem unreasonable that they'll have a say in flow and composition either.",
+    "The core flow shouldn't have mixed messages, so come Rails 3, I'll make sure that we don't continue to send those out by placing mailers in app/models."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "technical, opinionated, candid",
+  "key_insight": "Good architectural mantras like 'Skinny Controller, Fat Model' become harmful when applied too literally \u2014 controllers exist to coordinate, and pretending they shouldn't have logic leads to worse design decisions like misplacing mailers.",
+  "filename": "2009-11-09-think-of-emails-as-views-delivered-through-smtp"
+}

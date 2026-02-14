@@ -1,0 +1,25 @@
+{
+  "summary": "DHH argues that performance concerns shouldn't dictate your choice of programming language for an entire application. He demonstrates how Basecamp and Campfire use Ruby for 90% of their code while outsourcing performance-critical bottlenecks to C libraries or small C extensions. The post responds to critics who claim Ruby is too slow for real applications by showing that polyglot approaches are standard practice even at Yahoo and Amazon. He frames this selective optimization as smart engineering rather than cheating, and accuses those who let bottleneck fears drive technology choices of premature optimization.",
+  "key_points": [
+    "Different programming languages excel at different tasks, and using multiple languages within a single application is standard practice at companies like Yahoo and Amazon",
+    "Ruby applications can delegate performance-intensive operations to C libraries (like RMagick for image resizing) without sacrificing productivity for the 90% of code that doesn't need raw speed",
+    "Campfire rewrote only its polling bottleneck (100 lines of Ruby to 300 lines of C) while keeping the rest of the application in Ruby \u2014 writing the whole app in C would have been madness",
+    "Most performance concerns are imaginary rather than real, and letting bottlenecks dictate your entire development environment is textbook premature optimization",
+    "The 'scripting language' ecosystem thrives precisely because it builds on top of fast C libraries rather than reinventing everything from scratch"
+  ],
+  "money_quotes": [
+    "I can hear it already: \"But that's cheating!\" Of course it is. Cheating is good, cheating works.",
+    "The era of islands is over for most development scenarios. You don't have to make one definitive choice.",
+    "So please don't let bottlenecks (real or imaginary, usually the latter) dictate your choice of software development environment.",
+    "Writing the entire application in C just so we could get the maximum performance from the polling service would have been madness, so I'm glad we didn't have to choose.",
+    "I don't hear a lot of people claiming that operating systems should be written in PHP. Or that guest books should be written in C.",
+    "You get to hog all the productivity you can for the common cases, then outsource the bottlenecks to existing packages in faster languages."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Smart engineering means writing 90% of your application in a productive high-level language and selectively outsourcing only the proven bottlenecks to faster languages, rather than letting performance anxiety dictate your entire technology choice.",
+  "filename": "2006-09-01-loud-thinking-000598"
+}

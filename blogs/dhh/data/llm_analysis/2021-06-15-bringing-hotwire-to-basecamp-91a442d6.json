@@ -1,0 +1,24 @@
+{
+  "summary": "DHH documents the process of upgrading Basecamp 3 to use Hotwire (Turbo + Stimulus 2.0), replacing the older Turbolinks setup. Rather than a full rewrite, the approach emphasizes coexistence\u2014legacy JavaScript stays intact while new development uses Turbo Frames, Turbo Streams, and Stimulus 2.0. The bulk of the work involved replacing Turbolinks with Turbo Drive and ensuring compatibility with Rails UJS for legacy code. He argues that incrementally modernizing your stack is essential to keeping a codebase enjoyable to work in.",
+  "key_points": [
+    "Hotwire was integrated into Basecamp 3 through coexistence with legacy code rather than a full rewrite",
+    "The hardest part was replacing Turbolinks with Turbo Drive and handling namespaced events and Ajax redirect compatibility",
+    "Stimulus 2.0 upgrade required converting to the new target attribute format, which was straightforward but error-prone",
+    "Incremental modernization prevents codebases from falling so far behind that they become unpleasant to work in",
+    "New Turbo beta releases added features like before/after actions, built-in method links, and element deduplication"
+  ],
+  "money_quotes": [
+    "Coexisting is probably a better term. While existing JavaScript code stays as it is, we're now set for all our future development to use Turbo Frames, Turbo Streams, and Stimulus 2.0.",
+    "This kind of upgrade work is something it's so easy to put off for existing applications. What you have already works, right?",
+    "But if you keep doing that forever, you eventually end up with a codebase that's so far from the state of the art that it won't be any fun to work in it.",
+    "It's not that you have to rewrite everything from scratch all the time, but taking the effort to ensure that new code can be written to the best of your abilities is key to enjoying the work.",
+    "As you extend existing features, follow the principle of leaving the campsite better than you found it."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "technical",
+  "key_insight": "Incrementally adopting new tools through coexistence with legacy code\u2014rather than big-bang rewrites\u2014keeps a mature codebase modern and enjoyable to work in.",
+  "filename": "2021-06-15-bringing-hotwire-to-basecamp-91a442d6"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "DHH announces Rails 7's JavaScript strategy, offering three distinct approaches to replace the aging Webpacker/Turbolinks stack. The default path uses Hotwire (Turbo + Stimulus) served via import maps with no bundling required, which he demonstrates works for production apps like HEY. For teams committed to SPAs and transpilation, jsbundling-rails provides a thin bridge to esbuild, rollup, or Webpack without the Webpacker wrapper. The third option remains Rails as a pure API with a separate front-end repo. He argues this tripartite approach honors Rails' omakase doctrine while maintaining the big tent principle, giving developers clear paths rather than muddy compromises.",
+  "key_points": [
+    "Hotwire + import maps replaces Webpacker/Turbolinks/UJS as the default, eliminating the need for Node tooling, bundling, or transpilation entirely",
+    "HEY ships ~60KB of JavaScript versus Gmail's ~3MB, proving this lightweight approach can compete with the heaviest client-side SPAs",
+    "Webpacker served as a valuable transition but is now stuck in a 'muddy middle' between no-bundler and full-bundler paths",
+    "jsbundling-rails offers a deliberately thin integration with JavaScript bundlers, pushing responsibility for managing JS tooling back to developers rather than wrapping it",
+    "The three paths (import maps + Hotwire, JS bundler integration, pure API) give teams clear choices instead of one-size-fits-all compromises"
+  ],
+  "money_quotes": [
+    "Yet Gmail downloads about three megabytes worth of JavaScript to render its inbox. HEY downloads less than sixty kilobytes.",
+    "If you can build a Gmail rival with this stack, and have it be met with broad applaud by tens of thousands of paying customers, you can probably build just about anything with it.",
+    "No separate watch process needed for builds, no wrestling with configs, instant reloads, none of the node tooling needed at all, with no overall loss of performance or capability.",
+    "Hotwire and import maps will emphatically not be The Answer for everyone. It's a great answer. It's the default answer. But it's not the only answer.",
+    "It's sorta stuck in the muddy middle between two clearer paths.",
+    "The responsibility for managing and updating dependencies flows to the developer.",
+    "Rails has been unapologetically full stack since the beginning."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "opinionated, strategic, confident",
+  "key_insight": "Rails 7 resolves its long JavaScript identity crisis by offering three clearly delineated paths \u2014 bundler-free Hotwire as the ambitious default, thin bundler integration for SPA teams, and pure API mode \u2014 replacing the muddled middle ground of Webpacker.",
+  "filename": "2021-09-06-rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b"
+}

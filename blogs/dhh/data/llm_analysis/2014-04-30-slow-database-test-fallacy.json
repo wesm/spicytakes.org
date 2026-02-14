@@ -1,0 +1,26 @@
+{
+  "summary": "DHH argues that the traditional TDD rule of never touching the database in unit tests is outdated and based on 1990s hardware limitations. Modern SSDs, fast CPUs, and abundant RAM make database-hitting tests perfectly fast enough for tight feedback cycles. He demonstrates this with Basecamp's test suite: 3,333 assertions hitting the database run in 80 seconds, with individual model suites completing in under 4 seconds thanks to Spring preloader and transactional test fixtures. The real cost, he argues, is the architectural damage inflicted by abstracting away the database to satisfy an obsolete performance heuristic.",
+  "key_points": [
+    "The 'don't touch the database' rule was based on 1990s hardware constraints that no longer apply with modern SSDs and fast local databases",
+    "Abstracting away database access for test speed introduces indirection and layers that scar the codebase\u2014what DHH calls 'test-induced design damage'",
+    "Basecamp runs 3,333 database-hitting assertions in 80 seconds and full suite in 4.5 minutes, proving database tests can be fast enough",
+    "Rails' transactional test fixtures (BEGIN/ROLLBACK per case) and Spring preloader eliminate the historical pain points of database-backed tests",
+    "Running targeted test suites per model during development and full suites before check-in provides a practical, fast feedback cycle"
+  ],
+  "money_quotes": [
+    "Heuristics and principles we adopt in one era of computing do not necessarily apply tomorrow.",
+    "Anything that's based on a definition of 'slow' should be revisited frequently. Sound lessons can turn unsound very quickly.",
+    "It's far from free to abstract yourself away from touching the database in most MVC systems.",
+    "The amount of indirection and additional layers needed end up scarring the code base and hurting the clarity of the system.",
+    "If you have so little confidence in the locality of your changes, the tests are indeed telling you that the system has overly high coupling.",
+    "Don't pervert your architecture in order to prematurely optimize for the performance characteristics of the mid-nineties.",
+    "Embrace the awesome power of modern computers, and revel in the clarity of a code base unharmed by test-induced design damage."
+  ],
+  "themes": [
+    "software_development",
+    "rails_ruby"
+  ],
+  "tone": "opinionated",
+  "key_insight": "The TDD orthodoxy of avoiding database access in tests is a fossilized heuristic from slow hardware eras, and following it today inflicts unnecessary architectural damage on your codebase.",
+  "filename": "2014-04-30-slow-database-test-fallacy"
+}

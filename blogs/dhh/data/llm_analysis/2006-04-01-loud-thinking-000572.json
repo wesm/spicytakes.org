@@ -1,0 +1,21 @@
+{
+  "summary": "DHH introduces a series on leveraging the HTTP Accept header in Rails to eliminate repetition when serving different clients (mobile, API, web) from the same controller logic. He argues that while Rails has done well with DRY principles in models and views, controller-level code reuse across different output formats has relied on hacks. He points to Backpack as a real-world example where 80% of actions are shared across clients, and frames the Accept header as the proper, standards-based solution to formalize this pattern.",
+  "key_points": [
+    "Rails has successfully institutionalized DRY in domain models but controller-level client handling remained repetitive",
+    "Backpack already shared ~80% of controller actions across mobile, API, and web clients through ad-hoc hacks",
+    "The HTTP Accept header provides a standards-based mechanism to replace those hacks with a proper convention",
+    "This represents Rails extending its convention-over-configuration philosophy to content negotiation"
+  ],
+  "money_quotes": [
+    "Ruby on Rails is all about eliminating repetition through convention over configuration and any other DRY-hack we can come up with.",
+    "How DRY are we in handling different clients desiring different output from the same controller logic? Up until recently, not very.",
+    "It's those hacks and ideas that are now able to blossom through the (re-)discovery of the wonderful Accept header in the HTTP specification."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "technical",
+  "key_insight": "The HTTP Accept header offers a clean, standards-based way for Rails to apply DRY principles to serving multiple client types from a single controller action.",
+  "filename": "2006-04-01-loud-thinking-000572"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "DHH responds to criticism that Active Record is limited by MySQL's lack of advanced database features. He argues this isn't a constraint but a deliberate design opinion: business logic belongs in the domain model, not the database. He rejects stored procedures and database constraints as violations of object-oriented encapsulation. He distinguishes between application and integration databases, noting his stance applies to the former, and warns that expecting Rails to embrace enterprise database features is a losing bet.",
+  "key_points": [
+    "Active Record's simplicity is an intentional design opinion, not a limitation imposed by MySQL",
+    "Stored procedures and database constraints destroy coherence by splitting business logic across layers",
+    "Software should have a single layer of cleverness \u2014 the domain model \u2014 rather than distributing logic into the database",
+    "The distinction between application databases and integration databases is critical to understanding this position",
+    "Rails will not change course to embrace enterprise database features regardless of MySQL's evolution"
+  ],
+  "money_quotes": [
+    "I don't want my database to be clever!",
+    "I consider stored procedures and constraints vile and reckless destroyers of coherence.",
+    "No, Mr. Database, you can not have my business logic. Your procedural ambitions will bear no fruit and you'll have to pry that logic from my dead, cold object-oriented hands.",
+    "I want a single layer of cleverness: My domain model.",
+    "Letting it sieve half ways through to the database is a terrible violation of those fine intentions.",
+    "Doing integration through the database belongs in a time where Beverly Hills 90210 was a hit show on TV."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Good software architecture demands a single layer of cleverness \u2014 the domain model \u2014 and letting business logic leak into the database destroys the coherence that object-orientation was designed to provide.",
+  "filename": "2005-09-01-loud-thinking-000516"
+}

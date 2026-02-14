@@ -1,0 +1,27 @@
+{
+  "summary": "DHH introduces Propshaft, a new asset pipeline library for Rails that replaces the aging Sprockets with a dramatically simpler alternative. Made possible by HTTP/2, browser-native ES6, and import maps, Propshaft handles only what's needed in modern web development: configurable load paths, digest stamping, and URL rewriting. Sprockets grew large trying to handle transpiling, bundling, minifying, and compression all by itself, but modern standalone tools now handle those responsibilities. HEY has already shipped to production with Propshaft, though it won't become the Rails default until at least Rails 8 due to gem ecosystem dependencies on Sprockets.",
+  "key_points": [
+    "Propshaft is enabled by the same trifecta powering Rails 7: HTTP/2, browser-run ES6, and import maps",
+    "Unlike Sprockets, Propshaft only handles load paths, digest stamping, and URL rewriting \u2014 leaving transpiling and bundling to standalone tools like esbuild, Dart Sass, and Tailwind CSS",
+    "Sprockets was forged for HTTP/1 and ES3 constraints that no longer apply, accumulating unused pipelines and underdeveloped features",
+    "HEY is already running Propshaft in production, but the default switch from Sprockets won't happen until Rails 8 due to gem ecosystem dependencies",
+    "Simplifying one part of Rails (removing Webpacker) cascaded into simplifying another (replacing Sprockets with Propshaft)"
+  ],
+  "money_quotes": [
+    "After a decade's worth of front-end progress kept demanding ever more complicated setups, we're finally moving in the opposite direction.",
+    "Like with expanding complexity, where one complication often leads to another, compressing complexity also cascades.",
+    "It was written on a clean sheet of paper to carry only what we need in the year of our lord 2022.",
+    "It's hard to keep up with the state of the art on all these fronts at once, and while valiant attempts were made, it kept falling behind on everything from Sass compilation to understanding ESM dependencies.",
+    "When we manage to make one aspect of Rails dramatically simpler, we can often make another part much simpler too.",
+    "The battle against complexity in web development is a constant tug of war. We give a little to get something new, we take it back to make it simpler.",
+    "Progress is good. Complexity is a bridge. Simplicity is the destination."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development",
+    "open_source"
+  ],
+  "tone": "optimistic, technical",
+  "key_insight": "Modern browser capabilities and standalone tooling have made the monolithic asset pipeline obsolete, enabling Rails to replace Sprockets with a dramatically simpler library that only handles what the ecosystem no longer provides.",
+  "filename": "2022-02-11-introducing-propshaft-ee60f4f6"
+}

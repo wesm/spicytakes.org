@@ -1,0 +1,24 @@
+{
+  "summary": "DHH walks through the design process of merging Merb's provides/display feature into Rails 3, showing how the two frameworks' approaches to format response handling can be unified. He explains that Merb's approach elegantly handles the common case of rendering objects in multiple formats, while Rails' respond_to gives full control for complex cases. The resulting design introduces respond_to as a class method and respond_with as an instance method, achieving both symmetry in naming and progressive expansion from simple to complex use cases. He frames this as an early example of the productive idea flow between the merging Merb and Rails projects.",
+  "key_points": [
+    "Merb's provides/display pattern eliminates duplication when controllers simply need to render the same object in multiple formats",
+    "Good API design requires symmetry in naming and progressive expansion from simple to complex cases",
+    "The Rails 3 solution unifies both approaches: respond_to as class method for defaults, respond_with for simple cases, and respond_to blocks for full control",
+    "The design allows per-action format overrides without requiring class-level declarations",
+    "This is presented as a model for how the Rails-Merb merger will produce superior functionality by combining the best ideas from both frameworks"
+  ],
+  "money_quotes": [
+    "Cut duplication when possible, give full control when not.",
+    "The words \"provides\" and \"display\" doesn't reflect their close relationship and if you throw in the fact that they're actually both related to rendering, it's gets even more muddy.",
+    "There should be a smooth path from the simple case to the complex case. It should be like an Ogre, it should have layers.",
+    "All in all, I think this is a great example of the kind of superior functionality that can come out of merging ideas from both camps.",
+    "The first was the lack of symmetry in the method names."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "technical",
+  "key_insight": "Great API design achieves both symmetry in naming and progressive expansion, allowing developers to start with the simple default case and smoothly escalate to full control when needed.",
+  "filename": "2008-12-26-bringing-merbs-providesdisplay-into-rails-3"
+}

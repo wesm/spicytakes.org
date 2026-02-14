@@ -1,0 +1,25 @@
+{
+  "summary": "DHH addresses a persistent myth that Rails crashes 400 times per day, tracing it back to Zed Shaw's infamous 'Rails is a Ghetto' rant. He explains that Basecamp once used a memory watcher to gracefully restart FCGIs when they hit a memory threshold, which was not crashing but controlled recycling. The underlying memory leak was fixed around 2006, making it ancient history even when Zed published his rant in late 2007. Despite this, the claim persisted and was being used by consultants to argue against Rails adoption. DHH firmly states that Rails does not spontaneously crash and that any such bug would be treated as code red priority.",
+  "key_points": [
+    "The '400 crashes per day' claim originated from Zed Shaw's rant, mischaracterizing graceful process restarts as crashes",
+    "Basecamp used a memory watcher that gracefully recycled processes at a memory threshold \u2014 no lost data, no 500 errors",
+    "The underlying memory leak was fixed in 2006, a year before Zed's rant was even published",
+    "The myth persisted in sales contexts, with consultants citing Zed's rant to argue against Rails adoption",
+    "Memory leaks can happen in any framework's user space and are not unique to Rails"
+  ],
+  "money_quotes": [
+    "Zed Shaw's infamous meltdown showed an angry man lashing out at anything and everything.",
+    "This is about the one factual assault he made against Rails that despite being drenched in unbelievable bile somehow still stuck to parts of the public conscious.",
+    "These FCGIs would then gracefully exit after the current request and boot up again. No crash, no lost data, no 500s.",
+    "So even when Zed published his implosion at the end of 2007, this was already ancient history.",
+    "Rails doesn't spontaneously combust and restart itself.",
+    "If we ever have an outright crash bug that can take down an entire Rails process, it's code red priority to get a fix out there."
+  ],
+  "themes": [
+    "rails_ruby",
+    "software_development"
+  ],
+  "tone": "defensive, measured, corrective",
+  "key_insight": "A controlled process recycling strategy to manage memory leaks was mischaracterized as constant crashing, and the myth persisted long after the underlying issue was fixed.",
+  "filename": "2008-11-13-myth-2-rails-is-expected-to-crash-400-timesday"
+}
