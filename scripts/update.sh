@@ -38,7 +38,7 @@ echo ""
 SCRAPER_TYPE=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['scraper']['type'])")
 
 # Step 1: Scrape new posts (based on scraper type)
-echo "Step 1/4: Checking for new posts..."
+echo "Step 1/5: Checking for new posts..."
 case "$SCRAPER_TYPE" in
     substack)
         BLOG_ID="$BLOG_ID" python3 scripts/scrapers/substack.py
@@ -90,20 +90,59 @@ esac
 echo ""
 
 # Step 2: Run LLM analysis on new posts
-echo "Step 2/4: Running LLM analysis on new posts..."
+echo "Step 2/5: Running LLM analysis on new posts..."
 BLOG_ID="$BLOG_ID" bash scripts/llm_analyze.sh
 echo ""
 
 # Step 3: Grade spiciness on new quotes
-echo "Step 3/4: Grading spiciness on new quotes..."
+echo "Step 3/5: Grading spiciness on new quotes..."
 BLOG_ID="$BLOG_ID" bash scripts/grade_spiciness.sh
 echo ""
 
-# Step 4: Rebuild the site (skip with NO_BUILD=1)
-if [[ -n "$NO_BUILD" ]]; then
-    echo "Step 4/4: Skipping build (NO_BUILD is set)"
+# Step 4: Update landing.json post/quote counts
+echo "Step 4/5: Updating landing page stats..."
+QUOTES_FILE="$PROJECT_DIR/blogs/$BLOG_ID/data/llm_quotes.json"
+SPICY_FILE="$PROJECT_DIR/blogs/$BLOG_ID/data/spicy_quotes.json"
+LANDING_FILE="$PROJECT_DIR/config/landing.json"
+
+if [[ -f "$QUOTES_FILE" && -f "$SPICY_FILE" && -f "$LANDING_FILE" ]]; then
+    python3 -c "
+import json, sys
+
+blog_id = '$BLOG_ID'
+quotes = json.load(open('$QUOTES_FILE'))
+spicy = json.load(open('$SPICY_FILE'))
+landing = json.load(open('$LANDING_FILE'))
+
+post_count = sum(1 for p in quotes.get('posts', []) if 'error' not in p)
+quote_count = spicy.get('total', 0)
+
+updated = False
+for blog in landing.get('blogs', []):
+    if blog['id'] == blog_id:
+        blog['stats']['posts'] = post_count
+        blog['stats']['quotes'] = quote_count
+        updated = True
+        break
+
+if updated:
+    with open('$LANDING_FILE', 'w') as f:
+        json.dump(landing, f, indent=2)
+        f.write('\n')
+    print(f'  Updated {blog_id}: {post_count} posts, {quote_count} quotes')
+else:
+    print(f'  Warning: {blog_id} not found in landing.json')
+"
 else
-    echo "Step 4/4: Rebuilding site..."
+    echo "  Skipping (data files not yet available)"
+fi
+echo ""
+
+# Step 5: Rebuild the site (skip with NO_BUILD=1)
+if [[ -n "$NO_BUILD" ]]; then
+    echo "Step 5/5: Skipping build (NO_BUILD is set)"
+else
+    echo "Step 5/5: Rebuilding site..."
     VITE_BLOG_ID="$BLOG_ID" npm run build
 fi
 echo ""
