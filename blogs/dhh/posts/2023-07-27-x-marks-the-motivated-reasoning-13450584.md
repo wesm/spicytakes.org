@@ -1,0 +1,15 @@
+---
+title: "X marks the motivated reasoning"
+date: 2023-07-27
+url: https://world.hey.com/dhh/x-marks-the-motivated-reasoning-13450584
+slug: x-marks-the-motivated-reasoning-13450584
+word_count: 494
+---
+
+I’ve lost track of all the things that Musk has done to Twitter that ought to have brought it down by now. Scarcely a month goes by without some action triggering the incessant bells of doom, ringing from the bellies of bloviating ding dongs. And the ringing seemingly never stops long enough to allow for some basic contemplation or correction, as reality wrecks another prediction of peril.
+But the obsession with all things Elon is so strong that there’s no room or time for introspection of any kind. It’s just on to the next faux outrage of tomorrow. Make sure you never miss a chance to be an expert on social media, advertising, team building, economics, or branding so you can tell the world’s most successful entrepreneur what a total idiot he’s being, and how much smarter, wiser, and kinder you’d be in his shoes. It’s all so fascinatingly interesting! Please keep telling me more and more until we both die of boredom!
+This isn’t a verse from Stan, scribbled on a starter cap. Just an all-singing, all-dancing plea to escape this colosseum of competitive catastrophizing. However passionately you wish for the man to fail, he’s not going to do so on account of your feeble bleating. I say this as someone who has bet against his antics plenty of times in the past, only to come to the realization that it’s best to cover my losses, and accept the man’s propensity for eventually getting it right.
+Sure, he may very well not get it right with Twitter, but his odds are actually increasing. When you’ve survived so many supposed catastrophes, and you’re still playing, you’ve at the very least shown tremendous resilience. That’s one of the absolute key ingredients in success.
+So forgive me if I can’t even get marginally excited for this latest kerfuffle over the new X branding. Primarily because of just how utterly removed the discourse around it is from a good-faith assessment of the merits of the particulars. It’s all turned into an endless proxy war, and every argument is wielded only in service of yet another petty ideological skirmish.
+Musk could double the revenue and users of X, and his perma detractors would still find a path back to a prophesy of imminent ruin. Likewise, he could lose half the revenue again, and his most ardent boosters would position the setback as merely part of an even grander master plan. This is 5D chess being played by two parties shuffling pieces around in isolated realms of reality, each cheering every move as but two removed from checkmate.
+Are you not entertained? That’s perhaps the only real question here. Either embrace the absurdity of it all with the casual demeanor of Camus, and chuckle at the ever-grander spectacle, or tune out of the whole endeavor altogether. But for the love of all that’s holy, stop acting as though the every whim of Elon carries the weight of the world.

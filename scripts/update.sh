@@ -79,6 +79,9 @@ case "$SCRAPER_TYPE" in
     wordpress)
         BLOG_ID="$BLOG_ID" python3 scripts/scrapers/wordpress.py
         ;;
+    hey_world)
+        BLOG_ID="$BLOG_ID" python3 scripts/scrapers/hey_world.py
+        ;;
     *)
         echo "Unknown scraper type: $SCRAPER_TYPE"
         exit 1

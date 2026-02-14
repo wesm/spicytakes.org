@@ -30,6 +30,7 @@ import martinfowlerConfig from '../../config/martinfowler.json';
 import hannesConfig from '../../config/hannes.json';
 import mempkoConfig from '../../config/mempko.json';
 import spolskyConfig from '../../config/spolsky.json';
+import dhhConfig from '../../config/dhh.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -58,6 +59,7 @@ const configs: Record<string, BlogConfig> = {
   hannes: hannesConfig as BlogConfig,
   mempko: mempkoConfig as BlogConfig,
   spolsky: spolskyConfig as BlogConfig,
+  dhh: dhhConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -210,6 +212,11 @@ export function buildSourceUrl(
   if (cfg.scraper.type === 'ghost') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${cfg.sourceUrl}/${slug}/`;
+  }
+  // For hey_world blogs (DHH), URL is /{slug} (slug from filename minus date prefix)
+  if (cfg.scraper.type === 'hey_world') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${cfg.sourceUrl}/${slug}`;
   }
   // For blogger blogs, URL is /YYYY/MM/slug.html
   if (cfg.scraper.type === 'blogger') {

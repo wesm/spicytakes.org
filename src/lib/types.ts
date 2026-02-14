@@ -39,7 +39,7 @@ export interface ThemeConfig {
 }
 
 export interface ScraperConfig {
-  type: 'substack' | 'github_markdown' | 'quarto_blog' | 'static_html' | 'hugo_rss' | 'hugo_homepage' | 'jekyll_feed' | 'wordpress' | 'jekyll_static' | 'rss_generic' | 'paulgraham' | 'blogger' | 'rss_nextjs' | 'ghost';
+  type: 'substack' | 'github_markdown' | 'quarto_blog' | 'static_html' | 'hugo_rss' | 'hugo_homepage' | 'jekyll_feed' | 'wordpress' | 'jekyll_static' | 'rss_generic' | 'paulgraham' | 'blogger' | 'rss_nextjs' | 'ghost' | 'hey_world';
   substackUrl?: string;
   baseUrl?: string;
   indexUrl?: string;
