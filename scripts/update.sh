@@ -34,6 +34,7 @@ echo "Blog: $BLOG_ID"
 echo ""
 
 SCRAPER_TYPE=$(python3 "$UTILS" config "$BLOG_ID" scraper.type)
+POSTS_BEFORE=$(python3 "$UTILS" raw-post-count "$BLOG_ID")
 
 # Step 1: Scrape new posts
 echo "Step 1/5: Checking for new posts..."
@@ -56,6 +57,19 @@ if [[ ! -f "$SCRAPER_SCRIPT" ]]; then
     exit 1
 fi
 BLOG_ID="$BLOG_ID" python3 "$SCRAPER_SCRIPT"
+echo ""
+
+POSTS_AFTER=$(python3 "$UTILS" raw-post-count "$BLOG_ID")
+NEW_POSTS=$((POSTS_AFTER - POSTS_BEFORE))
+
+if [[ "$NEW_POSTS" -le 0 ]]; then
+    echo "No new posts found. Skipping analysis, grading, and build."
+    echo ""
+    echo "=== Update Complete (no changes) ==="
+    exit 0
+fi
+
+echo "Found $NEW_POSTS new post(s)."
 echo ""
 
 # Step 2: Run LLM analysis on new posts

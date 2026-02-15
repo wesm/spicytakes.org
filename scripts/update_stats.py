@@ -109,6 +109,14 @@ def update_landing(blog_ids: list[str] | None = None) -> bool:
     return changed
 
 
+def cli_raw_post_count(args: list[str]) -> None:
+    """CLI: print raw post count from posts_index.json."""
+    if len(args) != 1:
+        print("Usage: update_stats.py raw-post-count <blog_id>", file=sys.stderr)
+        sys.exit(1)
+    print(raw_post_count(args[0]))
+
+
 def cli_config(args: list[str]) -> None:
     """CLI: print a config value."""
     if len(args) != 2:
@@ -164,6 +172,7 @@ def main() -> None:
     commands = {
         "config": cli_config,
         "stats": cli_stats,
+        "raw-post-count": cli_raw_post_count,
         "update-landing": cli_update_landing,
     }
 
