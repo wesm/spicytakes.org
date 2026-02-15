@@ -82,7 +82,7 @@
   let displayedMonthlyStats = $state<MonthlyStats[]>([]);
 
   // Chart container ref and Vega view tracking
-  let chartContainer: HTMLDivElement;
+  let chartContainer = $state<HTMLDivElement>(undefined!);
   let currentView: any = null;
   let renderToken = 0;
 
