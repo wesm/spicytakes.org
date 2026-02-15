@@ -1,6 +1,6 @@
 {
-  "total_posts": 200,
-  "successful": 200,
+  "total_posts": 204,
+  "successful": 204,
   "posts": [
     {
       "summary": "Ronacher delivers a harsh critique of Dan Brown\u2019s \"Digital Fortress,\" arguing that the novel is riddled with basic technical errors and shallow, sensationalized depictions of technology and security. He walks through the plot and then systematically dismantles its handling of computers, networking, and cryptography, stressing that the book misuses terminology and violates even elementary principles. He also objects to implausible cultural and geographic portrayals, particularly of Spain. The cumulative effect, in his view, is a story that collapses under its own factual mistakes. He concludes that the book is dull, childish, and not worth reading or buying.",
@@ -5613,6 +5613,117 @@
       "tone": "critical, reflective, technical, opinionated",
       "key_insight": "AI agents can supercharge productivity, but without critical oversight they create addictive slop loops that overwhelm maintainers and distort software quality.",
       "filename": "2026-01-18-agent-psychosis"
+    },
+    {
+      "summary": "Armin Ronacher announces his new company Earendil, co-founded with Colin in Vienna. The company is incorporated as a Public Benefit Corporation with a charter focused on crafting software and open protocols, strengthening human agency, and bridging division. Ronacher reflects on how Vienna's culture provides a counterbalance to Silicon Valley thinking. He frames the venture as a response to the changes AI is bringing to software development and society, emphasizing a commitment to values and principles during uncertain times.",
+      "key_points": [
+        "Earendil is a PBC founded by Ronacher and Colin, based in Vienna rather than Silicon Valley, with a charter emphasizing human agency and open protocols",
+        "Vienna's culture and mindset serve as a deliberate counterbalance to Silicon Valley's approach, offering a different perspective on technology and society",
+        "AI is calling into question the nature of software development as a profession, and the company aims to navigate these changes guided by strong values",
+        "After 20 years building open source software, Ronacher sees this moment as requiring active engagement with change rather than rejection of it"
+      ],
+      "money_quotes": [
+        "We want to be successful, but we want to do it the right way and we want to be able to demonstrate that to our kids.",
+        "Vienna is in many ways the polar opposite to the Silicon Valley, both in mindset, in opportunity and approach to life.",
+        "Despite Austria being so far away from California, it is a place of tinkerers and troublemakers.",
+        "It's always good to remind oneself that society consists of more than just your little bubble.",
+        "In the same way as artificial intelligence calls into question the very nature of my profession and the way we build software, the present day circumstances are testing society.",
+        "We share a belief that right now is the time to stand true to one's values and principles.",
+        "Rather than reject the changes that are happening, we look to nudge them towards the right direction."
+      ],
+      "themes": [
+        "open_source",
+        "career_reflections",
+        "industry_observations"
+      ],
+      "tone": "reflective, earnest, hopeful",
+      "key_insight": "In a time when AI is reshaping software development and society faces broader upheaval, the right response is not rejection but principled engagement\u2014building something guided by values rather than pure commercial ambition.",
+      "filename": "2026-01-27-earendil"
+    },
+    {
+      "summary": "Ronacher introduces Pi, a minimal coding agent by Mario Zechner that powers the viral OpenClaw project. Pi's philosophy is radical simplicity: just four tools (Read, Write, Edit, Bash), the shortest system prompt of any agent, and an extension system that lets the agent extend itself by writing code. Rather than downloading MCP integrations or community plugins, Pi encourages users to have the agent build its own tools and skills. Ronacher argues this 'software building software' approach, where agents maintain their own functionality and can be connected to any communication channel, represents the future of how we'll interact with code.",
+      "key_points": [
+        "Pi's core is deliberately minimal \u2014 four tools and the shortest system prompt of any agent \u2014 compensated by a powerful extension and session persistence system",
+        "Pi rejects MCP support by design: instead of downloading extensions, you ask the agent to extend itself, embracing the philosophy that LLMs should write and run code",
+        "Pi sessions are trees that support branching, enabling side-quests like fixing a broken tool without polluting the main session's context",
+        "Extensions can render full TUI components in the terminal, and Ronacher's extensions (answer, todos, review, files) were all built by the agent itself to his specifications",
+        "OpenClaw's viral success demonstrates that connecting a minimal agent to a chat channel \u2014 removing the UI entirely \u2014 may be the future of software interaction"
+      ],
+      "money_quotes": [
+        "Pi's entire idea is that if you want the agent to do something that it doesn't do yet, you don't go and download an extension or a skill or something like this. You ask the agent to extend itself.",
+        "It celebrates the idea of code writing and running code.",
+        "The point of it mostly is that none of this was written by me, it was created by the agent to my specifications.",
+        "My agent has quite a few skills and crucially I throw skills away if I don't need them.",
+        "Part of the fascination that working with a minimal agent like Pi gave me is that it makes you live that idea of using software that builds more software.",
+        "As more code is written by agents, it makes little sense to throw unfinished work at humans before an agent has reviewed it first.",
+        "Pi itself is written like excellent software. It doesn't flicker, it doesn't consume a lot of memory, it doesn't randomly break.",
+        "That taken to the extreme is when you remove the UI and output and connect it to your chat. That's what OpenClaw does and given its tremendous growth, I really feel more and more that this is going to become our future."
+      ],
+      "themes": [
+        "developer_tools",
+        "software_engineering",
+        "open_source"
+      ],
+      "tone": "opinionated, enthusiastic, technical",
+      "key_insight": "The most powerful agent architecture is a minimal one that extends itself by writing code, rather than accumulating downloaded plugins and integrations.",
+      "filename": "2026-01-31-pi"
+    },
+    {
+      "summary": "Armin argues that agentic programming is creating genuine opportunity for new programming languages, contrary to the assumption that existing codebases would cement current languages in place. He observes that the falling cost of writing code reduces the importance of ecosystem breadth, while the rising volume of code increases the importance of readability and explicitness. The post catalogs specific language features that help or hinder AI agents: explicit types over inference, braces over whitespace, greppable imports, result types over exceptions, and minimal macro usage. He proposes novel ideas like auto-propagating effect annotations and argues that language design can now be empirically validated by measuring agent performance. The conclusion is optimistic: new languages targeting agent-friendliness can succeed even without large training corpora, and we should encourage both outsider experimentation and principled documentation of what works.",
+      "key_points": [
+        "The falling cost of code production means ecosystem size matters less \u2014 agents can reimplement libraries from other languages faster than fighting build systems",
+        "Languages designed for human brevity (type inference, whitespace sensitivity, implicit context) actively hinder agents that lack LSP access and spatial awareness",
+        "Greppability, local reasoning, and one-to-one import mapping are the properties agents benefit from most, exemplified by Go's design choices",
+        "Effect systems with auto-propagating annotations could solve the tension between explicit dependency tracking and developer convenience",
+        "Agent performance on languages is now empirically measurable, shifting language design from opinion-driven to data-driven"
+      ],
+      "money_quotes": [
+        "The cost of writing code is going down, but because we are also producing more of it, understanding what the code does is becoming more important.",
+        "We are heading towards a world where some code is never seen by a human and is only consumed by machines.",
+        "Many of today's languages were designed with the assumption that punching keys is laborious, so we traded certain things for brevity.",
+        "It pains me as a Python developer to say this, but whitespace-based indentation is a problem.",
+        "Agents struggle with exceptions, they are afraid of them.",
+        "Most programming languages and frameworks make it much easier to write flaky tests than non-flaky ones. That's because they encourage indeterminism everywhere.",
+        "No human wants to be subject to surveys, but agents don't care. We can see how successful they are and where they are struggling.",
+        "You can target a rather narrow use case: make sure the agent is happy and extend from there to the human."
+      ],
+      "themes": [
+        "software_engineering",
+        "developer_tools",
+        "rust",
+        "python",
+        "industry_observations"
+      ],
+      "tone": "visionary, opinionated, technical",
+      "key_insight": "The rise of agentic programming inverts traditional language design priorities: explicitness, greppability, and local reasoning now matter more than brevity, and agent performance provides the first empirical feedback loop for language design.",
+      "filename": "2026-02-09-a-language-for-agents"
+    },
+    {
+      "summary": "Armin argues that AI has dramatically accelerated code creation, but review capacity and human accountability remain hard bottlenecks that cannot be automated away. He draws parallels to the textile industry's industrial revolution, where removing one bottleneck simply revealed the next downstream constraint. Open source projects are already drowning in AI-generated PRs that nobody can review, and internal teams face the same unsustainable pace. He explores two responses \u2014 throttling input or giving in to machine-driven workflows \u2014 but concludes that as long as non-sentient machines cannot bear accountability, humans remain the irreducible bottleneck. The post ends with a reflective acceptance: he was always the bottleneck, and AI hasn't changed that fundamental reality.",
+      "key_points": [
+        "Code creation was historically slower than review; AI has inverted this ratio, creating an accumulating queue failure in both open source and company codebases",
+        "The industrial revolution's textile industry shows the same pattern: removing one bottleneck simply shifts constraint downstream until every stage must be automated",
+        "Some projects respond by throttling input \u2014 auto-closing PRs, taking OSS vacations \u2014 but this fights against the acceleration rather than adapting to it",
+        "If machines write and review code, humans are reduced to rubber-stamping, which raises deep questions about responsibility and 'single-use plastic software'",
+        "Accountability cannot be delegated to non-sentient machines, making human understanding and responsibility the true final bottleneck"
+      ],
+      "money_quotes": [
+        "When more and more people tell me they no longer know what code is in their own codebase, I feel like something is very wrong here and it's time to reflect.",
+        "Anyone who has worked with queues knows this: if input grows faster than throughput, you have an accumulating failure.",
+        "There is huge excitement about newfound delivery speed, but in private conversations, I keep hearing the same second sentence: people are also confused about how to keep up with the pace they themselves created.",
+        "If the machine writes the code, the machine better review the code at the same time.",
+        "As we're entering the phase of single-use plastic software, we might be moving the whole layer of responsibility elsewhere.",
+        "I too am the bottleneck now. But you know what? Two years ago, I too was the bottleneck. I was the bottleneck all along.",
+        "Non-sentient machines will never be able to carry responsibility, and it looks like we will need to deal with this problem before machines achieve this status."
+      ],
+      "themes": [
+        "software_engineering",
+        "open_source",
+        "industry_observations"
+      ],
+      "tone": "reflective, concerned, historically-grounded",
+      "key_insight": "AI accelerates code production but cannot assume accountability, making human understanding and responsibility the irreducible constraint that no amount of automation can eliminate.",
+      "filename": "2026-02-13-the-final-bottleneck"
     }
   ]
 }

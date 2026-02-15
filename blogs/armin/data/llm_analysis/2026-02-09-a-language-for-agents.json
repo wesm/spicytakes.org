@@ -1,0 +1,30 @@
+{
+  "summary": "Armin argues that agentic programming is creating genuine opportunity for new programming languages, contrary to the assumption that existing codebases would cement current languages in place. He observes that the falling cost of writing code reduces the importance of ecosystem breadth, while the rising volume of code increases the importance of readability and explicitness. The post catalogs specific language features that help or hinder AI agents: explicit types over inference, braces over whitespace, greppable imports, result types over exceptions, and minimal macro usage. He proposes novel ideas like auto-propagating effect annotations and argues that language design can now be empirically validated by measuring agent performance. The conclusion is optimistic: new languages targeting agent-friendliness can succeed even without large training corpora, and we should encourage both outsider experimentation and principled documentation of what works.",
+  "key_points": [
+    "The falling cost of code production means ecosystem size matters less \u2014 agents can reimplement libraries from other languages faster than fighting build systems",
+    "Languages designed for human brevity (type inference, whitespace sensitivity, implicit context) actively hinder agents that lack LSP access and spatial awareness",
+    "Greppability, local reasoning, and one-to-one import mapping are the properties agents benefit from most, exemplified by Go's design choices",
+    "Effect systems with auto-propagating annotations could solve the tension between explicit dependency tracking and developer convenience",
+    "Agent performance on languages is now empirically measurable, shifting language design from opinion-driven to data-driven"
+  ],
+  "money_quotes": [
+    "The cost of writing code is going down, but because we are also producing more of it, understanding what the code does is becoming more important.",
+    "We are heading towards a world where some code is never seen by a human and is only consumed by machines.",
+    "Many of today's languages were designed with the assumption that punching keys is laborious, so we traded certain things for brevity.",
+    "It pains me as a Python developer to say this, but whitespace-based indentation is a problem.",
+    "Agents struggle with exceptions, they are afraid of them.",
+    "Most programming languages and frameworks make it much easier to write flaky tests than non-flaky ones. That's because they encourage indeterminism everywhere.",
+    "No human wants to be subject to surveys, but agents don't care. We can see how successful they are and where they are struggling.",
+    "You can target a rather narrow use case: make sure the agent is happy and extend from there to the human."
+  ],
+  "themes": [
+    "software_engineering",
+    "developer_tools",
+    "rust",
+    "python",
+    "industry_observations"
+  ],
+  "tone": "visionary, opinionated, technical",
+  "key_insight": "The rise of agentic programming inverts traditional language design priorities: explicitness, greppability, and local reasoning now matter more than brevity, and agent performance provides the first empirical feedback loop for language design.",
+  "filename": "2026-02-09-a-language-for-agents"
+}
