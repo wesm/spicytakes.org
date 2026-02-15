@@ -95,15 +95,16 @@ with open(landing_path) as f:
 changed = False
 for blog_entry in landing['blogs']:
     bid = blog_entry['id']
-    index_file = f'blogs/{bid}/data/posts_index.json'
+    llm_file = f'blogs/{bid}/data/llm_quotes.json'
     quotes_file = f'blogs/{bid}/data/spicy_quotes.json'
 
     new_posts = None
     new_quotes = None
 
-    if os.path.exists(index_file):
-        with open(index_file) as f:
-            new_posts = json.load(f).get('total_posts', 0)
+    if os.path.exists(llm_file):
+        with open(llm_file) as f:
+            data = json.load(f)
+            new_posts = sum(1 for p in data.get('posts', []) if 'error' not in p)
     if os.path.exists(quotes_file):
         with open(quotes_file) as f:
             new_quotes = json.load(f).get('total', 0)
