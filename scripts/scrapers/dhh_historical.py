@@ -48,6 +48,14 @@ def slugify(text: str) -> str:
     return text.strip("-")[:80]
 
 
+def sanitize_slug(slug: str) -> str:
+    """Ensure slug is safe for use in filenames."""
+    slug = slug.replace("/", "-").replace("..", "")
+    slug = re.sub(r"[^\w-]", "", slug)
+    slug = re.sub(r"-+", "-", slug)
+    return slug.strip("-")[:80]
+
+
 def fetch_with_retry(url: str, retries: int = MAX_RETRIES) -> requests.Response | None:
     """Fetch URL with retry logic for intermittent failures."""
     for attempt in range(retries):
@@ -83,6 +91,7 @@ class DhhHistoricalScraper(BaseScraper):
         slug: str, content: str
     ) -> bool:
         """Save a post if not already scraped. Returns True if saved."""
+        slug = sanitize_slug(slug)
         if date_str:
             filename = f"{date_str}-{slug}.md"
         else:
@@ -650,15 +659,12 @@ class DhhHistoricalScraper(BaseScraper):
         for i, meta in enumerate(post_links):
             # Extract slug from URL
             slug_match = re.search(r"/posts/\d+-(.+)$", meta["url"])
-            slug = slug_match.group(1) if slug_match else slugify(meta["title"])
+            raw_slug = slug_match.group(1) if slug_match else slugify(meta["title"])
+            slug = sanitize_slug(raw_slug)
 
-            # Check if already exists (approximate check)
-            skip = False
-            for fn in existing:
-                if slug in fn:
-                    skip = True
-                    break
-            if skip:
+            # Check if already exists (exact filename match)
+            expected_fns = {f"{meta.get('date', 'unknown')}-{slug}.md", f"{slug}.md"}
+            if expected_fns & existing:
                 continue
 
             print(f"\n  [{i+1}/{len(post_links)}] {meta['title']}")
@@ -762,18 +768,20 @@ class DhhHistoricalScraper(BaseScraper):
             match = re.search(r"/(\d{4})/(.+?)\.html", meta["url"])
             if match:
                 year = match.group(1)
-                slug = match.group(2)
+                slug = sanitize_slug(match.group(2))
             else:
                 slug = slugify(meta["title"])
                 year = None
 
-            # Check if already exists
-            skip = False
-            for fn in existing:
-                if slug in fn:
-                    skip = True
-                    break
-            if skip:
+            # Check if already exists (exact filename match)
+            expected_fns = set()
+            if year:
+                expected_fns.add(f"{year}-01-01-{slug}.md")
+            expected_fns.add(f"{slug}.md")
+            # Also check with any date prefix
+            if any(fn.endswith(f"-{slug}.md") for fn in existing):
+                continue
+            if expected_fns & existing:
                 continue
 
             print(f"\n  [{i+1}/{len(essay_links)}] {meta['title']}")

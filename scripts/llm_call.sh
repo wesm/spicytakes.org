@@ -99,11 +99,13 @@ with open('$tmpfile') as f:
         except json.JSONDecodeError:
             continue
 
+if not result_text.strip():
+    sys.exit(1)
 print(result_text)
-" > "$parsedfile"
+" > "$parsedfile" || true
 
-        # Check for empty output (backend failure)
-        if [[ ! -s "$parsedfile" ]]; then
+        # Check for empty/whitespace-only output (backend failure)
+        if [[ ! -s "$parsedfile" ]] || ! grep -q '[^[:space:]]' "$parsedfile"; then
             echo "  [LLM] Error: claude produced empty output" >&2
             rm -f "$tmpfile" "$parsedfile" 2>/dev/null || true
             exit 1

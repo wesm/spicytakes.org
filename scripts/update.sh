@@ -39,18 +39,23 @@ POSTS_BEFORE=$(python3 "$UTILS" raw-post-count "$BLOG_ID")
 # Step 1: Scrape new posts
 echo "Step 1/5: Checking for new posts..."
 
-# For github_markdown blogs, pull the local repo first
+# For github_markdown blogs, pull the local repo first (best-effort)
 if [[ "$SCRAPER_TYPE" == "github_markdown" ]]; then
-    LOCAL_PATH=$(python3 "$UTILS" config "$BLOG_ID" scraper.localPath)
+    LOCAL_PATH=$(python3 "$UTILS" config "$BLOG_ID" scraper.localPath --default "")
     if [[ -n "$LOCAL_PATH" ]]; then
         EXPANDED_PATH="${LOCAL_PATH/#\~/$HOME}"
         if [[ -d "$EXPANDED_PATH/.git" ]]; then
             echo "  Pulling latest from $EXPANDED_PATH..."
-            git -C "$EXPANDED_PATH" pull
+            git -C "$EXPANDED_PATH" pull || echo "  Warning: git pull failed, continuing with local state"
         fi
     fi
 fi
 
+# Validate scraper type is safe (alphanumeric + underscore only)
+if [[ ! "$SCRAPER_TYPE" =~ ^[a-z0-9_]+$ ]]; then
+    echo "Error: Invalid scraper type: $SCRAPER_TYPE"
+    exit 1
+fi
 SCRAPER_SCRIPT="scripts/scrapers/${SCRAPER_TYPE}.py"
 if [[ ! -f "$SCRAPER_SCRIPT" ]]; then
     echo "Error: No scraper found at $SCRAPER_SCRIPT"
@@ -62,7 +67,14 @@ echo ""
 POSTS_AFTER=$(python3 "$UTILS" raw-post-count "$BLOG_ID")
 NEW_POSTS=$((POSTS_AFTER - POSTS_BEFORE))
 
-if [[ "$NEW_POSTS" -le 0 ]]; then
+if [[ "$NEW_POSTS" -lt 0 ]]; then
+    echo "Warning: Post count decreased ($POSTS_BEFORE -> $POSTS_AFTER). Possible data issue."
+    echo ""
+    echo "=== Update Aborted ==="
+    exit 1
+fi
+
+if [[ "$NEW_POSTS" -eq 0 ]]; then
     echo "No new posts found. Skipping analysis, grading, and build."
     echo ""
     echo "=== Update Complete (no changes) ==="
@@ -88,7 +100,7 @@ python3 "$UTILS" update-landing "$BLOG_ID"
 echo ""
 
 # Step 5: Rebuild the site (skip with NO_BUILD=1)
-if [[ -n "${NO_BUILD:-}" ]]; then
+if [[ "${NO_BUILD:-}" == "1" ]]; then
     echo "Step 5/5: Skipping build (NO_BUILD is set)"
 else
     echo "Step 5/5: Rebuilding site..."

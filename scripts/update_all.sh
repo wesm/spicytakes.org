@@ -14,9 +14,8 @@ UTILS="$SCRIPT_DIR/update_stats.py"
 
 cd "$PROJECT_DIR"
 
-# Source ALL_BLOGS from deploy.sh
-ALL_BLOGS_LINE=$(grep '^ALL_BLOGS=' scripts/deploy.sh)
-eval "$ALL_BLOGS_LINE"
+# Extract ALL_BLOGS from deploy.sh (no eval — parse the value safely)
+ALL_BLOGS=$(grep '^ALL_BLOGS=' scripts/deploy.sh | sed 's/^ALL_BLOGS="//' | sed 's/"$//')
 
 # Remove "landing" from the list
 ALL_BLOGS=$(echo "$ALL_BLOGS" | tr ' ' '\n' | grep -v '^landing$' | tr '\n' ' ')

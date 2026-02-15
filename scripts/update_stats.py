@@ -25,11 +25,25 @@ def load_config(blog_id: str) -> dict:
     return json.loads(path.read_text())
 
 
-def config_value(blog_id: str, dotted_key: str) -> str:
-    """Read a dotted key from a blog config. e.g. 'scraper.type'"""
+_SENTINEL = object()
+
+
+def config_value(
+    blog_id: str, dotted_key: str, default: str = _SENTINEL
+) -> str:
+    """Read a dotted key from a blog config. e.g. 'scraper.type'
+
+    Returns default if the key is missing and a default was given.
+    Raises KeyError if the key is missing and no default was given.
+    """
     obj = load_config(blog_id)
     for part in dotted_key.split("."):
-        obj = obj[part]
+        if isinstance(obj, dict) and part in obj:
+            obj = obj[part]
+        elif default is not _SENTINEL:
+            return default
+        else:
+            raise KeyError(f"{dotted_key}: key '{part}' not found")
     return str(obj)
 
 
@@ -118,11 +132,18 @@ def cli_raw_post_count(args: list[str]) -> None:
 
 
 def cli_config(args: list[str]) -> None:
-    """CLI: print a config value."""
-    if len(args) != 2:
-        print("Usage: update_stats.py config <blog_id> <dotted.key>", file=sys.stderr)
+    """CLI: print a config value. Supports --default for optional keys."""
+    if len(args) == 4 and args[2] == "--default":
+        print(config_value(args[0], args[1], default=args[3]))
+    elif len(args) == 2:
+        print(config_value(args[0], args[1]))
+    else:
+        print(
+            "Usage: update_stats.py config <blog_id> <key>"
+            " [--default <val>]",
+            file=sys.stderr,
+        )
         sys.exit(1)
-    print(config_value(args[0], args[1]))
 
 
 def cli_stats(args: list[str]) -> None:
