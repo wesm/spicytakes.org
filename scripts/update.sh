@@ -44,6 +44,14 @@ case "$SCRAPER_TYPE" in
         BLOG_ID="$BLOG_ID" python3 scripts/scrapers/substack.py
         ;;
     github_markdown)
+        LOCAL_PATH=$(python3 -c "import json; print(json.load(open('$CONFIG_FILE'))['scraper'].get('localPath', ''))")
+        if [[ -n "$LOCAL_PATH" ]]; then
+            EXPANDED_PATH="${LOCAL_PATH/#\~/$HOME}"
+            if [[ -d "$EXPANDED_PATH/.git" ]]; then
+                echo "  Pulling latest from $EXPANDED_PATH..."
+                git -C "$EXPANDED_PATH" pull
+            fi
+        fi
         BLOG_ID="$BLOG_ID" python3 scripts/scrapers/github_markdown.py
         ;;
     quarto_blog)
