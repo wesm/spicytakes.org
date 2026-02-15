@@ -31,6 +31,7 @@ import hannesConfig from '../../config/hannes.json';
 import mempkoConfig from '../../config/mempko.json';
 import spolskyConfig from '../../config/spolsky.json';
 import dhhConfig from '../../config/dhh.json';
+import fernandoConfig from '../../config/fernando.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -60,6 +61,7 @@ const configs: Record<string, BlogConfig> = {
   mempko: mempkoConfig as BlogConfig,
   spolsky: spolskyConfig as BlogConfig,
   dhh: dhhConfig as BlogConfig,
+  fernando: fernandoConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
