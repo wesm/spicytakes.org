@@ -313,11 +313,20 @@ class StaticHtmlScraper(BaseScraper):
         post_infos = self.get_post_urls_danluu(soup)
         print(f"Found {len(post_infos)} public posts")
 
-        # Filter out already-scraped posts
+        # Filter out already-scraped posts by matching URL slug
+        # to the slug portion of existing filenames (after the
+        # YYYY-MM-DD- date prefix)
         existing_filenames = self.get_existing_filenames()
-        existing_slugs = {f.split("-")[-1].replace(".md", "") for f in existing_filenames}
+        existing_slugs = set()
+        for f in existing_filenames:
+            name = f.replace(".md", "")
+            m = re.match(r"\d{4}-\d{2}-\d{2}-(.*)", name)
+            existing_slugs.add(m.group(1) if m else name)
 
-        to_scrape = [p for p in post_infos if p["url"].rstrip("/").split("/")[-1] not in existing_slugs]
+        to_scrape = [
+            p for p in post_infos
+            if p["url"].rstrip("/").split("/")[-1] not in existing_slugs
+        ]
 
         if not to_scrape:
             print("All posts already scraped!")
