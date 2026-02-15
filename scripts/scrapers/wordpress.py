@@ -51,6 +51,7 @@ class WordPressScraper(BaseScraper):
     def fetch_all_posts_from_feed(self) -> list[dict]:
         """Fetch all posts from RSS feed with pagination."""
         all_posts = []
+        seen_urls: set[str] = set()
         page = 1
         max_pages = 200  # Safety limit
 
@@ -79,6 +80,7 @@ class WordPressScraper(BaseScraper):
                 if not items:
                     break
 
+                prev_count = len(all_posts)
                 excluded_count = 0
                 for item in items:
                     title_elem = item.find("title")
@@ -115,6 +117,10 @@ class WordPressScraper(BaseScraper):
                     if content_elem is not None and content_elem.text:
                         content_html = content_elem.text
 
+                    if url in seen_urls:
+                        continue
+                    seen_urls.add(url)
+
                     all_posts.append({
                         "title": title,
                         "url": url,
@@ -122,10 +128,12 @@ class WordPressScraper(BaseScraper):
                         "content_html": content_html
                     })
 
-                print(f"    Got {len(items)} items ({excluded_count} excluded)")
+                new_count = len(all_posts) - prev_count
+                print(f"    Got {len(items)} items ({excluded_count} excluded, {new_count} new)")
 
-                # Check if there are more pages
-                if len(items) < 10:  # WordPress default is 10 per page
+                # Stop if page returned no new items (non-paginating feed)
+                # or fewer than 10 items (last page of paginating feed)
+                if new_count == 0 or len(items) < 10:
                     break
 
                 page += 1

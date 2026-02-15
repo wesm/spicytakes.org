@@ -208,11 +208,6 @@ export function buildSourceUrl(
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${cfg.sourceUrl}/${slug}.html`;
   }
-  // For ghost blogs, URL is /{slug}/
-  if (cfg.scraper.type === 'ghost') {
-    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return `${cfg.sourceUrl}/${slug}/`;
-  }
   // For hey_world blogs (DHH), URL is /{slug} (slug from filename minus date prefix)
   if (cfg.scraper.type === 'hey_world') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
