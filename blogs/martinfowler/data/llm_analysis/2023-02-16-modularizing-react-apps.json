@@ -1,1 +1,27 @@
-{"filename": "2023-02-16-modularizing-react-apps", "error": "no_json", "raw": "\n"}
+{
+  "summary": "This article argues that React applications should be structured using established UI patterns like layered architecture rather than cramming all logic into components. The author walks through the progressive evolution of a Payment feature, demonstrating how to extract concerns into custom hooks, domain model classes, pure presentational components, and network access layers. Using the Strategy pattern, the article shows how to eliminate shotgun surgery when adding country-specific payment logic. The core thesis is that frontend applications deserve the same separation of concerns that backend and desktop GUI applications have long employed, and React should be treated as just the view layer.",
+  "key_points": [
+    "React is a view library, not a framework \u2014 frontend apps should separate view code from business logic, data access, and state management just like any other software",
+    "The evolutionary path from single-component apps to layered architecture follows natural steps: extract components, extract hooks for state, extract domain models, then separate data access",
+    "Domain model classes (like PaymentMethod) encapsulate business logic and data transformation, preventing logic leakage into views and hooks",
+    "The Strategy pattern eliminates shotgun surgery when country-specific variations would otherwise scatter conditional branches across multiple files",
+    "An Anti-Corruption Layer between network fetching and domain models limits the blast radius of API changes to a single file"
+  ],
+  "money_quotes": [
+    "There are front-end applications written in JavaScript or TypeScript that happen to use React as their views. However, I think it's not fair to call them React applications, just as we wouldn't call a Java EE application JSP application.",
+    "Frontend applications should not be treated too differently from regular software applications. In the frontend world, you still use separation of concerns in general to arrange the code structure. And all the proven useful design patterns still apply.",
+    "Trying to squeeze everything into React components or hooks is generally not a good idea. The reason is mixing concepts in one place generally leads to more confusion.",
+    "The reader must constantly reset their logic flow and jump back and forth from different levels of details.",
+    "These test statements in a view can be considered a logic leak, and gradually they can be scattered in different places and make modification harder.",
+    "You can think of it this way: the React view is only one of the consumers of your non-view code.",
+    "Building React application, or a frontend application with React as its view, should not be treated as a new type of software. Most of the patterns and principles for building the traditional user interface still apply."
+  ],
+  "themes": [
+    "architecture",
+    "refactoring",
+    "domain_driven"
+  ],
+  "tone": "technical",
+  "key_insight": "React applications should treat React as just the view layer and apply established separation-of-concerns patterns \u2014 domain models, layered architecture, and strategy pattern \u2014 to keep business logic independent, testable, and reusable outside any UI framework.",
+  "filename": "2023-02-16-modularizing-react-apps"
+}

@@ -1,1 +1,31 @@
-{"filename": "2008-06-14-rhinos-and-tigers", "error": "no_json", "raw": "\n"}
+{
+  "summary": "Steve Yegge transcribes his Google I/O 2008 talk advocating for server-side JavaScript via Mozilla Rhino on the JVM. He argues that as web applications grow, they need scriptability for end users, and Rhino is well-positioned for this because it provides JVM benefits (garbage collection, threads, JIT compilation) while using the most widely-known scripting language. He detours into a devastating critique of static typing through the 'paper tigers' metaphor, arguing that Scala's superior type system exposes Java developers' contradictory stance on type safety. He also champions dynamic languages for making unit testing dramatically easier by eliminating the need for dependency injection and mock frameworks.",
+  "key_points": [
+    "VMs exist primarily for language interoperability, but true cross-language calling conventions remain an unsolved problem requiring years of research",
+    "Server-side applications must become user-scriptable like desktop apps (Emacs, Excel), but security sandboxing and resource throttling make this extremely difficult",
+    "Rhino on the JVM gets free benefits: generational GC, native threads, async I/O, and JIT compilation that approaches Java-level performance for long-running services",
+    "Scala creates a paradox for Java advocates: if static types matter for safety, Java's unsound type system should be replaced by Scala's superior one \u2014 but Java developers reject Scala's complexity, inadvertently admitting good engineering practices matter more than types",
+    "Dynamic languages fundamentally change development from batch compile-run cycles to proof-by-construction, making unit testing natural rather than requiring architectural contortions like dependency injection"
+  ],
+  "money_quotes": [
+    "Static types are like talismans to keep tigers away. 'How do you know it keeps tigers away?' 'Do you see any tigers around here!?'",
+    "Unit testing in Java is so painful that the Java community has evolved around it. They've said: 'Don't use constructors. Constructors are baaaaad.'",
+    "Scala is the tiger that's going to kill Java. Because their type-talisman argument has become a paradox.",
+    "What are the odds that XML's going to wind up being less verbose than anything?",
+    "Java programmers would be saying, 'We haven't hit 55 million yet. But, well... we're gonna.'",
+    "You're going to run code on my servers? Uh... OK...",
+    "Knowing languages will make you a better programmer. It will even if you're not using them.",
+    "In a dynamic language, you write an expression, give it mock data, and when it works you copy it into your unit test suite. Proof by construction."
+  ],
+  "themes": [
+    "programming_languages",
+    "compilers",
+    "software_engineering",
+    "tech_industry",
+    "google",
+    "rants"
+  ],
+  "tone": "opinionated, conversational, humorous",
+  "key_insight": "The 'paper tigers' of static typing are exposed when a truly rigorous type system like Scala's arrives and Java developers reject it as too complex \u2014 inadvertently proving that good engineering practices, not type systems, are what actually prevent bugs at scale.",
+  "filename": "2008-06-14-rhinos-and-tigers"
+}

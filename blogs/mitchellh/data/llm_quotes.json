@@ -1,6 +1,6 @@
 {
-  "total_posts": 45,
-  "successful": 45,
+  "total_posts": 47,
+  "successful": 47,
   "posts": [
     {
       "summary": "Mitchell Hashimoto introduces the concept of the 'new normal' - the phenomenon where your perception of what's normal shifts based on the people you surround yourself with, fundamentally changing your ambitions and likelihood of success. He traces four pivotal moments in his life: accidentally joining an online BBS community of game hackers at age 12, receiving a job opportunity through his open source work, deliberately choosing to move to San Francisco, and gaining the confidence to start HashiCorp. The essay argues that these shifts in normality can happen through serendipity, opportunity, deliberate choice, or confidence-building. He emphasizes that actively seeking a new normal can steer your life in unexpected directions.",
@@ -1190,6 +1190,61 @@
       "tone": "technical, methodical, transparent",
       "key_insight": "Memory management bugs often hide in optimization code paths that are only exercised under specific conditions, and even comprehensive testing strategies can miss them until real-world usage patterns evolve.",
       "filename": "2026-01-10-ghostty-memory-leak-fix"
+    },
+    {
+      "summary": "Mitchell Hashimoto introduces Tripwire, a Zig library he built for Ghostty that injects failures into code to test error handling paths, specifically errdefer cleanup logic. He explains that errdefer\u2014Zig's mechanism for undoing partial effects when errors occur\u2014is ironically one of the most error-prone parts of Zig programs because error paths are rarely exercised in testing. Tripwire lets developers place named failure points in code that trigger errors during tests but compile to nothing in release builds, using Zig's comptime features for true zero-cost abstraction. By combining Tripwire with Zig's testing allocator, developers can verify that errdefer cleanup actually works correctly by detecting memory leaks when errors are injected. Integrating Tripwire into just a handful of places in Ghostty immediately uncovered roughly six errdefer bugs. He encourages others to copy the single-file, MIT-licensed library into their own projects.",
+      "key_points": [
+        "Error cleanup via errdefer is paradoxically one of the most error-prone parts of Zig programs because error paths are rarely exercised in tests and only cognitively reviewed during development",
+        "Tripwire works by placing named failure points before fallible operations that can be triggered in tests to force errdefer execution, while compiling to zero overhead in release builds via Zig's comptime and inline calling conventions",
+        "Iterating through all possible failure points with std.meta.tags provides complete error path coverage in a single test",
+        "Integrating Tripwire into only a handful of places in Ghostty immediately uncovered ~6 errdefer bugs that had never been known to trigger in production",
+        "Zig's testing allocator serves as the verification mechanism\u2014if errdefer cleanup is missing or wrong, the test fails with a detected memory leak"
+      ],
+      "money_quotes": [
+        "Ironically, error cleanup is one of the most error-prone parts of Zig programs and is a consistent source of resource leaks and memory corruption.",
+        "Error codepaths are typically much less frequently executed and triggering them in tests can be difficult. As a result, they usually are only cognitively reviewed once or twice during development, and never truly exercised until a user hits them in production.",
+        "I ultimately grew tired of eyeballing error handling code and hoping it was correct, or spending hours trying to write tests that create a perfect-but-fragile scenario to trigger an exact error path.",
+        "Outside of tests, Tripwire emits no machine code and uses no memory; it is completely optimized away.",
+        "I integrated Tripwire into Ghostty in only a handful of places and immediately uncovered many bugs.",
+        "And most importantly, the bugs are now fixed paired with unit tests that verified they exist! If I remove the fix, the tests fail!"
+      ],
+      "themes": [
+        "zig",
+        "ghostty",
+        "systems",
+        "devtools"
+      ],
+      "tone": "technical, pragmatic",
+      "key_insight": "Error cleanup code is paradoxically the most error-prone part of programs because it's rarely tested, and fault injection libraries like Tripwire solve this by making error paths systematically exercisable at zero runtime cost.",
+      "filename": "2026-01-21-tripwire"
+    },
+    {
+      "summary": "Mitchell Hashimoto describes his gradual journey from AI skeptic to productive AI user, structured as a six-step progression. He began by abandoning chatbot interfaces in favor of agentic tools, then forced himself through a painful period of reproducing his manual work with agents to build expertise. He discovered efficiency gains by running agents during off-hours, delegating high-confidence tasks while working on other things manually, and engineering 'harnesses' (AGENTS.md files and verification tools) to prevent recurring agent mistakes. His current goal is to always have a background agent running on useful work, though he emphasizes measured adoption over hype and respects others' choices not to use AI at all.",
+      "key_points": [
+        "Chatbot interfaces are fundamentally limited for coding; agents that can read files, execute programs, and make HTTP requests are the minimum viable AI tool for real productivity.",
+        "Forcing yourself to reproduce manual work with agents is painful but essential for building the expertise to know what agents are and aren't good at \u2014 including knowing when not to use them.",
+        "Running end-of-day agents for research, idea exploration, and issue triage provides a 'warm start' the next morning without requiring overnight loops.",
+        "Turning off agent notifications and controlling when you check on them is critical \u2014 context switching destroys the human's productivity more than the agent's output is worth.",
+        "'Harness engineering' \u2014 investing time to prevent agents from repeating mistakes via AGENTS.md and verification tooling \u2014 is the highest-leverage activity for improving agent output quality."
+      ],
+      "money_quotes": [
+        "Instead of giving up, I forced myself to reproduce all my manual commits with agentic ones. I literally did the work twice.",
+        "Using an agent for something it'll likely fail at is obviously a big waste of time and having the knowledge to avoid that completely leads to time savings.",
+        "Instead of trying to do more in the time I have, try to do more in the time I don't have.",
+        "Very important at this stage: turn off agent desktop notifications. Context switching is very expensive. It was my job as a human to be in control of when I interrupt the agent, not the other way around.",
+        "Anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again.",
+        "I could now focus my coding and thinking on tasks I really loved while still adequately completing the tasks I didn't.",
+        "I don't want to run agents for the sake of running agents. I only want to run them when there is a task I think would be truly helpful to me.",
+        "I really don't care one way or the other if AI is here to stay, I'm a software craftsman that just wants to build stuff for the love of the game."
+      ],
+      "themes": [
+        "ai",
+        "devtools",
+        "ghostty"
+      ],
+      "tone": "reflective, pragmatic, measured",
+      "key_insight": "Productive AI adoption requires painful deliberate practice to learn what agents can and can't do, then systematically engineering harnesses and verification tools so agents produce correct results autonomously while you focus on the work you actually enjoy.",
+      "filename": "2026-02-05-my-ai-adoption-journey"
     }
   ]
 }

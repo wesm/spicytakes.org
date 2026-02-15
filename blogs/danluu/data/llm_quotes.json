@@ -1,6 +1,6 @@
 {
   "total_posts": 111,
-  "successful": 110,
+  "successful": 111,
   "posts": [
     {
       "summary": "Luu argues that Verilog development desperately needs basic static analysis tools to catch common bugs early, despite the industry's lack of such tooling. He describes how a simple custom linter based on naming conventions (for pipeline stages, clock domains, and module boundaries) found 7 bugs in 30 minutes, demonstrating that you don't need a PhD to build useful static analysis for hardware design. The post challenges the notion that static analysis is too hard, showing that simple checks can prevent costly errors that take hours to debug in simulation or days to discover in timing reports.",
@@ -1384,9 +1384,27 @@
       "filename": "2016-04-01-google-sre-book"
     },
     {
-      "filename": "2016-04-01-programming-blogs",
-      "error": "no_json",
-      "raw": "```json\n{\n  \"summary\": \"This is a curated list of programming blogs worth reading, presented not as a universal \\\"must-read\\\" list but as a collection of diverse resources for different interests and learning styles. The post describes dozens of technical blogs, categorizing them by focus area (JVM internals, performance, distributed systems, hardware, etc.) and reading style (detailed code walkthroughs, theory, debugging stories, etc.). The meta-message is that \\\"programmer\\\" is too broad a cat"
+      "summary": "Dan Luu curates a comprehensive list of programming blogs worth reading, organized by author with brief descriptions of their content focus and writing style. Rather than prescribing a universal reading list, he acknowledges that different programmers have different learning styles and interests. The post emphasizes the decline of blog discovery through blogrolls and calls for readers to share recommendations, noting that even popular blogs can fly under the radar.",
+      "key_points": [
+        "Curated list of 50+ technical blogs spanning systems programming, distributed systems, performance, compilers, and tech culture",
+        "Each recommendation includes the blog's focus area, writing style, and what readers should expect in terms of difficulty",
+        "Highlights the decline of blog discovery mechanisms like blogrolls and blogging as dialogue",
+        "Openly solicits recommendations, noting that even well-known blogs can be unknown to him"
+      ],
+      "money_quotes": [
+        "This is one of those 'N technical things every programmer must read' lists, except that 'programmer' is way too broad a term and the styles of writing people find helpful for them are too different for any such list to contain a non-zero number of items.",
+        "He has a lot of ideas that sound like common sense, e.g., choose boring technology, until you realize that it's actually uncommon to find opinions that are so sensible.",
+        "Even with centralized link aggregators like HN and reddit, blog discovery has become haphazard and random with the decline of blogrolls and blogging as a dialogue, as opposed to the current practice of blogging as a monologue.",
+        "90% of the time, when I get the desire to write a post about a common misconception software folks have about hardware, Yossi has already written the post and taken a lot of flak for it so I don't have to."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_culture",
+        "programming"
+      ],
+      "tone": "helpful, curated, self-aware",
+      "key_insight": "The fragmentation of the programming blogosphere means valuable technical writing is increasingly hard to discover, and curated lists with context about writing style and difficulty level help readers find content that matches their learning preferences.",
+      "filename": "2016-04-01-programming-blogs"
     },
     {
       "summary": "Luu examines the academic literature on concurrency bugs in both single-machine and distributed systems, finding that while most bugs are simple by count, non-deterministic concurrency bugs consume disproportionate debugging time (weeks to months per bug). He surveys numerous academic tools for detecting these bugs and notes a frustrating pattern: most published research tools are unavailable or unmaintained, while the most impactful real-world tools (TSan, Jepsen, AFL) use simpler, older techniques prioritizing practicality over novelty. The gap between academic research and usable tooling represents a major missed opportunity for industry impact.",
