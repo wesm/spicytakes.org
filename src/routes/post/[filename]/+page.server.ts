@@ -1,3 +1,6 @@
+import { readFile } from 'node:fs/promises';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { error } from '@sveltejs/kit';
 import { config } from '$lib/config';
 import { renderMarkdown } from '$lib/server/markdown';
@@ -9,17 +12,16 @@ export const prerender = false;
 
 const blogId = import.meta.env.VITE_BLOG_ID || 'benn';
 
-// Lazy glob for loading raw markdown post content.
-// Excludes filenames containing '#' which break Rollup's resolver.
-const markdownFiles = import.meta.glob<string>(
-  ['/blogs/*/posts/*.md', '!/blogs/*/posts/*#*.md'],
-  { query: '?raw', import: 'default' }
-);
-
 function isTranscript(post: { content_type?: string }): boolean {
   if (post.content_type === 'transcript') return true;
   return config?.scraper.type === 'transcript_only';
 }
+
+// Resolve the project root for reading post markdown files.
+// In dev: process.cwd(). On Vercel: relative to this file.
+const projectRoot = import.meta.env.DEV
+  ? process.cwd()
+  : join(dirname(fileURLToPath(import.meta.url)), '../../../../..');
 
 export const load: PageServerLoad = async ({ params, parent }) => {
   const { blogData } = await parent();
@@ -39,11 +41,15 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   let transcriptHtml: string | null = null;
 
   if (isTranscript(post)) {
-    const mdPath = `/blogs/${blogId}/posts/${params.filename}.md`;
-    const loader = markdownFiles[mdPath];
-    if (loader) {
-      const raw = await loader();
+    const mdPath = join(
+      projectRoot, 'blogs', blogId, 'posts',
+      `${params.filename}.md`
+    );
+    try {
+      const raw = await readFile(mdPath, 'utf-8');
       transcriptHtml = renderMarkdown(raw);
+    } catch {
+      // File not found — leave transcriptHtml as null
     }
   }
 
