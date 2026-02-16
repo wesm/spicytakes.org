@@ -22,6 +22,7 @@
 
   let highlightedQuote: number | null = $state(null);
   let copiedQuote: number | null = $state(null);
+  let showTranscript = $state(false);
 
   function updateHighlight() {
     if (!browser) return;
@@ -197,6 +198,37 @@
         </div>
       {/if}
     </article>
+
+    {#if data.transcriptHtml}
+      <div class="bg-white rounded-2xl shadow-lg mt-6">
+        <button
+          onclick={() => showTranscript = !showTranscript}
+          class="w-full flex items-center justify-between p-6
+            text-stone-700 hover:text-stone-900 transition-colors"
+        >
+          <span class="text-sm font-semibold uppercase tracking-wider">
+            {showTranscript ? 'Hide Transcript' : 'Read Transcript'}
+          </span>
+          <svg
+            class="w-5 h-5 transition-transform duration-200
+              {showTranscript ? 'rotate-180' : ''}"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        {#if showTranscript}
+          <div class="px-8 pb-8">
+            <div class="prose prose-stone max-w-none">
+              {@html data.transcriptHtml}
+            </div>
+          </div>
+        {/if}
+      </div>
+    {/if}
   </div>
 {:else}
   <div class="max-w-3xl lg:max-w-5xl mx-auto px-4 py-8">
