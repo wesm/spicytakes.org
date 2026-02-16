@@ -106,6 +106,46 @@ if ! command -v vercel &> /dev/null; then
     exit 1
 fi
 
+write_vercelignore() {
+    local blog_id="$1"
+    cat > .vercelignore <<'STATIC'
+# Large directories not needed for build
+.git
+node_modules
+.svelte-kit
+
+# Per-post LLM analysis (combined data is in llm_quotes.json)
+blogs/*/data/llm_analysis/
+
+# Audio/video files
+blogs/*/transcripts/audio/
+blogs/**/*.mp3
+blogs/**/*.mp4
+blogs/**/*.wav
+blogs/**/*.m4a
+
+# Development/docs
+*.log
+.DS_Store
+
+# Playwright
+playwright-report/
+test-results/
+
+# Exclude all blog posts (only current blog's posts are needed)
+blogs/*/posts/
+blogs/*/transcripts/
+STATIC
+
+    # Re-include the current blog's posts and transcripts
+    if [ "$blog_id" != "landing" ]; then
+        echo "" >> .vercelignore
+        echo "# Re-include current blog" >> .vercelignore
+        echo "!blogs/${blog_id}/posts/" >> .vercelignore
+        echo "!blogs/${blog_id}/transcripts/" >> .vercelignore
+    fi
+}
+
 deploy_blog() {
     local blog_id="$1"
     local project_name
@@ -122,6 +162,9 @@ deploy_blog() {
     echo "Project:   $project_name"
     echo "Mode:      ${PROD_FLAG:-preview}"
     echo "========================================"
+
+    # Generate .vercelignore excluding other blogs' posts
+    write_vercelignore "$blog_id"
 
     # Link to the correct Vercel project
     echo "Linking to project..."
