@@ -1,0 +1,27 @@
+{
+  "summary": "Mitchell Hashimoto introduces Tripwire, a Zig library he built for Ghostty that injects failures into code to test error handling paths, specifically errdefer cleanup logic. He explains that errdefer\u2014Zig's mechanism for undoing partial effects when errors occur\u2014is ironically one of the most error-prone parts of Zig programs because error paths are rarely exercised in testing. Tripwire lets developers place named failure points in code that trigger errors during tests but compile to nothing in release builds, using Zig's comptime features for true zero-cost abstraction. By combining Tripwire with Zig's testing allocator, developers can verify that errdefer cleanup actually works correctly by detecting memory leaks when errors are injected. Integrating Tripwire into just a handful of places in Ghostty immediately uncovered roughly six errdefer bugs. He encourages others to copy the single-file, MIT-licensed library into their own projects.",
+  "key_points": [
+    "Error cleanup via errdefer is paradoxically one of the most error-prone parts of Zig programs because error paths are rarely exercised in tests and only cognitively reviewed during development",
+    "Tripwire works by placing named failure points before fallible operations that can be triggered in tests to force errdefer execution, while compiling to zero overhead in release builds via Zig's comptime and inline calling conventions",
+    "Iterating through all possible failure points with std.meta.tags provides complete error path coverage in a single test",
+    "Integrating Tripwire into only a handful of places in Ghostty immediately uncovered ~6 errdefer bugs that had never been known to trigger in production",
+    "Zig's testing allocator serves as the verification mechanism\u2014if errdefer cleanup is missing or wrong, the test fails with a detected memory leak"
+  ],
+  "money_quotes": [
+    "Ironically, error cleanup is one of the most error-prone parts of Zig programs and is a consistent source of resource leaks and memory corruption.",
+    "Error codepaths are typically much less frequently executed and triggering them in tests can be difficult. As a result, they usually are only cognitively reviewed once or twice during development, and never truly exercised until a user hits them in production.",
+    "I ultimately grew tired of eyeballing error handling code and hoping it was correct, or spending hours trying to write tests that create a perfect-but-fragile scenario to trigger an exact error path.",
+    "Outside of tests, Tripwire emits no machine code and uses no memory; it is completely optimized away.",
+    "I integrated Tripwire into Ghostty in only a handful of places and immediately uncovered many bugs.",
+    "And most importantly, the bugs are now fixed paired with unit tests that verified they exist! If I remove the fix, the tests fail!"
+  ],
+  "themes": [
+    "zig",
+    "ghostty",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical, pragmatic",
+  "key_insight": "Error cleanup code is paradoxically the most error-prone part of programs because it's rarely tested, and fault injection libraries like Tripwire solve this by making error paths systematically exercisable at zero runtime cost.",
+  "filename": "2026-01-21-tripwire"
+}

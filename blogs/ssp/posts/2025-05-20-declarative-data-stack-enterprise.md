@@ -1,5 +1,5 @@
 ---
-title: "Configure, Don't Code: How Declarative Data Stacks Enable Enterprise Scale05-20"
+title: "Configure, Don't Code: How Declarative Data Stacks Enable Enterprise Scale"
 date: 2025-05-20
 url: https://www.ssp.sh/blog/declarative-data-stack-enterprise/
 slug: declarative-data-stack-enterprise

@@ -1,5 +1,5 @@
 ---
-title: "The Data Engineering Toolkit: Essential Tools for Your Machine01-22"
+title: "The Data Engineering Toolkit: Essential Tools for Your Machine"
 date: 2025-01-22
 url: https://www.ssp.sh/blog/data-engineering-toolkit/
 slug: data-engineering-toolkit

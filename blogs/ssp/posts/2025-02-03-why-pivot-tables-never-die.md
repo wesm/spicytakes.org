@@ -1,5 +1,5 @@
 ---
-title: "Why Pivot Tables Never Die02-03"
+title: "Why Pivot Tables Never Die"
 date: 2025-02-03
 url: https://www.ssp.sh/blog/why-pivot-tables-never-die/
 slug: why-pivot-tables-never-die

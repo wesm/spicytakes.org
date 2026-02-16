@@ -1,5 +1,5 @@
 ---
-title: "The Data Engineer's Guide to Efficient Log Parsing with DuckDB/MotherDuck04-21"
+title: "The Data Engineer's Guide to Efficient Log Parsing with DuckDB/MotherDuck"
 date: 2025-04-21
 url: https://www.ssp.sh/blog/log-parsing-duckdb/
 slug: log-parsing-duckdb

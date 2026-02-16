@@ -1,5 +1,5 @@
 ---
-title: "Do you listen to music while working?10-09"
+title: "Do you listen to music while working?"
 date: 2015-10-09
 url: https://www.ssp.sh/blog/do-you-listen-to-music-while-working/
 slug: do-you-listen-to-music-while-working

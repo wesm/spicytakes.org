@@ -1,5 +1,5 @@
 ---
-title: "Open-Source Data Warehousing â Druid, Apache Airflow & Superset11-29"
+title: "Open-Source Data Warehousing â Druid, Apache Airflow & Superset"
 date: 2018-11-29
 url: https://www.ssp.sh/blog/open-source-data-warehousing-druid-airflow-superset/
 slug: open-source-data-warehousing-druid-airflow-superset

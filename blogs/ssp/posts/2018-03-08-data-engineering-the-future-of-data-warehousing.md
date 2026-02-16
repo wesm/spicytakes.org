@@ -1,5 +1,5 @@
 ---
-title: "Data Engineering, the future of Data Warehousing?03-08"
+title: "Data Engineering, the future of Data Warehousing?"
 date: 2018-03-08
 url: https://www.ssp.sh/blog/data-engineering-the-future-of-data-warehousing/
 slug: data-engineering-the-future-of-data-warehousing

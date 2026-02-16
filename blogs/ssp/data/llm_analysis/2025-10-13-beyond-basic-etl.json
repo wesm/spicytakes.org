@@ -1,0 +1,26 @@
+{
+  "summary": "This sponsored article explores how declarative data stacks, specifically Starlake, can replace custom ETL code with YAML configurations. Sp\u00e4ti argues that most data teams waste 80% of their time on infrastructure plumbing\u2014writing UPSERT logic, building incremental loads, and debugging orchestration failures. He walks through Starlake's capabilities across the full ETL lifecycle: extraction from diverse sources, loading with built-in write strategies like SCD2 and UPSERT, SQL transformation with cross-engine transpilation, automated DAG generation, and testing locally with DuckDB. The core pitch is that a configuration-first approach eliminates glue code and vendor lock-in while delivering enterprise features that normally require dedicated platform teams.",
+  "key_points": [
+    "Declarative data stacks replace custom ETL code with YAML configurations, offering built-in write strategies (SCD2, UPSERT, APPEND) that typically require extensive custom development",
+    "SQL transpilation across engines (BigQuery, Snowflake, Databricks, DuckDB) enables local testing with DuckDB before deploying to production warehouses, reducing development cycles and cost",
+    "Automatic DAG generation and lineage tracking inferred directly from SQL statements eliminates manual dependency declarations and Jinja references",
+    "Multi-engine and cross-engine support avoids vendor lock-in\u2014you can use different compute engines per environment or even per model",
+    "The article is a sponsored piece written as part of Sp\u00e4ti's consulting services for Starlake"
+  ],
+  "money_quotes": [
+    "Most data teams spend 80% of their time wrestling with infrastructure\u2014writing custom UPSERT logic, building incremental loading from scratch, or debugging why their Airflow DAGs failed again at 2 AM.",
+    "Though the code and license to use the tools cost nothing, it's expensive to set up yourself if you don't have the expertise.",
+    "Having these integrated and switching quickly by just changing the writing strategy is handy and significant.",
+    "This allows us to test the SQL on top of an in-memory DuckDB database without hitting the data warehouse, inducing more interactivity and less cost.",
+    "Testing is most important in data engineering and data analytics platforms because if we have false key performance indicators or get inconsistent data, business consumers of the data won't trust the data anymore.",
+    "I believe the future is declarative data engineering, and Starlake can play a big part in this."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products"
+  ],
+  "tone": "promotional, technical",
+  "key_insight": "Declarative YAML-based configurations can replace most custom ETL code, offering enterprise features like SCD2, cross-engine SQL transpilation, and automatic DAG generation without vendor lock-in.",
+  "filename": "2025-10-13-beyond-basic-etl"
+}

@@ -1,5 +1,5 @@
 ---
-title: "Scaling Beyond Postgres: How to Choose a Real-Time Analytical Database03-11"
+title: "Scaling Beyond Postgres: How to Choose a Real-Time Analytical Database"
 date: 2025-03-11
 url: https://www.ssp.sh/blog/scaling-beyond-postgres/
 slug: scaling-beyond-postgres

@@ -1,5 +1,5 @@
 ---
-title: "The Rise of the Declarative Data Stack10-16"
+title: "The Rise of the Declarative Data Stack"
 date: 2024-10-16
 url: https://www.ssp.sh/blog/rise-of-declarative-data-stack/
 slug: rise-of-declarative-data-stack

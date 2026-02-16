@@ -10,6 +10,7 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import requests
 from bs4 import BeautifulSoup
@@ -32,6 +33,37 @@ class SubstackScraper(BaseScraper):
 
         self.substack_url = self.config["scraper"]["substackUrl"]
         self.urls_file = self.data_dir / "post_urls.json"
+        exclude_file = self.config["scraper"].get("excludeSlugsFile", "data/excluded_slugs.txt")
+        if Path(exclude_file).is_absolute():
+            self.exclude_slugs_file = Path(exclude_file)
+        else:
+            self.exclude_slugs_file = get_blog_dir(blog_id) / exclude_file
+        self.excluded_slugs = self.load_excluded_slugs()
+
+    def load_excluded_slugs(self) -> set[str]:
+        """Load excluded post slugs from file (one slug per line)."""
+        if not self.exclude_slugs_file.exists():
+            return set()
+
+        excluded = set()
+        for line in self.exclude_slugs_file.read_text().splitlines():
+            slug = line.split("#", 1)[0].strip().lower()
+            if slug:
+                excluded.add(slug)
+        if excluded:
+            print(f"Loaded {len(excluded)} excluded slug(s) from {self.exclude_slugs_file}")
+        return excluded
+
+    def extract_slug_from_url(self, url: str) -> str:
+        """Extract post slug from a Substack URL."""
+        path = urlsplit(url.rstrip("/")).path.rstrip("/")
+        if "/p/" in path:
+            return path.split("/p/")[-1]
+        return path.split("/")[-1]
+
+    def is_excluded_slug(self, slug: str) -> bool:
+        """Check whether a slug is excluded from ingestion."""
+        return slug.lower() in self.excluded_slugs
 
     def discover_post_urls(self) -> list[str]:
         """Discover all post URLs from the Substack archive API."""
@@ -60,9 +92,14 @@ class SubstackScraper(BaseScraper):
                 for post in posts:
                     if "canonical_url" in post:
                         url = post["canonical_url"].rstrip("/")
-                        all_urls.append(url)
                     elif "slug" in post:
-                        all_urls.append(f"{self.substack_url}/p/{post['slug']}")
+                        url = f"{self.substack_url}/p/{post['slug']}"
+                    else:
+                        continue
+
+                    if self.is_excluded_slug(self.extract_slug_from_url(url)):
+                        continue
+                    all_urls.append(url)
 
                 print(f"  Found {len(all_urls)} posts so far...")
                 offset += limit
@@ -80,7 +117,11 @@ class SubstackScraper(BaseScraper):
         def normalize(url: str) -> str:
             return url.rstrip("/")
 
-        existing_urls = self.load_urls()
+        def allowed(url: str) -> bool:
+            return not self.is_excluded_slug(self.extract_slug_from_url(url))
+
+        existing_urls = [u for u in self.load_urls() if allowed(u)]
+        urls = [u for u in urls if allowed(u)]
         existing_normalized = {normalize(u) for u in existing_urls}
         new_urls = [u for u in urls if normalize(u) not in existing_normalized]
 
@@ -297,11 +338,15 @@ class SubstackScraper(BaseScraper):
         if discovered_urls:
             self.update_urls_file(discovered_urls)
 
-        urls = self.load_urls()
+        urls = [u for u in self.load_urls() if not self.is_excluded_slug(self.extract_slug_from_url(u))]
         print(f"Found {len(urls)} total posts")
 
         existing_slugs = self.get_existing_slugs()
-        urls_to_scrape = [u for u in urls if u.split("/p/")[-1].rstrip("/") not in existing_slugs]
+        urls_to_scrape = [
+            u for u in urls
+            if self.extract_slug_from_url(u) not in existing_slugs
+            and not self.is_excluded_slug(self.extract_slug_from_url(u))
+        ]
 
         if not urls_to_scrape:
             print("All posts already scraped!")

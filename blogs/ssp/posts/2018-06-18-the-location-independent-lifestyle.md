@@ -1,5 +1,5 @@
 ---
-title: "Todayâs Office â The Location Independent Lifestyle06-18"
+title: "Todayâs Office â The Location Independent Lifestyle"
 date: 2018-06-18
 url: https://www.ssp.sh/blog/the-location-independent-lifestyle/
 slug: the-location-independent-lifestyle

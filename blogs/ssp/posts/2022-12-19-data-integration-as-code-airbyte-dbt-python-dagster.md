@@ -1,5 +1,5 @@
 ---
-title: "Data Integration as Code: Configuring Airbyte and dbt with Python (Dagster)12-19"
+title: "Data Integration as Code: Configuring Airbyte and dbt with Python (Dagster)"
 date: 2022-12-19
 url: https://www.ssp.sh/blog/data-integration-as-code-airbyte-dbt-python-dagster/
 slug: data-integration-as-code-airbyte-dbt-python-dagster

@@ -1,5 +1,5 @@
 ---
-title: "Pandas 2.0 and its Ecosystem (Arrow, Polars, DuckDB)03-08"
+title: "Pandas 2.0 and its Ecosystem (Arrow, Polars, DuckDB)"
 date: 2023-03-08
 url: https://www.ssp.sh/blog/pandas-2-0-ecosystem-arrow-polars-duckdb/
 slug: pandas-2-0-ecosystem-arrow-polars-duckdb

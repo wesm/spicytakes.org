@@ -1,0 +1,29 @@
+{
+  "summary": "This sponsored deep-dive examines why companies like Coinbase, Pinterest, and Fresha chose StarRocks over alternatives like ClickHouse, Druid, and Pinot for their analytics needs. Through interviews with engineers at these companies, Sp\u00e4ti identifies a common pattern: customer-facing analytics on cloud data warehouses like Snowflake became too slow, and teams needed sub-second query responses without heavy pre-denormalization. StarRocks' key differentiator is its ability to perform fast distributed joins natively, enabled by colocated joins, a cost-based optimizer, and multi-tier caching. The article concludes that StarRocks excels when joins are central to your analytics, while ClickHouse remains stronger for single-table observability workloads. Despite the advantages, good data modeling is still essential, and the smaller community and operational complexity are real tradeoffs.",
+  "key_points": [
+    "StarRocks' colocated join mechanism eliminates network shuffle by ensuring tables sharing the same bucket key, count, and replica placement are physically co-located on the same nodes",
+    "Multiple companies followed the same migration pattern: Snowflake/Druid got too slow for customer-facing analytics, and StarRocks provided sub-second queries without requiring heavy pre-denormalization in Flink or Spark",
+    "The hybrid hot/cold deployment pattern emerged consistently: streaming recent data into StarRocks while federating over Iceberg for cold historical data on S3",
+    "Pinterest achieved 50% p90 latency reduction while using only 32% of previous infrastructure after migrating from Druid to StarRocks",
+    "Tradeoffs include a smaller community than ClickHouse, operational complexity requiring dedicated engineering resources, and the need to carefully choose partition and distribution keys across colocated tables"
+  ],
+  "money_quotes": [
+    "You can't overcome the laws of physics, reading from S3 is just slow.",
+    "Simply put, StarRocks naturally fits much better for multi-table join scenarios especially for e-commerce and finance sectors. And ClickHouse has better out-of-box templates for observability use cases.",
+    "You can only optimize for one of them and leverage the index for the other one. That's a trade-off you have to do.",
+    "Choose StarRocks when joins are central to your analytics.",
+    "Almost all good designs come down to good data architecture and modeling your data flow.",
+    "The key insight is that you don't build all these layers upfront. You start with normalized data, query it directly, and see if it's fast enough.",
+    "People are more willing to try and learn the technology that they have heard about or their friends can mention.",
+    "Advanced features don't come without tradeoffs. You have to choose a partition key across colocated tables, but you can only optimize for one of them."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "technical, balanced, practitioner-focused",
+  "key_insight": "StarRocks' colocated joins and multi-tier caching let teams skip the expensive pre-denormalization step in Flink/Spark, but good data modeling and careful partition key planning remain essential for realizing those gains.",
+  "filename": "2026-02-09-starrocks-lakehouse-native-joins"
+}

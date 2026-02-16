@@ -1,5 +1,5 @@
 ---
-title: "The Open Data Stack Distilled into Four Core Tools01-03"
+title: "The Open Data Stack Distilled into Four Core Tools"
 date: 2023-01-03
 url: https://www.ssp.sh/blog/open-data-stack-core-tools/
 slug: open-data-stack-core-tools

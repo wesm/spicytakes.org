@@ -151,13 +151,23 @@ class MediumScraper(BaseScraper):
         existing_filenames = self.get_existing_filenames()
         existing = self.load_existing_index()
         posts = existing.get("posts", [])
+        existing_urls = {p.get("url") for p in posts if p.get("url")}
 
         posts_to_scrape = []
+        seen_filenames = set(existing_filenames)
+        seen_urls = set(existing_urls)
         for fp in feed_posts:
             filename = self.make_filename(fp)
-            if filename not in existing_filenames:
-                fp["filename"] = filename
-                posts_to_scrape.append(fp)
+            url = fp.get("url")
+            if filename in seen_filenames:
+                continue
+            if url and url in seen_urls:
+                continue
+            fp["filename"] = filename
+            posts_to_scrape.append(fp)
+            seen_filenames.add(filename)
+            if url:
+                seen_urls.add(url)
 
         if not posts_to_scrape:
             print("All posts already scraped!")

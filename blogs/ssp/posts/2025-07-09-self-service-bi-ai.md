@@ -1,5 +1,5 @@
 ---
-title: "Has Self-Serve BI Finally Arrived Thanks to AI?07-09"
+title: "Has Self-Serve BI Finally Arrived Thanks to AI?"
 date: 2025-07-09
 url: https://www.ssp.sh/blog/self-service-bi-ai/
 slug: self-service-bi-ai

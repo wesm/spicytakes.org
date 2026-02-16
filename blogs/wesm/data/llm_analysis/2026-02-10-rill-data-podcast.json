@@ -1,0 +1,33 @@
+{
+  "summary": "In this podcast conversation with Mike Driscoll, Wes McKinney traces his journey from studying pure math at MIT to building pandas during the 2008 financial crisis, through Apache Arrow, Ursa Labs, and Voltron Data. He discusses the current landscape of next-generation columnar file formats (Lance, Vortex, Nimble, F3) targeting different use cases from analytical workloads to multimodal AI data. The central thesis is a fundamental shift from human ergonomics to agent ergonomics in programming -- Python succeeded because it was pleasant for humans, but with agents writing code, execution speed and test suite performance now matter more than writability. He demonstrates his multi-agent workflow using Claude Code with RoboRev, a tool he built to have Codex adversarially review every commit, and argues this continuous automated review is essential for quality. He closes with advice that the next generation should focus on software architecture, design patterns, and code comprehension rather than learning to write code from scratch.",
+  "key_points": [
+    "Python's dominance came from human ergonomics, but agents don't care about readability -- they care about execution speed, making compiled languages like Go more productive for agentic workflows",
+    "The agentic loop (prompt, generate, test, iterate) is materially bottlenecked by test suite execution time, which favors compiled languages over Python",
+    "Adversarial agent code review is essential -- the agent that wrote code is less likely to spot its own bugs, so a different agent (like Codex reviewing Claude's output) catches more issues",
+    "Next-generation columnar file formats (Lance, Vortex, F3, Nimble) are segmenting by use case: analytical workloads vs. multimodal AI data with images and video",
+    "CS education will shift toward reading and understanding code quality -- more like studying literature than writing from scratch -- because articulating what you want to agents is the new core skill"
+  ],
+  "money_quotes": [
+    "Python is so successful because it's good for humans. It's good for humans to write. It's enjoyable. But in a world where agents are writing all of the code, all these benefits that Python has -- its readability, its human ergonomics -- the agents don't care about that, but the thing that they do care about is the performance.",
+    "I started feeling like I can just do things. And it made me feel the same way that I felt when I started programming in Python almost 20 years ago.",
+    "If all of your code isn't being automatically reviewed by adversarial agents, you've essentially got tons of bugs lurking that you can't possibly find through your own human QA.",
+    "Learning to write code is not that important now, but you do need to invest in learning about the theory of software architecture and what effective and sustainable large-scale software projects look like.",
+    "We're going to be writing more of everything. Probably a hundred times, at least 10 times, maybe a hundred times more of absolutely everything in aggregate.",
+    "Going from Java to Python was such a breath of fresh air. Like, all this stuff is out of my way and I can just think about the problem. I can write the code. I can get things done in one tenth of the time. This is like that.",
+    "I think that computer science education is going to be more about -- it's going to become more like English literature. We're going to be studying software programs and understanding what makes them good and why they are good.",
+    "I was an AI skeptic, I think, pretty much until the beginning of 2025. I hardly touched LLMs, even LLM autocomplete. I kind of had this feeling like I don't need this, I'm good at writing code."
+  ],
+  "themes": [
+    "python",
+    "developer_tools",
+    "ai_llms",
+    "career_reflections",
+    "industry_observations",
+    "apache_arrow",
+    "data_infrastructure",
+    "open_source"
+  ],
+  "tone": "reflective, opinionated, enthusiastic",
+  "key_insight": "The shift from human-written to agent-written code fundamentally changes which programming language properties matter -- execution speed and test suite performance now outweigh the human ergonomics that made Python dominant.",
+  "filename": "2026-02-10-rill-data-podcast"
+}

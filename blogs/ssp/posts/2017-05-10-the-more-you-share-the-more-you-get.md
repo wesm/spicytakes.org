@@ -1,5 +1,5 @@
 ---
-title: "The more you share the more you get..05-10"
+title: "The more you share the more you get.."
 date: 2017-05-10
 url: https://www.ssp.sh/blog/the-more-you-share-the-more-you-get/
 slug: the-more-you-share-the-more-you-get

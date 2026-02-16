@@ -1,5 +1,5 @@
 ---
-title: "Saying Goodbye to WordPress, a Homecoming04-05"
+title: "Saying Goodbye to WordPress, a Homecoming"
 date: 2021-04-05
 url: https://www.ssp.sh/blog/why-i-moved-away-from-wordpress/
 slug: why-i-moved-away-from-wordpress

@@ -1,5 +1,5 @@
 ---
-title: "My Obsidian Note-Taking Workflow07-25"
+title: "My Obsidian Note-Taking Workflow"
 date: 2024-07-25
 url: https://www.ssp.sh/blog/obsidian-note-taking-workflow/
 slug: obsidian-note-taking-workflow

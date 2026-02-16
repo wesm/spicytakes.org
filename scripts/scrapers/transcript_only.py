@@ -156,6 +156,7 @@ class TranscriptOnlyScraper(BaseScraper):
         existing_filenames = self.get_existing_filenames()
         existing = self.load_existing_index()
         all_posts = existing.get("posts", [])
+        existing_source_files = {p.get("source_file") for p in all_posts if p.get("source_file")}
 
         total_new = 0
 
@@ -182,9 +183,16 @@ class TranscriptOnlyScraper(BaseScraper):
             if not post:
                 continue
 
+            # source_file uniquely identifies transcript inputs across slug/filename strategy changes
+            if post.get("source_file") in existing_source_files:
+                continue
+
             # Create filename
             date_prefix = post["date"][:10]
-            filename = f"{date_prefix}-{post['slug']}.md"
+            if post["slug"].startswith(f"{date_prefix}-"):
+                filename = f"{post['slug']}.md"
+            else:
+                filename = f"{date_prefix}-{post['slug']}.md"
 
             if filename in existing_filenames:
                 continue
@@ -200,6 +208,7 @@ class TranscriptOnlyScraper(BaseScraper):
             # Add to index
             index_entry = {k: v for k, v in post.items() if k != "content"}
             all_posts.append(index_entry)
+            existing_source_files.add(post.get("source_file"))
             total_new += 1
 
         # Validate no duplicate slugs

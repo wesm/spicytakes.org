@@ -1,5 +1,5 @@
 ---
-title: "Modern Data Stack: The Struggle of Enterprise Adoption01-09"
+title: "Modern Data Stack: The Struggle of Enterprise Adoption"
 date: 2023-01-09
 url: https://www.ssp.sh/blog/modern-data-stack-struggle-of-enterprise-adoption/
 slug: modern-data-stack-struggle-of-enterprise-adoption

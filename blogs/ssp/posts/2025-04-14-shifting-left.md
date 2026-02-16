@@ -1,5 +1,5 @@
 ---
-title: "What Â«Shifting LeftÂ» Means and Why it Matters for Data Stacks04-14"
+title: "What Â«Shifting LeftÂ» Means and Why it Matters for Data Stacks"
 date: 2025-04-14
 url: https://www.ssp.sh/blog/shifting-left/
 slug: shifting-left

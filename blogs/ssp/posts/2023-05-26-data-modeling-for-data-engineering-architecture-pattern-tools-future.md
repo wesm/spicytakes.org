@@ -1,5 +1,5 @@
 ---
-title: "Data Modeling - The Unsung Hero of Data Engineering: Architecture Pattern, Tools and the Future (Part 3)05-26"
+title: "Data Modeling - The Unsung Hero of Data Engineering: Architecture Pattern, Tools and the Future (Part 3)"
 date: 2023-05-26
 url: https://www.ssp.sh/blog/data-modeling-for-data-engineering-architecture-pattern-tools-future/
 slug: data-modeling-for-data-engineering-architecture-pattern-tools-future

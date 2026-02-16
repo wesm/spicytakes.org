@@ -1,5 +1,5 @@
 ---
-title: "Need any Headphones?10-09"
+title: "Need any Headphones?"
 date: 2015-10-09
 url: https://www.ssp.sh/blog/need-any-headphones/
 slug: need-any-headphones

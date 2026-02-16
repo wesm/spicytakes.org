@@ -1,5 +1,5 @@
 ---
-title: "Data Orchestration Trends: The Shift From Data Pipelines to Data Products06-14"
+title: "Data Orchestration Trends: The Shift From Data Pipelines to Data Products"
 date: 2022-06-14
 url: https://www.ssp.sh/blog/data-orchestration-trends/
 slug: data-orchestration-trends

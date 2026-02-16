@@ -1,5 +1,5 @@
 ---
-title: "Why Data Warehouse Automation is not more popular06-28"
+title: "Why Data Warehouse Automation is not more popular"
 date: 2017-06-28
 url: https://www.ssp.sh/blog/why-data-warehouse-automation-is-not-more-popular/
 slug: why-data-warehouse-automation-is-not-more-popular

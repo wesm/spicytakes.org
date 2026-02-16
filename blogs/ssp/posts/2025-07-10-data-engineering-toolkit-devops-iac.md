@@ -1,5 +1,5 @@
 ---
-title: "The Data Engineering Toolkit: Infrastructure, DevOps, and Beyond07-10"
+title: "The Data Engineering Toolkit: Infrastructure, DevOps, and Beyond"
 date: 2025-07-10
 url: https://www.ssp.sh/blog/data-engineering-toolkit-devops-iac/
 slug: data-engineering-toolkit-devops-iac

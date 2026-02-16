@@ -1,5 +1,5 @@
 ---
-title: "A Beginnerâs Guide to Geospatial with DuckDB02-26"
+title: "A Beginnerâs Guide to Geospatial with DuckDB"
 date: 2025-02-26
 url: https://www.ssp.sh/blog/duckdb-geospatial/
 slug: duckdb-geospatial

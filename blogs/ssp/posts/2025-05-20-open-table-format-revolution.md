@@ -1,5 +1,5 @@
 ---
-title: "The Open Table Format Revolution: Why Hyperscalers Are Betting on Managed Iceberg05-20"
+title: "The Open Table Format Revolution: Why Hyperscalers Are Betting on Managed Iceberg"
 date: 2025-05-20
 url: https://www.ssp.sh/blog/open-table-format-revolution/
 slug: open-table-format-revolution

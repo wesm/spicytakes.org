@@ -1,5 +1,5 @@
 ---
-title: "The Plain Text Workflow: How Vim and Markdown Became My Backbone12-10"
+title: "The Plain Text Workflow: How Vim and Markdown Became My Backbone"
 date: 2023-12-10
 url: https://www.ssp.sh/blog/my-vimverse/
 slug: my-vimverse

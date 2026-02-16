@@ -1,5 +1,5 @@
 ---
-title: "What Data Warehouse Automation tools are on the market07-25"
+title: "What Data Warehouse Automation tools are on the market"
 date: 2017-07-25
 url: https://www.ssp.sh/blog/what-dwa-tools-are-on-the-market/
 slug: what-dwa-tools-are-on-the-market

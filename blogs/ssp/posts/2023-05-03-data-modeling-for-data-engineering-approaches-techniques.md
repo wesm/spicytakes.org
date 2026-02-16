@@ -1,5 +1,5 @@
 ---
-title: "Data Modeling â The Unsung Hero of Data Engineering: Modeling Approaches and Techniques (Part 2)05-03"
+title: "Data Modeling â The Unsung Hero of Data Engineering: Modeling Approaches and Techniques (Part 2)"
 date: 2023-05-03
 url: https://www.ssp.sh/blog/data-modeling-for-data-engineering-approaches-techniques/
 slug: data-modeling-for-data-engineering-approaches-techniques

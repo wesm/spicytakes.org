@@ -1,5 +1,5 @@
 ---
-title: "Why Semantic Layers Matterâand How to Build One with DuckDB08-24"
+title: "Why Semantic Layers Matterâand How to Build One with DuckDB"
 date: 2025-08-24
 url: https://www.ssp.sh/blog/semantic-layer-duckdb/
 slug: semantic-layer-duckdb

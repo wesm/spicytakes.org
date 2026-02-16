@@ -1,5 +1,5 @@
 ---
-title: "My Journey from macOS to Arch Linux with Omarchy08-07"
+title: "My Journey from macOS to Arch Linux with Omarchy"
 date: 2025-08-07
 url: https://www.ssp.sh/blog/macbook-to-arch-linux-omarchy/
 slug: macbook-to-arch-linux-omarchy

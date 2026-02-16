@@ -1,5 +1,5 @@
 ---
-title: "Data Warehouse Automation (DWA) â Series06-28"
+title: "Data Warehouse Automation (DWA) â Series"
 date: 2017-06-28
 url: https://www.ssp.sh/blog/data-warehouse-automation-dwa/
 slug: data-warehouse-automation-dwa

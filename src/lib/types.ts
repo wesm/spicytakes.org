@@ -48,6 +48,7 @@ export interface ScraperConfig {
   blogPath?: string;
   transcriptsPath?: string;
   sourcePostPath?: string;  // URL path template for post links, e.g., '/blog/{slug}/'
+  excludeSlugsFile?: string;
 }
 
 export interface BlogConfig {

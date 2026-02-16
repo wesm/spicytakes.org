@@ -1,5 +1,5 @@
 ---
-title: "Finding My Pathless Path02-25"
+title: "Finding My Pathless Path"
 date: 2023-02-25
 url: https://www.ssp.sh/blog/finding-my-pathless-path/
 slug: finding-my-pathless-path

@@ -1,5 +1,5 @@
 ---
-title: "Self-Host & Tech Independence: The Joy of Building Your Own06-07"
+title: "Self-Host & Tech Independence: The Joy of Building Your Own"
 date: 2025-06-07
 url: https://www.ssp.sh/blog/self-host-self-independence/
 slug: self-host-self-independence

@@ -1,0 +1,30 @@
+{
+  "summary": "In this episode of The Test Set, Wes McKinney joins co-hosts Michael Chow and Hadley Wickham to interview Emily Riederer about her journey across R, Python, and SQL communities. Wes discusses his long-running effort to reduce the amount of raw SQL humans have to write, arguing that while SQL is declarative and accessible for simple queries, complex business logic becomes brittle and error-prone. The conversation covers column selectors, dbt's impact on SQL engineering practices, naming challenges when porting packages between R and Python, and how R's API design has influenced Python tools like Polars and Ibis. Wes reflects on how coding agents like Claude Code have changed his calculus for building bespoke productivity tools, noting he should have started building custom automation earlier.",
+  "key_points": [
+    "SQL is alluring because it's declarative, but complex business logic in SQL becomes brittle, untestable, and error-prone without functions, refactoring, or version control",
+    "R's pipe-centric fluent API design has significantly influenced Python tools like Polars and Ibis, though Python's emphasis on explicitness creates tension with R-style nonstandard evaluation",
+    "Coding agents have fundamentally changed the cost-benefit analysis of building custom tools \u2014 the XKCD automation chart needs to be completely redone",
+    "Column selectors, while seemingly trivial, solve a genuine pain point for people working with databases containing thousands of columns",
+    "The SQL ecosystem is converging as companies like dbt acquire complementary tools, which should yield a more integrated stack"
+  ],
+  "money_quotes": [
+    "I've definitely engaged heavily in building tools so that humans write a lot less SQL.",
+    "SQL is really alluring in the sense that it's declarative, writing simple SQL queries is easy, but complex business logic, especially in a financial setting, ends up being rather subtle and with a lot of complexities.",
+    "If only we could essentially abstract away the unpleasantness of SQL and make it easier for humans to essentially author SQL indirectly and to avoid many of those common errors, then we would be doing humanity a great service.",
+    "A lot of people, myself included, looked enviously from the Python world into the R world.",
+    "The people in Python have tried to replicate some of the flavor or the niceties of that, like the underscore operator and stuff like that. But still it's hard to shoehorn that type of API into Python.",
+    "Now with coding agents, that whole chart needs to get completely redone, because the amount of time it takes, especially if it's building something that's not very hard to build but is just for you, and it makes your life just a little bit better \u2014 I should have been a little bit more bold.",
+    "There's no way to really internalize that knowledge without going through the experience. So I don't know if somebody hit me over the head with that \u2014 Wes, build a bunch of custom tools for yourself \u2014 if I would have believed them that it was possible nine months ago, but I certainly believe it now.",
+    "People have thousands of columns in their databases and this is actually a really painful problem. And let's just create one boring little helper that just unlocks, gets rid of all this pain."
+  ],
+  "themes": [
+    "data_infrastructure",
+    "python",
+    "open_source",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "conversational, reflective, opinionated",
+  "key_insight": "Coding agents have fundamentally reset the cost-benefit calculus for building personal automation tools, and SQL's persistent pain points are finally being addressed by a converging ecosystem of tools that bring real programming language niceties to database work.",
+  "filename": "2026-01-27-test-set-emily-riederer"
+}

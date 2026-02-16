@@ -1,5 +1,5 @@
 ---
-title: "The Open Lakehouse Stack: DuckDB and the Rise of Table Formats06-16"
+title: "The Open Lakehouse Stack: DuckDB and the Rise of Table Formats"
 date: 2025-06-16
 url: https://www.ssp.sh/blog/open-table-lakehouse-with-duckdb/
 slug: open-table-lakehouse-with-duckdb

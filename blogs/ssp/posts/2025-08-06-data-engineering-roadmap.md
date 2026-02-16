@@ -1,5 +1,5 @@
 ---
-title: "Summer Data Engineering Roadmap08-06"
+title: "Summer Data Engineering Roadmap"
 date: 2025-08-06
 url: https://www.ssp.sh/blog/data-engineering-roadmap/
 slug: data-engineering-roadmap

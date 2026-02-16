@@ -1,5 +1,5 @@
 ---
-title: "Data Modeling â The Unsung Hero of Data Engineering: An Introduction to Data Modeling (Part 1)04-03"
+title: "Data Modeling â The Unsung Hero of Data Engineering: An Introduction to Data Modeling (Part 1)"
 date: 2023-04-03
 url: https://www.ssp.sh/blog/data-modeling-for-data-engineering-introduction/
 slug: data-modeling-for-data-engineering-introduction

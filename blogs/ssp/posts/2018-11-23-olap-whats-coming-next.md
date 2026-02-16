@@ -1,5 +1,5 @@
 ---
-title: "OLAP, whatâs coming next?11-23"
+title: "OLAP, whatâs coming next?"
 date: 2018-11-23
 url: https://www.ssp.sh/blog/olap-whats-coming-next/
 slug: olap-whats-coming-next

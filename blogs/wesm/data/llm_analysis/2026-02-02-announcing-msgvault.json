@@ -1,0 +1,29 @@
+{
+  "summary": "Wes McKinney announces msgvault, a local-first email archive and search system built in Go that uses SQLite and DuckDB to enable millisecond queries over a lifetime of email data. The project was motivated by Gmail's increasing enshittification \u2014 poor search, slow attachment retrieval, and unwanted AI features \u2014 and the desire to own and privately query personal data. msgvault syncs emails via Gmail's OAuth API, stores them in SQLite with Parquet indexes for DuckDB-powered search, and ships with a terminal UI, CLI, and MCP server for LLM integration. McKinney has indexed nearly 2 million emails and 150,000 attachments from his 20-year Gmail history, and plans to eventually delete all data from Gmail after confirming local backups. Future plans include mbox import, WhatsApp/iMessage support, and a web UI.",
+  "key_points": [
+    "msgvault archives email locally using SQLite as system of record with Parquet indexes and DuckDB for millisecond search across millions of messages",
+    "Gmail's search has degraded over time while Google pushes unwanted AI features instead of improving core functionality \u2014 a textbook case of enshittification",
+    "The project was built with coding agents and agentic engineering tools, and was rewritten from a Python/Rust hybrid to pure Go for better agent ergonomics and distribution",
+    "The MCP server integration enables private LLM-powered email querying through Claude Desktop or local models, without sending data to Google or OpenAI",
+    "msgvault supports permanent deletion from Gmail after local archival, enabling users to truly liberate their data from Google's platform"
+  ],
+  "money_quotes": [
+    "Fundamentally, this is my data, and I should be able to search it in milliseconds, pull up old emails and attachments in a few keystrokes, and query my history with natural language privately and securely.",
+    "Rather than improving the core product (which they have no incentive to do: see enshittification), Google has been focused on shoving AI features I don't want in my face.",
+    "Something about giving all of my Gmail to Sam Altman and co makes me squirm.",
+    "I've always been uncomfortable with my email corpus being fodder for Google's advertising machine, but 'Would you like to use Gemini AI on your email?' feels like a special kind of hell.",
+    "Gmail's 'semantic search' buries me with unrelated results matching one or more terms in my query. This 'can't find shit' problem is endlessly frustrating.",
+    "I don't think having millions of emails and over 100,000 attachments on Google's platform is a good long-term plan.",
+    "An initial hybrid Python / Rust became a bit too tedious to develop with coding agents and the single-language Go project has been fast to develop and is easy to distribute to end users."
+  ],
+  "themes": [
+    "developer_tools",
+    "data_infrastructure",
+    "ai_llms",
+    "open_source",
+    "industry_observations"
+  ],
+  "tone": "opinionated, enthusiastic, practical",
+  "key_insight": "In the age of local LLMs and enshittified cloud services, users should own their data locally and query it on their own terms \u2014 and the tools to make this fast and practical finally exist.",
+  "filename": "2026-02-02-announcing-msgvault"
+}

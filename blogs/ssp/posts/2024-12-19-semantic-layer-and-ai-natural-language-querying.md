@@ -1,5 +1,5 @@
 ---
-title: "Semantic Layer and AI: The Future of Data Querying with Natural Language12-19"
+title: "Semantic Layer and AI: The Future of Data Querying with Natural Language"
 date: 2024-12-19
 url: https://www.ssp.sh/blog/semantic-layer-and-ai-natural-language-querying/
 slug: semantic-layer-and-ai-natural-language-querying

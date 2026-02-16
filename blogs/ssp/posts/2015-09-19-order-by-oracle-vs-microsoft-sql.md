@@ -1,5 +1,5 @@
 ---
-title: "ORDER BY Oracle vs. Microsoft SQL09-19"
+title: "ORDER BY Oracle vs. Microsoft SQL"
 date: 2015-09-19
 url: https://www.ssp.sh/blog/order-by-oracle-vs-microsoft-sql/
 slug: order-by-oracle-vs-microsoft-sql

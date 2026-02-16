@@ -1,5 +1,5 @@
 ---
-title: "Business Intelligence meets Data Engineering with Emerging Technologies06-14"
+title: "Business Intelligence meets Data Engineering with Emerging Technologies"
 date: 2020-06-14
 url: https://www.ssp.sh/blog/business-intelligence-meets-data-engineering/
 slug: business-intelligence-meets-data-engineering

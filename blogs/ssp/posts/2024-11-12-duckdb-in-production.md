@@ -1,5 +1,5 @@
 ---
-title: "15+ Companies Using DuckDB in Production: A Comprehensive Guide11-12"
+title: "15+ Companies Using DuckDB in Production: A Comprehensive Guide"
 date: 2024-11-12
 url: https://www.ssp.sh/blog/duckdb-in-production/
 slug: duckdb-in-production

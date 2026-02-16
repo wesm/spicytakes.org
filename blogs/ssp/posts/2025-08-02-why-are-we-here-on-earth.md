@@ -1,5 +1,5 @@
 ---
-title: "Why Are We Here on Earth? True Happiness, Giving Up Control, or the Trap of Worshipping Earthly Things?08-02"
+title: "Why Are We Here on Earth? True Happiness, Giving Up Control, or the Trap of Worshipping Earthly Things?"
 date: 2025-08-02
 url: https://www.ssp.sh/blog/why-are-we-here-on-earth/
 slug: why-are-we-here-on-earth

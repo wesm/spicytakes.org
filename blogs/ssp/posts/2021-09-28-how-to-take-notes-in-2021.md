@@ -1,5 +1,5 @@
 ---
-title: "How to Take Notes in 2021?09-28"
+title: "How to Take Notes in 2021?"
 date: 2021-09-28
 url: https://www.ssp.sh/blog/how-to-take-notes-in-2021/
 slug: how-to-take-notes-in-2021

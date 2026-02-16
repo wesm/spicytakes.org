@@ -1,5 +1,5 @@
 ---
-title: "The Enterprise Case for DuckDB: 5 Key Categories and Why Use It10-16"
+title: "The Enterprise Case for DuckDB: 5 Key Categories and Why Use It"
 date: 2024-10-16
 url: https://www.ssp.sh/blog/enterprise-case-duckdb-key-categories/
 slug: enterprise-case-duckdb-key-categories

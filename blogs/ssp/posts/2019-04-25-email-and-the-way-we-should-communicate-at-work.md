@@ -1,5 +1,5 @@
 ---
-title: "Email, and the way we (should) communicate at work04-25"
+title: "Email, and the way we (should) communicate at work"
 date: 2019-04-25
 url: https://www.ssp.sh/blog/email-and-the-way-we-should-communicate-at-work/
 slug: email-and-the-way-we-should-communicate-at-work

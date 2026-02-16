@@ -1,5 +1,5 @@
 ---
-title: "Building an Analytics API with GraphQL: The Next Level of Data Engineering?01-22"
+title: "Building an Analytics API with GraphQL: The Next Level of Data Engineering?"
 date: 2022-01-22
 url: https://www.ssp.sh/blog/analytics-api-with-graphql-the-next-level-of-data-engineering/
 slug: analytics-api-with-graphql-the-next-level-of-data-engineering

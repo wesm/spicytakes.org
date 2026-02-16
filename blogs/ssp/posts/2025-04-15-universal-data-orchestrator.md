@@ -1,5 +1,5 @@
 ---
-title: "The Universal Data Orchestrator: The Heartbeat of Data Engineering04-15"
+title: "The Universal Data Orchestrator: The Heartbeat of Data Engineering"
 date: 2025-04-15
 url: https://www.ssp.sh/blog/universal-data-orchestrator/
 slug: universal-data-orchestrator

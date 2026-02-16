@@ -1,5 +1,5 @@
 ---
-title: "BI-as-Code and the New Era of GenBI11-05"
+title: "BI-as-Code and the New Era of GenBI"
 date: 2024-11-05
 url: https://www.ssp.sh/blog/bi-as-code-and-genbi/
 slug: bi-as-code-and-genbi

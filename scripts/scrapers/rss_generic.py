@@ -44,6 +44,50 @@ class RssGenericScraper(BaseScraper):
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
         }
 
+    def normalize_title(self, title: str, date_str: str | None = None) -> str:
+        """Clean up titles that accidentally include trailing date suffixes."""
+        if not title:
+            return title
+
+        normalized = " ".join(title.split())
+
+        if not date_str:
+            return normalized
+
+        match = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", date_str)
+        if not match:
+            return normalized
+
+        month = match.group(2)
+        day = match.group(3)
+        month_i = str(int(month))
+        day_i = str(int(day))
+        candidates = {
+            f"{month}-{day}",
+            f"{month_i}-{day_i}",
+            f"{month_i}-{day}",
+            f"{month}-{day_i}",
+        }
+
+        for suffix in sorted(candidates, key=len, reverse=True):
+            if not normalized.endswith(suffix):
+                continue
+            suffix_start = len(normalized) - len(suffix)
+            if suffix_start <= 0:
+                continue
+            # Only strip if the date is glued onto the end of the title text.
+            # If there's whitespace or a separator before it, keep it.
+            boundary_char = normalized[suffix_start - 1]
+            if boundary_char.isspace() or boundary_char in "-–—|:/":
+                continue
+            prefix = normalized[:-len(suffix)].rstrip(" \t-–—|:/")
+            # Keep a conservative floor so legitimate short titles that happen
+            # to end in digits are unlikely to be truncated.
+            if len(prefix) >= 8:
+                return prefix
+
+        return normalized
+
     def fetch_feed(self) -> list[dict]:
         """Fetch and parse posts from RSS feed. Returns list of post metadata."""
         try:
@@ -66,7 +110,7 @@ class RssGenericScraper(BaseScraper):
                 pub_date_elem = item.find("pubDate")
                 description_elem = item.find("description")
 
-                title = title_elem.text if title_elem is not None else "Untitled"
+                raw_title = title_elem.text if title_elem is not None else "Untitled"
                 url = link_elem.text if link_elem is not None else ""
 
                 # Skip if URL doesn't match filter
@@ -81,6 +125,8 @@ class RssGenericScraper(BaseScraper):
                 pub_date = None
                 if pub_date_elem is not None and pub_date_elem.text:
                     pub_date = self.parse_rfc2822_date(pub_date_elem.text)
+
+                title = self.normalize_title(raw_title, pub_date)
 
                 # Description is usually a summary, not full content
                 description = ""
@@ -125,9 +171,15 @@ class RssGenericScraper(BaseScraper):
                 for link in soup.find_all("a", href=True):
                     href = link.get("href", "")
                     title = link.get_text(strip=True)
+                    title_lower = title.lower()
 
                     # Skip non-blog links
                     if self.url_filter and self.url_filter not in href:
+                        continue
+                    # Skip archive/pagination navigation links
+                    if title_lower in {"previous page", "next page"}:
+                        continue
+                    if re.search(r"/page/\d+/?$", href.rstrip("/")):
                         continue
                     # Skip short titles (likely navigation)
                     if len(title) < 10:
@@ -237,8 +289,8 @@ class RssGenericScraper(BaseScraper):
     def process_post(self, post_meta: dict, content_html: str) -> dict | None:
         """Process a post into structured format."""
         url = post_meta["url"]
-        title = post_meta["title"]
         date_str = post_meta.get("pub_date")
+        title = self.normalize_title(post_meta["title"], date_str)
 
         # Parse HTML and convert to markdown
         soup = BeautifulSoup(content_html, "html.parser")

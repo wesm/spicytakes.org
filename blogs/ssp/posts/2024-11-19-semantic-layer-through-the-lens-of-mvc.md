@@ -1,5 +1,5 @@
 ---
-title: "Exploring the Semantic Layer Through the Lens of MVC11-19"
+title: "Exploring the Semantic Layer Through the Lens of MVC"
 date: 2024-11-19
 url: https://www.ssp.sh/blog/semantic-layer-through-the-lens-of-mvc/
 slug: semantic-layer-through-the-lens-of-mvc

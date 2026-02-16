@@ -1,5 +1,5 @@
 ---
-title: "Universal Data Orchestrator in Action: Enterprise Best Practices06-17"
+title: "Universal Data Orchestrator in Action: Enterprise Best Practices"
 date: 2025-06-17
 url: https://www.ssp.sh/blog/enterprise-universal-data-orchestrator-in-action/
 slug: enterprise-universal-data-orchestrator-in-action

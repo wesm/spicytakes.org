@@ -1,5 +1,5 @@
 ---
-title: "Tools I Use â Microsoft OneNote â Part II08-22"
+title: "Tools I Use â Microsoft OneNote â Part II"
 date: 2017-08-22
 url: https://www.ssp.sh/blog/tools-i-use-onenote-part-ii/
 slug: tools-i-use-onenote-part-ii

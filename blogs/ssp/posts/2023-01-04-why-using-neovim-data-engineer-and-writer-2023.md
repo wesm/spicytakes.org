@@ -1,5 +1,5 @@
 ---
-title: "Why Vim Is More than Just an Editor â Vim Language, Motions, and Modes Explained01-04"
+title: "Why Vim Is More than Just an Editor â Vim Language, Motions, and Modes Explained"
 date: 2023-01-04
 url: https://www.ssp.sh/blog/why-using-neovim-data-engineer-and-writer-2023/
 slug: why-using-neovim-data-engineer-and-writer-2023

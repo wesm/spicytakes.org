@@ -1,5 +1,5 @@
 ---
-title: "Data Warehouse vs Data Lake | ETL vs ELT10-26"
+title: "Data Warehouse vs Data Lake | ETL vs ELT"
 date: 2017-10-26
 url: https://www.ssp.sh/blog/data-warehouse-vs-data-lake-etl-vs-elt/
 slug: data-warehouse-vs-data-lake-etl-vs-elt

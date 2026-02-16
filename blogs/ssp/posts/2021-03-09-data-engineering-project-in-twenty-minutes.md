@@ -1,5 +1,5 @@
 ---
-title: "Building a Data Engineering Project in 20 Minutes03-09"
+title: "Building a Data Engineering Project in 20 Minutes"
 date: 2021-03-09
 url: https://www.ssp.sh/blog/data-engineering-project-in-twenty-minutes/
 slug: data-engineering-project-in-twenty-minutes

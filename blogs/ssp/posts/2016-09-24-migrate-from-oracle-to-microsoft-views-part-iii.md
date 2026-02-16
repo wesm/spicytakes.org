@@ -1,5 +1,5 @@
 ---
-title: "Migrate from Oracle to Microsoft (Views) â Part III09-24"
+title: "Migrate from Oracle to Microsoft (Views) â Part III"
 date: 2016-09-24
 url: https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-iii/
 slug: migrate-from-oracle-to-microsoft-views-part-iii

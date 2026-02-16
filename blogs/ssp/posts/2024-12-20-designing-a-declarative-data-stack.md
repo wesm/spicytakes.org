@@ -1,5 +1,5 @@
 ---
-title: "Designing a Declarative Data Stack: From Theory to Practice12-20"
+title: "Designing a Declarative Data Stack: From Theory to Practice"
 date: 2024-12-20
 url: https://www.ssp.sh/blog/designing-a-declarative-data-stack/
 slug: designing-a-declarative-data-stack

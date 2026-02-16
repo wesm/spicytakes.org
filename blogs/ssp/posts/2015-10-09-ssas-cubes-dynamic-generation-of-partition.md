@@ -1,5 +1,5 @@
 ---
-title: "SSAS Cubes â Dynamic generation of partition10-09"
+title: "SSAS Cubes â Dynamic generation of partition"
 date: 2015-10-09
 url: https://www.ssp.sh/blog/ssas-cubes-dynamic-generation-of-partition/
 slug: ssas-cubes-dynamic-generation-of-partition

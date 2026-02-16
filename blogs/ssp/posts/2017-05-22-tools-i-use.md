@@ -1,5 +1,5 @@
 ---
-title: "Tools I Use05-22"
+title: "Tools I Use"
 date: 2017-05-22
 url: https://www.ssp.sh/blog/tools-i-use/
 slug: tools-i-use

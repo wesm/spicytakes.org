@@ -1,5 +1,5 @@
 ---
-title: "Finding Flow: Escaping Digital Distractions Through Deep Work and Slow Living02-14"
+title: "Finding Flow: Escaping Digital Distractions Through Deep Work and Slow Living"
 date: 2025-02-14
 url: https://www.ssp.sh/blog/finding-flow/
 slug: finding-flow

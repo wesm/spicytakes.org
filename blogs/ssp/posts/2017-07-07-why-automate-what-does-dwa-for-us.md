@@ -1,5 +1,5 @@
 ---
-title: "Why automate? What does Data Warehouse Automation for us?07-07"
+title: "Why automate? What does Data Warehouse Automation for us?"
 date: 2017-07-07
 url: https://www.ssp.sh/blog/why-automate-what-does-dwa-for-us/
 slug: why-automate-what-does-dwa-for-us

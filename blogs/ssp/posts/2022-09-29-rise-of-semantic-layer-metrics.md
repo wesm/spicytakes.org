@@ -1,5 +1,5 @@
 ---
-title: "The Rise of the Semantic Layer09-29"
+title: "The Rise of the Semantic Layer"
 date: 2022-09-29
 url: https://www.ssp.sh/blog/rise-of-semantic-layer-metrics/
 slug: rise-of-semantic-layer-metrics

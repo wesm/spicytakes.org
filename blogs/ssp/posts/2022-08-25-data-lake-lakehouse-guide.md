@@ -1,5 +1,5 @@
 ---
-title: "Data Lake / Lakehouse Guide: Powered by Data Lake Table Formats (Delta Lake, Iceberg, Hudi)08-25"
+title: "Data Lake / Lakehouse Guide: Powered by Data Lake Table Formats (Delta Lake, Iceberg, Hudi)"
 date: 2022-08-25
 url: https://www.ssp.sh/blog/data-lake-lakehouse-guide/
 slug: data-lake-lakehouse-guide

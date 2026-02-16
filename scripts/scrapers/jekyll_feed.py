@@ -45,6 +45,13 @@ class JekyllFeedScraper(BaseScraper):
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
         }
 
+    def normalize_url(self, url: str) -> str:
+        """Normalize URL for dedupe checks."""
+        from urllib.parse import urlsplit, urlunsplit
+        parts = urlsplit(url.strip())
+        path = re.sub(r"/{2,}", "/", parts.path).rstrip("/") or "/"
+        return urlunsplit((parts.scheme, parts.netloc, path, "", ""))
+
     def fetch_feed(self) -> list[dict]:
         """Fetch and parse posts from Atom feed. Returns list of post metadata."""
         try:
@@ -432,25 +439,31 @@ class JekyllFeedScraper(BaseScraper):
 
         # First add all feed posts (they have content)
         for post in feed_posts:
+            norm_url = self.normalize_url(post["url"])
+            if norm_url in seen_urls:
+                continue
             all_post_metas.append(post)
-            seen_urls.add(post["url"])
+            seen_urls.add(norm_url)
 
         # Then add homepage posts not in feed
         for post in homepage_posts:
-            if post["url"] not in seen_urls:
+            norm_url = self.normalize_url(post["url"])
+            if norm_url not in seen_urls:
                 all_post_metas.append(post)
-                seen_urls.add(post["url"])
+                seen_urls.add(norm_url)
 
         # Then add articles posts not already seen
         for post in articles_posts:
-            if post["url"] not in seen_urls:
+            norm_url = self.normalize_url(post["url"])
+            if norm_url not in seen_urls:
                 all_post_metas.append(post)
-                seen_urls.add(post["url"])
+                seen_urls.add(norm_url)
 
         print(f"\nTotal unique posts: {len(all_post_metas)}")
 
         # Load existing index to avoid re-scraping
         existing_slugs = self.get_existing_slugs()
+        seen_slugs = set(existing_slugs)
 
         # Process each post
         new_posts = []
@@ -460,7 +473,7 @@ class JekyllFeedScraper(BaseScraper):
             title = post_meta["title"]
             slug = self.extract_slug_from_url(url)
 
-            if slug in existing_slugs:
+            if slug in seen_slugs:
                 print(f"  Skipping {slug} (already scraped)")
                 continue
 
@@ -504,6 +517,7 @@ word_count: {post['word_count']}
 
                 self.save_post(post)
                 new_posts.append(post)
+                seen_slugs.add(slug)
                 print(f"  Saved: {filename} ({post['word_count']} words)")
 
         # Update index with new posts

@@ -1,5 +1,5 @@
 ---
-title: "Vector Technologies for AI: Extending Your Existing Data Stack03-28"
+title: "Vector Technologies for AI: Extending Your Existing Data Stack"
 date: 2025-03-28
 url: https://www.ssp.sh/blog/vector-technologies-ai-data-stack/
 slug: vector-technologies-ai-data-stack

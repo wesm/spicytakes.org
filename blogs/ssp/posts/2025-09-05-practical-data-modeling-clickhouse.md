@@ -1,5 +1,5 @@
 ---
-title: "Data Modeling Guide for Real-Time Analytics with ClickHouse09-05"
+title: "Data Modeling Guide for Real-Time Analytics with ClickHouse"
 date: 2025-09-05
 url: https://www.ssp.sh/blog/practical-data-modeling-clickhouse/
 slug: practical-data-modeling-clickhouse

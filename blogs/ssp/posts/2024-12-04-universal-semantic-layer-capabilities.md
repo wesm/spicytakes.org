@@ -1,5 +1,5 @@
 ---
-title: "Universal Semantic Layer: Capabilities, Integrations, and Enterprise Benefits12-04"
+title: "Universal Semantic Layer: Capabilities, Integrations, and Enterprise Benefits"
 date: 2024-12-04
 url: https://www.ssp.sh/blog/universal-semantic-layer-capabilities/
 slug: universal-semantic-layer-capabilities

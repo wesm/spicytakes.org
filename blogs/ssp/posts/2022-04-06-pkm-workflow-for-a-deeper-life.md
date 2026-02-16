@@ -1,5 +1,5 @@
 ---
-title: "Personal Knowledge Management Workflow for a Deeper Life â as a Computer Scientist04-06"
+title: "Personal Knowledge Management Workflow for a Deeper Life â as a Computer Scientist"
 date: 2022-04-06
 url: https://www.ssp.sh/blog/pkm-workflow-for-a-deeper-life/
 slug: pkm-workflow-for-a-deeper-life

@@ -1,5 +1,5 @@
 ---
-title: "Rust for Data Engineering10-19"
+title: "Rust for Data Engineering"
 date: 2022-10-19
 url: https://www.ssp.sh/blog/rust-for-data-engineering/
 slug: rust-for-data-engineering
