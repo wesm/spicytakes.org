@@ -1,0 +1,41 @@
+{
+  "id": "charity",
+  "name": "Charity Majors",
+  "tagline": "Observability, engineering management, and the engineer-manager pendulum",
+  "description": "CTO and co-founder of Honeycomb. Sharp takes on observability, engineering leadership, DevOps culture, and navigating the engineer-manager pendulum.",
+  "sourceUrl": "https://charity.wtf",
+  "sourceLabel": "charity.wtf",
+
+  "scraper": {
+    "type": "wordpress",
+    "baseUrl": "https://charity.wtf",
+    "feedUrl": "https://charity.wtf/feed/",
+    "sitemapUrl": "https://charity.wtf/sitemap-1.xml",
+    "contentSelector": ".entry-content",
+    "titleSelector": ".entry-title"
+  },
+
+  "themes": {
+    "observability": { "label": "Observability", "icon": "\ud83d\udd2d" },
+    "engineering_management": { "label": "Engineering Management", "icon": "\ud83d\udc65" },
+    "devops_sre": { "label": "DevOps & SRE", "icon": "\u2699\ufe0f" },
+    "career_growth": { "label": "Career & Growth", "icon": "\ud83c\udf31" },
+    "hiring": { "label": "Hiring", "icon": "\ud83c\udfaf" },
+    "tech_culture": { "label": "Tech Culture", "icon": "\ud83c\udfe2" },
+    "engineering_practices": { "label": "Engineering Practices", "icon": "\ud83d\udee0\ufe0f" },
+    "startups": { "label": "Startups", "icon": "\ud83d\ude80" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Charity Majors, CTO and co-founder of Honeycomb. She is known for passionate, blunt takes on observability, engineering management, the engineer-manager pendulum, DevOps culture, and building high-performing engineering teams.",
+    "depthLevel": "standard",
+    "summaryLength": "2-3 sentences",
+    "detailedBreakdown": false,
+    "maxWords": 150,
+    "numQuotes": "3-5"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Charity Majors is known for her blunt, passionate takes on observability, engineering management, and tech culture. She doesn't mince words about bad practices and is especially fierce about the importance of observability over traditional monitoring."
+  }
+}

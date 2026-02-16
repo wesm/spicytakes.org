@@ -31,6 +31,12 @@ class WordPressScraper(BaseScraper):
 
         self.base_url = self.config["scraper"]["baseUrl"].rstrip("/")
         self.feed_url = self.config["scraper"].get("feedUrl", f"{self.base_url}/feed/")
+        self.sitemap_url = self.config["scraper"].get("sitemapUrl")
+
+        # Optional: CSS selector for post content (default: .entry-content)
+        self.content_selector = self.config["scraper"].get("contentSelector", ".entry-content")
+        # Optional: CSS selector for post title (default: .entry-title)
+        self.title_selector = self.config["scraper"].get("titleSelector", ".entry-title")
 
         # Optional filters for excluding posts
         self.exclude_title_patterns = self.config["scraper"].get("excludeTitlePatterns", [])
@@ -150,6 +156,71 @@ class WordPressScraper(BaseScraper):
 
         return all_posts
 
+    def fetch_posts_from_sitemap(self) -> list[dict]:
+        """Fetch all posts by discovering URLs from sitemap XML."""
+        print(f"  Fetching sitemap: {self.sitemap_url}")
+        response = requests.get(
+            self.sitemap_url, timeout=30, headers=self.headers
+        )
+        response.raise_for_status()
+
+        root = ET.fromstring(response.content)
+        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+        # Extract URLs that look like blog posts (YYYY/MM/DD/slug pattern)
+        post_pattern = re.compile(
+            r'/(\d{4})/(\d{2})/(\d{2})/([^/]+)/?$'
+        )
+        post_urls = []
+        for loc in root.findall(".//sm:url/sm:loc", ns):
+            url = loc.text.strip() if loc.text else ""
+            if post_pattern.search(url):
+                post_urls.append(url)
+
+        print(f"  Found {len(post_urls)} post URLs in sitemap")
+
+        all_posts = []
+        for i, url in enumerate(post_urls):
+            match = post_pattern.search(url)
+            year, month, day, slug = match.groups()
+            pub_date = f"{year}-{month}-{day}"
+
+            print(f"  [{i+1}/{len(post_urls)}] Fetching {slug}...")
+
+            try:
+                resp = requests.get(
+                    url, timeout=30, headers=self.headers
+                )
+                resp.raise_for_status()
+            except requests.RequestException as e:
+                print(f"    Error fetching {url}: {e}")
+                continue
+
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            # Extract title
+            title_el = soup.select_one(self.title_selector)
+            title = title_el.get_text(strip=True) if title_el else slug
+
+            if self.should_exclude_post(title):
+                print(f"    Excluded: {title}")
+                continue
+
+            # Extract content
+            content_el = soup.select_one(self.content_selector)
+            content_html = str(content_el) if content_el else ""
+
+            all_posts.append({
+                "title": title,
+                "url": url,
+                "pub_date": pub_date,
+                "content_html": content_html,
+            })
+
+            time.sleep(REQUEST_DELAY)
+
+        return all_posts
+
     def make_slug(self, url: str) -> str:
         """Extract slug from WordPress URL."""
         # WordPress URLs are like: https://mathbabe.org/2025/09/02/post-title/
@@ -185,9 +256,15 @@ class WordPressScraper(BaseScraper):
 
     def scrape(self) -> list[dict]:
         """Scrape all posts from the WordPress blog."""
-        print(f"Fetching posts from feed...")
+        print("Fetching posts from feed...")
         feed_posts = self.fetch_all_posts_from_feed()
         print(f"Found {len(feed_posts)} posts in feed (after exclusions)")
+
+        # Fall back to sitemap if RSS returned very few posts
+        if len(feed_posts) < 10 and self.sitemap_url:
+            print("RSS feed returned few posts, falling back to sitemap...")
+            feed_posts = self.fetch_posts_from_sitemap()
+            print(f"Found {len(feed_posts)} posts from sitemap")
 
         existing_filenames = self.get_existing_filenames()
         existing = self.load_existing_index()
