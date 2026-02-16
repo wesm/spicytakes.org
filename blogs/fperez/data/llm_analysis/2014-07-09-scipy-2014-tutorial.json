@@ -1,0 +1,26 @@
+{
+  "summary": "This is a tutorial on IPython's interactive parallel computing facilities presented at SciPy 2014 by Min Reagan-Kelly, an IPython core developer. The tutorial explains how IPython's message protocol architecture naturally extends to parallel computing by managing multiple remote kernels through a hub-and-scheduler controller system. It covers the fundamental APIs for remote execution including apply, push/pull for data movement, synchronous and asynchronous execution patterns, and practical concerns like namespace resolution and serialization. The session demonstrates how IPython Parallel maintains the interactive, stateful nature of regular IPython while enabling distributed computation across multiple engines.",
+  "key_points": [
+    "IPython Parallel extends IPython's existing message protocol for remote execution to multiple engines, using a controller (hub + schedulers) as intermediary between clients and kernels",
+    "Engines are fundamentally stateful IPython sessions where globals persist, making namespace resolution of interactively-defined functions a common source of confusion",
+    "The apply API sends actual Python function objects and arguments (not code as text) to engines and returns real Python objects, using pickle with special handling for functions and zero-copy NumPy array transfer",
+    "Execution is fundamentally asynchronous with rich metadata about timing, engine assignment, and output available through async result objects inherited from multiprocessing.pool",
+    "For large data, pushing data once and using parallel references avoids repeated serialization, and loading data directly on engines from disk is preferred over sending from the client"
+  ],
+  "money_quotes": [
+    "The design principle of IPython Parallel is taking the existing message spec that IPython already has for doing remote execution, and then just saying, all right, I've got n remote engines, and then adding abstractions for how to deal with multiple remote namespaces in which to execute.",
+    "We really want the parallel IPython to be designed to be just like regular IPython, but in parallel. So it's a full IPython namespace, there's magics, there's everything, there's rich display.",
+    "We don't want IPython to reinvent or compete with MPI. If you want to use MPI, you just use MPI. You can start the engines with MPI and use MPI broadcasts and everything and it will be exactly as fast as it would be without IPython because you're just using MPI.",
+    "An engine dying is just an event in the IPython structure. IPython will let you propagate the fact that that event happened to you and then provide you enough hooks that you can actually decide what action to take.",
+    "A remote namespace is really just a dictionary. You can write to that dictionary. You can read from that dictionary. It just happens that it might take a while if you're asking for a couple of gigs.",
+    "If you can load the data on the engine, it will be better to load it than to send it."
+  ],
+  "themes": [
+    "jupyter_ipython",
+    "scientific_python",
+    "open_source"
+  ],
+  "tone": "technical",
+  "key_insight": "IPython Parallel's power comes from treating parallel computing as a natural extension of IPython's existing remote execution protocol, giving users multiple stateful interactive namespaces rather than imposing a new parallel programming paradigm.",
+  "filename": "2014-07-09-scipy-2014-tutorial"
+}

@@ -1,0 +1,1276 @@
+{
+  "total_posts": 42,
+  "successful": 42,
+  "posts": [
+    {
+      "summary": "Fernando P\u00e9rez presents a lightning talk at SciPy 2010 introducing a prototype 'DataArray' concept that adds semantic axis labeling to NumPy arrays. He argues that while NumPy has rich semantics for cell contents, it completely lacks semantics for describing array dimensions, forcing developers to track dimensions by position. The prototype, developed at UC Berkeley, allows naming axes and associating data with them while remaining lightweight enough to potentially merge into NumPy itself. P\u00e9rez positions this as a foundational layer that more sophisticated tools like pandas and statsmodels could build upon.",
+      "key_points": [
+        "NumPy arrays have rich semantics for cell contents but zero semantics for describing the geometry of dimensions, which causes practical problems in complex indexing code",
+        "The DataArray prototype adds named axes and optional tick data to NumPy arrays as a minimal, lightweight extension that could realistically be pushed into NumPy core",
+        "The design intentionally supports unnamed axes to maintain compatibility with NumPy broadcasting behavior",
+        "The project is positioned as a foundation layer beneath pandas and statsmodels, aiming to find what belongs in NumPy itself versus application-specific libraries"
+      ],
+      "money_quotes": [
+        "NumPy is very rich in that sense. But it has absolutely no semantics whatsoever for describing the geometry of those dimensions. They're just direction 0, 1, 2, 3, 4, 5.",
+        "If you have a four-dimensional array and you want to do some indexing along the third dimension, you have to count commas in your square brackets.",
+        "If halfway through your project you decide that you need to add an extra dimension in the middle, now you have to track everywhere, make sure that all of those operations have been properly updated and offset as you added in the dimension.",
+        "So what we've been playing with at UC Berkeley was a prototype of what would be the minimal set of ideas that we could add to NumPy to give us enough semantic control over the geometry of the arrays.",
+        "This isn't anywhere nearly as sophisticated as pandas, but hopefully later in the BoF today we'll discuss these ideas to find what of all of this can go eventually into NumPy.",
+        "But this should be considered not production code, but a prototype so that we can have a useful discussion."
+      ],
+      "themes": [
+        "scientific_python",
+        "open_source",
+        "jupyter_ipython"
+      ],
+      "tone": "technical",
+      "key_insight": "NumPy's lack of semantic axis labeling is a practical problem that could be solved with a minimal, lightweight extension, providing a foundation for higher-level tools like pandas to build upon.",
+      "filename": "2010-07-01-scipy-2010-lightning"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents IPython's evolution from a simple interactive shell to a sophisticated two-process architecture built on ZeroMQ messaging, enabling collaborative computing, rich Qt console interfaces, and high-performance parallel execution. He traces the history of scientific computing from Fortran through MATLAB to Python, arguing that Python's flexibility for symbolic-numerical integration, code generation, and high-level abstraction makes it uniquely suited for modern scientific problems. He highlights the explosive growth of quantitative data across disciplines and the critical training gap facing PhD students with no computational background. P\u00e9rez shares his personal journey from Colombia through particle physics to neuroscience tooling, emphasizing that open source tools are essential both for reproducible research and for resource-limited countries.",
+      "key_points": [
+        "IPython's new two-process architecture separates kernel execution from client interfaces via a ZeroMQ messaging protocol, enabling collaborative sessions, rich frontends, and language-agnostic clients",
+        "Python excels at bridging symbolic and numerical computing through code generation \u2014 scientists can describe problems symbolically while tools emit optimized compiled code on the fly",
+        "The switch from Twisted to ZeroMQ yielded orders-of-magnitude improvements in parallel task throughput and latency, making high-frequency task scheduling feasible",
+        "Fields previously non-quantitative now face data volumes rivaling the LHC, yet PhD students arrive with zero computational training, creating an urgent need for accessible high-level tools",
+        "Open source scientific tools serve both reproducibility in research and equitable access for resource-limited countries and institutions"
+      ],
+      "money_quotes": [
+        "The kind of equipment that computational biologists can get now that does in-lab genome sequencing can produce in one day roughly the data equivalent of the LHC in one year.",
+        "I promised myself never, ever, ever again to teach a class with such low-level tools when you're trying to teach people about numerical algorithms.",
+        "If that gap is too big, most people will fall through that gap and very few people will bridge it effectively.",
+        "Literally within 24 hours of reading the tutorial, I realized I could do things in Python that I didn't have any idea how to even begin doing in Perl.",
+        "The notion that the compiler and the code generation should be part of the problem solving, not something that happens at the stage when the scientist is thinking.",
+        "I'm personally convinced that black boxes don't belong in research, at least in the critical path of research results.",
+        "With the little money we have, should we spend that money in paying an annual rent to commercial software houses, or should we invest that money in developing tools where our students learn as part of the process of developing them?",
+        "It was literally live debugging of the two processes across the network from the two laptops in his house."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source",
+        "open_science",
+        "data_science_education",
+        "reproducibility"
+      ],
+      "tone": "reflective, narrative, passionate",
+      "key_insight": "Interactive scientific computing needs a messaging-based architecture that separates execution from interface, enabling collaboration, parallel computing, and rich frontends \u2014 all built on open tools that make research reproducible and accessible regardless of institutional resources.",
+      "filename": "2011-03-25-sagedays-2011"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents IPython's complete architectural overhaul at SciPy 2011, introducing a kernel-based architecture that separates code execution from user interfaces via a ZeroMQ messaging protocol. He demonstrates two new clients built on this architecture: a Qt console with inline plotting and multiline editing, and an HTML notebook for creating shareable computational documents. The talk also covers IPython's migration to GitHub, which dramatically increased community contributions, and Min Rager's reimplementation of parallel computing on top of the same messaging infrastructure. P\u00e9rez frames IPython fundamentally as a toolkit for manipulating namespaces, arguing this abstraction naturally extends to parallel computing where you simply manipulate many namespaces simultaneously.",
+      "key_points": [
+        "IPython was completely restructured from a monolithic codebase into a kernel-based architecture using ZeroMQ, enabling multiple clients to connect to the same computational session simultaneously",
+        "The messaging protocol formally specifies code execution, tab completion, history queries, and rich output display, creating a foundation for diverse frontends including the Qt console and HTML notebook",
+        "Migration to Git/GitHub catalyzed community contributions, with over 200 pull requests merged in months and key contributors like Thomas Kluyver emerging organically from the open source community",
+        "The HTML notebook prototype aims to create a version-controlled document format for reproducible computational workflows that combines code, LaTeX, plots, and narrative",
+        "The same architecture extends naturally to parallel computing, where ZeroMQ's low millisecond-scale latency enables interactive control of clusters with fine-grained task scheduling and dependency management"
+      ],
+      "money_quotes": [
+        "The way we like to think about IPython is just a toolkit for manipulating namespaces. Because at the end of the day, that's what it is.",
+        "I don't know of any system that makes it easier to collaborate than GitHub on scientific code production.",
+        "Think Google Docs, but with a brain. You can have more than one of these things talking to the same kernel.",
+        "IPython was a very impenetrable, thick code base that only a couple of people kind of knew how to navigate their way around, very monolithic, very hackish.",
+        "You don't spend your time running code -- you spend your time debugging code. So making it easy to do exception propagation is very important.",
+        "If you think about the problems that we now all have to face in parallel computing, parallel computing is nothing but manipulating a namespace, but just many of them.",
+        "I used to tell people, run away from IPython -- use it, but don't get into the code, it's an awful mess. It's not an awful mess anymore.",
+        "What we want to come up with is a very good document format, effectively for capturing computational workflows and enabling reproducibility of what you're doing as you're working."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_source",
+        "scientific_python",
+        "reproducibility"
+      ],
+      "tone": "enthusiastic, technical, community-oriented",
+      "key_insight": "By reconceiving IPython as a messaging protocol between kernels and clients rather than a monolithic shell, the project unlocked a composable architecture that naturally extends from interactive computing to rich notebooks to parallel cluster management.",
+      "filename": "2011-07-01-scipy-2011-talk"
+    },
+    {
+      "summary": "This is a comprehensive three-hour PyCon 2012 tutorial where Fernando P\u00e9rez, Brian Granger, and Min Ragan-Kelley walk through the full IPython ecosystem. Fernando covers IPython's motivation as a tool for exploratory scientific computing, its enhanced terminal with introspection, tab completion, magic functions, and debugging. Brian demonstrates the then-new web notebook with rich text, inline plots, LaTeX math, and a JSON-based file format designed for version control. Min presents IPython's parallel computing architecture using ZeroMQ, showing how to scale from single-machine exploration to cluster and cloud computing. The tutorial traces IPython from a 250-line afternoon hack in 2001 to a 100,000-line project with over 140 contributors.",
+      "key_points": [
+        "Scientific computing requires exploratory, interactive tools because researchers don't have well-defined specifications upfront \u2014 they iterate through data, algorithms, and visualization",
+        "IPython's architecture splits execution kernels from clients via ZeroMQ, enabling the same kernel to power terminal, Qt console, web notebook, and even Visual Studio integration",
+        "The web notebook combines executable code, rich text, LaTeX math, and inline plots in a version-controllable JSON format, creating true computational documents",
+        "IPython's parallel computing framework abstracts the transition from single-machine exploration to multi-core, cluster, or cloud execution using direct views and load-balanced views",
+        "The project grew from a 250-line startup file in 2001 to 100,000+ lines with 140+ contributors, driven by real scientific computing needs rather than abstract design"
+      ],
+      "money_quotes": [
+        "It is essential for effective scientific computing to have tools that are very fluid and that allow you to have a very exploratory workflow.",
+        "I promised myself this will be just a quick afternoon hack, 11 years and counting.",
+        "In 2002, John Hunter sent me some patches to improve the GNU plot support. I was at the time busy finishing my PhD, so I had to ignore them. And it's one of the best decisions I've ever made, because by ignoring John, he went out and wrote Matplotlib.",
+        "We don't come in scientific computing, or rarely do we do, come to a problem where we have a well-set, a well-defined set of specifications that we have to implement and at the end of which the job is done. That is just not the case.",
+        "IPython tries to let you make a very natural transition from interactive exploration of a problem on a single machine to extending execution to either a multi-core box, a local cluster, or even a cloud computing environment.",
+        "Even though IPython is mostly developed by scientists, we've gone to great lengths not to create any dependencies on scientific tools.",
+        "As Brian likes to joke, much of the success of IPython has been thanks to encoding all of my OCD into typing as little as possible.",
+        "We moved to Git and GitHub, which has been absolutely fantastic for us. It has really made a huge difference in our development."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source",
+        "reproducibility",
+        "data_science_education"
+      ],
+      "tone": "enthusiastic, educational, practical",
+      "key_insight": "The best scientific computing tools emerge from treating exploration as the primary workflow, building fluid interactive environments that scale naturally from single-user experimentation to collaborative parallel computation.",
+      "filename": "2012-03-07-pycon-2012-tutorial"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents IPython at his first PyCon, demonstrating how the project evolved from a 259-line afternoon hack into a comprehensive interactive computing platform. He walks through IPython's architecture, which separates kernels from clients via ZeroMQ, enabling the terminal, Qt console, and the then-two-month-old web notebook. Live demos showcase real-time Twitter analysis, inline plotting, LaTeX rendering, SymPy integration, and parallel computing with dependency-aware task scheduling. He frames IPython as serving the full lifecycle of ideas, from exploratory tinkering to collaboration, production-scale computation, and publishable results.",
+      "key_points": [
+        "IPython's ZeroMQ-based architecture cleanly separates execution kernels from multiple client interfaces, enabling the terminal, Qt console, Visual Studio plugin, and web notebook to share the same protocol",
+        "The web notebook combines executable code, rich text, LaTeX math, inline plots, video, and arbitrary web content into shareable JSON documents \u2014 described as 'Google Docs but with a Python brain'",
+        "IPython's parallel computing tools allow dependency-aware task scheduling across local cores, supercomputers, or cloud clusters with just a few lines of code",
+        "The project originated as a 259-line personal hack in 2001 and grew to over 100,000 lines with 140+ contributors, catalyzing the creation of matplotlib along the way",
+        "Exploratory interactive computing is not just for scientists \u2014 the same workflow benefits anyone who works iteratively with data, code, and visualization"
+      ],
+      "money_quotes": [
+        "In scientific computing, the kinds of work we do with computers are rarely with a well-defined task in advance. We tend to work with data. We have libraries. We have tools. We plot things. We ask new questions, and rarely do we have a well-defined specification to code against.",
+        "Exploratory computing is not just for scientists, and I'd like to make the point that IPython, even though we do a lot of work for scientific computing, there's nothing inherently scientific about it.",
+        "Think of it as Google Docs but with a brain, with a Python brain.",
+        "In October 2001, I promised myself that I would take a break from my thesis so that it would be just an afternoon hack. 259 lines of code. 12 years later, I'm still working on it.",
+        "John instead took the hint that he should write a better plotting library than the other 30 that existed at the time, and thus was born matplotlib, which is one of the cornerstones of Python's scientific computing stack.",
+        "We explained to them what the communications protocol was and we never heard from them. Next thing we know, the whole thing was released. They never had to ask us a question. It basically just worked based on the spec of our protocol.",
+        "It's sort of what we call the cradle-to-grave lifecycle of ideas, from exploring a new idea that may or may not pan out to completely presenting it in its finished form."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source",
+        "data_science_education",
+        "reproducibility"
+      ],
+      "tone": "enthusiastic, technical, narrative",
+      "key_insight": "By separating the execution kernel from its interface via a clean messaging protocol, IPython created a platform that spans the entire lifecycle of computational ideas \u2014 from solo exploration to collaboration, parallel production, and publication.",
+      "filename": "2012-03-09-pycon-2012-talk"
+    },
+    {
+      "summary": "Fernando P\u00e9rez delivers a comprehensive tutorial on IPython at SciPy 2012, covering the terminal shell, Qt console, web notebook, and parallel computing architecture. He explains IPython's origin as a better interactive shell for scientific computing, motivated by the inadequacy of Python's default REPL for exploratory work. The tutorial demonstrates key features including magic commands, tab completion, rich display representations, and the notebook's ability to combine code, text, math, and multimedia in a single document. He showcases cell magics that enable running code in other languages (R, Ruby, Bash, Octave, Cython) within the same notebook environment. The underlying ZeroMQ-based architecture allows multiple clients to connect to the same kernel, enabling collaborative workflows. P\u00e9rez emphasizes that IPython has grown from an afternoon hack into a 110,000-line project with over 130 contributors.",
+      "key_points": [
+        "Scientific computing is inherently exploratory, requiring interactive tools rather than code written against fixed specs, which is why every major scientific computing environment provides an interactive shell",
+        "IPython's architecture separates the kernel from clients via a ZeroMQ protocol, allowing terminal, Qt console, and web notebook interfaces to connect to the same computational engine simultaneously",
+        "Cell magics enable polyglot computing within a single notebook, supporting Python, R, Octave, Cython, Bash, Ruby, and custom interpreters through an extensible API",
+        "The rich display system allows objects to define multiple representations (PNG, SVG, LaTeX, HTML) and each client renders the best format it supports",
+        "The notebook format stores sessions as JSON files that can be exported to HTML, PDF, or pure Python scripts, enabling sharing and version control"
+      ],
+      "money_quotes": [
+        "Scientific computing is inherently an exploratory problem, where typically we don't know what we're doing in the sense that we have ideas, we have certain tools, we possibly have data, but we're looking for understanding for a problem.",
+        "It's very rare in scientific computing we write code against a well-defined spec, where somebody tells us this is what you have to write.",
+        "The most useful key in the entire keyboard in IPython is the tab key. We have literally thousands of lines of code devoted to making the tab key useful in IPython.",
+        "This is how I basically taught myself Python, by writing this code and actually playing with it. I rarely read documentation, I simply import it and start tabbing around and question marking around and very quickly I figure out how things work.",
+        "We sort of think of the notebook as the tip of the spear, because it's a fairly attractive thing. But the body of the spear is more of a battering ram. It's the entire architecture of how you can apply it.",
+        "Within one environment, we've been using Python, Bash, Ruby, Perl, Cython, Python 2 and Python 3, R, Octave. All of it is staying within one single system.",
+        "If you put that publicly without a password on it, then you basically put it at the same level as a bash prompt on the internet.",
+        "Having the thesis to write, I dove into that, merged the three, and thus IPython was born."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source",
+        "data_science_education"
+      ],
+      "tone": "enthusiastic, technical, pedagogical",
+      "key_insight": "IPython's power lies not just in the notebook interface but in its protocol-based architecture that separates computation from presentation, enabling a polyglot, multi-client scientific computing environment built for the exploratory nature of research.",
+      "filename": "2012-07-17-scipy-2012-tutorial"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents IPython as a comprehensive tool designed to support the entire lifecycle of scientific research, from initial exploration through collaboration, large-scale computing, publication, and reproducibility. He demonstrates the IPython Notebook's capabilities including rich output (plots, video, LaTeX math), integration with other languages like R and Cython, and cloud deployment on Amazon for reproducible research. He highlights early examples of truly reproducible papers using Amazon AMIs combined with IPython Notebooks, and shows automatic conversion of notebooks to publication-ready PDFs. P\u00e9rez emphasizes that the Notebook is built on a decade of IPython infrastructure enabling distributed computing, and that a growing external ecosystem (Microsoft, Enthought, community plugins) validates the architecture. He closes with a candid appeal for stable funding and community contributions.",
+      "key_points": [
+        "Traditional scientific workflows impose painful barriers between exploration, collaboration, computation, and publication\u2014IPython aims to provide fluid transitions across all stages",
+        "The IPython Notebook's rich display protocol allows Python objects to represent themselves as images, video, LaTeX math, or embedded web content, going far beyond text output",
+        "Cross-language integration (R via %%R magic, Cython via %%cython) lets scientists use the best tool for each task without leaving the notebook environment",
+        "Truly reproducible computational papers are now possible by combining Amazon AMIs, IPython Notebooks, and tools like StarCluster to let anyone re-execute published results",
+        "The Notebook is just the tip of the spear\u2014underneath lies a decade of architecture for interactive and distributed computing that enables an entire external ecosystem of tools and integrations"
+      ],
+      "money_quotes": [
+        "Unfortunately, most of the machinery that we have for this kind of work today imposes very unpleasant barriers between each of these steps.",
+        "The flow tends to be only forward. You can never go back. It's difficult to iterate. It's difficult to reproduce.",
+        "I want to present IPython as a tool that tries to provide fluid transitions across this workflow and tries to sort of let you be the space in which you manage kind of this neuroscientific thinking.",
+        "We basically try to give you something that really provides sort of all the pieces for the entire set of machinery that everyday scientific work includes.",
+        "I think we do have finally a way of actually saying if you don't believe what I ran, run it yourself, tweak the parameters and see what you get.",
+        "The Notebook is just the tip of a spear whose body is really, really big. The body of that spear is 10 years of work on the IPython infrastructure.",
+        "It's proven to be remarkably hard to convince the federal funding agencies that this is worth anything."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "reproducibility",
+        "open_source"
+      ],
+      "tone": "enthusiastic, demonstrative, community-oriented",
+      "key_insight": "By unifying exploration, collaboration, computation, and publication into a single notebook environment with rich output and cross-language support, IPython removes the barriers that force scientific workflows to be one-directional and irreproducible.",
+      "filename": "2012-07-19-scipy-2012-talk"
+    },
+    {
+      "summary": "Fernando P\u00e9rez delivers a keynote tracing the decade-long rise of Python in scientific computing, from its origins as a flexible glue language to its role as the backbone of modern science. He demonstrates IPython's notebook interface, showing how it combines code, text, math, and rich media into reproducible documents. He presents compelling examples of Python-powered science, including matplotlib's use in the Mars Phoenix Lander mission and machine learning-driven supernova detection. He argues that computing has become the microscope of modern science, making good computing practices essential, and closes with a candid assessment of the community's vulnerabilities: too few core contributors, speed challenges from languages like Julia, and packaging nightmares.",
+      "key_points": [
+        "Computing is no longer just a tool in science but its backbone \u2014 every scientific result depends on it, making good computing practices a scientific imperative",
+        "Python's flexibility as a glue language makes it ideal for scientists who need to explore problem domains rather than execute predefined workflows, integrating decades of legacy Fortran code through clean APIs",
+        "The IPython notebook creates a single coherent environment spanning the full research lifecycle \u2014 from prototyping and collaboration to parallel computing, publication, and education \u2014 eliminating sharp discontinuities between stages",
+        "The scientific Python ecosystem rests on the shoulders of only 20-25 core contributors worldwide, many of them unpaid grad students and postdocs risking their careers, which is unsustainable",
+        "IPython's architecture is language-agnostic by design: a documented protocol over ZeroMQ with JSON messages allows any client or kernel to participate, enabling R, Julia, and other languages to use the same infrastructure"
+      ],
+      "money_quotes": [
+        "Computing is now basically the backbone of all of science. You can't find a scientific paper these days that doesn't depend on computing for its results, whether it's theoretical modeling, data analysis, data acquisition.",
+        "We would not have the scientific Python stack that we have if it weren't because of grad students, postdocs, and young faculty doing something other than what's going to keep them their jobs and doing it at night.",
+        "For us scientists, the computer has become effectively our microscope. It's the tool with which we explore ideas.",
+        "The bulk \u2014 80% of the work in scientific Python \u2014 rests on the shoulders of 20 to 25 people worldwide. That is not enough. That is not sustainable.",
+        "Our job is not to build some weird Frankenstein that includes all of these ideas, but rather to set up a platform where such ideas are possible and people can build custom interfaces.",
+        "I came here, I came to Python because I fell in love with the language, but it really was the community that made me stay.",
+        "It's very common that the tool that you prototype your ideas with has no way of being used for collaboration other than emailing back and forth a bunch of scripts.",
+        "Speed actually matters, contrary to what some people say in the Python world. Speed matters, and it matters so much that a new language that came out of MIT called Julia is rapidly encroaching on Python's territory for scientific computing."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source",
+        "reproducibility",
+        "open_science",
+        "data_science_education"
+      ],
+      "tone": "passionate, reflective, candid",
+      "key_insight": "Python's true power for science lies not in raw performance but in providing a single flexible platform that spans the entire research lifecycle \u2014 from exploration to publication to education \u2014 while the community sustaining it remains dangerously small and underfunded.",
+      "filename": "2012-11-11-pycon-canada-2012-keynote"
+    },
+    {
+      "summary": "This is a comprehensive hands-on tutorial at PyCon US 2013 where Fernando P\u00e9rez, Brian Granger, and Min Reagan-Kelley walk attendees through IPython's full capabilities. Fernando covers IPython's evolution from a simple Python shell replacement to a broad interactive computing architecture supporting multiple languages through a common messaging protocol. Brian demonstrates the notebook's document model, rich display system, and markdown/LaTeX integration. Min covers configuration, custom magics, and IPython's parallel computing tools. The tutorial emphasizes IPython's kernel architecture as the key design that enables multiple clients, language-agnostic computing, and distributed parallel execution.",
+      "key_points": [
+        "IPython is an architecture for interactive computing across languages, not just a Python shell replacement, with backends planned or built for Ruby, Julia, MATLAB, and R",
+        "The kernel architecture separates execution from the frontend, enabling multiple clients (notebook, Qt console, terminal, Vim, Emacs, Visual Studio) to connect to the same running process",
+        "The notebook format uses JSON files stored on the filesystem, deliberately designed for version control friendliness rather than using a database",
+        "Python objects can declare rich representations (HTML, SVG, PNG, LaTeX, JavaScript) enabling sophisticated inline visualization through IPython's display system",
+        "IPython parallel extends the kernel abstraction to distributed computing, enabling interactive parallel execution with the same API patterns as local code"
+      ],
+      "money_quotes": [
+        "The scope of the project has grown beyond that, and in reality today we think of it as an architecture for interactive computing that allows you to use any language for which it's sensible to be used interactively.",
+        "The emphasis is always on the I, right? The I in IPython is for interactive because all of the tools we're building are meant to be used with a human in the loop.",
+        "The way I learn about most libraries is not by reading their documentation, it's by just asking with question mark for the methods and functions that I'm interested in that quickly can learn their signatures and see their code and just move along.",
+        "We do not store these in some fancy database that's hidden from you. They're just files. And that was a really important part of the design of the IPython notebook, mainly because a lot of people are or I would say should be saving all of their work in version control systems.",
+        "The notebook is a document format that allows you to incorporate a wide variety of content and sort of tell a story with that content.",
+        "The state of the kernel and the state of the notebook document are completely independent. We were very deliberate about this. The kernel knows absolutely nothing about notebooks.",
+        "If you can express your work as a collection of map calls, you can actually farm those out remotely just by replacing the Python built-in map with a view.map method."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source",
+        "data_science_education",
+        "reproducibility"
+      ],
+      "tone": "technical, pedagogical, enthusiastic",
+      "key_insight": "IPython's power comes from its kernel architecture that cleanly separates code execution from user interfaces, enabling a single protocol to support multiple languages, multiple frontends, and the leap from interactive computing to parallel distributed execution.",
+      "filename": "2013-03-13-pycon-2013-tutorial"
+    },
+    {
+      "summary": "Fernando P\u00e9rez delivers a keynote at SciPy 2013 tracing IPython's evolution from a 259-line shell replacement to a comprehensive platform for reproducible scientific computing. He frames IPython around a lifecycle of exploration, collaboration, production computing, publication, and education, arguing that fluid movement between these stages is essential for reproducibility. He demonstrates how the notebook architecture enables everything from parallel computing on Amazon clusters to fully executable books, and highlights the protocol-based design that allows multiple clients (Qt console, web notebook, Visual Studio, Emacs, Vim) to connect to the same computational kernel. He also reflects on community building, emphasizing that productive disagreement, mutual respect, and equal rules for all contributors are essential to sustaining an open source project.",
+      "key_points": [
+        "IPython's architecture deliberately unified shell, parallel computing, notebooks, and publication tools to enable fluid movement across the full scientific workflow lifecycle",
+        "The protocol-based kernel design was the key architectural breakthrough \u2014 decoupling computation from interface enabled notebooks, Qt consoles, IDEs, and web services to share the same backend",
+        "Five failed notebook attempts preceded the current design, and the team's willingness to explore dead ends was essential to finding the right architecture",
+        "Fully reproducible publications are achievable today, as demonstrated by a microbiology paper with companion notebooks and Amazon cluster configurations that anyone can replicate",
+        "Healthy open source communities require balancing individual leadership with community engagement, treating disagreement as creative fuel rather than conflict, and applying the same rules to everyone including the project lead"
+      ],
+      "money_quotes": [
+        "The purpose of computing is insight, not numbers.",
+        "We actually think very hard about what we're doing. And this is a serious case of dogfooding.",
+        "It's imperative that we can move back and forth, not just forward, not just simply get something, copy and paste it into a paper, then copy and paste it into a PowerPoint and move forward.",
+        "We had five failed attempts that came first where we went down every conceivable dead end, we made every conceivable mistake.",
+        "Learn and attempt and possibly fail to keep disagreement as the engine of creativity, but disagreement is a highly volatile and unstable fuel that can either lead to lots of good stuff or blow up your community.",
+        "We trust that our disagreement is because we see a problem differently and that that means that probably neither of us has quite found the right solution.",
+        "Even if they slow me down, I still have to go through a pull request. My code can still be denied admission by anyone in the project.",
+        "Not everybody has code that really does scale to 10,000 nodes despite what you tell your program managers."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "reproducibility",
+        "scientific_python",
+        "open_source",
+        "data_science_education"
+      ],
+      "tone": "reflective, enthusiastic, candid",
+      "key_insight": "IPython's seemingly sprawling scope \u2014 from shell to parallel computing to notebooks to books \u2014 reflects a deliberate architectural vision: a protocol-based kernel design that enables fluid, reproducible movement across the entire scientific workflow.",
+      "filename": "2013-06-24-scipy-2013-keynote"
+    },
+    {
+      "summary": "Fernando P\u00e9rez delivers a comprehensive hands-on tutorial on IPython 2.0 at PyCon 2014, covering the notebook interface, rich display system, magic functions, interactive widgets, configuration profiles, and public server deployment. He walks attendees through the modal editing interface, the client-server architecture that separates browser frontend from Python kernel, and how multiple clients can connect to the same kernel simultaneously. A significant portion covers IPython's 'beyond plain Python' features including shell integration, rich object representations, and the new interactive widget system in 2.0. He also discusses practical topics like security considerations, NBViewer for sharing notebooks, and the planned multi-user notebook server.",
+      "key_points": [
+        "IPython's architecture separates the browser client from the Python kernel, allowing multiple clients (terminal, Qt console, notebook) to connect to the same running process simultaneously",
+        "The notebook uses a rich display protocol where objects provide multiple MIME-type representations (HTML, PNG, SVG, JSON, LaTeX), and each client renders the richest format it supports",
+        "IPython 2.0 introduced interactive widgets that connect browser-based GUI controls (sliders, checkboxes, text fields) to kernel-side Python code execution with a single line of code",
+        "Magic functions create an orthogonal namespace separate from Python variables, allowing users to define custom line and cell magics that can interpret cell content as any language or format",
+        "NBViewer provides a free service to share notebooks as static HTML pages, and the notebook format is pure JSON that can be programmatically created, executed, and converted"
+      ],
+      "money_quotes": [
+        "IPython is 100,000 lines of code wrapped around exec code in dict.",
+        "We really try to make sure that when people contribute code, we don't just drop them on the floor. We try to engage the contribution from the community as much as we can.",
+        "You can think of IPython as weaponized, weapons-grade JavaScript. We have JavaScript code that is connected all the way back to a remote execution engine.",
+        "I'm a command line guy. I don't like to write GUI code and I don't know how to write GUI code and I'm old enough that I'm going to die without writing GUI code.",
+        "Anyone who's using IPython should be able to contribute to its development. And so we wanted to encourage the notion of having a unified community.",
+        "The notion of sandboxing the Python language has been proven over and over to be a figment of the imagination of people who think they can do it.",
+        "We don't have the Google Docs engineering team or the entire Microsoft Live Office engineering team. There's just a handful of us. But pull requests, welcome. Remember, this is an open source project. You can make it better.",
+        "Bugs that come just with a request without an accompanying pull request, they just naturally get triaged. The reason is limited bandwidth."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_source",
+        "scientific_python",
+        "data_science_education"
+      ],
+      "tone": "pragmatic, candid, instructional",
+      "key_insight": "IPython's client-server architecture and rich display protocol transform the interactive computing experience by decoupling code execution from presentation, enabling multiple simultaneous interfaces and rich browser-based representations while maintaining the simplicity of a Python shell.",
+      "filename": "2014-04-12-pycon-2014-tutorial"
+    },
+    {
+      "summary": "In this PyCon US 2014 keynote, Fernando P\u00e9rez argues that the open source software community embodies the ideals of science\u2014openness, reproducibility, and collaboration\u2014better than the scientific establishment itself. He traces the history of Python's numerical computing ecosystem from Numeric through NumPy and SciPy, and demonstrates how IPython has evolved from a 259-line shell hack into a 150,000-line platform with open protocols for interactive computing. He shows how IPython notebooks enable reproducible research, technical blogging, and data journalism, citing the 538 replication case study as proof that open computational practices can shift norms. He closes by emphasizing that the Python scientific stack is now driving adoption in industry, education, and major funding initiatives like Berkeley's $38 million data science institute.",
+      "key_points": [
+        "The open source community's practices\u2014public review, distributed credit, testing, and reproducibility\u2014better represent the ideals of science than academia's publish-or-perish culture",
+        "IPython evolved from a dissertation procrastination project into a language-independent protocol for interactive computing, with kernels in 10+ languages including R and Julia",
+        "Python's scientific stack (NumPy, SciPy, Pandas, scikit-learn) built for research is now exploding in industry data science, giving Python reach into a commercially important domain",
+        "The notebook format enables a new model of reproducible communication: papers with executable code, blogs you can re-run, and data journalism you can replicate and critique",
+        "Major institutions (Berkeley, MIT, Harvard) and funders (Moore, Sloan) are placing Python and open source at the center of science reform efforts"
+      ],
+      "money_quotes": [
+        "The ideals of science are that we are searching for truths about the world that are verifiable, that are objective, that we validate by reproducing. The reality of science is actually the pursuit of very highly cited papers in prestigious journals to pad your CV.",
+        "This is a world that is open and collaborative by definition. This community builds its software out in the open on the internet. It's a continuous and public process. There is no big, hold everything in secret until you get the big splash press release.",
+        "One of the things that really starting to work with open source people taught me is how often I made mistakes in my code. The code I didn't use to test before that I published paper with was pretty much always wrong unless I tested it.",
+        "I did a quick check with the Debian PopCon command, and NumPy is reported as being installed roughly in 58% of Debian installations. The scientists have built a tool that really is an important Python tool.",
+        "I got sucked in when I was a grad student looking for something to procrastinate on because the language was awesome. 24 hours after having read just the Python tutorial, I could do in Python things that I didn't know if they were possible in Perl.",
+        "Most of the projects that I showed in that slide were somebody's thesis, postdoc, or tenure procrastination project. Us scientists, we have a long and proud tradition of that.",
+        "I hope that I've shown you that we've built something that, by having open protocols and open formats, is a useful tool for computing in a very broad sense, and it's not a scientifically-oriented only tool.",
+        "The ideals of science that I was talking about are better represented by a lot of the things that you guys have done, and I certainly have learned a ton from this community."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "passionate, evangelistic, reflective",
+      "key_insight": "The open source software community's core practices of transparency, public review, and reproducibility represent the ideals of science better than the scientific establishment does, and Python's ecosystem is the vehicle through which these practices are transforming how science is actually done.",
+      "filename": "2014-04-13-pycon-2014-keynote"
+    },
+    {
+      "summary": "Fernando P\u00e9rez demonstrates IPython's notebook capabilities at Hualien.py, showing how the browser-based environment combines code execution, rich output display, and text in a single document. He walks through progressively sophisticated examples including plotting, symbolic math with SymPy, interactive widgets with sliders, and live D3 visualizations. He emphasizes IPython's multi-language ecosystem, showing integration with R, Julia, and Fortran alongside Python. The talk concludes with sharing tools like nbconvert and nbviewer that enable publication and collaboration without requiring recipients to install IPython.",
+      "key_points": [
+        "The IPython notebook architecture separates computation from display, enabling code to run locally, on a server, or in the cloud while results appear in the browser",
+        "By embracing web technologies, IPython can display images, video, audio, LaTeX math, and live interactive widgets as computation results",
+        "The interact function lets scientists create graphical interfaces for exploring problems with minimal code, lowering the barrier from typing parameters to dragging sliders",
+        "IPython supports multiple languages (R, Julia, Fortran) within the same environment, letting scientists use the best tool for each task",
+        "Tools like nbconvert and nbviewer solve the sharing problem by converting notebooks into webpages, PDFs, and presentations without requiring recipients to install anything"
+      ],
+      "money_quotes": [
+        "I have not only my code, but the results of my code and the text about my code, which means I can run it locally, or I can run it on a server, or I can run it on the cloud.",
+        "Let's embrace the web, and let's grab anything that comes back from the computation and display it as the result.",
+        "Writing a graphical interface takes time and effort. And so what we've tried to do with IPython is help you have graphical user interfaces, but with as little code as possible.",
+        "I love Python, Andreas loves Python, it's a great language, we use it a lot, but at the end of the day we're scientists and we're trying to understand scientific questions, and we may need to use other languages.",
+        "We're building these tools that let us talk to all of these programming languages, that let us do visualization, that let us do interaction, and we're creating these documents called notebooks.",
+        "In addition to computation, we want to communicate. We want to publish, we want to put blogs out, papers, books."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility"
+      ],
+      "tone": "enthusiastic, educational, demonstrative",
+      "key_insight": "By moving scientific computing into the web browser and combining code, results, text, and interactive widgets in a single document, IPython transforms computing from isolated code execution into a unified environment for exploration, teaching, and publication.",
+      "filename": "2014-05-25-hualien-py-2014"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents IPython as a unified platform for interactive computing that addresses the full lifecycle of scientific work \u2014 from exploration to collaboration to publication. He argues that scientists are not traditional software developers but rather people who intermix code, data, and results in an iterative process, and they need tools designed for that workflow. The talk demonstrates the IPython notebook's capabilities including rich display, interactive widgets, and multi-language support through a language-agnostic protocol. P\u00e9rez shows how the notebook format enables seamless sharing via NBViewer, blogging, and even full book publication. He highlights growing industry adoption including Google Collaboratory, Microsoft Visual Studio integration, and IBM Watson, demonstrating that the protocol-based architecture enables a healthy ecosystem of third-party tools.",
+      "key_points": [
+        "Scientists are a different breed of code users who intermix code, data, and results iteratively \u2014 they need tools designed for exploration and communication, not traditional software engineering",
+        "IPython's architecture abstracts code execution into a language-agnostic network protocol, analogous to HTTP/HTML but for computation, enabling kernels in Python, R, Julia, Fortran, and more",
+        "The notebook format unifies the entire scientific workflow lifecycle: individual exploration, collaboration, production deployment, publication, and education",
+        "Interactive widgets allow parameter exploration with minimal code, giving scientists graphical control without requiring them to write GUI code",
+        "The ecosystem has grown to include Google Collaboratory, Microsoft Visual Studio integration, IBM Watson, and multiple hosted notebook services, validating the protocol-based approach"
+      ],
+      "money_quotes": [
+        "We are a different breed of people for whom code, data, and the results that come out of it are completely intermixed in an iterative process where we don't have a well-defined, clearly specified goal of a product that we're going to build in advance.",
+        "The point is we are not in the business of actually picking a specific programming language or being wedded to a specific technology. The end goal are the scientific, algorithmic, and data questions that we have in mind.",
+        "Can we build tools where all of this is much more smoothly integrated? And I would argue that the answer is yes and that with IPython we are tackling this problem in kind of an integrated way.",
+        "You can think of this as the equivalent of HTTP and HTML, but for sharing computation, where instead of rendering content, you're executing code and you're returning computational results.",
+        "The name IPython basically is a historically interesting name, but today, what we've really built is a protocol for scientific computation across languages.",
+        "At the end of the day, what matters is algorithmic work, scientific questions, the sharing of our work and results. It's not really the programming language is not what matters.",
+        "This may have started as my personal PhD procrastination project hiding away from my advisor, but these days all of the hard work is really done by a very talented team."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility"
+      ],
+      "tone": "enthusiastic, accessible, demo-driven",
+      "key_insight": "By abstracting code execution into a language-agnostic network protocol \u2014 essentially HTTP for computation \u2014 IPython created a universal platform that unifies the entire scientific workflow from exploration through publication, freeing scientists to focus on questions rather than tools.",
+      "filename": "2014-07-07-mmds-2014"
+    },
+    {
+      "summary": "In this O'Reilly interview, Fernando P\u00e9rez recounts the origins of IPython as a graduate student's afternoon hack in 2001 to replace proprietary scientific computing tools with Python. He describes how the IPython Notebook required six attempts over many years, with five 'productive dead-ends' that taught the team what not to do before web technologies matured enough to make it viable. He discusses the unique nature of scientific programming as inherently exploratory and iterative, distinct from professional software engineering. He also offers a nuanced take on the 'everyone should learn to code' debate, arguing that computational thinking \u2014 the systematic, logical problem-solving that coding demands \u2014 is the truly valuable skill.",
+      "key_points": [
+        "IPython began as a personal fix for missing interactive computing in Python and grew into a community-driven project serving education, publication, and scientific computing at scale",
+        "The IPython Notebook required six prototypes over many years, with five productive dead-ends that clarified the right abstractions before web technologies like WebSockets and jQuery made the current version possible",
+        "Scientific programming operates on a continuum from ad hoc exploratory scripts to production-quality libraries, requiring different standards than traditional software engineering",
+        "The real value of learning to code is not syntax but computational thinking \u2014 the ability to organize problems systematically and reason about abstraction",
+        "Gmail and similar web applications proved that browsers could host highly interactive daily-use tools, enabling the notebook's move to the web"
+      ],
+      "money_quotes": [
+        "Being a grad student looking for an excuse not to work on his dissertation and instead do something more fun was the perfect combination to start writing IPython.",
+        "IPython was actually the first Python program that I ever wrote, and from the looks of it, it's going to be the last that I ever write because it began as an afternoon hack, and here we are 13 years later.",
+        "What appears like a very new solution to many people is something that we've actually been working on and thinking about for over 15 years.",
+        "Those dead-ends were very productive. They showed us all the wrong decisions, all the things we shouldn't try to do.",
+        "For scientists, programming has a very different flavor than it does for software developers and software engineers, in that in scientific contexts, programming is inherently exploratory and iterative, and it's really about answering a question.",
+        "We code because in coding we have to clarify, to the point that a dumb machine can understand, our thought process and what it is that we are going to do.",
+        "That process of logical, systematic, organized, abstract computational thought \u2014 that, I think, is a useful, valuable skill in many contexts in life.",
+        "The project is now really not my work, but actually the product of an entire community of people who are more talented than I am and who do all the hard work."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source",
+        "data_science_education",
+        "open_science"
+      ],
+      "tone": "reflective",
+      "key_insight": "The IPython Notebook's overnight success was actually the product of 15 years of iterative learning through productive dead-ends, and its value lies in supporting the uniquely exploratory nature of scientific programming.",
+      "filename": "2014-07-07-oreilly-2014"
+    },
+    {
+      "summary": "Fernando P\u00e9rez introduces Project Jupyter at SciPy 2014, announcing the evolution of IPython into a language-agnostic platform for interactive computing. He explains that while IPython's terminal shell and kernel remain Python-specific, the network protocols, notebook format, and web services are completely language-agnostic. Jupyter is inspired by Julia, Python, and R \u2014 the three open languages of science \u2014 and aims to make all programming languages equal citizens. He draws a historical connection to Galileo's notebooks about Jupiter's moons as the first open science publications, containing data, metadata, and narrative. The talk also features collaborators presenting Google Collaboratory, YT indexing, and other ecosystem projects.",
+      "key_points": [
+        "IPython is splitting into Python-specific components and language-agnostic components under the new Jupyter project, acknowledging that 15+ languages already operate in the architecture",
+        "Jupyter is inspired by Julia, Python, and R but defines protocols and machinery to make all programming languages equal citizens",
+        "Galileo's 1610 notebooks about Jupiter's moons were the first open science papers, containing observations with data, metadata, and narrative \u2014 Jupyter continues this tradition",
+        "The project's core vision is protocols for computation across networks, open formats for communication and publication, and tools for collaboration and education",
+        "Fernando also promoted the Journal of Statistical Software as a true open access journal with the highest impact factor among statistics journals, encouraging Python submissions"
+      ],
+      "money_quotes": [
+        "We're sort of moving in this direction of growing the project into this new project called Jupiter, which is inspired by what I think are the three open languages of science, which are Julia, Python, and R.",
+        "We're defining protocols and machinery to make all programming languages equal class citizens in the architecture.",
+        "The first notebook was about the moons of Jupiter in 1610. And we're sort of trying to continue that tradition.",
+        "When he published the Sidereal Messenger in 1610, he actually published his observations with code and data. And they included a log of the dates and the state of the night. So there was data, there was metadata, and there was a narrative.",
+        "We want to build a community across languages of protocols. Protocols for computation across networks. That's kind of the heart of what we've really kind of imagined in the last few years.",
+        "Everything on the left is really, really specific to the Python programming language. But everything on the column on the right is completely agnostic of the language that you're using."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "open_source",
+        "reproducibility"
+      ],
+      "tone": "optimistic",
+      "key_insight": "Jupyter represents the recognition that interactive computing protocols and notebook formats transcend any single programming language, and the project's mission is to build a language-agnostic infrastructure for open computational science.",
+      "filename": "2014-07-08-scipy-2014-jupyter-launch"
+    },
+    {
+      "summary": "This is a tutorial on IPython's interactive parallel computing facilities presented at SciPy 2014 by Min Reagan-Kelly, an IPython core developer. The tutorial explains how IPython's message protocol architecture naturally extends to parallel computing by managing multiple remote kernels through a hub-and-scheduler controller system. It covers the fundamental APIs for remote execution including apply, push/pull for data movement, synchronous and asynchronous execution patterns, and practical concerns like namespace resolution and serialization. The session demonstrates how IPython Parallel maintains the interactive, stateful nature of regular IPython while enabling distributed computation across multiple engines.",
+      "key_points": [
+        "IPython Parallel extends IPython's existing message protocol for remote execution to multiple engines, using a controller (hub + schedulers) as intermediary between clients and kernels",
+        "Engines are fundamentally stateful IPython sessions where globals persist, making namespace resolution of interactively-defined functions a common source of confusion",
+        "The apply API sends actual Python function objects and arguments (not code as text) to engines and returns real Python objects, using pickle with special handling for functions and zero-copy NumPy array transfer",
+        "Execution is fundamentally asynchronous with rich metadata about timing, engine assignment, and output available through async result objects inherited from multiprocessing.pool",
+        "For large data, pushing data once and using parallel references avoids repeated serialization, and loading data directly on engines from disk is preferred over sending from the client"
+      ],
+      "money_quotes": [
+        "The design principle of IPython Parallel is taking the existing message spec that IPython already has for doing remote execution, and then just saying, all right, I've got n remote engines, and then adding abstractions for how to deal with multiple remote namespaces in which to execute.",
+        "We really want the parallel IPython to be designed to be just like regular IPython, but in parallel. So it's a full IPython namespace, there's magics, there's everything, there's rich display.",
+        "We don't want IPython to reinvent or compete with MPI. If you want to use MPI, you just use MPI. You can start the engines with MPI and use MPI broadcasts and everything and it will be exactly as fast as it would be without IPython because you're just using MPI.",
+        "An engine dying is just an event in the IPython structure. IPython will let you propagate the fact that that event happened to you and then provide you enough hooks that you can actually decide what action to take.",
+        "A remote namespace is really just a dictionary. You can write to that dictionary. You can read from that dictionary. It just happens that it might take a while if you're asking for a couple of gigs.",
+        "If you can load the data on the engine, it will be better to load it than to send it."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "scientific_python",
+        "open_source"
+      ],
+      "tone": "technical",
+      "key_insight": "IPython Parallel's power comes from treating parallel computing as a natural extension of IPython's existing remote execution protocol, giving users multiple stateful interactive namespaces rather than imposing a new parallel programming paradigm.",
+      "filename": "2014-07-09-scipy-2014-tutorial"
+    },
+    {
+      "summary": "Fernando P\u00e9rez introduces the Berkeley Institute for Data Science (BIDS), created through a $38 million collaborative grant from the Moore and Sloan Foundations awarded to UC Berkeley, University of Washington, and NYU. He describes how people working at the intersection of domain science and software development have historically struggled in academia, where writing code and helping communities doesn't count toward tenure. BIDS aims to address this by creating a physical and institutional home for interdisciplinary data science collaboration, with six working groups tackling reproducible research, education, software tools, career paths, and more. The institute secured prime space in Berkeley's central library and is structured around fellows who split time between their home departments and the institute. P\u00e9rez frames this as a deliberate experiment in changing how academia values computational work and the people who build scientific tools.",
+      "key_points": [
+        "People at the intersection of domain science and software development fall through academic cracks \u2014 they publish across disparate journals, spend time on code and community, and lack a clear tenure path",
+        "The Moore and Sloan Foundations funded a five-year, $38 million initiative across UC Berkeley, UW, and NYU to create 'data science environments' as institutional experiments",
+        "The foundations see themselves as 'tugboats' \u2014 small and nimble, pointing toward problems so that larger federal agencies follow",
+        "BIDS is organized around six working groups spanning software tools, reproducible research, education, career paths, ethnography, and industry outreach",
+        "The institute deliberately chose to run with the 'data science' buzzword rather than spend five years debating terminology, focusing instead on doing meaningful work"
+      ],
+      "money_quotes": [
+        "I like to joke that I belong to the Department of Connective Tissue, and the tenure process in that department is rather difficult.",
+        "I've heard this from many, many people say that they actually feel a better intellectual space at conferences like SciPy than they do when they go to their discipline-specific conferences.",
+        "We figured that we could spend five years debating the buzzword, or just run with a stupid thing, and actually try to do interesting work.",
+        "I was here 12 years ago, when we sounded like the crazies, like the loonies screaming in the desert, and nobody believed we could do this, and we have done it.",
+        "The analogy that these foundations use is that they are like tugboats in a harbor. They say, we're the small boats, but we're nimble, and where we go, the big boats, the NIH, the DOE, the NSF, they follow.",
+        "Science is undergoing an important transition and we need to think both about the very concrete technical questions with building tools and also about what is happening to science itself.",
+        "We actually care not just about the results and the paper counts, but about the code itself."
+      ],
+      "themes": [
+        "open_science",
+        "data_science_education",
+        "open_source",
+        "academia_industry",
+        "scientific_python",
+        "reproducibility",
+        "jupyter_ipython"
+      ],
+      "tone": "passionate, reflective, advocacy-driven",
+      "key_insight": "Academia needs new institutional structures like BIDS to legitimize and sustain the careers of people who build the computational tools that modern science depends on but doesn't know how to reward.",
+      "filename": "2014-07-10-scipy-2014-bids"
+    },
+    {
+      "summary": "Fernando P\u00e9rez delivers a keynote exploring how the open source Python community has fundamentally improved scientific practice. He argues that open source culture embodies the ideals scientists promised but often fail to deliver: collaboration, reproducibility, transparency, and continuous public work. He traces the history of scientific Python from Numeric (1995) through NumPy and SciPy, and demonstrates how IPython has evolved from a 250-line shell hack into a 150,000-line platform with language-agnostic protocols. He highlights the bidirectional value exchange between scientists and the broader Python community, and announces the Google Collaboratory project for real-time collaborative notebooks.",
+      "key_points": [
+        "The open source community practices what science preaches but often fails to deliver: open collaboration, reproducibility, continuous public work, and transparent credit allocation",
+        "Python's strength for scientists is being 'the second best language at everything' while allowing reuse of decades of Fortran/C/C++ scientific code",
+        "IPython evolved from a simple shell into a platform built on language-agnostic protocols (like HTTP/HTML for computation), enabling kernels in 12+ languages and deep cross-language integration",
+        "Scientists bring reciprocal value to Python through diverse use cases that strengthen the language, teaching the next generation of programmers, and building the data science stack that industry now depends on",
+        "The Moore/Sloan Data Science Environments initiative represents a $40 million bet on changing how academia values computational tool-building over paper publishing"
+      ],
+      "money_quotes": [
+        "The open source community actually has a lot of things to teach us as working scientists. There are many things that the open source community does that in many ways are the things that we as working scientists promised to ourselves and promised to society that we would be doing, and yet we don't.",
+        "It's a continuous process where you don't hold things in secret for years until you get that big paper published.",
+        "Python today is probably the second best language at everything, but that is good because we have to do so many different things as scientists that having one tool that is the second best at everything is a really good solution.",
+        "When we as scientists use Python, we really mean we use Python plus C plus C++ plus Fortran because we are not going to abandon all that code.",
+        "I came to Python for the language because I really got hooked, but I really stayed because of the community.",
+        "We were given five years and almost $40 million to try to figure this out. We're very excited. It's a really hard problem to tackle. We have to change how the institution itself behaves, and there's a good chance we will fail, but we're still going to give it a try.",
+        "Once I began realizing how often I had mistakes and adding tests to everything, I saw that pretty much every time I wrote code I made a mistake, and that that's okay, if I take that as part of my process."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, evangelical, optimistic",
+      "key_insight": "The open source community's culture of transparency, reproducibility, and distributed collaboration represents the ideals that science professes but often fails to practice, and the dialogue between these two communities is making both stronger.",
+      "filename": "2014-08-08-pycon-apac-2014-keynote"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents the evolution of IPython from a thesis procrastination project into a comprehensive platform for interactive scientific computing. He demonstrates two key newer features: 'just-in-time GUIs' that let scientists add lightweight interactive widgets without writing full GUI code, and polyglot computing that integrates Python, Julia, R, Fortran, and Cython in a single process. He introduces Project Jupyter as the language-agnostic evolution of IPython, supporting native notebooks for multiple languages. The talk concludes with real examples of reproducible neuroscience publications built on this infrastructure.",
+      "key_points": [
+        "IPython's interactive widgets enable 'just-in-time GUIs' that bridge the gap between scripting and graphical interfaces without requiring dedicated GUI development",
+        "The notebook architecture supports polyglot computing with Julia, R, Cython, and Fortran all operating in the same process and sharing data",
+        "Project Jupyter separates language-agnostic infrastructure from Python-specific components, enabling native notebooks for any language",
+        "The platform is being used for real reproducible science, with peer-reviewed publications shipping alongside the notebooks that produced their figures",
+        "The entire philosophy centers on tying together data exploration, code execution, communication, and reproducibility in a single shareable document"
+      ],
+      "money_quotes": [
+        "IPython began its life as my official thesis procrastination project.",
+        "We actually try to do science and not just get papers lined up in a CV, which I know those two things are supposed to be the same, but they're not, believe me.",
+        "I'm going to die without writing actual full-blown GUIs because it was too painful.",
+        "Instead of think that there's a big divide in scientific data analysis between scripting and complex graphical interfaces, it lets us say, no, those two things can actually live together.",
+        "Ultimately, at the end of the day, the point of all of our work should be to understand nature, in this context, maybe to understand the brain, not to be specifically bigots about any one language or technology.",
+        "I have a process that is accessing from Python. I have Julia loaded in memory, R loaded in memory, Fortran libraries, and Cython optimized libraries working together with all the same data in the same process.",
+        "What Mike did was he actually put out, in addition to the paper, he put out the notebooks that produced exactly all of those results, so anyone can grab his code and his work and actually reproduce it and build upon it."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "reproducibility",
+        "open_source"
+      ],
+      "tone": "enthusiastic, accessible, demo-driven",
+      "key_insight": "Scientific computing tools should dissolve barriers between languages, scripting and GUIs, and analysis and publication, so scientists can focus on understanding nature rather than fighting their tools.",
+      "filename": "2014-12-16-codeneuro-2014"
+    },
+    {
+      "summary": "Fernando P\u00e9rez recounts the origin story of IPython and its evolution into Project Jupyter, explaining how he and other scientists built Python's scientific computing ecosystem starting around 2001. He describes the convergence of this ecosystem with Apache Spark through PySpark, enabling scientists to combine large-scale enterprise analytics with interactive analysis and visualization tools. P\u00e9rez emphasizes how open source collaboration across disciplines \u2014 from neuroscience to particle physics \u2014 drove rapid innovation, and how federal funding agencies eventually recognized the importance of supporting open source scientific software. He articulates the Jupyter notebook vision: combining live code, results, and human narrative in a single reproducible document that works across 40+ programming languages.",
+      "key_points": [
+        "IPython was born from a grad student's frustration with juggling seven or eight programming languages, and Python's ability to replace most of them attracted scientists across disciplines to build a shared ecosystem",
+        "PySpark created a convergence between the Python scientific computing ecosystem (NumPy, SciPy, Matplotlib, pandas) and Spark's enterprise-level analytics, complementing each other's strengths",
+        "Reproducibility in science requires both better tools and social incentives \u2014 technology alone is insufficient if researchers aren't motivated to keep all steps of their workflow together",
+        "Jupyter notebooks weave three components together: live executing code, results, and human narrative, enabling reproducible scientific storytelling across 40+ programming languages",
+        "The BSD licensing model of the Python scientific ecosystem, like Apache licensing for Spark, made it easy for industry to adopt tools developed largely under academic funding"
+      ],
+      "money_quotes": [
+        "One day I looked at my desk and I had a stack of probably seven or eight different programming languages, books on my desk. I was writing Perl code. I had books about Bash, AWK, SED, C++, Mathematica, IDL. And I realized that I was probably spending more time switching between programming languages than actually writing any, doing any work.",
+        "And what is a grad student going to do between actually writing more fun code and doing his dissertation? I embarked on this task of writing a new environment to do my work in Python.",
+        "The visualization library that I started using was developed by a neuroscientist in Chicago. The numerical tools that I was working with had been developed at Lawrence Livermore Lab and at MIT and were contributed to by a postdoc at the Mayo Clinic and by scientists at NASA.",
+        "We need to build better tools to enable science to be more reproducible but it's also a social issue because we need to incentivize people into keeping all of those steps together to enable others to reproduce because even if you have all those things it's perfectly possible to throw them away.",
+        "A screwdriver and a hammer are both really, really useful things to have in your toolbox. And you don't necessarily want to drive nails with a screwdriver and you really shouldn't be pounding screws with a hammer.",
+        "The Jupyter notebook and the Jupyter environment is precisely about building an environment where you can build code and narratives together, where you have the narrative, you have the collaboration, and you have the code and they're all put together.",
+        "The federal funding agencies in 2002 didn't want to hear about this stuff. Today, if you look at things that are being funded at the federal agencies, the NIH, the NSF, the Department of Energy, DARPA, they're actually funding a lot of these things."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_source",
+        "scientific_python",
+        "reproducibility",
+        "open_science",
+        "data_science_education"
+      ],
+      "tone": "conversational, reflective, enthusiastic",
+      "key_insight": "The Python scientific computing ecosystem and Jupyter notebooks emerged from scientists collaborating across disciplines in open source, creating tools that now bridge academic research and enterprise analytics by combining live code, results, and narrative in a single reproducible environment.",
+      "filename": "2015-06-16-spark-summit-2015"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents Project Jupyter's evolution from a simple IPython terminal into a modular, protocol-based interactive computing platform serving science, education, and industry. He traces the journey from his 2001 grad-student procrastination project through the notebook's creation, multi-language kernel support, and the new JupyterLab architecture. He demonstrates how Jupyter enables reproducible research through tools like Binder (one-click executable papers), citing LIGO's gravitational wave analysis as a landmark example. The talk highlights JupyterHub deployments at universities and supercomputing centers, and previews JupyterLab's plugin-based architecture that bridges interactive exploration with large-scale HPC workflows.",
+      "key_points": [
+        "Jupyter's core innovation was turning the read-eval-print loop into a well-defined network protocol, decoupling computation from display and enabling multi-language support across ~75 kernels",
+        "Binder and reproducible notebooks have moved from aspiration to reality, with LIGO releasing gravitational wave detection analysis as executable Jupyter notebooks anyone can re-run",
+        "JupyterLab represents a ground-up rearchitecture into a modular plugin system, replacing the organically-grown Frankenstein notebook interface with composable building blocks",
+        "JupyterHub enables institutional deployments for education (UC Berkeley's data science curriculum) and HPC centers (NERSC, SDSC), bridging the gap between laptops and supercomputers",
+        "The project thrives on a broad coalition of industry, academia, government, and open-source contributors, with deliberate architectural decisions enabling others to build on the platform"
+      ],
+      "money_quotes": [
+        "We have data. We've all seen slides like this about kind of the flood of data in every discipline. The question is, with all that data and all that compute power, we still have one of these. And it's not getting any bigger.",
+        "What we've tried to build with the tools in IPython and Jupyter is to be the bridge between our limited puny brains that are trying to make sense of the world and these silicon toys that we keep building and keep getting bigger.",
+        "We basically turned the read-about-print loop into a well-defined network protocol, where something on one end could execute code, and something at the other end would receive the results of that execution.",
+        "To first approximation, I like to describe it as Google Docs with a brain, because you have a document, you can type code, you can type text, you can format the text, you can type mathematics, you can also type code.",
+        "The LIGO collaboration now releases all of their analysis in the form of Jupyter notebooks, and you can literally click on it and execute, re-execute the LIGO gravitational wave detection analysis yourself without ever installing or downloading absolutely anything.",
+        "We are certainly not experts, but we acknowledge the severity of what we're doing. And we invite experts in security to join us.",
+        "What we've done is we've weaponized JavaScript, right? This is weapons-grade JavaScript connected in the browser, connected directly with APIs that hook all the way back to remote resources with arbitrary code execution."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "reproducibility",
+        "scientific_python",
+        "data_science_education",
+        "open_source"
+      ],
+      "tone": "enthusiastic, technical, community-oriented",
+      "key_insight": "By abstracting the interactive computing loop into a modular network protocol, Jupyter evolved from a personal productivity hack into infrastructure that makes reproducible, collaborative science a practical reality across languages, institutions, and scales.",
+      "filename": "2016-11-10-gateways-2016"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents the Jupyter project's evolution from IPython to a comprehensive platform for reproducible scientific computing. He explains how Jupyter notebooks encode computational processes as structured JSON data, enabling both human understanding and machine readability. P\u00e9rez argues that the scientific publication system conflates communication of ideas with career tracking, leading to an unsustainable volume of literature that nobody reads. He proposes a two-tier model where daily computational work is captured in machine-readable formats with rich metadata, while traditional papers become less frequent, high-quality narratives. He demonstrates JupyterLab's modular architecture and tools like Binder that enable one-click reproducibility, citing the LIGO gravitational wave analysis as a landmark example.",
+      "key_points": [
+        "Jupyter's protocol-based architecture (ZeroMQ + JSON) is language-agnostic with ~75 kernel implementations, making it a universal platform for interactive scientific computing",
+        "The scientific publication system is broken: career incentives have inflated output to unsustainable volumes, with 70-90% of papers carrying only 20% of citations",
+        "Notebooks as structured data enable machine mining of scientific knowledge, proposing a future where machines handle the exponentially growing literature while humans write fewer, deeper papers",
+        "Binder and cloud-based reproducibility tools allow one-click re-execution of analyses, as demonstrated by the LIGO gravitational wave discovery notebooks",
+        "JupyterLab reimagines the notebook as a modular, plugin-based IDE where interconnected components support the full spectrum of scientific computing workflows"
+      ],
+      "money_quotes": [
+        "We still have the same little bag of meat inside of our craniums, and that isn't going to scale.",
+        "What we really need to be sharing with the scientific community isn't simply the glossy summary that goes into the high-prestige journal, that's three pages long and that nobody can actually use to build off of the science.",
+        "We are conflating the communication of ideas, which I think was the original intent of the scholarly literature, with professional credit and career management.",
+        "I'm not completely convinced that people have genuinely in-depth, novel, meaningful ideas that have been worked through in a significant way 20, 30, 40, or 50 times a year, the way some people do publish.",
+        "My little slogan for this is: let's publish less so we can read more.",
+        "Since our brains aren't getting any bigger, but our data centers are, then maybe those data centers are the ones whose exponential growth can match the exponential growth of the literature.",
+        "As a non-cancer researcher, this gives me some confidence that authors who are thorough enough to share all of the details of their process in a format that I know connects inputs and outputs with a strong linkage does give me confidence that these results are actually robust and well done.",
+        "By building these things based on open formats and open protocols and open machinery, we can avoid the desire of the publishers to build their locked-in gardens that precisely cut off that long tail."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "reproducibility",
+        "scientific_python",
+        "open_source"
+      ],
+      "tone": "visionary, pragmatic, critical",
+      "key_insight": "The exponential growth of scientific literature demands a shift from glossy journal articles to machine-readable computational documents that capture the full research process, letting machines mine knowledge at scale while humans focus on writing fewer, deeper narratives.",
+      "filename": "2017-02-14-dataone-2017-webinar"
+    },
+    {
+      "summary": "In this JupyterCon 2017 keynote, Fernando P\u00e9rez traces the origins of IPython and Project Jupyter through three layers of motivation: technical (better interactive tools for science), ethical (enabling global collaboration through open access), and epistemological (science shouldn't rely on tools we can't inspect). He describes how IPython evolved from a grad student's coding binge into a language-agnostic platform for interactive computation, emphasizing that community collaboration was central from day one. P\u00e9rez highlights Jupyter's architecture of open standards, libraries, applications, and services, and showcases UC Berkeley's explosive growth in data science education powered by Jupyter. He closes with an urgent call for sustainability of open-source infrastructure, acknowledging key funders while warning that without solving the funding problem together, this ecosystem won't survive.",
+      "key_points": [
+        "IPython began in 2001 as a collaboration from the start, incorporating code from Nathan Gray and Janko Hauser before becoming a public project",
+        "Three motivations drove the work: better interactive tools for science, equitable global access through open source, and the principle that science shouldn't use black-box proprietary tools",
+        "Jupyter's architecture is deliberately layered\u2014open standards at the base, libraries and applications above\u2014with standards being the layer where community alignment matters most",
+        "UC Berkeley's Foundations of Data Science course became the fastest-growing course in university history, with 1,200 students across 60 majors using JupyterHub",
+        "Sustainability of open-source infrastructure remains an urgent unsolved problem: Jupyter provides enormous value but captures very little of it financially"
+      ],
+      "money_quotes": [
+        "I was not into the business of building software engineering but thinking about science about data and that workflow of exploring a problem using the computer to reason about a problem.",
+        "If I continued using proprietary expensive tools for my work in the United States I couldn't collaborate easily with someone like my former undergraduate advisor who would probably have difficulties accessing this expensive proprietary software.",
+        "We can't in good conscience say that we are going to understand nature with tools which themselves we're not allowed to open and understand. If science is about opening up the black box of nature we shouldn't be doing that with things which themselves we are not legally allowed to understand.",
+        "I came for the language but I stayed for the community.",
+        "We're trying to build human centered tools for interactive computation and science where the human at the helm is what matters.",
+        "That lowest layer of protocols and formats is not the place where forking and needless replication should happen. This is the place where we try to have the standards that serve us all.",
+        "We would like to think we provide a lot of value but we capture very little of it in the sense that we don't retain. Everything we do is open, everything we do is free.",
+        "We're at a scale where somebody's nights and weekends don't cut it at this point and we needed real resources."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "academia_industry"
+      ],
+      "tone": "reflective, passionate, grateful",
+      "key_insight": "Jupyter's evolution from a grad student's Python hack to a universal platform for interactive computation was driven not by technical ambition alone, but by the conviction that open tools are an ethical and epistemological necessity for science\u2014yet sustaining this open infrastructure remains the community's greatest unresolved challenge.",
+      "filename": "2017-08-25-jupytercon-2017-keynote"
+    },
+    {
+      "summary": "Fernando P\u00e9rez traces the evolution of IPython into Project Jupyter, explaining how a 300-line afternoon hack in 2001 grew into infrastructure used by millions. He describes the key architectural decisions \u2014 abstracting the REPL into a network protocol and creating a language-agnostic document format \u2014 that enabled the notebook to become a platform for scientific computing, education, reproducible research, and industry adoption. Major companies including Microsoft, IBM, Google, and Bloomberg now build products on Jupyter's open protocol. P\u00e9rez argues that by thinking carefully about the everyday workflow of scientists and abstracting it into clean, open, composable layers, the project achieved impact across research, education, publishing, and industry.",
+      "key_points": [
+        "The key architectural insight was abstracting the interactive REPL into a network protocol and document format, analogous to HTTP and HTML, enabling any language and any client to participate",
+        "Scientists need programming environments that function like Lego blocks \u2014 flexible, iterative, and constantly reassemblable \u2014 not canned tools that do one thing",
+        "Reproducible research became practical by packaging notebooks with computational environments, demonstrated first with Amazon cloud images in 2012 and later streamlined through MyBinder",
+        "The project's success came from building it as an open community effort from day one rather than as a single PI's personal project",
+        "Industry adoption by Microsoft, IBM, Google, Bloomberg, and O'Reilly validated that tools designed for scientists' everyday workflows could become general-purpose computational infrastructure"
+      ],
+      "money_quotes": [
+        "Computers are tools to help us think. They are tools to help us understand problems. And everything we've done in this project is try to basically build environments and ways to help science and society use computers better to think.",
+        "For us, computing languages and programming languages are not pre-made, pre-molded tools. They're Lego blocks. We need to assemble them together iteratively and constantly take them apart and put them back together.",
+        "Faced with two choices, I finish my dissertation or I write code that has nothing to do with it for an afternoon or a little bit more than an afternoon. What every graduate student in their sane mind does when they want to hide from their advisor is take option B.",
+        "If this project has had legs, it is because we've built it from day one, not as a I will be the lead PI with the lead author papers of the project, but rather from the beginning, as this will be put out for the scientific community to use in the open and to build it together.",
+        "We were piggybacking on the fact that come 2011, the entire industry was at war. Google, Microsoft, Apple, and Mozilla were four giants of engineering pouring obscene amounts of resources into making the browser the most portable, high-performing, cross-platform graphical user interface toolkit on Earth.",
+        "Today the federal agencies are asking about reproducibility in research, they're asking us to share our code and data and so this may not sound as weird today as it was, but back in 2012, people did say that you couldn't do this stuff and we're like, no, we could do it in a day.",
+        "By trying to look at those questions and just taking the time to take a step back and saying, can we implement a version of that that is a little bit cleaner, a little bit more abstract, a little bit more generalizable, and we do it in an open community way, we can actually build tools that have a much larger impact."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, optimistic, technical",
+      "key_insight": "By abstracting the everyday scientific workflow into an open network protocol and document format \u2014 treating computation the way HTTP/HTML treat content \u2014 a small community-driven project became foundational infrastructure for science, education, and industry alike.",
+      "filename": "2017-12-13-design-at-large-2017"
+    },
+    {
+      "summary": "Fernando P\u00e9rez traces the evolution of IPython and Jupyter from a 259-line afternoon hack to a global platform for interactive scientific computing. He explains the core architectural decisions\u2014a language-agnostic protocol over ZeroMQ with JSON encoding, and a web-native interface\u2014that enabled Jupyter to support over 100 programming language kernels and scale from laptops to supercomputers. He demonstrates JupyterLab's modular extensibility, including drag-and-drop cells, GitHub integration, GeoJSON viewers, and interactive widgets. P\u00e9rez makes a passionate case for open-source tools in science on ethical, community, and epistemological grounds, arguing that proprietary tools in the path of scientific discovery are fundamentally broken. He showcases reproducibility efforts through Binder and the LIGO gravitational wave analysis, and describes Berkeley's Data 8 course scaling to 700 students as a model for data science education.",
+      "key_points": [
+        "Jupyter's architecture separates protocol (ZeroMQ + JSON) from format (notebook document) from interface, enabling language-agnostic interactive computing across 100+ kernels",
+        "Open source in science is motivated by three forces: ethical fairness across economic barriers, community building across disciplines, and the epistemological principle that proprietary tools contradict science's mission to understand nature",
+        "JupyterLab represents a modular, extensible redesign where computational components can be wired together in novel ways\u2014consoles attached to markdown files, scripted forms, domain-specific data viewers",
+        "Reproducibility remains incomplete even with best intentions, as demonstrated by a Norwegian wind-pattern paper that required patches despite full code and data sharing",
+        "Berkeley's Data 8 course with 700 students represents a model for normalizing computational tools 'at the level of Gmail on campus' across all disciplines"
+      ],
+      "money_quotes": [
+        "I do not consider acceptable the idea that scientific work, whose mission is fundamentally to understand nature, how is the world put together, and that the tools we use for that understanding have a layer that says you can open nature, but if you open me, I will sue you.",
+        "Today, reading the scientific literature, if we're reading at the level of a PDF, is a completely insufficient representation of the ideas in computational research.",
+        "It began its life as 259 lines of little Python. It's been 18 years, so never believe me what I say about time estimates.",
+        "We were able to piggyback on the battle between Google, Apple, Microsoft, and Mozilla, who were pouring obscene amounts of engineering resources into building high-performance JavaScript engines.",
+        "Fifteen years ago, we were being told, I was being told, stop doing this. You're throwing away your career. And for whatever reason, I was stubborn enough not to listen.",
+        "The security model of the notebook is that this is weapons-grade radioactive JavaScript. We have literally built a system designed to do the worst possible thing, which is through web-based JavaScript controls allow the execution of arbitrary code on the system.",
+        "We're going to get to the point pretty soon where you will not be able to find a student on campus who is not used to using these tools, who doesn't basically run Python for data analysis as a normal part of their education."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "passionate, technical, narrative",
+      "key_insight": "By abstracting interactive computing into a language-agnostic protocol and embracing the web platform, Jupyter transformed from a personal Python hack into infrastructure that bridges the gap between human thinking and computation at every scale, from education to gravitational wave discovery.",
+      "filename": "2018-02-16-ubc-2018"
+    },
+    {
+      "summary": "Fernando P\u00e9rez traces the evolution of IPython and Jupyter from a personal terminal tool in 2001 to a global platform for interactive computing used by scientists, educators, and industry. He emphasizes the ethical imperative of building open tools, particularly for researchers in developing countries who cannot afford proprietary software licenses. The talk highlights Jupyter's architecture inspired by web protocols, its expansion to support over 100 programming languages, and its role in landmark scientific achievements like the LIGO gravitational wave detection. P\u00e9rez also discusses the transformative impact of Jupyter on education at UC Berkeley, where Data 8 and Data 100 courses are reaching over half the campus. He closes with reflections on representation, mentorship, and the value of non-academic career paths.",
+      "key_points": [
+        "Building open scientific tools has an ethical dimension: researchers in developing countries are excluded when science depends on expensive proprietary software",
+        "Jupyter's architecture mirrors the web \u2014 a standardized protocol decoupled from any single language, enabling over 100 language kernels and broad community adoption",
+        "The LIGO gravitational wave discovery was published entirely with open source tools and reproducible Jupyter Notebooks, vindicating a community that in 2008 was struggling to justify its existence",
+        "UC Berkeley's Data 8 and Data 100 courses are reaching roughly half the campus, making computational fluency as baseline as email for undergraduates across all majors",
+        "Sustainable open source requires deliberate institution-building \u2014 NumFOCUS, BIDS, and cross-sector funding from foundations and industry, not just traditional academic grants"
+      ],
+      "money_quotes": [
+        "If we consider that part of the mission of scientific research is to open the black box of nature and understand how it works, it's antithetical to that mission to perform that job with tools that themselves we are legally prevented from inspecting.",
+        "Everything that I will be talking about today, even though it is in the context of complex scientific questions, our realm is that tries to build tools for the limited brain bucket that we all have that isn't getting any bigger or any faster.",
+        "In 2008, we were justifying that we had a right to be there in the first place.",
+        "Sometimes you have to make your own spaces. You have to create them because they're not exactly going to give them to you.",
+        "I was literally told, stop doing this. You're wasting your career. Get back to writing physics and math papers.",
+        "Even if students, for financial reasons, don't have a good laptop, it doesn't matter, because they walk to the library, they borrow a Chromebook, and they can do everything off a Chromebook.",
+        "At the end of the day, it's all about the brains and the ideas, and on that dimension, we are equal.",
+        "If you're in a bad relationship, walk away and walk away early."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, passionate, personal",
+      "key_insight": "Open tools for science are not merely a technical preference but an ethical imperative \u2014 they democratize access, enable reproducibility, and build human communities that proprietary software structurally cannot.",
+      "filename": "2018-04-18-bids-jupyter-arch-2018"
+    },
+    {
+      "summary": "Fernando P\u00e9rez delivers a keynote on the sustainable development of Jupyter and open scientific tools, tracing the project's evolution from a 260-line Python script to a multi-language platform used by millions. He demonstrates JupyterLab's modular architecture, JupyterHub's deployment capabilities, and Binder's one-click reproducibility. He shares how he taught reproducible data science practices to undergraduates at UC Berkeley, turning them into everyday habits rather than afterthoughts. The talk concludes with a frank examination of the tensions between open source sustainability, academic incentives, and industry's extractive relationship with open source communities.",
+      "key_points": [
+        "Jupyter's formalized protocol approach paid off by enabling ~100 programming language backends and a composable architecture in JupyterLab that third parties can build upon",
+        "Binder transforms reproducible research from aspiration to one-click reality by packaging code, dependencies, and data into executable environments from a single URL",
+        "Teaching reproducible practices as everyday habits (like brushing teeth) to undergraduates proved transformative, with students contributing to open source and pursuing data science careers",
+        "Industry has a largely extractive relationship with open source \u2014 mining free technology and talent trained at no cost to them, which amplifies diversity problems and threatens project sustainability",
+        "Open source communities must evolve from a rebel mindset to one of deliberate, systematic community building now that they have real influence and responsibility"
+      ],
+      "money_quotes": [
+        "Proprietary science is an oxymoron.",
+        "Regardless of how much the internet advances, regardless of how many data centers Google or Amazon open, we are still bounded by the bag of meat in our heads.",
+        "What we try to do with IPython and Jupyter is basically build a bridge between those two worlds, build tools that help you have a dialogue with a computer to reason about problems and to have dialogues with each other.",
+        "Making your paper reproducible at publication time is the root canal of science, because by that point you are probably in for a huge amount of pain if you need to go back and clean up years of work.",
+        "There's a lot of industry that has a purely extractive mindset within its relationship with the open source world. It mines extractively the technology itself. It mines the people who get trained for free. It's not free, by the way. It's just that they're not paying for it.",
+        "That practice is extremely toxic to building a more inclusive community because who can afford to work for free?",
+        "Right now, Google, Amazon, Microsoft, IBM, all have commercial products based on Jupyter, and we're not exactly getting rich around here. We're still scrambling for small grants.",
+        "If you felt that you were the young rebel once, and your act of rebellion because it was morally justified could justify all other things, well, for us, it's kind of time to outgrow that mindset."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "reproducibility",
+        "open_source",
+        "data_science_education",
+        "scientific_python"
+      ],
+      "tone": "passionate, reflective, critical",
+      "key_insight": "Open source scientific tools have reached maturity and widespread adoption, but their sustainability demands that both communities and industry move beyond extractive patterns toward deliberate, equitable models of support and governance.",
+      "filename": "2018-06-27-bosc-2018-keynote"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents UC Berkeley's massive adoption of Jupyter as infrastructure for data science education as a case study of institutional transformation. The Data 8 course enrolls 1,300 students per lecture and could reach 50% of all undergraduates annually, powered entirely by Jupyter notebooks and cloud-based JupyterHub infrastructure at roughly $2 per student per week. The ecosystem includes connector courses, drop-in modules for existing courses, and a new data science major drawing students from 73 different majors with improved gender diversity. P\u00e9rez emphasizes this was built with minimal resources by a team of mostly undergraduates, and frames the broader question of what happens when computational literacy becomes as commonplace as email across an entire university.",
+      "key_points": [
+        "UC Berkeley's Data 8 course serves ~1,300 students per session using Jupyter infrastructure, with potential to reach 50% of all undergraduates annually once capacity constraints are resolved",
+        "The entire infrastructure runs at ~$2/student/week on vendor-agnostic cloud deployments, with Chromebook lending eliminating economic barriers to access",
+        "A constellation of connector courses and drop-in data science modules allows these computational skills to spread across 73 majors and all university divisions",
+        "The rapid spread is creating a knowledge inversion where undergraduates are better trained in data science than their faculty and PIs",
+        "The initiative was built with minimal resources through a bootstrapped organization led by faculty who prioritized inclusion, ethical considerations, and respect for non-CS disciplines"
+      ],
+      "money_quotes": [
+        "Imagine a world where using Jupyter is as natural for anyone as using email or the web. Where data analysis, computation, and principled, clean, robust statistical inference are pervasive, not just pervasive among scientists, engineers, and mathematicians, but across disciplines.",
+        "Rather than proving theorems and proving mathematical ideas with probability theory or calculus, instead these are built up in a constructive way with computing, and because they are illustrated using real world data, questions of ethical impact and human context can be woven naturally into the development.",
+        "Anyone in the world can not only read, but actually work on this textbook simply by clicking on these links.",
+        "We are witnessing a monumental phase shift in data science knowledge on campus. Our undergrads are extremely well trained.",
+        "We didn't have a $50 million donation to build this. What we had were people.",
+        "If you teach, how will you teach when your undergraduate students have this new baseline, which may be above yours in certain dimensions?",
+        "Computer science and tech may be perceived as a little bit hegemonic or imperialistic by other disciplines, and there's been a lot of work being done to prevent that by addressing it as a real issue rather than trying to hide it."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "data_science_education",
+        "open_science",
+        "open_source",
+        "reproducibility"
+      ],
+      "tone": "optimistic, evangelical, reflective",
+      "key_insight": "When Jupyter-powered data science education scales to reach half a university's students, it creates a knowledge inversion where undergraduates surpass their faculty, fundamentally transforming how institutions teach, research, and think about computational literacy.",
+      "filename": "2018-08-01-jupytercon-2018-sea-change"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents a comprehensive vision for reproducible scientific research, drawing from his experience teaching STAT 159 at UC Berkeley and the development of Project Jupyter's Binder infrastructure. He traces the intellectual lineage of reproducibility from Claerbout and Donoho in the 1990s through to modern tools, arguing that reproducibility must be a daily practice rather than a publication-time afterthought. Using a real-world case study of a Norwegian wind patterns paper, he demonstrates how even well-intentioned open science efforts suffer from bit rot. He showcases Binder as a tool that packages computational environments into one-click executable links, exemplified by the LIGO gravitational waves discovery notebooks. The talk emphasizes lowering barriers to access for scientists worldwide, particularly those without institutional resources.",
+      "key_points": [
+        "Reproducibility must be built into daily research practice from day one, not treated as a cleanup task at publication time",
+        "A reproducible research pattern includes version control, open languages, automation (Make), dependency management, testing, continuous integration, and Binder for sharing",
+        "Even a well-executed open science paper from 2016 broke within a year due to subtle version dependencies, demonstrating the fragility of computational reproducibility",
+        "Binder reduces the barrier to accessing scientific computation to just an internet connection and a browser, with global reach shown by worldwide usage data",
+        "The tools built for open science also serve as leverage against predatory scientific publishers by giving the community alternatives on legal grounds"
+      ],
+      "money_quotes": [
+        "An article about computational science in a scientific publication is not the scholarship itself, it is merely advertising of the scholarship.",
+        "Reproducibility is not a publication time concept. Either you do it from day one as a daily practice, or you just don't do it.",
+        "Untested code is broken code. If you don't have tests, you don't know that it works.",
+        "If the purpose of science is to sort of open the black box of nature, doing that with a process and tools that are not themselves open and available to others is kind of an oxymoron.",
+        "Git is kind of the moral equivalent of making the difference between brushing your teeth and a root canal.",
+        "A hundred years of theoretical physics, 30 years of building instruments, a collaboration building this analysis with open-source tools. And here, with one click of the mouse, any of you can be actually running the analysis of the LIGO collaboration.",
+        "What if you gave me as part of the review process the PDF and the binder link and I'm reviewing the live real analysis and I can change it?",
+        "I want to be able to share back with someone like my former advisor from Colombia, who doesn't necessarily have the budgetary freedom that I have at a big fancy US university."
+      ],
+      "themes": [
+        "reproducibility",
+        "jupyter_ipython",
+        "open_science",
+        "data_science_education",
+        "open_source",
+        "scientific_python"
+      ],
+      "tone": "passionate, pedagogical, reflective",
+      "key_insight": "Reproducible research requires embedding version control, testing, dependency management, and automation into daily scientific practice from day one, and tools like Binder can make the results accessible to anyone with a browser.",
+      "filename": "2018-08-01-neurohackademy-2018"
+    },
+    {
+      "summary": "Fernando P\u00e9rez shares his personal journey from growing up in Medell\u00edn, Colombia to becoming a professor at UC Berkeley, tracing how a PhD crisis led him to create IPython and eventually co-found Project Jupyter. He explains his four motivations for open source work\u2014ethical fairness in access, community building, epistemological integrity in science, and technical passion\u2014while emphasizing that personal crisis was the actual catalyst. He describes how the scientific Python ecosystem grew from justifying its existence in 2008 to powering Nobel Prize-winning research and being adopted by major tech companies. P\u00e9rez highlights Berkeley's massive data science education initiative reaching 1,300 freshmen and potentially half the campus, and closes with advice on choosing mentors carefully and rejecting the stigma around non-academic careers.",
+      "key_points": [
+        "Open source tools in science are driven by ethical imperatives around access\u2014proprietary software creates barriers that disproportionately affect researchers in developing countries",
+        "IPython was born from a PhD crisis where building something useful helped P\u00e9rez recover confidence and find community outside his narrow subfield",
+        "Jupyter's success came from building open protocols and standards that enabled a community of contributors across academia, industry, and government\u2014not from any individual effort",
+        "Berkeley's Data 8 course teaches data science to 1,300 incoming freshmen of any major, representing the fastest-growing courses in the university's history and potentially reaching half the campus",
+        "The scientific Python stack went from justifying its right to exist at conferences in 2008 to underpinning the LIGO gravitational wave discovery that won the 2017 Nobel Prize"
+      ],
+      "money_quotes": [
+        "The notion of doing scientific work whose mission is understanding the black box of nature and doing that with tools that you are legally prevented from understanding how they work because if you go and look inside, they will sue you\u2014that to me is just anathema to science itself.",
+        "I told my advisor at the time, the second one, the nice one, this would be just an afternoon hack. This would just take an afternoon. It's been almost 20 years now, so those are my error bars and my time estimates for projects.",
+        "In the dark corner that I was in, I had gotten to the point of basically not believing that I could do anything good, that I could do anything useful. And just writing code that I put out online and that people began saying, hey, that's cool\u2014that actually made a huge difference.",
+        "Sometimes you have to make your own spaces. You have to create them because they're not exactly going to give them to you.",
+        "I was literally told, stop doing this. You're wasting your career. Get back to writing physics and math papers. That's what you should be doing.",
+        "In 2008, we were justifying that we should be allowed to speak at conferences and now this result is being presented with all the tools built by this community.",
+        "A good mentor will push you and they will push you hard, very, very hard, but they will treat you as somebody who really deserves and merits respect.",
+        "If anybody ever tells you any of these things or makes you feel any of these things, push back and push back hard because it is nonsense."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, personal, inspirational",
+      "key_insight": "The most transformative open source tools often emerge not from strategic planning but from personal crisis, and their lasting impact comes from building communities and institutions around shared values of openness and access.",
+      "filename": "2018-10-05-statfest-2018"
+    },
+    {
+      "summary": "In this TEDxBerkeley talk, Fernando P\u00e9rez shares his personal journey from growing up in violence-torn Medell\u00edn, Colombia to building IPython and Jupyter, tools that transformed scientific computing. He describes how getting fired by his PhD advisor inadvertently led him to create IPython as a conversational computing tool, which grew into the Jupyter project through open community collaboration. P\u00e9rez emphasizes that the open source model enabled unprecedented scientific achievements, including the LIGO gravitational wave discovery, and revolutionized education at UC Berkeley through the Foundations of Data Science course. He argues that open, collaborative development is humanity's best chance at ensuring the data revolution benefits society broadly rather than enriching only a few.",
+      "key_points": [
+        "IPython began as a personal tool for conversational computing during grad school and evolved into the Jupyter project through community effort, not solo heroism",
+        "Open source scientific tools enabled breakthrough science like the LIGO gravitational wave detection, vindicating years of work dismissed as career waste",
+        "The open model empowers global participation \u2014 students from impoverished rural India could contribute to the same research tools used at top universities",
+        "Data science education at Berkeley grew into the fastest-growing courses in the university's history, built entirely on openly developed technologies",
+        "The data revolution demands open collaboration to ensure benefits reach society broadly rather than driving further inequality"
+      ],
+      "money_quotes": [
+        "I told her it would take about an afternoon. It's been about 18 years I've been working on this.",
+        "In this space of open source scientific development, what we found was like-minded people who were interested in building together rather than proving who's the smartest person in the room and destroying each other's work.",
+        "It is important to go against this narrative of solo heroes in science, which is something the media likes to use a lot but is unfortunately very toxic and very counterproductive.",
+        "We had been building these tools, being told that it was a waste of our time, of our career, that it wasn't considered real work. And here we are: scientists at the cutting edge of physics using tools constructed entirely with the open source software that we've been building.",
+        "I believe the best shot we have at ensuring that those changes are positive changes for as much of society as we can is to actually continue on this kind of journey of building things openly and collaboratively.",
+        "That little whoop at the end \u2014 that is the sound of two black holes merging into one another, 1.3 billion light years away, at the end of the universe.",
+        "None of this was done because we were given a mandate. It was done because people rolled up their sleeves and decided they wanted to do it."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "open_source",
+        "data_science_education",
+        "reproducibility",
+        "scientific_python"
+      ],
+      "tone": "inspirational, personal, reflective",
+      "key_insight": "Open, community-driven tools built without mandate or institutional support became the foundation for both frontier science and transformative education, proving that collaborative generosity outperforms proprietary gatekeeping.",
+      "filename": "2019-04-01-tedx-berkeley-2019"
+    },
+    {
+      "summary": "Fernando P\u00e9rez traces his unconventional path from theoretical physics to creating IPython and co-founding Jupyter, arguing that open source scientific computing tools are far more than software \u2014 they are infrastructure requiring community governance, professional management, and sustainable funding. He demonstrates Jupyter's impact through examples ranging from Berkeley's massive data science courses to Nobel Prize-winning gravitational wave research, while highlighting the crisis that builders of foundational open source tools face in academia. P\u00e9rez makes a compelling economic case that investing just 0.1% of the federal R&D budget ($200 million) in open source infrastructure would yield enormous returns, but emphasizes the hard organizational problem of spending that money well. He frames the challenge as fundamentally about people, incentives, and governance \u2014 not code.",
+      "key_points": [
+        "Jupyter is not just software but an ecosystem of protocols, standards, services, content, and community \u2014 with community management being the hardest part",
+        "Foundational open source scientific tools exist largely in spite of academic incentive structures, with key creators like John Hunter, Travis Oliphant, and William Stein forced out of academia",
+        "The federal R&D budget is ~$200 billion, and investing just 0.1% ($200 million) in open source infrastructure would yield massive ROI while mitigating the risk created by the shift away from commercial tools",
+        "Recognizing open source work as professional, paid work is itself an act of inclusion \u2014 relying on volunteer labor excludes anyone who cannot afford to donate their nights and weekends",
+        "Projects like Pangeo succeed by doing unglamorous last-mile integration work rather than building new things from scratch, but this is exactly the kind of work that doesn't get funded or rewarded"
+      ],
+      "money_quotes": [
+        "It was born as a toy little Python script at the beginning. That's what I called my advisor. I wanna play with this Python thing for an afternoon, I'll be back to work tomorrow. It's been 20 years and I never came back.",
+        "All of this stuff, which now powers all of research, exists pretty much in spite of the system. Not just not thanks to it, but almost in spite of the support of the funding infrastructure and the academic incentive system.",
+        "If you say, oh, volunteers can do this job, nights and weekend people can do this job, you're saying, well, people who can afford to volunteer can do this job.",
+        "We end up with not two, but 10 highways, half built, all of which take us to the same half spot in the middle of nowhere, and not a single one that actually takes us to where we need to go.",
+        "The paper is the glossy sales brochure. It's like a little glossy. But you need to actually give people the inspections book.",
+        "I remember the very first time we had a conversation with IBM. We said, oh yeah, let us show you the link to our governance documents. You could hear the relief in their voices.",
+        "The open source community is not something like magical pixie dust of people who eat air and live in the clouds and produce code. There are people like you and me who still need a job.",
+        "Recognizing that this can and should be a job which is allocated, which is recognized, and where people are included is actually inclusive, and we should do it."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "passionate, pragmatic, reflective",
+      "key_insight": "Open source scientific infrastructure is a governance and economics problem masquerading as a software problem, and treating it as professional work worthy of sustained investment is both pragmatically necessary and ethically imperative.",
+      "filename": "2019-09-17-cu-denver-2019"
+    },
+    {
+      "summary": "Fernando P\u00e9rez argues that open source software in science is far more than code \u2014 it encompasses services, standards, protocols, and most critically, human communities. He traces the history and impact of Jupyter and the scientific Python stack through landmark achievements like LIGO and the Event Horizon Telescope, while highlighting the severe sustainability crisis facing these tools. Despite powering trillions of dollars in industry value and underpinning the most important scientific results of the decade, these projects remain chronically underfunded and their creators face hostile academic incentive structures. P\u00e9rez calls for just 0.1% of the federal R&D budget to be directed toward core open source scientific infrastructure, while warning that volunteer-only models exclude underrepresented groups.",
+      "key_points": [
+        "Open source projects are complex human organizations requiring governance, community management, and standards \u2014 not just code on GitHub",
+        "The scientific Python stack (NumPy, SciPy, Matplotlib, Jupyter) underpins landmark results like LIGO's gravitational wave detection and the Event Horizon Telescope black hole image",
+        "Academic incentives around 'novel and transformative' work are poisonous to sustaining the domain-agnostic software backbone that all science depends on",
+        "Creators of foundational tools like NumPy, Matplotlib, and Sage have been forced out of academia or had to abandon open source work due to lack of career support",
+        "Jupyter's success came from distilling ideas into open protocols and standards, enabling 100+ language backends through careful generalization with just two or three community partners"
+      ],
+      "money_quotes": [
+        "The managing and the fostering and the creation and the healthy nurturing of a community is probably the hardest and yet the most critical part of this whole story.",
+        "Those two stupid words are the most poisonous piece of information that has ever been injected into the federal funding system because they justify this kind of stuff happening over and over, and literally billions of dollars have been sacrificed on the altar of those two stupid words.",
+        "The notion that volunteers are going to do this job is a great way to make sure that only people who can afford to volunteer do the job, which means typically less women and minorities.",
+        "I'm the statistics professor who didn't know what a t-test was when I was hired, and that's not a joke. It's a statement of fact.",
+        "We've managed to engineer a system of incentives that makes exactly the right things the hardest things to do, and that's a problem.",
+        "If we want a voice in the development of these things, the scientific community and the funders of the scientific community have to actually invest, because you get a voice at the table by participating, not simply by saying that you should have a voice.",
+        "All of these impacts don't just happen because you're very smart and have a GitHub account. That's not how it works.",
+        "As a climate scientist, you shouldn't have to become an Amazon engineer. You should just zoom on your data and something should do that job for you."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "passionate, critical, reflective",
+      "key_insight": "The domain-agnostic software backbone that all modern science depends on is nobody's institutional responsibility, creating a sustainability crisis that can only be solved by recognizing open source projects as real human organizations deserving of real investment.",
+      "filename": "2019-10-08-uchicago-2019-talk"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents the Jupyter ecosystem's growing role in earth sciences and geoscience research, framing it within the broader challenge of modern scientific computing. He argues that as science becomes more complex, individual researchers cannot be expected to master theory, data engineering, and cloud infrastructure simultaneously, and that open-source tools like Jupyter, Binder, and Pangeo help bridge these gaps. He details how Jupyter evolved from a small Python script into a massive collaborative project with standardized protocols, governance structures, and industry partnerships. The talk also highlights Jupyter's impact on data science education at Berkeley and reproducible science (LIGO, Event Horizon Telescope), while candidly addressing the tension between open-source contribution and traditional academic incentive structures.",
+      "key_points": [
+        "Modern science faces a crisis where researchers must simultaneously master domain theory, data engineering, cloud infrastructure, and software development \u2014 tools like Jupyter and Pangeo aim to reduce this burden",
+        "Beyond software code, impactful open-source projects require investment in content, services, protocols/standards, governance, and community \u2014 the software itself is often the least important part",
+        "The Jupyter kernel protocol was generalized from Python-specific to language-agnostic by working with Julia and R teams, creating a standardized protocol for interactive computing adopted across dozens of languages",
+        "Binder enables zero-installation reproducible computing by turning any GitHub repository with proper dependency declarations into a live cloud environment anyone can run",
+        "Academic incentive structures fundamentally clash with open-source collaboration, and fixing this requires building precedent for multidimensional evaluation of intellectual contribution rather than paper-counting"
+      ],
+      "money_quotes": [
+        "Once you cross a certain scale, once you cross a certain level of impact and level of complexity, in a sense, the software is the least important part of the problem.",
+        "A working scientist, a grad student, a postdoc doesn't anymore have the time to really become a full stack cloud engineer while simultaneously being a very good mathematician, while simultaneously developing all of the statistical machinery to deal with terabytes of data per day.",
+        "Guess how much of this kind of sort of management is taught in a PhD in particle physics? Zero. But if we hadn't done all of this and if we hadn't spent endless amounts of time building all of this human infrastructure, this project couldn't reach the level of impact that it has today.",
+        "The diversity of a community, the diversity of stakeholders, the diversity of people in that community will give you both innovation and new ideas beyond what you would have, and resiliency.",
+        "My CV is a mess. My CV is a complete mess. By any traditional metrics, nobody in their right mind would hire me.",
+        "We did a lot of hard work quietly with sublinear growth for a decade. And then around 2012, we were there at the right time at the right place.",
+        "Medieval quartered and drawn is the metaphor that mostly comes to mind."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, candid, passionate",
+      "key_insight": "Building impactful scientific infrastructure requires investing far more in human infrastructure \u2014 governance, community, standards, and content \u2014 than in the software code itself, yet academic incentives systematically undervalue this work.",
+      "filename": "2020-02-07-jupyter-meets-earth-2020"
+    },
+    {
+      "summary": "In this PyCon Colombia 2020 keynote, Fernando P\u00e9rez traces his journey from studying physics at Universidad de Antioquia in Medell\u00edn to creating IPython and co-founding Jupyter, emphasizing how open source communities transformed scientific computing. He describes how a personal crisis during his PhD led him to Python and IPython, which grew from a 260-line script into a global ecosystem. P\u00e9rez argues that successful open source projects must be understood as layered systems encompassing software, content, open standards, governance, and community \u2014 not just code. He highlights Jupyter's impact on Nobel Prize-winning research, climate science, and education at scale, including Berkeley's data science curriculum reaching half the student body. The talk serves as both an origin story and an invitation for Latin American developers to join and shape these communities.",
+      "key_points": [
+        "IPython was born during a personal crisis in grad school, motivated by the need for accessible scientific tools, the epistemological absurdity of doing science with proprietary software, and a love for Python's elegance",
+        "Successful open source projects must be understood in layers beyond code: content and services, open standards and protocols, governance structures, and community \u2014 each amplifying impact",
+        "The scientific Python community and the broader Python community have a symbiotic relationship, each contributing strengths the other lacks \u2014 engineering practices and community structure from one side, research tools and institutional funding experience from the other",
+        "Jupyter's open protocol design enabled an ecosystem of 100+ language kernels, proving that abstracting ideas into open standards multiplies impact far beyond any single implementation",
+        "The same tools used for cutting-edge research (gravitational waves, black hole imaging, climate data) serve directly as educational tools, eliminating the gap between teaching with toys and working with real instruments"
+      ],
+      "money_quotes": [
+        "The idea of doing scientific research with tools that legally prevent you from understanding how they work \u2014 someone tells you, you can understand how nature works, but you cannot understand how your tool works. That seems completely absurd to me.",
+        "If I look at what's there, the code is a mess. But for some reason I said, this works, I like it, this works, I'm using it, let's put it out there, let's give it to the public because for the user it works.",
+        "The credit for Jupyter is not Jupyter's. The credit for Jupyter is Pandas. If it weren't for Wes, much of this wouldn't have had the impact we've had. If it weren't for John Hunter, who spent years creating Matplotlib.",
+        "We're not teaching students with toys. We're not teaching with a toy thing that they'll have to abandon when they go out into the real world \u2014 we're teaching them literally with the same tools that researchers wrote for their own problems.",
+        "When we were creating all of this, they told us explicitly: stop doing this, this is a waste of time, this is worthless, this isn't real work. And knowing that one of the most important results in physics in recent years was partly done with this \u2014 that is incredibly satisfying.",
+        "The project is the people, the community. It's not two or three people, it's not the code, but a team of people.",
+        "Taking the time to go from free software to a series of documented, abstracted ideas defined as an open standard allows an entire ecosystem to grow."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility"
+      ],
+      "tone": "reflective, passionate, community-oriented",
+      "key_insight": "The lasting impact of open source scientific software comes not from the code itself but from layering open standards, governance, and inclusive community on top of it \u2014 transforming tools into ecosystems that serve both cutting-edge research and universal education.",
+      "filename": "2020-02-23-pycon-colombia-2020-keynote"
+    },
+    {
+      "summary": "In this interview at PyCon Colombia 2020, Fernando P\u00e9rez recounts the origin of IPython as a doctoral distraction in 2001, born from merging three independent projects by scientists who all wanted interactive computing tools. He explains the evolution from IPython to Jupyter, motivated by the need for a language-agnostic name as the notebook system expanded to support R, Julia, and other languages. P\u00e9rez discusses the Jupyter ecosystem's future directions including JupyterLab, JupyterHub, JupyterBook, Binder, and Voil\u00e0. He emphasizes that building open source community requires far more than writing code \u2014 it demands human communication, collaboration, and welcoming practices. He also argues that data scientists must deeply understand their problem domains and grapple with the ethical implications of deploying automated decision-making systems.",
+      "key_points": [
+        "IPython began in 2001 as a collaborative merger of three independent projects by scientists who needed interactive computing tools for exploration, not just software development",
+        "Jupyter was split from IPython because the notebook architecture was language-agnostic by design, and the name captures connections to Julia-Python-R, astronomy, and the Galilean spirit of scientists building their own tools",
+        "The Jupyter ecosystem is expanding into modular scientific environments (JupyterLab), cloud-scale collaboration (JupyterHub/Pangeo), interactive publishing (JupyterBook/Binder), and visual dashboards (Voil\u00e0)",
+        "Community success depends more on human practices \u2014 communication, welcoming newcomers, collaboration \u2014 than on code quality alone",
+        "Data scientists bear ethical responsibility for their systems' impacts on society and cannot hide behind 'the algorithm decided' as an excuse"
+      ],
+      "money_quotes": [
+        "Le dije a mi asesora que le iba a trabajar una tardecita a esto y, 20 a\u00f1os m\u00e1s tarde, ah\u00ed sigo metido.",
+        "Lo que crea comunidad no es el c\u00f3digo, la comunidad est\u00e1 hecha de seres humanos y lo que crea la comunidad es la comunicaci\u00f3n, es la colaboraci\u00f3n, es la participaci\u00f3n, es el di\u00e1logo.",
+        "Galileo era un cient\u00edfico que hac\u00eda sus propias herramientas, Galileo tuvo que inventar el telescopio para descubrir las lunas de J\u00fapiter y nosotros somos cient\u00edficos que nos gustaba hacer herramientas.",
+        "Yo no voy a decir que otros lenguajes no sirven o que son inferiores, ni much\u00edsimo menos, entonces tenemos un nombre y un proyecto que capturaron el esp\u00edritu de la colaboraci\u00f3n en la comunidad cient\u00edfica.",
+        "Los algoritmos los escribimos seres humanos, los desplegamos en la pr\u00e1ctica de seres humanos, la responsabilidad del impacto que eso tiene sobre la vida de la gente sigue siendo nuestra.",
+        "No se trata de agarrar cada herramienta como cogiendo martillos de una pared a ver con cu\u00e1l le puede dar el clavo, sino realmente entender cu\u00e1l es el nexo entre las preguntas del dominio, c\u00f3mo fueron adquiridos los datos y qu\u00e9 herramientas metodol\u00f3gicas se pueden usar.",
+        "Corrimos con la suerte de que ten\u00edamos un proyecto que resolv\u00eda un problema en el momento adecuado.",
+        "Mucha gente que llega al mundo del open source llega pensando que se trata de programar, pero resulta que lo que crea comunidad no es el c\u00f3digo."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility"
+      ],
+      "tone": "reflective, warm, community-oriented",
+      "key_insight": "Sustainable open source communities are built not by code alone but by deliberate human practices of communication, collaboration, and welcoming participation \u2014 and the tools they produce carry ethical responsibilities that their creators must own.",
+      "filename": "2020-04-20-pycon-colombia-2020-interview"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents a comprehensive overview of the Jupyter ecosystem at NeuroHackademy 2020, framing open source software as far more than code\u2014encompassing services, open standards, community governance, and human collaboration. He demonstrates JupyterLab's extensible architecture through live demos ranging from local data exploration to processing 1.6 terabytes of climate data on NCAR supercomputers using Dask. He details how Binder enables one-click reproducible science, citing examples from the LIGO gravitational wave discovery to Python language design collaboration. The talk also covers his Berkeley course on reproducibility, emphasizing that tools represent ideas and that version control, dependency management, and testing should be daily scientific practices, not afterthoughts.",
+      "key_points": [
+        "Open source scientific projects transcend code: services like NBViewer and Binder, open standards like the Jupyter protocol, and community governance are equally critical layers that enable broad impact",
+        "The Jupyter protocol's language-agnostic design enables an ecosystem of interoperable tools\u2014just as HTTP enabled services beyond web browsing, the Jupyter protocol enables interactive computing beyond Python notebooks",
+        "JupyterLab's extensibility allows domain scientists to build custom interfaces (like the Fruit Fly Brain Lab or NIfTI viewer) while still accessing the broader ecosystem, mirroring how Python's general-purpose nature lets scientists focus on domain tools",
+        "Binder transforms reproducibility from a theoretical ideal into a practical one-click reality, powering everything from LIGO's Nobel Prize-winning open science to Python language design discussions to data journalism",
+        "The next frontier in open access battles with publishers is not PDFs but computation, code, and data\u2014and the scientific community must maintain a strong stake rather than ceding control to commercial providers"
+      ],
+      "money_quotes": [
+        "Impactful software happens also when communities take the time to take a step back and ask which ideas their implementation represents, and to pull those ideas away from the implementation.",
+        "I want to make sure that it's absolutely crystal clear to everyone here that none of this is my work and everything I'll be talking about today is the outcome of team effort.",
+        "It always bothers me that our culture and our incentive mechanisms are so overly obsessed with the notion of individual heroes and make it difficult often to create healthy open teams that are really genuinely collaborative.",
+        "Back when I was doing my PhD in physics, I had to justify to everyone why I was using Python. Every talk that I tried to give had a bunch of slides of basically advocacy, because this wasn't considered to be real work. And 15 years later, to see one of the most important discoveries in physics done with tools that come from our community was one of the most satisfying moments of my professional career.",
+        "I think of version control as the toothbrush and dental floss of computing. This is something that you should do every day.",
+        "Reproducibility enables collaboration. Making something like this easily reproducible with one click makes it easy for a community to collaborate rather than in the abstract.",
+        "Those PDFs are in a sense last year's battle because the real future of these battles with these very large commercial entities around open access to science is going to be not around PDFs but around the rest of the research which is the computation and the codes and the data.",
+        "It's not just about making the work reproducible from a purely technical standpoint that yes, the code is there if you know how to put it together, but it's to make that practical for working everyday scientists who are not interested and should not be interested in becoming full-time software engineers."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, passionate, educational",
+      "key_insight": "Open source scientific software achieves its greatest impact not through code alone, but through the layered ecosystem of open standards, community governance, accessible services, and reproducibility tools that empower domain scientists to collaborate and share their work without becoming software engineers.",
+      "filename": "2020-07-28-neurohackademy-2020"
+    },
+    {
+      "summary": "Fernando P\u00e9rez presents his approach to teaching reproducible research practices at UC Berkeley, describing a course that teaches students version control, testing, continuous integration, and open publishing using Jupyter tools. He frames open source scientific computing as more than software\u2014it's an ecosystem of tools, ideas, communities, and governance that enables collaborative science. He showcases real-world examples including the LIGO gravitational wave notebooks, the Pangeo geoscience platform, and national-scale infrastructure in Canada, arguing that openness is both an ethical imperative and a practical foundation for tackling global challenges like climate change and disinformation.",
+      "key_points": [
+        "A reproducibility course at Berkeley successfully teaches students from diverse backgrounds a 'playbook' of version control, testing, CI, and open publishing without requiring them to become software engineers",
+        "Open source software is more than code\u2014it encompasses services, content, extensible protocols, community governance, and fiscal infrastructure like NumFOCUS",
+        "Jupyter's design as an extensible 'operating system for data science' enables domain-specific adaptations like FlyBrain Lab while maintaining shared infrastructure",
+        "Berkeley's open data science courses are reaching saturation point where computational literacy is becoming as natural as email for students",
+        "P\u00e9rez's personal motivation stems from growing up in Colombia, where building with proprietary tools meant excluding people like his former self from participating in science"
+      ],
+      "money_quotes": [
+        "Version control is kind of the toothbrush of science, right, and the dental floss of computational practices. It's something that you should do. You should use it for everything. You should use it every day.",
+        "Building research with open tools was an ethical imperative. Openness meant fairness, it meant access to science and education for someone like I was months before I moved to Colorado.",
+        "I wanted to be able to participate in the process of science, even if I was in Colombia. And so once I had access to those resources, I thought, well, if I keep using Mathematica, MATLAB, IDL, I cannot share this work in good conscience with my former mentors or with my former self.",
+        "Open source software is more than software. Yes, the software matters, but it turns out that in a nod to kind of the Maslow hierarchy of needs, open source software powers services and content.",
+        "I'm not claiming that open science or any of what we've done here is going to fix any of these problems. I'm not that stupid, I'm not that naive. But I hope that these tools and these practices can be a little grain of sand in the pile on the right side of that balance.",
+        "A child in my home country in Colombia who has access to the internet can actually open on their phone this link, and they can actually play the real world data from the detection of gravitational waves. I think that is an important change in the culture of science.",
+        "I find that far more personally satisfying than the more traditional kind of cutthroat competition that is very typical of traditional academic practices.",
+        "If every scientist was doing this, I would be okay with that and they don't need to become full-blown engineers."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "passionate, reflective, pedagogical",
+      "key_insight": "Open source scientific tools are not just software but an ecosystem of protocols, communities, and governance that transforms science from a consumption model to collaborative creation\u2014and teaching a minimal reproducibility playbook is both viable and sufficient for working scientists.",
+      "filename": "2021-03-16-cores-launch-2021"
+    },
+    {
+      "summary": "Fernando P\u00e9rez traces his journey from growing up amid violence in Medell\u00edn, Colombia to creating IPython and co-founding the Jupyter project. He explains how his inability to afford proprietary scientific software in Colombia, a failed attempt at teaching computational physics with primitive open-source tools, and disillusionment with competitive academic culture drove him to build open, accessible computing tools for science. He demonstrates Jupyter's impact through examples including the LIGO gravitational wave discovery, the first black hole image, and NASA's Mars helicopter, arguing that open-source scientific computing has fundamentally transformed how research and education are conducted.",
+      "key_points": [
+        "The inaccessibility of expensive proprietary scientific software in developing countries like Colombia was a primary motivation for building open-source alternatives",
+        "IPython was born from merging collaborative contributions and has evolved over 20 years into the Jupyter ecosystem supporting 100+ programming languages",
+        "Open-source scientific Python tools have enabled Nobel Prize-winning research (LIGO gravitational waves), the first black hole image, and NASA's Mars helicopter mission",
+        "UC Berkeley's data science courses serve 1,200-1,500 students using Jupyter notebooks with zero-install cloud infrastructure, making computational skills as natural as checking email",
+        "Using proprietary black-box software to understand nature is epistemologically inconsistent with the open inquiry that defines science"
+      ],
+      "money_quotes": [
+        "I didn't believe in the notion that we should understand how nature is put together by using tools that we are not allowed to understand.",
+        "The heart of scientific computing is not about writing software for a fixed set of requirements. It's about using the computer as a tool to think, as a tool to explore, as a tool to operate on your data and gradually build not only an understanding but build the questions that you want to ask next.",
+        "I will never teach something like this unless we have better tools so that we can focus on the ideas, the science, thinking about physics and computing, rather than the low-level mechanics of systems management.",
+        "I quickly discovered that a lot of day-to-day science was more about competition than about collaboration. What I found in the open source community was a bunch of scientists who were genuinely interested in sharing their work with one another.",
+        "We're teaching first-semester undergrads with the same exact tools that Nobel Prize-winning research in physics was conducted with, which we think is a phenomenally transformative process.",
+        "By having tools that we can open and build and improve upon ourselves, we become producers and creators as well, and therefore participants.",
+        "Some of my senior mentors flat out told me: you need to stop doing this, go back to writing physics and math papers, that's what you're good at. Their point was that what you're doing is not real work.",
+        "If I have to learn from my undergrads, that is a good day."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "open_source",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, passionate, personal",
+      "key_insight": "Open-source scientific computing tools, born from the need for equitable access and genuine collaboration, have grown from a dismissed side project into infrastructure underpinning Nobel Prize research and transforming science education at scale.",
+      "filename": "2021-06-29-reyes-2021"
+    },
+    {
+      "summary": "Fernando P\u00e9rez delivers a deeply personal keynote at SciPy 2021's 20th anniversary, tracing his journey from a crisis-ridden PhD student who created IPython as a procrastination project to a Berkeley professor whose tools helped detect gravitational waves and image black holes. He celebrates the scientific Python community's extraordinary impact while warning that the current model of volunteer-driven open source development is unsustainable. He argues that scientific open source software is foundational public infrastructure\u2014like roads and bridges\u2014that requires systematic federal funding, not just ad hoc philanthropy and weekend volunteering. He calls for dedicating even 1% of the federal R&D budget to properly support the open source tools that underpin modern science.",
+      "key_points": [
+        "IPython and the SciPy ecosystem have enabled landmark scientific achievements including LIGO gravitational wave detection, the first black hole image, and the Mars helicopter telemetry\u2014all built on community tools",
+        "The current open source sustainability model is dangerously reliant on volunteer labor, which excludes those who cannot afford to donate nights and weekends, undermining both diversity and resilience",
+        "Scientific open source is foundational digital infrastructure analogous to roads and bridges, and should be funded as a public good from the ~$200 billion federal R&D budget",
+        "The community still lacks diversity and inclusion despite progress, and building a more inclusive future requires moving beyond the volunteer-only model that favors those with economic privilege",
+        "New organizational models like 2I2C, CZI's EOSS program, and NumFOCUS represent promising approaches to sustainable funding, but federal agencies must step up systematically"
+      ],
+      "money_quotes": [
+        "IPython was kind of an afternoon hack is what I told Anna that I would do. I would kind of go away and play with this language, write a little bit of code and go back to work. Well, it's 20 years later and I'm still here. So take that as the quality of my time estimates.",
+        "Relying strictly on volunteers is dangerous because only those who can afford to volunteer can participate. And if you are the breadwinner in your family, if you have children, if you're a minority with economic pressures or family pressures of other kinds, it's going to be much harder for you to enter this community if it's predicated on having spare nights and weekends to build your GitHub portfolio.",
+        "Open source is not just magical pixie dust that you spray on things and magically that stuff just happens because somebody does it between midnight and 5 a.m. on Sunday.",
+        "I really came, started doing what I thought was geeky techy stuff, but it was this sense of belonging to a group of like-minded people who wanted to collaborate and wanted to work together that changed my entire personal and professional trajectory.",
+        "One percent of that budget spent well would make a difference.",
+        "The very first time that we got an aircraft on a foreign planet, we got the telemetry from that milestone for humanity down into a Matplotlib window. It really is a remarkable achievement from this community.",
+        "I would like to argue that scientific open source is a foundational public good, foundational in the sense that Nadia Egbal kind of phrased the Roads and Bridges report.",
+        "It was the generosity of this entire community that has made my career and my life kind of the way it is today possible."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_source",
+        "open_science",
+        "scientific_python",
+        "data_science_education",
+        "reproducibility",
+        "academia_industry"
+      ],
+      "tone": "reflective, grateful, urgent",
+      "key_insight": "Scientific open source software has become foundational infrastructure for modern science, yet its sustainability model\u2014built on volunteer labor and ad hoc funding\u2014is dangerously fragile and must be replaced with systematic public investment.",
+      "filename": "2021-07-12-scipy-2021-keynote"
+    },
+    {
+      "summary": "In this JupyterCon 2023 keynote, Fernando P\u00e9rez reflects on 22 years of IPython and Jupyter, tracing the project's origins from his personal crisis as a PhD student in Colorado to its current global impact. He emphasizes that the project was always a community effort, not an individual achievement, and argues against the 'benevolent dictator' model of open source leadership. He highlights the triumph of open science policy, including NASA and the White House declaring 2023 the year of open science, while stressing that true open science must extend beyond free access to include equitable participation and leadership, especially in the Global South. He touches on AI as a transformative 'third voice' in the notebook narrative and urges the community to navigate the tension between innovation and maintaining user trust.",
+      "key_points": [
+        "IPython was a community effort from its very first version, built on code shared by Janko Hauser and Nathan Gray, contradicting the myth of a solo creator",
+        "The BDFL governance model is unhealthy for collaborative communities; Jupyter has moved to an executive council, and the hero-worship model should be abandoned",
+        "Open science has won at the policy level \u2014 NASA's SPD-41A and White House OSTP directives now mandate open science practices for federal funding",
+        "True open science means not just free access but equitable participation and leadership, especially for the Global South and Latin America",
+        "AI introduces a 'third voice' in the notebook narrative alongside human language and code, and the community must approach it in a human-centric, vendor-agnostic way"
+      ],
+      "money_quotes": [
+        "Open source saved me in that I got hooked on writing code and it gave me kind of a path forward that kind of tied a number of these motivations.",
+        "From the very start, IPython wasn't about me. It was about people sharing their work and doing things together.",
+        "I probably wouldn't be here, I might not be personally okay if it hadn't been for open source and for the values and the spirit of collaboration and working together that open source kind of gave me.",
+        "That term, not only did it not describe actually what happened in our community in Jupyter, but it's also, I don't think, a good model for thinking about how to grow healthy communities.",
+        "What was transformative, at least for me in my life, was the fact that I could participate, I could be an equal actor in the process with others, and ultimately that I could have leadership.",
+        "We want to think about the construction of these narratives in ways that are also fair, that are vendor-agnostic, where we're trying to empower the individuals who are working with their tools rather than simply funneling more power back to those who control the infrastructure.",
+        "The same ideas that led to our fantastic growth and impact from 10 years ago are not going to be the ones that propel us forward today.",
+        "Science should be done openly and not with proprietary, expensive tools that we're not allowed to understand, which to me was epistemologically absurd."
+      ],
+      "themes": [
+        "jupyter_ipython",
+        "open_science",
+        "open_source",
+        "data_science_education",
+        "academia_industry"
+      ],
+      "tone": "reflective, grateful, personal, visionary",
+      "key_insight": "True open science is not just about free access to tools but about equitable participation and leadership \u2014 everyone must be able to shape the direction, not just consume what others built.",
+      "filename": "2023-05-10-jupytercon-2023-two-decades"
+    }
+  ]
+}

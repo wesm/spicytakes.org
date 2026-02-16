@@ -1,0 +1,29 @@
+{
+  "summary": "This is a comprehensive hands-on tutorial at PyCon US 2013 where Fernando P\u00e9rez, Brian Granger, and Min Reagan-Kelley walk attendees through IPython's full capabilities. Fernando covers IPython's evolution from a simple Python shell replacement to a broad interactive computing architecture supporting multiple languages through a common messaging protocol. Brian demonstrates the notebook's document model, rich display system, and markdown/LaTeX integration. Min covers configuration, custom magics, and IPython's parallel computing tools. The tutorial emphasizes IPython's kernel architecture as the key design that enables multiple clients, language-agnostic computing, and distributed parallel execution.",
+  "key_points": [
+    "IPython is an architecture for interactive computing across languages, not just a Python shell replacement, with backends planned or built for Ruby, Julia, MATLAB, and R",
+    "The kernel architecture separates execution from the frontend, enabling multiple clients (notebook, Qt console, terminal, Vim, Emacs, Visual Studio) to connect to the same running process",
+    "The notebook format uses JSON files stored on the filesystem, deliberately designed for version control friendliness rather than using a database",
+    "Python objects can declare rich representations (HTML, SVG, PNG, LaTeX, JavaScript) enabling sophisticated inline visualization through IPython's display system",
+    "IPython parallel extends the kernel abstraction to distributed computing, enabling interactive parallel execution with the same API patterns as local code"
+  ],
+  "money_quotes": [
+    "The scope of the project has grown beyond that, and in reality today we think of it as an architecture for interactive computing that allows you to use any language for which it's sensible to be used interactively.",
+    "The emphasis is always on the I, right? The I in IPython is for interactive because all of the tools we're building are meant to be used with a human in the loop.",
+    "The way I learn about most libraries is not by reading their documentation, it's by just asking with question mark for the methods and functions that I'm interested in that quickly can learn their signatures and see their code and just move along.",
+    "We do not store these in some fancy database that's hidden from you. They're just files. And that was a really important part of the design of the IPython notebook, mainly because a lot of people are or I would say should be saving all of their work in version control systems.",
+    "The notebook is a document format that allows you to incorporate a wide variety of content and sort of tell a story with that content.",
+    "The state of the kernel and the state of the notebook document are completely independent. We were very deliberate about this. The kernel knows absolutely nothing about notebooks.",
+    "If you can express your work as a collection of map calls, you can actually farm those out remotely just by replacing the Python built-in map with a view.map method."
+  ],
+  "themes": [
+    "jupyter_ipython",
+    "scientific_python",
+    "open_source",
+    "data_science_education",
+    "reproducibility"
+  ],
+  "tone": "technical, pedagogical, enthusiastic",
+  "key_insight": "IPython's power comes from its kernel architecture that cleanly separates code execution from user interfaces, enabling a single protocol to support multiple languages, multiple frontends, and the leap from interactive computing to parallel distributed execution.",
+  "filename": "2013-03-13-pycon-2013-tutorial"
+}
