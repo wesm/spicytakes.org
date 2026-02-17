@@ -36,6 +36,9 @@ class JekyllFeedScraper(BaseScraper):
         self.url_pattern = self.config["scraper"].get("urlPattern", r"/\d{4}/\d{2}/\d{2}/")
         # Whether posts are in <li><h3><a> (True) or just <li><a> (False)
         self.posts_in_h3 = self.config["scraper"].get("postsInH3", True)
+        # CSS selector for post containers on the homepage
+        # Default: "li" for Jekyll blogs; use "div.article" for Hugo, etc.
+        self.homepage_selector = self.config["scraper"].get("homepageSelector", "li")
         # Optional: additional articles page (e.g., MkDocs Material site)
         self.articles_url = self.config["scraper"].get("articlesUrl")
         self.articles_base_url = self.config["scraper"].get("articlesBaseUrl", "")
@@ -112,16 +115,15 @@ class JekyllFeedScraper(BaseScraper):
             soup = BeautifulSoup(response.text, "html.parser")
 
             posts = []
-            # Posts are in <li> elements, possibly with <h3><a> or just <a>
-            for li in soup.find_all("li"):
+            # Find post containers using configured CSS selector
+            for container in soup.select(self.homepage_selector):
                 if self.posts_in_h3:
-                    h3 = li.find("h3")
+                    h3 = container.find("h3")
                     if not h3:
                         continue
                     link = h3.find("a")
                 else:
-                    # Direct <a> inside <li>
-                    link = li.find("a")
+                    link = container.find("a")
 
                 if not link:
                     continue
