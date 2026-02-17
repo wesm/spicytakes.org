@@ -1,0 +1,26 @@
+{
+  "summary": "Charity Majors resurrects a lost blog post from her Parse days documenting the two-year rewrite of Parse's API from Ruby on Rails to Go. The migration was driven by Rails' one-process-per-request model failing to scale during hockey-stick growth, and the team used production traffic shadowing to catch undocumented Rails behaviors. The experience of diffing individual API responses field-by-field during the migration directly inspired what would become Honeycomb's approach to observability.",
+  "key_points": [
+    "Rails' one-process-per-request model couldn't scale past 200 API servers for 3000 req/s, with 20-minute deploys",
+    "The team evaluated EventMachine, JRuby, C++, C#, and Go before choosing Go for its lightweight goroutines and strong MongoDB driver",
+    "Production traffic shadowing \u2014 running requests against both Ruby and Go servers and diffing responses \u2014 was critical to catching undocumented Rails behaviors",
+    "The rewrite improved reliability by an order of magnitude, reduced the API server pool by 90%, and cut deploy time from 30 minutes to 3 minutes",
+    "The experience of using Scuba to compare individual responses during migration planted the seed for Honeycomb's observability approach"
+  ],
+  "money_quotes": [
+    "Rails HTTP processing is built on a philosophy of 'be liberal in what you accept'. So developers end up inadvertently sending API requests that are undocumented or even non-RFC compliant \u2026 but Rails middleware cleans them up and handles it fine.",
+    "Once you've used a tool like that, you're hooked.. you can't possibly go back to metrics and aggregates. The rest, as they say, is history.",
+    "We started looking ahead to when Parse would 10x its size, and realized that the one-process-per-request model just wouldn't scale. We had to move to an async model that was fundamentally different from the Rails way.",
+    "Our reliability improved by an order of magnitude. More importantly, our API is not getting more and more fragile as we spin up more databases and backing services.",
+    "// single geo query, don't do anything. stupid and does not make sense but ruby does it. Changing this will break a lot of client tests. just be nice and fix it here."
+  ],
+  "themes": [
+    "engineering_practices",
+    "observability",
+    "devops_sre",
+    "tech_culture"
+  ],
+  "tone": "nostalgic, candid, technical",
+  "key_insight": "The grueling process of migrating Parse's API from Ruby to Go \u2014 and the production traffic diffing tools required to do it safely \u2014 directly seeded the observability philosophy that became Honeycomb.",
+  "filename": "2025-07-24-how-we-migrated-the-parse-api-from-ruby-to-golang-resurrected"
+}

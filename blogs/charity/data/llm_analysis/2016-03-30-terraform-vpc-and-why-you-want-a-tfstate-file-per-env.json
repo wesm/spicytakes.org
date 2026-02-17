@@ -1,0 +1,24 @@
+{
+  "summary": "After a catastrophic Terraform outage caused by a poisoned shared state file \u2014 triggered by simple staging changes that took down all environments \u2014 Charity Majors walks through the painful debugging and recovery process, then argues forcefully for using separate Terraform state files per environment to limit blast radius.",
+  "key_points": [
+    "A simple staging change poisoned a shared Terraform state file, causing crashes across all environments and requiring manual deletion of all infrastructure three times",
+    "When Terraform crashes, find the 'panic' in the crash log \u2014 the error messages at the end of the run are red herrings",
+    "Applying individual Terraform modules can silently create duplicate AWS resources like VPCs and Route53 zones",
+    "Separate state files per environment are essential to limit blast radius and enable safe testing in isolation",
+    "The terraform_remote_state resource enables querying values across state files, making multi-state architectures clean and practical"
+  ],
+  "money_quotes": [
+    "If you can't safely test your changes in isolation away from prod, you don't have infrastructure as code.",
+    "It is still as green as the motherfucking Shire and you should assume that every change you make could destroy the world.",
+    "I ended up deleting my entire infrastructure by hand, three times.",
+    "This whole thing started when I made some simple changes to staging. To STAGING.",
+    "Your job as a responsible engineer is to add guard rails, build a clear promotion path for validating changesets into production, and limit the scope of the world it is capable of destroying."
+  ],
+  "themes": [
+    "devops_sre",
+    "engineering_practices"
+  ],
+  "tone": "candid, self-deprecating, passionate",
+  "key_insight": "Sharing a single Terraform state file across environments means any change to staging can destroy production \u2014 separate state files per environment are the minimum viable safety net for infrastructure as code.",
+  "filename": "2016-03-30-terraform-vpc-and-why-you-want-a-tfstate-file-per-env"
+}

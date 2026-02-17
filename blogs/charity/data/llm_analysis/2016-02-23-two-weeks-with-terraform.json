@@ -1,0 +1,25 @@
+{
+  "summary": "Charity Majors shares her brutally honest experience adopting Terraform for infrastructure orchestration, documenting the progression from initial delight through debugging hell with modules and inscrutable error messages. She concludes that Terraform is best-in-class for infrastructure orchestration but is still too immature for high-reliability production use, recommending it only for defining static infrastructure bones rather than managing dynamic resources.",
+  "key_points": [
+    "Terraform is best in class for infrastructure orchestration despite being immature",
+    "Modules are like functions (variables are arguments, outputs are return values) but debugging them is nightmarish",
+    "Terraform should only manage static infrastructure bones (networking, NAT, ASGs), not dynamic data or service registries",
+    "Terraform doesn't play nicely with existing infrastructure - it wants to own everything",
+    "CloudFormation's lack of opinionation and missing plan preview make it inferior despite Terraform's rough edges"
+  ],
+  "money_quotes": [
+    "Because I am fucking sick and tired of not having versioned infrastructure. Jesus christ, the ways my teams have bent over backwards to fake infra versioning after the fact.",
+    "There is precious little evidence that TF was developed by or for anyone with experience running production systems at scale, but it's definitely not as actively hostile as CloudFormation, so it's got that going for it.",
+    "Terraform is fantastic for defining the bones of your infrastructure. Your networking, your NAT, autoscaling groups, the bits that are robust and rarely change.",
+    "I would rather adopt one opinionated philosophy for my infrastructure, supplementing where necessary, than duct tape together fifty different half baked philosophies about how software and infrastructure should work and spend all my time mediating their conflicts.",
+    "AWS has no opinions, only slobbering, squidlike, directionless-flopping optionalities."
+  ],
+  "themes": [
+    "devops_sre",
+    "engineering_practices",
+    "tech_culture"
+  ],
+  "tone": "irreverent, candid, frustrated-but-optimistic",
+  "key_insight": "Terraform is the best available option for versioned infrastructure orchestration, but its immaturity means you should constrain it to static infrastructure bones and never let it manage dynamic resources in high-reliability production environments.",
+  "filename": "2016-02-23-two-weeks-with-terraform"
+}

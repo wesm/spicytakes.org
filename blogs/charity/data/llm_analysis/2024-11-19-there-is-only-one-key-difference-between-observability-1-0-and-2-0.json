@@ -1,0 +1,26 @@
+{
+  "summary": "The fundamental distinction between observability 1.0 and 2.0 is not a marketing buzzword but a technical one: 1.0 scatters telemetry across multiple pillars, tools, and formats (many sources of truth), while 2.0 stores everything as wide structured log events in a single source of truth. Everything else\u2014better developer workflows, sustainable cost models, high-cardinality exploration\u2014flows as a consequence from this one architectural difference.",
+  "key_points": [
+    "Observability 1.0 forces decisions at write time about how data will be used, siloing different data types into different tools",
+    "Observability 2.0 stores telemetry once as arbitrarily-wide structured log events and defers decisions to read time",
+    "The cost model of 1.0 is unsustainable because you pay to store data repeatedly across every pillar and tool",
+    "Three forces making 2.0 inevitable: system complexity explosion, brutal 1.0 cost models, and developers who've experienced 2.0 refusing to go back",
+    "Beware vendors claiming 'unified observability' when they really mean unified billing or visualization over multiple separate data stores"
+  ],
+  "money_quotes": [
+    "Observability 1.0 is a dinner knife; 2.0 is a scalpel.",
+    "Poor observability is the dark matter of engineering teams. It's why everything we do feels so incredibly, grindingly slow, for no apparent reason.",
+    "The idea that developing your code and operating your code are two different practices that can be done by two different people is no longer tenable.",
+    "If you're trying to clear a path through all the sales collateral and marketing technobabble, you only need to ask one question: how many times is your data going to be stored?",
+    "Once you've tried developing with observability 2.0, you can't go back."
+  ],
+  "themes": [
+    "observability",
+    "engineering_practices",
+    "devops_sre",
+    "tech_culture"
+  ],
+  "tone": "evangelical-analytical",
+  "key_insight": "The entire observability 1.0 vs 2.0 distinction reduces to one technical question\u2014whether your telemetry is stored once as wide structured events (single source of truth) or scattered across multiple pillars and tools\u2014and every other advantage of 2.0 flows as a consequence of that single architectural choice.",
+  "filename": "2024-11-19-there-is-only-one-key-difference-between-observability-1-0-and-2-0"
+}

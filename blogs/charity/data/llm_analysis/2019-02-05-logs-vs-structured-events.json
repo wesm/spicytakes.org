@@ -1,0 +1,25 @@
+{
+  "summary": "Traditional logging best practices were designed for monolithic systems with expensive disks and simple architectures, but they fail completely in distributed systems where investigation requires computation across many services. Engineers need to replace log lines and log levels with arbitrarily wide structured events \u2014 one per request per service \u2014 that capture rich context and feed into systems capable of ad hoc querying.",
+  "key_points": [
+    "Traditional logging best practices (be stingy, only log errors, use debuggers) were correct for monolithic systems but are counterproductive in distributed architectures",
+    "In distributed systems, your only view of the system is through the instrumentation of your code \u2014 debuggers and local disk are irrelevant",
+    "The hardest debugging problem in distributed systems isn't fixing the code, it's figuring out where the problematic code is",
+    "Structured events should capture one wide blob per request per service, making the incremental cost of capturing more detail nearly zero",
+    "Engineers need to unlearn legacy logging best practices \u2014 reframing from 'logs' to 'structured events' helps break old mental models"
+  ],
+  "money_quotes": [
+    "Your only view of the system is through the instrumentation of your code.",
+    "The hardest part isn't usually debugging the code, it's figuring out where is the code you need to debug. Or what the errors or outliers have in common from the perspective of the code. Fixing the code itself is often comparatively trivial, once found.",
+    "The more you think of structured events as logs, the more tempted you may be to apply the old set of best practices. So just don't think of them as logs at all.",
+    "Most importantly, the incremental cost of capturing more detail about the request per service is nearly zero.",
+    "No more regexps at all, for fuck's sake."
+  ],
+  "themes": [
+    "observability",
+    "engineering_practices",
+    "devops_sre"
+  ],
+  "tone": "persuasive",
+  "key_insight": "Legacy logging best practices actively harm observability in distributed systems \u2014 engineers must replace scattered log lines with wide structured events that capture full request context, enabling the computational investigation that modern systems demand.",
+  "filename": "2019-02-05-logs-vs-structured-events"
+}

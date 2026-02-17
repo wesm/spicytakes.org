@@ -1,0 +1,27 @@
+{
+  "summary": "Charity Majors argues that observability tooling needs a version bump: 'Observability 1.0' (metrics, logs, traces as separate pillars) is fundamentally incompatible with 'Observability 2.0' (wide, structured log events as a single source of truth). She contends that metrics-based tools are increasingly expensive and inadequate for understanding complex modern systems, while structured event-based approaches offer superior debugging, cost efficiency, and developer experience.",
+  "key_points": [
+    "The 'three pillars' (metrics, logs, traces) model is Observability 1.0 \u2014 structurally the same pre-aggregated metrics approach from a decade ago",
+    "Observability 2.0 stores data as arbitrarily-wide structured log events with a single source of truth, enabling read-time aggregation and infinite cardinality",
+    "O11y 1.0 is about operating code (dashboards, paging, MTTR); O11y 2.0 is about developing code (fast feedback loops, observability-driven development)",
+    "Metrics-based tools become more expensive and less valuable as systems grow more complex \u2014 the wrong tool for the job",
+    "The biggest psychological barrier to adopting O11y 2.0 is teams thinking they need to master O11y 1.0 first, which gets things exactly backwards"
+  ],
+  "money_quotes": [
+    "You cannot simultaneously store your data across both multiple pillars and a single source of truth. Incompatible. Breaking change. O11y 1.0, meet O11y 2.0.",
+    "Your job as a developer isn't done until you know it's working in production. Deploying to production is the beginning of gaining confidence in your code, not the denouement.",
+    "Metrics are a great tool for cheaply summarizing vast quantities of data. They are not equipped to help you introspect or understand complex systems. You will go broke and go mad if you try.",
+    "Teams are beating themselves up trying to master an archaic, unmasterable set of technical tradeoffs based on data types from the 80s. It's an unwinnable war.",
+    "Datadog and Prometheus are the last, best metrics-backed tools that will ever be built. You can't catch up to them or beat them at that; no one can. Do something different."
+  ],
+  "themes": [
+    "observability",
+    "engineering_practices",
+    "devops_sre",
+    "tech_culture",
+    "startups"
+  ],
+  "tone": "polemical, passionate, prescriptive",
+  "key_insight": "The shift from metrics-based observability to wide structured log events isn't an incremental improvement but a breaking change that unlocks fundamentally different \u2014 and vastly simpler \u2014 ways of understanding, debugging, and developing complex software systems.",
+  "filename": "2024-08-07-is-it-time-to-version-observability-signs-point-to-yes"
+}

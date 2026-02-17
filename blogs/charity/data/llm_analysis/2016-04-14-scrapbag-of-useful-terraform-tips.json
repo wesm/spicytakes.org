@@ -1,0 +1,23 @@
+{
+  "summary": "A practical brain dump of hard-won Terraform and AWS networking tips covering security groups, VPC peering, NAT gateways, route tables, and other infrastructure-as-code gotchas. Charity shares specific configurations and debugging strategies learned through painful trial and error, emphasizing the unintuitive nature of AWS networking when managed through Terraform.",
+  "key_points": [
+    "Security groups are stackable in VPC and are often the root cause of networking issues, not routes or VPC config",
+    "AWS resource description fields are not comments \u2014 changing them destroys and recreates resources",
+    "VPC peering must be set up bidirectionally before connections work in either direction",
+    "NAT gateways attach to public subnets (not private), with routes from private subnets pointing to them",
+    "Use AWS Certificate Manager instead of managing your own certs, and use NAT gateways instead of custom Linux NAT boxes"
+  ],
+  "money_quotes": [
+    "Since you have no ability to debug AWS networking via normal linux utilities, my best debugging tip for VPC networking is still, when you get really stuck open up all the SG ports and see if that fixes it.",
+    "BUT MIND THE FUCKING TRAP. You do not attach these NAT gateways to your PRIVATE subnets, you attach them to the PUBLIC FUCKING SUBNETS, and then a route from the private subnet to that gateway.",
+    "Yesterday I spun up another whole new VPC clone by adding about 5 lines and copying a couple files + sed -e'ing the name of the environment. Took about two minutes, felt like a fucking badass.",
+    "I will now proceed to forget as much as possible about all the things I have learned about networking over the past two months."
+  ],
+  "themes": [
+    "devops_sre",
+    "engineering_practices"
+  ],
+  "tone": "irreverent, practical, frustrated-but-triumphant",
+  "key_insight": "AWS networking via Terraform is full of unintuitive gotchas that aren't documented well, but once you've fought through the pain the payoff of reproducible infrastructure is enormous.",
+  "filename": "2016-04-14-scrapbag-of-useful-terraform-tips"
+}

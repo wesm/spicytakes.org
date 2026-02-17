@@ -1,0 +1,24 @@
+{
+  "summary": "Charity Majors responds to Matt Klein's claim that bitdrift's ring buffer model deserves the 'Observability 3.0' label, while reflecting on the industry's shift from multiple pillars to unified storage models. She argues that while Klein raises valid points about cost control, his mobile-first approach of not sending telemetry by default doesn't translate well to complex, multi-tenant distributed systems that require real-time debugging. The industry is moving toward a data lake model with telemetry pipelines, tiered storage, and tail-based sampling as the next evolution of cost control.",
+  "key_points": [
+    "Every observability startup founded after 2021 uses unified storage with columnar databases, while pre-2021 startups used multiple pillars",
+    "The multiple pillars model forces you to delete your most valuable data (context and detail) to control costs, while unified storage lets you delete your least valuable data via tail sampling",
+    "Ring buffer storage on mobile devices makes sense for isolated debugging but fails for real-time debugging of concurrent multi-tenant systems",
+    "Telemetry pipelines represent the slider between cheap write-time aggregation and expensive read-time aggregation of raw events",
+    "The long-term goal is unifying not just engineering telemetry but product analytics, business forecasting, and marketing data into a single source of truth"
+  ],
+  "money_quotes": [
+    "The fatal flaw of the multiple pillars model is that your levers of control consist of deleting your most valuable data: context and detail.",
+    "When it comes to developer tooling, cost matters, but it is rarely the most important thing or the most valuable thing. The most important things are workflows and cognitive carrying costs.",
+    "Data is made valuable by context. When you store it densely packed together \u2014 systems, app, product, marketing, sales \u2014 and derive insights from a single source of truth, how much faster might we move?",
+    "If we just say 'everything is observability', it robs engineers of the language they need to make smart decisions about instrumentation, telemetry and tools choices."
+  ],
+  "themes": [
+    "observability",
+    "engineering_practices",
+    "tech_culture"
+  ],
+  "tone": "analytical",
+  "key_insight": "The observability industry is converging on unified storage models with telemetry pipelines and tail-based sampling as cost control levers, but the real value lies in workflows and context, not just reducing spend.",
+  "filename": "2025-03-24-another-observability-3-0-appears-on-the-horizon"
+}

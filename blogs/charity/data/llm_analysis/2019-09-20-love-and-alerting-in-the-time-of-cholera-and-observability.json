@@ -1,0 +1,26 @@
+{
+  "summary": "Traditional monitoring accumulated excessive paging alerts because teams relied on pattern-matching from past failures to debug monolithic systems. With distributed systems, this approach collapses because failures are infinite and unique, so teams should delete all paging alerts and replace them with SLO-based alerts that only fire when users are actually impacted, using observability tools for debugging instead of alert clusters.",
+  "key_points": [
+    "Traditional monitoring built up libraries of paging alerts as a debugging crutch for pattern-matching recurring failures in monolithic systems",
+    "Distributed systems have an infinitely long list of failures that almost never recur, making per-scenario alerts wasteful",
+    "The modern approach is to page only on SLOs or end-to-end health checks that correlate to user-impacting events",
+    "Observability replaces the need for scattershot paging alerts by letting you systematically trace problems from high-level signals to root cause",
+    "If everyone is on call, management has a duty to ensure on-call doesn't suck by keeping alert noise low"
+  ],
+  "money_quotes": [
+    "Delete all your paging alerts, then page only on e2e alerts that mean users are in pain.",
+    "Frankly, any time you get paged about a distributed system, it should be a genuinely new failure that requires your full creative attention. You shouldn't just be checking your phone, going 'oh THAT again', and flipping through a runbook.",
+    "Instead of a limited set of recurring error conditions, you have an infinitely long list of things that almost never happen\u2026 except that one time they do.",
+    "Those paging alerts were a crutch, and now you don't need them anymore.",
+    "Every paging alert out of hours should be as serious as a heart attack, and this means allocating real engineering resources to keeping tech debt down and noise levels low."
+  ],
+  "themes": [
+    "observability",
+    "devops_sre",
+    "engineering_management",
+    "engineering_practices"
+  ],
+  "tone": "prescriptive",
+  "key_insight": "In the era of distributed systems and observability, paging alerts should be radically reduced to only user-impacting SLO violations, because the old model of accumulating per-failure alerts was really a debugging crutch that observability tools now replace.",
+  "filename": "2019-09-20-love-and-alerting-in-the-time-of-cholera-and-observability"
+}

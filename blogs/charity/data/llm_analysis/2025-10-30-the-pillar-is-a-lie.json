@@ -1,0 +1,25 @@
+{
+  "summary": "Charity Majors argues that the 'three pillars of observability' (metrics, logs, traces) is a marketing construct, not a technical one, used by vendors to justify selling siloed products at inflated prices. She advocates for a unified storage model (o11y 2.0) where all telemetry signals are stored together in one database, enabling seamless zoom-in/zoom-out debugging instead of bunny-hopping between disconnected tools. The piece also addresses misconceptions about OpenTelemetry reinforcing the pillars model, arguing it actually unifies signals through shared distributed context.",
+  "key_points": [
+    "The 'pillars' framing is a marketing term that keeps engineers trapped in outdated mental models and paying for siloed tooling",
+    "The unified storage model stores all signals once in a single database, preserving context and relationships",
+    "The pillars model causes massive data duplication - the same information stored in metrics, logs, and traces formatted differently",
+    "OpenTelemetry actually treats everything like one big wide structured event log under the hood, despite vendor implementations reinforcing three-pillar silos",
+    "Most engineers who think they need profiling actually need better distributed tracing"
+  ],
+  "money_quotes": [
+    "There are no pillars. I think the pillars are a fucking lie, dude. I think the language of pillars does a lot of work to keep good engineers trapped inside a mental model from the 1980s, paying outrageous sums of money for tooling that can't keep up with the chaos and complexity of modern systems.",
+    "When a vendor starts talking about pillars, it means they are gearing up to sell you something: another type of signal, siloed off from all the other signals you send them. Your cost multiplier is about to increment again.",
+    "You are literally storing the same information in your metrics TSDB as you are in your logs and your traces, just formatted differently. This is insanely expensive.",
+    "No more bunny hopping around from pillar to pillar, guessing and copy-pasting IDs and crossing your fingers. Instead, it works more like the zoom function on PDFs or Google maps.",
+    "Instead, it's just a blob of json. Structured data. If you think it might be interesting to you someday, you dump it in, and if not, you don't. That's all. Cognitive load drops way down."
+  ],
+  "themes": [
+    "observability",
+    "engineering_practices",
+    "tech_culture"
+  ],
+  "tone": "polemical, irreverent, passionate",
+  "key_insight": "The 'pillars of observability' is a vendor marketing construct that justifies expensive siloed tooling; the technically superior approach is unified storage where all telemetry signals live together, enabling seamless debugging through zoom-in/zoom-out rather than hopping between disconnected data stores.",
+  "filename": "2025-10-30-the-pillar-is-a-lie"
+}

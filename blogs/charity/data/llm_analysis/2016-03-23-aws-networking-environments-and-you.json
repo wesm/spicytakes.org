@@ -1,0 +1,24 @@
+{
+  "summary": "Charity Majors compares three AWS networking patterns for managing multiple environments (flat network, account-per-env, VPC-per-env) and argues strongly for the VPC-per-environment model. She debunks outdated beliefs about VPC limitations and makes the case that VPCs enable treating infrastructure as testable, promotable code rather than duct-taped configurations.",
+  "key_points": [
+    "Three common AWS environment patterns: flat network with security groups, one account per environment, and one VPC per environment",
+    "Many engineers hold outdated beliefs about AWS VPC limits \u2014 the hard cap is now 200, not 5 or 10",
+    "VPC-per-environment enables testing infrastructure changes (like Terraform modules) on staging before promoting to production",
+    "The account-per-environment model provides strong security isolation but comes with painful billing complexity and operational overhead",
+    "Infrastructure as code isn't real unless you can spin up a full copy of your infra and test it"
+  ],
+  "money_quotes": [
+    "If you can't spin up a full copy of your infra and test it, you don't actually have 'infrastructure as code.' You just have \u2026 some code, and duct tape.",
+    "VPC is the future and it is awesome, and unless you have some VERY SPECIFIC AND CONVINCING reasons to do otherwise, you should be spinning up a VPC per environment with orchestration and prob doing it from CI on every code commit, almost like it's just like, you know, code.",
+    "AWS billing is ALREADY a horrendous hairball coughed up by the world's ugliest cat, I can't even imagine trying to wrangle multiple accounts.",
+    "VPCs are here to help you think about infrastructure like regular old code. Lots of VPCs are approximately as easy to manage as one VPC. Unlike lots of accounts, which are there to give you headaches and one-offs and custom scripts and pointy-clicky shit and complicated horrible things to work around."
+  ],
+  "themes": [
+    "devops_sre",
+    "engineering_practices",
+    "startups"
+  ],
+  "tone": "opinionated, conversational, educational",
+  "key_insight": "VPC-per-environment is the best AWS networking pattern because it gives you real isolation while enabling you to treat infrastructure as testable, promotable code \u2014 which is the only way 'infrastructure as code' actually means anything.",
+  "filename": "2016-03-23-aws-networking-environments-and-you"
+}

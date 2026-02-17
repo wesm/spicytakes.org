@@ -1,0 +1,25 @@
+{
+  "summary": "Charity Majors argues that modern distributed systems require a fundamental shift from traditional monitoring and metrics to observability built on arbitrarily wide, structured raw events. She explains that as monoliths gave way to microservices, old debugging tools like printf and gdb became insufficient, and engineers must adopt structured events that capture rich context per request per service hop. The post lays out the technical requirements for true observability: structured, wide, raw, sampled events organized by request ID with trace awareness.",
+  "key_points": [
+    "Observability is fundamentally different from monitoring: monitoring handles known-unknowns while observability addresses unknown-unknowns",
+    "Structured events should be arbitrarily wide (200-500 dimensions) and emit one event per request per service hop",
+    "Aggregation destroys your ability to ask new questions \u2014 raw events must be stored to enable true observability",
+    "Adding dimensions to a structured event is effectively free (still one write), unlike metrics where each new metric adds linear write amplification",
+    "Client-side dynamic sampling controls costs by keeping interesting signals while discarding common useless events like health checks"
+  ],
+  "money_quotes": [
+    "Observability is about the unknown-unknowns. Which requires a fundamentally different mindset and toolchain.",
+    "The hard part of distributed systems is rarely debugging the code, it's figuring out where the code you need to debug is.",
+    "The difference between strings and structured data is basically the difference between grep and all of computer science.",
+    "Aggregation is a one-way trip. You can always, always derive your pretty metrics and dashboards and aggregates from structured events, and you can never go in reverse.",
+    "Structure your goddamn data. You're a computer scientist, you've got no business using text search to plow through terabytes of text."
+  ],
+  "themes": [
+    "observability",
+    "engineering_practices",
+    "devops_sre"
+  ],
+  "tone": "passionate, instructional, irreverent",
+  "key_insight": "True observability requires storing arbitrarily wide, structured raw events per request per service hop \u2014 not metrics, not unstructured logs, not pre-aggregated data \u2014 because only raw events let you ask questions you never anticipated.",
+  "filename": "2022-08-15-live-your-best-life-with-structured-events"
+}

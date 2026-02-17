@@ -1,0 +1,26 @@
+{
+  "summary": "Charity Majors argues that blocking Friday deploys is a symptom of unhealthy deployment practices, not a solution. Drawing on her experience at Parse and Honeycomb, she demonstrates that the real path to protecting engineers' work-life balance is building a tight build/ship/observe feedback loop with observability, single-changeset deploys, and observability-driven development culture.",
+  "key_points": [
+    "Blocking Friday deploys is a smell indicating your deploys are risky, and the practice makes things worse by batching changes and elongating deploy intervals",
+    "The three keys to safe deploys are observability, observability-driven development culture, and deploying one changeset at a time immediately after merge",
+    "At Parse (blocked Friday deploys, batched changes), engineers were woken up multiple times per week; at Honeycomb (continuous deploys with observability), pager volume dropped to roughly one alert per week",
+    "80-90% of deploy problems can be caught by the developer watching their own changes roll out before users or alerts ever notice",
+    "Systems are more stable when you always ship consistently and quickly; carving out no-deploy windows actually reduces stability"
+  ],
+  "money_quotes": [
+    "You cannot have it both ways, where you block off a bunch of undeployable time AND you have robust, resilient, swift deploys.",
+    "That tight, short feedback loop of build/ship/observe is the beating heart of a healthy, observable distributed system that can be run and maintained by human beings, without it sucking your life force or ruining your sleep schedule or will to live.",
+    "Our systems were more stable when we always shipped right after the changes were merged. Our systems were less stable when we carved out times to pause deployments.",
+    "The idea of going back to a world without observability, a world where one deployed and then stared anxiously at dashboards \u2014 it was unthinkable. It was like I was being asked to give up my five senses for production.",
+    "Congratulating ourselves for blocking Friday deploys is like congratulating ourselves for swatting ourselves in the face with the flyswatter."
+  ],
+  "themes": [
+    "observability",
+    "devops_sre",
+    "engineering_practices",
+    "tech_culture"
+  ],
+  "tone": "passionate, argumentative, experience-driven",
+  "key_insight": "Blocking Friday deploys treats the symptom while worsening the disease \u2014 the real fix is investing in observability and tight deploy feedback loops so that every deploy, any day of the week, is safe and fast.",
+  "filename": "2019-10-28-deploys-its-not-actually-about-fridays"
+}
