@@ -258,15 +258,31 @@ const VIDEO_HOST_LABELS: Record<string, string> = {
   'ted.com': 'TED',
 };
 
+const AUDIO_HOSTS = new Set([
+  'softwareengineeringdaily.com',
+  'dataengineeringpodcast.com',
+  'podcasts.apple.com',
+  'open.spotify.com',
+  'creators.spotify.com',
+  'madrona.com',
+]);
+
 // Get the display label for a source link (e.g. "Watch on YouTube", "Read on blog.com")
-export function getSourceLabel(post?: { video_url?: string; content_type?: string }): string {
+export function getSourceLabel(post?: {
+  video_url?: string;
+  content_type?: string;
+  post_tags?: string[];
+}): string {
   if (post?.content_type === 'transcript' && post.video_url) {
+    const isPodcast = post.post_tags?.includes('podcast');
     try {
       const host = new URL(post.video_url).hostname.replace(/^www\./, '');
       const label = VIDEO_HOST_LABELS[host] || host;
-      return `Watch on ${label}`;
+      const isAudioHost = AUDIO_HOSTS.has(host);
+      const verb = (isPodcast || isAudioHost) ? 'Listen' : 'Watch';
+      return `${verb} on ${label}`;
     } catch {
-      return 'Watch';
+      return isPodcast ? 'Listen' : 'Watch';
     }
   }
   return `Read on ${config?.sourceLabel ?? 'source'}`;

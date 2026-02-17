@@ -22,6 +22,7 @@ interface PostIndexEntry {
   url?: string;
   video_url?: string;
   content_type?: string;
+  tags?: string[];
 }
 
 interface SpicyQuote {
@@ -85,6 +86,7 @@ export const load: LayoutServerLoad = async () => {
   const urlLookup: Record<string, string> = {};
   const videoUrlLookup: Record<string, string> = {};
   const contentTypeLookup: Record<string, string> = {};
+  const tagsLookup: Record<string, string[]> = {};
   for (const p of postsIndex.posts || []) {
     if (p.filename) {
       const keys = [p.filename, p.filename.replace(/\.md$/, '')];
@@ -92,6 +94,7 @@ export const load: LayoutServerLoad = async () => {
       if (p.url) for (const k of keys) urlLookup[k] = p.url;
       if (p.video_url) for (const k of keys) videoUrlLookup[k] = p.video_url;
       if (p.content_type) for (const k of keys) contentTypeLookup[k] = p.content_type;
+      if (p.tags) for (const k of keys) tagsLookup[k] = p.tags;
       // Also index by slug (for Substack blogs where posts_index uses slug)
       const slug = (p as any).slug;
       if (slug) {
@@ -120,9 +123,10 @@ export const load: LayoutServerLoad = async () => {
       const title = titleLookup[post.filename] || titleLookup[slug] || formatTitle(post.filename);
       // Get source URL from posts_index.json if available (for blogs with multiple sources like Medium + Blogger)
       const source_url = urlLookup[post.filename] || urlLookup[slug];
-      // Merge video_url and content_type from posts_index (for transcript-based blogs)
+      // Merge video_url, content_type, tags from posts_index (for transcript-based blogs)
       const video_url = videoUrlLookup[post.filename] || videoUrlLookup[slug];
       const content_type = contentTypeLookup[post.filename] || contentTypeLookup[slug];
+      const post_tags = tagsLookup[post.filename] || tagsLookup[slug];
       return {
         ...post,
         dateStr,
@@ -131,6 +135,7 @@ export const load: LayoutServerLoad = async () => {
         source_url,
         ...(video_url && { video_url }),
         ...(content_type && { content_type }),
+        ...(post_tags && { post_tags }),
       };
     })
     // Sort: dated posts by date descending, undated posts at the end

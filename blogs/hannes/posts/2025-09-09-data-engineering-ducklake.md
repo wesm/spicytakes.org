@@ -8,6 +8,7 @@ word_count: 13055
 source_file: transcripts/2025-09-09-data-engineering-ducklake.md
 content_type: transcript
 event: "Data Engineering Podcast"
+video_url: "https://www.dataengineeringpodcast.com/ducklake-easy-data-lakehouse-format-episode-480"
 ---
 
 *This transcript was AI-generated using Whisper and may contain minor errors.*

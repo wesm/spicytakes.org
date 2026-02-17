@@ -8,6 +8,7 @@ word_count: 8995
 source_file: transcripts/2024-08-08-software-engineering-daily.md
 content_type: transcript
 event: "Software Engineering Daily"
+video_url: "https://softwareengineeringdaily.com/2024/08/08/duckdb-with-hannes-muhleisen/"
 ---
 
 *This transcript was AI-generated using Whisper and may contain minor errors.*

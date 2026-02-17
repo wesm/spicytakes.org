@@ -9,6 +9,7 @@ export interface Post {
   video_url?: string;
   content_type?: string;
   source_url?: string;  // Direct URL from posts_index.json (for blogs with multiple sources)
+  post_tags?: string[];  // Tags from posts_index (e.g. ["podcast", "transcript"])
   // Computed fields
   date?: Date;
   title?: string;

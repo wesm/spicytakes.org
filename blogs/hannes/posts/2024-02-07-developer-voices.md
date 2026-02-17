@@ -8,6 +8,7 @@ word_count: 13961
 source_file: transcripts/2024-02-07-developer-voices.md
 content_type: transcript
 event: "Developer Voices"
+video_url: "https://youtu.be/pZV9FvdKmLc"
 ---
 
 *This transcript was AI-generated using Whisper and may contain minor errors.*

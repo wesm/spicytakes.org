@@ -8,6 +8,7 @@ word_count: 12477
 source_file: transcripts/2024-10-29-data-talks-rocks.md
 content_type: transcript
 event: "Data Talks on the Rocks"
+video_url: "https://www.youtube.com/watch?v=831D6MZCJ28"
 ---
 
 *This transcript was AI-generated using Whisper and may contain minor errors.*

@@ -8,6 +8,7 @@ word_count: 9252
 source_file: transcripts/2025-06-04-joe-reis-ducklake.md
 content_type: transcript
 event: "The Joe Reis Show"
+video_url: "https://www.youtube.com/watch?v=NbnEVFAtx9o"
 ---
 
 *This transcript was AI-generated using Whisper and may contain minor errors.*

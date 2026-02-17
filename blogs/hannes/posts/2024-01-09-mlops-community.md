@@ -8,6 +8,7 @@ word_count: 12107
 source_file: transcripts/2024-01-09-mlops-community.md
 content_type: transcript
 event: "MLOps.community Podcast"
+video_url: "https://www.youtube.com/watch?v=Vs2nTt36Zd0"
 ---
 
 *This transcript was AI-generated using Whisper and may contain minor errors.*

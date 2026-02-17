@@ -8,6 +8,7 @@ word_count: 14192
 source_file: transcripts/2022-03-05-data-engineering-podcast.md
 content_type: transcript
 event: "Data Engineering Podcast"
+video_url: "https://www.dataengineeringpodcast.com/duckdb-in-process-olap-database-episode-270/"
 ---
 
 *This transcript was AI-generated using Whisper and may contain minor errors.*
