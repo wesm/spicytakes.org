@@ -1,0 +1,41 @@
+{
+  "id": "devault",
+  "name": "Drew DeVault",
+  "tagline": "FOSS, systems programming, and internet sovereignty",
+  "description": "Exploring Drew DeVault's writings on free software, the Hare programming language, SourceHut, internet decentralization, and sharp tech criticism.",
+  "sourceUrl": "https://drewdevault.com",
+  "sourceLabel": "drewdevault.com",
+
+  "scraper": {
+    "type": "jekyll_feed",
+    "baseUrl": "https://drewdevault.com",
+    "feedUrl": "https://drewdevault.com/blog/index.xml",
+    "homepageUrl": "https://drewdevault.com/",
+    "urlPattern": "/\\d{4}/\\d{2}/\\d{2}/",
+    "postsInH3": false,
+    "sourcePostPath": "/{year}/{month}/{day}/{slug}.html"
+  },
+
+  "themes": {
+    "foss": { "label": "Free & Open Source", "icon": "\ud83d\udd13" },
+    "systems_programming": { "label": "Systems Programming", "icon": "\u2699\ufe0f" },
+    "language_design": { "label": "Language Design", "icon": "\ud83d\udcdd" },
+    "internet_infra": { "label": "Internet & Protocols", "icon": "\ud83c\udf10" },
+    "tech_criticism": { "label": "Tech Criticism", "icon": "\ud83d\udd25" },
+    "politics_ethics": { "label": "Politics & Ethics", "icon": "\u270a" },
+    "sourcehut": { "label": "SourceHut", "icon": "\ud83d\udee0\ufe0f" }
+  },
+
+  "llmAnalysis": {
+    "contextPrompt": "You are analyzing a blog post by Drew DeVault, creator of SourceHut, the Hare programming language, and sway/wlroots. He is a strong advocate for free software, email-based development workflows, and internet decentralization. He is known for principled, uncompromising positions on software freedom and sharp criticism of corporate tech.",
+    "depthLevel": "detailed",
+    "summaryLength": "4-6 sentences",
+    "detailedBreakdown": true,
+    "maxWords": 300,
+    "numQuotes": "5-8"
+  },
+
+  "spiciness": {
+    "contextPrompt": "Drew DeVault is known for strong, principled positions on free software, GPL licensing, and internet sovereignty. He regularly criticizes GitHub, cloud services, JavaScript, and corporate open source practices. He advocates for email-based workflows, Gemini protocol, and software minimalism."
+  }
+}

@@ -33,6 +33,7 @@ import spolskyConfig from '../../config/spolsky.json';
 import dhhConfig from '../../config/dhh.json';
 import fperezConfig from '../../config/fperez.json';
 import charityConfig from '../../config/charity.json';
+import devaultConfig from '../../config/devault.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -64,6 +65,7 @@ const configs: Record<string, BlogConfig> = {
   dhh: dhhConfig as BlogConfig,
   fperez: fperezConfig as BlogConfig,
   charity: charityConfig as BlogConfig,
+  devault: devaultConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
