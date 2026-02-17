@@ -20,6 +20,8 @@ interface PostIndexEntry {
   title: string;
   subtitle?: string;
   url?: string;
+  video_url?: string;
+  content_type?: string;
 }
 
 interface SpicyQuote {
@@ -77,20 +79,19 @@ export const load: LayoutServerLoad = async () => {
   const spicyData = getBlogData(spicyQuotesModules, blogId, { quotes: [] });
   const postsIndex = getBlogData(postsIndexModules, blogId, { posts: [] });
 
-  // Build title and URL lookups from posts_index.json
+  // Build lookups from posts_index.json
   // Index by filename (with/without .md) and by slug for compatibility
   const titleLookup: Record<string, string> = {};
   const urlLookup: Record<string, string> = {};
+  const videoUrlLookup: Record<string, string> = {};
+  const contentTypeLookup: Record<string, string> = {};
   for (const p of postsIndex.posts || []) {
     if (p.filename) {
-      if (p.title) {
-        titleLookup[p.filename] = p.title;
-        titleLookup[p.filename.replace(/\.md$/, '')] = p.title;
-      }
-      if (p.url) {
-        urlLookup[p.filename] = p.url;
-        urlLookup[p.filename.replace(/\.md$/, '')] = p.url;
-      }
+      const keys = [p.filename, p.filename.replace(/\.md$/, '')];
+      if (p.title) for (const k of keys) titleLookup[k] = p.title;
+      if (p.url) for (const k of keys) urlLookup[k] = p.url;
+      if (p.video_url) for (const k of keys) videoUrlLookup[k] = p.video_url;
+      if (p.content_type) for (const k of keys) contentTypeLookup[k] = p.content_type;
       // Also index by slug (for Substack blogs where posts_index uses slug)
       const slug = (p as any).slug;
       if (slug) {
@@ -119,12 +120,17 @@ export const load: LayoutServerLoad = async () => {
       const title = titleLookup[post.filename] || titleLookup[slug] || formatTitle(post.filename);
       // Get source URL from posts_index.json if available (for blogs with multiple sources like Medium + Blogger)
       const source_url = urlLookup[post.filename] || urlLookup[slug];
+      // Merge video_url and content_type from posts_index (for transcript-based blogs)
+      const video_url = videoUrlLookup[post.filename] || videoUrlLookup[slug];
+      const content_type = contentTypeLookup[post.filename] || contentTypeLookup[slug];
       return {
         ...post,
         dateStr,
         title,
         year,
-        source_url
+        source_url,
+        ...(video_url && { video_url }),
+        ...(content_type && { content_type }),
       };
     })
     // Sort: dated posts by date descending, undated posts at the end

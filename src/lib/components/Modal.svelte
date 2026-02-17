@@ -1,7 +1,7 @@
 <script lang="ts">
   import { selectedPost } from '$lib/stores';
   import { getSpicyColor } from '$lib/types';
-  import { THEME_LABELS, getSourceUrl, config, formatDate } from '$lib/config';
+  import { THEME_LABELS, getSourceUrl, getSourceLabel, config, formatDate } from '$lib/config';
 
   function close() {
     selectedPost.set(null);
@@ -52,7 +52,7 @@
                 rel="noopener noreferrer"
                 class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
               >
-                {$selectedPost.content_type === 'transcript' ? 'Watch/Listen' : `Read on ${config?.sourceLabel ?? 'source'}`} ↗
+                {getSourceLabel($selectedPost)} ↗
               </a>
             {/if}
           </div>

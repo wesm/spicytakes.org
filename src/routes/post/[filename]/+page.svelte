@@ -3,7 +3,7 @@
   import { browser } from '$app/environment';
   import { postsStore } from '$lib/stores';
   import { getSpicyColor, type Post } from '$lib/types';
-  import { THEME_LABELS, getSourceUrl, config, formatDate } from '$lib/config';
+  import { THEME_LABELS, getSourceUrl, getSourceLabel, config, formatDate } from '$lib/config';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();
@@ -101,7 +101,7 @@
               rel="noopener noreferrer"
               class="text-[#FF6719] hover:text-[#e55a14] hover:underline transition-colors"
             >
-              {post.content_type === 'transcript' ? 'Watch/Listen' : `Read on ${config?.sourceLabel ?? 'source'}`} ↗
+              {getSourceLabel(post)} ↗
             </a>
           {/if}
         </div>

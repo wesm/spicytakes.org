@@ -249,3 +249,25 @@ export function getSourceUrl(filename: string, post?: { video_url?: string; cont
   }
   return buildSourceUrl(filename, config, post);
 }
+
+const VIDEO_HOST_LABELS: Record<string, string> = {
+  'youtube.com': 'YouTube',
+  'youtu.be': 'YouTube',
+  'vimeo.com': 'Vimeo',
+  'archive.org': 'Internet Archive',
+  'ted.com': 'TED',
+};
+
+// Get the display label for a source link (e.g. "Watch on YouTube", "Read on blog.com")
+export function getSourceLabel(post?: { video_url?: string; content_type?: string }): string {
+  if (post?.content_type === 'transcript' && post.video_url) {
+    try {
+      const host = new URL(post.video_url).hostname.replace(/^www\./, '');
+      const label = VIDEO_HOST_LABELS[host] || host;
+      return `Watch on ${label}`;
+    } catch {
+      return 'Watch';
+    }
+  }
+  return `Read on ${config?.sourceLabel ?? 'source'}`;
+}
