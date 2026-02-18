@@ -36,6 +36,7 @@ import charityConfig from '../../config/charity.json';
 import devaultConfig from '../../config/devault.json';
 import cmuratorConfig from '../../config/cmuratori.json';
 import zedshawConfig from '../../config/zedshaw.json';
+import jvnsConfig from '../../config/jvns.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -70,6 +71,7 @@ const configs: Record<string, BlogConfig> = {
   devault: devaultConfig as BlogConfig,
   cmuratori: cmuratorConfig as BlogConfig,
   zedshaw: zedshawConfig as BlogConfig,
+  jvns: jvnsConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -222,6 +224,14 @@ export function buildSourceUrl(
   if (cfg.scraper.type === 'caseymuratori') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${cfg.sourceUrl}/${slug}`;
+  }
+  // For jvns, URL is /blog/YYYY/MM/DD/slug/
+  if (cfg.scraper.type === 'jvns') {
+    const dateMatch = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$/);
+    if (dateMatch) {
+      const [, year, month, day, slug] = dateMatch;
+      return `${cfg.sourceUrl}/blog/${year}/${month}/${day}/${slug}/`;
+    }
   }
   // For zedshaw, URL is /blog/YYYY-MM-DD-slug/
   if (cfg.scraper.type === 'zedshaw') {
