@@ -1,0 +1,25 @@
+{
+  "summary": "Drew DeVault introduces rc, a new Unix shell he's been developing, inspired by Plan 9's rc but with significant departures. The shell's headline feature is fixing the 'global shell quoting nightmare' by making variable expansion safe by default, distinguishing between strings and lists as fundamental types. Written in about 2500 lines of Hare, rc also features named function parameters, list slicing, string operations, and a formal context-free grammar. The shell is not yet complete but much of the described functionality is already working.",
+  "key_points": [
+    "rc fixes POSIX shell's quoting problem by making variable expansion safe by default \u2014 no need to quote variables to prevent word splitting",
+    "The shell has two fundamental types \u2014 strings and lists \u2014 rather than POSIX shell's single string type, enabling cleaner argument handling",
+    "List and string slicing operations provide ergonomic data manipulation directly in the shell syntax",
+    "The shell is written in Hare and has a formal context-free grammar, reflecting a desire for rigor and reproducibility",
+    "Functions support named parameters alongside variadic arguments, improving readability over positional-only $1/$2 conventions"
+  ],
+  "money_quotes": [
+    "One substantial improvement rc makes over POSIX shells and Bash right off the bat is fixing our global shell quoting nightmare.",
+    "rc provides for this by acknowledging that shells have not just one fundamental type (strings), but two: strings and lists of strings, i.e. argument vectors.",
+    "It also has a formal context-free grammar, which is a work-in-progress but speaks to our desire to have a robust description of the shell available for users and other implementations.",
+    "Presently it clocks in at about 2500 lines of Hare.",
+    "It's not done yet, so don't get too excited, but much of what's described here is already working."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "Shell scripting's most persistent pain point \u2014 the quoting nightmare caused by treating everything as strings \u2014 can be solved by building a shell with strings and lists as distinct fundamental types.",
+  "filename": "2023-04-18-2023-04-18-A-new-shell-for-Unix"
+}

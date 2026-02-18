@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault documents the first phase of porting Helios, a microkernel written in Hare, from x86_64 to aarch64 so he could present his FOSDEM talk from a Raspberry Pi 4 running Helios itself. Rather than writing an Intel HD Graphics driver, he decided porting the entire OS to ARM would be easier. This post covers the EFI bootloader work, including hand-writing PE32+ headers in assembly, setting up page tables, configuring the ARM MMU, and handling exception level transitions. The bootloader took 14 days to reach kmain on qemu-virt and 18 days on real hardware, with the full port completing in 42 days.",
+  "key_points": [
+    "Porting an entire kernel to a new architecture was deemed easier than writing an Intel HD Graphics driver, illustrating the relative complexity of modern GPU hardware",
+    "The aarch64 boot process requires producing Windows COFF/PE32+ executables for EFI, necessitating hand-written assembly headers and linker script tricks cargo-culted from Linux",
+    "The bootloader sets up a higher-half kernel memory map with identity-mapped physical memory, device MMIO regions, and 4K kernel pages before exiting EFI boot services and enabling the MMU",
+    "A major debugging challenge was discovering that real hardware boots at EL2 (hypervisor mode) while qemu-virt defaults to EL1, requiring an exception level transition",
+    "The Hare code builds on prior RISC-V EFI work, with the bootloader refactored into a general-purpose EFI support layer applicable to future architecture ports"
+  ],
+  "money_quotes": [
+    "After a few days spent trying to comprehend the IHD manuals, I decided it would be much easier to port the entire system to aarch64 and write a driver for the much-simpler RPi GPU instead.",
+    "On aarch64 the boot story is pretty abysmal, and I wanted to avoid adding the SoC-specific complexity which is endemic to the platform.",
+    "I took inspiration from Linux and made a disgusting EFI stub solution, which involves hand-writing a PE32+ header in assembly and doing some truly horrifying things with binutils to massage everything into order.",
+    "A general suggestion that cargo-culting my work here would be a lot easier than understanding it should you need to build something similar.",
+    "Getting just this far took 3 full days of work.",
+    "There are a lot of bits here! Figuring out which ones to enable or disable was a project in and of itself.",
+    "After much wailing and gnashing of teeth, the cause was found to be that our bootloader was started in EL2 on real hardware, and EL1 on qemu-virt."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Porting an entire microkernel to a new CPU architecture can be more tractable than writing a single complex device driver, and the messy reality of boot-level systems programming involves cargo-culting binary formats, battling underdocumented hardware registers, and debugging differences between emulators and real hardware.",
+  "filename": "2023-02-20-2023-02-20-Helios-aarch64"
+}

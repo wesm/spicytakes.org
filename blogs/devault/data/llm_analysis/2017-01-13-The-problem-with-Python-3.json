@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault argues that Python 3's string handling is not broken \u2014 rather, developers who complain about it simply don't understand the distinction between strings and bytes. He demonstrates with concrete examples how Python 2 treats strings as raw bytes, producing garbled results for non-ASCII text, while Python 3 correctly separates Unicode strings from byte arrays. He systematically debunks common complaints about Python 3's string handling, showing each stems from treating bytes as strings. The post concludes with a call to migrate all projects to Python 3 immediately, dismissing most criticisms as uninformed.",
+  "key_points": [
+    "Bytes and strings are fundamentally different types \u2014 bytes are arrays of unsigned 8-bit integers, not characters \u2014 and conflating them is the root of all Python 3 string complaints",
+    "Python 2's string handling is demonstrably broken for non-ASCII text, producing garbled output when reversing or indexing Japanese characters",
+    "Every common complaint about Python 3 strings (filenames, CSV, latin-1) has a straightforward solution once you stop treating bytes as strings",
+    "Python 2's design trained developers into bad habits that they now blame on Python 3's correct behavior",
+    "Migration to Python 3 is necessary and overdue \u2014 the 'only new projects' compromise is insufficient"
+  ],
+  "money_quotes": [
+    "Python 2 strings are broken, and Python 3 strings are sane. The only problem is that you don't grok strings.",
+    "If you ever do string operations against bytes, you are Doing It Wrong because bytes are not strings.",
+    "For anything other than ASCII, Python 2 \"strings\" are broken.",
+    "Instead of starting ignorant flamewars about it, learn how it works.",
+    "Python 2's shitty design has broken your mindset. Unlearn it.",
+    "Some people say only new projects should be written in Python 3. I say that's bollocks - all projects should be written in Python 3 and you need to migrate, now.",
+    "For every legitimate criticism of Python 3 I've seen, I've seen 10 that are bullshit."
+  ],
+  "themes": [
+    "tech_criticism"
+  ],
+  "tone": "combative, didactic, impatient",
+  "key_insight": "Python 3's string handling isn't broken \u2014 it simply enforces the correct distinction between text and bytes that Python 2 let developers ignore, and the complaints stem from developers who never learned how strings actually work.",
+  "filename": "2017-01-13-The-problem-with-Python-3"
+}

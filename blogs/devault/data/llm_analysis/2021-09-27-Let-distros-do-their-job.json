@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault argues that software developers should rely on third-party software distributions (Linux distros, BSDs, etc.) to handle packaging and distributing their software rather than doing it themselves. He defines software distributions as curated, volunteer-run systems that represent user interests, contrasting them with uncurated repositories like npm or PyPI that frequently distribute malware. Distributions provide critical infrastructure including dependency management, cryptographic signatures, CVE management, and long-term support \u2014 all for free. Developers should make distributors' jobs easier by shipping tarballs, using standard build systems, and maintaining good release notes. He concludes that systems like Flatpak which bypass traditional distribution models are 'completely missing the point.'",
+  "key_points": [
+    "Software distributions function as a 'union of users,' advocating for user interests by patching out telemetry, managing breakage, and preventing malware installation",
+    "Uncurated package repositories like npm and PyPI frequently end up distributing malware, unlike curated distributions with third-party oversight",
+    "Distributions already solve hard infrastructure problems (automatic updates, cryptographic signatures, CVE management, reproducible builds) that individual developers shouldn't reinvent",
+    "Developers should ship tarballs with standard build systems and let users request packaging from their distros, rather than asking distros directly or shipping curl-pipe-bash installers",
+    "Developer-sideloaded Linux packages frequently include telemetry spyware or adware that distributions patch out"
+  ],
+  "money_quotes": [
+    "Software distributions are often volunteer-run and represent the interests of the users; in a sense they are a kind of union of users.",
+    "It is no coincidence that such repositories often end up distributing malware.",
+    "Many sideloaded packages for Linux include telemetry spyware or adware from the upstream distributor, which is usually patched out by the distribution.",
+    "You can take advantage of all of this innovation and research for the low price of zero dollars by standing back and letting distros handle the distribution of your software.",
+    "Don't ship pre-built binaries and definitely don't ship a \"curl | bash\" command. Naive users will mess up their systems when they use them.",
+    "It's the users who will go to their distro and ask for a new package.",
+    "Systems which invert this model, e.g. Flatpak, are completely missing the point."
+  ],
+  "themes": [
+    "foss",
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "opinionated, prescriptive, advocacy",
+  "key_insight": "Software distributions are a critical, volunteer-run layer of user advocacy that developers should support rather than bypass, because distros solve distribution, security, and integration problems far better than individual developers can.",
+  "filename": "2021-09-27-Let-distros-do-their-job"
+}

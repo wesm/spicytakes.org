@@ -1,0 +1,20 @@
+{
+  "summary": "Drew DeVault introduces koio, a small tool for embedding files directly into C programs. The tool generates C source containing file data as string literals and provides an fopen shim that checks embedded files before falling back to the real filesystem. He built it for his chopsui UI toolkit but made it generic for reuse across projects. The post walks through the simple command-line usage, the generated output, and the resulting API.",
+  "key_points": [
+    "koio embeds arbitrary files into C source code and provides a transparent fopen shim for accessing them",
+    "The tool was built for chopsui but designed as a generic, reusable utility rather than a project-specific hack",
+    "The entire tool is 312 lines of C with minimal dependencies: just POSIX 2008 and a C99 compiler"
+  ],
+  "money_quotes": [
+    "A library provides an fopen shim which checks the list of embedded files before resorting to the real filesystem.",
+    "It was simple enough and useful enough that I chose to make something generic so it could be used on several projects.",
+    "Only mandatory dependencies are POSIX 2008 and a C99 compiler."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "Embedding files in C programs can be solved with a tiny, dependency-free generic tool rather than ad-hoc project-specific solutions.",
+  "filename": "2018-05-29-Embedding-files-in-C"
+}

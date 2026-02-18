@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault follows up on his controversial 'Hello world' article, which compared syscall counts across programming languages and was widely misinterpreted as a benchmark. He clarifies that the assembly baseline was an idealized thought experiment, not a standard, and that runtime measurements were included to show they round to zero \u2014 not to rank languages. His actual point was about the relentless accumulation of complexity in software: programmers pile abstraction upon abstraction with no regard for consequences, resulting in bloated applications that squander hardware improvements. He argues most programmers aren't even aware of how much hidden work their tools perform, and hopes the surprising numbers would spark curiosity rather than defensiveness.",
+  "key_points": [
+    "The original article's assembly baseline was an idealized thought experiment \u2014 like a frictionless plane in physics \u2014 not a realistic standard for other languages",
+    "Productivity per CPU cycle per Watt is at historic lows because programmers have spent decades recklessly stacking abstractions, leaving end-users with computers that haven't meaningfully improved in a decade",
+    "A Python 'hello world' brings along almost a million lines of code, the non-dead fraction of which is basically a rounding error \u2014 and nobody is thinking about this",
+    "The Go runtime is singled out as particularly egregious, making programs nearly impossible to debug due to mountains of unrelated background activity supporting a concurrency model DeVault dislikes",
+    "Zig's competitiveness with assembly in syscall count is noted as genuinely impressive and worth watching under real workloads"
+  ],
+  "money_quotes": [
+    "Naturally, the fault lies with the readers.",
+    "As the infinite frictionless plane in vacuum is to physics, that assembly program is to compilers.",
+    "The PC in front of me is literally five thousand times faster than the graphing calculator in my closet - but the latter can boot to a useful system in a fraction of a millisecond, while my PC takes almost a minute.",
+    "Productivity per CPU cycle per Watt is the lowest it's been in decades, and is orders of magnitude (plural) beneath its potential.",
+    "Programmers have spent the entire lifetime of our field recklessly piling abstraction on top of abstraction on top of abstraction.",
+    "We're more concerned with shoving more spyware at the problem than we are with optimization.",
+    "If I just print \"hello world\" in Python, users are going to bring along almost a million lines of code to run it, the fraction of which isn't dead code is basically a rounding error.",
+    "I'm a systems programmer \u2014 I want you to be interested in your systems!"
+  ],
+  "themes": [
+    "systems_programming",
+    "tech_criticism",
+    "language_design"
+  ],
+  "tone": "self-deprecating, polemical, clarifying",
+  "key_insight": "The software industry's relentless accumulation of abstraction has made computers thousands of times faster yet barely more useful, and most programmers remain unaware of \u2014 or indifferent to \u2014 the hidden complexity their tools impose.",
+  "filename": "2020-01-08-Re-Slow"
+}

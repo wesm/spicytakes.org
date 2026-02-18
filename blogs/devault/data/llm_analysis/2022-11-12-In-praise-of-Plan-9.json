@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault argues that Plan 9, Bell Labs' successor to Unix, represents the best operating system design to date despite its commercial failure. He illustrates how Plan 9 perfected Unix's 'everything is a file' philosophy where Unix itself fell short, particularly in networking and process namespaces. The post walks through how Plan 9's consistent design enables elegant solutions to problems like VPNs, containers, and remote desktop with minimal code. DeVault attributes Plan 9's failure to Unix being too entrenched, but argues its ideas continue to inspire and that every programmer should spend time learning it.",
+  "key_points": [
+    "Plan 9 took Unix's 'everything is a file' philosophy seriously where Unix didn't \u2014 networking, graphics, and hardware are all real files with no magic syscalls",
+    "The 9P protocol and per-process filesystem namespaces compose to enable VPNs, containers, and remote desktop as trivial mount operations",
+    "Plan 9's container model predates BSD jails by years: just unmount hardware you don't want sandboxed processes to access, no root required",
+    "Many Plan 9 innovations (UTF-8, goroutines, /proc, containers, union filesystems) were adopted piecemeal by mainstream OSes",
+    "Plan 9 failed not on merit but because Unix was too entrenched \u2014 it was doomed by its predecessor"
+  ],
+  "money_quotes": [
+    "It is the most interesting operating system that you've never heard of, and, in my opinion, the best operating system design to date.",
+    "When everything is supposed to be a file on Unix, why is it that the networking API is entirely implemented with special-purpose syscalls and ioctls?",
+    "Say you want to establish a VPN: you simply mount a remote server's /net/ether0 at /net/ether1, and now you have a VPN. That's it.",
+    "Making a container is thus trivial: just unmount all of the hardware you don't want the sandboxed program to have access to. Done. You don't even have to be root.",
+    "Plan 9 failed, in a sense, because Unix was simply too big and too entrenched by the time Plan 9 came around. It was doomed by its predecessor.",
+    "Come to Plan 9 empty handed, and let it fill those hands with its ideas. You will come away from the experience as a better programmer.",
+    "The entire operating system, kernel and userspace, can be built from source code on my 12 year old laptop in about 5 minutes."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "enthusiastic, technical, evangelistic",
+  "key_insight": "Plan 9 proved that taking Unix's 'everything is a file' philosophy to its logical conclusion produces an elegantly composable system, but was doomed by the entrenchment of the very system it improved upon.",
+  "filename": "2022-11-12-In-praise-of-Plan-9"
+}

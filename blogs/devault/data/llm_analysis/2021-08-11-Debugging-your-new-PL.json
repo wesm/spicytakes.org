@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault shares practical advice for debugging programs written in a new compiled programming language that lacks mature tooling. He emphasizes that classic debugging techniques like careful thought and print statements remain the most effective starting point. When those fail, he walks through using gdb without debug symbols, working directly with assembly, memory examination, and creative workarounds like dummy breakpoint functions. The post draws from his direct experience building the Hare programming language and frames the pain as motivation to eventually build proper debugging tools.",
+  "key_points": [
+    "Classic debugging techniques (print statements, isolating problem code) are even more important when language tooling doesn't exist yet",
+    "Working in gdb without debug symbols requires fluency in assembly, ISA manuals, and ABI specifications",
+    "Setting up proper stack frames early in language development pays dividends by enabling backtraces and function breakpoints",
+    "Creative workarounds like dummy breakpoint functions can substitute for missing line-number support in debuggers",
+    "The painful debugging experience serves as strong motivation to eventually build first-class debugging tools for the language"
+  ],
+  "money_quotes": [
+    "How do you debug code written in a language for which debuggers and other tooling simply has not been written yet?",
+    "We must have a language in the first place before we can write tools to debug it.",
+    "If you have to use it without debug symbols, you may find yourself shutting off the computer and seeking out rural real estate on which you can establish a new career in farming.",
+    "You're going to be working in assembly, so make sure you're familiar with how it works.",
+    "This is a fairly miserable process which can take 5-10\u00d7 longer than normal debugging, but with these tips you should at least find your problems solvable.",
+    "Good motivation to develop better debugging tools for your new language, eh?"
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical, pragmatic, self-deprecating humor",
+  "key_insight": "Building a new compiled language means bootstrapping your debugging workflow from raw assembly and gdb before proper tooling exists, making classic techniques and creative workarounds essential survival skills.",
+  "filename": "2021-08-11-Debugging-your-new-PL"
+}

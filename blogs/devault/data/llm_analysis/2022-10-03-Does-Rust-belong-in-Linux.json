@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault argues that Rust does not belong in the Linux kernel, and neither does his own language Hare, despite both being capable of writing kernels. He contends that the primary benefits of Rust in Linux reduce to memory safety and attracting new developers, but Linux already has an enormous and healthy contributor base. The costs\u2014complexity, doubled build times, fragile C-Rust boundaries, and the conservative project's risk tolerance\u2014may outweigh the benefits. He suggests the real driving force is the Rust community's size and enthusiasm rather than a careful risk-reward analysis, and that writing new kernels in Rust (like Redox) is preferable to rewriting established software.",
+  "key_points": [
+    "Kernels operate in heavily constrained design spaces where languages must adapt to the kernel's needs, not the other way around",
+    "Linux has no shortage of contributors\u20146.0 had 78,000 commits from 5,000 authors\u2014so the 'attract new developers' argument is weak",
+    "Rust's limited target support means it can't replace existing C drivers, restricting most Rust-in-Linux work to redundant implementations",
+    "The real reason Rust is entering Linux is that the Rust community is large and loud enough that fighting them isn't worth the cost",
+    "New software should replace established software rather than rewriting established software incrementally"
+  ],
+  "money_quotes": [
+    "Kernel needs trump any Rust needs.",
+    "The kernel is simply not an environment which will bend to accommodate a language; it must go the other way around.",
+    "It's insulting to present this as an improvement over what was achieved by those doing all this hard work.",
+    "The scale of Linux development is on a level unmatched by any other software project \u2014 free software or otherwise.",
+    "Rust is one of the riskiest bets Linux has ever considered, and, in my opinion, the advantages may not weigh up.",
+    "I think that the main reason we're going to see Rust in the kernel is not due to a careful balancing of risk and reward, but because the Rust community wants Rust in Linux, and they're large and loud enough to not be worth the cost of arguing with.",
+    "I prefer to encourage people to write new software to replace established software, rather than rewriting the established software."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "tech_criticism",
+    "foss"
+  ],
+  "tone": "measured, contrarian, analytical",
+  "key_insight": "Rust's entry into the Linux kernel is driven more by community momentum than by a careful weighing of its modest benefits against the substantial risks of introducing a second language into a conservative, mission-critical codebase.",
+  "filename": "2022-10-03-Does-Rust-belong-in-Linux"
+}

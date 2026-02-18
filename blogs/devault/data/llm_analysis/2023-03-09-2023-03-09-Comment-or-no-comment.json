@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault explains his philosophy on code comments, arguing that well-written code should communicate most information through naming, types, and module structure rather than comments. He categorizes comments into documentation comments (for API consumers), implementation comments (explaining magic constants or non-obvious decisions), and TODO/XXX markers (for known deficiencies). Each comment type targets a specific audience with specific context, and redundant comments that restate what the code already communicates are worse than no comments at all. He considers high comment density a potential sign of poor code quality, inverting the common assumption.",
+  "key_points": [
+    "Comments should be written for a specific target audience (API consumer vs. implementer) and should account for the context that audience already has",
+    "Function names, parameter types, return types, and module organization carry significant information and reduce the need for explicit documentation",
+    "Magic constants are one of the strongest justifications for implementation comments, but the explanation should be concise and assume domain knowledge",
+    "TODO comments indicate unmet interface contracts, while XXX comments flag correct but suboptimal code or serve as grep-friendly markers for future work",
+    "High comment density may indicate poor code quality rather than good practice, because it suggests the code itself fails to communicate"
+  ],
+  "money_quotes": [
+    "I consider a high comment density a sign that the code quality may be poor.",
+    "Each comment is written considering a target audience and the context provided by the code in which it resides, and aims to avoid stating redundant information within these conditions.",
+    "I find the information outside of the comments equally important and aim to be concise such that a comment is not redundant with information found elsewhere.",
+    "The goal is for the user of this function to gather enough information from these details to correctly utilize this API.",
+    "We can and should lean on that context to make our comments more concise and useful.",
+    "An XXX comment is often written for the purpose of being easily found with grep.",
+    "I am not here to suggest that your strategy is wrong and I will happily adopt it when I write a patch for your codebase."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical, measured, pedagogical",
+  "key_insight": "Comments should fill gaps that code cannot express on its own \u2014 naming, types, and structure should carry the primary communicative burden.",
+  "filename": "2023-03-09-2023-03-09-Comment-or-no-comment"
+}

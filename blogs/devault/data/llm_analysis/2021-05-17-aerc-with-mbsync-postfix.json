@@ -1,0 +1,23 @@
+{
+  "summary": "DeVault describes his updated email setup using aerc with Maildir support, mbsync for IMAP synchronization, and postfix for outgoing mail relay. He acknowledges that aerc's original 'always online' IMAP approach was a design mistake, and this workaround provides robust offline email capability. The setup allows reading and replying to email entirely offline, with automatic syncing when connectivity returns. He walks through the configuration of mbsync, aerc's accounts.conf, a cron job for periodic sync, and postfix as an SMTP relay.",
+  "key_points": [
+    "aerc's always-online IMAP design is acknowledged as flawed in hindsight, motivating a Maildir-based workaround",
+    "mbsync handles bidirectional IMAP-to-Maildir synchronization, enabling full offline email reading and archiving",
+    "Postfix acts as a local SMTP relay to queue and deliver outgoing mail when connectivity is restored",
+    "The setup achieves a fully offline-capable email workflow where everything syncs automatically when a connection appears"
+  ],
+  "money_quotes": [
+    "I think that, with hindsight, I've come to understand that the \"always online\" approach of aerc's IMAP implementation is less than ideal.",
+    "The next email client (which will exist at some point!) will improve on this design, but, since it's still my favorite email client despite these flaws, they will have to be worked around.",
+    "This allows me to read and reply to email entirely offline, and have things sync up automatically when a connection becomes available.",
+    "chronic is a small utility from moreutils which converts reasonably behaved programs that return a nonzero exit status into the back-asswards behavior cron expects.",
+    "Postfix is a lot more annoying to configure. You should assume that what I did here isn't going to work for you without additional changes and troubleshooting.",
+    "Postfix is probably overkill for this, but hey, it's what I know."
+  ],
+  "themes": [
+    "internet_infra"
+  ],
+  "tone": "technical, pragmatic, self-deprecating",
+  "key_insight": "A robust offline email workflow can be built by delegating IMAP sync to mbsync and outgoing mail to postfix, working around the limitations of always-online email clients.",
+  "filename": "2021-05-17-aerc-with-mbsync-postfix"
+}

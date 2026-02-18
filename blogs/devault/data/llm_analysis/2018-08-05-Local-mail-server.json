@@ -1,0 +1,20 @@
+{
+  "summary": "DeVault walks through setting up a local Postfix mail server for development purposes, specifically to support hacking on lists.sr.ht. The guide covers configuring Postfix for localhost-only delivery, setting up mutt as a mail client, enabling SMTP submission, and configuring LMTP transport maps for routing mail to lists.sr.ht's daemon. The post is deliberately minimal, skipping production concerns like virtual accounts, IMAP, and spam filtering in favor of a just-enough setup for local testing.",
+  "key_points": [
+    "A local dev mail server only needs Postfix configured for localhost delivery to Unix mailboxes, deliberately skipping production complexity",
+    "SMTP submission can be enabled on port 587 by uncommenting the submission service in master.cf, bound only to 127.0.0.1",
+    "Transport maps allow routing mail for specific subdomains to LMTP sockets, enabling local testing of mail-processing applications like lists.sr.ht",
+    "The entire setup uses standard Unix tools and conventions: Maildir format, mutt for reading, telnet for testing SMTP"
+  ],
+  "money_quotes": [
+    "There are lots of things you can set up on a mail server, like virtual mail accounts backed by a relational database, IMAP access, spam filtering, and so on. We're not going to do any of that in this article - we're just interested in something we can test our email code with.",
+    "I hope that others will go through a similar process in the future when they set up the code for hacking on locally or when working on other email related software."
+  ],
+  "themes": [
+    "sourcehut",
+    "internet_infra"
+  ],
+  "tone": "technical",
+  "key_insight": "A functional local mail server for development can be set up with minimal Postfix configuration, Unix mailboxes, and transport maps \u2014 no need for the complexity of a production mail stack.",
+  "filename": "2018-08-05-Local-mail-server"
+}

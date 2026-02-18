@@ -1,0 +1,24 @@
+{
+  "summary": "Drew DeVault announces Wio, a Wayland compositor inspired by Plan 9's Rio desktop environment, built on wlroots. Each application runs in its own nested Wayland compositor using Cage, enabling Rio's distinctive window-within-window behavior. He argues this demonstrates how Wayland's conservative design enables use-cases impossible on X11. The project adds modern features like multihead and HiDPI support while remaining incomplete on Rio compatibility, and he invites contributors to help.",
+  "key_points": [
+    "Wio recreates Plan 9's Rio desktop paradigm on Wayland by nesting each application in its own Wayland compositor via Cage",
+    "Wayland's fundamentally different architecture enables window composition patterns that are impossible on X11",
+    "wlroots makes features like multihead, HiDPI, and layer shell support easy \u2014 things that would require kernel hacking on Plan 9",
+    "Key missing features include a Rio-like window management filesystem (potentially via FUSE) and per-application namespaces"
+  ],
+  "money_quotes": [
+    "Wio is a Wayland compositor based on wlroots which has a similar look and feel to Plan 9's Rio desktop.",
+    "It works by running each application in its own nested Wayland compositor, based on Cage - yet another wlroots-based Wayland compositor.",
+    "This is a good demonstration of how Wayland's fundamentally different and conservative design allows for some interesting use-cases which aren't possible at all on X11.",
+    "I've also given Wio some nice features which are easy thanks to wlroots, but difficult on Plan 9 without kernel hacking.",
+    "Layer shell support is particularly cool, since programs like swaybg and waybar work on Wio."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra",
+    "foss"
+  ],
+  "tone": "enthusiastic, technical",
+  "key_insight": "Wayland's compositional architecture enables Plan 9-style nested window management that was fundamentally impossible under X11, vindicating its conservative redesign.",
+  "filename": "2019-05-01-Announcing-wio"
+}

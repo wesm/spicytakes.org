@@ -1,0 +1,25 @@
+{
+  "summary": "Drew DeVault provides a comprehensive tutorial on building custom operating systems for TI graphing calculators using z80 assembly. He walks through the prerequisites, toolchain setup, and basic OS structure needed to replace the stock TI operating system with your own code. The post covers everything from cryptographic signing of OS upgrades to LCD initialization and interrupt handling, drawing from his experience building the KnightOS kernel. He also offers KnightOS itself as a shortcut for those who want to skip low-level bootstrapping and start building applications immediately.",
+  "key_points": [
+    "Building a calculator OS requires z80 assembly proficiency since C compilers produce poorly optimized code for these resource-constrained devices",
+    "You must handle everything from scratch including multiplication functions, display drivers, and hardware initialization \u2014 there are no system calls to rely on",
+    "Cryptographic signing keys are needed to make the calculator accept custom OS upgrades as if they were official TI software",
+    "KnightOS provides a complete MIT-licensed kernel with filesystem, multitasking, memory management, and hardware drivers that others can build on",
+    "The post encourages the community to create more custom calculator operating systems, noting the space is unfortunately sparse"
+  ],
+  "money_quotes": [
+    "You will be replacing everything on the calculator with your own system.",
+    "You'll need to do everything, including common things like providing your own multiplication functions, or drawing functions, or anything else.",
+    "You can also build something that frees your device of proprietary code, if that is what you are interested in (though the proprietary boot code would remain - but that's a story for another day).",
+    "I didn't know a lot when I started KnightOS (as the community was happy to point out), and now I feel much more secure in my skills.",
+    "Remember, you have no bcalls here. You need to build everything yourself.",
+    "What you're building for is a 6/15 MHz z80 with 32K or more of RAM, plus plenty of Flash and all sorts of fun hardware."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "TI calculators are accessible platforms for learning bare-metal OS development, and the open-source KnightOS kernel can serve as both a reference and a foundation for custom calculator operating systems.",
+  "filename": "2014-02-25-Hacking-on-your-TI-calculator"
+}

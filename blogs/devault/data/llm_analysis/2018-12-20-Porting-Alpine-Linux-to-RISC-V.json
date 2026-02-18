@@ -1,0 +1,27 @@
+{
+  "summary": "Drew DeVault documents his process of porting Alpine Linux to the RISC-V architecture using the HiFive Unleashed, the first consumer-facing Linux-capable RISC-V hardware. He explains the two-phase process: bootstrapping (cross-compiler, libc port, base packages) and then porting the full package set. A key challenge was the unfinished musl libc RISC-V port, for which he contributed several bug-fix patches. He plans to integrate the hardware with builds.sr.ht to automate the remaining work and provide public RISC-V build cycles, which he believes would be the first hardware-backed RISC-V cycles available to the public.",
+  "key_points": [
+    "The HiFive Unleashed is the first consumer Linux-capable RISC-V board, implementing an open, royalty-free instruction set architecture",
+    "Porting an OS to a new architecture has two phases: bootstrapping to self-hosting, then automating the build of all remaining packages",
+    "The musl libc RISC-V port was incomplete and required several bug-fix patches to work at distro scale",
+    "Once a system is self-hosting, native builds are preferable to cross-compilation despite slower hardware, because avoiding cross-compile quirks saves more time overall",
+    "DeVault plans to make RISC-V hardware cycles publicly available through builds.sr.ht to encourage portable software"
+  ],
+  "money_quotes": [
+    "RISC-V is an open, royalty-free instruction set architecture, and the HiFive is an open CPU implementing it.",
+    "Bootstrapping ends once the system is self-hosting: able to compile itself.",
+    "A C compiler and libc implementation open the floodgates to porting a huge volume of software to your platform.",
+    "Having a working distro based on the RISC-V port makes a much more compelling argument for the maturity of the port, and for its inclusion upstream.",
+    "The time saved by not worrying about this makes up for the slower build times.",
+    "Once you unlock the programming languages - C, Python, Perl, Ruby - most open source software is pretty portable across architectures.",
+    "One of my core goals with sr.ht is to encourage portable software to proliferate!"
+  ],
+  "themes": [
+    "systems_programming",
+    "foss",
+    "sourcehut"
+  ],
+  "tone": "technical, enthusiastic, practical",
+  "key_insight": "Porting Alpine Linux to RISC-V demonstrates that open hardware and open software reinforce each other \u2014 once the foundational toolchain is in place, the vast majority of open source software ports with minimal effort.",
+  "filename": "2018-12-20-Porting-Alpine-Linux-to-RISC-V"
+}

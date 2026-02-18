@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault walks through the architecture of mrsh, a strictly POSIX-compliant shell implementation by Simon Ser. The shell has two main components: a recursive descent parser that produces an AST, and a task-based execution system. The parser deliberately avoids dependencies like flex/bison in favor of simplicity. The AST is exposed as a public library interface for use in editors, linters, and syntax highlighters. Execution converts AST nodes into pollable tasks that can wait on subprocesses or defer to sub-tasks. The post also covers POSIX built-in commands and why certain commands must be implemented within the shell itself.",
+  "key_points": [
+    "mrsh uses a recursive descent parser to produce an AST whose node names map directly to the POSIX shell specification",
+    "The parser avoids flex/bison dependencies in favor of simpler, self-contained code since shell parsing performance isn't critical",
+    "The AST is exposed as a public library (libmrsh) enabling reuse in editors, linters, and syntax highlighters",
+    "Execution uses a poll-based task interface that can return immediately with wait/error/done status, avoiding blocking",
+    "POSIX mandates certain built-in commands (like cd and .) because they must manipulate shell state directly"
+  ],
+  "money_quotes": [
+    "There are two main components to a shell: parsing and execution.",
+    "This design was chosen to simplify the code and avoid dependencies like flex/bison, and is a good choice given that performance isn't critical for parsing shell scripts.",
+    "Most of these names come directly from the POSIX shell specification.",
+    "The parser and AST is made available as a standalone public interface of libmrsh, which can be used for a variety of use-cases like syntax-aware text editors, syntax highlighting, linters, etc.",
+    "Most of these AST nodes becomes a task.",
+    "Some commands have to be built-in because they manipulate the shell's state, such as . and cd."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss",
+    "sourcehut"
+  ],
+  "tone": "technical",
+  "key_insight": "A well-designed POSIX shell cleanly separates parsing into a reusable AST library from a poll-based task execution system, keeping the implementation simple and composable.",
+  "filename": "2018-12-28-Anatomy-of-a-shell"
+}

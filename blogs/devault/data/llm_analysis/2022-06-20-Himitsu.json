@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault introduces Himitsu, a new Unix keyring and password manager inspired by Plan 9's factotum. At its core, Himitsu is a generic key/value store with a simple text-based IPC protocol, where credentials are stored as arbitrary key/value pairs with a convention system driven by 'proto' keys. The system emphasizes user consent for secret disclosure, zero-configuration credential discovery for applications, and extensibility through standardized protocols for both querying and prompting. Written in Hare with XChaCha20+Poly1305 encryption, it already has a Firefox add-on, GTK frontend, and SSH agent integration. DeVault envisions future uses including FDE boot integration, cross-device key synchronization, and datacenter service discovery.",
+  "key_points": [
+    "Himitsu stores secrets as generic key/value pairs with a protocol convention system, giving it flexibility beyond traditional password managers",
+    "The simple text-based IPC protocol enables an ecosystem of frontends and integrations without tight coupling to any specific use case",
+    "User consent is built into the architecture \u2014 secrets are hidden by default and require explicit disclosure requests",
+    "Zero-configuration credential discovery lets applications like mail clients find their own connection details from the keystore",
+    "The encrypted index improves on tools like pass by not storing the list of entries in plain text"
+  ],
+  "money_quotes": [
+    "Himitsu draws inspiration from Plan 9's factotum, but polished up and redesigned for Unix.",
+    "Himitsu has no built-in knowledge of web logins, it just stores arbitrary keys and values.",
+    "You'll notice that the password is hidden here. In order to obtain it, we must ask for the user's consent.",
+    "Himitsu-aware software can discover your credentials and connection details without any additional configuration.",
+    "You could also use Himitsu for service discovery \u2014 imagine a key ring running on your datacenter LAN with entries for your Postgres database, SMTP credentials, and so on.",
+    "This offers an improvement over pass, for example, by not storing the list of entries in plain text.",
+    "Alright, back to kernel hacking. I got multi-tasking working yesterday!"
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "internet_infra",
+    "foss"
+  ],
+  "tone": "technical, enthusiastic",
+  "key_insight": "A credential store designed around generic key/value pairs and simple text protocols can serve as a universal foundation for secret management, service discovery, and zero-configuration application setup across Unix systems.",
+  "filename": "2022-06-20-Himitsu"
+}

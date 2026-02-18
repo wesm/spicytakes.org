@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault walks through the implementation of a Hare code generator that computes Linux ioctl numbers, replacing C-style macros with a code generation approach. The tool parses pseudo-macro annotations in Hare source files, resolves type sizes using Hare's standard library type system, and outputs computed constant values. He explains the ioctl numbering scheme that encodes direction, type letter, number, and parameter size into a 32-bit integer. The post serves as both a practical tool demonstration and a showcase of Hare's standard library capabilities, including its built-in lexer, parser, and type system. He acknowledges that macros would simplify this but argues code generation fits Hare's design philosophy.",
+  "key_points": [
+    "Linux ioctls act as a second set of syscalls with structured numbering encoding direction, type, number, and parameter size into 32-bit constants",
+    "Hare deliberately lacks macros, so code generation via a custom tool replaces the C preprocessor approach for computing ioctl numbers",
+    "Hare's standard library includes a self-hosted lexer, parser, and type system that programs can use for metaprogramming tasks",
+    "The tool reuses Hare's own lexer to parse a custom grammar for pseudo-macro parameters, demonstrating practical composability of stdlib components",
+    "The design tradeoff of no macros is accepted as aligned with Hare's goals, with code generation as the sanctioned alternative"
+  ],
+  "money_quotes": [
+    "Modern Unix derivatives have this really bad idea called ioctl.",
+    "It is essentially the kitchen sink of modern Unix derivatives, particularly Linux, in which they act almost like a second set of extra syscalls.",
+    "Hare lacks macros, so we cannot re-implement this in exactly the same manner. Instead, we can use code generation.",
+    "Here we've essentially set up a miniature parser based on a Hare lexer to parse our custom parameter list grammar.",
+    "This converts the AST type \u2014 which only has lexical information \u2014 into an actual type, including semantic information about the type.",
+    "Critics may draw attention to the fact that we could have saved ourselves much of this work if Hare had first-class macros, but macros are not aligned with Hare's design goals.",
+    "The hare namespace offers many tools to provide Hare programs with relatively deep insights into the language itself."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Hare's inclusion of a self-hosted lexer, parser, and type system in its standard library enables code generation as a principled alternative to macros for metaprogramming tasks like computing ioctl numbers.",
+  "filename": "2022-05-14-generating-ioctls"
+}

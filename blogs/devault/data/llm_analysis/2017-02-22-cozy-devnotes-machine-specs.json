@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault introduces cozy, a long-term project to build a new C toolchain from scratch as an alternative to GCC and LLVM. The post focuses on the design of machine specs \u2014 a custom declarative format for describing CPU architectures that would drive the entire toolchain from assembler to optimizer. The spec format uses a readable ini/yaml hybrid syntax to describe registers, instruction encodings, macros, and detailed metadata about instruction side effects and cycle counts. He demonstrates the approach using the Z80 architecture and contrasts it with GCC's lisp-based specs and LLVM's C++ approach. The project is explicitly planned on a decades-long timeline, reflecting his philosophy that large projects are feasible if you start them and keep working.",
+  "key_points": [
+    "Cozy aims to be a self-hosting C toolchain with an easy-to-understand codebase where adding a new target architecture is 'a weekend project'",
+    "The machine spec uses a declarative, human-readable format that encodes registers, instruction encodings, macros, and optimization metadata in one file",
+    "Instruction attributes track side effects, register mutations, flag changes, and cycle counts, enabling the optimizer to make architecture-aware decisions",
+    "The spec is designed to generate not just a compiler backend but also assemblers, disassemblers, and optimizers from a single source of truth",
+    "DeVault explicitly rejects both GCC's lisp specs and LLVM's C++ approach as unnecessarily opaque and advocates for demystifying compiler internals"
+  ],
+  "money_quotes": [
+    "I see no reason why compilers should be deep magic.",
+    "I've found that large projects are entirely feasible, so long as you (1) start them and (2) keep working on them for a long time.",
+    "Adding a new architecture should be a weekend project, and when you're done the entire toolchain should both support and run on your new architecture.",
+    "I don't like gcc's lisp specs, and I really don't like LLVM's \"huge pile of C++\" approach.",
+    "I don't need to rush this - gcc and clang may not be ideal, but they work today.",
+    "I want to make an assembler that assembly programmers would want to use."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "foss",
+    "tech_criticism"
+  ],
+  "tone": "technical, opinionated, methodical",
+  "key_insight": "A well-designed declarative machine spec format can demystify compiler backends and make adding new architecture targets straightforward rather than requiring deep expertise in compiler internals.",
+  "filename": "2017-02-22-cozy-devnotes-machine-specs"
+}

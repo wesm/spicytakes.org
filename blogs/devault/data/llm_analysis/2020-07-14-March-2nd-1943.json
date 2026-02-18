@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault constructs an increasingly absurd but technically plausible scenario to illustrate the nightmarish complexity of date, time, and timezone handling in software. Starting from a simple meeting scheduling request on March 2nd, 1943, he layers on daylight saving transitions, locale-dependent date formatting, emergency government timezone orders, and Native American reservation timezone rules. The post serves as a humorous cautionary tale for programmers who think datetime handling is straightforward. He caps it with a recommendation to read the IANA zoneinfo database changelog, itself a monument to timezone chaos.",
+  "key_points": [
+    "Timezone rules are not just complex but politically arbitrary \u2014 governors can sign emergency orders changing them mid-year",
+    "Date formatting across locales creates ambiguity that software must handle correctly (04/05/43 vs 05/04/43)",
+    "Even within a single US state, different jurisdictions (Arizona vs. Navajo reservation) can observe different timezone rules simultaneously",
+    "Calculating durations across timezone transitions requires knowing future political decisions that haven't happened yet",
+    "The IANA zoneinfo database changelog is a real artifact documenting the ongoing chaos of human timekeeping"
+  ],
+  "money_quotes": [
+    "It's March 2nd, 1943. The user asks your software to schedule a meeting with Acmecorp at \"9 AM on the first Monday of next month\".",
+    "At least until April 1st \u2014 when the governor will sign an emergency order moving the state to MDT, effective immediately.",
+    "Arizona does not observe DST, so they'll stay behind.",
+    "The reservation has been on daylight savings time since March 8th, by the way, they never stayed behind with the rest of Arizona.",
+    "A moment later, the user asks you to tell it the number of hours between now and the meeting they just scheduled.",
+    "The border of the reservation is defined by a river, which is slowly moving East.",
+    "The changelog for the IANA zoneinfo database is great, by the way, you should read it.",
+    "But with what period?"
+  ],
+  "themes": [
+    "systems_programming",
+    "tech_criticism"
+  ],
+  "tone": "satirical",
+  "key_insight": "Date and timezone handling in software is an unsolvable mess because timekeeping rules are shaped by politics, geography, and history \u2014 not logic.",
+  "filename": "2020-07-14-March-2nd-1943"
+}

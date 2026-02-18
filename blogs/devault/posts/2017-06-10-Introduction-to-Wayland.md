@@ -1,0 +1,245 @@
+---
+title: "An introduction to Wayland"
+date: 2017-06-10
+url: https://drewdevault.com/2017/06/10/Introduction-to-Wayland.html
+slug: Introduction-to-Wayland
+word_count: 1324
+---
+
+Wayland is the new hotness on the Linux graphics stack. There are plenty of
+introductions to Wayland that give you the high level details on how the stack
+is laid out how applications talk directly to the kernel with EGL and so on, but
+that doesn’t give you much practical knowledge. I’d like to instead share with
+you details about how the protocol actually works and how you can use it.
+
+Let’s set aside the idea that Wayland has anything to do with graphics. Instead
+we’ll treat it like a generic protocol for two parties to share and talk about
+resources. These resources are at the heart of the Wayland protocol - resources
+like a keyboard or a surface to draw on. Each of these resources exposes an API
+for engaging with it, including functions you can call and  *events*  you can
+listen to.
+
+Some of these resources are  *globals* , which are exactly what they sound like.
+These resources include things like  **wl_outputs** , which are the displays
+connected to your graphics card. Other resources, like  **wl_surface** , require
+the client to ask the server to allocate new resources when needed. Negotiating
+for new resources is generally possible through the API of some global resource.
+
+Your Wayland client gets started by obtaining a reference to the  **wl_display** 
+like so:
+
+```
+struct wl_display *display = wl_display_connect(NULL);
+```
+
+This establishes a connection to the Wayland server. The most important role of
+the display, from the client perspective, is to provide the  **wl_registry** .
+The registry enumerates the globals available on the server.
+
+```
+struct wl_registry *registry = wl_display_get_registry(display);
+```
+
+The registry emits an  *event*  every time the server adds or removes a global.
+ *Listening*  to these events is done by providing an implementation of a
+ **wl_registry_listener** , like so:
+
+```
+void global_add(void *our_data,
+        struct wl_registry *registry,
+        uint32_t name,
+        const char *interface,
+        uint32_t version) {
+    // TODO
+}
+
+void global_remove(void *our_data,
+        struct wl_registry *registry,
+        uint32_t name) {
+    // TODO
+}
+
+struct wl_registry_listener registry_listener = {
+    .global = global_add,
+    .global_remove = global_remove
+};
+```
+
+Interfaces like this are used to listen to events from all kinds of resources.
+Attaching the listener to the registry is done like this:
+
+```
+void *our_data = /* arbitrary state you want to keep around */;
+wl_registry_add_listener(registry, &registry_listener, our_data);
+wl_display_dispatch(display);
+```
+
+During the  `wl_display_dispatch` , the  `global_add`  function is called for each
+global on the server. Subsequent calls to  `wl_display_dispatch`  may call
+ `global_remove`  when the server destroys globals. The  `name`  passed into
+ `global_add`  is more like an ID, and identifies this resource. The  `interface` 
+tells you what API the resource implements, and distinguishes things like a
+ **wl_output**  from a  **wl_seat** . The API these resources implement are
+described with XML files like this:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- For copyright information, see https://git.io/vHyIB -->
+<protocol name="gamma_control">
+    <interface name="gamma_control_manager" version="1">
+        <request name="destroy" type="destructor"/>
+
+        <request name="get_gamma_control">
+            <arg name="id" type="new_id" interface="gamma_control"/>
+            <arg name="output" type="object" interface="wl_output"/>
+        </request>
+    </interface>
+
+    <interface name="gamma_control" version="1">
+        <enum name="error">
+            <entry name="invalid_gamma" value="0"/>
+        </enum>
+
+        <request name="destroy" type="destructor"/>
+
+        <request name="set_gamma">
+            <arg name="red" type="array"/>
+            <arg name="green" type="array"/>
+            <arg name="blue" type="array"/>
+        </request>
+
+        <request name="reset_gamma"/>
+
+        <event name="gamma_size">
+            <arg name="size" type="uint"/>
+        </event>
+    </interface>
+</protocol>
+```
+
+A typical Wayland server implementing this protocol would create a
+ `gamma_control_manager`  global and add it to the registry. The client then binds
+to this interface in our  `global_add`  function like so:
+
+```
+#include "wayland-gamma-control-client-protocol.h"
+// ...
+struct wl_output *example;
+// gamma_control_manager.name is a constant: "gamma_control_manager"
+if (strcmp(interface, gamma_control_manager.name) == 0) {
+    struct gamma_control_manager *mgr =
+        wl_registry_bind(registry, name,
+            &gamma_control_manager_interface, version);
+    struct gamma_control *control =
+        gamma_control_manager_get_gamma_control(mgr, example);
+    gamma_control_set_gamma(control, ...);
+}
+```
+
+These functions are generated by running the XML file through  `wayland-scanner` ,
+which outputs a header and C glue code. These XML files are called “protocol
+extensions” and let you add arbitrary extensions to the protocol. The core
+Wayland protocols themselves are described with similar XML files.
+
+Using the Wayland protocol to create a surface to display pixels with consists
+of these steps:
+
+1. Obtain a  **wl_display**  and use it to obtain a  **wl_registry** .
+2. Scan the registry for globals and grab a  **wl_compositor**  and
+a  **wl_shm_pool** .
+3. Use the  **wl_compositor**  interface to create a  **wl_surface** .
+4. Use the  **wl_shell**  interface to describe your surface’s role.
+5. Use the  **wl_shm**  interface to allocate shared memory to store pixels in.
+6. Draw something into your shared memory buffers.
+7. Attach your shared memory buffers to the  **wl_surface** .
+
+Let’s break this down.
+
+The  **wl_compositor**  provides an interface for interacting with the
+ *compositor* , that is the part of the Wayland server that  *composites*  surfaces
+onto the screen. It’s responsible for creating surface resources for clients to
+use via  `wl_compositor_create_surface` . This creates a  **wl_surface**  resource,
+which you can attach pixels to for the compositor to render.
+
+The role of a surface is undefined by default - it’s just a place to put pixels.
+In order to get the compositor to do anything with them, you must give the
+surface a  *role* . Roles could be anything - desktop background, system tray, etc -
+but the most common role is a  *shell surface* . To create these, you take your
+wl_surface and hand it to the  **wl_shell**  interface. You’ll get back a
+ **wl_shell_surface**  resource, which defines your surface’s purpose and gives
+you an interface to do things like set the window title.
+
+Attaching pixel buffers to a wl_surface is pretty straightforward. There are two
+primary ways of creating a buffer that both you and the compositor can use: EGL
+and shared memory. EGL lets you use an OpenGL context that renders directly on
+the GPU with minimal compositor involvement (fast) and shared memory (via
+ **wl_shm** ) allows you to simply dump pixels in memory and hand them to the
+compositor (flexible). There are many other Wayland interfaces I haven’t
+covered, giving you everything from input devices (via  **wl_seat** ) to clipboard
+access (via  **wl_data_source** ), plus many protocol extensions. Learning more
+about these is an exercise left to the reader.
+
+Before we wrap this article up, let’s take a brief moment to discuss the server.
+Most of the concepts here are already familiar to you by now. The Wayland server
+also utilizes a  **wl_display** , but differently from the client. The display on
+the server has ownership over the  *event loop* , via  **wl_event_loop** . The event
+loop of a Wayland server might look like this:
+
+```
+struct wl_display *display = wl_display_create();
+// ...
+struct wl_event_loop *event_loop = wl_display_get_event_loop(display);
+while (true) {
+    wl_event_loop_dispatch(event_loop, 0);
+}
+```
+
+The event loop has a lot of helpful utilities for the Wayland server to take
+advantage of, including internal event sources, timers, and file descriptor
+monitoring. Before starting the event loop the server is going to start
+obtaining its own resources and creating Wayland globals for them with
+ `wl_global_create` :
+
+```
+struct wl_global *global = wl_global_create(
+    display,
+    &wl_output_interface,
+    1 /* version */,
+    our_data,
+    wl_output_bind);
+```
+
+The  `wl_output_bind`  function here is going to be called when a client attempts
+to bind to this resource via  `wl_registry_bind` , and will look something like
+this:
+
+```
+void wl_output_bind(struct wl_client *client,
+        void *our_data,
+        uint32_t their_version,
+        uint32_t id) {
+    struct wl_resource *resource =
+        wl_resource_create_checked(
+            client,
+            wl_output_interface,
+            their_version,
+            our_version,
+            id);
+    // ...send output modes or whatever else you need to do
+}
+```
+
+Some of the resources a server is going to be managing might include:
+
+* DRM state for direct access to outputs
+* GLES context (or another GL implementation) for rendering
+* libinput for input devices
+* udev for hotplugging
+
+Through the Wayland protocol, the server provides an abstraction on top of these
+resources and offers them to clients. Some servers go further, with novel ways
+of compositing clients or handling input. Some provide additional interactivity,
+such as desktop shells that are actually running in the compositor rather than
+external clients. Other servers are designed for mobile use and provide a user
+experience that more closely matches the mobile experience than the traditional
+desktop experience. Wayland is designed to be flexible!

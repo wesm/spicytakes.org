@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault announces Himitsu 0.9, a general-purpose secret storage manager for Linux written in Hare. The release features a new GTK4 prompter written in Hare (replacing the old Python/GTK3 version), dbus Secret Service API integration by collaborator Armin, in-place secret key editing, and secret reuse notifications. The post serves as both a release announcement and a reintroduction of the project for those unfamiliar with it. DeVault highlights the modular architecture where the prompter is decoupled from the daemon via IPC, and notes the project's use of Hare's native cryptographic primitives (with an honest caveat that neither has been independently audited).",
+  "key_points": [
+    "Himitsu is a general-purpose secret manager that stores not just passwords but SSH keys, credit cards, FDE keys, and arbitrary metadata \u2014 going beyond traditional password managers",
+    "The new GTK4 prompter is written entirely in Hare using hare-gi bindings, replacing the old janky Python/GTK3 version and integrating with Adwaita and GTK layer shell for Wayland",
+    "Dbus Secret Service API support enables Himitsu to replace gnome-keyring and integrate with standard Linux desktop secret management",
+    "Secret key editing is now possible in-place via IPC protocol changes and the hiq CLI, with confirmation prompts to prevent mistakes",
+    "The architecture cleanly separates the daemon from the prompter via IPC, making it substitutable for different UIs and platforms"
+  ],
+  "money_quotes": [
+    "Himitsu is like a password manager, but more general: it stores any kind of secret in its database, including passwords but also SSH keys, credit card numbers, your full disk encryption key, answers to those annoying \"security questions\" your bank obliged you to fill in, and so on.",
+    "Neither Himitsu nor the cryptography implementation it depends on have been independently audited.",
+    "The prompter is decoupled from the daemon so that it is easy to substitute with different versions which accommodate different use-cases, for example by integrating the prompter more deeply into a desktop environment or to build one that fits better on a touch screen UI like a phone.",
+    "Don't worry about typos or mistakes \u2013 the new prompter will give you a summary of the changes for your approval before the changes are applied.",
+    "You can add a command to himitsu.ini, such as notify-send, which will be executed whenever a client takes advantage of this \"remembered\" consent, so that you can be notified whenever your secrets are used again, ensuring that any unexpected use of your secrets will get your attention."
+  ],
+  "themes": [
+    "foss",
+    "systems_programming",
+    "language_design",
+    "internet_infra"
+  ],
+  "tone": "technical, enthusiastic, transparent",
+  "key_insight": "Himitsu 0.9 demonstrates the Hare ecosystem maturing enough to build practical desktop security tools with native GTK4 bindings, clean IPC architecture, and growing Linux desktop integration.",
+  "filename": "2025-08-08-2025-08-08-Whats-new-with-himitsu"
+}

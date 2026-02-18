@@ -1,0 +1,25 @@
+{
+  "summary": "Drew DeVault responds to a blog post about POSIX shell's broken whitespace handling by demonstrating how his rc shell (inspired by Plan 9's rc) elegantly solves every cited problem. The key design insight is adding lists of strings as a first-class primitive alongside strings, eliminating the need for defensive quoting. He walks through each problematic example from the original post, showing they all work correctly in rc without special handling. The shell is remarkably small at ~3,000 lines of Hare code compared to fish (45K) and zsh (144K). DeVault notes rc is destined for his Ares operating system but also works on Unix.",
+  "key_points": [
+    "POSIX shells break on whitespace in filenames because their only primitive is strings, and lists are encoded by splitting on spaces within strings",
+    "rc solves this by adding lists of strings as a formal second primitive, making whitespace in individual strings a non-issue",
+    "The shell is extraordinarily compact at ~3,000 lines of Hare, compared to fish at ~45,000 and zsh at ~144,000 lines",
+    "rc is designed as the primary shell for the Ares operating system but works on Unix systems today",
+    "Some features like arithmetic expansion are deliberately omitted in favor of external tools like /bin/test and /bin/dc"
+  ],
+  "money_quotes": [
+    "The key to rc's design success in this area is the introduction of a second primitive.",
+    "The Bourne shell and its derivatives traditionally work with only one primitive: strings. But command lines are made of lists of strings, and so a language which embodies the primitives of the command line ought to also be able to represent those as a first-class feature.",
+    "One simple change eliminates the need for quoting virtually everywhere. Strings can contain spaces and nothing melts down.",
+    "In traditional shells a list of strings is denoted inline with the use of spaces within those strings, which raises obvious problems when the members themselves contain spaces.",
+    "Like Plan 9's rc, my shell imagines a new set of primitives for shells, then starts from the ground up and builds a shell which works better in most respects while still being very simple.",
+    "Most of the problems that have long plagued us with respect to sh, bash, etc, are solved in a simple package with rc, alongside a nice interactive mode reminiscent of the best features of fish."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical, confident, demonstrative",
+  "key_insight": "Adding lists of strings as a first-class primitive alongside strings eliminates virtually all of the whitespace quoting problems that have plagued POSIX shells for decades, and this can be done in a shell that is orders of magnitude simpler than alternatives.",
+  "filename": "2023-07-31-The-rc-shell-and-whitespace"
+}

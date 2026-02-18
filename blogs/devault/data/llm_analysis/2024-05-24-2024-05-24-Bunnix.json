@@ -1,0 +1,27 @@
+{
+  "summary": "Drew DeVault describes Bunnix, a Unix-like operating system for x86_64 he built in roughly 27 days as a recreational programming project. The kernel is mostly written in Hare with C components for ext4 and terminal support, and includes PCI, AHCI, PS/2, and framebuffer drivers along with about 40 syscalls. The userspace assembles third-party software including dash, Vim 5.7, tcc, and DOOM atop a musl-derived libc. DeVault reflects on the challenges of filesystem design, terminal integration, scheduler implementation, and the ugliness of Unix signals. He concludes that monolithic kernels are far simpler to build than microkernels, and plans to bring lessons learned back to his microkernel project Helios.",
+  "key_points": [
+    "A functional Unix clone with ext4, virtual terminal, 40 syscalls, and multiple userspace programs was achievable in under 30 days thanks to prior Helios experience and musl libc as a foundation",
+    "Mixing Hare, C, and assembly in a kernel project works remarkably well, though C-to-Hare ABI integration tooling needs improvement",
+    "Unix signals are ugly from top to bottom \u2014 implementing them reinforced DeVault's view that they are one of Unix's weakest design points",
+    "Monolithic kernels are dramatically simpler to implement than microkernels, though microkernel advantages remain compelling enough that a hybrid approach may be the answer",
+    "Basing the libc on musl made porting third-party software trivial, with most programs requiring minimal patching"
+  ],
+  "money_quotes": [
+    "I set out to see how much of a Unix-like operating system for x86_64 targets that I could put together in about a month.",
+    "I also finally learned how signals work from top to bottom, and boy is it ugly.",
+    "I've always felt that this was one of the weakest points in the design of Unix and this project did nothing to disabuse me of that notion.",
+    "I'm quite sure that putting together Bunnix in just 30 days is a feat which would not have been possible with a microkernel design.",
+    "At the end of the day, monolithic kernels are just much simpler to implement.",
+    "The advantages of a microkernel design are compelling, however \u2013 perhaps a better answer lies in a hybrid kernel.",
+    "With a robust enough scheduler, the rest of the kernel and its drivers come together pretty easily.",
+    "But for the most part it is an art project which is now more-or-less complete."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "reflective, technical, enthusiastic",
+  "key_insight": "Building a functional Unix clone in a month demonstrates both the surprising simplicity of monolithic kernel design and Hare's viability as a kernel programming language, while reinforcing that Unix's worst warts \u2014 especially signals \u2014 are just as ugly from the implementor's side.",
+  "filename": "2024-05-24-2024-05-24-Bunnix"
+}

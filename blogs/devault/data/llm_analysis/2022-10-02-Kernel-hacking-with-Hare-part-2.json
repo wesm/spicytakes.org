@@ -1,0 +1,24 @@
+{
+  "summary": "Drew DeVault details the implementation of multi-threading in Helios, a microkernel written in Hare, despite his long-standing promise that Hare wouldn't have multi-threading support. The post walks through the kernel-side machinery: task structures that store CPU register state, x86_64 interrupt handling for saving and restoring context, a round-robin scheduler, and the idle task. He explains how the interrupt stack table in the TSS is cleverly repurposed to automatically save task state, and how yielding and blocking work for synchronization primitives like notifications. The userspace threading implementation is deferred to a follow-up post.",
+  "key_points": [
+    "Helios tasks are kernel objects with a capability space, virtual address space, and CPU register state that get scheduled for CPU time",
+    "The kernel cleverly uses x86_64's interrupt stack table to automatically save task register state into the task's state struct on interrupt",
+    "A simple round-robin scheduler switches between tasks at 100Hz using the programmable interrupt timer, with an idle task that halts the CPU when nothing is schedulable",
+    "Hare's memory safety escape hatches (unbounded arrays, pointer arithmetic) are used where low-level kernel requirements demand it",
+    "The yield syscall and blocking primitives like notifications demonstrate how cooperative and preemptive scheduling work together"
+  ],
+  "money_quotes": [
+    "I have long promised that Hare would not have multi-threading, and it seems that I have broken that promise.",
+    "I have remained true to the not-invented-here approach which is typical of my style by introducing it only after designing an entire kernel to implement it on top of.",
+    "There is nothing stopping you from linking to pthreads or calling clone(2) to spin up threads in a Hare program, but the standard library explicitly provides no multi-threading support, synchronization primitives, or re-entrancy guarantees.",
+    "In the situation where every task is blocking on I/O, there's nothing for the CPU to do until the operation finishes. So, we simply halt and wait for the next interrupt to wake us back up.",
+    "We don't store a pointer to the context object, but a pointer to the end of the context object."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Building a microkernel from scratch in Hare provides a natural context for implementing multi-threading that the language's standard library deliberately omits, demonstrating how OS-level primitives like interrupt handling, context switching, and scheduling come together.",
+  "filename": "2022-10-02-Kernel-hacking-with-Hare-part-2"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault reflects on KnightOS, an operating system he started writing about 10 years ago for Texas Instruments z80 calculators. The system overcame severe hardware constraints \u2014 64 KiB RAM, 512 KiB to 4 MiB NOR Flash storage, no MMU \u2014 to deliver a Unix-like environment with preemptive multitasking, a custom filesystem, and networking. Written entirely in handwritten z80 assembly (~50,000 lines) with a custom-built compiler toolchain, the kernel fit in under 16 KiB and stored all state in 1024 bytes. He details the clever engineering required, including self-modifying code for Flash operations and a filesystem designed around NOR Flash's bit-reset constraints. The post closes with a pointed comparison to modern devices that are orders of magnitude more powerful yet can't match KnightOS's boot speed or battery life.",
+  "key_points": [
+    "The entire KnightOS kernel stored all state in just 1024 bytes of statically allocated RAM, with subsystems sharing overlapping memory regions",
+    "A custom filesystem was designed around NOR Flash constraints, performing daily operations by only resetting bits to avoid expensive full-sector erases",
+    "The Flash driver employed self-modifying code \u2014 copying itself to RAM then modifying its own machine code in-place before execution \u2014 to work within 128 bytes",
+    "Basic networking was implemented by bitbanging voltages directly on the calculator's 2.5mm jack, enabling calculator-to-calculator and calculator-to-PC communication",
+    "Despite running on hardware 3,500\u00d7 slower than a modern computer with 262,144\u00d7 less RAM, KnightOS boots to a graphical Unix-like environment faster than you can lift your finger off the power button"
+  ],
+  "money_quotes": [
+    "The kernel stored all of its state in 1024 bytes of statically allocated RAM.",
+    "There was no MMU in the sense that we have on modern computers, so any program could freely overwrite any other programs.",
+    "A custom filesystem was designed which did all daily operations by only resetting bits in the underlying storage.",
+    "We employ self modifying code \u2014 the Flash driver copies some of itself into RAM, then pre-computes some information and modifies that machine code in-place before jumping to it.",
+    "KnightOS is completely booted up to a useful Unix-like (with a graphical interface) faster than you can lift your finger off of the power button.",
+    "Can the device you're reading this on claim the same?",
+    "The device I'm writing this blog post with is 3500\u00d7 faster than my calculator, has 262,144\u00d7 more RAM, and 2.1\u00d710^6 times more storage space."
+  ],
+  "themes": [
+    "systems_programming",
+    "tech_criticism"
+  ],
+  "tone": "reflective, technical, nostalgic, subtly critical",
+  "key_insight": "Extreme hardware constraints forced elegant engineering decisions \u2014 self-modifying code, bit-level filesystem design, and ruthless memory optimization \u2014 that produced a system whose efficiency shames modern software running on hardware thousands of times more powerful.",
+  "filename": "2020-01-27-KnightOS-was-interesting"
+}

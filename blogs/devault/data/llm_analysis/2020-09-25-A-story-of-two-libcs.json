@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault recounts debugging a segfault in scdoc caused by passing a UCS-32 codepoint to glibc's isalnum function. He traces the crash through glibc's labyrinthine macro-heavy implementation, which uses lookup tables, thread-local storage, locale support, and pointer dereferences \u2014 any of which can segfault on out-of-range input. He contrasts this with musl libc's simple, three-function implementation that can never segfault regardless of input. While acknowledging his code violated the C spec, he argues that a character classification function should never crash a program.",
+  "key_points": [
+    "glibc's isalnum implementation involves five macros, endianness checks, a lookup table, thread-local storage, and two pointer dereferences \u2014 making it possible to segfault on unexpected input",
+    "musl libc's isalnum is a simple arithmetic comparison that works safely for any input value",
+    "The C spec says isalnum input must be representable as unsigned char or EOF, but DeVault argues that violating this precondition should not cause a crash",
+    "The debugging journey through glibc's ctype.h header illustrates the accumulated complexity of GNU's coding style"
+  ],
+  "money_quotes": [
+    "As expected, for any value of c, isalnum will never segfault. Because why the fuck would isalnum segfault?",
+    "When opening this header, you're greeted with the typical GNU bullshit, but let's trudge through and grep for isalnum.",
+    "Maybe because the spec says you can does not mean you should.",
+    "Maybe, just maybe, the behavior of this function should not depend on five macros, whether or not you're using a C++ compiler, the endianness of your machine, a look-up table, thread-local storage, and two pointer dereferences.",
+    "That is just so, super cool of you, glibc. I just love dealing with locales.",
+    "Oh, for fuck's sake. Whatever, let's move on and just assume this is a magic number."
+  ],
+  "themes": [
+    "systems_programming",
+    "tech_criticism",
+    "foss"
+  ],
+  "tone": "sardonic, frustrated, technical",
+  "key_insight": "Simple, obvious implementations that can never crash are superior to spec-lawyering optimizations that turn trivial character checks into segfault landmines.",
+  "filename": "2020-09-25-A-story-of-two-libcs"
+}

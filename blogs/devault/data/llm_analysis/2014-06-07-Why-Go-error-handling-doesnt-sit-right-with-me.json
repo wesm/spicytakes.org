@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault critiques Go's error handling pattern of returning errors and checking them with three-line if blocks, arguing it clutters code and disrupts readability. He contrasts it with assembly language, where conditional jumps handle errors in a single line with less visual noise. While he agrees with Go's philosophy of returning errors instead of throwing exceptions, he finds the implementation creates tedious boilerplate. He argues that exception-based languages keep logic readable with error handling at the end, while assembly achieves concise inline error checks \u2014 Go gets the worst of both worlds.",
+  "key_points": [
+    "Go's error handling requires a minimum of three lines per error check, cluttering the main logic flow",
+    "Assembly language achieves the same return-error-codes pattern with single-line conditional jumps, proving it can be done more concisely",
+    "Exception-based languages keep error handling separate from logic; Go forces it inline but verbosely",
+    "The philosophy of returning errors instead of throwing them is sound, but Go's implementation is the problem"
+  ],
+  "money_quotes": [
+    "Each error caught costs you three lines of code in the middle of your important logic flow.",
+    "I spend a lot of my time writing assembly. Assembly can use similar mechanics, but I'm spoiled by it (I know, spoiled by assembly?) and I can see how Go could have done better.",
+    "With languages that throw exceptions, you have all the logic in a readable procedure, and some error handling at the end of it all. With Go, you have to throw a bunch of 3-line-minimum error handlers all over the middle of your procedure.",
+    "The basic idea - return errors instead of throwing them - has good intentions. It's just that how they've done it isn't so great.",
+    "One line of error handling is better than 3 lines, if you ask me.",
+    "Go has good intentions by removing exceptions. They add a lot of overhead and returning errors isn't a bad thing in general."
+  ],
+  "themes": [
+    "language_design",
+    "systems_programming"
+  ],
+  "tone": "reflective, constructive, technical",
+  "key_insight": "Go's error handling philosophy of returning errors is sound, but its verbose three-line-per-check implementation makes code harder to read than both exception-based languages and assembly, which achieve the same pattern more concisely.",
+  "filename": "2014-06-07-Why-Go-error-handling-doesnt-sit-right-with-me"
+}

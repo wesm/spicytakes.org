@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault provides a practical, code-level introduction to the Wayland display protocol, moving beyond high-level architectural overviews. He frames Wayland as a generic resource-sharing protocol rather than a graphics-specific system, then walks through the client-side process of connecting to a display, discovering globals via the registry, binding to interfaces, and creating surfaces. He also covers the server side, including event loops and global creation. The post emphasizes Wayland's extensibility through XML-defined protocol extensions and its flexibility in supporting diverse compositor implementations.",
+  "key_points": [
+    "Wayland is best understood as a generic protocol for sharing and negotiating resources between two parties, not merely a graphics system",
+    "The protocol centers on a registry pattern where clients discover server globals and bind to interfaces that expose requests and events",
+    "Protocol extensions are defined in XML files processed by wayland-scanner, making Wayland arbitrarily extensible",
+    "Creating a visible surface requires a multi-step negotiation: obtain display, scan registry, create surface via compositor, assign a role via shell, allocate shared memory or EGL buffers",
+    "The server side manages hardware resources (DRM, libinput, udev) and abstracts them through Wayland globals, enabling diverse compositor designs from desktop shells to mobile interfaces"
+  ],
+  "money_quotes": [
+    "Let's set aside the idea that Wayland has anything to do with graphics. Instead we'll treat it like a generic protocol for two parties to share and talk about resources.",
+    "The role of a surface is undefined by default - it's just a place to put pixels.",
+    "These XML files are called \"protocol extensions\" and let you add arbitrary extensions to the protocol.",
+    "Through the Wayland protocol, the server provides an abstraction on top of these resources and offers them to clients.",
+    "Some servers go further, with novel ways of compositing clients or handling input.",
+    "Wayland is designed to be flexible!"
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra"
+  ],
+  "tone": "technical",
+  "key_insight": "Wayland is best understood not as a graphics system but as a flexible, extensible resource-sharing protocol where clients and servers negotiate access to typed resources through a registry of XML-defined interfaces.",
+  "filename": "2017-06-10-Introduction-to-Wayland"
+}

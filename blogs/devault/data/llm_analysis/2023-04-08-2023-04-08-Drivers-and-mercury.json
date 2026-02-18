@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault walks through the Mercury driver development environment for the Helios microkernel, part of the Ares operating system. The post demonstrates how device drivers run in userspace with capability-based security, using a serial port driver as a concrete example. Mercury provides an IPC code generation system (ipcgen), driver manifests that declaratively specify required capabilities, and protocol inheritance for composable interfaces. The capability model ensures strong isolation between drivers, limiting the blast radius of bugs to only the resources explicitly granted. The post concludes by showing how usrinit bootstraps the system by loading drivers from an initramfs and opening devices through a device manager service.",
+  "key_points": [
+    "Mercury drivers are userspace ELF executables with declarative manifests that request only the specific capabilities (I/O ports, IRQs, memory) they need",
+    "The capability-based design provides stronger isolation than monolithic kernels \u2014 a buggy serial driver can only write garbage to the serial port, not compromise the system",
+    "ipcgen generates client and server IPC code from protocol definition files, supporting interface inheritance (serial inherits from io::file)",
+    "The driver lifecycle is fully managed through userspace services: process manager creates processes, devloader loads drivers, device registry tracks devices, and device manager exposes them to clients",
+    "The entire serial driver implementation is just 370 lines of Hare code, demonstrating the environment's conciseness"
+  ],
+  "money_quotes": [
+    "On a monolithic kernel like Linux, a bug in the serial driver could compromise the entire system, but a vulnerability in our driver could, at worst, write garbage to your serial port.",
+    "This model also provides better security than something like OpenBSD's pledge by declaratively specifying what we need and nothing else.",
+    "After this we can destroy the registry \u2013 we won't need it again and it's best to get rid of it so that we can work with the minimum possible privileges at runtime.",
+    "Each process has a capability space, which is a table of capabilities assigned to that process, and when performing operations the user provides the index of the desired capability in a register when invoking the appropriate syscall.",
+    "Then we start the process and boom: the serial driver is online.",
+    "Since this is compatible with the io::file interface, it can simply be used normally with io::read and io::write to utilize the serial port."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "A capability-based microkernel architecture with declarative driver manifests and IPC code generation enables strongly isolated userspace drivers that are both more secure than monolithic kernels and concise enough to implement in a few hundred lines of code.",
+  "filename": "2023-04-08-2023-04-08-Drivers-and-mercury"
+}

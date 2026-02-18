@@ -1,0 +1,23 @@
+{
+  "summary": "DeVault introduces hare-wren, a Hare language binding for the Wren scripting language, as an alternative to embedding Lua. He evaluated Wren as a lightweight embeddable scripting language and found it surprisingly capable despite minor complaints about scope rules and its CLI standard library. The binding exposes Wren's C API through idiomatic Hare interfaces, supports bidirectional function calls between Hare and Wren, and includes an optional async runtime built on hare-ev. He also implemented a replacement standard library for Wren that improves on Wren CLI's design.",
+  "key_points": [
+    "Wren was chosen over Lua as an embeddable scripting language for Hare, offering a surprisingly capable feature set for its simplicity",
+    "The hare-wren binding reshapes Wren's C API into idiomatic Hare rather than exposing the C API directly",
+    "An optional wren::api submodule provides an async runtime based on hare-ev and a reimagined standard library that intentionally diverges from Wren CLI",
+    "The project includes an hwren command-line tool analogous to wren-cli but without REPL support"
+  ],
+  "money_quotes": [
+    "I found that Wren punches far above its weight for such a simple language.",
+    "I elected to mold it into a more idiomatic Hare interface rather than expose the C API directly to Hare.",
+    "I felt that the Wren CLI libraries had a lot of room for improvement, so I made the call to implement a standard library which is only somewhat compatible with Wren CLI.",
+    "Its scope rules are silly, the C API has some odd limitations here and there, and in my opinion the \"standard library\" provided by wren CLI is poorly designed.",
+    "Surprisingly, my list of complaints more or less ends there, and I was excited to build a nice interface to it from Hare."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical, enthusiastic, pragmatic",
+  "key_insight": "Wren offers a compelling alternative to Lua for embedding a scripting language in systems programs, and hare-wren demonstrates how to build idiomatic language bindings with an improved standard library on top.",
+  "filename": "2025-08-20-2025-08-20-Hare-and-Wren"
+}

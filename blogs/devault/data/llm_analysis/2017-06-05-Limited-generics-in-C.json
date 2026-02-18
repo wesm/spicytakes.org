@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault describes a C programming pattern used in wlroots that achieves a form of type-safe polymorphism without macros, void pointers, or undefined behavior. The technique uses incomplete struct types that are defined differently by each backend implementation, allowing type-safe function signatures without casting. He walks through the wlr_output example where DRM, Wayland, and X11 backends each provide their own definition of wlr_output_state. However, the post includes an errata noting the approach was rolled back because it causes problems with link-time optimization (LTO).",
+  "key_points": [
+    "Incomplete struct types in C can serve as a limited form of generics by letting each implementation define the struct independently",
+    "This pattern eliminates void* casts in backend implementations, improving type safety and readability",
+    "The technique was used in wlroots for output backends (DRM, Wayland, X11, RDP) but was later rolled back due to LTO incompatibility",
+    "The main limitation is that multiple definitions of the same struct cannot coexist in a single translation unit"
+  ],
+  "money_quotes": [
+    "This is a pattern I've started using to reduce the number of void* pointers floating around in my code: multiple definitions of a struct.",
+    "Nowhere, however, is wlr_output_state defined. It's left an incomplete type throughout all of the common wlr_output code.",
+    "The \"generic\" part is that each output implementation, in its own private headers, defines the wlr_output_state struct for itself.",
+    "This allows implementations of the enable, set_mode, and destroy functions to avoid casting a void* to the appropriate type.",
+    "The limitations of this approach are apparent: you cannot work with multiple definitions of wlr_output_state in the same file.",
+    "We rolled this approach back in wlroots because it causes problems with LTO. I no longer recommend it."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "C's incomplete struct types can be repurposed as a limited polymorphism mechanism that trades void* unsafety for compile-time type checking, though the technique ultimately breaks under link-time optimization.",
+  "filename": "2017-06-05-Limited-generics-in-C"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault argues that regular expressions are overused for validation tasks where they're almost always the wrong tool. Using URL validation as a case study, he shows how even a heavily-revised Stack Overflow regex fails to match many valid URLs while accepting invalid ones. He demonstrates that purpose-built parsers and standard library functions are superior to regex for structured data validation. The post concludes with a practical list of common validation tasks and their proper non-regex solutions.",
+  "key_points": [
+    "A top Stack Overflow URL regex, revised 9 times, still fails on valid URLs like short domains, internationalized domains, IPv6, and URLs with special characters",
+    "Complicated regexes are opaque, unmaintainable, and often wrong \u2014 making debugging nearly impossible when bugs are reported",
+    "Standard library parsers (like Python's urlparse) are the correct approach for validating structured formats",
+    "Regexes are only appropriate for validating simple patterns or finding patterns in text, not for complex validation logic",
+    "For each common validation task (email, passwords, dates, credit cards), a domain-specific solution exists that outperforms regex"
+  ],
+  "money_quotes": [
+    "Complicated regexes are opaque, unmaintainable, and often wrong.",
+    "This answer has been revised 9 times on Stack Overflow, and this is the best they could come up with.",
+    "If you received a bug report in your application because one of these URLs was handled incorrectly, do you understand this regex well enough to fix it?",
+    "A regex is useful for validating simple patterns and for finding patterns in text. For anything beyond that it's almost certainly a terrible choice.",
+    "validate an email address: try to send an email to it!"
+  ],
+  "themes": [
+    "tech_criticism",
+    "systems_programming"
+  ],
+  "tone": "opinionated, practical, instructive",
+  "key_insight": "Regexes are overused for validation tasks where purpose-built parsers and standard library functions would be simpler, more correct, and more maintainable.",
+  "filename": "2017-08-13-When-not-to-use-a-regex"
+}

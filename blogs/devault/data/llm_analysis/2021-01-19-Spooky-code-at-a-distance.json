@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault argues that certain programming language features create dangerous disconnects between what code appears to do and what it actually does, coining this 'spooky action at a distance' by analogy to quantum mechanics. He uses operator overloading as the primary example, showing how a simple '+' operator can hide function calls, memory allocation, or garbage collection pressure. He also critiques C's macro system for similar reasons, where a macro disguised as a function call can silently mutate its arguments. While acknowledging these features involve trade-offs, he concludes they sacrifice readability, predictability, and debuggability \u2014 qualities essential for systems programming.",
+  "key_points": [
+    "Operator overloading hides the true cost and behavior of operations behind familiar syntax, making performance characteristics and debugging unpredictable",
+    "Even simple string concatenation via '+' can mask allocation and garbage collection implications that explicit C code would make obvious",
+    "C's macro system creates its own 'spooky action' by disguising side effects as innocent function calls",
+    "Languages that give macros explicit syntax (like Rust's name! convention) improve on C but don't fully solve the problem",
+    "Readability, predictability, and debuggability should not be traded away, especially in systems programming"
+  ],
+  "money_quotes": [
+    "There are some language features which are similarly spooky.",
+    "The performance characteristics, consequences for debugging, and places to look for bugs are considerably different than the code would suggest on the surface.",
+    "Concatenation often means allocation, which is a pretty important side-effect to consider.",
+    "Consider that everything which happens here is explicit, opt-in to the writer, and obvious to the reader.",
+    "You may expect this to print out 10 + 20 = 30, and you would be forgiven for your naivety.",
+    "The spooky action is the mutation of x, and the distance is between the apparent callsite and the macro definition.",
+    "You're wagering readability, predictability, debuggability, and more.",
+    "These features are toxic to anyone seeking stable, robust code. They certainly have no place in systems programming."
+  ],
+  "themes": [
+    "language_design",
+    "systems_programming",
+    "tech_criticism"
+  ],
+  "tone": "opinionated, pedagogical, witty",
+  "key_insight": "Language features that hide behavior behind familiar syntax trade readability and predictability for convenience \u2014 a bargain that systems programmers should refuse.",
+  "filename": "2021-01-19-Spooky-code-at-a-distance"
+}

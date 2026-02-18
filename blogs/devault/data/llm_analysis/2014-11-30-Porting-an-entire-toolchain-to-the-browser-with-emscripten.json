@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault describes porting the entire KnightOS development toolchain \u2014 assembler, filesystem generator, package manager, and calculator emulator \u2014 to WebAssembly so developers can try KnightOS programming directly in their browser. The motivation was reducing the high barrier to entry, since previously developers had to manually compile and install multiple C tools across different platforms. The post walks through cross-compiling with Emscripten, solving the challenge of running multiple WASM modules on one page with shared virtual filesystems, and creating JavaScript bindings for the z80e emulator. The result is a fully client-side IDE hosted on GitHub Pages where users can write z80 assembly, install packages, and run programs in an emulated calculator.",
+  "key_points": [
+    "The KnightOS toolchain required manually compiling four separate C tools with no official packages on any platform, creating a prohibitive barrier for new contributors",
+    "Cross-compiling C to WASM was straightforward with Emscripten, but running multiple WASM modules on one page required wrapping each in isolated AMD loaders and writing custom code to copy files between virtual filesystems",
+    "The emulator (z80e) required deep WASM-JavaScript integration \u2014 mapping native C structs to JS objects with manual offset tracking and passing JS callbacks as C function pointers",
+    "The entire result is client-side and hostable on GitHub Pages, requiring no server infrastructure"
+  ],
+  "money_quotes": [
+    "The first step to writing KnightOS programs is to manually compile and install several tools, which is a lot to ask of someone who just wants to experiment.",
+    "We saw WASM as an opportunity to reduce all of this effort into simply firing up your web browser.",
+    "WASM compiled code assumes that it will be the only WASM module on the page at any given time, so this was a bit challenging and involved editing the generated JS.",
+    "Invoking them is as simple as calling main and then fiddling with the files that come out.",
+    "So far as I know, the KnightOS team is the only group to have attempted something with this deep of integration between WASM and JavaScript \u2014 because we had to do a ton of the work ourselves.",
+    "It's entirely client-side, so it can be hosted on GitHub Pages."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "WebAssembly can transform an entire native C toolchain into a zero-install, browser-based development environment, dramatically lowering the barrier to entry for niche open-source projects.",
+  "filename": "2014-11-30-Porting-an-entire-toolchain-to-the-browser-with-emscripten"
+}

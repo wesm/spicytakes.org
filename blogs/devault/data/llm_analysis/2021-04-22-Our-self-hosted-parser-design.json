@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault describes the design and implementation of a self-hosting parser for his new systems programming language (Hare). The project went through three parser iterations: a yacc-based prototype for rapid iteration, a hand-written C recursive descent parser accompanying the formal specification, and finally the self-hosted version written in the language itself. The language was deliberately designed with a context-free LL(1) grammar to keep parsing simple. The post walks through the lexer and parser architecture in detail, showing how tokens are produced and consumed to build an abstract syntax tree. The parser and lexer live in the standard library, inspired by Go's approach, to enable language-aware tooling.",
+  "key_points": [
+    "Self-hosting is a critical milestone for systems languages, signaling the language is mature enough to implement itself",
+    "Starting with yacc made it easy to iterate on grammar design and later extract a formal specification",
+    "The language deliberately uses a context-free LL(1) grammar requiring only one token of lookahead, keeping the parser simple by design",
+    "The parser uses helper functions (want, try, peek) to make the recursive descent code expressive and error handling clean",
+    "Putting the parser and lexer in the standard library (inspired by Go) enables users to build language-aware tools easily"
+  ],
+  "money_quotes": [
+    "Having a self-hosted compiler is a critical step in the development of (some) programming languages: it signals that the language is mature enough to be comfortably used to implement itself.",
+    "Using yacc was helpful at first because it makes it reasonably simple to iterate on the parser when the language is still undergoing frequent and far-reaching design changes.",
+    "To simplify the parser, we deliberately designed a context-free LL(1) grammar, which means it (a) can parse an input unambiguously without needing additional context, and (b) only requires one token of look-ahead.",
+    "This makes our parser design a lot simpler, which was a deliberate goal of the language design.",
+    "Whenever I write a precedence climbing parser, I'll stare at the Wikipedia page for 15 minutes, quickly write a parser, and then immediately forget how it works.",
+    "Having this as part of the standard library should make it much easier for users to build language-aware tooling with the language itself."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Good language design means deliberately constraining the grammar to keep parsing simple, and exposing the parser in the standard library empowers the entire tooling ecosystem.",
+  "filename": "2021-04-22-Our-self-hosted-parser-design"
+}

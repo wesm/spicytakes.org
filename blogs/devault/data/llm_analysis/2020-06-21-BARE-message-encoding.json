@@ -1,0 +1,27 @@
+{
+  "summary": "Drew DeVault introduces BARE (Binary Application Record Encoding), a new binary message encoding format he created to solve the problem of bulky stateless tokens and JSON messages. He explains the advantages of stateless tokens over stateful ones but notes their size penalty, then systematically evaluates existing binary formats (protobuf, Cap'n Proto, BSON, MessagePack, CBOR) and finds them all lacking. BARE is designed to be optimized for small messages, standardized with a specification shorter than the blog post itself, easy to implement, and deliberately resistant to extension creep. The format includes an optional schema language and was implemented for Go in a single weekend.",
+  "key_points": [
+    "Stateless tokens encode state directly rather than referencing a database, improving performance and simplicity, but at the cost of much larger token sizes",
+    "Existing binary encodings all fail his criteria: protobuf is too complex, Cap'n Proto prioritizes performance over size, BSON has MongoDB contamination, and MessagePack/CBOR are too extensible",
+    "BARE's specification is just over 1,000 words, messages are binary and not self-describing, with no alignment or padding",
+    "The format deliberately limits extensibility to prevent vendor fragmentation and incompatible implementations",
+    "A real-world comparison shows BARE reducing a cleartext token from 56 characters (JSON) to 12 characters"
+  ],
+  "money_quotes": [
+    "Rather than associating your session with a record in the database, we just decrypt the cookie when your browser sends it to us, and the session information is right there.",
+    "This improves performance and simplicity in a single stroke, which is a huge win in my book.",
+    "I also passionately hate C++ and I cannot in good faith consider something which makes it their primary target.",
+    "I appreciate that JSON is a closed spec and no one is making vendor extensions for it \u2014 and, similarly, a diverse extension ecosystem is not something I want to see for this technology.",
+    "The solution is evident.",
+    "The specification is just over 1,000 words \u2014 shorter than this blog post.",
+    "The first implementation (for Go) was done in a single weekend (this weekend, in fact)."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra",
+    "sourcehut"
+  ],
+  "tone": "technical, opinionated, practical",
+  "key_insight": "The best message encoding format is the simplest one that resists complexity creep \u2014 BARE achieves minimal message sizes through a specification shorter than a blog post by deliberately refusing extensibility and self-description.",
+  "filename": "2020-06-21-BARE-message-encoding"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "The post explains how to use the linker's --wrap flag to enable mocking in C, a testing technique common in higher-level languages but less straightforward in C. By passing -Wl,--wrap=function_name to the compiler, calls to that function are redirected to __wrap_function_name, allowing test code to substitute mock implementations. DeVault walks through a concrete example of wrapping fread and feof to test a file-reading function in isolation. He notes the limitation that only one wrapper per function is allowed per executable, and sketches out a vision for a future C test framework that would automate the wrapping process with a clean mocking API.",
+  "key_points": [
+    "The linker --wrap flag redirects function calls to __wrap_ prefixed versions, enabling mock implementations without modifying source code",
+    "Both GNU Gold and LLVM's lld support --wrap, making it portable across major C toolchains",
+    "The technique also defines __real_ prefixed symbols for accessing the original functions when needed",
+    "A key limitation is that only one wrapper per function can exist in a single executable, requiring either multiple test binaries or smart configurable wrappers",
+    "DeVault envisions a C test framework that automates wrapper generation with a higher-level mocking API"
+  ],
+  "money_quotes": [
+    "One of the comforts I've grown used to in higher level languages when testing my code is mocking.",
+    "The idea is that in order to test some code in isolation, you should \"mock\" the behavior of things it depends on.",
+    "Using --wrap also conveniently defines __real_feof and __real_fread if we need them.",
+    "Unfortunately, you can't have two different wrappers for the same function in an executable.",
+    "Eventually I intend to write my own test framework for C, which will use wrappers to support mocking."
+  ],
+  "themes": [
+    "systems_programming"
+  ],
+  "tone": "technical",
+  "key_insight": "The linker's --wrap flag provides a clean, non-invasive mechanism for mocking in C by redirecting function calls at link time, bringing a familiar testing pattern from higher-level languages to systems programming.",
+  "filename": "2016-07-19-Using-Wl-wrap-for-mocking-in-C"
+}

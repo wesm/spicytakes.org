@@ -1,0 +1,29 @@
+{
+  "summary": "DeVault documents his experience using a RISC-V workstation (HiFive Unmatched) as his daily driver for a day, running Alpine Linux with Sway. While the system can handle many of his lightweight computing needs, the slow CPU and inability to bootstrap Rust (and thus Firefox) are major limitations. He finds that offloading work to the PCIe GPU makes the system surprisingly capable for media playback and even some gaming. He concludes that while RISC-V's promise still lives in tomorrow, the platform is a remarkably useful tool for advancing the RISC-V FOSS ecosystem.",
+  "key_points": [
+    "The HiFive Unmatched's Mini-ITX form factor with PCIe, NVMe, and DDR4 support makes it function essentially like a standard PC workstation, a major step up from previous RISC-V hardware",
+    "Rust's bootstrapping difficulty is the single biggest blocker for the RISC-V desktop experience, preventing Firefox, Alacritty, and anything depending on librsvg from working",
+    "GPU offloading compensates dramatically for the weak CPU \u2014 enabling 4K video playback, GPU-encoded screen recording, and decent gaming performance",
+    "The system runs almost entirely on upstream free software with minimal patches, which DeVault considers impressive for something this bleeding edge",
+    "Even DeVault's unusually conservative computing demands stress the limits of the hardware, meaning most users would find it inadequate for daily use"
+  ],
+  "money_quotes": [
+    "For all practical purposes the promise of RISC-V still lives in tomorrow, not today.",
+    "Bootstrapping Rust is an utter nightmare and no one has managed to do it for Alpine Linux riscv64 yet, despite many attempts and lots of hours wasted.",
+    "I watched Dune (2021) today in 4K on this machine \u2014 buttery smooth, stunningly beautiful 4K playback \u2014 a feat that my Pinebook Pro couldn't dream of.",
+    "My new language can be fully bootstrapped on this machine in 272 seconds, including building and running the test suite. Building LLVM on this machine, let alone Rust, takes upwards of 12+ hours.",
+    "There's not a snowball's chance in hell of using Discord or Slack on this system, for the record.",
+    "I have unusually conservative demands of my computers. Even so, my modest demands stress the limits of this machine.",
+    "Overall, this is quite good for something this bleeding edge \u2014 my Pinephone build is worse.",
+    "A CPU that is designed in adherence to an open ISA standard and runs on open source firmware. This is a fascinating product that promises great things for the future of RISC-V as a platform."
+  ],
+  "themes": [
+    "foss",
+    "systems_programming",
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "technical, pragmatic, cautiously optimistic",
+  "key_insight": "RISC-V hardware has reached a point where a determined user with lightweight computing habits can almost use it as a daily workstation, but Rust's bootstrapping complexity and weak CPUs remain the critical barriers to broader desktop viability.",
+  "filename": "2022-01-15-2022-01-15-The-RISC-V-experience"
+}

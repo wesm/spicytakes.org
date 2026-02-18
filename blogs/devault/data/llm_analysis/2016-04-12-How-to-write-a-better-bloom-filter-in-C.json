@@ -1,0 +1,23 @@
+{
+  "summary": "DeVault presents a C implementation of a bloom filter as a response to a C++ blog post, arguing his version is superior in several ways. He designs the filter to accept user-supplied hash functions and arbitrary data types rather than being limited to bytes. The implementation directly manipulates bits rather than relying on C++ standard library abstractions. He walks through each function\u2014creation, hash registration, insertion, and testing\u2014explaining the bit manipulation at each step. The post reflects his preference for C over C++ for low-level data structures, favoring explicit control and simplicity.",
+  "key_points": [
+    "User-supplied hash functions make the bloom filter more flexible and composable than hardcoded hashing",
+    "Direct bit manipulation with bitwise operators is preferable to relying on std::vector<bool> for space efficiency",
+    "C is a better choice than C++ for implementing low-level data structures, while C++ is better suited for high-level code",
+    "Accepting const void* allows arbitrary data types rather than limiting to byte arrays",
+    "The entire implementation is compact and self-contained with a clean opaque-type API"
+  ],
+  "money_quotes": [
+    "I put together a better one in C in a few minutes, and I'll explain the advantages of it.",
+    "I chose C because (1) I prefer it over C++ and (2) I just think it's a better choice for implementing low level data types, and C++ is better used in high level code.",
+    "Returns false if the item has definitely not been added before. Returns true if the item was probably added before.",
+    "This just sets the nth bit of the filter where n is the hash.",
+    "That's it! You have a bloom filter with arbitrary data types for insert and user-supplied hash functions."
+  ],
+  "themes": [
+    "systems_programming"
+  ],
+  "tone": "technical",
+  "key_insight": "Low-level data structures like bloom filters are best implemented in C with explicit bit manipulation and user-supplied hash functions, giving the caller full control rather than hiding details behind C++ abstractions.",
+  "filename": "2016-04-12-How-to-write-a-better-bloom-filter-in-C"
+}

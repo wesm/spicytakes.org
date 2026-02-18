@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault explains his approach to managing dotfiles by making his entire home directory a git repository, rather than using specialized tools like GNU stow. The trick is a one-byte .gitignore file containing just '*', which ignores everything by default and requires explicit git add -f to track specific files. He extends this with per-host customization using hostname-based PATH directories and config includes. The approach leverages familiar Unix primitives and git knowledge rather than requiring specialized tooling.",
+  "key_points": [
+    "A single-character .gitignore ('*') makes the system work by ignoring everything unless explicitly force-added",
+    "Once a file is tracked via git add -f, it behaves normally in git workflows without needing the force flag again",
+    "Per-host customization is achieved through hostname-based bin directories and config includes, handling different machines and architectures",
+    "The $HOME directory doubles as a Unix-style prefix with ~/bin, ~/lib, allowing wrapper scripts to shadow system programs",
+    "The approach composes existing Unix primitives and git rather than introducing specialized dotfile management tools"
+  ],
+  "money_quotes": [
+    "my $HOME is a git repository.",
+    "The key to making this work well is my one-byte .gitignore file.",
+    "A quick log-out and back in and I feel right at $HOME.",
+    "Replacing the needlessly annoying-to-customize xdg-open with one that just does what I want, falling back to /usr/bin/xdg-open if necessary.",
+    "Rather than using (and learning) any specialized tools, I find my needs quite adequately satisfied by a simple composition of several Unix primitives with a tool I'm already very familiar with: git.",
+    "Version controlling your configuration files is a desirable trait even with other systems, so why not ditch the middleman?"
+  ],
+  "themes": [
+    "foss",
+    "internet_infra"
+  ],
+  "tone": "technical, pragmatic",
+  "key_insight": "Managing dotfiles doesn't require specialized tools \u2014 a git repository with a wildcard .gitignore and Unix conventions for per-host customization is simpler and more composable.",
+  "filename": "2019-12-30-dotfiles"
+}

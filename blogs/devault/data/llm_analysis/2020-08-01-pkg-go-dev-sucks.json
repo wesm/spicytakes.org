@@ -1,0 +1,27 @@
+{
+  "summary": "Drew DeVault argues that pkg.go.dev represents Google's corporate interests overriding good engineering principles in the Go ecosystem. He contends that Go's quality comes from its Bell Labs-influenced designers, not from Google's stewardship, and that pkg.go.dev exemplifies typical Google crapware. The site launched as closed-source, routes module fetches through a closed-source tracking proxy, and hard-codes a list of centralized git hosting services while ignoring the decentralized nature of git. DeVault sees the project as prioritizing a shiny product over sound engineering, adding to evidence that Google is harmful to Go's development.",
+  "key_points": [
+    "Go's quality derives from Bell Labs-influenced language designers, not Google's stewardship \u2014 pkg.go.dev reinforces this distinction",
+    "pkg.go.dev routes all module fetches through proxy.golang.org, a closed-source proxy that tracks users without their knowledge",
+    "The site hard-codes centralized git hosting services, ignoring that git hosting is software, not just a platform \u2014 self-hosted instances are unsupported",
+    "Go's package discovery requires language-specific meta tags in git hosting HTML, imposing programming language needs onto language-agnostic version control",
+    "The project prioritizes visual polish over engineering quality, introducing dozens of regressions while only improving aesthetics"
+  ],
+  "money_quotes": [
+    "it has all the hallmarks of Google crapware and none of the deliberate, good engineering work that went into Go's design",
+    "Go is a pretty good programming language. I have long held that this is not attributable to Google's stewardship, but rather to a small number of language designers and a clear line of influences which is drawn entirely from outside of Google \u2014 mostly from Bell Labs.",
+    "a closed-source proxy through which all of your go module fetches are being routed and tracked (oh, you didn't know? They never told you, after all)",
+    "pkg.go.dev hard-codes a list of centralized git hosting services, and completely disregards the idea of git hosting as software rather than as a platform",
+    "The hubris to impose your programming language's needs onto a language-agnostic version control system!",
+    "The goal is shipping a shiny new product \u2014 not engineering a good solution. This is typical of Google's engineering ethos in general.",
+    "pkg.go.dev sucks, and is added the large (and growing) body of evidence that Google is bad for Go"
+  ],
+  "themes": [
+    "foss",
+    "tech_criticism",
+    "internet_infra"
+  ],
+  "tone": "critical, combative, opinionated",
+  "key_insight": "Google's control over Go's ecosystem infrastructure prioritizes centralization and corporate convenience over the open, decentralized engineering principles that made Go good in the first place.",
+  "filename": "2020-08-01-pkg-go-dev-sucks"
+}

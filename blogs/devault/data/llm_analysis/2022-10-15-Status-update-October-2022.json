@@ -1,0 +1,25 @@
+{
+  "summary": "Drew DeVault shares his October 2022 progress update, focused primarily on Helios, his microkernel operating system written in Hare. After taking the month to rest from stressful work by shifting to experimental projects, he completed a major redesign of the kernel, implemented a new scheduler and userspace API, and began building Mercury, the userspace driver framework. The update highlights a capability-based security model where drivers are sandboxed with only the specific hardware capabilities they need. He also notes minor upstream Hare improvements including IPv6 parsing and UTF-8 decoder fixes.",
+  "key_points": [
+    "Helios kernel completed a large-scale redesign achieving feature parity with the previous version, including a new scheduler, improved userspace API with better separation of concerns, and fault delivery to supervisor processes",
+    "The Mercury userspace environment introduces a declarative driver manifest system that sandboxes drivers by restricting them to only their declared capabilities \u2014 unlike monolithic kernels where exploiting any driver compromises the entire OS",
+    "The new physical page allocator supports both sparse and continuous allocation with proper freeing, and userspace gets improved virtual memory mapping with partial mmap implementation",
+    "Automatic capability address allocation improves on seL4's design, and the capability-based security model ensures even a compromised driver can only crash itself before being rebooted by the supervisor",
+    "Next steps include I/O abstractions over IPC, a getty equivalent, VGA terminal driver, ramfs, and eventually a shell environment"
+  ],
+  "money_quotes": [
+    "Of course, for me, rest does not mean a cessation of programming, but rather a shift in priorities towards more fun and experimental projects.",
+    "The driver is sandboxed very effectively by this: it can only use these capabilities. It cannot allocate memory, modify its address space, or even destroy any of these capabilities.",
+    "If a bad actor was on the other end of the serial port and exploited a bug, the worst thing it could do is crash the serial driver, which would then be rebooted by the supervisor.",
+    "On Linux and other monolithic kernels like it, exploiting the serial driver compromises the entire operating system.",
+    "The kernel now supports automatic capability address allocation, which is a marked improvement over seL4."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "sourcehut"
+  ],
+  "tone": "enthusiastic, technical",
+  "key_insight": "A capability-based microkernel architecture with declarative driver manifests can sandbox drivers so effectively that even a fully exploited driver can only crash itself, unlike monolithic kernels where any driver compromise means total system compromise.",
+  "filename": "2022-10-15-Status-update-October-2022"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault walks through a real kernel hacking scenario in Hare, his systems programming language, showing how Helios (his seL4-inspired microkernel) initializes bootinfo structures for userspace. The post demonstrates Hare's ability to handle manual memory management, pointer casting, and page-level allocation without dynamic memory \u2014 a common kernel constraint. He shows how Hare's unbounded arrays, static append, and low-level type manipulation enable precise control over memory layout across three different address spaces. The example illustrates Hare's design philosophy: accommodate dangerous low-level operations when needed, but provide tools to regain safety quickly.",
+  "key_points": [
+    "Kernel bootinfo initialization requires managing three address spaces (physical, kernel virtual, userspace) for a single page of data",
+    "Hare's unbounded arrays and slice semantics enable a clever pattern: creating a zero-length slice with known capacity for static append-based allocation",
+    "Static append provides dynamic-like memory allocation without a heap, critical for kernel environments where malloc doesn't exist",
+    "Hare's type system lets you deliberately bypass safety (unbounded arrays, pointer casts) then re-establish bounds checking through slicing",
+    "The types module exposes string and slice internals, enabling low-level manipulation like constructing strings with userspace pointers"
+  ],
+  "money_quotes": [
+    "We're in a kernel \u2013 dynamically allocating data is not so straightforward, especially for units smaller than a page!",
+    "Its job is to load the initial task into memory, prepare the initial set of kernel objects for its use, provide it with information about the system, then jump to userspace and fuck off until someone needs it again.",
+    "Here we've drawn well outside of the lines of Hare's safety features, but sometimes it's useful and necessary to do so.",
+    "Hare's goal is to accommodate this need with little fanfare.",
+    "Some use-cases call for this level of fine control over the precise behavior of your program.",
+    "This code is pretty weird but to an experienced Hare programmer (which, I must admit, the world has very few of) it should make sense."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Hare's design lets kernel developers deliberately step outside safety guarantees for low-level memory manipulation, then quickly re-establish bounds checking \u2014 accommodating the unique constraints of kernel programming without ceremony.",
+  "filename": "2022-09-07-Kernel-hacking-with-Hare-part-1"
+}

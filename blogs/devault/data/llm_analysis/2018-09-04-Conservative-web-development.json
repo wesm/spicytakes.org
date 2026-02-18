@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault documents the bloated state of modern web development by dissecting a New York Times article page that required 2.8 MB and 748 HTTP requests to deliver 9 KB of actual content. He advocates for conservative web development principles: minimal JavaScript, optimized images, CSS-driven interactivity, and server-side rendering. He compares sr.ht's lean pages against GitHub's considerably heavier equivalents to demonstrate these principles in practice. The post concludes with practical recommendations for reducing web page bloat and a pointed jab at Google's AMP as a self-serving solution to a problem the industry should solve through better engineering.",
+  "key_points": [
+    "A NYT article page delivered 2.8 MB across 748 requests for 9 KB of actual content \u2014 only 8% of the download served the reader",
+    "sr.ht's pages are an order of magnitude lighter than GitHub's equivalent pages, demonstrating that feature-rich web apps don't require massive payloads",
+    "Single-page apps offload rendering costs onto visitors' devices and batteries rather than genuinely saving resources",
+    "Progressive enhancement \u2014 designing without JavaScript first, then adding it sparingly \u2014 produces faster, more accessible sites",
+    "Google's AMP is a self-serving faux standard when the real solution is better web development practices"
+  ],
+  "money_quotes": [
+    "The text of the article is a total of 9037 bytes, including the title, author, and date.",
+    "8% of the total download was dedicated to the content.",
+    "5 discrete external companies were informed of my visit to the page and given the opportunity to run arbitrary JavaScript on it.",
+    "Pushing the complexity of rendering your single-page app into the frontend might save you miniscule amounts of server-side performance, but you'd just be offloading the costs onto your visitor's phone and sucking their battery dry.",
+    "You can build beautiful, interactive websites with HTML and CSS alone, supported by a simple backend.",
+    "Design your website to be usable without JavaScript, and use small amounts of it to enhance the experience - rather than to be the experience.",
+    "And if anyone at Google is reading, you should try recommending these strategies for speeding up pages instead of pushing self-serving faux standards like AMP."
+  ],
+  "themes": [
+    "tech_criticism",
+    "internet_infra",
+    "sourcehut"
+  ],
+  "tone": "opinionated, empirical, critical",
+  "key_insight": "Modern web pages are grotesquely bloated because developers offload complexity to the client; disciplined server-side rendering and minimal JavaScript can deliver the same features at a fraction of the cost.",
+  "filename": "2018-09-04-Conservative-web-development"
+}

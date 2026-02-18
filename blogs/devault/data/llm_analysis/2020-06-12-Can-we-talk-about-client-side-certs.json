@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault explores why client-side TLS certificates never caught on as an alternative to OAuth for API authentication. After reading OAuth2 RFCs while working on SourceHut's API, he sketches a hypothetical protocol where API clients use certificate authorities and CSRs instead of OAuth's token-based flow. He enumerates numerous advantages \u2014 stateless authentication, battle-tested cryptography, built-in revocation, and scope management through intermediate CAs \u2014 but acknowledges a nagging suspicion that he's missing something. The post is ultimately a thought experiment he puts to readers rather than a proposal he intends to implement.",
+  "key_points": [
+    "OAuth is overly complex (100+ pages of RFCs), rarely implemented correctly, and involves no cryptography \u2014 yet it became the universal standard for API authorization",
+    "Client-side TLS certificates could provide stateless, cryptographically strong authentication with built-in scope management, expiration, and revocation via certificate hierarchies",
+    "Organizations could use intermediate CAs to limit each service's access scope, providing natural least-privilege enforcement",
+    "The traditional pain points of certificates (CRLs, OCSP, OpenSSL CLI complexity) are mitigated in centralized API contexts where you control all endpoints",
+    "Despite clear theoretical advantages, the fact that no one adopted this approach in decades suggests either hidden practical barriers or simply poor tooling and bad UX around certificates"
+  ],
+  "money_quotes": [
+    "The RFC is 76 pages long, the separate bearer token RFC (6750) is another 18, and no one has ever read either of them.",
+    "The process is complicated and everyone implements it themselves \u2014 a sure way to make mistakes in a security-critical component.",
+    "Have you ever met anyone who feels positively about OAuth?",
+    "TLS is basically the single most ironclad, battle-tested security mechanism on the internet, and mature implementations are available for every platform. Everyone implements OAuth themselves, and often poorly.",
+    "If you handle SSL termination with nginx, haproxy, etc, you can reject unauthorized requests before your application backend ever even sees them.",
+    "I have a nagging feeling that I'm missing something here. It doesn't seem right that such an obvious solution would have been left on the table, by everyone, for decades.",
+    "Web browser support for client-side certificates totally sucks, but that is a solvable problem."
+  ],
+  "themes": [
+    "internet_infra",
+    "tech_criticism",
+    "sourcehut"
+  ],
+  "tone": "exploratory, conversational, technically curious",
+  "key_insight": "Client-side TLS certificates offer a theoretically superior alternative to OAuth for API authentication \u2014 cryptographically strong, stateless, and battle-tested \u2014 yet their universal neglect suggests that developer experience and tooling matter more than technical elegance.",
+  "filename": "2020-06-12-Can-we-talk-about-client-side-certs"
+}

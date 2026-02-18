@@ -1,0 +1,26 @@
+{
+  "summary": "This post provides a detailed technical walkthrough of how input handling works in wlroots, the compositor library behind Sway. DeVault explains the full pipeline from raw hardware events through libinput, to pointer/keyboard processing, cursor rendering, and finally delivering events to Wayland clients via the seat abstraction. The design philosophy is explicitly 'batteries not included,' giving compositor authors enormous flexibility at the cost of significant complexity. The post walks through each layer \u2014 backends, input devices, cursors, output layouts, and seats \u2014 showing how they must be manually wired together. DeVault acknowledges the tradeoff honestly, noting that simpler libraries like wlc are easier to use but offer far less control.",
+  "key_points": [
+    "wlroots uses a 'batteries not included' design where input events are not automatically propagated to Wayland clients \u2014 the compositor author must wire everything together manually",
+    "The input pipeline involves multiple layers: wlr_backend discovers devices, wlr_cursor aggregates pointer input across devices and outputs, and wlr_seat manages the Wayland protocol state machine for delivering events to clients",
+    "Hardware cursors are preferred for efficiency but wlroots transparently falls back to software cursors when needed",
+    "The architecture supports diverse use cases beyond traditional desktops: phones, in-vehicle infotainment, simulated input, on-screen keyboards, and multi-seat configurations",
+    "The explicit tradeoff is flexibility versus complexity \u2014 simpler libraries are easier but prevent customizing even small details of the input pipeline"
+  ],
+  "money_quotes": [
+    "wlroots is a 'batteries not included' kind of library, and one of the places where that is most apparent is with our approach to input handling.",
+    "We implemented a very hands-off design for input, in order to support many use-cases: desktop input, phones with and without USB-OTG HIDs plugged in, multiple mice bound to a single cursor, multiple keyboards per seat, simulated input from fake input devices, on-screen keyboards, input which is processed by the compositor but not sent to clients.",
+    "You don't even have to source the input you give to Wayland clients from a wlr_input_device, you can just as easily make them up or get them from the network or anywhere else.",
+    "Since wlroots doesn't handle rendering or know where anything is displayed, this was a rather introspective question.",
+    "And there you have it, that's how input works in wlroots. It's really fucking complicated, isn't it?",
+    "Because you have to plug all of these pieces together yourself, you are afforded an enormous amount of flexibility. However, you have to do a lot of work and understand a whole lot of different pieces to get there.",
+    "Libraries like wlc are much easier to use in this respect, but if you want to change even a small detail of this process with wlc you are unable to."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra"
+  ],
+  "tone": "technical, candid, pedagogical",
+  "key_insight": "wlroots deliberately forces compositor authors to manually wire every layer of input handling, trading ease of use for the flexibility to support any input paradigm imaginable.",
+  "filename": "2018-07-17-Input-handling-in-wlroots"
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "DeVault critiques Python's standard datetime module for lacking basic functionality that other languages handle well out of the box. He compares Python's datetime to C#/.NET across several common operations\u2014time deltas, month arithmetic, countdown formatting, and locale handling\u2014finding Python deficient in each case. He argues that date and time support is tricky enough that the standard library should handle it properly rather than forcing developers to write error-prone workarounds. The post is an early-career complaint piece that highlights real gaps in Python's standard library.",
+  "key_points": [
+    "Python's timedelta only exposes days, seconds, and microseconds, lacking convenient properties like hours and minutes for display purposes",
+    "Month arithmetic is trivial in C#/.NET but requires manual, imprecise workarounds in Python",
+    "Python's locale handling for date formatting is global state and platform-dependent, unlike .NET's per-call locale support",
+    "Date and time logic is easy for naive programmers to get wrong, so standard libraries should provide robust defaults"
+  ],
+  "money_quotes": [
+    "It's ridiculous how bad it is in Python.",
+    "Date and time support is a rather tricky thing to do and it's something that the standard library should support well enough to put it in the back of your mind instead of making you do all the work.",
+    "In C#, if you add one month to January 30th, you get February 28th (or leap day if appropriate). In Python, you could write a janky function to do this for you.",
+    "By the way, that Python one doesn't work on Windows.",
+    "This is common stuff and easy for a naive programmer to do wrong."
+  ],
+  "themes": [
+    "tech_criticism"
+  ],
+  "tone": "critical, practical, comparative",
+  "key_insight": "Python's datetime module forces developers to manually implement common date/time operations that should be standard library fundamentals, inviting bugs in the process.",
+  "filename": "2014-06-28-Python-datetime-sucks"
+}

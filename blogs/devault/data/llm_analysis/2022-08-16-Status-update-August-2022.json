@@ -1,0 +1,24 @@
+{
+  "summary": "Drew DeVault's August 2022 status update is a brief check-in during a quieter month due to moving house. The main technical highlights are Thread-Local Storage (TLS) implementation for qbe (Hare's compiler backend) and significant progress on Helios, his microkernel OS project. He also mentions starting a GameBoy emulator in Hare as a fun side project. Hare development has slowed due to a backlog of 123 emails in the patch queue.",
+  "key_points": [
+    "Implemented Thread-Local Storage (TLS) for qbe, Hare's compiler backend, primarily needed for Helios's driver library threading support",
+    "Helios microkernel received TLS runtime support, capability copying/moving, and progress toward capability destructors with page reclamation",
+    "Started a GameBoy emulator written in Hare as a recreational side project",
+    "Hare patch queue is backed up at 123 emails, slowing standard library progress"
+  ],
+  "money_quotes": [
+    "It is a blessedly cool morning here in Amsterdam.",
+    "No promises on when it will be functional or how much I plan on working on it \u2013 just doing it for fun.",
+    "Hare's standard library does not support multi-threading, but I needed this for Helios, whose driver library does support threads.",
+    "Next goal is to finish up all of this capability work so that you can freely create, copy, move, and destroy capabilities, then use all of these features to implement a simple shell.",
+    "I'm currently looking at a patch queue 123 emails backed up."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "sourcehut"
+  ],
+  "tone": "casual, matter-of-fact",
+  "key_insight": "Even in a quiet month, DeVault's work spans multiple layers of the systems stack \u2014 from compiler backends to microkernel capability management \u2014 illustrating the breadth of his from-scratch systems programming ambitions.",
+  "filename": "2022-08-16-Status-update-August-2022"
+}

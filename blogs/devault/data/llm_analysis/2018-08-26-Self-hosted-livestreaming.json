@@ -1,0 +1,23 @@
+{
+  "summary": "Drew DeVault provides a practical tutorial on setting up self-hosted video livestreaming using ffmpeg and DASH, the industry standard for streaming video to web browsers. He notes that most guides about self-hosted streaming infrastructure punt on the actual video part and rely on Twitch, so he fills that gap. The post walks through ffmpeg input options (static files, screen capture), output encoding settings for browser compatibility, DASH configuration, and nginx serving. He also covers an alternative approach using the nginx-rtmp-module for OBS Studio integration, including basic security measures.",
+  "key_points": [
+    "DASH (Dynamic Adaptive Streaming over HTTP) is the current industry standard for livestreaming to browsers, working by splitting output into discrete segments referenced by an XML manifest",
+    "ffmpeg can directly output DASH format, requiring only specific x264/aac encoding settings and an nginx server to deliver the segments",
+    "For OBS Studio users, the nginx-rtmp-module provides an RTMP server that can output DASH segments without needing ffmpeg directly",
+    "Browser compatibility demands very specific encoding parameters: x264 baseline level 4 profile, yuv420p pixel format, and AAC audio"
+  ],
+  "money_quotes": [
+    "I have seen some articles in the past which explain how to build the ecosystem around your video streaming, such as live chat and forums, but which leave the actual video streaming to Twitch.tv.",
+    "As is often the case with video, we'll be using the excellent ffmpeg tool for this. If it's A/V-related, ffmpeg can probably do it.",
+    "Your typical web browser is a finicky bitch and has some very specific demands from your output format if you want maximum compatability.",
+    "You can add dash.js to your website and you know have a fully self-hosted video live streaming setup ready to rock.",
+    "I learned all of this stuff by making a bot which livestreamed Google hangouts over the LAN to get around the participant limit at work."
+  ],
+  "themes": [
+    "internet_infra",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "Self-hosted video livestreaming is achievable with just ffmpeg, DASH, and nginx \u2014 no dependency on platforms like Twitch required.",
+  "filename": "2018-08-26-Self-hosted-livestreaming"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault describes 'wormy,' a comically over-engineered IRC bot that has evolved over six years in a social channel. The bot is actually a bouncer combining seven independent bots providing features like parcel tracking, internet radio requests, and URL previews. The introduction of jsbot\u2014which executes arbitrary JavaScript in a persistent environment\u2014allowed channel members to write additional bots as one-liner IRC messages. This led to an absurd situation where both bot code and state lived in a single long-lived process, eventually requiring a hacky persistence layer. DeVault shares this purely for entertainment, explicitly noting there is no moral to the story.",
+  "key_points": [
+    "IRC's standardized, simple protocol naturally encourages hobbyist bot-building as a creative pastime",
+    "Wormy is actually a bouncer combining 7+ independent bots behind a single identity, providing features from parcel tracking to internet radio",
+    "jsbot created a persistent JavaScript REPL connected to IRC, enabling people to write bots as one-liner messages typed directly into chat",
+    "The entire setup evolved organically into storing both code and state in a single long-lived process, requiring increasingly hacky persistence solutions",
+    "The project exemplifies the joy of building impractical things with friends for pure amusement"
+  ],
+  "money_quotes": [
+    "Because IRC is standardized and simple, a common pastime for IRC enthusiasts is the creation of bots.",
+    "Though it presents itself as a single bot, it is in fact a bouncer which combines the connections of 7 independent bots.",
+    "Featuring arbitrary code execution by design and buffer overflows by mistake, jsbot checking in",
+    "What we had effectively created was a persistent JavaScript environment which was connected to IRC.",
+    "This has made it possible to write even more IRC bots in the least practical manner imaginable: by writing JavaScript statements, one line at a time, into IRC messages, and hoping it works.",
+    "This has not been an entirely smart move.",
+    "Anyway, there's no moral to this story. We just have a silly IRC bot and I thought I'd share that with you.",
+    "I highly disrecommend it and disavow any responsibility for the consequences."
+  ],
+  "themes": [
+    "internet_infra",
+    "systems_programming",
+    "sourcehut"
+  ],
+  "tone": "humorous, self-deprecating, playful",
+  "key_insight": "IRC's simplicity and openness naturally invites creative tinkering, and sometimes the most entertaining engineering is the kind that's deliberately impractical.",
+  "filename": "2021-03-29-The-worlds-dumbest-IRC-bot"
+}

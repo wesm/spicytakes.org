@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault documents the process of integrating a DEC VT220 terminal into his modern Linux workflow as a dedicated email reading display. He progresses from a basic serial connection with a clunky LK201 keyboard to a fully automated setup where the terminal acts as a virtual fourth monitor. Through systemd autologin, tmux session sharing, and a custom sway branch that creates a fake output, he achieves seamless switching between his graphical desktop and the physical terminal. The post is a practical guide through the hardware, scripts, and window manager hacks required to make 1980s hardware a comfortable daily driver.",
+  "key_points": [
+    "A VT220 can be connected to a modern Linux system via USB-to-serial adapter and DB9-to-DB29 null modem cable, with getty providing login over serial",
+    "By creating a dedicated user with an auto-login getty and tmux as the login shell, the LK201 keyboard becomes unnecessary",
+    "A custom sway branch adds a fake output representing the VT220, allowing it to be treated like a regular monitor in the tiling window manager",
+    "The tmux session bridges the serial terminal and the desktop environment, letting either side control what appears on the VT220"
+  ],
+  "money_quotes": [
+    "Getting this working on Linux is actually pretty simple thanks to decades of backwards compatability.",
+    "I use it to read emails on mutt now, and it's actually quite pleasant.",
+    "Now I have a nice and comfortable way to use my terminal to read emails at work. Now if only I could convince people to stop sending me HTML emails!",
+    "I just bought a second VT220 for use at home, too. Life's good~",
+    "My goal was to treat the terminal as a fake \"output\" that I could switch to from my desktop session just like I switch between my three graphical outputs."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra",
+    "foss"
+  ],
+  "tone": "enthusiastic, technical, playful",
+  "key_insight": "With some creative plumbing between systemd, tmux, and a custom window manager patch, 1983 hardware can be seamlessly integrated into a modern Linux desktop as a dedicated serial display.",
+  "filename": "2016-03-22-Integrating-a-VT220-into-my-life"
+}

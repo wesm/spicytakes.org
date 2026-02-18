@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault walks through the iterative design process behind a specific feature in his systems programming language (Hare): how to append a variable amount of data to a slice. Starting from the requirement that all variables must be initialized, he traces how the '...' operator for array initialization led to questions about dynamic slice allocation, and then to the subtler problem of append syntax ambiguity. Through several iterations, he arrives at a design that is unambiguous at parse time, comfortable for the common case of appending a single item, and extensible for bulk operations.",
+  "key_points": [
+    "Language design requires balancing initialization safety guarantees with ergonomic syntax for common patterns like buffer allocation",
+    "Ambiguity that can only be resolved by the type checker (through heuristics) is a design smell \u2014 parse-time clarity is strongly preferred",
+    "The most common use case should never be made worse to accommodate uncommon ones",
+    "Good design emerges iteratively: each solution reveals new edge cases that refine the next proposal",
+    "The final append syntax uses 'y...' to distinguish single-item append from multi-item spread, solving ambiguity while improving ergonomics"
+  ],
+  "money_quotes": [
+    "In other words, it looks like 'append the values [0\u2026] and 10 to x'. This doesn't make sense, but we don't know this until we get to the type checker.",
+    "We should try to avoid making the common case worse for the benefit of the uncommon case.",
+    "This is obviously not great. We lose type safety, the initialization guarantee, and bounds checking, and we add a footgun.",
+    "Arriving at this required untangling a lot of other problems that I haven't mentioned here.",
+    "I daresay that, in addition to fulfilling the desired new feature, we have improved the other cases as well."
+  ],
+  "themes": [
+    "language_design",
+    "systems_programming"
+  ],
+  "tone": "technical, pedagogical, methodical",
+  "key_insight": "Good language design is an iterative process where each solution must preserve parse-time clarity and prioritize the common case over the uncommon one.",
+  "filename": "2021-12-30-Language-design-considerations"
+}

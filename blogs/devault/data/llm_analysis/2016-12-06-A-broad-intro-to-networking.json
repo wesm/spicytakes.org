@@ -1,0 +1,23 @@
+{
+  "summary": "Drew DeVault provides a practical walkthrough of the OSI networking model aimed at software developers who aren't network specialists. He covers all seven layers from physical hardware through application protocols, with particular depth on layers 3 and 4 (IP and TCP/UDP). The post demystifies concepts like subnetting, NAT, IPv6, TCP reliability guarantees, and UDP's lightweight tradeoffs. He frames the knowledge as essential literacy for programmers who need to debug network issues or make informed architectural decisions.",
+  "key_points": [
+    "The OSI model's seven layers provide a useful framework for understanding networking, though layers 5 and 6 have little practical importance",
+    "IPv4's 32-bit address space is nearly exhausted, making NAT necessary, while IPv6's 128-bit space is so vast that typical allocations contain more addresses than all of IPv4",
+    "TCP provides reliability guarantees (ordered, exactly-once, correct delivery) at the cost of overhead, while UDP is lightweight but makes no such promises",
+    "Most programmers need deep understanding of layers 4 and 7, with broad familiarity across the full stack"
+  ],
+  "money_quotes": [
+    "I want to share with non-networking people enough information about networking to get by.",
+    "Layers 5 and 6 aren't very important.",
+    "Layer 7, the application layer, is where Minecraft lives.",
+    "You can change your MAC address with the ip command, which is often useful for dealing with annoying public WiFi resource limits or for frustrating someone else on the network.",
+    "If you're wondering whether or not we'll ever run out of IPv6 addresses - leave that to someone else to solve tens of millions of years from now.",
+    "UDP datagrams may arrive multiple or zero times, in a different order than they were sent, and possibly with data errors."
+  ],
+  "themes": [
+    "internet_infra"
+  ],
+  "tone": "educational, conversational, pragmatic",
+  "key_insight": "A working programmer doesn't need to be a network engineer, but needs enough understanding of the full networking stack to debug problems, make architecture decisions, and hold informed conversations about infrastructure.",
+  "filename": "2016-12-06-A-broad-intro-to-networking"
+}

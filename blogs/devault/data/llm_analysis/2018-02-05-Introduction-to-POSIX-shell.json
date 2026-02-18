@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault makes the case for writing shell scripts in POSIX shell rather than bash, arguing that portability is the primary reason. He explains that bash is not standardized and exists as a single implementation, while POSIX shell has many conforming implementations across operating systems. The post provides practical guidance on avoiding bashisms, using standard coreutils, and preferring short flags over GNU long flags. He concedes that POSIX shell is not ideal for interactive use, recommending users pick whatever they like for daily command line work. The post serves as both an advocacy piece and a practical introduction for developers unfamiliar with the distinction between bash and POSIX shell.",
+  "key_points": [
+    "Bash is defined only by its implementation with no formal standard, while POSIX shell has a published spec with many conforming implementations",
+    "Using bashisms in build tooling or runtime scripts limits software to GNU/Linux, excluding BSDs, macOS, and other Unix systems",
+    "Common bashisms to avoid include double-bracket conditionals, arrays, and local variables \u2014 use POSIX equivalents instead",
+    "GNU coreutils long flags like --file are non-portable; stick to short POSIX flags for portable scripts",
+    "POSIX shell is for scripts, not interactive use \u2014 use whatever shell you prefer at the command line"
+  ],
+  "money_quotes": [
+    "The POSIX shell is basically a formalized version of the venerable Bourne shell, and on your system it lives at /bin/sh, unless you're one of the unlucky masses for whom this is a symlink to bash.",
+    "Without a standard, bash is defined by its implementation.",
+    "If your build tooling utilizes bashisms, your software will not build on anything but GNU/Linux.",
+    "You might not care now, but when you feel like flirting with other Unicies you'll thank me when all of your scripts work.",
+    "Use whatever you like interactively, but stick to POSIX sh for your scripts.",
+    "The easiest way to learn about POSIX shell is to read the standard \u2014 it's not too dry and shorter than you think.",
+    "Is knowledge of what the magic word grep means much different from knowledge of what grep -E means?"
+  ],
+  "themes": [
+    "systems_programming",
+    "foss",
+    "internet_infra"
+  ],
+  "tone": "technical, opinionated, instructional",
+  "key_insight": "Writing shell scripts in POSIX shell rather than bash ensures portability across all Unix-like systems, and the standard is more accessible than most developers assume.",
+  "filename": "2018-02-05-Introduction-to-POSIX-shell"
+}

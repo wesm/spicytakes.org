@@ -1,0 +1,27 @@
+{
+  "summary": "Drew DeVault argues that Google's GOPROXY service, which caches all Go module downloads, is silently hiding broken dependencies throughout the Go ecosystem. Because the cache never expires, packages whose upstream sources have disappeared continue to resolve through the proxy, creating ticking time bombs that developers only discover when bypassing it. He further criticizes the module mirror for effectively DDoSing his SourceHut servers with redundant crawl requests since February, with the Go team being unresponsive to his reports. He concludes that the Go module mirror may not need to exist at all.",
+  "key_points": [
+    "GOPROXY's never-expiring cache masks broken upstream dependencies, letting bitrot accumulate silently across the Go ecosystem",
+    "Packages that depend on removed modules can only build if Google maintains its cache forever \u2014 a fragile assumption",
+    "Setting GOPROXY=direct reveals the true state of dependencies but makes it hard to get upstream maintainers to care about fixing issues they can't reproduce",
+    "The Go module mirror has been effectively DDoSing SourceHut with redundant clone requests, accounting for roughly a third of all git traffic",
+    "The Go team has been opaque and non-communicative about mitigating the crawl problem despite months of reports"
+  ],
+  "money_quotes": [
+    "The upstream author probably had a good reason for removing a version!",
+    "Caching modules forever can encourage bitrot.",
+    "This has created ticking time bombs throughout the Go ecosystem, which go undetected because GOPROXY hides the problem from developers.",
+    "Packages which have these issues cannot be built unless Google keeps the cache valid forever and can be trusted to treat the personal data associated with the request with respect.",
+    "But, to be honest, the Go module mirror might not need to exist at all.",
+    "I SSH'd into git.sr.ht just now and found 50 git clones from the Go module mirror in the last 30 seconds, which is about \u2153 of all of our git traffic."
+  ],
+  "themes": [
+    "tech_criticism",
+    "internet_infra",
+    "foss",
+    "sourcehut"
+  ],
+  "tone": "critical, frustrated, matter-of-fact",
+  "key_insight": "Go's centralized module proxy creates a false sense of ecosystem health by masking broken dependencies behind Google's cache, while simultaneously burdening upstream hosts with aggressive crawling.",
+  "filename": "2021-08-06-goproxy-breaks-go"
+}

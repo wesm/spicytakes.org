@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault argues that software communities suffer two types of traumatic changes: 'strong' trauma that breaks existing code, and 'weak' trauma that makes existing code unidiomatic. He examines Python 3's migration as strong trauma and asyncio's introduction as weak trauma, noting that asyncio has effectively made vast swaths of the Python ecosystem obsolete without technically breaking anything. The weak form is more insidious because it creates a slow-burning rift between old and new code. He warns that similar trauma could befall Go if generics are added carelessly, urging language designers to minimize community impact when introducing major features.",
+  "key_points": [
+    "Traumatic changes come in two forms: 'strong' (breaks code) and 'weak' (makes code unidiomatic), and both damage communities",
+    "Python 3's transition was a well-known strong trauma that wasted millions of hours and divided the community",
+    "Asyncio created weak trauma by making nearly all I/O-bound Python libraries idiomatically obsolete overnight",
+    "Weak trauma hastens code rot and can push developers to reconsider their language choice entirely when rewrites become necessary",
+    "Language designers should think carefully before changes like Go generics that would make large ecosystems suddenly unidiomatic"
+  ],
+  "money_quotes": [
+    "We might have pulled through in the end, but only after a lot of heartbreak, struggle, and hours of wasted hacking; but the change left a scar on the community.",
+    "You'll see me reach for threads to solve a problem when hell freezes over, and no earlier, so I'm quite fond of first-class coroutines.",
+    "Requests, the darling of the Python world, is effectively useless in a theoretical idiomatic post-asyncio world.",
+    "The opportunity to solve this problem by rewriting with asyncio in mind, however, also presents me a chance to rewrite in anything else, and reevaluate my choice of Python for the project entirely.",
+    "The mature and diverse ecosystem of libraries that help to make a case for Python is dramatically reduced when asyncio support is a consideration.",
+    "All new Python code will either leverage the rotting pre-asyncio ecosystem or suffer through an immature post-asyncio ecosystem.",
+    "In a post-generics world, a large amount of the Go ecosystem will suddenly become unidiomatic, and breaking changes will required to bring it up to spec."
+  ],
+  "themes": [
+    "language_design",
+    "tech_criticism",
+    "foss",
+    "sourcehut"
+  ],
+  "tone": "reflective, cautionary, opinionated",
+  "key_insight": "Making existing code unidiomatic without breaking it is a subtle but deeply damaging form of trauma that fragments ecosystems and accelerates code rot.",
+  "filename": "2019-11-26-Avoid-traumatic-changes"
+}

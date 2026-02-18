@@ -1,0 +1,23 @@
+{
+  "summary": "DeVault offers practical advice for FOSS project maintainers on how to make life easier for downstream packagers and users. He emphasizes using standard build systems for your language, not relying on git-specific features for builds, supporting reproducible builds via SOURCE_DATE_EPOCH, and maintaining good git discipline with annotated tags containing changelogs. The post is aimed at library authors and tool developers whose software gets packaged by Linux distros, pkgsrc, and corporate users. He frames these as small, easy tweaks that yield outsized benefits for the broader ecosystem.",
+  "key_points": [
+    "Use the standard build system and packaging conventions for your language rather than custom solutions that downstream packagers must reverse-engineer",
+    "Don't assume your code will always be in a git repo \u2014 packagers work from tarballs and registry snapshots, so provide fallbacks for git-derived info like version numbers",
+    "Support SOURCE_DATE_EPOCH and other reproducible build practices so independent parties can verify identical build outputs",
+    "Use annotated git tags with changelogs generated from well-disciplined commit messages to help downstreams understand what changes each release brings"
+  ],
+  "money_quotes": [
+    "The first thing to do is avoid using any build system or packaging system which is not the norm for your language.",
+    "The typical build system or packaging process in use for your language already addressed most of those edge cases long ago, which is why we like it better.",
+    "Many distros are striving for reproducible builds these days, which involves being able to run a build twice, or by two independent parties, and arrive at an identical checksum-verifiable result.",
+    "If you must fetch, say, version information from git, then please add a fallback, such as an environment variable.",
+    "This helps us understand what we can expect when upgrading, which helps incentivize us to upgrade in the first place."
+  ],
+  "themes": [
+    "foss",
+    "internet_infra"
+  ],
+  "tone": "practical",
+  "key_insight": "Small, considerate choices in your build system, release process, and git discipline compound into major quality-of-life improvements for the downstream packagers who bring your software to users.",
+  "filename": "2021-02-09-How-to-make-your-downstreams-happy"
+}

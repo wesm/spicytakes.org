@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault announces code annotations for SourceHut, a feature that lets users decorate source code with arbitrary links and markdown generated during CI. Rather than building a closed system, he designed a generic JSON-based format that anyone can generate annotators for, deliberately avoiding GitHub's approach of gatekeeping language support. He details writing custom annotators for C (requiring a near-complete C11 parser to handle GCC extensions) and Go (leveraging Go's excellent standard library AST tools), contrasting the difficulty of each. The post emphasizes SourceHut's philosophy of empowering users to build their own integrations rather than depending on platform maintainers to scale.",
+  "key_points": [
+    "Code annotations use a generic JSON format uploadable via CI, allowing users to annotate code in any language without platform-side changes",
+    "Writing a C annotator required building a C11 parser from scratch using lex/yacc, then spending a week fighting GCC's undocumented extensions",
+    "Go's standard library AST and type-checking tools made its annotator dramatically simpler \u2014 250 lines vs C's 1,300 lines",
+    "The design philosophy explicitly rejects GitHub's model of centralized language support in favor of community-driven extensibility",
+    "The annotation format is intentionally generalizable so other code forges can reuse it"
+  ],
+  "money_quotes": [
+    "It's for this reason that it's important to me that SourceHut's open-source platform allows users large and small to volunteer to build the perfect integration for their needs - I don't scale alone.",
+    "I have a deeply held belief that programming language compiler and introspection tooling should be implemented in the language itself.",
+    "GCC's extensions are not documented in the form of an addendum to the C specification, but rather as end-user documentation and a 15 million lines-of-code compiler for you to reverse engineer.",
+    "It took me almost a week of frustration to get a parser which worked passably on a large subset of the C programs found in the wild, and I imagine I'll be dealing with GNU problems for years to come.",
+    "Please don't use C extensions, folks.",
+    "I started over my morning cup of coffee today and I was finished with the basics by lunch.",
+    "Improvements to Pygments reach not only SourceHut, but a large community of projects, making the software ecosystem better for everyone."
+  ],
+  "themes": [
+    "sourcehut",
+    "systems_programming",
+    "foss",
+    "language_design"
+  ],
+  "tone": "technical, enthusiastic, opinionated",
+  "key_insight": "By designing code annotations as a generic, user-driven system rather than a platform-controlled feature, SourceHut sidesteps the scaling bottleneck that prevents platforms like GitHub from supporting smaller languages and niche use cases.",
+  "filename": "2019-07-08-Announcing-annotations-for-sourcehut"
+}

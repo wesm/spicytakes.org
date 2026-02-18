@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault argues that Unix's fork syscall is one of the worst design decisions in operating system history, tracing its origins to the PDP-11 era when copying an entire address space to spawn a process was already questionable. He details how fork leads to cascading problems: inherited file descriptors requiring CLOEXEC hacks, complex pipe setup, and most damningly, memory overcommitment that necessitated the OOM killer. After dismissing vfork and posix_spawn as inadequate fixes, he advocates for Plan 9's rfork and the spawn model used in his KnightOS kernel, where new processes are configured before execution rather than cloned from parents.",
+  "key_points": [
+    "Fork's design of copying the entire process space was questionable even in 1971 and has only been papered over with hacks like copy-on-write and CLOEXEC",
+    "Fork directly causes memory overcommitment and the OOM killer, since the kernel must pretend it has memory it doesn't to avoid failing on every fork call",
+    "Plan 9's rfork improves on fork by letting you specify exactly what the child inherits, while the spawn model avoids fork's flaws entirely by configuring processes before they start",
+    "Both vfork and posix_spawn are failed attempts to fix fork's problems while preserving backward compatibility",
+    "Linux already has clone (rfork equivalent) but the ecosystem continues using fork+exec out of inertia"
+  ],
+  "money_quotes": [
+    "In my opinion, fork is one of the most questionable design choices of Unix.",
+    "Fork is the direct cause of the stupidest component I've ever heard of in an operating system: the out-of-memory (aka OOM) killer.",
+    "Linux makes an awfully big fuss about 'never breaking userspace' for a kernel that will lie about memory it doesn't have, then kill programs that try to use the back-alley memory they were given.",
+    "That this nearly 50 year old crappy design choice has come to this astonishes me.",
+    "New processes in plan9 are not the everything-must-go fuckfest of your typical fork call.",
+    "To the brave OS designers of the future, ready to shrug off the weight of legacy: please reconsider fork.",
+    "Basically, when you create a new process, it is kept in limbo until the parent consents to begin."
+  ],
+  "themes": [
+    "systems_programming",
+    "tech_criticism"
+  ],
+  "tone": "opinionated, irreverent, technical",
+  "key_insight": "Fork's legacy as a sacred Unix primitive has forced decades of increasingly absurd workarounds \u2014 from CLOEXEC to the OOM killer \u2014 when cleaner models like spawn have existed all along.",
+  "filename": "2018-01-02-The-case-against-fork"
+}

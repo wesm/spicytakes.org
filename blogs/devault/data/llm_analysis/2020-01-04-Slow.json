@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault benchmarks how many syscalls and how much disk space various programming languages require to print 'hello world', using this as a proxy for unnecessary complexity. He establishes that the ideal program needs only two syscalls (write and exit) and measures how far each language deviates from this baseline. The results range from hand-written assembly at 2 syscalls and 8.6 KiB to interpreted languages requiring hundreds of syscalls and megabytes of runtime. The post argues that this bloat represents real costs: slower startup, harder debugging, and wasted disk space that compounds as abstractions layer on top of each other.",
+  "key_points": [
+    "A perfect compiler for any language would emit just two syscalls for hello world: write and exit",
+    "More syscalls is a reasonable proxy for how much unnecessary work a language runtime performs beyond what you asked for",
+    "The complexity cost is real and practical: harder debugging, slower startup, and wasted disk space",
+    "JIT languages fare much worse than compiled languages, and interpreted languages carry enormous runtime dependencies",
+    "Abstractions have exponential growth in overhead as more layers are added"
+  ],
+  "money_quotes": [
+    "Most languages do a whole lot of other crap other than printing out \"hello world\", even if that's all you asked for.",
+    "A perfect compiler would emit this hello world program for any language.",
+    "These numbers are real. This is more complexity that someone has to debug, more time your users are sitting there waiting for your program, less disk space available for files which actually matter to the user.",
+    "I hope will encourage readers to be more aware of the consequences of their abstractions, and their exponential growth as more layers are added.",
+    "Aside: it is getting way too goddamn difficult to build static Go binaries.",
+    "Passing /dev/urandom into perl is equally likely to print \"hello world\"",
+    "I reckon more syscalls is a decent metric for how much shit is happening that you didn't ask for."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "tech_criticism"
+  ],
+  "tone": "opinionated, sardonic, technical",
+  "key_insight": "Even the simplest program reveals the enormous hidden cost of language runtimes and abstractions, and developers should be conscious of this compounding overhead.",
+  "filename": "2020-01-04-Slow"
+}

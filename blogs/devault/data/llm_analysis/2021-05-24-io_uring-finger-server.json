@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault walks through building a high-performance finger server using Linux's io_uring async I/O interface, written in his then-unreleased programming language (Hare). He uses the deliberately simple and obsolete Finger protocol as a test bed for designing an io_uring wrapper, explaining the ring buffer architecture, submission/completion queue model, and how it avoids costly syscalls. The post doubles as a tutorial on both io_uring concepts and Hare's language features including error handling, tagged unions, slices, and state machines. He implements a complete client state machine handling query parsing, plan file reading, CRLF conversion, and error forwarding, all driven by async I/O events.",
+  "key_points": [
+    "io_uring solves Linux's long-standing async I/O problem by using shared memory ring buffers between kernel and userspace, avoiding syscall overhead",
+    "The Finger protocol's simplicity makes it an ideal test case for exercising a new async I/O interface without protocol complexity getting in the way",
+    "The server uses a carefully planned state machine with five states, where each state transition corresponds to an io_uring I/O completion event",
+    "Memory is pre-planned so that buffer sizes account for worst-case CRLF expansion, enabling static insert without reallocation",
+    "The language's error handling requires explicit action on every error via tagged unions, with propagation (?) and assertion (!) operators"
+  ],
+  "money_quotes": [
+    "After being designed in the 70's and then completely forgotten about for 50 years, it's the perfect small and simple network protocol to test drive this new interface with.",
+    "It more or less solves the async I/O problem for Linux, which Linux (and Unix at large) has struggled to do for a long time.",
+    "I went for a backlog of 256 connections (overkill for a finger server, but hey), and set reuseport so you can achieve CLOUD SCALE by running several daemons at once.",
+    "In this language, we require the user to explicitly do something about errors.",
+    "The somewhat provocative name allegedly comes from an older usage of the word to mean 'a snitch' or a member of the FBI.",
+    "And the code is GPL'd, but not AGPL'd, so you aren't entitled to it if you finger me!"
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "internet_infra",
+    "foss"
+  ],
+  "tone": "technical, playful, educational",
+  "key_insight": "The deliberately obsolete Finger protocol serves as a perfect minimal test case for exploring io_uring's async I/O model and showcasing a new systems language's design choices around error handling, memory management, and state machines.",
+  "filename": "2021-05-24-io_uring-finger-server"
+}

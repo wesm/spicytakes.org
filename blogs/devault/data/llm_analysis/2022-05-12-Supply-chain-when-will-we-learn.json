@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault catalogues a long history of supply-chain attacks across npm, PyPI, Crates, RubyGems, and other language-specific package managers, using Rust's first such incident as the hook. He argues these attacks are inevitable consequences of a broken-by-design model where vendors publish packages directly with no review step. He contrasts this with Linux distribution package managers, which have independent maintainers, review processes, and trust relationships. His prescription is that language-specific package managers should either be abandoned in favor of system package managers or reorganize themselves to include independent review, package signatures, and reproducible builds.",
+  "key_points": [
+    "Language-specific package managers (npm, PyPI, Crates, etc.) are broken by design because they ship vendor-uploaded packages directly to users with no independent review",
+    "The empty 'Timeline of similar incidents in official Linux distribution repositories' section is a pointed rhetorical device showing distro package managers don't have this problem",
+    "System package managers solve supply-chain attacks through independent maintainers, review processes, trust relationships, and whole-system integration testing",
+    "If language-specific package managers want to survive, they must adopt distro-style practices: independent maintainers, review processes, package signatures, and reproducible builds"
+  ],
+  "money_quotes": [
+    "Congratulations to Rust for its first (but not its last) supply-chain attack this week!",
+    "They join a growing club of broken-by-design package managers which publish packages uploaded by vendors directly, with no review step, and ship those packages directly to users with no further scrutiny.",
+    "The correct way to ship packages is with your distribution's package manager.",
+    "These have a separate review step, completely side-stepping typo-squatting, establishing a long-term relationship of trust between the vendor and the distribution packagers, and providing a dispassionate third-party to act as an intermediary between users and vendors.",
+    "I generally feel that overlay package managers (a term I just made up for npm et al) are redundant.",
+    "But if you think that the overlay package manager can do it better: prove it."
+  ],
+  "themes": [
+    "foss",
+    "tech_criticism",
+    "internet_infra"
+  ],
+  "tone": "sardonic, polemical, vindicated",
+  "key_insight": "Language-specific package managers are fundamentally broken because they skip the independent review step that Linux distribution package managers have used for decades to prevent supply-chain attacks.",
+  "filename": "2022-05-12-Supply-chain-when-will-we-learn"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault announces Hermes, a from-scratch rewrite of his Helios microkernel, after two years of design thinking and research following Helios stalling in design hell. He explains that Helios, his first serious OS project, accumulated too many poor assumptions to serve as a foundation. The intervening period included building Bunnix (a Unix clone) to gain practical OS implementation experience and studying prior art extensively. Hermes already surpasses Helios in key ways: symmetric multiprocessing support, a simpler capability/resource management model using reference counting, rethought syscall and IPC ABIs, and a more comprehensive test suite verified on real hardware. The userspace strategy shifted from a specialized Hare standard library to porting the upstream one, reducing complexity across the system.",
+  "key_points": [
+    "Helios stalled due to accumulated design mistakes from being a first serious OS project, leading DeVault to spend two years in pure design research before starting over",
+    "Hermes implements SMP from the start with a surprisingly simple multicore scheduler using per-CPU run queues and work stealing in under 200 lines of code",
+    "Resource management moved from seL4-style capability derivation graphs to simpler reference counting, significantly reducing kernel complexity",
+    "The userspace ports the upstream Hare standard library rather than maintaining a specialized fork, giving low-level components a more complete programming environment",
+    "Building Bunnix as a complete Unix clone was a deliberate learning exercise that fed practical OS implementation knowledge back into the Hermes design"
+  ],
+  "money_quotes": [
+    "Since Helios was my first major OS project at this scale and with this much ambition, the design and implementation ended up with a lot of poor assumptions that made it a pretty weak foundation for building a complete OS upon.",
+    "In late 2023 I more or less gave up on it and moved my OS development work out of the realm of writing code and back into the realm of thinking really hard about how to design operating systems.",
+    "What followed was a couple of years of design thinking, developing small scale design experiments, and doing deeper research into prior art \u2013 reading papers and studying existing kernels.",
+    "This time around, I finally listened to the advice I'd been hearing in osdev circles for years and implemented SMP as early as possible to avoid dealing with tons of problems adding multiprocessing to an otherwise mature kernel.",
+    "The most important parts of the scheduler are less than 200 lines of code.",
+    "I also moved from an seL4-style capability derivation graph \u2013 which is quite complex to implement and reason about \u2013 to reference counting to manage the lifetimes of kernel resources."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "reflective, technical, candid",
+  "key_insight": "Sometimes the most productive thing a systems programmer can do is stop writing code, acknowledge that the foundation is flawed, and spend years in design research before starting over from scratch.",
+  "filename": "2026-01-12-2026-01-12-Hermes-from-the-ground-up"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "This tutorial walks through rendering a window in a Wayland compositor built with wlroots. It covers setting up the wl_compositor global for surface allocation, adding xdg_shell for window roles, and iterating over surfaces to render them using OpenGL matrices. The key distinction emphasized is that wlroots deliberately does not render for you, giving compositors full flexibility over how surfaces are displayed. The article explains the matrix math needed to project surface coordinates to screen coordinates, while showing how wlroots helper functions simplify the process. By the end, the compositor can display actual client windows like weston-simple-shm and gnome-terminal.",
+  "key_points": [
+    "wl_compositor provides generic surfaces for sharing pixel buffers, but surfaces need a role (like xdg_shell) to function as application windows",
+    "wlroots deliberately leaves rendering to the compositor author, unlike wlc or libweston, enabling desktop, VR, or mobile-style compositors",
+    "Rendering requires projecting surface pixel coordinates through an orthographic projection matrix to screen coordinates, but wlroots provides helper functions like wlr_matrix_project_box",
+    "The tutorial uses a simplified hack of rendering all known surfaces rather than properly managing shells, which will be addressed in future articles"
+  ],
+  "money_quotes": [
+    "Something that distinguishes wlroots from libraries like wlc and libweston is that wlroots does not do any rendering for you.",
+    "This gives you a lot of flexibility to render surfaces any way you like. The clients just gave you a pile of pixels, what you do with them is up to you.",
+    "Maybe you're making a desktop compositor, or maybe you want to draw them on an Android-style app switcher, or perhaps your compositor arranges windows in VR - all of this is possible with wlroots.",
+    "The reason we make you understand and perform these steps is because it's entirely possible that you'll want to do them differently in the future.",
+    "This is only the simplest case, but remember that wlroots is designed for every case.",
+    "If you get lost, just skip to the next diff and treat it as magic incantations that make your windows appear."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra"
+  ],
+  "tone": "technical",
+  "key_insight": "wlroots gives compositor authors complete rendering freedom by providing building blocks rather than a ready-made rendering pipeline, enabling everything from traditional desktops to VR window managers.",
+  "filename": "2018-02-28-Writing-a-wayland-compositor-part-3"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Drew DeVault reports on the progress of Ares OS, an operating system written primarily in Hare, which has advanced significantly since his FOSDEM demo. The system now supports real processes with fork/exec, multiple hardware drivers (PCI, AHCI, PS/2, VGA), an ext4 filesystem, and initial software ports including ed(1) and the rc shell. The post itself was written from within Ares using ed on an ext4 filesystem, demonstrating the OS has reached a usable state. DeVault considers the original question of whether an OS can be written in Hare answered with a 'resounding yes' and outlines ambitious future plans including networking, audio, USB, and possibly Wayland support.",
+  "key_points": [
+    "Ares OS has progressed from a single-process demo at FOSDEM to a multi-process system with fork, exec, threads, and auxiliary vectors",
+    "Multiple hardware drivers now exist including PCI, AHCI, PS/2 keyboard, serial, VGA console, ext4, and CMOS real-time clock",
+    "A C library derived from musl libc enables relatively easy porting of existing C software like ed(1) and lwext4",
+    "The roadmap includes networking, audio, USB, a service manager, self-hosting builds, and potentially Wayland",
+    "The blog post itself was written from within Ares OS, serving as a practical demonstration of the system's capabilities"
+  ],
+  "money_quotes": [
+    "I am pleased to be writing today's blog post from a laptop running Ares OS.",
+    "The talk I gave at FOSDEM was no doubt impressive, but it was a bit of a party trick.",
+    "The very idea of \"processes\" was absent from the system at this stage.",
+    "I was pleasantly surprised at how easy it was to port ed(1).",
+    "I think that by now I have answered the original question, \"can an operating system be written in Hare\", with a resounding \"yes\".",
+    "Now I'm just having fun with it.",
+    "There's no poweroff command yet, so I suppose I'll just hold down the power button until it stops making noise."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "foss"
+  ],
+  "tone": "enthusiastic, technical, playful",
+  "key_insight": "Ares OS has matured from a proof-of-concept into a functional operating system with real processes, drivers, and software ports, definitively proving that Hare is viable as a systems programming language for OS development.",
+  "filename": "2023-08-09-2023-08-09-Hello-from-Ares"
+}

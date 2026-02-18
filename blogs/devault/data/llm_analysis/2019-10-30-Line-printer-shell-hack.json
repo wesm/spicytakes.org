@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault documents his project to turn a dot matrix line printer into a functioning TTY-style shell interface, purely for hack value and computing nostalgia. He wrote glue code in Go that connects a pseudo-terminal running /bin/sh to an Epson LX-350 printer via USB, creating an experience resembling the original teletypewriters that gave Unix terminals their name. The post walks through the technical details of pty setup, Epson escape sequences for paper feed control, and the goroutine-based timing logic that manages spooling paper in and out for readability. He frames the project as a window into what early Unix development actually looked like.",
+  "key_points": [
+    "A dot matrix printer can be driven directly by writing to /dev/usb/lp, and supports ANSI escape sequences just like a terminal",
+    "The Go glue code creates a pseudo-terminal running /bin/sh and pipes its output to the printer, with stdin as input",
+    "Epson proprietary escape sequences allow precise paper feed control in 1/216-inch increments, enabling a read-then-write workflow",
+    "Setting TERM=lp prevents applications from attempting sophisticated terminal escape codes that a printer can't handle",
+    "The project recreates the original computing experience where 'terminal' meant an actual physical teletypewriter"
+  ],
+  "money_quotes": [
+    "It's been too long since I last did a good hack, for no practical reason other than great hack value.",
+    "Your terminal emulator is emulating a terminal - the control sequences applications send to these are backwards-compatible with 50 years of computing history.",
+    "A distinct advantage of visual terminals is not having to deal with so much bloody paper, a problem that I've become acutely familiar with in the past few days.",
+    "If you were a fly on the wall when Unix was written, it would have looked a lot like this.",
+    "The old hands complained that it was less useful - you could no longer write notes on your backlog, tear off a page and hand it to a colleague, or white-out mistakes."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra"
+  ],
+  "tone": "playful, nostalgic, technical",
+  "key_insight": "Modern terminal emulators are simulations of physical devices, and rebuilding a real teletypewriter from commodity hardware reveals the deep backwards-compatibility baked into Unix's design.",
+  "filename": "2019-10-30-Line-printer-shell-hack"
+}

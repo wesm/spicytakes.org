@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault argues that developers should use their Linux distribution's package manager instead of language-specific tools like virtualenv, rbenv, npm, or pip for production deployments. He points out that distro repositories already contain most dependencies and provide better system integration. He encourages developers to contribute missing or outdated packages to their distro rather than bypassing the system. His ideal deployment model is pushing packages to a repository and running system updates across a fleet.",
+  "key_points": [
+    "Language-specific package managers encourage bad practices in production, even if useful during development",
+    "Distro packages are better system citizens and update alongside the rest of the OS",
+    "Developers should contribute to their distro by updating outdated packages or submitting new ones",
+    "Custom package repositories let you control release schedules while still using distro tooling",
+    "System packages handle concerns like service files and user/group management that language package managers cannot"
+  ],
+  "money_quotes": [
+    "Tools like virtualenv, rbenv, and to a lesser extent npm and pip, are occasionally useful in development but encourage bad practices in production.",
+    "Many people forget that their distro already has a package manager!",
+    "On the whole you can expect your distro packages to be much better citizens on your system than a language-specific package manager will be.",
+    "Linux distributions are run by volunteers, and it's easy to volunteer yourself!",
+    "\"But what if dependencies update and break my stuff?\", you ask. First of all, why aren't you keeping your dependencies up-to-date?",
+    "The perfect deployment strategy for some software is pushing a new package to your package repository, then SSHing into your fleet and running system updates."
+  ],
+  "themes": [
+    "foss",
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Developers should stop reinventing deployment with language-specific package managers and instead learn to use and contribute to their distro's native packaging system.",
+  "filename": "2018-01-10-Learn-your-package-manager"
+}

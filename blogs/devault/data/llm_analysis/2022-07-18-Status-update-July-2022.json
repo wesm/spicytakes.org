@@ -1,0 +1,26 @@
+{
+  "summary": "Drew DeVault's July 2022 status update covers progress across Hare and Helios. For Hare, he introduced a string templating module and a pixel buffer library, laying groundwork for a graphics stack. Helios, his microkernel OS, saw significant systems work including PCI and AHCI drivers, IRQ control for userspace, a DOOM port, and pre-emptive multi-tasking. RISC-V porting also progressed with a working ethernet driver. He outlines next steps around memory capabilities and process spawning.",
+  "key_points": [
+    "Hare's new strings::template module follows the standard library philosophy of simplicity over completeness, avoiding heavyweight dependencies like Jinja2",
+    "The pixbuf library begins a planned Hare graphics stack spanning pixel buffers, PNG loading, vector graphics (TinyVG), and Wayland display",
+    "Helios gained substantial OS infrastructure: PCI driver, AHCI driver, userspace IRQ control, pre-emptive multitasking, and a DOOM port as proof of concept",
+    "The RISC-V port of Helios reached a milestone with a working e1000 ethernet driver capable of sending and receiving ICMP packets",
+    "Next priorities are memory capability splitting, capability destruction, and cspace/vspace creation to enable spawning new processes"
+  ],
+  "money_quotes": [
+    "The templating is pretty simple \u2014 as is typical for the standard library \u2014 but allows a fairly wide range of formatting options.",
+    "It only deals with pixel buffers, handling pixel format conversions and doing small operations like fill and copy.",
+    "I also completed IRQ control for userspace, so that userspace device drivers can process interrupts, and used it to write a keyboard driver for a functional DOOM port.",
+    "The idle thread was also added, so that all processes can be blocked waiting on interrupts, signals, endpoints, etc.",
+    "I also implemented pre-emptive multi-tasking early this month, and the vulcan test suite now has several multi-threaded tests to verify IPC functionality."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "foss",
+    "sourcehut"
+  ],
+  "tone": "technical",
+  "key_insight": "Hare and Helios are maturing in parallel, with Hare gaining libraries for graphics and templating while Helios reaches key OS milestones like userspace drivers, pre-emptive multitasking, and a working DOOM port.",
+  "filename": "2022-07-18-Status-update-July-2022"
+}

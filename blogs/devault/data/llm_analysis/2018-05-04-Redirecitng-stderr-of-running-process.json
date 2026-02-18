@@ -1,0 +1,22 @@
+{
+  "summary": "DeVault describes a technique for redirecting stderr of an already-running process using gdb, discovered during a KDE sprint in Berlin. Rather than using strace to decipher write syscalls, he demonstrates how gdb's ability to attach to running processes and execute arbitrary code makes this straightforward. The approach uses gdb's 'compile code' command to call open() and dup2() in the target process's address space, effectively replacing stderr with a file. He notes this is just one example of the powerful and hacky things possible with gdb.",
+  "key_points": [
+    "gdb can attach to running processes and execute arbitrary C code in their address space, making runtime process manipulation straightforward",
+    "Redirecting stderr of a running process requires just two syscalls: open() to create the target file and dup2() to replace the stderr file descriptor",
+    "The 'compile code' gdb command compiles C code and runs it in the target process by mapping executable memory",
+    "This technique generalizes to other creative uses like closing specific file descriptors to disconnect users from services"
+  ],
+  "money_quotes": [
+    "I Googled it and found underwhelming answers using strace and trying to decipher the output by reading the write syscalls.",
+    "gdb, the GNU debugger, has two important features that make this possible: Attaching to running processes via gdb -p, and executing arbitrary code in the target process space.",
+    "The compile code gdb command will compile some arbitrary C code and run the result in the target process, presumably by mapping some executable RAM and loading it in, then jumping to the blob.",
+    "I once disconnected someone from an internet radio by attaching gdb to nginx and closing their file descriptor.",
+    "There are lots of other cool (and hacky) things you can do with gdb."
+  ],
+  "themes": [
+    "systems_programming"
+  ],
+  "tone": "technical",
+  "key_insight": "gdb's ability to attach to running processes and execute arbitrary compiled code in their address space makes runtime process manipulation like stderr redirection surprisingly simple.",
+  "filename": "2018-05-04-Redirecitng-stderr-of-running-process"
+}

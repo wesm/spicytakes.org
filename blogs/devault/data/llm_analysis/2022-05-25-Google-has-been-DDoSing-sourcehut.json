@@ -1,0 +1,28 @@
+{
+  "summary": "Drew DeVault documents how Google's Go Module Mirror has been effectively DDoSing SourceHut's git service for over a year by repeatedly cloning repositories at excessive rates. The Go Module Mirror's distributed crawlers independently clone the same repositories dozens of times per hour, creating a constant floor of I/O and network load. Despite filing tickets and suggesting multiple technical solutions \u2014 respecting robots.txt, using git fetch instead of full clones, or fetching on-demand \u2014 the Go team has not prioritized fixes. DeVault finds himself unable to block the traffic without breaking Go modules for SourceHut users, and was banned from the Go issue tracker, leaving him with no recourse against a trillion-dollar company's negligent infrastructure.",
+  "key_points": [
+    "Google's Go Module Mirror crawlers account for 5% of all git.sr.ht traffic, with each request performing a full git clone",
+    "The mirror's distributed nodes crawl independently without coordination, cloning the same repos 8-10 times per hour per node",
+    "The Go team rejected all proposed mitigations \u2014 robots.txt compliance, git fetch instead of clone, shallow clones, and on-demand fetching",
+    "DeVault cannot block the traffic without breaking Go module resolution for all default-configured Go users",
+    "DeVault was banned from the Go issue tracker, removing his ability to advocate for a fix through official channels"
+  ],
+  "money_quotes": [
+    "Of the past 100,000 HTTP requests received by git.sr.ht, 4,774 have been requested by GoModuleProxy \u2014 5% of all traffic. And their requests are not cheap: every one is a complete git clone.",
+    "I never really appreciated the fact that Go secretly calls home to Google to fetch modules through a proxy.",
+    "The Go team holds that this service is not a crawler, and thus they do not obey robots.txt.",
+    "I have no further recourse but to tolerate having our little-fish service DoS'd by a 1.38 trillion dollar company.",
+    "If I was in their position, and my service was mistakenly sending an excessive amount of traffic to someone else, I would make it my first priority to fix it.",
+    "I suppose no one will get promoted for prioritizing that at Google.",
+    "I can't blackhole their IP addresses, because that would make all Go modules hosted on git.sr.ht stop working for default Go configurations."
+  ],
+  "themes": [
+    "sourcehut",
+    "tech_criticism",
+    "foss",
+    "internet_infra"
+  ],
+  "tone": "frustrated, methodical, indignant",
+  "key_insight": "A trillion-dollar company's negligent infrastructure design can effectively DDoS small open-source services, and the power asymmetry leaves the smaller party with no practical recourse.",
+  "filename": "2022-05-25-Google-has-been-DDoSing-sourcehut"
+}

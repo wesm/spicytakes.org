@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault walks through the implementation of the first userspace serial driver for Helios, his capability-oriented microkernel OS written in Hare. The post covers three layers: the initramfs (a tarball containing driver binaries), the driver loader (which parses ELF files and driver manifests to provision exactly the capabilities each driver declares), and the serial driver itself (a simple event loop handling IRQs and IPC for reading/writing COM ports). The capability-based design means the serial driver runs in userspace with only the specific I/O ports, IRQs, and IPC endpoints it declares in its manifest \u2014 it cannot even allocate memory. DeVault contrasts this with Linux, where a serial driver bug could compromise the entire system. The post concludes with plans for PS/2 keyboard and VGA console drivers to eventually run a shell.",
+  "key_points": [
+    "Helios uses a declarative driver manifest (INI format embedded in ELF sections) where drivers specify exactly which capabilities they need, receiving nothing else",
+    "The capability-oriented isolation is stronger than Unix pledge(2) \u2014 the serial driver cannot allocate memory, only invoke its declared I/O ports, IRQs, and IPC endpoints",
+    "The driver implements a classic event loop polling on IRQ notifications and IPC endpoints, with read/write buffering for COM port FIFOs",
+    "Shared memory between processes requires explicit page mapping/unmapping across address spaces \u2014 a deliberate security tradeoff that prevents implicit memory access",
+    "Hare's standard library modules (format::tar, bufio) were designed with OS-level use cases in mind, enabling direct use in the kernel's init process"
+  ],
+  "money_quotes": [
+    "This driver cannot even allocate memory.",
+    "This provides stronger isolation than Unix systems can offer (even with something like OpenBSD's pledge(2)).",
+    "If there's a vulnerability here, the worst that could happen is that a malicious actor on the other end of the serial port could crash the driver, which would then be rebooted by the service manager.",
+    "On Linux, a bug in the serial driver can be used to compromise the entire system.",
+    "Each driver declares exactly what capabilities it needs and receives only these capabilities, and nothing else.",
+    "All of the code we're going to look at today runs in userspace, not in the kernel, so strictly speaking this should be 'notes from OS hacking in Hare', but I won't snitch if you don't.",
+    "Inefficient, but it works for demonstration purposes."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "A capability-oriented microkernel design lets drivers declare exactly what system resources they need via a simple manifest, achieving stronger isolation than Unix can offer while keeping driver code straightforward.",
+  "filename": "2022-10-27-Kernel-hacking-with-Hare-part-3"
+}

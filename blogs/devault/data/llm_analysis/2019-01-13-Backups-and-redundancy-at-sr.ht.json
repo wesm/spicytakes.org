@@ -1,0 +1,28 @@
+{
+  "summary": "Drew DeVault details the backup and redundancy infrastructure behind sr.ht, his open source software forge. He explains a layered approach using ZFS with ZRAID, PostgreSQL continuous archiving and streaming replication, and borg backups across two colocation sites in Philadelphia and San Francisco. While high availability is still in progress, data integrity has been a top priority since sr.ht's earliest days. He emphasizes that backups are only as good as their monitoring and testing, and notes the value of self-hosted infrastructure over managed cloud services.",
+  "key_points": [
+    "sr.ht uses a multi-layered backup strategy: ZFS/ZRAID for disk failure, ZFS snapshots for filesystem recovery, PostgreSQL continuous archiving for database-level recovery, and streaming replication for datacenter-level failure",
+    "Off-site backups in San Francisco use borg for encrypted, compressed, deduplicated backups of filesystem data like git repositories, with tiered retention policies",
+    "Monitoring and testing are treated as essential parts of the backup system, not afterthoughts \u2014 including deliberate failure testing and periodic restoration of services from backups",
+    "DeVault runs sr.ht on self-hosted colocated hardware rather than cloud providers, giving users the benefit of not having their data accessible to large corporations",
+    "The infrastructure prioritizes data integrity over uptime during the alpha phase \u2014 outages are acceptable as long as no user data is lost"
+  ],
+  "money_quotes": [
+    "Data integrity has always been of paramount importance to me. The very earliest versions of sr.ht, from well before it was even trying to be a software forge, made a point to never lose a single byte of user data.",
+    "Outages are okay - so long as when service is restored, everything is still there.",
+    "I don't trust any other filesystem with important data.",
+    "Having multiple layers of data redundancy here protects sr.ht from a wide variety of failure modes, and also protects each redundant system from itself.",
+    "The old wisdom is 'you don't have backups until you've tested them'.",
+    "With the rise in popularity of managed ops like AWS and GCP, it seems like ops & sysadmin roles are becoming less common.",
+    "Some of us still love the sound of a datacenter and the greater level of control you have over your services, and as a bonus my users aren't worrying about $bigcorp having access to their data."
+  ],
+  "themes": [
+    "sourcehut",
+    "internet_infra",
+    "foss",
+    "tech_criticism"
+  ],
+  "tone": "technical, transparent, principled",
+  "key_insight": "Reliable infrastructure requires multiple independent layers of redundancy that protect against different failure modes \u2014 and against each other \u2014 combined with rigorous monitoring and testing.",
+  "filename": "2019-01-13-Backups-and-redundancy-at-sr.ht"
+}

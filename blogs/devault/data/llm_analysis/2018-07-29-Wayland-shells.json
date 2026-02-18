@@ -1,0 +1,25 @@
+{
+  "summary": "This tutorial explains how Wayland shells give meaning to surfaces by assigning them roles like application windows, panels, or lock screens. DeVault covers the three main shells relevant to wlroots compositor development: xdg-shell for application windows and popups, layer-shell for desktop components like panels and wallpapers, and Xwayland for backward compatibility with X11 clients. The post details how each shell handles atomic state transitions, surface lifecycle events, and keyboard focus. DeVault emphasizes wlroots' consistent API design across all shells, including treating Xwayland as a shell for API uniformity.",
+  "key_points": [
+    "Surfaces are raw pixel rectangles; shells assign semantic roles (window, panel, wallpaper, lock screen) that determine behavior like focus, resizing, and stacking",
+    "xdg-shell is the only stable Wayland shell protocol, handling application windows (toplevels) and popups with atomic state transitions and client-side decorations",
+    "Layer-shell is a collaborative protocol from 8 wlroots compositors, organizing desktop components into four layers (background, bottom, top, overlay) with exclusive zones and keyboard interactivity controls",
+    "wlroots treats Xwayland as a shell for API consistency, providing an X11 window manager abstraction so compositor authors don't have to write one themselves",
+    "Wayland's pervasive atomicity ensures all state changes\u2014even window titles\u2014are applied in a single commit, eliminating the vsync and tearing issues of X11"
+  ],
+  "money_quotes": [
+    "Shells are how surfaces in Wayland are given meaning.",
+    "All Wayland interfaces aim for atomicity, so that all changes are applied in a single fell swoop and we never display an invalid frame.",
+    "This is why Wayland is known for addressing vsync problems X suffers from, but is pervasive across the ecosystem.",
+    "We figured that you might be writing a Wayland compositor so that you don't have to write an X11 window manager, too. So we wrote one for you.",
+    "X11 windows make more unreasonable requests than other shells, since X11 was the wild wild west and a lot of clients took advantage of that.",
+    "Unfortunately, if the client is not responding or misbehaving, the user cannot use these controls to move, resize, or minimize the window."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra"
+  ],
+  "tone": "technical",
+  "key_insight": "Wayland shells provide a clean abstraction layer that assigns semantic roles to raw pixel surfaces, and wlroots unifies disparate shell protocols\u2014including Xwayland\u2014behind a consistent API to simplify compositor development.",
+  "filename": "2018-07-29-Wayland-shells"
+}

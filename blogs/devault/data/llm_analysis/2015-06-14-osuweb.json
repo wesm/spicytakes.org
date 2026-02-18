@@ -1,0 +1,23 @@
+{
+  "summary": "DeVault describes building osu!web, a JavaScript-based web player for the rhythm game osu! that uses WebGL and Web Audio APIs. The project decompresses beatmap archives, decodes music, parses the osu! beatmap format, and renders gameplay in the browser. He walks through the technical implementation including beatmap loading, audio playback via Web Audio, rendering with PIXI.js for WebGL acceleration, and the challenge of rendering bezier curve sliders. The project demonstrates how newly stabilized web technologies like Web Audio and WebGL make previously impossible browser-based game rendering feasible.",
+  "key_points": [
+    "osu!web uses drag-and-drop file loading, zip.js for archive decompression, and a custom parser for the osu beatmap format",
+    "Web Audio API enables in-browser mp3 decoding and playback, though low-latency audio remains a challenge",
+    "PIXI.js provides a performant WebGL rendering layer with canvas fallback, replacing an earlier pure-canvas approach",
+    "Slider rendering using bezier curves is the most complex part, involving precomputed curve points, animated follow circles, and rolling ball sprites",
+    "Performance optimization comes from only loading sprites for hit objects within a 10-second window of the current timestamp"
+  ],
+  "money_quotes": [
+    "This is super cool and totally would not have been possible even a few months ago - kudos to the teams implementing all this exciting stuff in the browsers.",
+    "PIXI was a really good choice - it's an easy to use API and the WebGL frontend is fast as hell.",
+    "osu!web plays a map with performance that compares to the performance of osu! native.",
+    "I sneakily loaded a beatmap in the background in your browser as you were reading.",
+    "The biggest problem he's facing is that Web Audio has no good solution for low-latency audio playback."
+  ],
+  "themes": [
+    "systems_programming"
+  ],
+  "tone": "technical",
+  "key_insight": "Newly stabilized web technologies like WebGL and Web Audio have reached the point where browser-based applications can match native game performance for rendering and audio playback.",
+  "filename": "2015-06-14-osuweb"
+}

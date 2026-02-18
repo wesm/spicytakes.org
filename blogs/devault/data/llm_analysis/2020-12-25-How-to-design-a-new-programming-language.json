@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault outlines a rigorous, multi-stage process for designing a new programming language from scratch. He advocates starting with pseudocode and idea circulation, then building a 'sacrificial' first compiler meant to be thrown away. The process progresses through writing a formal specification, building a cleaner second compiler (ideally in C), and finally a self-hosted third implementation in the language itself. He emphasizes that each stage builds expertise and refines the design, with the formal spec serving as a critical anchor throughout.",
+  "key_points": [
+    "The first compiler implementation should be treated as sacrificial \u2014 a tool for validating ideas, not production code",
+    "A parser generator like yacc is recommended for early prototyping to enable rapid grammar iteration and produce a formal grammar as a side effect",
+    "Every serious programming language should have a formal specification, written after the first implementation proves what works",
+    "A self-respecting general-purpose language must eventually be self-hosted, requiring at least three compiler implementations",
+    "The bootstrap compiler (ideally in C) should be maintained perpetually as a path to build the toolchain from scratch \u2014 a pointed criticism of Rust's bootstrapping story"
+  ],
+  "money_quotes": [
+    "Designing and implementing a new programming language from scratch is one of the most challenging tasks a programmer can undertake.",
+    "Ideas need to be proven in the forge of implementations.",
+    "We'll call this the sacrificial implementation, because you should be prepared to throw it away later.",
+    "Due to the inherent difficulty of designing and implementing a programming language at the same time, your first implementation will probably be shit.",
+    "Don't get carried away \u2014 keep this new compiler simple and small.",
+    "I recommend keeping it up-to-date with the specification and maintaining it perpetually as a convenient path to bootstrap your toolchain from scratch (looking at you, Rust).",
+    "Any self-respecting general-purpose programming language is implemented in itself.",
+    "Your language design and implementation sets the ceiling on the quality of programs written in it."
+  ],
+  "themes": [
+    "language_design",
+    "systems_programming"
+  ],
+  "tone": "practical, opinionated, instructional",
+  "key_insight": "Building a programming language properly requires at least three compiler implementations \u2014 a sacrificial prototype, a clean bootstrap compiler, and a self-hosted final version \u2014 each stage refining both the design and the implementer's skills.",
+  "filename": "2020-12-25-How-to-design-a-new-programming-language"
+}

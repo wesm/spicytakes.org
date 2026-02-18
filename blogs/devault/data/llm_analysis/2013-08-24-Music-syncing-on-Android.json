@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault describes how he replaced Spotify with a custom music syncing solution on his rooted Android phone running CyanogenMod. The setup uses rsync over SSH triggered by a cron job to pull music from his desktop to his phone every hour. The post walks through the technical steps: generating SSH keys with dropbearkey, patching Android's non-standard filesystem layout with symlinks, writing a bash sync script with fallback hosts, and configuring cron. It's an early example of his preference for building custom solutions with standard Unix tools rather than relying on proprietary services.",
+  "key_points": [
+    "Spotify's main advantage was seamless phone syncing, which he replicated with rsync and cron",
+    "Android is only 'Linux' in the sense that uname outputs 'Linux' \u2014 it grossly ignores the FHS and requires manual fixes to behave like a proper Unix system",
+    "The solution requires root access, SSH keys via dropbearkey, and init.d scripts to set up a sane environment at boot",
+    "The sync script includes a fallback host for syncing outside the LAN, showing practical consideration for real-world usage"
+  ],
+  "money_quotes": [
+    "Android is only a \"Linux\" system in the sense that uname outputs \"Linux\". It grossly ignores the FHS and you need to fix it a little.",
+    "The end result is that a cronjob kicks off each hour on my phone and runs a script that uses rsync to sync up my phone's music with my desktop's music.",
+    "I usually use Spotify, but I've been wanting to move away from it for a while.",
+    "The biggest pain in my ass was getting cron to cooperate, but the init script earlier should take care of that.",
+    "I tried using ssh-keygen before, but it had problems with rsync on Android. Instead, we use dropbearkey."
+  ],
+  "themes": [
+    "foss",
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "technical",
+  "key_insight": "Standard Unix tools like rsync, cron, and SSH can replace proprietary cloud services for music syncing, though Android's deviation from Linux conventions makes the setup unnecessarily painful.",
+  "filename": "2013-08-24-Music-syncing-on-Android"
+}

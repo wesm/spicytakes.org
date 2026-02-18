@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault explains why the sway team replaced the wlc library with wlroots, a ground-up rewrite. Sway originally used wlc because it provided quick scaffolding for building a Wayland compositor, but its opinionated design\u2014acting as a compositor with a plugin API rather than modular building blocks\u2014eventually became the source of most of sway's bugs and limitations. After extensive community discussion, the team decided to build wlroots as a set of modular tools that let developers construct their own compositors. The rewrite, while risky by conventional wisdom, succeeded because the team had gained hard-won experience from their first attempts at Wayland compositors.",
+  "key_points": [
+    "wlc's design as a compositor-with-plugin-API gave developers speed initially but removed control over rendering, desktop abstraction, and view management",
+    "The decision to build wlroots as a standalone library rather than an in-house compositor came from recognizing that multiple Wayland projects faced the same wlc limitations",
+    "wlroots inverts wlc's approach: instead of a compositor with knobs, it provides modular tools to build your own compositor",
+    "First-generation Wayland compositor developers didn't fully understand the opportunities in Wayland's design, leading to projects that carried over X11-era architectural mistakes",
+    "wlroots now powers 6 Wayland compositors targeting desktops, tablets, and phones, enabling features never seen on any desktop platform"
+  ],
+  "money_quotes": [
+    "Contrary to wlc's design - a Wayland compositor with some knobs - wlroots is a set of modular tools with which you build the Wayland compositor yourself.",
+    "We could have continued to maintain wlc, fixed bugs, refactored parts of it, and maybe eventually arrived at a place where sway more or less worked. But we'd simply be carrying on the X11 tradition we've been trying to escape this whole time.",
+    "wlc was a kludge and replacing it was well worth the effort - it simply could not have scaled to the places where wlroots is going.",
+    "The problem is that when we all set out, we didn't fully understand the opportunities afforded by Wayland's design, nor did we see how best to approach tying together the rather complicated Linux desktop stack into a cohesive project.",
+    "Now we can think about not only replacing X11, but innovating in ways it never could have.",
+    "wlroots is the realization of Wayland's potential."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss"
+  ],
+  "tone": "reflective, technical, confident",
+  "key_insight": "Replacing a convenient but architecturally limiting library with a modular toolkit was worth the rewrite cost because experience revealed that the original design carried forward the very constraints the project was trying to escape.",
+  "filename": "2018-05-27-Why-rewrite-wlc"
+}

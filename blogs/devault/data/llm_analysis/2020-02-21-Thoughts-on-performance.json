@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault argues that effective performance optimization requires deep understanding of the entire system, not just surface-level code changes. He advocates applying the scientific method to performance work: forming hypotheses, measuring with factual evidence, and only then acting on conclusions. The post criticizes developers who optimize based on assumptions rather than identifying actual bottlenecks. He extends this principle to the relationship between library authors and application programmers, arguing that libraries should be transparent rather than opaque, and that application developers must take responsibility for understanding their entire dependency stack. The core message is that optimization without understanding is wasted effort.",
+  "key_points": [
+    "You cannot effectively optimize a system you do not understand \u2014 optimizing non-bottlenecks is wasted effort",
+    "Performance work should follow the scientific method: hypothesize, predict, measure, then act on evidence",
+    "Library authors should trust downstream programmers with transparent, thin abstractions rather than hiding implementation details behind opaque interfaces",
+    "Application programmers must take responsibility for their entire stack, including being willing to dig into and patch dependency code",
+    "Simplicity and conciseness should be prioritized over performance when you're not working on actual bottlenecks"
+  ],
+  "money_quotes": [
+    "I believe that you cannot effectively optimize a system which you do not understand.",
+    "If you're not optimizing your bottleneck, then you're wasting your time.",
+    "Thinking about your code really hard, making assumptions, and then acting on them is not the most effective way to make performance improvements.",
+    "Good optimizations are based on factual evidence that the program is not operating within its constraints in certain respects, then improving on those particular problems.",
+    "Rather than write idiot-proof abstractions, I think it's better to trust the downstream programmer, explain to them how your system works, and equip them with the tools to audit their own applications.",
+    "Your library is only a small component of their system, not yours \u2014 and you cannot optimize a system you don't understand.",
+    "Your entire system is your responsibility, including your dependencies.",
+    "It's equally important to re-prioritize performance when you're not working on your bottlenecks, and instead consider factors like simplicity and conciseness more seriously."
+  ],
+  "themes": [
+    "systems_programming",
+    "tech_criticism"
+  ],
+  "tone": "didactic, measured, opinionated",
+  "key_insight": "Optimization is only engineering when it's driven by measurement and system-level understanding, not assumptions \u2014 and this demands transparency from library authors and ownership from application developers alike.",
+  "filename": "2020-02-21-Thoughts-on-performance"
+}

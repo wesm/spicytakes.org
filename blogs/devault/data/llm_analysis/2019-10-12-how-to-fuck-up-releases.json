@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault catalogs his long history of botching software releases and the incremental automation he built to prevent each class of mistake. Starting from fully manual releases, he describes a parade of failures \u2014 wrong version numbers, bad changelogs, forgotten version bumps, missing scripts, incompatible toolchains, releasing from feature branches, and pushing stale tags. Each mistake led to a new safeguard in his semver script, but each fix only revealed the next creative way to screw up. The post is a honest, self-deprecating chronicle of how release engineering is an endless arms race against human error.",
+  "key_points": [
+    "Manual release processes inevitably produce mistakes, and each automation fix only reveals the next failure mode",
+    "Version bumps, changelogs, signing, branch checks, and pull synchronization all need scripting because humans will forget each one in turn",
+    "Environment differences (Busybox vs GNU gzip) can silently produce mismatched artifacts, breaking reproducibility",
+    "Scripts stored outside version control are a ticking time bomb \u2014 they work until you change machines",
+    "Release engineering is an ongoing arms race where you can never fully outsmart your own capacity for mistakes"
+  ],
+  "money_quotes": [
+    "Just about every time I ship a release, I find a novel way to fuck it up.",
+    "No matter how much I scripted away my mistakes I would always find a new and novel way of screwing up.",
+    "I am doomed to creatively outsmart my tools in releases.",
+    "I would frequently fuck this up in many creative ways: forgetting it entirely; updating it but not committing it; updating it and committing it, but tagging the wrong commit.",
+    "On the very next release I shipped, I mistakenly did everything from a feature branch, and shipped experimental, incomplete code in a stable release.",
+    "I tagged a release without pulling first, and when I pushed, git happily rejected my branch and accepted the tag - shipping an outdated commit as the release."
+  ],
+  "themes": [
+    "foss",
+    "systems_programming"
+  ],
+  "tone": "self-deprecating, humorous, practical",
+  "key_insight": "Release engineering is an endless arms race against human error, where every automated safeguard you add only reveals the next creative way you'll manage to screw things up.",
+  "filename": "2019-10-12-how-to-fuck-up-releases"
+}

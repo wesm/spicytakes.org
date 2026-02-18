@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault outlines the properties a YAML replacement must preserve and the flaws it must fix. He argues YAML remains dominant because alternatives like TOML only capture part of its use cases, particularly its ability to embed multi-line scripts and serve as both human- and machine-editable data. He identifies YAML's key strengths as whitespace-based hierarchy, language-independent specification, script embedding, and being data rather than a programming language. The needed improvements center on radical grammar simplification, a proper schema system to resolve type ambiguity, and willingness to drop JSON compatibility. He hopes someone else will build it.",
+  "key_points": [
+    "YAML's dominance in CI configuration stems from its ability to embed scripts without escaping, a feature most alternatives lack",
+    "A YAML replacement must be specified independently of any implementation or language ecosystem to ensure interoperability",
+    "90% of YAML's features go unused, but they still increase implementation complexity and attack surface",
+    "Type ambiguity without a schema system is a major source of bugs in programs consuming YAML",
+    "JSON interoperability is not valuable enough to justify compromising other design goals"
+  ],
+  "money_quotes": [
+    "YAML is both universally used, and universally reviled.",
+    "There is no better way of representing a hierarchical data structure than by actually organizing your information visually.",
+    "This is the chief reason that YAML still dominates in CI configuration: the ability to trivially write scripts directly into config file, without escaping anything or otherwise molesting the script.",
+    "No more billion laughs, please.",
+    "90% of YAML's features go un-used, which increases the complexity of implementations, not to mention their attack surface, for little reason.",
+    "I'm prepared to yeet it at the first sign of code smells.",
+    "Someday I may design something like this myself, but I'm really hoping that someone else does it instead."
+  ],
+  "themes": [
+    "language_design",
+    "tech_criticism",
+    "internet_infra",
+    "sourcehut"
+  ],
+  "tone": "opinionated, pragmatic, irreverent",
+  "key_insight": "YAML persists not because it's good but because no replacement has matched its unique combination of script embedding, visual hierarchy, and machine-editability \u2014 and fixing it requires radical simplification rather than incremental improvement.",
+  "filename": "2021-07-28-The-next-YAML"
+}

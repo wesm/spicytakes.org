@@ -1,0 +1,22 @@
+{
+  "summary": "Drew DeVault's December 2020 status update covers progress across several FOSS projects. The main focus was sourcehut's API 2.0 migration, with GraphQL APIs reaching feature parity for meta.sr.ht and git.sr.ht, plus a new OAuth 2.0 implementation. He also created mkproof, a proof-of-work tool to allow Tor signups on sourcehut without enabling spam. Additional updates cover Gemini protocol tools, the BARE specification's second IETF draft, and a minor scdoc release.",
+  "key_points": [
+    "sourcehut's GraphQL APIs for meta.sr.ht and git.sr.ht reached feature parity with the REST APIs, with todo.sr.ht next in line",
+    "mkproof uses computationally expensive proof-of-work challenges to allow Tor users to register on sourcehut while deterring bulk spam signups",
+    "The BARE binary encoding specification reached its second draft submission to the IETF",
+    "Gemini protocol tools gmnisrv and gmnlm received community-contributed bugfixes and new features"
+  ],
+  "money_quotes": [
+    "I hope everyone's having a great time staying at home and not spending any time with your families.",
+    "The idea is that you can generate a challenge (mkchallenge), give it to a user who generates a proof for that challenge (mkproof), and then verify their proof is correct.",
+    "Generating the proof is computationally expensive and resistant to highly parallel attacks (e.g. GPUs), and takes tens of minutes of work \u2014 making it unpractical for spammers to register accounts in bulk, while still allowing Tor users to register with their anonymity intact."
+  ],
+  "themes": [
+    "sourcehut",
+    "foss",
+    "internet_infra"
+  ],
+  "tone": "casual, matter-of-fact",
+  "key_insight": "DeVault's work on proof-of-work registration and Gemini tools reflects his commitment to building internet infrastructure that respects user anonymity without sacrificing platform integrity.",
+  "filename": "2020-12-15-Status-update-December-2020"
+}

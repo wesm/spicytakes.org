@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault walks through implementing a MIME type parser and database in an unnamed systems programming language (later revealed as Hare). The post demonstrates how the language handles string parsing, tagged unions, manual memory management, and hash maps in roughly 250 lines of code. He highlights the poor quality of the RFC 2045 specification and pragmatically implements a 'reasonable subset' rather than wrestling with ill-defined edge cases. The implementation showcases the language's C-like design philosophy while providing zero-allocation parsing and efficient lookup via a simple hash table.",
+  "key_points": [
+    "RFC 2045's MIME type grammar is poorly specified, with ambiguous definitions inherited from older RFCs, making a pragmatic 'reasonable subset' implementation the sensible choice",
+    "The language's manual memory management enables zero-allocation parsing by returning borrowed sub-strings and stack-allocated tokenizers",
+    "The hash map implementation uses fixed-length arrays of slices \u2014 simple and sufficient for predictable workloads, but intentionally not general-purpose",
+    "The language deliberately lacks built-in maps and generics, following C-like design trade-offs where such features don't justify their complexity cost",
+    "Static vs heap allocation is carefully separated to minimize runtime allocations for the internal database while supporting a larger system database"
+  ],
+  "money_quotes": [
+    "The essence of a good xxxx program or API design can be ascertained from how well it handles memory management.",
+    "The specification is not great. The grammar shown here is copied and pasted from parts of larger grammars in older RFCs, RFCs which are equally poorly defined.",
+    "xxxx does not have a built-in map construct, nor generics. The design constraints of xxxx are closer to C than to anything else, and as such, the trade-offs for first-class maps are similar to C, which is to say that they don't make sense with our design.",
+    "The RFC does not permit whitespace here, but whitespace is very common in the wild. \u00af\\_(\u30c4)_/\u00af",
+    "Any time we implement a 'reasonable subset' of a specification rather than the whole specification, I add the module to the list of modules likely to be moved out of the standard library and into a standalone module at some point prior to release.",
+    "It could be a bit faster if we didn't do 3 \u00d7 O(n) strings::contains calls, but someone will send a patch if they care."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Good systems programming language design reveals itself in how elegantly it handles memory management, and a MIME parser is a compact showcase for zero-allocation string parsing, tagged unions, and pragmatic trade-offs against poorly written specifications.",
+  "filename": "2022-01-28-Implementing-mime-in-xxxx"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Drew DeVault describes his unconventional git workflow where he rarely uses branches, instead working directly on his local master branch for all tasks simultaneously. He intermixes commits from different workstreams on master, then uses git rebase to organize them into clean, self-contained patchsets when ready to submit upstream. This approach eliminates context-switching overhead and ensures all in-progress features are mutually compatible. He acknowledges branches are useful for large, long-running workstreams prone to conflicts, but finds his branchless approach faster for typical day-to-day work.",
+  "key_points": [
+    "Working directly on master for all tasks eliminates the overhead of creating and switching between branches, reducing startup time to zero",
+    "Git rebase is the key tool that makes this work, allowing intermixed commits to be reorganized into clean patchsets before submission",
+    "Keeping all work-in-progress on one branch guarantees mutual applicability and surfaces conflicts across all workstreams simultaneously during pull --rebase",
+    "Branches are still used selectively for large, long-running workstreams that would cause too many conflicts with smaller patches",
+    "The workflow is tightly integrated with email-based patch submission via git send-email"
+  ],
+  "money_quotes": [
+    "In short, I use git branches very rarely, preferring to work on my local master branch almost every time.",
+    "I just start writing code and committing changes, all directly on master, intermixing different workstreams freely.",
+    "This reduces my startup time to zero, both for starting new tasks and revisiting old work.",
+    "When I'm ready to present some or all of my changes to upstream, I grab git rebase and reorganize all of these into their respective features, bugfixes, and so on, forming a series of carefully organized, self-contained patchsets.",
+    "I know that lightweight branches are one of git's flagship features, but I don't really use them. I know it's weird, sue me.",
+    "By keeping them all on the same branch, I can be assured that my patches are mutually applicable and that there won't be any surprise conflicts in feature B after feature A is merged upstream."
+  ],
+  "themes": [
+    "foss",
+    "systems_programming",
+    "tech_criticism"
+  ],
+  "tone": "casual, pragmatic, unapologetic",
+  "key_insight": "Deep understanding of git's internals enables a minimalist branchless workflow where rebase replaces branching as the primary organizational tool, trading conventional best practices for reduced overhead and guaranteed cross-feature compatibility.",
+  "filename": "2020-04-06-My-weird-branchless-git-workflow"
+}

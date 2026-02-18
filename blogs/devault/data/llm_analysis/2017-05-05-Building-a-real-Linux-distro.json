@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault describes his experience building agunix, a full Linux distribution from scratch, motivated by dissatisfaction with every existing distro. He distinguishes a Linux 'system' from a 'distribution' \u2014 the latter requiring a package manager and self-hosting capability. The bootstrapping process took multiple failed attempts over months, involving cross-compilation, dependency resolution, and countless edge cases. After achieving self-hosting on his fourth attempt, he graduated from a chroot to dedicated hardware, then deployed the distro's own infrastructure on itself. He notes the eternal packaging phase is the real bottleneck, having built 407 packages without yet achieving a desktop environment.",
+  "key_points": [
+    "A Linux distribution differs from a Linux system by requiring a package manager and self-hosting capability \u2014 it must be able to compile itself",
+    "Bootstrapping a distro is brutally difficult with countless edge cases; DeVault succeeded on his fourth attempt and then redid it for cleanliness",
+    "His dissatisfaction spans all existing options: popular distros have bloat and GNU/systemd, niche distros are incomplete, and non-Linux kernels lack hardware support or POSIX compliance",
+    "The 'eternal packaging phase' is the true long tail \u2014 407 packages built and still no desktop environment",
+    "Community buy-in is essential because it's impossible for one person to package everything"
+  ],
+  "money_quotes": [
+    "After trying a great number of distros and coming away with a kind of dissatisfaction unique to each one, I resolved to make a distro that embodied my own principles about userspace design.",
+    "Simply getting this software to run in a new Linux system is only moderately difficult - getting a system that can build itself is much harder.",
+    "It turns out this is a ton of work - here's how it's done.",
+    "I was successful on my 4th attempt, but threw it out and redid it to get a cleaner distribution with the benefit of hindsight.",
+    "I deliberately chose not to have a website until it could be hosted on agunix itself.",
+    "I have made 407 packages to date and I still don't have a desktop to show for it.",
+    "At this point to have success you need others to buy into your ideas and start contributing - it's impossible to package everything yourself.",
+    "plan9/9front has the most elegant kernel and userspace design ever made, but it's not POSIX and has shit hardware support."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss",
+    "tech_criticism"
+  ],
+  "tone": "technical, pragmatic, opinionated",
+  "key_insight": "Building a real Linux distribution \u2014 one that is self-hosting and distributable \u2014 is orders of magnitude harder than assembling a bootable Linux system, requiring months of bootstrapping work and an essentially infinite packaging commitment.",
+  "filename": "2017-05-05-Building-a-real-Linux-distro"
+}

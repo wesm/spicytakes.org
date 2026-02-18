@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault documents the technical work required to bring VR support to Wayland through DRM leasing, a mechanism that lets the Wayland compositor hand off direct display control to VR applications for minimal latency. The work involved drafting a Wayland protocol extension, implementing it in wlroots/sway, creating a new Vulkan extension and its Mesa implementation, and adding Xwayland compatibility. The project was sponsored by Status.im as part of building a Wayland-driven VR workspace. Each layer of the stack required careful design decisions around security, backwards compatibility with X11, and keeping the protocol simple rather than accommodating legacy systems.",
+  "key_points": [
+    "DRM leasing allows a Wayland compositor to delegate direct display control to VR clients, bypassing the display server for lower latency",
+    "The work spanned the entire graphics stack: Wayland protocol, wlroots/sway compositor, Vulkan WSI extension, Mesa driver implementation, and Xwayland compatibility",
+    "Security concerns about malicious clients reading unauthorized framebuffers were resolved by demonstrating the kernel rejects such attempts",
+    "The Xwayland integration was the most difficult part due to a design mismatch between the X11 Vulkan extension's mode querying assumptions and the simpler Wayland protocol",
+    "DeVault deliberately kept the Wayland protocol simpler than the X11 equivalent, refusing to add complexity for legacy compatibility"
+  ],
+  "money_quotes": [
+    "The rub of this idea is that the Wayland compositor, the DRM master, can 'lease' some of its resources to a client so they can drive your display directly.",
+    "For a number of reasons, minimizing latency being an important one, VR applications prefer to do these tasks directly rather than be routed through the display server like most applications are.",
+    "The latter was proven to be a non-issue by writing a malicious client and demonstrating that the kernel rejects its attempts to do evil.",
+    "I found this distasteful, because it was making the protocol more complex for the sake of a legacy system.",
+    "In the end, it turned out to be much simpler than the corresponding X version."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "Bringing VR to Wayland required threading a new capability through every layer of the Linux graphics stack, but the result is a cleaner and simpler design than the equivalent X11 approach.",
+  "filename": "2019-08-09-DRM-leasing-and-VR-for-Wayland"
+}

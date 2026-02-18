@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault provides a comprehensive guide to long-term data storage, covering storage media reliability, RAID redundancy, ZFS, off-site backups, and disaster recovery practices. He walks through the hierarchy of storage solutions from unreliable microSD cards to hard drives with RAID configurations, explaining parity mechanics along the way. He strongly recommends ZFS for its automatic handling of mirroring and parity, Borg backup for off-site redundancy, and monitoring tools like Prometheus for alerting. The post emphasizes that hardware solutions alone are insufficient \u2014 human error and existential threats require practiced disaster recovery procedures. He concludes philosophically: truly permanent storage is impossible because it depends on future generations maintaining, interpreting, and valuing the data.",
+  "key_points": [
+    "MicroSD cards are extremely unreliable for storage; hard drives offer a better balance of practicality and reliability, but all media eventually fails",
+    "Hardware RAID is almost always a mistake \u2014 software RAID is more portable and doesn't create single points of failure from proprietary controllers",
+    "Cascading RAID failures are a real threat, mitigated by mixing drive vendors and model numbers to avoid correlated wear patterns",
+    "ZFS is recommended over manual RAID configuration because it automatically makes good decisions about mirroring, parity, and failure handling",
+    "Truly permanent storage is ultimately impossible \u2014 it requires not just working hardware but future humans who understand the formats, maintain the systems, and decide the data is worth keeping"
+  ],
+  "money_quotes": [
+    "As someone who has been often maligned by the disappearance of my data for various reasons \u2014 companies going under, hard drive failure, etc \u2014 I've put a lot of thought into solutions for long-term data retention.",
+    "Hardware RAID is almost always a mistake.",
+    "Many a sad administrator has been in panic mode, recovering a RAID from a disk failure, and at their lowest moment\u2026 another disk fails.",
+    "Your RAID array will faithfully remove the data from all of the hard drives for you.",
+    "When your disks are failing and everything is on fire and the sky is falling, this is the worst time to be your first rodeo.",
+    "The dataset requires constant maintenance to remain intact, but also to remain useful.",
+    "Future generations will decide what data is worth keeping \u2014 not us."
+  ],
+  "themes": [
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "technical, practical, reflective",
+  "key_insight": "Long-term data preservation is not a solved technical problem but an ongoing human commitment \u2014 hardware fails, software becomes obsolete, and ultimately future generations decide what survives.",
+  "filename": "2020-04-22-How-to-store-data-forever"
+}

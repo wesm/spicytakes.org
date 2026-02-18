@@ -1,0 +1,28 @@
+{
+  "summary": "Drew DeVault systematically addresses common misconceptions and FUD about the Wayland display protocol, drawing on his authority as maintainer of wlroots and sway. He tackles claims about security, missing features like screenshots and clipboard support, network transparency, Nvidia compatibility, and gaming support. For each point, he explains either why the criticism is wrong, why it's been resolved, or why the responsibility lies elsewhere (particularly with Nvidia). He acknowledges some legitimate gaps while emphasizing that Wayland is a protocol with an extension system, not a monolithic implementation, and invites critics to contribute rather than complain.",
+  "key_points": [
+    "Wayland is a minimal core protocol by design; missing features belong in protocol extensions, not the core, and many have already been implemented",
+    "The Nvidia compatibility problem is Nvidia's fault for refusing to implement standard Linux graphics APIs (DRM/KMS/GBM) and for being hostile to open source",
+    "Many formerly valid criticisms (no screenshots, no clipboard managers, no server-side decorations) have been resolved through wlroots-led protocol development",
+    "Network transparency is technically achievable but no one who complains about it has stepped up to implement it",
+    "Wayland's approach to hotkey daemons favors IPC mechanisms over global hotkeys, which is more flexible and avoids security concerns"
+  ],
+  "money_quotes": [
+    "The art of hating Wayland has become a cult affair.",
+    "You could implement Wayland by writing Wayland protocol messages on pieces of paper, passing them to your friend in class, and having them draw your window on their notebook with a pencil.",
+    "Actually, Nvidia doesn't support us.",
+    "All of the people who want network transparency drank the anti-Wayland kool-aid instead of showing up to put the work in.",
+    "Nvidia is clearly a force for bad on the Linux scene and for open source in general, and the users who reward this by spending oodles of cash on their graphics cards are not exactly in my good graces.",
+    "People asking for Nvidia proprietary driver support are asking the wrong people to spend hundreds of hours working for free to write and maintain an implementation for one driver which represents a harmful force on the Linux ecosystem.",
+    "It takes time to replace a 30-year incumbent.",
+    "If you find your needs aren't met by Wayland, just keep using X! We won't be offended."
+  ],
+  "themes": [
+    "foss",
+    "systems_programming",
+    "tech_criticism"
+  ],
+  "tone": "opinionated, methodical, combative but fair",
+  "key_insight": "Most Wayland criticisms stem from conflating the minimal core protocol with the full ecosystem, misunderstanding the extension model, or expecting volunteer developers to do free work accommodating hostile proprietary vendors.",
+  "filename": "2019-02-10-Wayland-misconceptions-debunked"
+}

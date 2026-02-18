@@ -1,0 +1,28 @@
+{
+  "summary": "DeVault argues that Rust is fundamentally a C++ replacement, not a C replacement, because it shares C++'s kitchen-sink philosophy of solving problems by adding language features. He contends that Rust's rapid feature growth makes it increasingly complex and unstable compared to C's decades of stability. He enumerates specific advantages C holds over Rust: superior portability, a formal specification, multiple competing implementations, a stable ABI, and independence from a single build system. He dismisses Rust's safety guarantees as insufficient compensation for these drawbacks and argues that C's true successor will be simpler, not more complex, pointing to Go as a better example of this approach.",
+  "key_points": [
+    "Rust adds roughly 15 new features per year compared to C's 0.73, making it a moving target that's increasingly difficult to master idiomatically",
+    "C's advantages as a systems language\u2014portability, formal spec, multiple implementations, stable ABI\u2014are structural properties Rust fundamentally lacks",
+    "Cargo's mandatory nature and unstable compiler flags make Rust hostile to integration with existing build systems and the broader software ecosystem",
+    "Fearless concurrency is a liability because most programs don't need parallelism, and introducing it multiplies complexity and bugs",
+    "Rewriting working C programs in Rust will always introduce more bugs than maintaining the original, regardless of the target language's safety properties"
+  ],
+  "money_quotes": [
+    "Go is the result of C programmers designing a new programming language, and Rust is the result of C++ programmers designing a new programming language.",
+    "The values of good C++ programmers are incompatible with the values of good C programmers.",
+    "Systems programmers don't want shiny things - we just want things that work.",
+    "A Rust program written last year already looks outdated, whereas a C program written ten years ago has pretty good odds of being just fine.",
+    "\"Fearless concurrency\" allows you to fearlessly employ bad software design 9 times out of 10.",
+    "Yes, Rust is more safe. I don't really care.",
+    "C is far from the perfect language - it has many flaws. However, its replacement will be simpler - not more complex.",
+    "The kitchen sink approach doesn't work. Rust will eventually fail to the \"jack of all trades, master of none\" problem that C++ has."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "tech_criticism"
+  ],
+  "tone": "opinionated, combative, unapologetic",
+  "key_insight": "The true successor to C will be a language that embraces simplicity and stability rather than accumulating features, because systems programmers value predictability over capability.",
+  "filename": "2019-03-25-Rust-is-not-a-good-C-replacement"
+}

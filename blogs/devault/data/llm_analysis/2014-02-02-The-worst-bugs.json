@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault recounts the most difficult bug he ever solved while developing KnightOS, a kernel for TI calculators written in z80 assembly. A graphical corruption bug in the thread list would disappear whenever a breakpoint was set, making it seemingly impossible to debug. After three weeks of investigation, he discovered that a two-character typo in the kernel's getKey function allowed a non-suspendable thread to repeatedly launch the thread list because it wasn't respecting keyboard hardware locks. The breakpoint itself masked the bug by halting keyboard processing long enough for the user to lift their finger from the key.",
+  "key_points": [
+    "Working without protection rings or kernel/userland separation means any program can corrupt kernel memory, making bugs extremely hard to isolate",
+    "The bug was a Heisenbug: setting breakpoints or watchpoints altered system timing enough to mask the problem entirely",
+    "A two-character omission in the getKey function caused it to ignore keyboard hardware locks, letting a non-suspendable thread repeatedly detect keypresses it shouldn't have seen",
+    "The non-suspendable counting demo kept calling applibGetKey in a loop, launching dozens of thread list instances that corrupted the display by trying to render each other",
+    "The breakpoint masked the bug because halting the CPU gave the user time to release the key, eliminating the repeated keypress that triggered the cascade"
+  ],
+  "money_quotes": [
+    "How do I debug a problem that disappears when you debug it?",
+    "The thread list started rendering text that wasn't there, causing the corruption.",
+    "This bug vanished whenever I set a breakpoint because it would halt the system's keyboard processing logic. I lifted my finger from the key before allowing it to move on.",
+    "All \"userspace\" programs run as root, and crashing the entire system is a simple task.",
+    "The solution was to make the kernel's getKey function respect hardware locks by fixing that simple, two-character typo.",
+    "The debugging described by this blog post took approximately three weeks."
+  ],
+  "themes": [
+    "systems_programming"
+  ],
+  "tone": "narrative, technical, reflective",
+  "key_insight": "The most insidious bugs are Heisenbugs where the act of observation changes the system's timing enough to mask the problem, and sometimes three weeks of debugging comes down to two missing characters.",
+  "filename": "2014-02-02-The-worst-bugs"
+}

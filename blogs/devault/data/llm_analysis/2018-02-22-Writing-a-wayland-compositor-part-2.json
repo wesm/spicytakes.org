@@ -1,0 +1,23 @@
+{
+  "summary": "This tutorial walks through the second step of building a Wayland compositor using wlroots, focusing on setting up the Wayland server to accept client connections. DeVault shows how to add a socket for client connections, register Wayland globals (shared memory, gamma control, screenshooter, clipboard, idle), and expose output information. The post demonstrates testing the compositor with weston-info and the screenshooter example client, building incrementally toward a functional compositor.",
+  "key_points": [
+    "Adding a Wayland socket and setting WAYLAND_DISPLAY allows clients to connect to the compositor with just a few lines of code",
+    "Wlroots provides ready-made implementations of Wayland globals from multiple desktop projects (Orbital, GTK, KDE) that can be rigged up with minimal effort",
+    "Security considerations like restricting screenshooter access are acknowledged but deferred to a later article",
+    "Exposing wl_output globals is necessary for clients that need to query display resolution and properties"
+  ],
+  "money_quotes": [
+    "Adding this is actually quite easy.",
+    "Some of these interfaces are not necessarily ones that you typically would want to expose to all Wayland clients - screenshooter, for example, is something that should be secured.",
+    "You'll find that wlroots implements a variety of protocols from a variety of sources - here we see protocols from Orbital, GTK, and KDE represented.",
+    "We're getting close to the good stuff now.",
+    "The next article is going to introduce the concept of surfaces, and we will use them to render our first window."
+  ],
+  "themes": [
+    "systems_programming",
+    "internet_infra"
+  ],
+  "tone": "technical",
+  "key_insight": "Wlroots abstracts away much of the complexity of Wayland compositor development, allowing a functional server that accepts client connections to be assembled in remarkably few lines of code.",
+  "filename": "2018-02-22-Writing-a-wayland-compositor-part-2"
+}

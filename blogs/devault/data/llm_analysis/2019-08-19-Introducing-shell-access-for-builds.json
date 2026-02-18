@@ -1,0 +1,24 @@
+{
+  "summary": "Drew DeVault announces SSH shell access for builds.sr.ht, SourceHut's CI platform. Users can now SSH into failed build environments to debug issues, or request persistent shells on fresh VMs running various operating systems. The feature keeps VMs alive for 10 minutes after failure or until the user logs out, and can be enabled for any build via a simple manifest option. He highlights use cases like debugging failed builds, testing on different OSes like OpenBSD or NetBSD, and scripting custom environments via the builds.sr.ht API.",
+  "key_points": [
+    "Failed CI builds now keep VMs alive for 10 minutes, allowing SSH access to inspect build artifacts and debug issues",
+    "Adding 'shell: true' to a build manifest keeps the VM alive after tasks complete, enabling on-demand fresh environments for any supported OS",
+    "Build manifests can pre-configure the shell environment with editors, dotfiles, and SSH keys via build secrets",
+    "The builds.sr.ht API enables scripting shell access for automated workflows across different operating systems",
+    "Experimental multiarch support will soon extend this to ARM and PowerPC environments"
+  ],
+  "money_quotes": [
+    "Have you ever found yourself staring at a failed CI build, wondering desperately what happened?",
+    "Once you've logged in, you get a shell and can do anything you like, such as examining the build artifacts or tweaking the source and trying again.",
+    "Need a NetBSD shell? With a little scripting you can get something like this working.",
+    "Since build manifests run normally in advance of your shell login, you can do things like install your preferred editor and dotfiles, pull down your SSH keys through build secrets, or anything else you desire to set up a comfortable working environment.",
+    "With experimental multiarch support being rolled out, soon you'll be just a few keystrokes away from an ARM or PowerPC shell, too."
+  ],
+  "themes": [
+    "sourcehut",
+    "internet_infra"
+  ],
+  "tone": "enthusiastic, technical",
+  "key_insight": "Interactive SSH access to CI build environments transforms a CI platform from a passive build runner into an on-demand multi-OS development shell.",
+  "filename": "2019-08-19-Introducing-shell-access-for-builds"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault argues that most developers underinvest in learning git relative to how much they use it, and lays out a disciplined workflow centered on good commit messages, self-contained commits, and liberal use of history editing. He recommends starting with Git Internals (Chapter 10 of Pro Git) to build deep understanding. The post covers practical conventions like 50-character subject lines, 72-column wrapping (tied to email standards), and making every commit compile and pass tests. He emphasizes that git's distinguishing feature is its editable history, and developers should use interactive rebase freely to clean up commits before merging.",
+  "key_points": [
+    "Commit messages should have a 50-character subject completing 'when applied, this commit will...' followed by a 72-column-wrapped description, matching email formatting standards",
+    "Every commit should be self-contained, compilable, and pass all tests, enabling reliable cherry-picking, bisecting, and release note generation",
+    "History editing via interactive rebase is not a hack but a core part of an effective git workflow\u2014you're encouraged to rewrite unpublished history",
+    "Most developers spend significant time using git daily but never invest in understanding it beyond surface-level stock commands",
+    "The 72-character line width isn't arbitrary\u2014it's the standard email width from RFC 2822, reflecting git's deep ties to email-based workflows"
+  ],
+  "money_quotes": [
+    "Many people who are frustrated with git become so because they never progress beyond this surface-level understanding of how it works.",
+    "How much of your day is spent using git? I would guess that there are many tools in your belt that you use half as often and have spent twice the time studying.",
+    "We use 72 characters because that's the standard width of an email, and email is an important tool for git.",
+    "All version control systems come with a time machine of some sort, but before git they were mostly read-only. However, git's time machine is different: you can change the past.",
+    "Only change a future which has yet to be merged into a stable public branch.",
+    "Every commit should compile and run all tests successfully, and should avoid having any known bugs which will be fixed up in a future commit.",
+    "I could stand to take my own advice more often in this respect."
+  ],
+  "themes": [
+    "foss",
+    "internet_infra"
+  ],
+  "tone": "instructional, practical, opinionated",
+  "key_insight": "A disciplined git workflow built on self-contained commits, good messages, and liberal history editing transforms git from a frustrating sync tool into a powerful development asset.",
+  "filename": "2019-02-25-Using-git-with-discipline"
+}

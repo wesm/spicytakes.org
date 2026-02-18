@@ -1,0 +1,24 @@
+{
+  "summary": "Drew DeVault introduces scdoc, a man page generator he wrote after years of dissatisfaction with existing tools. He evaluates alternatives like asciidoc, mdocml, and ronn against three criteria: readable syntax, minimal dependencies, and man pages as a first-class target. scdoc is under 1,000 lines of C99 with zero dependencies, uses a Markdown-inspired syntax designed specifically for man pages, and weighs just 78 KiB statically linked. He has already migrated sway's documentation to scdoc.",
+  "key_points": [
+    "Existing man page generators each fail at least one of three criteria: easy syntax, small size with minimal dependencies, and man pages as a first-class output target",
+    "scdoc uses a Markdown-inspired syntax that is deliberately not Markdown, because Markdown is designed for HTML, not man pages",
+    "The entire tool is under 1,000 lines of POSIX C99 with no dependencies, weighing 78 KiB statically linked against musl",
+    "Tools with runtime dependencies for reading their output (like mdocml) are considered unacceptable"
+  ],
+  "money_quotes": [
+    "It's inspired by Markdown, but importantly it's not actually Markdown, because Markdown is designed for HTML and not man pages.",
+    "Is less than 1,000 lines of POSIX.1 C99 code with no dependencies and weighs 78 KiB statically linked against musl libc.",
+    "My goal was to make a man page generator that had no more dependencies than man itself and would be a no-brainer for projects to use to make their manual more maintainable.",
+    "All of these are fine for the niches they fill, but not what I'm looking for. And as for GNU info\u2026 ugh.",
+    "mdocml is small and has minimal dependencies, but it has runtime dependencies - you need it installed to read the man pages it generates. This is Bad."
+  ],
+  "themes": [
+    "foss",
+    "systems_programming",
+    "sourcehut"
+  ],
+  "tone": "technical, opinionated",
+  "key_insight": "A man page generator should be as minimal and dependency-free as man itself, with a syntax purpose-built for its output format rather than borrowed from HTML-oriented markup languages.",
+  "filename": "2018-05-13-scdoc"
+}

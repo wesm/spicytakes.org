@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault explains C pointers from first principles, starting with how memory works as a flat array of octets and building up through pointer declaration, dereferencing, multi-byte values, and indirect pointers. He covers void pointers, structure dereferencing, pointer arithmetic, and NULL pointers. The post originated from helping a new Sway contributor who was learning C and encountered void** in the codebase. The explanation uses a simplified 16-bit system model to make pointer mechanics concrete and visual.",
+  "key_points": [
+    "Pointers are fixed-size integers representing memory addresses, and all pointers are the same size regardless of what type they reference",
+    "Pointer arithmetic scales by the size of the pointed-to type, which is why array indexing and pointer addition are equivalent in C",
+    "Void pointers strip away type information, storing only an address that can be cast to any specific pointer type for dereferencing",
+    "Multi-level indirection (pointer to pointer) follows the same logic recursively, with each dereference following one level of addressing"
+  ],
+  "money_quotes": [
+    "Your RAM is basically a flat array of octets.",
+    "All pointers are the same size.",
+    "A void* stores an arbitrary address without bringing along any type information.",
+    "++ on a pointer actually adds sizeof(type) to the actual address stored.",
+    "The idea is that if we only added one, we'd be referring to an address that is in the middle of a uint16_t, rather than the next uint16_t in memory that we meant to refer to.",
+    "Dereferencing a NULL pointer is generally a Bad Thing and will lead to segfaults."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Pointers are simply fixed-size integers that hold memory addresses, and every pointer operation\u2014dereferencing, arithmetic, indirection\u2014follows logically from understanding memory as a flat array of bytes.",
+  "filename": "2016-05-28-Understanding-pointers"
+}

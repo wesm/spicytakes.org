@@ -1,0 +1,25 @@
+{
+  "summary": "Drew DeVault reports on his week at KDE's Berlin development sprint, where he collaborated with KDE developers to find common ground between sway/wlroots and Plasma shell. The main focus was on the wlroots layer-shell protocol, which could replace the proprietary hacks both projects currently use for desktop shell components like panels and lockscreens. They discovered that the wlroots approach, with minor tweaks, could serve Plasma shell's needs well. DeVault built a proof-of-concept C++ library (qtlayershell) and got KDE's Latte Dock running on sway. The collaboration could restore the ability for KDE users to swap window managers, a feature lost in the Wayland transition.",
+  "key_points": [
+    "Both KDE Plasma and sway currently use unsustainable hacks on top of xdg-shell for desktop shell components, and the wlroots layer-shell protocol could replace both approaches",
+    "The wlroots layer-shell protocol was found to be well-suited for Plasma shell's needs after detailed review with KDE developers",
+    "Cross-project collaboration could restore the ability to replace kwin with a tiling WM while keeping Plasma shell, which was possible on X11 but lost with Wayland",
+    "DeVault built qtlayershell, a C++ library extending Qt with layer-shell support, and successfully ran KDE's Latte Dock on sway as a proof of concept"
+  ],
+  "money_quotes": [
+    "It'll take me some time to get the taste of C++ out of my mouth, though!",
+    "The main purpose of my trip was to find opportunities for sway and KDE to work together on improving the Linux desktop.",
+    "The hacks Plasma uses today are temporary and unmaintainable, and the improvements to Plasma's codebase will make it easier to work with.",
+    "Should kwin grow stable layer-shell support, clients designed for sway will work on KDE as well.",
+    "As I write this blog post, Latte is running on my sway session!",
+    "The future of Wayland is bright!"
+  ],
+  "themes": [
+    "foss",
+    "internet_infra",
+    "systems_programming"
+  ],
+  "tone": "optimistic, collaborative, technical",
+  "key_insight": "Cross-project collaboration between sway/wlroots and KDE on standardized Wayland protocols can replace both projects' proprietary hacks and restore desktop composability that was lost in the X11-to-Wayland transition.",
+  "filename": "2018-04-28-KDE-Sprint-retrospective"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault demonstrates a finger protocol client written in Hare, following up on an earlier io_uring finger server post. The implementation is remarkably concise thanks to Hare's new networking stack, particularly its net::dial module inspired by Go's net.Dial and Plan 9's dial function. The post highlights how Hare's dial design improves on Go by reintroducing the service parameter from Plan 9 and allowing third-party protocol handler extensions. The entire client fits in roughly 30 lines of code, handling DNS resolution, service lookup, and SRV records automatically.",
+  "key_points": [
+    "Hare's net::dial module draws from both Go's net.Dial and Plan 9's dial function, combining ideas from both into a cleaner design",
+    "The service parameter reintroduced from Plan 9 enables automatic port resolution via internal service lists, /etc/services, and SRV DNS lookups",
+    "Unlike Go, Hare's dial is extensible by third-party libraries, allowing new protocol handlers for networks like AF_BLUETOOTH or AF_AX25",
+    "The entire finger client implementation is about 30 lines, demonstrating how good standard library design minimizes application code"
+  ],
+  "money_quotes": [
+    "Plan 9's \"tcp!example.org!http\" becomes net::dial(\"tcp\", \"example.org\", \"http\") in our language \u2014 which we use to find the port (unless you specify it in the address).",
+    "Most programs written in our language will support SRV records with no additional effort.",
+    "Unlike Go, third-party libraries can define new protocol handlers for dial as well, perhaps opening it up in the future to networks like AF_BLUETOOTH, AF_AX25, and so on, complete with support for network-appropriate addresses and resolver functionality.",
+    "We just parse the command line, dial the server, write the username to it, and splice the connection into stdout. Much simpler than the server.",
+    "Expanding this with full support for all finger requests would probably only grow this code by 2 or 3 times."
+  ],
+  "themes": [
+    "language_design",
+    "systems_programming",
+    "internet_infra"
+  ],
+  "tone": "technical",
+  "key_insight": "Good standard library design \u2014 particularly a well-thought-out dial abstraction inspired by Plan 9 \u2014 can make network client implementations trivially concise while automatically supporting features like SRV records and extensible protocol handlers.",
+  "filename": "2021-06-24-finger-client"
+}

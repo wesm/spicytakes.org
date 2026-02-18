@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault walks through how to build interactive SSH applications, explaining the three points where OpenSSH can be customized: authentication, shell session, and command execution. He covers techniques from simple login shell overrides to authorized_keys command options to the AuthorizedKeysCommand directive in sshd_config, which allows dynamic, programmatic authentication. He then shows how builds.sr.ht uses these mechanisms to provide interactive shell access to CI build VMs, including authentication against SourceHut's user database and both connect and tail modes.",
+  "key_points": [
+    "OpenSSH provides three customization points: the login shell, the command option in authorized_keys, and the AuthorizedKeysCommand in sshd_config",
+    "The authorized_keys command option with restrict,pty is the cleanest way to force a specific interactive application while maintaining security",
+    "AuthorizedKeysCommand enables fully dynamic authentication by running an arbitrary program that outputs authorized_keys entries to stdout",
+    "builds.sr.ht accepts all SSH connections initially and defers authentication to the application layer, looking up SSH keys against the SourceHut database"
+  ],
+  "money_quotes": [
+    "Writing interactive SSH applications is actually pretty easy, but it does require some knowledge of the pieces involved and a little bit of general Unix literacy.",
+    "If you set the user's login shell to /usr/bin/nethack, then nethack will run when they log in.",
+    "Instead of having OpenSSH read from the authorized_keys file in the user's home directory, it can execute an arbitrary program and read the authorized_keys file from its stdout.",
+    "Some interactive applications misbehave if stdin is not a tty, and this mimics the normal behavior of SSH.",
+    "This\u2026 I\u2026 let's just pretend you never saw this."
+  ],
+  "themes": [
+    "internet_infra",
+    "sourcehut",
+    "systems_programming"
+  ],
+  "tone": "technical, instructional, self-deprecating",
+  "key_insight": "OpenSSH's authorized_keys command option and AuthorizedKeysCommand directive provide powerful hooks for building custom interactive SSH applications with fine-grained authentication control.",
+  "filename": "2019-09-02-Interactive-SSH-programs"
+}

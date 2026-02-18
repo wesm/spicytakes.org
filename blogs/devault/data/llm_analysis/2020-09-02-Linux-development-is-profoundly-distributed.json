@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault argues that git's distributed nature is far more profound than the typical explanation given to newcomers. Using the Linux kernel as the definitive example, he traces how code flows through hundreds of repositories, mailing lists, maintainers, and bug trackers in a complex graph structure. The MAINTAINERS file alone is 19,000 lines long, representing a vast network of subsystems each with their own workflows, tools, and policies. He contends this organic, deeply distributed system demonstrates why GitHub-style pull requests cannot simply replace email-driven workflows at kernel scale.",
+  "key_points": [
+    "The standard explanation of git as 'distributed' (offline work, local copies) barely scratches the surface of what distributed development actually looks like in practice",
+    "Linux kernel development is a complex graph of hundreds of repositories, mailing lists, maintainers, and CI systems with code flowing upward through multiple layers of subsystem trees toward Linus' tree",
+    "Different subsystems use different tools entirely \u2014 not just git, but also Mercurial and Quilt \u2014 with their own policies and workflows",
+    "Scaling GitHub-style pull requests to the entire kernel would be enormously difficult, despite some subsystems already using GitLab or GitHub for their own work",
+    "Important bug fixes can sidestep the entire upstream process, getting applied directly to downstream distribution kernels before reaching Linus' tree"
+  ],
+  "money_quotes": [
+    "To learn more about the true nature of distributed development, we should observe Linux.",
+    "This complex graph of Linux development has code flowing smoothly between hundreds of repositories, emails exchanging between hundreds of mailing lists, passing through the hands of dozens of maintainers, several bug trackers, various CI systems, all day, every day, ten-thousand fold.",
+    "This is truly illustrative of distributed software development, well above and beyond the typical explanation given to a new git user.",
+    "The profound potential of the distributed git system can be plainly seen in the project for which it was principally designed.",
+    "It's also plain to see how difficult it would be to adapt this system to something like GitHub pull requests, despite how easy many who are perplexed by the email-driven workflow wish it to be.",
+    "However, scaling this system up to the entire kernel would be a great challenge indeed.",
+    "By the way \u2014 that MAINTAINERS file? Scroll to the bottom. My copy is 19,000 lines long."
+  ],
+  "themes": [
+    "foss",
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "technical, persuasive, appreciative",
+  "key_insight": "The Linux kernel's development workflow \u2014 a vast graph of repositories, mailing lists, and maintainers with heterogeneous tools and policies \u2014 reveals the true meaning of distributed development that centralized platforms like GitHub cannot replicate.",
+  "filename": "2020-09-02-Linux-development-is-profoundly-distributed"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault demonstrates a code generation approach in Hare using the new strings::template standard library module for his operating system's IPC interface generator. He walks through ipcgen, a tool that parses a custom DSL describing IPC interfaces and generates Hare server code. The post contrasts two strategies: pre-building string buffers for complex substitutions versus rendering multiple small templates sequentially for looped structures. He acknowledges that strings::template is less powerful than full templating engines like Jinja2 or Go's text/template, but argues it hits the right simplicity-utility balance for Hare's standard library, especially given the language's lack of reflection and generics.",
+  "key_points": [
+    "Hare's new strings::template module, inspired by Python's string.Template, enables simple variable substitution for code generation",
+    "Two complementary patterns emerge: slurping loop output into buffers for single-template execution, or rendering multiple small templates sequentially",
+    "The lack of reflection and generics in Hare makes sophisticated templating engines impractical for the standard library",
+    "The ipcgen tool parses a custom DSL to generate typed IPC dispatch code for DeVault's Helios operating system",
+    "strings::template is implemented in roughly 180 lines, embodying Hare's philosophy of simplicity over power"
+  ],
+  "money_quotes": [
+    "The simple string substitution approach of strings::template prevents it from being as generally useful as a full-blown templating engine ala jinja2.",
+    "A more sophisticated templating engine could be implemented for Hare, but it would be more challenging \u2014 no reflection or generics in Hare \u2014 and would not be a great candidate for the standard library.",
+    "This approach hits the sweet spot of simplicity and utility that we're aiming for in the Hare stdlib.",
+    "strings::template is implemented in a single ~180 line file.",
+    "To work around this, we have to write Hare code which does things like slurping up the method parameters into a strio::dynamic buffer where we might instead reach for something like {% for param in method.params %} in jinja2."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Hare's strings::template trades templating power for simplicity, requiring developers to handle loops and complex logic in Hare code rather than template syntax, but this tradeoff fits the language's stdlib philosophy.",
+  "filename": "2022-11-26-Hare-codegen-v2"
+}

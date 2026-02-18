@@ -1,0 +1,27 @@
+{
+  "summary": "DeVault walks through implementing an SSH agent in Hare for integration with Himitsu, his general-purpose key store. The post covers decoding OpenSSH's undocumented private key format by reverse-engineering the C source, implementing PEM decoding, bcrypt KDF, and AES-256-CTR decryption to extract ed25519 keys. He then implements the SSH agent protocol (draft-miller-ssh-agent-11) to handle identity requests, key addition, and signing operations. The result is a working SSH agent that can authenticate against real servers, demonstrated by connecting to git.sr.ht.",
+  "key_points": [
+    "OpenSSH's private key format is undocumented and had to be reverse-engineered from sshkey.c, unlike the standardized wire protocol",
+    "The key decryption chain uses bcrypt as a KDF (based on Blowfish) to derive a symmetric key, then AES-256-CTR to decrypt the actual private key data",
+    "Hare's error handling with the ? operator creates memory leak issues when earlier allocations aren't freed on later errors \u2014 a known language design problem targeted for pre-1.0 resolution",
+    "The SSH agent protocol is straightforward: Unix socket communication using length-prefixed messages for identity listing, key addition, and signing requests",
+    "The work serves as a real-world testbed for Hare's cryptographic standard library, validating API design through actual use"
+  ],
+  "money_quotes": [
+    "Unlike much of SSH, the OpenSSH private key format is, well, private. It's not documented and I had to get most of the details from reverse-engineering the OpenSSH C code.",
+    "bcrypt is a password hashing algorithm invented by OpenBSD based on the Blowfish cipher, and it is pretty badly designed.",
+    "This is a little bit weird in my opinion \u2014 the public key field is redundant with the unencrypted data in this file, and the comment field is probably not so secret as to demand encryption.",
+    "Signal handling is stupidly complicated and easy to get wrong. The standard library makes little effort to help you deal with this.",
+    "Consult your local man pages, particularly signal-safety(7) on Linux, and perhaps a local priest as well.",
+    "Using an interface for real-world code is the best way to evaluate its design."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design",
+    "foss",
+    "internet_infra"
+  ],
+  "tone": "technical",
+  "key_insight": "Building real-world cryptographic infrastructure like an SSH agent in a new systems language simultaneously validates the language's standard library design and exposes its remaining rough edges.",
+  "filename": "2022-05-09-hare-ssh"
+}

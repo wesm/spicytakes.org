@@ -1,0 +1,23 @@
+{
+  "summary": "DeVault explains how preemptive multitasking and process scheduling work in KnightOS, an open-source Unix-like kernel he built for TI calculators in z80 assembly. The post walks through the fundamentals of how interrupts enable context switching by manipulating the stack and program counter. KnightOS uses a simple round-robin scheduler with thread suspension, chosen for its minimal overhead on extremely constrained hardware. The post serves as both a technical explainer for newcomers and a window into the design tradeoffs of writing an OS for calculators.",
+  "key_points": [
+    "Preemptive multitasking works by using timer interrupts to swap which process the CPU is executing, manipulating the return address on the stack during the interrupt handler",
+    "KnightOS uses a simple round-robin scheduler that skips suspended processes, prioritizing short context switches over complex scheduling heuristics due to hardware constraints",
+    "Each process gets its own allocated stack in memory, and context switching is accomplished by changing the stack pointer (SP) to point at a different process's stack",
+    "The z80 processor's single stack and shared memory space require careful management to preserve each process's state across context switches"
+  ],
+  "money_quotes": [
+    "It's been a cool platform on top of which I can research low level systems concepts and I thought I'd share some of my findings with the world.",
+    "Once the interrupt handler runs, however, the kernel has a chance to be sneaky.",
+    "The interrupt removes 0x1000 from the stack and puts 0x2000 there instead.",
+    "KnightOS runs on limited hardware and I wanted the context switch to be short and sweet so that the running processes get as much of the CPU as possible.",
+    "Since we allocate a new stack for the next process, we can simply change SP to that processes stack."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "Preemptive multitasking on extremely constrained hardware can be achieved with a simple round-robin scheduler that manipulates the stack pointer during timer interrupts to switch between processes.",
+  "filename": "2014-09-02-Process-scheduling-in-KnightOS"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault describes the trust-on-first-use (TOFU) algorithm he implemented for his Gemini protocol client, gmni. The post provides a detailed specification for how Gemini clients should handle certificate trust using a known_hosts file modeled after SSH. He walks through the verification steps, trust states (TRUSTED, UNTRUSTED, UNKNOWN, INVALID), and user prompts for each case. The post emphasizes that self-signed certificates are the norm in Gemini and that traditional certificate authorities should be deliberately excluded. He offers this as a recommendation for other Gemini client implementers to follow.",
+  "key_points": [
+    "Gemini's specification explicitly supports TOFU and self-signed certificates, but leaves implementation details to client developers",
+    "The algorithm uses a known_hosts file (similar to SSH) storing hostname, fingerprint algorithm, fingerprint hash, and expiration timestamp",
+    "Trust states are categorized as TRUSTED, UNTRUSTED, UNKNOWN, or INVALID, each with specific user-facing actions",
+    "CA-signed certificates are given no special treatment \u2014 they are TOFU'd the same as self-signed certs",
+    "Server operators are encouraged to use self-signed certificates and explicitly avoid mainstream certificate authorities"
+  ],
+  "money_quotes": [
+    "Self-signed certificates are the norm in Geminiland, and if your client does not support them then you're going to be unable to browse many sites.",
+    "Being signed by a certificate authority in the system trust store is not considered meaningful to this algorithm. Such a cert is TOFU'd all the same.",
+    "You should use a self-signed certificate, and you should not use a certificate signed by one of the mainstream certificate authorities.",
+    "We don't need to carry along the legacy CA cabal into our brave new Gemini future.",
+    "If UNTRUSTED, abort the request and display a diagnostic message. The user must manually edit the known_hosts file to correct the issue."
+  ],
+  "themes": [
+    "internet_infra",
+    "foss",
+    "tech_criticism"
+  ],
+  "tone": "technical, opinionated",
+  "key_insight": "The Gemini protocol offers an opportunity to replace the centralized certificate authority model with a simpler, SSH-style trust-on-first-use approach that puts control back in users' hands.",
+  "filename": "2020-09-21-Gemini-TOFU"
+}

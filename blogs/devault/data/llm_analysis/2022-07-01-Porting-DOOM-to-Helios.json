@@ -1,0 +1,25 @@
+{
+  "summary": "DeVault documents the process of porting Doom to Helios, his new microkernel operating system, as a real-world test of the kernel's design and capabilities. The port required four key features: a C programming environment, dynamic memory allocation, framebuffer access, and keyboard input. He built a PS/2 keyboard driver using Helios's notification-based IRQ handling, created a cross-compilation toolchain, and hacked together a minimal C library by pulling from musl libc. The resulting port is deliberately rough\u2014with a broken sleep implementation, no save support, and crashes when picking up the shotgun\u2014but successfully demonstrates the kernel's maturity and provides feedback on API design.",
+  "key_points": [
+    "Helios implements IRQs similarly to seL4 using notification objects as IPC primitives, keeping the keyboard driver entirely in userspace as befits a microkernel",
+    "The C library was assembled by pulling large chunks of musl libc and writing shims to fake a Unix environment, acknowledging this as throwaway work",
+    "Helios's memory model requires userspace to allocate its own page tables, with a retry-based protocol when intermediate tables are missing",
+    "The port deliberately cuts corners (malloc that never frees, fake sleep timing) to prove kernel capabilities rather than build production software",
+    "Doom serves as an effective litmus test for OS kernel maturity because it requires just enough features to be meaningful without demanding a full POSIX environment"
+  ],
+  "money_quotes": [
+    "You never know if you have a good design until you try to use it for real.",
+    "I was able to write a very stupid malloc, which rounds all allocations up to 4096 and never frees them. Hey! It works, okay?",
+    "The result of all of this hacking and slashing is quite a mess, and none of this is likely to be useful in the long term.",
+    "So instead of trampling on his feet, I just yielded the thread and pretend it took 5ms to do so, hoping for the best. It does not work!",
+    "This port plays at wildly different speeds depending on the performance of the hardware you run it on.",
+    "It crashes when you try to pick up the shotgun. But it does its job: it demonstrates the maturity of the kernel's features thus far and provides good feedback on the API design and real-world utility."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss"
+  ],
+  "tone": "technical, playful, self-deprecating",
+  "key_insight": "Porting a real program like Doom to a new OS kernel is a pragmatic way to validate design decisions and expose gaps, even when the port itself is deliberately rough.",
+  "filename": "2022-07-01-Porting-DOOM-to-Helios"
+}

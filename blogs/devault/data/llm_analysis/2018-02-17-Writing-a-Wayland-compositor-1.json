@@ -1,0 +1,24 @@
+{
+  "summary": "This tutorial introduces wlroots, the library behind the sway Wayland compositor, by walking through the creation of a minimal Wayland compositor from scratch. DeVault explains the core concepts: the Wayland display and event loop, backends that abstract input/output hardware, output signals for hotplugging, and the frame rendering cycle. By the end, the reader has a compositor that clears the screen to solid red using OpenGL via wlr_renderer. The post is structured as the first in a series, with each article corresponding to a single commit in the example 'Wayland McWayface' project.",
+  "key_points": [
+    "wlroots abstracts low-level input and output through backends (DRM, libinput, Wayland, X11), letting compositor authors focus on higher-level logic",
+    "The Wayland event loop is central to wlroots and handles signal dispatch, file descriptor monitoring, and frame timing",
+    "Output management follows a signal-based pattern: listen for new outputs, configure their modes, and handle cleanup on removal",
+    "Rendering follows a make-current, draw, swap-buffers cycle using OpenGL, with wlr_renderer providing sane defaults for simple compositors",
+    "wlr_renderer is optional\u2014compositors can use raw OpenGL or any rendering approach after making the output context current"
+  ],
+  "money_quotes": [
+    "This is a powerful tool for creating new Wayland compositors, but it is very dense and difficult to understand. Do not despair!",
+    "The backend is responsible for abstracting the low level input and output implementations from you.",
+    "Backends have nothing to do with Wayland - their purpose is to help you with the other APIs you need to use as a Wayland compositor.",
+    "It's entirely possible to utilize a wlroots backend to make applications which are not Wayland compositors.",
+    "wlr_renderer is optional. When you call wlr_output_make_current, the OpenGL context is made current and from here you can use any approach you prefer."
+  ],
+  "themes": [
+    "systems_programming",
+    "foss"
+  ],
+  "tone": "technical",
+  "key_insight": "wlroots makes Wayland compositor development accessible by abstracting hardware backends and providing sensible rendering defaults, while still allowing full control over the OpenGL pipeline.",
+  "filename": "2018-02-17-Writing-a-Wayland-compositor-1"
+}

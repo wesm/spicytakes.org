@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault explains how virtual memory works, building on his earlier article about pointers. He walks through the role of the MMU in mapping virtual addresses to physical RAM, how the kernel manages page tables across processes for memory isolation, and how mmap enables userspace programs to interact with virtual memory. The article covers swap, memory-mapped I/O, and executable pages, illustrating how virtual memory underpins everything from running compiled programs to JIT compilation. He frames virtual memory as a powerful abstraction that gives programmers elegant access to hardware.",
+  "key_points": [
+    "The MMU maps virtual addresses to physical RAM, meaning only a small subset of a 64-bit address space corresponds to actual memory",
+    "Each process gets its own clean address space via page table swapping on context switches, providing memory isolation",
+    "Executable memory pages are how programs are loaded and run, and how JITs and dynamic recompilers work",
+    "Swap extends available memory by moving pages to disk, triggering page faults when accessed again",
+    "Memory-mapped I/O allows mapping files and hardware (like video memory or real-time clocks) directly into the address space"
+  ],
+  "money_quotes": [
+    "Only a small subset of your address space is mapped to physical RAM.",
+    "Each time the kernel hits a context switch, it swaps out the page table for the next process.",
+    "Many pages can also be any combination readable, writable, or executable - the latter meaning that you could jump to it and execute it as native code.",
+    "Your compiled program is a file, after all - mmap some executable pages, load it into memory, jump to it, and huzzah: you're running your program.",
+    "A common way to reduce risk here, popular on *BSD, is enforcing W^X (writable XOR executable), so that a page can be either writable or executable, but never both.",
+    "If you blow your RAM budget across your whole system, swap gets involved."
+  ],
+  "themes": [
+    "systems_programming"
+  ],
+  "tone": "technical",
+  "key_insight": "Virtual memory is not just about extending RAM capacity \u2014 it's a versatile abstraction managed by the MMU that enables process isolation, executable code loading, memory-mapped I/O, and swap, making it foundational to how modern computers work.",
+  "filename": "2018-10-29-How-does-virtual-memory-work"
+}

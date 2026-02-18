@@ -1,0 +1,24 @@
+{
+  "summary": "DeVault shares his preferred Let's Encrypt TLS certificate setup, rejecting the official certbot client in favor of the simpler acme-client written in C. He walks through his nginx configuration for handling ACME challenges, a shell script for certificate negotiation, and a cron job for daily renewal. The post reflects his characteristic preference for minimal, understandable tooling over complex, feature-rich alternatives. He later added an update noting he switched to uacme after acme-client became unmaintained.",
+  "key_points": [
+    "Certbot, the official Let's Encrypt client, is criticized as overly complex Python software that tries to manage nginx/apache configs automatically \u2014 useful intent but fragile in practice",
+    "acme-client is preferred for its minimal C implementation with only LibreSSL and libcurl as dependencies, allowing static linking and near-zero setup time",
+    "The complete setup requires only three components \u2014 acme-client, nginx, and cron \u2014 with a small shell script tying them together",
+    "Let's Encrypt certificates can be used for protocols beyond HTTPS, such as mail (Postfix)"
+  ],
+  "money_quotes": [
+    "The acme client blessed by Let's Encrypt is certbot, but BOY is it complicated.",
+    "It's a big ol' pile of Python and I've found it fragile, complicated, and annoying.",
+    "The goal of maintaining your nginx and apache configs for you is well intentioned but ultimately useless for advanced users.",
+    "The complexity of certbot is through the roof, and complicated software breaks.",
+    "I bring a statically linked acme-client binary with me to new servers and setup time approaches zero as a result.",
+    "acme-client is unmaintained and caught the BSD disease anyway."
+  ],
+  "themes": [
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "practical, opinionated",
+  "key_insight": "Simple, minimal tools with few dependencies are more reliable and maintainable than complex, feature-rich alternatives \u2014 even when the complex tool is the officially recommended one.",
+  "filename": "2018-06-27-My-lets-encrypt-setup"
+}

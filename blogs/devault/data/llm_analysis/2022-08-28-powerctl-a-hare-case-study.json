@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault walks through powerctl, a 500-line Hare program he wrote to manage Linux power states for non-privileged users. The post serves as a case study for Hare's strengths in systems programming, covering setuid binaries, group permission checks, sysfs string parsing, and controlled I/O. He highlights how Hare's design\u2014static allocation, exhaustive switches, explicit error handling, and buffered I/O\u2014maps naturally to the constraints of a small Linux utility. The post demonstrates that Hare can produce tight, correct systems code with minimal ceremony.",
+  "key_points": [
+    "Hare's standard library provides first-class support for Unix primitives like group lookups, setuid checks, and sysfs interaction",
+    "The entire program requires dynamic memory allocation in only one place, with everything else using static buffers",
+    "Hare's exhaustive switch statements force the programmer to handle edge cases like future kernel states, catching issues at compile time",
+    "Buffered I/O gives precise control over syscall boundaries, which is critical for sysfs writes that must complete in a single call",
+    "Hare's error handling uses tagged unions and propagation operators (? and !) that make error paths explicit without boilerplate"
+  ],
+  "money_quotes": [
+    "This is also the only place in powerctl where dynamic memory allocation is required, to store the group details, which are freed with \"defer passwd::grent_finish\".",
+    "One of Hare's design goals is giving you sufficient control over the program's behavior to plan for such concerns.",
+    "Hare requires all switch statements to be exhaustive, so the compiler forces us to consider this edge case.",
+    "We use the error assertion operator (\"!\") to indicate that the programmer believes this case cannot occur. The compiler will check our work and abort at runtime should this assumption be proven wrong in practice.",
+    "If you enter sleep with a key held down, key repeat will kick in for the duration of the sleep, so when running this from the terminal you'll resume to find a bunch of new lines.",
+    "Following this, we jump into the dark abyss of a low-power coma.",
+    "A few hours of work and 500 lines of code later and we have a nice little systems program to make suspending my laptop easier."
+  ],
+  "themes": [
+    "systems_programming",
+    "language_design"
+  ],
+  "tone": "technical",
+  "key_insight": "Hare's design\u2014static allocation, exhaustive matching, explicit error propagation, and precise I/O control\u2014maps naturally to the requirements of small, correct Linux systems utilities.",
+  "filename": "2022-08-28-powerctl-a-hare-case-study"
+}

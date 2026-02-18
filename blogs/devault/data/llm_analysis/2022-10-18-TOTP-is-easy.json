@@ -1,0 +1,26 @@
+{
+  "summary": "DeVault argues that TOTP-based two-factor authentication is trivially easy to implement, providing the complete algorithm in seven steps and working implementations in both Python and Hare. He emphasizes that TOTP is more secure than SMS-based 2FA while being simpler to build, requiring no external paid services like Twilio. The post serves as both a tutorial and a challenge to developers who haven't yet added 2FA support to their services. He releases both code samples into the public domain to remove any remaining barriers to adoption.",
+  "key_points": [
+    "The entire TOTP algorithm is just seven steps and can be implemented in a couple dozen lines of code in any language",
+    "TOTP eliminates entire classes of vulnerabilities that plague SMS-based 2FA: phishing, SIM swapping, and temporary code storage",
+    "TOTP requires no paid third-party services, unlike SMS-based approaches that depend on providers like Twilio",
+    "Clock skew tolerance can be tuned by adjusting the comparison window, trading code longevity for flexibility",
+    "Rate limiting on TOTP attempts is important to prevent brute force attacks"
+  ],
+  "money_quotes": [
+    "TOTP for 2FA is incredibly easy to implement. So what's your excuse?",
+    "In any language, TOTP is just a couple of dozen lines of code even if there isn't already a library \u2014 and there is probably already a library.",
+    "You don't have to store temporary SMS codes in the database, you don't have to worry about phishing, you don't have to worry about SIM swapping, and you don't have to sign up for some paid SMS API like Twilio.",
+    "It's more secure and it's trivial to implement \u2014 so implement it already! Please!",
+    "Time-based one-time passwords are one of the more secure approaches to 2FA \u2014 certainly much better than SMS. And it's much easier to implement than SMS as well."
+  ],
+  "themes": [
+    "internet_infra",
+    "systems_programming",
+    "tech_criticism",
+    "sourcehut"
+  ],
+  "tone": "exasperated, didactic, practical",
+  "key_insight": "TOTP is simultaneously more secure and easier to implement than SMS-based 2FA, making the continued absence of proper two-factor authentication in many services inexcusable.",
+  "filename": "2022-10-18-TOTP-is-easy"
+}
