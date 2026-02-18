@@ -173,7 +173,7 @@ That state is highly correlated with the pivot tables. Everyone could quickly an
 **[VertiPaq](https://www.ssp.sh/brain/vertipaq/)**, later renamed xVelocity, is another star in the background integrated into Excel (and later Power Pivot, SSAS Tabular, and PowerBI). It was an in-memory columnar engine. When you load data into a data model, it is loaded, compressed, and stored in RAM using the VertiPaq engine.
 
 
-Today, we talk about equivalents like [Apache Arrow](https://arrow.apache.org/) and others, but VertiPaq was back in 2006 (!). The Apache Software Foundation announced Arrow onÂ February 17, 2016, although the initial codebase and Java library were seeded by code from [Apache Drill](https://drill.apache.org/). Drill, on the other hand, was first released in 2014 and stemmed from [Google’s Dremel Encoding](https://research.google.com/pubs/archive/36632.pdf), an interactive analysis of web-scale Datasets in 2011.
+Today, we talk about equivalents like [Apache Arrow](https://arrow.apache.org/) and others, but VertiPaq was back in 2006 (!). The Apache Software Foundation announced Arrow on February 17, 2016, although the initial codebase and Java library were seeded by code from [Apache Drill](https://drill.apache.org/). Drill, on the other hand, was first released in 2014 and stemmed from [Google’s Dremel Encoding](https://research.google.com/pubs/archive/36632.pdf), an interactive analysis of web-scale Datasets in 2011.
 
 
 You can see how far ahead Microsoft was at that time.
@@ -212,7 +212,7 @@ The pivot table aligns with these principles. Most of us have used it extensivel
 On top, it **standardizes** the process. Like double-entry bookkeeping or taking a Dockerfile, it lets us do many things but has clear rules. However, these constraints let us deploy on any Kubernetes Cluster, cloud-agnostic, AWS, Google, or Microsoft; it does not matter.
 
 
-The same is happening with pivot tables, as they evolved into such a well-defined standard; modern tools, especially in business intelligence dashboarding tools, can now integrate pivot tables into their BI tool, and every user knows how to use themâbenefiting immediately from the REPL-like exploration.
+The same is happening with pivot tables, as they evolved into such a well-defined standard; modern tools, especially in business intelligence dashboarding tools, can now integrate pivot tables into their BI tool, and every user knows how to use them—benefiting immediately from the REPL-like exploration.
 
 
 But what exactly is standardized with pivot tables? It standardizes around the concept of **measures** and **dimensions**. If you want to provide a pivot table, you need to provide a tabular table with [metrics](https://www.ssp.sh/brain/metrics) and possible dimensions to drill down, such as a time dimension or date field if you want to analyze over time. Defining that you need one date column for a line chart over time is very clear and intuitive for us to use.
@@ -224,7 +224,7 @@ If you want to have a product, a sales, or `year->quarter->week->days` hierarchy
 But these are business standards; technical constraints make the pivot table powerful. The ability to quickly switch from the table to a chart, switching from sales region to geographic region, or adding product hierarchy to the table is super helpful when sitting with all the product managers in a room or wanting to analyze something and make it self-serve.
 
 What Makes an Intuitive Data Tool?
-Â«The Human FactorÂ» of data, and what makes an intuitive data tool. A tool is intuitive if we are familiar with it, if it’s simple, if we can control it, and if we trust it. We achieve this by having
+«The Human Factor» of data, and what makes an intuitive data tool. A tool is intuitive if we are familiar with it, if it’s simple, if we can control it, and if we trust it. We achieve this by having
 **well-defined, built-in constraints**
 , leading to standardization across the board.
 

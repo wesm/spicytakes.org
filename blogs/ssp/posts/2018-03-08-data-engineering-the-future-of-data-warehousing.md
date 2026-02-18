@@ -39,7 +39,7 @@ The physical warehouse where the customers buying the articles is in a DWH norma
 Besides the obvious reasons of a shop explained above, a data warehouse gives you big advantages:
 
 - In theory: **Integration** and **transformation** of raw data of an organisation **from multiple** sources (mostly very structured like SAP, CRM, Excel, etc.) into meaningful and **useful information, historical stored**.
-- In practice: Similar **a cockpit in an aeroplane** - All Measures and [KPIâ](https://en.wikipedia.org/wiki/Performance_indicator)s are at one place in order to steer the plane and take the right decisions
+- In practice: Similar **a cockpit in an aeroplane** - All Measures and [KPI’](https://en.wikipedia.org/wiki/Performance_indicator)s are at one place in order to steer the plane and take the right decisions
 - It allows businesses to make **better decisions** by accessing the data well structured
 - The visual products from business intelligence based on top of a data warehouses are largely:
 
@@ -47,13 +47,13 @@ Besides the obvious reasons of a shop explained above, a data warehouse gives yo
 ## What is Data Engineering?
 
 
-Data engineering is the less famous sibling of data science. Data science is growing like no tomorrow and so does data engineer, but much less heard. Compared to existing roles it would be a **software engineering plus business intelligence engineer including big data abilities** as the Hadoop ecosystem, streaming and computation at scale. Business creates more reporting artefacts themselves but with more data that needs to be collected, cleaned and updated near real-time and complexity is expanding every day. With that said more programmatic skills are needed similar to software engineering. **The emerging language at the moment is Python**Â (more in the chapterÂ [below](https://www.ssp.sh/blog/data-engineering-the-future-of-data-warehousing#ThetoollanguagePython)) while used in engineering with tools alike Apache Airflow as well as data science with powerful libraries. Where today as a BI-engineer you use [SQL](https://en.wikipedia.org/wiki/SQL) for almost everything except when using external data from an FTP-server for example. You would use bash and PowerShell in the nightly batch jobs. But this is no longer sufficient and because it gets a full-time job to develop and maintain all these requirement and rules (called pipelines), the data engineering is needed.
+Data engineering is the less famous sibling of data science. Data science is growing like no tomorrow and so does data engineer, but much less heard. Compared to existing roles it would be a **software engineering plus business intelligence engineer including big data abilities** as the Hadoop ecosystem, streaming and computation at scale. Business creates more reporting artefacts themselves but with more data that needs to be collected, cleaned and updated near real-time and complexity is expanding every day. With that said more programmatic skills are needed similar to software engineering. **The emerging language at the moment is Python** (more in the chapter [below](https://www.ssp.sh/blog/data-engineering-the-future-of-data-warehousing#ThetoollanguagePython)) while used in engineering with tools alike Apache Airflow as well as data science with powerful libraries. Where today as a BI-engineer you use [SQL](https://en.wikipedia.org/wiki/SQL) for almost everything except when using external data from an FTP-server for example. You would use bash and PowerShell in the nightly batch jobs. But this is no longer sufficient and because it gets a full-time job to develop and maintain all these requirement and rules (called pipelines), the data engineering is needed.
 
 
 ## The role of a data engineer
 
 
-In order to get high quality and **frequently updated data sets**, it is important to distinguish between data pipelines that are **done and cleaned** by data engineers and all the others that are mostly exploratory. We at Airbus use a folder that is called âcleanedâ and all data sets produced there are constantly updated, documented and of the highest quality. Based on these data sets you create your own. We use the data lake solutionÂ [Palantir Foundry](https://en.wikipedia.org/wiki/Palantir_Technologies) (brand name of Airbus: [Skywise](http://www.airbus.com/newsroom/press-releases/en/2017/06/airbus-launches-new-open-aviation-data-platform--skywise--to-sup.html)) which provides you with a map where you see the [data lineage](https://en.wikipedia.org/wiki/Data_lineage) easily. **Documentation and metadata to each data set are crucial** as otherwise, you lose the overview of your data, which is also one main task of a data engineer.
+In order to get high quality and **frequently updated data sets**, it is important to distinguish between data pipelines that are **done and cleaned** by data engineers and all the others that are mostly exploratory. We at Airbus use a folder that is called “cleaned” and all data sets produced there are constantly updated, documented and of the highest quality. Based on these data sets you create your own. We use the data lake solution [Palantir Foundry](https://en.wikipedia.org/wiki/Palantir_Technologies) (brand name of Airbus: [Skywise](http://www.airbus.com/newsroom/press-releases/en/2017/06/airbus-launches-new-open-aviation-data-platform--skywise--to-sup.html)) which provides you with a map where you see the [data lineage](https://en.wikipedia.org/wiki/Data_lineage) easily. **Documentation and metadata to each data set are crucial** as otherwise, you lose the overview of your data, which is also one main task of a data engineer.
 
 
 ### Services that a data engineer provides
@@ -61,11 +61,11 @@ In order to get high quality and **frequently updated data sets**, it is importa
 
 Another important task or **service which a data engineer provides is automation** that data scientists or data analysts do manually. A good overview what task this includes are provided by [Maxime Beauchemin](https://medium.com/@maximebeauchemin), the founder of [Apache Airflow](https://airflow.apache.org/), a tool that helps a data engineer to lift the majority of tasked mentioned:
 
-- â**data ingestion**: services and tooling around âscrapingâ databases, **loading logs, fetching data from external stores or APIs**,Â â¦
+- “**data ingestion**: services and tooling around “scraping” databases, **loading logs, fetching data from external stores or APIs**, …
 - **metric computation**: frameworks to compute and summarise engagement, **growth or segmentation related metrics**
 - **anomaly detection**: automating data consumption to **alert people anomalous events occur** or when trends are changing significantly
 - **metadata management**: tooling around allowing generation and consumption of metadata, making it easy to find information in and around the data warehouse
-- **experimentation: A/B testing** and experimentation frameworks is often a critical piece of companyâs analytics with a significant data engineering component to it
+- **experimentation: A/B testing** and experimentation frameworks is often a critical piece of company’s analytics with a significant data engineering component to it
 - **instrumentation**: **analytics starts with logging events** and attributes related to those events, data engineers have vested interests in making sure that high-quality data is captured upstream
 - **dependencies**: **pipelines that are specialized in understand series of actions** in time, allowing analysts to understand user behaviours"
 
@@ -85,16 +85,16 @@ I believe, that **not every company is in need of data engineers**. His skills a
 ## Data engineer job description and skills
 
 
-If English is the language of business, SQL is the language ofÂ data and Python the language of engineering. While technology disappears often, SQL is still here. This means you need a reliable understanding of:
+If English is the language of business, SQL is the language of data and Python the language of engineering. While technology disappears often, SQL is still here. This means you need a reliable understanding of:
 
 - **SQL to a high level of complexity**
 - **Data modelling techniques:** [ERD](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)s and dimensional modelling
 - Solid [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) **understanding**
-- Architectural projections:Â needs to have a **high-level understanding of most of the tools, platforms, libraries and other resources** at its disposal
+- Architectural projections: needs to have a **high-level understanding of most of the tools, platforms, libraries and other resources** at its disposal
 - able to connect the dots from source to destination with any **programming language** that does the job best. (Probably Python at the moment)
 
 
-[Stitchdata.com](https://www.stitchdata.com/resources/reports/the-state-of-data-engineering/) anticipated that as company size increased, so would the focus on scaling-related skill. However, that’s not the story the data told. Instead, data engineers at **larger companies tend to be more focused on âenterpriseâ skills like ETL, BI, and data warehousing, whereas data engineers at smaller companies focus more on core technologies**:
+[Stitchdata.com](https://www.stitchdata.com/resources/reports/the-state-of-data-engineering/) anticipated that as company size increased, so would the focus on scaling-related skill. However, that’s not the story the data told. Instead, data engineers at **larger companies tend to be more focused on “enterprise” skills like ETL, BI, and data warehousing, whereas data engineers at smaller companies focus more on core technologies**:
 
 
 ![/blog/data-engineering-the-future-of-data-warehousing/images/Skill_Differences_of_DataEngineers.jpg](https://www.ssp.sh/blog/data-engineering-the-future-of-data-warehousing/images/Skill_Differences_of_DataEngineers.jpg)
@@ -116,10 +116,10 @@ Programming languages have always come and gone, but in the last couple of years
 *Trends programming languages on StackOverflow*
 
 
-According to the [Codeacademy](http://codecademy.com) and their source data from [Stack Overflow](https://stackoverflow.blog/2017/09/06/incredible-growth-python/), they say it’s connected to the rise of data science. This and [machine learning](https://en.wikipedia.org/wiki/Machine_learning) were the biggest trends in tech 2017. Additionally, Python has become a go-to language for data analysis. With data-focused libraries like pandas, NumPy, and matplotlib, anyone familiar with Pythonâs syntax and rules can deploy it as a powerful tool to process, manipulate, and visualise data.
+According to the [Codeacademy](http://codecademy.com) and their source data from [Stack Overflow](https://stackoverflow.blog/2017/09/06/incredible-growth-python/), they say it’s connected to the rise of data science. This and [machine learning](https://en.wikipedia.org/wiki/Machine_learning) were the biggest trends in tech 2017. Additionally, Python has become a go-to language for data analysis. With data-focused libraries like pandas, NumPy, and matplotlib, anyone familiar with Python’s syntax and rules can deploy it as a powerful tool to process, manipulate, and visualise data.
 
 
-Related to the rise of data science and data engineering, it’s clear to me that Python is here to stay and it’s becoming theÂ **Swiss Army KnifeÂ of programming languages**.
+Related to the rise of data science and data engineering, it’s clear to me that Python is here to stay and it’s becoming the **Swiss Army Knife of programming languages**.
 
 
 ### Python for data engineers
@@ -128,7 +128,7 @@ Related to the rise of data science and data engineering, it’s clear to me tha
 But for what can you use Python in data engineering. For example, **you use it for data wrangling** (reshaping, aggregating, joining disparate sources, etc.) which mostly done with the library [Pandas](https://en.wikipedia.org/wiki/Pandas_(software)), small-scale ETL, API interaction (our presentation usually happens in Tableau which has Python APIs) and automation with [Apache Airflow](https://airflow.apache.org/), which is also natively in Python.
 
 
-â*ApacheÂ Airflow has several building blocks that allow Data Engineers to easily piece together pipelines to and from different sources. Because it is written in Python, Data Engineers find it easy to create ETL pipelines by just extending classes of Airflowâs DAG and Operator objects. And this allows us to write our own Python code to create any ETL we wish, with the structure given by Airflow. Airflow uses several packages mentioned all ready to do the job: [boto](http://boto.cloudhackers.com/en/latest/) for S3 handling, pandas for obvious advantages with data frames, psycopg2 for popular integrations with Postgres and Redshift, and several more.*â said by [David Dalisay](https://www.quora.com/profile/David-Dalisay).
+“*Apache Airflow has several building blocks that allow Data Engineers to easily piece together pipelines to and from different sources. Because it is written in Python, Data Engineers find it easy to create ETL pipelines by just extending classes of Airflow’s DAG and Operator objects. And this allows us to write our own Python code to create any ETL we wish, with the structure given by Airflow. Airflow uses several packages mentioned all ready to do the job: [boto](http://boto.cloudhackers.com/en/latest/) for S3 handling, pandas for obvious advantages with data frames, psycopg2 for popular integrations with Postgres and Redshift, and several more.*” said by [David Dalisay](https://www.quora.com/profile/David-Dalisay).
 
 
 ## Facebook data engineer
@@ -195,7 +195,7 @@ As the power of computers and especially the speed of the internet is growing, m
 #### ETL is changing
 
 
-Furthermore the way we do ETL is changing as well, as [Maxime Beauchemin](https://medium.com/@maximebeauchemin), data engineer at Airbnb quotes: â*Product know-how on **platforms like Informatica, IBM Datastage, Cognos, AbInitio or Microsoft SSIS isnât common amongst modern data engineers**, and being replaced by more generic software engineering skills along with understanding of programmatic or configuration driven platforms like Airflow, Oozie, Azkabhan or Luigi. Itâs also fairly common for engineers to develop and manage their own job orchestrator/scheduler.*â He is also saying that **code is the best abstraction there is for software** rather than using drag and drop tools (ETL-tools). Most important what I see as well, that the **transformation logic is of a higher need and shouldn’t be locked away exclusively for BI developers**.
+Furthermore the way we do ETL is changing as well, as [Maxime Beauchemin](https://medium.com/@maximebeauchemin), data engineer at Airbnb quotes: “*Product know-how on **platforms like Informatica, IBM Datastage, Cognos, AbInitio or Microsoft SSIS isn’t common amongst modern data engineers**, and being replaced by more generic software engineering skills along with understanding of programmatic or configuration driven platforms like Airflow, Oozie, Azkabhan or Luigi. It’s also fairly common for engineers to develop and manage their own job orchestrator/scheduler.*” He is also saying that **code is the best abstraction there is for software** rather than using drag and drop tools (ETL-tools). Most important what I see as well, that the **transformation logic is of a higher need and shouldn’t be locked away exclusively for BI developers**.
 
 
 #### Data Modelling is changing
@@ -206,7 +206,7 @@ As you can’t change ETL without modelling differently, also this is changing:
 - **Further** [denormalisation](https://en.wikipedia.org/wiki/Denormalization) for performance gains is mostly compensated with faster databases engines or cloud solutions.
 - **Maintaining** [surrogate keys](http://www.kimballgroup.com/1998/05/surrogate-keys/) in dimensions can be tricky and not human-friendly as we prefer business keys.
 - With the popularity of document storage and cheap blobs in cloud storage, it is becoming easier to create and develop database **schemas dynamically** without writing [DML-statements](https://en.wikipedia.org/wiki/Data_manipulation_language).
-- Systematically **snapshoting** dimension compared to handle complex and maybe contra-intuitive [slowly changing dimension (SCD)](https://en.wikipedia.org/wiki/Slowly_changing_dimension) is a way to **simplify track changes** in a DWH. Is it also easy and relatively cheap to denormalise dimension’s attribute directly on the fact table to keep important information at the moment of theÂ transaction.
+- Systematically **snapshoting** dimension compared to handle complex and maybe contra-intuitive [slowly changing dimension (SCD)](https://en.wikipedia.org/wiki/Slowly_changing_dimension) is a way to **simplify track changes** in a DWH. Is it also easy and relatively cheap to denormalise dimension’s attribute directly on the fact table to keep important information at the moment of the transaction.
 - [Conformed dimensions](http://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/conformed-dimension/) and **conformance** as in general is extremely important in nowadays data warehouse and data environments. But **to be more collaborative and work on same objects it is a necessary trade-off to loosen it up**.
 - Not only more working on the same project within data warehousing, also more people from business and other departments **getting more data-savvy than ever before**. In that sense data needs to get more real-time rather than batch processing and precompute calculations, this can be done more ad-hoc with new fast technologies like Spark that **ran complex jobs ad-hoc** and on-demand.
 
@@ -214,7 +214,7 @@ As you can’t change ETL without modelling differently, also this is changing:
 #### Education is changing
 
 
-Facebook, Airbnb and other companies taking it a step into so-called âData Camps or Data Universityâ to educate internal employees in respect of data to get more data savvy.
+Facebook, Airbnb and other companies taking it a step into so-called “Data Camps or Data University” to educate internal employees in respect of data to get more data savvy.
 
 
 ## Conclusion
@@ -227,7 +227,7 @@ So after all, is the data engineer the new business intelligence engineer? I wou
 
 
 ```
-Republished on LinkedInÂ andÂ Hacker Noon.
+Republished on LinkedIn and Hacker Noon.
 ```
 
 

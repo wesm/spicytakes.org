@@ -1,19 +1,19 @@
 ---
-title: "SSAS Cubes â Dynamic generation of partition"
+title: "SSAS Cubes – Dynamic generation of partition"
 date: 2015-10-09
 url: https://www.ssp.sh/blog/ssas-cubes-dynamic-generation-of-partition/
 slug: ssas-cubes-dynamic-generation-of-partition
 word_count: 751
 ---
 
-![SSAS Cubes â Dynamic generation of partition](https://www.ssp.sh/blog/ssas-cubes-dynamic-generation-of-partition/images/cube-partitions-e1444391131116.jpg)
+![SSAS Cubes – Dynamic generation of partition](https://www.ssp.sh/blog/ssas-cubes-dynamic-generation-of-partition/images/cube-partitions-e1444391131116.jpg)
 
 Contents
 
-There is no easy way to generate partition for SSAS Cubes by default. So you have to do a SSIS-Package Â (here is a way you can do it [dynamic-cube-partitioning-in-ssas-2008](http://sql-bi-dev.blogspot.ch/2010/12/dynamic-cube-partitioning-in-ssas-2008.html)) or write a SQL Script which generates XMLA executables.
+There is no easy way to generate partition for SSAS Cubes by default. So you have to do a SSIS-Package  (here is a way you can do it [dynamic-cube-partitioning-in-ssas-2008](http://sql-bi-dev.blogspot.ch/2010/12/dynamic-cube-partitioning-in-ssas-2008.html)) or write a SQL Script which generates XMLA executables.
 
 
-As shown in the Statement, youÂ can dynamically generate month partitions. The trick is, to create a linked server, that you can execute XMLA statements with relational T-SQL, so i created a Linked Server first.
+As shown in the Statement, you can dynamically generate month partitions. The trick is, to create a linked server, that you can execute XMLA statements with relational T-SQL, so i created a Linked Server first.
 
 
 Thanks for any advice or improvements in the comment section:
@@ -185,7 +185,7 @@ CREATE PROCEDURE ssas.Usp_processdatabase (@CubeName        NVARCHAR(50),
                                            @PartitionPreFix NVARCHAR(20),
                                            @SqlQuery        NVARCHAR(max) =''
 /*'SELECT FK_AS_Produkt_ID, FK_AS_Produkt_productId_BK, FK_AS_Vertrag_ID, FK_AS_Vertrag_bookingId_BK, FK_AS_Inserent_ID, FK_AS_Inserent_accountId_BK, FK_AS_Objekt_ID, FK_AS_Objekt_vehicleId_BK,
-FK_CD_Zeit_Zeit_ID, FK_CD_Zeit_Zeit_DIM_ZEIT_KEY_BK, [Datum Start], [Datum Ende], [Datum Start Booking], [Status ID], [Anzahl PlÃ¤tze], [Anzahl verwendete PlÃ¤tze], Preis, MwSt,
+FK_CD_Zeit_Zeit_ID, FK_CD_Zeit_Zeit_DIM_ZEIT_KEY_BK, [Datum Start], [Datum Ende], [Datum Start Booking], [Status ID], [Anzahl Plätze], [Anzahl verwendete Plätze], Preis, MwSt,
 privateInserters_distict_cnt_PD, privateInsertersReturners1_distict_cnt, privateInsertersReturners12_distict_cnt, privateInsertersReturners48_distict_cnt, soldMemberSlotsFixdate_sum_PD,
 privateInsertersMoto_sum_PD, vehiclesPrivatInsertersAuto_sum_PD, revenuePrivateInsertersListingsAuto_sum_PD, revenuePrivateInsertersAdditionalsAuto_sum_PD, vehiclesPrivatInsertersMoto_sum_PD,
 revenuePrivateInsertersAdditionalsMoto_sum_PD, SA_SourceSystem_ID, SA_Load_ID, CA_Load_ID, DW_Load_ID, SCD_TransactionDate, DS_Load_ID

@@ -12,7 +12,7 @@ Contents
 This article was written as part of
 [my services](https://www.ssp.sh/services)
 
-Most data teams spend 80% of their time wrestling with infrastructureâwriting custom UPSERT logic, building incremental loading from scratch, or debugging why their Airflow DAGs failed again at 2 AM. Meanwhile, the business is still waiting for those critical data insights.
+Most data teams spend 80% of their time wrestling with infrastructure—writing custom UPSERT logic, building incremental loading from scratch, or debugging why their Airflow DAGs failed again at 2 AM. Meanwhile, the business is still waiting for those critical data insights.
 
 
 This article is a follow-up to [Part 1](https://www.ssp.sh/blog/declarative-data-stack-enterprise/), where we explored declarative data stacks. Here, we dive into the specific capabilities that let you skip most of the engineering challenges and focus on delivering business value. You’ll discover how to extract and load data from multiple sources with built-in quality controls, configure complex write strategies like SCD2 and UPSERT with simple configuration changes, and transform data using SQL that transpiles seamlessly across BigQuery, Snowflake, Databricks, and DuckDB. We’ll also explore how to generate production-ready orchestration workflows without writing custom code, all while testing locally before deploying to production.
@@ -30,7 +30,7 @@ By the end, you’ll see how declarative approaches can eliminate custom develop
 Let’s quickly recap why you’d want a [declarative data stack](https://www.rilldata.com/blog/the-rise-of-the-declarative-data-stack). The modern data stack is only a definition and not something that exists physically. But generally, it’s defined as a modular stack where you can flexibly exchange certain data tools and combine them, leading to integration into an end-to-end data platform.
 
 
-This is also where most of the frustration comes fromâsome of them do not work well together, and it’s a lot of work with constant changes on each of the tools while you try to build. Though the code and license to use the tools cost nothing, it’s expensive to set up yourself if you don’t have the expertise.
+This is also where most of the frustration comes from—some of them do not work well together, and it’s a lot of work with constant changes on each of the tools while you try to build. Though the code and license to use the tools cost nothing, it’s expensive to set up yourself if you don’t have the expertise.
 
 
 This is where a declarative stack comes in handy. It’s a pre-built framework to **stitch together the best-in-class tools**. It’s opinionated toward tools that work well together, but that comes with a big efficiency gain. Plus, you can get started in minutes, as everything is declarative.
@@ -205,7 +205,7 @@ If you click on preview, it will show transpiled code for the current configured
 
 ![/blog/beyond-basic-etl/starlake-result.png](https://www.ssp.sh/blog/beyond-basic-etl/starlake-result.png)
 
-*Preview our data aggregationâor hit transpiled or lineage to see more detailed information.*
+*Preview our data aggregation—or hit transpiled or lineage to see more detailed information.*
 
 
 These transformations can be stacked upon each other, building your data application with newly created data models and powerful aggregations. Check out a demo [here](https://www.youtube.com/watch?v=B6xEomPtvCY).
@@ -259,7 +259,7 @@ Furthermore, Starlake supports [templating](https://docs.starlake.ai/guides/orch
 DAG generation relies on command line tools, configurations, templates, and the starlake-orchestration framework to manage dependencies. Templates for data loading and transformation can be customized with runtime parameters using Python variables like `jobs` and `user_defined_macros`. Dependencies between tasks can be managed either inline (generating all dependencies) or through external state changes using Airflow datasets or Dagster Assets.
 
 
-The best part is that users can schedule advanced schedules **with code-free templating**, also called no-codeâyou just select one of the predefined/custom orchestrator templates and let Starlake generate and deploy your DAGs on your selected orchestrator. See some examples in [Orchestration Tutorial](https://docs.starlake.ai/guides/orchestrate/tutorial).
+The best part is that users can schedule advanced schedules **with code-free templating**, also called no-code—you just select one of the predefined/custom orchestrator templates and let Starlake generate and deploy your DAGs on your selected orchestrator. See some examples in [Orchestration Tutorial](https://docs.starlake.ai/guides/orchestrate/tutorial).
 
 
 Furthermore, you get intelligent and visual dependency management with parallel execution when needed, and automated error handling and recovery. It’s a key component of Starlake, as it not only defines the data stack via flexible configurations but can also run it with whatever **execution engine** your data organization uses.
@@ -279,7 +279,7 @@ What does that mean? This concept is what differentiates it from normal data sta
 *Cross-engine support to use any compute you want. As you can see in the image, you could use Snowflake or hook it up to Excel.*
 
 
-Further, you are not vendor-locked inâyou can use different engines when needed or can change if you have to because of an organizational decision. By default, Starlake lets you specify your default engine for your entire project while also giving you the flexibility to override it on a per-model basis.
+Further, you are not vendor-locked in—you can use different engines when needed or can change if you have to because of an organizational decision. By default, Starlake lets you specify your default engine for your entire project while also giving you the flexibility to override it on a per-model basis.
 
 
 Let’s say you need the native warehouse engine in production for speed and security reasons, while leveraging DuckDB in the development environment or using Spark to process thousands of XML files in the test environment. Starlake is also **cross-engine capable**, enabling transformations that query one data warehouse and write results to another. This is especially useful for export tasks to formats like CSV, Parquet, or Excel, as well as for integrations with external analytical or operational databases.
@@ -312,7 +312,7 @@ It allows efficient data transformation with the engine of your choice, supporti
 I believe the future is declarative data engineering, and Starlake can play a big part in this. Some also talk about the move [From Data Engineer to YAML Engineer](https://juhache.substack.com/p/from-data-engineer-to-yaml-engineer) and explain how declarative stacks free up engineers to focus on higher-value work.
 
 
-In Part 3, we’ll discuss use cases such as transpiling SQL between dialects and data quality and validation with expectations in action. We’ll demonstrate the built-in, declarative security features and showcase DAG generation using templates that integrate with Airflow, Dagster, and Snowflake tasks out of the box, including column-level lineage support. We’ll also analyze how the end goal of moving toward English engineering through LLMs could lookâa road to self-service data platforms with a declarative backbone.
+In Part 3, we’ll discuss use cases such as transpiling SQL between dialects and data quality and validation with expectations in action. We’ll demonstrate the built-in, declarative security features and showcase DAG generation using templates that integrate with Airflow, Dagster, and Snowflake tasks out of the box, including column-level lineage support. We’ll also analyze how the end goal of moving toward English engineering through LLMs could look—a road to self-service data platforms with a declarative backbone.
 
 
 I hope you enjoyed this. Please let me know in the comments or write me if you have any feedback or experiences with declarative data stacks.
@@ -321,7 +321,7 @@ I hope you enjoyed this. Please let me know in the comments or write me if you h
 ---
 
 
-Want to get started with Starlake? Check out the [GitHub repo](https://github.com/starlake-ai/starlake/) or get started with a demo on [demo.starlake.ai](https://demo.starlake.ai/). Again, Starlake is fully open-sourceânot only its engine but also SQL transpilers and used toolsâbut you can also use its cloud hosting to get started immediately. If you use VS Code, check out [the extension](https://www.youtube.com/watch?v=8EL9-UiW6zs) for this too.
+Want to get started with Starlake? Check out the [GitHub repo](https://github.com/starlake-ai/starlake/) or get started with a demo on [demo.starlake.ai](https://demo.starlake.ai/). Again, Starlake is fully open-source—not only its engine but also SQL transpilers and used tools—but you can also use its cloud hosting to get started immediately. If you use VS Code, check out [the extension](https://www.youtube.com/watch?v=8EL9-UiW6zs) for this too.
 
 
 ---

@@ -1,12 +1,12 @@
 ---
-title: "A Beginnerâs Guide to Geospatial with DuckDB"
+title: "A Beginner’s Guide to Geospatial with DuckDB"
 date: 2025-02-26
 url: https://www.ssp.sh/blog/duckdb-geospatial/
 slug: duckdb-geospatial
 word_count: 4684
 ---
 
-![A Beginnerâs Guide to Geospatial with DuckDB](https://www.ssp.sh/blog/duckdb-geospatial/featured-image.png)
+![A Beginner’s Guide to Geospatial with DuckDB](https://www.ssp.sh/blog/duckdb-geospatial/featured-image.png)
 
 Contents
 This article was written as part of
@@ -15,7 +15,7 @@ This article was written as part of
 Geospatial data is everywhere in modern analytics. Consider this scenario: you’re a data analyst at a growing restaurant chain, and your CEO asks, “Where should we open our next location?”
 
 
-This seemingly simple question requires analyzing competitor locations, population density, traffic patterns, and demographicsâall spatial data. Traditionally, answering this question would require expensive GIS (Geographic Information Systems) software or complex database setups. Today, DuckDB offers a simpler, more accessible approach for data engineers to tackle spatial problems without specialized infrastructure.
+This seemingly simple question requires analyzing competitor locations, population density, traffic patterns, and demographics—all spatial data. Traditionally, answering this question would require expensive GIS (Geographic Information Systems) software or complex database setups. Today, DuckDB offers a simpler, more accessible approach for data engineers to tackle spatial problems without specialized infrastructure.
 
 
 This article explores how DuckDB’s spatial capabilities can transform complex geographic analysis into simple SQL queries, including hands-on spatial queries with the Foursquare dataset.
@@ -38,7 +38,7 @@ used to work with it.
 ## Why Geospatial Processing Matters
 
 
-When I first worked with GIS and geospatial data, I was always confusedâwhy do we need it? Can’t we use Postgres or MySQL? What are these different layers (WMS, WFS, etc.) and all these formats? What’s the difference between polygons and multi-polygons? When do we use a point? What is the coordinate system for points, longitude, and latitude?
+When I first worked with GIS and geospatial data, I was always confused—why do we need it? Can’t we use Postgres or MySQL? What are these different layers (WMS, WFS, etc.) and all these formats? What’s the difference between polygons and multi-polygons? When do we use a point? What is the coordinate system for points, longitude, and latitude?
 
 
 GIS and maps are [challenging](https://observablehq.com/blog/maps-and-data-visualization-with-fil-riviere), and there is a lot to cover. In this article, I will briefly introduce geospatial and GIS tools, explain why we need them, and showcase their ubiquitous use.
@@ -170,7 +170,7 @@ For data engineers, geospatial **data sources** are similar to regular data sour
 So why would you need DuckDB for GIS? In the past, you needed very complex and expensive tools for doing GIS applications, tools like [ArcGIS](https://www.arcgis.com/), [QGIS](https://qgis.org/) and others. These tools obviously do much more, but it added a high barrier to getting started.
 
 
-Another option, as mentioned above, was using PostgreSQL instance with PostGIS for spatial queries, along with a few Python scripts to handle data ingestion and transformationâsince PostgreSQL isnât optimized for analytical workloads.
+Another option, as mentioned above, was using PostgreSQL instance with PostGIS for spatial queries, along with a few Python scripts to handle data ingestion and transformation—since PostgreSQL isn’t optimized for analytical workloads.
 
 
 With DuckDB, all your data preparation, integration, and analysis are consolidated into a single database. Spatial support is just an extension away, allowing you to perform complex geospatial queries without the overhead of managing a database server.
@@ -182,7 +182,7 @@ With DuckDB, all your data preparation, integration, and analysis are consolidat
 What capabilities does DuckDB exactly bring you might ask? DuckDB offers extensive [Spatial Functions](https://duckdb.org/docs/extensions/spatial/functions.html) that are out of the box.
 
 
-It also comes with [GDAL Based `COPY` Function](https://duckdb.org/docs/extensions/spatial/gdal.html#gdal-based-copy-function) that allows reading and writing spatial data from a variety of geospatial vector file formatsâingesting or importing geospatial file formats through the `ST_Read` function and exporting DuckDB tables to different geospatial vector formats through a GDAL-based `COPY` function.
+It also comes with [GDAL Based `COPY` Function](https://duckdb.org/docs/extensions/spatial/gdal.html#gdal-based-copy-function) that allows reading and writing spatial data from a variety of geospatial vector file formats—ingesting or importing geospatial file formats through the `ST_Read` function and exporting DuckDB tables to different geospatial vector formats through a GDAL-based `COPY` function.
 
 
 An example from the [docs](https://duckdb.org/docs/extensions/spatial/gdal.html#gdal-based-copy-function) showcases how to export to a [GeoJSON](https://geojson.org/) file with generated bounding boxes from a DuckDB table:
@@ -291,7 +291,7 @@ As you can see, the coordinates that I copied from Google Maps in Zurich belong 
 â status â                                             address                                              â  city   â            country             â
 â int32  â                                             varchar                                              â varchar â            varchar             â
 ââââââââââ¼âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ¼ââââââââââ¼âââââââââââââââââââââââââââââââââ¤
-â    200 â Bahnhofquai, City, Altstadt, ZÃ¼rich, Bezirk ZÃ¼rich, ZÃ¼rich, 8001, Schweiz/Suisse/Svizzera/Svizra â ZÃ¼rich  â Schweiz/Suisse/Svizzera/Svizra â
+â    200 â Bahnhofquai, City, Altstadt, Zürich, Bezirk Zürich, Zürich, 8001, Schweiz/Suisse/Svizzera/Svizra â Zürich  â Schweiz/Suisse/Svizzera/Svizra â
 ââââââââââ´âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ´ââââââââââ´âââââââââââââââââââââââââââââââââ
 ` |
 
@@ -499,10 +499,10 @@ Let’s first check the data and query all the cities with the 20 most entries:
 â   varchar    â    int64     â
 ââââââââââââââââ¼âââââââââââââââ¤
 â              â        84228 â
-â ZÃ¼rich       â        32488 â
+â Zürich       â        32488 â
 â Basel        â        11975 â
 â Bern         â        11256 â
-â GenÃ¨ve       â        11083 â
+â Genève       â        11083 â
 â Lausanne     â         9161 â
 â Luzern       â         6343 â
 â Winterthur   â         6058 â
@@ -559,7 +559,7 @@ LOAD spatial;
 
 
 
-As with the above city data, I chose the biggest cities in SwitzerlandâZurich, Geneva, Bern, Basel, and Luzernâand checked the highest density of chocolate stores.
+As with the above city data, I chose the biggest cities in Switzerland—Zurich, Geneva, Bern, Basel, and Luzern—and checked the highest density of chocolate stores.
 
 
 The query has three major queries: it defines city centers and their bounding boxes to speed up spatial queries by pre-filtering coordinates (not needed); second, it identifies chocolate stores within a 5km radius of each city center using spatial functions and category filtering; and third, it calculates store density per square kilometer and lists the three closest chocolate stores to each city center:
@@ -818,8 +818,8 @@ Below are some of the most powerful and well-known Python libraries for visualiz
 Everything About Maps and Data Visualization Is Hard.
 A
 **quick reminder**
-: Everything is hard. Thatâs the thing with data visualization. You have to understand the data. You have to understand the context. You have to understand the technique. You have to be an artist. You have to understand composition and color theory. All of these are hard in a practical way and in a theoretical wayâ
-[Fil RiviÃ¨re on We can always talk about maps](https://observablehq.com/blog/maps-and-data-visualization-with-fil-riviere)
+: Everything is hard. That’s the thing with data visualization. You have to understand the data. You have to understand the context. You have to understand the technique. You have to be an artist. You have to understand composition and color theory. All of these are hard in a practical way and in a theoretical way—
+[Fil Rivière on We can always talk about maps](https://observablehq.com/blog/maps-and-data-visualization-with-fil-riviere)
 
 ## DuckDB & MotherDuck as a Single Tool for Your GIS Stack
 
@@ -830,13 +830,13 @@ You’ve seen how DuckDB can be helpful for geospatial work, especially with its
 Beyond its optimization for analytical workloads, DuckDB’s [versatile data processing](https://motherduck.com/blog/duckdb-enterprise-5-key-categories/) integrates seamlessly with modern data platforms. In many use cases, unifying storage and processing eliminates the need for separate spatial servers. MotherDuck extends these capabilities further, providing a scalable, collaborative backend that grows with your data needs.
 
 
-Working with spatial data presents unique challenges, particularly when handling large polygon datasets. Our Foursquare example demonstrates that performance depends on having the right query strategyâusing appropriate spatial joins and filtering by metadata when possible.
+Working with spatial data presents unique challenges, particularly when handling large polygon datasets. Our Foursquare example demonstrates that performance depends on having the right query strategy—using appropriate spatial joins and filtering by metadata when possible.
 
 
 DuckDB showcases its strength through its simple yet powerful architecture. Whether running in-browser to minimize network latency or deploying as a MotherDuck instance for enterprise-scale applications, it reduces infrastructure complexity while maintaining performance.
 
 
-Geospatial analysis powers countless daily applicationsâfrom delivery services to store locatorsâoften invisibly enhancing our digital experiences. With DuckDB, this analytical power becomes accessible to every data engineer, democratizing capabilities once reserved for GIS specialists.
+Geospatial analysis powers countless daily applications—from delivery services to store locators—often invisibly enhancing our digital experiences. With DuckDB, this analytical power becomes accessible to every data engineer, democratizing capabilities once reserved for GIS specialists.
 
 
 ---

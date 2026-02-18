@@ -55,7 +55,7 @@ Everyone is welcome, no stereotypes or prejudice. You just come and receive love
 #### Purpose of Life
 
 
-I wrote a long article Â«[Why are we here on Earth](https://www.ssp.sh/blog/why-are-we-here-on-earth/)Â», where I elaborate on my journey of purpose, life, and some of the foundations. As I discuss there as well, [principles](https://ssp.sh/brain/principles/) is another way to navigate life and have a healthy lifestyle once you find your true principles to live for. It’s like a compass guiding your life. With them set in place, you will have an easier time deciding and [when to say no](https://ssp.sh/brain/hell-yeah-or-no/).
+I wrote a long article «[Why are we here on Earth](https://www.ssp.sh/blog/why-are-we-here-on-earth/)», where I elaborate on my journey of purpose, life, and some of the foundations. As I discuss there as well, [principles](https://ssp.sh/brain/principles/) is another way to navigate life and have a healthy lifestyle once you find your true principles to live for. It’s like a compass guiding your life. With them set in place, you will have an easier time deciding and [when to say no](https://ssp.sh/brain/hell-yeah-or-no/).
 
 
 ## Bad Mood: Not Being Present

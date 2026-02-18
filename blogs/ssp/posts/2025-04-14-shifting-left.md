@@ -1,12 +1,12 @@
 ---
-title: "What Â«Shifting LeftÂ» Means and Why it Matters for Data Stacks"
+title: "What «Shifting Left» Means and Why it Matters for Data Stacks"
 date: 2025-04-14
 url: https://www.ssp.sh/blog/shifting-left/
 slug: shifting-left
 word_count: 4785
 ---
 
-![What Â«Shifting LeftÂ» Means and Why it Matters for Data Stacks](https://www.ssp.sh/blog/shifting-left/featured-image.png)
+![What «Shifting Left» Means and Why it Matters for Data Stacks](https://www.ssp.sh/blog/shifting-left/featured-image.png)
 
 Contents
 This article was written as part of
@@ -32,14 +32,14 @@ So, what is shifting left? And where did it come from? Following the flow of dat
 *Showcasing how Shifting Left can improve data pipelines*
 
 
-A formalÂ **definition for shifting left**Â applied to data could be like this:
+A formal **definition for shifting left** applied to data could be like this:
 
 
-> The strategic decision to move data quality checks, business logic, transformations, and governance processes earlier in the data lifecycleâcloser to the source or ingestion phaseârather than handling these concerns downstream in BI tools or at the point of consumption.
+> The strategic decision to move data quality checks, business logic, transformations, and governance processes earlier in the data lifecycle—closer to the source or ingestion phase—rather than handling these concerns downstream in BI tools or at the point of consumption.
 > This approach focuses on detecting and resolving data issues earlier, creating more maintainable data systems and reducing development costs through prevention rather than detection, while also enabling consistent metric definitions and improved performance across the entire data stack.
 
 
-But shifting left is more than just moving components left; it’s also aboutÂ *how*Â we do itâthe way to shift left easily with a declarative data platform. We don’t need to invest massive effort in exporting large SQL or code from our BI tool, or worse, hugely generated code, and trying to convert that to our low-code ETL anymore. We can move descriptive business logicÂ **simply from one config file to another**, more on that later.
+But shifting left is more than just moving components left; it’s also about *how* we do it—the way to shift left easily with a declarative data platform. We don’t need to invest massive effort in exporting large SQL or code from our BI tool, or worse, hugely generated code, and trying to convert that to our low-code ETL anymore. We can move descriptive business logic **simply from one config file to another**, more on that later.
 
 
 ### The Origins of Shifting Left
@@ -48,25 +48,25 @@ But shifting left is more than just moving components left; it’s also aboutÂ�
 Before we move to what we are shifting, and its benefits, here’s a quick discovery of where the name and concept came from.
 
 
-The “Shift Left” concept evolved across multiple domains over decades. It emerged in the 1990s as a response to limitations of theÂ [Waterfall model](https://en.wikipedia.org/wiki/Waterfall_model), which positioned testing only at the end of development. Larry Smith formallyÂ [coined](https://devopedia.org/shift-left)Â the term “**Shift-Left Testing**” in a 2001 Dr. Dobb’s article, defining it as “a better way of integrating quality assurance and development.” The approach gained broader adoption whenÂ **security engineering**Â embraced it around 2016-2018, creating what we now know as DevSecOps, integrating security practices directly into development workflows rather than treating them as afterthoughts. Donald Firesmith called it theÂ [**four types of shift left testing**](https://insights.sei.cmu.edu/blog/four-types-of-shift-left-testing/), differentiating between traditional shift left, incremental shift left, Agile/DevOps shift left, and model-based shift left.
+The “Shift Left” concept evolved across multiple domains over decades. It emerged in the 1990s as a response to limitations of the [Waterfall model](https://en.wikipedia.org/wiki/Waterfall_model), which positioned testing only at the end of development. Larry Smith formally [coined](https://devopedia.org/shift-left) the term “**Shift-Left Testing**” in a 2001 Dr. Dobb’s article, defining it as “a better way of integrating quality assurance and development.” The approach gained broader adoption when **security engineering** embraced it around 2016-2018, creating what we now know as DevSecOps, integrating security practices directly into development workflows rather than treating them as afterthoughts. Donald Firesmith called it the [**four types of shift left testing**](https://insights.sei.cmu.edu/blog/four-types-of-shift-left-testing/), differentiating between traditional shift left, incremental shift left, Agile/DevOps shift left, and model-based shift left.
 
 
-More recently, the data community has adopted these principles, with approaches like data contracts or tools like SDF applying a shift left to data quality and governance. This latest evolution focuses on pushing data validation and business logic upstream toward data producers, with companies like Gable, Confluent onÂ [Shift Left in Data Integration](https://www.confluent.io/learn/what-is-shift-left/), andÂ [SQLMesh](https://github.com/TobikoData/sqlmesh)Â expanding the concept.
+More recently, the data community has adopted these principles, with approaches like data contracts or tools like SDF applying a shift left to data quality and governance. This latest evolution focuses on pushing data validation and business logic upstream toward data producers, with companies like Gable, Confluent on [Shift Left in Data Integration](https://www.confluent.io/learn/what-is-shift-left/), and [SQLMesh](https://github.com/TobikoData/sqlmesh) expanding the concept.
 
 
-The evolution from testing to security to data domains demonstrates how the shift left has become more talked about. I discovered shifting left while writing aboutÂ [Designing a Declarative Data Stack](https://www.rilldata.com/blog/designing-a-declarative-data-stack-from-theory-to-practice), exploring how declarative systems enable generating data stacks, separating business and technical logic, and simplifying transformations.
+The evolution from testing to security to data domains demonstrates how the shift left has become more talked about. I discovered shifting left while writing about [Designing a Declarative Data Stack](https://www.rilldata.com/blog/designing-a-declarative-data-stack-from-theory-to-practice), exploring how declarative systems enable generating data stacks, separating business and technical logic, and simplifying transformations.
 
 
 ## What Are We Shifting?
 
 
-Now that we know what shifting left is, the question is,Â *what*Â exactly are we shifting? Is it code, queries, and business logic all together?
+Now that we know what shifting left is, the question is, *what* exactly are we shifting? Is it code, queries, and business logic all together?
 
 
 In essence, we shift two primary artifacts:
 
-1. **Shift-left data quality**: MovingÂ **responsibility, ownership and accountability**Â left to automate/integrate into data engineering. This is what most people mean when they say shifting left today.
-2. **Shifting left code/logic (theÂ *How*)**: Newer declarative approaches have recently made shifting left (logic) possible. This is a lesser-known topic, and I want to focus more on it in this article.
+1. **Shift-left data quality**: Moving **responsibility, ownership and accountability** left to automate/integrate into data engineering. This is what most people mean when they say shifting left today.
+2. **Shifting left code/logic (the *How*)**: Newer declarative approaches have recently made shifting left (logic) possible. This is a lesser-known topic, and I want to focus more on it in this article.
 
 
 Here’s a simple example of what we are shifting:
@@ -79,29 +79,29 @@ Here’s a simple example of what we are shifting:
 
 The concrete examples of shifting components and their benefits are:
 
-- **Moving joins out of the BI tool and into the database or data model**Â improves performance with faster dashboard queries by pre-computing complex joins.
-- **Moving transformations from the database to ingestion/orchestration**Â reduces costs through less data transfer and leveraging cheaper compute resources outside the database.
-- **Moving schema definitions from the database to source Iceberg tables**Â enhances data quality by enforcing data integrity constraints earlier in the pipeline, preventing bad data from entering the system.
+- **Moving joins out of the BI tool and into the database or data model** improves performance with faster dashboard queries by pre-computing complex joins.
+- **Moving transformations from the database to ingestion/orchestration** reduces costs through less data transfer and leveraging cheaper compute resources outside the database.
+- **Moving schema definitions from the database to source Iceberg tables** enhances data quality by enforcing data integrity constraints earlier in the pipeline, preventing bad data from entering the system.
 
 
 ### The Declarative Way of Shifting Left
 
 
-Today, with aÂ [declarative data stack](https://www.rilldata.com/blog/the-rise-of-the-declarative-data-stack)Â that has a code-first approach where configuration is defined as code, critical transformations can be shifted left, too.
+Today, with a [declarative data stack](https://www.rilldata.com/blog/the-rise-of-the-declarative-data-stack) that has a code-first approach where configuration is defined as code, critical transformations can be shifted left, too.
 
 
 This way, we can move logic (mostly business logic) upstream. Usually, data flows from source and ingestion on the left to consumption and dashboards on the right. If we load data from the source, add transformations, and visualize in a BI tool, a valuable business aggregation that is slow in the BI tool can be transferred to the ETL (e.g., SQLMesh, dbt) or into the semantic layer. I believe this is only possible with new code-first approaches.
 
 
-Shifting left is especially advantageous when you’re just starting out because it allows you to place code/logic on theÂ **far right side**Â initially and thenÂ **shift it left**Â when youÂ **better understand**Â of your needs and architecture. By shifting left, we encounter data processes, validation, and quality controls earlier in the data lifecycle. When we think of transformation logic (mainly SQL), we can move that transformation around.
+Shifting left is especially advantageous when you’re just starting out because it allows you to place code/logic on the **far right side** initially and then **shift it left** when you **better understand** of your needs and architecture. By shifting left, we encounter data processes, validation, and quality controls earlier in the data lifecycle. When we think of transformation logic (mainly SQL), we can move that transformation around.
 
 
-Errors identified and fixed earlier (more to the left) areÂ **less expensive**Â and typically easier to debug. This was not possible with GUI-first approaches;Â **code-first tools**Â open up new possibilities.
+Errors identified and fixed earlier (more to the left) are **less expensive** and typically easier to debug. This was not possible with GUI-first approaches; **code-first tools** open up new possibilities.
 
 
 A BI tool with its measures and dimensions expressed as “code” (mostly YAML) can easily move them to another tool that uses YAML to express its transformation. A Python transformation can be converted more easily than when SQL statements and aggregations are strongly integrated into the BI tool, hidden away from users with no code to copy or move the metrics downstream. Even more so with large language models (LLMs), we have the power to quickly translate YAML calculations to Python code if needed, opening the toolbox to many more people with less technical expertise.
 
-Chad inÂ The Shift Left Data ManifestoÂ about 'Data as Code'
+Chad in The Shift Left Data Manifesto about 'Data as Code'
 Most data quality problems are code quality problems. Chad
 [emphasizes](https://dataproducts.substack.com/p/the-shift-left-data-manifesto)
 that “data is produced by code” - a framing that connects data quality directly to software engineering practices. This perspective helps explain why data quality should be handled at the source rather than downstream and brings the declarative data stack (data as code) together with the data quality aspect of shifting left.
@@ -112,13 +112,13 @@ that “data is produced by code” - a framing that connects data quality direc
 Why should we shift left? What are the key benefits of it?
 
 
-We’ve all experienced itâCEOs or business users telling us that “the Data is Wrong”. This is an unfavorable place to discover problems, asÂ **fixes must cascade through all layers**Â of the data lifecycle. It is also the furthest to the right a problem can appear. The earlier you catch issues (on the left), the easier they are to test and fix before they create business impact.
+We’ve all experienced it—CEOs or business users telling us that “the Data is Wrong”. This is an unfavorable place to discover problems, as **fixes must cascade through all layers** of the data lifecycle. It is also the furthest to the right a problem can appear. The earlier you catch issues (on the left), the easier they are to test and fix before they create business impact.
 
 
-Elias DeFariaÂ [says](https://www.linkedin.com/posts/eliasdefaria_dataquality-sdf-dbt-activity-7242955996338253826-weKX/?utm_source=share&utm_medium=member_ios&rcm=ACoAAA8b34wBAGePYTF8F0DKfvHgH6SdomuMzM8), “CI/CD checks, Write-Audit-Publish (WAP), and other methods help shift things leftâbut ultimately, data quality is best caught by tools that compile and check your SQL during development”. And he is right. Catching complex data errors early in the data flow willÂ **save us**Â a lot of debugging, development time, and, ultimately, money.
+Elias DeFaria [says](https://www.linkedin.com/posts/eliasdefaria_dataquality-sdf-dbt-activity-7242955996338253826-weKX/?utm_source=share&utm_medium=member_ios&rcm=ACoAAA8b34wBAGePYTF8F0DKfvHgH6SdomuMzM8), “CI/CD checks, Write-Audit-Publish (WAP), and other methods help shift things left—but ultimately, data quality is best caught by tools that compile and check your SQL during development”. And he is right. Catching complex data errors early in the data flow will **save us** a lot of debugging, development time, and, ultimately, money.
 
 
-We want to shift left whenever possible in a typical data engineering architecture with complex lineage and various data sources. This becomes particularly valuable as data platforms and architectures mature. It’s not typically the first optimization but becomes increasingly important when focusing onÂ **performance**Â orÂ **data quality**Â improvements.
+We want to shift left whenever possible in a typical data engineering architecture with complex lineage and various data sources. This becomes particularly valuable as data platforms and architectures mature. It’s not typically the first optimization but becomes increasingly important when focusing on **performance** or **data quality** improvements.
 
 
 The shift-left approach delivers several key benefits:
@@ -144,13 +144,13 @@ Data quality is the most significant benefit you gain. This does not come from d
 *Data quality shift | Image byÂdevopedia.org*
 
 
-The goal is to test as much as possible to the left, focusing on quality earlier. Starting from your development environment and later within the CI/CD pipelines, to reduce data quality issues and errors in production. This means we can test critical codeÂ **before runtime**Â on production.
+The goal is to test as much as possible to the left, focusing on quality earlier. Starting from your development environment and later within the CI/CD pipelines, to reduce data quality issues and errors in production. This means we can test critical code **before runtime** on production.
 
 
-This is something we should try whenever possible, though it’sÂ [trickier with data](https://airbyte.com/blog/data-quality-issues). Since data is created out of our control, we’re limited to testing what’s in our test datasets, making an important trade-off between comprehensive testing and pipeline speed. While unit testing key functions is valuable,Â [**integration tests**](https://en.wikipedia.org/wiki/Integration_testing)Â are often more powerful. These end-to-end tests use SQL queries to verify counts at different pipeline stages, ensuring we haven’t lost or duplicated data through transformations.
+This is something we should try whenever possible, though it’s [trickier with data](https://airbyte.com/blog/data-quality-issues). Since data is created out of our control, we’re limited to testing what’s in our test datasets, making an important trade-off between comprehensive testing and pipeline speed. While unit testing key functions is valuable, [**integration tests**](https://en.wikipedia.org/wiki/Integration_testing) are often more powerful. These end-to-end tests use SQL queries to verify counts at different pipeline stages, ensuring we haven’t lost or duplicated data through transformations.
 
 
-In my career, we often tried to skip these tests initially, only to add them later after spending too much time debugging. When implemented properly, these tests build trust in the dataâengineers and business users know when data has no missing rows and get immediate alerts when issues arise.
+In my career, we often tried to skip these tests initially, only to add them later after spending too much time debugging. When implemented properly, these tests build trust in the data—engineers and business users know when data has no missing rows and get immediate alerts when issues arise.
 
 
 Modern orchestration tools now allow embedding these tests directly within your workflow, strengthening governance and data quality at the core of computation.
@@ -161,7 +161,7 @@ Shifting left in the data quality sense is also often a change of organization. 
 ### Local Development Loop, Transpiling SQL-Dialects and CI/CD
 
 
-If we look at the local development loop and its benefits, we can see that it improvesÂ **developer workflow**Â by shifting more to the developer, essentially to the client (the developer’s IDE). Tools likeÂ [linting](https://en.wikipedia.org/wiki/Lint_%5c%28software%5c%29)Â and compiling data artifacts allow rich tests without running them. This is the ultimate version of shift-left data quality. It enables developers toÂ **catch bugs in their pipelines**Â literally as they’re writing them. If 100% of issues were caught during development, data quality would never be a concern.
+If we look at the local development loop and its benefits, we can see that it improves **developer workflow** by shifting more to the developer, essentially to the client (the developer’s IDE). Tools like [linting](https://en.wikipedia.org/wiki/Lint_%5c%28software%5c%29) and compiling data artifacts allow rich tests without running them. This is the ultimate version of shift-left data quality. It enables developers to **catch bugs in their pipelines** literally as they’re writing them. If 100% of issues were caught during development, data quality would never be a concern.
 
 
 The local development loop is now possible with tools that reach further into the data lineage. Instead of having to run it in production or creating a duplicate production environment, we can mimic cloud ETL and data warehouse locally with DuckDB and DataFusion and run our schema validation and data pipelines while we develop, detecting errors very early in the flow.
@@ -172,13 +172,13 @@ The local development loop is now possible with tools that reach further into th
 *Example of inner development cycle loop, including transpilation of SQL dialects*
 
 
-This is also possible due to powerful SQL transpilers likeÂ [SQLGlot](https://github.com/tobymao/sqlglot). In times where SQL is most dominant, this is key. Let’s say you have a query that needs to run for Spark SQL, but locally you want to test with DuckDB. SQLGlot can transpile the Spark dialect to DuckDB without changing the code. As of today, SQLGlot transpilesÂ [24 dialects](https://github.com/tobymao/sqlglot/blob/main/sqlglot/dialects/__init__.py). In fact, SQLMesh, built on top of SQLGlot, brings more benefits to the table that help us tremendously with shifting left. SQLGlot is not only a transpiler but also a SQL parser.
+This is also possible due to powerful SQL transpilers like [SQLGlot](https://github.com/tobymao/sqlglot). In times where SQL is most dominant, this is key. Let’s say you have a query that needs to run for Spark SQL, but locally you want to test with DuckDB. SQLGlot can transpile the Spark dialect to DuckDB without changing the code. As of today, SQLGlot transpiles [24 dialects](https://github.com/tobymao/sqlglot/blob/main/sqlglot/dialects/__init__.py). In fact, SQLMesh, built on top of SQLGlot, brings more benefits to the table that help us tremendously with shifting left. SQLGlot is not only a transpiler but also a SQL parser.
 
 
 SQLMesh, a self-named DataOps solution for transformation, testing, and collaboration, reduces the likelihood of invalid SQL making it from development to production. It can validate and compile things on dev to test schemas across the whole data lineage. This includes catching breaking changes and avoiding potential backfills and unit testing CTEs. SQLMesh even supports table diffing between production and dev, which is valuable for better understanding the changes you’re about to deploy.
 
 
-**Another place to catch errors**Â is after we have developed a solution and before pushing to production, in theÂ **CI/CD pipeline**. This is the default in software engineering projects, but not yet in all data projects, as we need to do much more work, creating quality test data sets and defining some count-query statements (or if domain knowledge is available, we can add more complex ones).
+**Another place to catch errors** is after we have developed a solution and before pushing to production, in the **CI/CD pipeline**. This is the default in software engineering projects, but not yet in all data projects, as we need to do much more work, creating quality test data sets and defining some count-query statements (or if domain knowledge is available, we can add more complex ones).
 
 SQL is Shifting to the Right
 In contrast to data quality that is shifting left, SQL is shifting to the right as well. With the code-first BI tools and semantic layers and SQL being a ubiquitous language of data engineers, more and more SQL is going all the way to the right. SQL is also a consistent declarative language across the data stack, that we can easily shift around.
@@ -186,13 +186,13 @@ In contrast to data quality that is shifting left, SQL is shifting to the right 
 ### Benefits of Declaratively Shifting Left
 
 
-So far, we’ve explored shifting left mostly through the lens of improving data quality by moving ETL and code to the left. However, I want to add one more angle and improvement we get when embracing a declarative data stack: theÂ *how*. How do we actually move aggregations, joins, and transformation logic to the left?
+So far, we’ve explored shifting left mostly through the lens of improving data quality by moving ETL and code to the left. However, I want to add one more angle and improvement we get when embracing a declarative data stack: the *how*. How do we actually move aggregations, joins, and transformation logic to the left?
 
 
 If we consider the data stack a declarative set of deployed and configured configurations, you can shift left by moving SQL from a BI tool to the ETL tool. The key is to shift left by moving the configuration easily. This is very hard, if not impossible, with distinct tooling as part of the data stack and configurations tightly coupled into the UI.
 
 
-When we allow moving code and transformation more efficiently, we open up the possibility of moving transformative logic closer to the source, ultimately needing toÂ **fix bugs on fewer levels**. This shifting left brings the complex transformation closer to the team in charge of data pipelines and data governance (e.g., data engineers, DevOps, etc.). Therefore, it’s governed and updated by a team with responsibilities. On the other hand, when logic remains to the right, domain experts and business people implement something quickly to achieve a specific KPI, not having maintainability, performance, or deployment in mind.
+When we allow moving code and transformation more efficiently, we open up the possibility of moving transformative logic closer to the source, ultimately needing to **fix bugs on fewer levels**. This shifting left brings the complex transformation closer to the team in charge of data pipelines and data governance (e.g., data engineers, DevOps, etc.). Therefore, it’s governed and updated by a team with responsibilities. On the other hand, when logic remains to the right, domain experts and business people implement something quickly to achieve a specific KPI, not having maintainability, performance, or deployment in mind.
 
 
 We save compute by moving code from the BI dashboard, which is executed every time a user clicks on the dashboard, to a pipeline where the query is pre-materialized and only paid for once. This approach also likely avoids code duplication at many places around the data stack.
@@ -204,7 +204,7 @@ We save compute by moving code from the BI dashboard, which is executed every ti
 Through the code-first data stacks, it’s easier to shift code or configuration. This allows data roles’ responsibilities to move to the left, too. All of a sudden, domain experts can implement a data test in dbt, or data engineers can assert source data schemas. With data as code and declarative data stack, data-savvy people can shift more to the left.
 
 
-QA engineers, testing teams, or domain experts involved in the data modeling process can now move further to the left and help improve data quality overall. Beyond that, we can define software best practices like source control versioning, testing, CI/CD, and code reviews because we have code end-to-end. As the saying goes, data quality isnât a data team’s problem; itâs clearly defined best practices that everyone in the organization understands and can follow.
+QA engineers, testing teams, or domain experts involved in the data modeling process can now move further to the left and help improve data quality overall. Beyond that, we can define software best practices like source control versioning, testing, CI/CD, and code reviews because we have code end-to-end. As the saying goes, data quality isn’t a data team’s problem; it’s clearly defined best practices that everyone in the organization understands and can follow.
 
 'ELT' compared to ETL is shifting right, an anti-pattern?
 [ELT](https://en.wikipedia.org/wiki/Extract,_load,_transform)
@@ -229,7 +229,7 @@ The examples below already use a declarative approach, where the BI tool and met
 ### Before Shifting Left: Duplicate Complex Logic
 
 
-Initially, multiple dashboards each implement similar complex calculations based onÂ `trips_raw`Â with slight variations in their filtering logic.
+Initially, multiple dashboards each implement similar complex calculations based on `trips_raw` with slight variations in their filtering logic.
 
 
 **Executive Dashboard:**
@@ -375,13 +375,13 @@ What each of them wants is:
 
 
 
-Notice how all three dashboards share nearly identical calculations in theÂ [CTE](https://www.atlassian.com/data/sql/using-common-table-expressions)Â with slightly different date range filters and apply different WHERE clauses to filter the same base calculation. This repeats the same business logic across dashboards.
+Notice how all three dashboards share nearly identical calculations in the [CTE](https://www.atlassian.com/data/sql/using-common-table-expressions) with slightly different date range filters and apply different WHERE clauses to filter the same base calculation. This repeats the same business logic across dashboards.
 
 
 ### After Shifting Left: Centralized Logic in SQLMesh
 
 
-By shifting left, we move the common calculation logic into a centralized SQLMesh modelÂ `trip_metrics.sql`:
+By shifting left, we move the common calculation logic into a centralized SQLMesh model `trip_metrics.sql`:
 
 
 
@@ -523,19 +523,19 @@ Besides all these new features and possibilities, we won’t get around some cor
 ### Communication is still needed
 
 
-We still need to communicate with theÂ **data producers**. We need a process, which can also be a meeting, where big changes in the source applications are communicated.
+We still need to communicate with the **data producers**. We need a process, which can also be a meeting, where big changes in the source applications are communicated.
 
 
-Early in my career, we tried toÂ **fix data upstream**Â as much as possible in the source. We set up meetings with the team producing the source data. We do the same with shifting left, but with more advanced tooling and, ideally, less manual interaction, though manual interactions will never disappear completely.
+Early in my career, we tried to **fix data upstream** as much as possible in the source. We set up meetings with the team producing the source data. We do the same with shifting left, but with more advanced tooling and, ideally, less manual interaction, though manual interactions will never disappear completely.
 
 
-Another limitation that Stephen BaileyÂ [talks about](https://stkbailey.substack.com/p/shift-left-ship-everywhere)Â is thatÂ **pipelines are not linear**Â but rather like a “maritime economy”. He calls it the “ship everywhere” instead of only “left”. He says that it’s more interconnected. Data products, the data assets and data sets produced, are heterogeneous, dependent, and extremely sensitive to external factors. This is true; upstream changes in the data source can have big impacts on our data stack, as can external consumers that process and use the insights from a data stack.
+Another limitation that Stephen Bailey [talks about](https://stkbailey.substack.com/p/shift-left-ship-everywhere) is that **pipelines are not linear** but rather like a “maritime economy”. He calls it the “ship everywhere” instead of only “left”. He says that it’s more interconnected. Data products, the data assets and data sets produced, are heterogeneous, dependent, and extremely sensitive to external factors. This is true; upstream changes in the data source can have big impacts on our data stack, as can external consumers that process and use the insights from a data stack.
 
 
 ### Possibilities with GenAI Integration
 
 
-Shifting left with the declarative code-first approach in mind gets even more powerful with newÂ [GenAI tools](https://www.rilldata.com/blog/one-click-dashboards-with-generative-ai-and-bi-as-code#how-llm-code-generation-speeds-up-dashboard-creation). With large language models (LLMs), people areÂ **enabled to move fast**âthey build data transformations or aggregations quickly within their comfort zone of SQL or Python as data scientists. You could call that a shift right toward applications and AI integration, but to be honest, GenAI can be applied everywhere along the data lifecycle.
+Shifting left with the declarative code-first approach in mind gets even more powerful with new [GenAI tools](https://www.rilldata.com/blog/one-click-dashboards-with-generative-ai-and-bi-as-code#how-llm-code-generation-speeds-up-dashboard-creation). With large language models (LLMs), people are **enabled to move fast**—they build data transformations or aggregations quickly within their comfort zone of SQL or Python as data scientists. You could call that a shift right toward applications and AI integration, but to be honest, GenAI can be applied everywhere along the data lifecycle.
 
 
 But once you want to put it into production, it gets trickier. The way to go is to shift left and put it into dbt, a proper orchestration tool, or anything else that makes the jobs run automatically, versioned, and with software best practices in mind. We get the separation between “exploration” and “production-ready”, verified, and tested.
@@ -559,27 +559,27 @@ What has changed are the tools that allow us to do these data quality tests more
 What has also changed is the speed of computation. We can evaluate large datasets locally or use DuckDB or DataFusion as fast engines to quickly assess all types over the full data lineage. While we write our SQL within SQLMesh, the linter will tell us about errors based on richly collected metadata from source tables through nested lineage. Things like this weren’t possible 10 years ago.
 
 
-A significant enabler of effective shifting left has been theÂ [rise of declarative](https://www.rilldata.com/blog/the-rise-of-the-declarative-data-stack), the code-first approaches. By expressing transformations, metrics, and business logic as code instead of embedding them in GUI-based tools, we’ve unlocked the ability to move these components throughout the data pipeline easily. This declarative approach means we can start with logic positioned where it’s most convenient (often on the right), then systematically shift it leftward as our understanding of data patterns and performance needs evolvesâall without significant rewrites or manual translations between systems.
+A significant enabler of effective shifting left has been the [rise of declarative](https://www.rilldata.com/blog/the-rise-of-the-declarative-data-stack), the code-first approaches. By expressing transformations, metrics, and business logic as code instead of embedding them in GUI-based tools, we’ve unlocked the ability to move these components throughout the data pipeline easily. This declarative approach means we can start with logic positioned where it’s most convenient (often on the right), then systematically shift it leftward as our understanding of data patterns and performance needs evolves—all without significant rewrites or manual translations between systems.
 
-Danny onÂ BlueskyÂ adds a good comment about how it simplifies pipelines
+Danny on Bluesky adds a good comment about how it simplifies pipelines
 To me it
 [means](https://bsky.app/profile/citizenkong.com/post/3lk6efjmrek2d)
 pushing complexity upstream, keeping business logic inside the business process so that the data pipelines can be relatively simple. In my org, it means SMEs can keep control of their modeling, and as long as outputs adhere to the contract, everything downstream will still work.
 
-Looking ahead, new approaches continue to emerge that will further enable shifting left.Â [Google’s Pipe Syntax](https://research.google/pubs/sql-has-problems-we-can-fix-them-pipe-syntax-in-sql/)Â inÂ [SQL and extensions for analytics](https://www.datacouncil.ai/talks/cubing-and-metrics-in-sql)Â are making SQL more composable and maintainable, allowing complex analytical capabilities to be defined directly in the data layer rather than in BI tools. As data roles continue to evolve, shift-left principles are becoming increasingly important to building scalable, consistent data platforms.
+Looking ahead, new approaches continue to emerge that will further enable shifting left. [Google’s Pipe Syntax](https://research.google/pubs/sql-has-problems-we-can-fix-them-pipe-syntax-in-sql/) in [SQL and extensions for analytics](https://www.datacouncil.ai/talks/cubing-and-metrics-in-sql) are making SQL more composable and maintainable, allowing complex analytical capabilities to be defined directly in the data layer rather than in BI tools. As data roles continue to evolve, shift-left principles are becoming increasingly important to building scalable, consistent data platforms.
 
 
 I hope this article helped you better understand shifting left and why it’s a good practice to remember when building data platforms or pipelines. Again, shifting left is not a rigid or well-defined term, and everyone might interpret it differently, but we have identified the different angles that shifting left encompasses.
 
 
-As you evaluate your data architecture, consider where shifting left might benefit your organizationâcreating more robust, reliable data quality and better equipping you to meet the demands of our increasingly data-driven world.
+As you evaluate your data architecture, consider where shifting left might benefit your organization—creating more robust, reliable data quality and better equipping you to meet the demands of our increasingly data-driven world.
 
 
 ## Further Reads
 
-- [“Shift left”âwtf does it mean?](https://sourcegraph.com/blog/shift-left-wtf-does-it-mean)
-- Follow the Shift Left motion:Â [The Mindset Behind Declarative Programming](https://medium.pimpaudben.fr/the-mindset-behind-declarative-programming-31361ea5598f)
-- If you want to know more, the data contract company Gable hosted aÂ [Shift Left Data Conference](https://www.shiftleftdata.com/)Â ([video playlist](https://youtube.com/playlist?list=PL-WavejGdv7J9xcCfJJ84olMYRwmSzcq_&si=iWIK_Yz4rWnGc6da)Â is on YouTube).
+- [“Shift left”—wtf does it mean?](https://sourcegraph.com/blog/shift-left-wtf-does-it-mean)
+- Follow the Shift Left motion: [The Mindset Behind Declarative Programming](https://medium.pimpaudben.fr/the-mindset-behind-declarative-programming-31361ea5598f)
+- If you want to know more, the data contract company Gable hosted a [Shift Left Data Conference](https://www.shiftleftdata.com/) ([video playlist](https://youtube.com/playlist?list=PL-WavejGdv7J9xcCfJJ84olMYRwmSzcq_&si=iWIK_Yz4rWnGc6da) is on YouTube).
 - [The Shift Left Data Manifesto](https://dataproducts.substack.com/p/the-shift-left-data-manifesto)
 - [Shift left, ship everywhere](https://stkbailey.substack.com/p/shift-left-ship-everywhere)
 

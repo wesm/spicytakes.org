@@ -121,7 +121,7 @@ The outcome and connected web app looks like this:
 A [Retrieval-Augmented Generation (RAG)](https://motherduck.com/blog/search-using-duckdb-part-2/) system that is trained on our notes that we have (we use Markdown). More specifically: Obsidian Markdown, that has the advantage of links and backlinks that give us additional clues we can use.
 
 
-RAG in particularÂ is a technique that can provide more accurate results to queries than a generative large language model on its ownÂ because RAG uses knowledge external to data already contained in the Large Language Models (LLMs).
+RAG in particular is a technique that can provide more accurate results to queries than a generative large language model on its own because RAG uses knowledge external to data already contained in the Large Language Models (LLMs).
 
 
 So what we built is only the Retrieval and Augmented part. We don’t use an LLM yet, only retrieval of relevant and hidden notes based on a search. Specifically notes, code snippets as parts of notes, and other relevant ideas.
@@ -247,7 +247,7 @@ I myself also took some time and thought about how we can leverage agents for da
 But what is “Plan Mode” you might ask? The definition:
 
 
-> Claude Plan Mode is a read-only state in Claude Code, an AI coding assistant, that lets it analyze a codebase, ask clarifying questions, and generate detailed implementation plans without making any actual file changes or executing commands, ensuring safety and structure before development begins. It’s activated by cycling modes (often Shift+Tab) and is great for exploring, planning complex changes, and building context, allowing developers to approve the AI’s strategy before actual coding starts. More on [What Actually Is Claude Codeâs Plan Mode?](https://lucumr.pocoo.org/2025/12/17/what-is-plan-mode/)
+> Claude Plan Mode is a read-only state in Claude Code, an AI coding assistant, that lets it analyze a codebase, ask clarifying questions, and generate detailed implementation plans without making any actual file changes or executing commands, ensuring safety and structure before development begins. It’s activated by cycling modes (often Shift+Tab) and is great for exploring, planning complex changes, and building context, allowing developers to approve the AI’s strategy before actual coding starts. More on [What Actually Is Claude Code’s Plan Mode?](https://lucumr.pocoo.org/2025/12/17/what-is-plan-mode/)
 
 
 With that, it’s amazing what you can build. All the open todos we add to our backlog, we can now quickly build and test or solve, and think through the problem by actually laying out the step-by-step instructions. After it’s built we get a feel for it quickly and can give better feedback on whatever job we have at hand right now.
@@ -382,9 +382,9 @@ Some more links and repos I found interesting:
 - **Scalable Embeddings & Vector Search**
   - [Using DuckDB for Embeddings and Vector Search](https://blog.brunk.io/posts/similarity-search-with-duckdb/): Tutorial on GPU-accelerated vector search that created embeddings for 2.85M Wikipedia articles using Arrow batch inserts and HNSW indexing.
 - **Local-First Search Tools for Markdown**
-  - [qmd](https://github.com/tobi/qmd): Tobias LÃ¼tke’s CLI search engine combining BM25, vector search, and LLM re-rankingâall local via Ollama, works with plain markdown (no wikilinks needed).
+  - [qmd](https://github.com/tobi/qmd): Tobias Lütke’s CLI search engine combining BM25, vector search, and LLM re-ranking—all local via Ollama, works with plain markdown (no wikilinks needed).
 - **Obsidian AI Assistants**
-  - [Obsidian Copilot](https://github.com/logancyang/obsidian-copilot): A popular Obsidian AI plugin (6.1k+ stars) with vault chat, agent mode, and image/PDF/web processingâno index required for basic search.
+  - [Obsidian Copilot](https://github.com/logancyang/obsidian-copilot): A popular Obsidian AI plugin (6.1k+ stars) with vault chat, agent mode, and image/PDF/web processing—no index required for basic search.
   - [Chat with Your ENTIRE Obsidian Vault OFFLINE (YouTube)](https://www.youtube.com/watch?v=NSoKRYNlOls): Video walkthrough of offline Obsidian vault chat with Claude 3 integration.
 - **RAG Frameworks & Libraries**
   - [Quivr](https://github.com/QuivrHQ/quivr): YC-backed opinionated RAG framework (38.6k+ stars) supporting any LLM, any vectorstore, and any file type with YAML-configured workflows.

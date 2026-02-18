@@ -1,12 +1,12 @@
 ---
-title: "Why Semantic Layers Matterâand How to Build One with DuckDB"
+title: "Why Semantic Layers Matter—and How to Build One with DuckDB"
 date: 2025-08-24
 url: https://www.ssp.sh/blog/semantic-layer-duckdb/
 slug: semantic-layer-duckdb
 word_count: 4573
 ---
 
-![Why Semantic Layers Matterâand How to Build One with DuckDB](https://www.ssp.sh/blog/semantic-layer-duckdb/featured-image.png)
+![Why Semantic Layers Matter—and How to Build One with DuckDB](https://www.ssp.sh/blog/semantic-layer-duckdb/featured-image.png)
 
 Contents
 ð¶
@@ -15,10 +15,10 @@ Featured on Hacker News.
 This article was written as part of
 [my services](https://www.ssp.sh/services)
 
-Many ask themselves, “Why would I use a semantic layer? What is it anyway?” In this hands-on guide, weâll build the simplest possible semantic layer using just a YAML file and a Python scriptânot as the goal itself, but as a way to understand the value of semantic layers. Weâll then query 20 million NYC taxi records with consistent business metrics executed using DuckDB and Ibis. By the end, youâll know exactly when a semantic layer solves real problems and when itâs overkill.
+Many ask themselves, “Why would I use a semantic layer? What is it anyway?” In this hands-on guide, we’ll build the simplest possible semantic layer using just a YAML file and a Python script—not as the goal itself, but as a way to understand the value of semantic layers. We’ll then query 20 million NYC taxi records with consistent business metrics executed using DuckDB and Ibis. By the end, you’ll know exactly when a semantic layer solves real problems and when it’s overkill.
 
 
-It’s a topic that I’m passionate about as I’ve been using semantic layers within a Business Intelligence (BI) tool for over twenty years, and only recently have we gotten full-blown semantic layers that can sit outside of a BI tool, combining the advantages of a logical layer with sharing them across your web apps, notebooks, and BI tools. With a semantic layer, your revenue KPI or other complex company measures are defined once in a single source of truthâno need to re-implement them over and over again.
+It’s a topic that I’m passionate about as I’ve been using semantic layers within a Business Intelligence (BI) tool for over twenty years, and only recently have we gotten full-blown semantic layers that can sit outside of a BI tool, combining the advantages of a logical layer with sharing them across your web apps, notebooks, and BI tools. With a semantic layer, your revenue KPI or other complex company measures are defined once in a single source of truth—no need to re-implement them over and over again.
 
 
 We’ll have a look at the simplest possible semantic layer, which uses a simple YAML file (for the semantics) and a Python script for executing it with Ibis and DuckDB. We’ll do a quick recap of the semantic layer before diving into a practical code example.
@@ -44,7 +44,7 @@ Let’s start by exploring when you don’t need a semantic layer and when it’
 So when do we actually need one, and what is it? There’s a lot of information out there, including from myself about the [history and rise [2022]](https://www.ssp.sh/blog/rise-of-semantic-layer-metrics/), comparing it to an [MVC-like approach](https://cube.dev/blog/exploring-the-semantic-layer-through-the-lens-of-mvc), or explaining its [capabilities](https://cube.dev/blog/universal-semantic-layer-capabilities-integrations-and-enterprise-benefits). That’s why in this article I focus on the *why* and showcase how to use it in a practical example in the next chapter.
 
 
-To better understand the reasons for using a semantic layerâwithout needing to read the full article aboveâletâs start with a helpful definition fromÂ [Julian Hyde](https://communityovercode.org/wp-content/uploads/2023/10/mon_dataeng_building-a-semantic-metrics-layer-using-calcite-julian-hyde.pdf?ref=ssp.sh):
+To better understand the reasons for using a semantic layer—without needing to read the full article above—let’s start with a helpful definition from [Julian Hyde](https://communityovercode.org/wp-content/uploads/2023/10/mon_dataeng_building-a-semantic-metrics-layer-using-calcite-julian-hyde.pdf?ref=ssp.sh):
 
 
 > A semantic layer, also known as a metrics layer, lies between business users and the database, and lets those users compose queries in the concepts that they understand. It also governs access to the data, manages data transformations, and can tune the database by defining materializations.
@@ -105,7 +105,7 @@ We can differentiate and say:
 - physical table â  logical definition
 
 
-If you find yourself needing the concepts on the right side, that’s when you need a semantic layerâwhether built into a BI tool or implemented separately for the reasons mentioned above.
+If you find yourself needing the concepts on the right side, that’s when you need a semantic layer—whether built into a BI tool or implemented separately for the reasons mentioned above.
 
 
 ## How a Semantic Layer Works: A Practical Example
@@ -121,7 +121,7 @@ This is a relatively simple semantic layer. More advanced ones include additiona
 This example focuses on the [Logical Data Model](https://en.wikipedia.org/wiki/Logical_schema), where we can define our business requirements within YAML, an abstraction above our physical layer. Although this is quite close to the physical layer, this is where more advanced semantic layer tools (Cube, dbt SL, GoodData, AtScale) give you more advantages in an enterprise setting.
 
 
-We’re going to build something like what’s illustrated belowâwhere we have YAML definitions as our metrics, such as calculated measures and dimensions, and Ibis for the query translation to run [any execution engine](https://github.com/ibis-project/ibis#how-it-works); here we use DuckDB.
+We’re going to build something like what’s illustrated below—where we have YAML definitions as our metrics, such as calculated measures and dimensions, and Ibis for the query translation to run [any execution engine](https://github.com/ibis-project/ibis#how-it-works); here we use DuckDB.
 
 
 ![/blog/semantic-layer-duckdb/sl-duckdb-bsl-architecture.png](https://www.ssp.sh/blog/semantic-layer-duckdb/sl-duckdb-bsl-architecture.png)
@@ -186,7 +186,7 @@ D select count(*) from sample_data.nyc.taxi;
 As we know now, semantic layers are suitable for defining metrics in a central and configurable way, so we use YAML for this. YAML has minimal overhead and is easy to read, which is why most semantic layers use it. Alternatively, SQL would be a better choice, but it lacks essential features like variables and tends to become overly nested and challenging to maintain. YAML, combined with occasional SQL injection, proves to be the most effective solution.
 
 
-First, let’s check out what data we are working withâwe can quickly count and describe the tables:
+First, let’s check out what data we are working with—we can quickly count and describe the tables:
 
 
 
@@ -321,7 +321,7 @@ D describe from read_csv("https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_
 This gives us a good sense of what we are dealing with. From the [data dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_hvfhs.pdf), we understand that `PULocationID` and `DOLocationID` represent the Taxi zones to be joined with the above zone lookup by the column `LocationID`.
 
 
-Usually what I do next is use the [`SUMMARIZE` command](https://duckdb.org/docs/stable/guides/meta/summarize.html), which is a DuckDB-specific query type that gives us statistics about the data such as `min`,Â `max`,Â `approx_unique`,Â `avg`,Â `std`,Â `q25`,Â `q50`,Â `q75`,Â `count`. This gives us a fast and handy overview of what we are dealing with.
+Usually what I do next is use the [`SUMMARIZE` command](https://duckdb.org/docs/stable/guides/meta/summarize.html), which is a DuckDB-specific query type that gives us statistics about the data such as `min`, `max`, `approx_unique`, `avg`, `std`, `q25`, `q50`, `q75`, `count`. This gives us a fast and handy overview of what we are dealing with.
 
 
 #### Defining Metrics in Boring Semantic Layer
@@ -484,10 +484,10 @@ Lastly, we need to join the two datasets. This can be specified like this - adde
 ### Query Data through Python/Ibis and DuckDB
 
 
-Next, we need to set up our execution logicâwhich is Python code in this caseâand use the translation layer Ibis to run DuckDB queries as our SQL engine locally.
+Next, we need to set up our execution logic—which is Python code in this case—and use the translation layer Ibis to run DuckDB queries as our SQL engine locally.
 
 
-I’ll explain the most important steps here, but I’ll skip some detailsâthe full script you can find in [nyc_taxi.py](https://github.com/sspaeti/semantic-layer-duckdb/blob/main/nyc_taxi.py). First, we import Ibis and our `SemanticModel` class from Boring Semantic Layer and we define the datasets and execution engine via Ibisâagain, here we use DuckDB and read the dataset directly from [CloudFront](https://aws.amazon.com/cloudfront/):
+I’ll explain the most important steps here, but I’ll skip some details—the full script you can find in [nyc_taxi.py](https://github.com/sspaeti/semantic-layer-duckdb/blob/main/nyc_taxi.py). First, we import Ibis and our `SemanticModel` class from Boring Semantic Layer and we define the datasets and execution engine via Ibis—again, here we use DuckDB and read the dataset directly from [CloudFront](https://aws.amazon.com/cloudfront/):
 
 
 
@@ -531,7 +531,7 @@ trips_sm = models["fhvhv_trips"]
 
 
 
-And then we define our query as a Python expression with Ibis and BSLâhere the **trip volume by pickup borough**:
+And then we define our query as a Python expression with Ibis and BSL—here the **trip volume by pickup borough**:
 
 
 
@@ -600,7 +600,7 @@ I [wasn’t able](https://github.com/boringdata/boring-semantic-layer/issues/32)
 ### Materialization
 
 
-If you wish to speed things up and create a **persistent cube**, the option is there with the help of [Xorq](https://github.com/xorq-labs/xorq)âexample from [example_materialize.py](https://github.com/boringdata/boring-semantic-layer/blob/main/examples/example_materialize.py).
+If you wish to speed things up and create a **persistent cube**, the option is there with the help of [Xorq](https://github.com/xorq-labs/xorq)—example from [example_materialize.py](https://github.com/boringdata/boring-semantic-layer/blob/main/examples/example_materialize.py).
 
 
 
@@ -701,7 +701,7 @@ Obviously, you could use dbt to manage dependencies, but you wouldn’t have the
 ### Visualizing
 
 
-Interestingly, the BSL also includes some visualization capabilities with a built-in wrapper aroundÂ **[Vega-Lite](https://vega.github.io/vega-lite/)**Â (JSON-based grammar for creating interactive visualizations that provides a declarative approach to chart creation) and its Python wrapperÂ **[Altair](https://altair-viz.github.io/)**.
+Interestingly, the BSL also includes some visualization capabilities with a built-in wrapper around **[Vega-Lite](https://vega.github.io/vega-lite/)** (JSON-based grammar for creating interactive visualizations that provides a declarative approach to chart creation) and its Python wrapper **[Altair](https://altair-viz.github.io/)**.
 
 
 Just install with `uv add 'boring-semantic-layer[visualization]' altair[all]` and you can create a simple visualization. This is a bit extended to create a nice-looking image, but you can imagine this being much shorter with only the title, for example:
@@ -828,7 +828,7 @@ Before we wrap up, let’s go through the most common questions when it comes to
 The key is the semantic logic layer, abstracting the physical world from the modeling world. This gives you better flexibility to implement what the business wants, rather than what the physical data model can do.
 
 
-Try implementing a ‘revenue per customer by quarter with year-over-year comparison’ across five different BI tools using just database viewsâyou’ll most probably end up with five different implementations that drift apart over time.
+Try implementing a ‘revenue per customer by quarter with year-over-year comparison’ across five different BI tools using just database views—you’ll most probably end up with five different implementations that drift apart over time.
 
 
 > **What if we have 100s of metrics, do we need a semantic layer?**

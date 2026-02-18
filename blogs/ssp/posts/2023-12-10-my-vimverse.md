@@ -79,7 +79,7 @@ What grew over time on me was editing philosophy, also called [Vim Language (and
 As I worked on a computer all day, I went in rabbit holes with custom keyboards, different keyboard layouts such as [Halmak](https://ssp.sh/brain/halmak), and fancied custom color themes. I have custom shortcuts for each edit I want.
 
 
-Instead of only having to jump to the end of a line or jump by word, all of a sudden, I could do so many more. I have yet to learn the edit modes that you had. Besides the `insert-mode` that every editor had by default, you also had `normal`, `visual`, and `command` modes. You can learn more about the edit modes in my previous article [Why Vim Is More than Just an Editor â Vim Language, Motions, and Modes Explained](https://ssp.sh/blog/why-using-neovim-data-engineer-and-writer-2023/#how-to-use-vim-modes-normal-insert-visual-and-command).
+Instead of only having to jump to the end of a line or jump by word, all of a sudden, I could do so many more. I have yet to learn the edit modes that you had. Besides the `insert-mode` that every editor had by default, you also had `normal`, `visual`, and `command` modes. You can learn more about the edit modes in my previous article [Why Vim Is More than Just an Editor – Vim Language, Motions, and Modes Explained](https://ssp.sh/blog/why-using-neovim-data-engineer-and-writer-2023/#how-to-use-vim-modes-normal-insert-visual-and-command).
 
 
 But this was when I started to research Vim and what it was. I watched tons of videos by [ThePrimeagen](https://www.youtube.com/@theprimeagen) and other great videos. The possibilities blew me away.
@@ -88,7 +88,7 @@ But this was when I started to research Vim and what it was. I watched tons of v
 ## Writing
 
 
-I never thought I would use it for writing, too. But it came naturally. The more I learned Vim, which initially takes a long time to get used to. But as I enjoyed the process, it was fun. It was like learning a game, adding a new superpower (shortcut) every weekâstarting to use `hjkl` instead of arrow keys for navigation or `o` to append under the current line and the whole palette.
+I never thought I would use it for writing, too. But it came naturally. The more I learned Vim, which initially takes a long time to get used to. But as I enjoyed the process, it was fun. It was like learning a game, adding a new superpower (shortcut) every week—starting to use `hjkl` instead of arrow keys for navigation or `o` to append under the current line and the whole palette.
 
 
 To this day, I’m constantly learning more efficient ways to edit text, which helps me become a better writer. I can edit my second brain, and text I write everywhere with the speed of thought. It sounds cliche but valid for me.

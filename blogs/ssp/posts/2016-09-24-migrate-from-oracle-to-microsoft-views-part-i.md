@@ -1,12 +1,12 @@
 ---
-title: "Migrate from Oracle to Microsoft (Views) â Part I"
+title: "Migrate from Oracle to Microsoft (Views) – Part I"
 date: 2016-09-24
 url: https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-i/
 slug: migrate-from-oracle-to-microsoft-views-part-i
 word_count: 1456
 ---
 
-![Migrate from Oracle to Microsoft (Views) â Part I](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-i/images/microsoft-sql-server-vs-oracle.jpg)
+![Migrate from Oracle to Microsoft (Views) – Part I](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-i/images/microsoft-sql-server-vs-oracle.jpg)
 
 Contents
 
@@ -67,7 +67,7 @@ or COALESCE |
 
 
 
-Source:Â [dba-oracle.com](http://www.dba-oracle.com/oracle_news/2005_12_16_sql_syntax_differences.htm)
+Source: [dba-oracle.com](http://www.dba-oracle.com/oracle_news/2005_12_16_sql_syntax_differences.htm)
 
 
 ## Examples
@@ -103,10 +103,10 @@ SELECT CONVERT(VARCHAR(10), GETDATE(), 120);
 ### TO_NUMBER replaced by CONVERT(float,..), CAST()
 
 
-As you can see in the list above, you can use `CAST`, also `CONVERT` is possible. But attention, it sounds like a very easy translation, but you have to be careful, for instance when it comes to decimals. Because the built-in `TO_NUMBER()` function rounds at the 16th decimal place and if you use `CONVERT`,Â the behavior is a bit different.
+As you can see in the list above, you can use `CAST`, also `CONVERT` is possible. But attention, it sounds like a very easy translation, but you have to be careful, for instance when it comes to decimals. Because the built-in `TO_NUMBER()` function rounds at the 16th decimal place and if you use `CONVERT`, the behavior is a bit different.
 
 
-I used `CONVERT(numeric,..)`Â forÂ my needs, but as you can see below, the rounding of decimals is not the same:
+I used `CONVERT(numeric,..)` for my needs, but as you can see below, the rounding of decimals is not the same:
 
 
 
@@ -163,7 +163,7 @@ Combined with Modulo (mod / %) you have to keep this in mind:
 See more oracle built-in function conversion to SQL-Server in the attachment below.
 
 
-Continue reading about performance in my part II [Migrate from Oracle to Microsoft (Views) â Part II](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-ii/).
+Continue reading about performance in my part II [Migrate from Oracle to Microsoft (Views) – Part II](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-ii/).
 
 
 ## Attachment
@@ -293,11 +293,11 @@ Continue reading about performance in my part II [Migrate from Oracle to Microso
 121
 122
 ` | `-- =============================================================================================
--- Author:		Simon SpÃ¤ti
+-- Author:		Simon Späti
 -- Create date: 16.09.2015
 ------------------------------------------------------------------------------------------------
--- Description:	Gibt den String als Varchar zurÃ¼ck. Achtung Oracle TO_CHAR unterstÃ¼tzt noch
--- Formatierungen, welche diese nicht unterstÃ¼tzt. Dieese werden aber im Umfang der
+-- Description:	Gibt den String als Varchar zurück. Achtung Oracle TO_CHAR unterstützt noch
+-- Formatierungen, welche diese nicht unterstützt. Dieese werden aber im Umfang der
 -- *Oracle-und MS-SQL Scripte Migration nicht verwendet
 -- =============================================================================================
 CREATE FUNCTION [dbo].[TO_CHAR] (@str VARCHAR(8000))
@@ -310,10 +310,10 @@ CREATE FUNCTION [dbo].[TO_CHAR] (@str VARCHAR(8000))
 GO
 
 -- =============================================================================================
--- Author:		Simon SpÃ¤ti
+-- Author:		Simon Späti
 -- Create date: 16.09.2015
 ------------------------------------------------------------------------------------------------
--- Description:	Gibt den String als Zahl zurÃ¼ck. Achtung bei Kommastellen!
+-- Description:	Gibt den String als Zahl zurück. Achtung bei Kommastellen!
 -- =============================================================================================
 CREATE FUNCTION [dbo].[TO_NUMBER] (@str VARCHAR(4000))
   RETURNS numeric
@@ -324,7 +324,7 @@ CREATE FUNCTION [dbo].[TO_NUMBER] (@str VARCHAR(4000))
 GO
 
 -- =============================================================================================
--- Author:		Simon SpÃ¤ti
+-- Author:		Simon Späti
 -- Create date: 16.09.2015
 ------------------------------------------------------------------------------------------------
 -- Description:	Gibt den Modulo Wert zweier Zahlen aus. Achtung bei Kommastellen!
@@ -339,15 +339,15 @@ CREATE FUNCTION [dbo].[MOD] (@numb numeric, @mod int)
 GO
 
 -- =============================================================================================
--- Author:		Simon SpÃ¤ti
+-- Author:		Simon Späti
 -- Create date: 16.09.2015
 ------------------------------------------------------------------------------------------------
--- Description:	Gibt die Position eines Substrings in einem String zurÃ¼ck, dabei wird im String
+-- Description:	Gibt die Position eines Substrings in einem String zurück, dabei wird im String
 -- ab der angegebenen Startposition (@start) nach dem durch den Parameter @occurrence (Zahl > 0)
 -- angegebenen Auftreten vom Substring ab der Startposition gesucht. Die Startposition wird durch
 -- den Parameter @start (Zahl <> 0) ermittelt, indem es bei einer positiven Zahl ab dem String-
 -- Anfang nach rechts und bei einer negativen Zahl ab dem String-Ende nach links bis zu dieser
--- Zahl gezÃ¤hlt wird.
+-- Zahl gezählt wird.
 --                        @str____________ @substr @start @occurrence
 -- Beispiele: dbo.instr ('BO_PKZ_05.10.10','.'    ,-1    ,1          ) = 13
 --		      dbo.instr ('1-345-7-9'      ,'-'    ,-5    ,1          ) = 2
@@ -385,12 +385,12 @@ CREATE FUNCTION [dbo].[INSTR] (@str VARCHAR(8000), @substr VARCHAR(255), @start 
 GO
 
 -- =============================================================================================
--- Author:		Simon SpÃ¤ti
+-- Author:		Simon Späti
 -- Create date: 16.09.2015
 ------------------------------------------------------------------------------------------------
--- Description:	Gibt den Substring eines Strings zurÃ¼ck, der an der mit dem angegebenen Position
--- ("start") startet und die angegebene LÃ¤nge ("length") hat oder per Default bis zum Ende des
--- Strings. Bei negativen Argumenten @start oder @length wird der leere String zurÃ¼ckgegeben ohne
+-- Description:	Gibt den Substring eines Strings zurück, der an der mit dem angegebenen Position
+-- ("start") startet und die angegebene Länge ("length") hat oder per Default bis zum Ende des
+-- Strings. Bei negativen Argumenten @start oder @length wird der leere String zurückgegeben ohne
 -- einen Fehler hervorzurufen.
 -- =============================================================================================
 CREATE FUNCTION [dbo].[SUBSTR] (@str VARCHAR(8000), @start INT, @length INT=0)

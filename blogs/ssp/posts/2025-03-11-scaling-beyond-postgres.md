@@ -15,7 +15,7 @@ This article was written as part of
 Many data engineers and analysts start their journey with Postgres. Postgres is powerful, reliable, and flexible enough to handle both transactional and basic analytical workloads. It’s the Swiss Army knife of databases, and for many applications, it’s more than sufficient.
 
 
-But data volumes grow, analytical demands become more complex, and Postgres stops being enough. Therefore, you’ve probably come across terms like OLAP (Online Analytical Processing) systems, data warehouses, and, more recently, real-time analytical databases. The lines between these solutionsâcloud data warehouses like Redshift, BigQuery, or Snowflake, OLAP cubes, and real-time streaming databasesâhave increasingly blurred.
+But data volumes grow, analytical demands become more complex, and Postgres stops being enough. Therefore, you’ve probably come across terms like OLAP (Online Analytical Processing) systems, data warehouses, and, more recently, real-time analytical databases. The lines between these solutions—cloud data warehouses like Redshift, BigQuery, or Snowflake, OLAP cubes, and real-time streaming databases—have increasingly blurred.
 
 
 The question becomes: When would you need to move beyond Postgres? When does scaling your PostgreSQL instance no longer make sense compared to a specialized cloud data warehouse? Or is there an even better solution for low-latency dashboards or customer-facing analytics apps? Can’t we just use a fast database?
@@ -30,7 +30,7 @@ This article will explore how real-time analytical databases address critical an
 Postgres has become the go-to database these days. Some say [Postgres is eating the database world](https://medium.com/@fengruohang/postgres-is-eating-the-database-world-157c204dcfc4), and they’re not wrong. However, the limitations of Postgres become apparent when you start focusing on analytics. Complex queries over large tables can result in slow response times. While Postgres works fine for ETL processes and backend operations, it struggles with serving customer-facing dashboards that require consistent, fast performance.
 
 
-There have been various efforts to enhance Postgres’s analytical capabilities, including extensions like [CitusDB](https://github.com/paradedb/pg_analytics), [Swarm64 DA](https://dbdb.io/db/swarm64), [TimeScale](https://www.timescale.com/), and others. Despite these innovations, Postgres remains fundamentally an OLTP (Online Transaction Processing) databaseâoptimized for transactions, not analyticsâand trying to make it perform like an analytical database has diminishing returns.
+There have been various efforts to enhance Postgres’s analytical capabilities, including extensions like [CitusDB](https://github.com/paradedb/pg_analytics), [Swarm64 DA](https://dbdb.io/db/swarm64), [TimeScale](https://www.timescale.com/), and others. Despite these innovations, Postgres remains fundamentally an OLTP (Online Transaction Processing) database—optimized for transactions, not analytics—and trying to make it perform like an analytical database has diminishing returns.
 
 
 These limitations explain why organizations eventually need purpose-built solutions optimized for analytical queries. The typical first step beyond Postgres is adopting a cloud data warehouse.
@@ -126,7 +126,7 @@ Early OLAP systems achieved incredible speed through pre-aggregation but sacrifi
 Let’s now focus on today, examine the different categories of analytical databases, and see if we can find differences between cloud data warehouses and OLAP cubes.
 
 
-Mike Driscoll said in our discussion: “All of these databases belong in the **category of analytical databases**âthey all leverage column-oriented designs and are fast for aggregations and filters, and are considered OLAP databases”.
+Mike Driscoll said in our discussion: “All of these databases belong in the **category of analytical databases**—they all leverage column-oriented designs and are fast for aggregations and filters, and are considered OLAP databases”.
 
 
 Mike further shared that the significant difference between these analytical databases is the trade-off between **cost** (dollars-per-TB-stored) and **performance** (seconds-per-TB-scanned). I agree, and this is what we’ve seen happening lately. On one side, cloud data warehouses like Snowflake use **decoupled cloud storage + compute architectures**, offering lower cost but with lower performance.
@@ -150,7 +150,7 @@ If we categorize real-time analytical databases further, there might be a trade-
 Pinot and Druid are highly scalable and designed from the ground up as **distributed systems**. ClickHouse was initially architected as a **single-node system** but has since added support for horizontal scaling in its OSS and commercial cloud offering. DuckDB is intentionally **non-distributed** and has a **single-node architecture** (though MotherDuck is working on a more scalable, distributed cloud version).
 
 
-At the end of the day, engineers need to choose an analytics database technology based on trade-offs across cost, performance, scale, and complexityâwhich ultimately only our business use cases can determine. Let’s explore related technologies and how to choose the right one for our needs next.
+At the end of the day, engineers need to choose an analytics database technology based on trade-offs across cost, performance, scale, and complexity—which ultimately only our business use cases can determine. Let’s explore related technologies and how to choose the right one for our needs next.
 
 Cloud Data Warehouses or Cloud Data Platforms?
 Snowflake, Fabric and BigQuery call themselves data platforms nowadays. They do more than just data warehousing. But it’s where they started and probably where they still mostly fall into.
@@ -180,7 +180,7 @@ The second category is **federation** solutions such as Dremio, Trino, and Apach
 Combining Streaming and Batch is Not New
 This reminded me of Delta Lake Tables, or
 [Open Table Formats](https://www.startdataengineering.com/post/what_why_table_format/)
-when we tried to use them as a sink for both stream and batch jobsâunifying batch and streaming sources and eliminating the need for a
+when we tried to use them as a sink for both stream and batch jobs—unifying batch and streaming sources and eliminating the need for a
 [Kappa Architecture](https://hazelcast.com/foundations/software-architecture/kappa-architecture/)
 . This is important to remember with additional features such as built-in CDC, streaming capabilities, and sharing features. More of this is well explained in
 [Beyond Lambda: Introducing Delta Architecture](https://youtu.be/FePv0lro0z8)
@@ -248,7 +248,7 @@ The above quadrants show us a high-level overview of what we’ve discussed here
 *Decision Tree to choose the right analytical DB*
 
 Categories are not strictly defined
-The lines between categories are blurred. OLAP systems now add warehouse features, while data warehouses add OLAP-like capabilities. This convergence reflects an underlying fact that the business needs to constantlyâdeliver accurate insights quickly and cost-effectively.
+The lines between categories are blurred. OLAP systems now add warehouse features, while data warehouses add OLAP-like capabilities. This convergence reflects an underlying fact that the business needs to constantly—deliver accurate insights quickly and cost-effectively.
 
 #### Hybrid Approaches
 
@@ -349,7 +349,7 @@ Finally, don’t neglect data validation. Implement reconciliation processes to 
 ### ROI and Cost Considerations
 
 
-Real-time analytical databases deliver ROI through multiple avenuesâdirect cost savings on query-heavy workloads, substantial performance improvements with sub-second query times, and increased business agility by encouraging more data exploration without penalty.
+Real-time analytical databases deliver ROI through multiple avenues—direct cost savings on query-heavy workloads, substantial performance improvements with sub-second query times, and increased business agility by encouraging more data exploration without penalty.
 
 
 Organizations often report reductions in their analytics spending after migration, particularly those with high query volumes or dashboards that previously required expensive compute resources. Track metrics like dashboard load times, user engagement with analytical tools, and the business impact of **faster decision-making** to quantify your migration’s value.
@@ -370,7 +370,7 @@ A good exercise is to conduct a three-month total cost comparison between your c
 While Postgres remains an excellent starting point for many organizations and continues to evolve with extensions like pg_analytics, the future belongs to purpose-built analytical systems that deliver the holy trinity of database needs: consistency, scalability, and cost-efficiency.
 
 
-The evolution I predicted in my 2018 article on [OLAP and what’s coming next](https://www.ssp.sh/blog/olap-whats-coming-next/) has largely materialized, with the categories remaining relevant today. What’s changed is how these systems have matured and converged. Cloud data warehouses have expanded into comprehensive data platforms, while real-time analytical databases have incorporated more warehouse-like featuresâdriven by the universal need for faster insights at manageable costs.
+The evolution I predicted in my 2018 article on [OLAP and what’s coming next](https://www.ssp.sh/blog/olap-whats-coming-next/) has largely materialized, with the categories remaining relevant today. What’s changed is how these systems have matured and converged. Cloud data warehouses have expanded into comprehensive data platforms, while real-time analytical databases have incorporated more warehouse-like features—driven by the universal need for faster insights at manageable costs.
 
 
 Today’s landscape shows two parallel trends:
@@ -388,7 +388,7 @@ Deployment will also be key to this. With serverless being omnipresent, can we q
 It is exciting to see how real-time analytical databases are promising. They can unify the architecture of databases and real-time architecture into one, allowing business insights and KPIs to be explored instantly without the need for pipelines and duplicated storage that characterized earlier generations of data systems.
 
 
-As organizations outgrow Postgres for their analytical needs, they now have a spectrum of options that weren’t available just a few years agoâfrom cloud data warehouses to real-time analytical databases, each with its strengths and tradeoffs. The key is understanding your specific requirements and choosing the right tool that balances performance, cost, and complexity for your unique analytical journey.
+As organizations outgrow Postgres for their analytical needs, they now have a spectrum of options that weren’t available just a few years ago—from cloud data warehouses to real-time analytical databases, each with its strengths and tradeoffs. The key is understanding your specific requirements and choosing the right tool that balances performance, cost, and complexity for your unique analytical journey.
 
 
 ---

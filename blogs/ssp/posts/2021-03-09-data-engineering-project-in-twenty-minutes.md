@@ -40,7 +40,7 @@ Starting with web scraping gives you the power to treat every website as a datab
 
 ![/blog/data-engineering-project-in-twenty-minutes/images/Dagster-Practical-Data-Engineering-Pipeline.png](https://www.ssp.sh/blog/data-engineering-project-in-twenty-minutes/images/Dagster-Practical-Data-Engineering-Pipeline.png)
 
-*Dagster UI â Practical Data Engineering Pipeline*
+*Dagster UI – Practical Data Engineering Pipeline*
 
 
 ## 💡 What will you learn?
@@ -50,7 +50,7 @@ Below I noted the key learnings which are integrated into a full-fledged data en
 
 - **Scraping with Beautiful Soup**: How to get value out from a website with basic Python skills.
 - **Change Data Capture (CDC) with Scraping**: Using a fingerprint to verify against the data lake if a property needs to be downloaded or not.
-- **How to use an S3-Gateway / Object Storage**: Placing an S3 API in front of your object storage in the so-called âgateway-modeâ to stay cloud-agnostic. This allows you to change the object-store from Amazon S3 to Azure blob storage or Google cloud storage with ease.
+- **How to use an S3-Gateway / Object Storage**: Placing an S3 API in front of your object storage in the so-called “gateway-mode” to stay cloud-agnostic. This allows you to change the object-store from Amazon S3 to Azure blob storage or Google cloud storage with ease.
 - **UPSERTs and ACID Transactions**: Besides schema evolution mentioned above, Delta Lake also provides merge, update and delete directly on your distributed files.
 - **Automatic Schema Evolution**: With the growing popularity of data lakes and [ELT](https://www.ssp.sh/blog/data-warehouse-vs-data-lake-etl-vs-elt/#ETL_vs_ELT), data engineers are left with lots of data but no schemas. To integrate schema and especially schema changes, automatic schema evolution is important.
 - **Integrating Jupyter Notebooks - the right way**: Notebooks hold important data transformations, calculations or machine learning models yet it’s always hard to copy the living code in your data pipelines. We will integrate notebooks as a step of our pipeline with Dagster.
@@ -72,20 +72,20 @@ In an earlier post about [Open-Source Data Warehousing](https://www.ssp.sh/blog/
 *Databricks Lakehouse Paradigm with used Open-Source Technologies added*
 
 
-Below you’ll find different chapters for different topics. I included at least one practical example with some hands-on code but kept it minimalistic as the source code is all open in the above-mentioned [repositories](http://code.sspaeti.com).Â Some chapters include extra information or architectural reasoning of why I believed a certain tool or method is especially suited for the use-case. But let’s get started with scraping data implemented with Python.
+Below you’ll find different chapters for different topics. I included at least one practical example with some hands-on code but kept it minimalistic as the source code is all open in the above-mentioned [repositories](http://code.sspaeti.com). Some chapters include extra information or architectural reasoning of why I believed a certain tool or method is especially suited for the use-case. But let’s get started with scraping data implemented with Python.
 
 
-### Getting the Data â Scraping
+### Getting the Data – Scraping
 
 Disclaimer
-Everything shown here is demonstrated for learning purposes only. Before you begin, make sure you donât violate the copyright of any website and always
+Everything shown here is demonstrated for learning purposes only. Before you begin, make sure you don’t violate the copyright of any website and always
 [be friendly](https://www.zyte.com/learn/web-scraping-best-practices)
 when scraping.
 
-The internet has an infinite amount of information, thatâs why scraping is valuable to know even though less know for data engineers. As a first step, we are getting the properties from a real-estate portal. In my case, I chose a Swiss portal, but you can choose anyone from your country. There are two main Python libraries to achieve this, [Scrapy](https://scrapy.org/) and [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/). I used the latter for its simplicity.
+The internet has an infinite amount of information, that’s why scraping is valuable to know even though less know for data engineers. As a first step, we are getting the properties from a real-estate portal. In my case, I chose a Swiss portal, but you can choose anyone from your country. There are two main Python libraries to achieve this, [Scrapy](https://scrapy.org/) and [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/). I used the latter for its simplicity.
 
 
-My initial goal was to scrape some properties from the web-page by determining how many search page result I get and scrape through each property from each page. While testing around with BeautifulSoup and [IPython](https://ipython.readthedocs.io/en/stable/)âââIPython is an excellent way to initially test your codeâââand asking my way through StackOverflow. I found that certain websites provide open APIs which you find in the documentation of their website or with the interactive developer tools (F12) explained below. This will save you from scraping everything manually and therefore also producing less traffic on the site of the provider.
+My initial goal was to scrape some properties from the web-page by determining how many search page result I get and scrape through each property from each page. While testing around with BeautifulSoup and [IPython](https://ipython.readthedocs.io/en/stable/) — IPython is an excellent way to initially test your code — and asking my way through StackOverflow. I found that certain websites provide open APIs which you find in the documentation of their website or with the interactive developer tools (F12) explained below. This will save you from scraping everything manually and therefore also producing less traffic on the site of the provider.
 
 How to check open APIs
 
@@ -97,10 +97,10 @@ If you want to check if another website has an open API, you can search for an H
 *An example with Webbrowser Brave (Chrome like)*
 
 
-To get started with web-scraping, it helps when you know some [basic HTML](https://www.w3schools.com/html/html_basic.asp). To get an overview of the site you would like to scrape your data from, use the above interactive developer tools. You can now inspect in which `<table>`, `<div>` or `id`, `class` or `href` your information is found. Most websites with valuable data have ever-changing idâs or classes, which makes it a bit harder to just grab the specific data you need.
+To get started with web-scraping, it helps when you know some [basic HTML](https://www.w3schools.com/html/html_basic.asp). To get an overview of the site you would like to scrape your data from, use the above interactive developer tools. You can now inspect in which `<table>`, `<div>` or `id`, `class` or `href` your information is found. Most websites with valuable data have ever-changing id’s or classes, which makes it a bit harder to just grab the specific data you need.
 
 
-Letâs say we want to buy a house in Bern, the capital of Switzerland. We can e.g. use this URL with this search term: [[https://www.immoscout24.ch/en/house/buy/city-bern?r=7↦=1](https://www.immoscout24.ch/en/house/buy/city-bern?r=7&map=1)](https://www.immoscout24.ch/en/house/buy/city-bern?r=7&map=1). R, in this case, is the radius around Bern and map=1 mean we only want properties with a price tag. As mentioned we need to find out how many pages of result we have. We can see this information is at the very bottom. A hacky example that worked for me is I searched all buttons on the page and chose the one smaller and equal three which equals me as the last page number two as of today.Â An example code to scrape how many pages of search results we have:
+Let’s say we want to buy a house in Bern, the capital of Switzerland. We can e.g. use this URL with this search term: [[https://www.immoscout24.ch/en/house/buy/city-bern?r=7↦=1](https://www.immoscout24.ch/en/house/buy/city-bern?r=7&map=1)](https://www.immoscout24.ch/en/house/buy/city-bern?r=7&map=1). R, in this case, is the radius around Bern and map=1 mean we only want properties with a price tag. As mentioned we need to find out how many pages of result we have. We can see this information is at the very bottom. A hacky example that worked for me is I searched all buttons on the page and chose the one smaller and equal three which equals me as the last page number two as of today. An example code to scrape how many pages of search results we have:
 
 
 
@@ -158,7 +158,7 @@ print(lastPage)
 
 
 
-To get to a list of property IDs I assembled a search-link for each search where I grabbed links that stared with “en/d”Â and had a number in it. Some sample code below:
+To get to a list of property IDs I assembled a search-link for each search where I grabbed links that stared with “en/d” and had a number in it. Some sample code below:
 
 
 
@@ -196,7 +196,7 @@ print(ids)
 
 
 
-Complete code above you can find on GitHub on [solids_scraping.py](https://github.com/ssp-data/practical-data-engineering/blob/v1/src/pipelines/real-estate/realestate/common/solids_scraping.py) in functions called `list_props_immo24`Â and `cache_properies_from_rest_api`.
+Complete code above you can find on GitHub on [solids_scraping.py](https://github.com/ssp-data/practical-data-engineering/blob/v1/src/pipelines/real-estate/realestate/common/solids_scraping.py) in functions called `list_props_immo24` and `cache_properies_from_rest_api`.
 
 
 ### Storing on S3-MinIO
@@ -219,7 +219,7 @@ With an object storage, you provide one single API without lock you in into a cl
 `wget https://dl.min.io/server/minio/release/linux-amd64/minio
 chmod +x minio
 ./minio server /data
-# â Output â
+# — Output —
 Endpoint: http://192.168.2.128:9000 http://127.0.0.1:9000
 AccessKey: your-key
 SecretKey: your-secret
@@ -266,7 +266,7 @@ The logic for CDC happens in `get_changed_or_new_properties` in [solids_spark_de
 	OR e.fingerprint IS NULL
 `
 
-Adding Database features to S3 â Delta Lake & Spark
+Adding Database features to S3 – Delta Lake & Spark
 
 **To get database alike features on top of your S3 files, you simply need to create a [Delta Lake](https://delta.io/) table**. For example, to add a dynamic schema to not break ingestions into a data lake or data pipelines downstream is quite a challenge. Delta is doing that and automatically add new columns incrementally in an [optimistic concurrent way](https://docs.databricks.com/delta/concurrency-control.html#optimistic-concurrency-control). As data in a data lake ist mostly distributed files, this is quite hard if you were to do that yourself. But as Delta already enforce schema and stores this information in the [transaction log](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html) it makes sense to handle this with Delta. In my data sets with 60+ dynamic and changing columns, I made use of this feature extensively.
   
@@ -287,7 +287,7 @@ Adding Database features to S3 â Delta Lake & Spark
 data = spark.range(0, 5)
 data.write.format("delta").save("/tmp/delta-table")
 #reading it
-df = spark.read.format(âdeltaâ).load(â/tmp/delta-tableâ)
+df = spark.read.format(“delta”).load(“/tmp/delta-table”)
 df.show()
 `
 
@@ -302,7 +302,7 @@ df.show()
 `
 
 `#Read older versions of data using time travel
-df = spark.read.format(âdeltaâ).option(âversionAsOfâ, 0).load(â/tmp/delta-tableâ)
+df = spark.read.format(“delta”).option(“versionAsOf”, 0).load(“/tmp/delta-table”)
 df.show()
 `
 
@@ -412,7 +412,7 @@ USING updates
 )
 `
 
-Machine Learning part â Jupyter Notebook
+Machine Learning part – Jupyter Notebook
 
     I'm not a data scientist, still, I wanted to have some insights and fun with my data as well. That's why initially copied one or two Notebook from [Kaggle](https://www.kaggle.com/) to play around with. In my project, I wanted to integrate them into my pipeline.
   
@@ -432,7 +432,7 @@ Machine Learning part â Jupyter Notebook
 
     My part of the integration, you can find in `data_exploration`in [solid_jupyter.py](https://github.com/ssp-data/practical-data-engineering/blob/v1/src/pipelines/real-estate/realestate/common/solids_jupyter.py).
   
-Ingesting Data Warehouse for low latency â Apache Druid
+Ingesting Data Warehouse for low latency – Apache Druid
 
     Most business intelligence solutions include a fast responsive [OLAP](https://www.ssp.sh/blog/olap-whats-coming-next/#What_is_OLAP) solution often done with cubes. For example, in Microsoft SQL Server you have [Analysis Services](https://en.wikipedia.org/wiki/Microsoft_Analysis_Services). But what should you use if you want an open-source product which is able to handle big data with no problems? One excellent choice is [Apache Druid](https://druid.apache.org/), but if you want to know more details or find other ways for you, check out my blog post about [OLAP, and what's next](https://www.ssp.sh/blog/olap-whats-coming-next/).
   
@@ -491,14 +491,14 @@ kubectl port-forward druid-router-86798c8b4c-vjvxj 8888:8888
  
     For the project part, I set it up and ingested some properties, but that was more to test the set-up locally. As speed is not a major requirement for me right now, and Druid eats a lot of resources and hard to run locally, I'm focusing on the Delta Lake to be the single source of thought for my queries.
   
-The UI with Dashboards and more â Apache Superset
+The UI with Dashboards and more – Apache Superset
 
 [
 
 ](https://www.ssp.sh/blog/data-engineering-project-in-twenty-minutes/images/apache_superset_scale.png)Scale data access across any data architecture
 
 
-    No project isn't complete without a nice UI that visualises your insights. For its [open-source purposes](https://preset.io/blog/future-of-business-intelligence/) and features, I use Apache Superset for some time now. Lately, Superset announces version 1.0 and it is among the [top 200 projects](https://gitstar-ranking.com/repositories?page=2) on GitHub. The founder [Maxime Beauchemin](https://medium.com/@maximebeauchemin) and his company [Preset](https://preset.io/) are building more and more amazing features, one being to [create your own plugins](https://preset.io/blog/2020-07-02-hello-world/)Â easily.
+    No project isn't complete without a nice UI that visualises your insights. For its [open-source purposes](https://preset.io/blog/future-of-business-intelligence/) and features, I use Apache Superset for some time now. Lately, Superset announces version 1.0 and it is among the [top 200 projects](https://gitstar-ranking.com/repositories?page=2) on GitHub. The founder [Maxime Beauchemin](https://medium.com/@maximebeauchemin) and his company [Preset](https://preset.io/) are building more and more amazing features, one being to [create your own plugins](https://preset.io/blog/2020-07-02-hello-world/) easily.
   
 
     Superset can easily connect to Druid natively, or it can query a data lake with Delta Lake tables, plus it can handle almost any kind of SQL based database. The [dockerfile](https://github.com/ssp-data/data-engineering-devops/tree/main/src/superset) I use is the original with adding `pydruid`for querying Druid. Functionalities as exploring, dashboarding views and how to investigate your data you see below:
@@ -508,7 +508,7 @@ The UI with Dashboards and more â Apache Superset
 
 ](https://www.ssp.sh/blog/data-engineering-project-in-twenty-minutes/images/superset-view.png)Apache Superset Dashboard Functionality
 
-Orchestrating everything together â Dagster
+Orchestrating everything together – Dagster
 
     Ultimately, the part that glues everything together, the orchestrator. Today there is quite an [extended list](https://github.com/pditommaso/awesome-pipeline#pipeline-frameworks--libraries) of orchestrator out there. I tried to highlight the most suitable  [alternatives to Apache Airflow](https://qr.ae/pNrIPi) and went with [Dagster](https://dagster.io/) for the coming reasons below.
   
@@ -528,20 +528,20 @@ Orchestrating everything together â Dagster
 **Dagster provides a beautiful feature-rich UI called Dagit. It includes state-of-the-art [GraphQL](https://graphql.org/) Interfaces for fetching status, starting, stopping pipelines** and many more. As shown in the machine learning part, it closes the boundaries to the machine learning team with the integration of Jupyter notebooks. It's all free and [open-source](https://github.com/dagster-io/dagster) and the team is extremely responsive on both [Slack](https://dagster-slackin.herokuapp.com/) and [GitHub](https://github.com/dagster-io/dagster/).
   
 
-    What about testing? Testing data is very hard and nothing compared to software testing as data is and even tools and framework is dynamic and can change every output of your transformation, as well the size of data changes in dev, test, and production. Dagster's abstraction supports testing profoundly. [Type checks](https://docs.dagster.io/tutorial/types#dagster-types) and [assertions](https://docs.dagster.io/tutorial/types#expectations) about your data are included. ButÂ I'd suggest using the first-class [integration](https://dagster.io/blog/great-expectations-for-dagster) of [Great Expectation](https://greatexpectations.io/).
+    What about testing? Testing data is very hard and nothing compared to software testing as data is and even tools and framework is dynamic and can change every output of your transformation, as well the size of data changes in dev, test, and production. Dagster's abstraction supports testing profoundly. [Type checks](https://docs.dagster.io/tutorial/types#dagster-types) and [assertions](https://docs.dagster.io/tutorial/types#expectations) about your data are included. But I'd suggest using the first-class [integration](https://dagster.io/blog/great-expectations-for-dagster) of [Great Expectation](https://greatexpectations.io/).
   
 Happy to announce @dagsterio's newest integration with  [@expectgreatdata](https://twitter.com/expectgreatdata?ref_src=twsrc%5Etfw), the open source data quality framework. See here how richly display the test results right in our tools. We deeply integrate with tools and don't just call them opaquely. Fun to work with [@AbeGong](https://twitter.com/AbeGong?ref_src=twsrc%5Etfw) and team! [https://t.co/NKRcUMY1yX](https://t.co/NKRcUMY1yX) [pic.twitter.com/tQ6qQ9D45F](https://t.co/tQ6qQ9D45F)— Nick Schrock (@schrockn) [September 10, 2020](https://twitter.com/schrockn/status/1304094805153083392?ref_src=twsrc%5Etfw)
 
-On top of that, **Dagster embraces the [functional programming paradigm](https://en.wikipedia.org/wiki/Functional_programming)**. By simply writing Dagster pipelines, you are writing **functional solids that are declarative, abstracted, [idempotent](https://www.ssp.sh/blog/business-intelligence-meets-data-engineering/#%E2%80%9CLoad_incremental_and_Idempotency_%E2%80%9D), type-checked to catch errors early**. Dagster also includes simple [unit-testing](https://docs.dagster.io/examples/pipeline_unittesting) and handy feature toÂ [make pipelines and solid testable and maintainable](https://docs.dagster.io/tutorial/testable#testing-solids-and-pipelines).
+On top of that, **Dagster embraces the [functional programming paradigm](https://en.wikipedia.org/wiki/Functional_programming)**. By simply writing Dagster pipelines, you are writing **functional solids that are declarative, abstracted, [idempotent](https://www.ssp.sh/blog/business-intelligence-meets-data-engineering/#%E2%80%9CLoad_incremental_and_Idempotency_%E2%80%9D), type-checked to catch errors early**. Dagster also includes simple [unit-testing](https://docs.dagster.io/examples/pipeline_unittesting) and handy feature to [make pipelines and solid testable and maintainable](https://docs.dagster.io/tutorial/testable#testing-solids-and-pipelines).
 All of my examples are implemented with Dagster. Just clone my repo, install Dagster and start Dagit from [src/pipelines/real-estate](https://github.com/ssp-data/practical-data-engineering/tree/v1/src/pipelines/real-estate). I’m trying to build an [awesome-dagster](https://github.com/ssp-data/awesome-dagster) with common code-blocks as solids, resources and more to be re-used by everyone. Feel free to contribute if you have nice components to add.
-DevOps engine â Kubernetes
+DevOps engine – Kubernetes
 And finally, the engine everything runs on locally and [cloud-agnostic](https://looker.com/definitions/cloud-agnostic#:~:text=Cloud%2Dagnostic%20platforms%20are%20environments,different%20features%20and%20price%20structures.) in the cloud is [Kubernetes](https://kubernetes.io/). Quoted from an earlier [post](https://www.ssp.sh/blog/business-intelligence-meets-data-engineering) in chapter [Use a container-orchestration system](https://www.ssp.sh/blog/business-intelligence-meets-data-engineering/#%E2%80%9CUse_a_containerorchestration_system_%E2%80%9D):
-**[Kubernetes](https://stackoverflow.blog/2020/05/29/why-kubernetes-getting-so-popular/)Â has become the de-facto standard** for your cloud-native apps to (auto-)Â [scale-out](https://stackoverflow.com/a/11715598/5246670) and to deploy your open-source zoo fast, cloud-provider-independent. No lock-in here. You could use [open-shift](https://www.openshift.com/)Â orÂ [OKD](https://www.okd.io/). With the latest version, theyÂ added theÂ [OperatorHub](https://operatorhub.io/) where you can install as of today 182 items with just a few clicks. [â¦] Some more reasons for Kubernetes are the **move from infrastructure as code** towards **infrastructure as data**, specifically asÂ [YAML](https://en.wikipedia.org/wiki/YAML). [â¦] Developers quickly write applications that run across multiple operating environments. Costs can be reduced by scaling down [â¦]
-To get hands-on with Kubernetes you can install [Docker Desktop](https://www.docker.com/products/docker-desktop) with Kubernetes included. All of [my examples](http://code.sspaeti.com) are build on top of it and run on any cloud as well as locally.Â For a more sophisticated set-up in terms of Apache Spark, I suggest reading the blog post from [Data Mechanics](https://www.datamechanics.co/) about [Setting up, Managing & Monitoring Spark on Kubernetes](https://www.datamechanics.co/blog-post/setting-up-managing-monitoring-spark-on-kubernetes). If your more of a video guy, [An introduction to Apache Spark on Kubernetes](https://youtu.be/qcvNZvFZIP4?t=31) contains the same content but adds still even on top of it.
+**[Kubernetes](https://stackoverflow.blog/2020/05/29/why-kubernetes-getting-so-popular/) has become the de-facto standard** for your cloud-native apps to (auto-) [scale-out](https://stackoverflow.com/a/11715598/5246670) and to deploy your open-source zoo fast, cloud-provider-independent. No lock-in here. You could use [open-shift](https://www.openshift.com/) or [OKD](https://www.okd.io/). With the latest version, they added the [OperatorHub](https://operatorhub.io/) where you can install as of today 182 items with just a few clicks. […] Some more reasons for Kubernetes are the **move from infrastructure as code** towards **infrastructure as data**, specifically as [YAML](https://en.wikipedia.org/wiki/YAML). […] Developers quickly write applications that run across multiple operating environments. Costs can be reduced by scaling down […]
+To get hands-on with Kubernetes you can install [Docker Desktop](https://www.docker.com/products/docker-desktop) with Kubernetes included. All of [my examples](http://code.sspaeti.com) are build on top of it and run on any cloud as well as locally. For a more sophisticated set-up in terms of Apache Spark, I suggest reading the blog post from [Data Mechanics](https://www.datamechanics.co/) about [Setting up, Managing & Monitoring Spark on Kubernetes](https://www.datamechanics.co/blog-post/setting-up-managing-monitoring-spark-on-kubernetes). If your more of a video guy, [An introduction to Apache Spark on Kubernetes](https://youtu.be/qcvNZvFZIP4?t=31) contains the same content but adds still even on top of it.
 Conclusion
 We have seen that in order to apply hands-on data engineering methodologies to a real-estate project, you need to know a good amount of the latest big data tools and frameworks. As well as data architecture to assess how these fit together and can be utilised for specific use-cases. I hope I could give you some inspiration and ways to create your own data engineering project. From scraping the web to storing the data in an S3 object store, adding database features onto it, using machine learning capabilities with Jupyter notebooks, ingesting it into a data warehouse, visualise the data with a nice dashboard, connecting everything together with an orchestrator and running it cloud-agnostic.
 If you want to test your knowledge, start the [Pokemon or Big Data](https://pixelastic.github.io/pokemonorbigdata/) quiz, you will see it’s not that easy ð. If you like more [Open-Source Data Engineering Projects](https://www.ssp.sh/brain/open-source-data-engineering-projects/), I curate a list I constantly update.
-Thatâs it for now. If you like the content and want to follow along, make sure you subscribe to my [newsletter](https://subscribe.ssp.sh/), check my [code](http://code.sspaeti.com) on GitHub or visit me on [LinkedIn](https://www.linkedin.com/in/sspaeti/), or [Twitter](https://twitter.com/sspaeti/) for genuine news about the data ecosystem.
+That’s it for now. If you like the content and want to follow along, make sure you subscribe to my [newsletter](https://subscribe.ssp.sh/), check my [code](http://code.sspaeti.com) on GitHub or visit me on [LinkedIn](https://www.linkedin.com/in/sspaeti/), or [Twitter](https://twitter.com/sspaeti/) for genuine news about the data ecosystem.
 
 *Republished on [Medium](https://sspaeti.medium.com/building-a-data-engineering-project-in-20-minutes-85c37cad4d87).*
 

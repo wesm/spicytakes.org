@@ -51,7 +51,7 @@ While I’m super happy with the switch, here are some direct comparison from ap
 Snagit, my beloved screenshot-taking tool. I haven’t found a similar replacement yet that can cut out in-between the image or store all the captured images in a library. Even OCR search worked out of the box in Snagit, across all my images I took over the years.
 
 
-You’d say, but who needs this? Yeah, kind of, but it’s super handy, especially if you are a blog writer and explain stuff visuallyâthe speed and quick image manipulation is not yet there.
+You’d say, but who needs this? Yeah, kind of, but it’s super handy, especially if you are a blog writer and explain stuff visually—the speed and quick image manipulation is not yet there.
 
 
 **It just works**. One thing I noticed lately is that sometimes a shortcut breaks, or something is not working anymore. This is also because Omarchy is just brand new, and I’m inexperienced running Linux as my main OS. But for the last 5 years with the M1, hardware-wise, things just worked. I had to replace my full mainboard as the [GPU was broken](https://bsky.app/profile/ssp.sh/post/3lug5oijnjc22) within the first two weeks, so that might be bad luck. But the quality of MacBooks is just another level. I had 3 or 4 so far since 2010, and each of them held at least 5 years. Crazy good.
@@ -66,7 +66,7 @@ You’d say, but who needs this? Yeah, kind of, but it’s super handy, especial
 **Cloud Sync**. As mentioned, I had to switch from Sync to Filen, as Sync didn’t run on Linux. But Filen is great, and I’m super happy with it. I also switched from Lastpass to 1Password, took this as a change. I was also thinking about NextCloud on my home server, but I couldn’t switch everything in one go.
 
 
-**Keyboard shortcuts**. An important one was keyboard shortcuts. I have advanced shortcuts and many different custom keyboards. First I use [Karabiner-Elements](https://karabiner-elements.pqrs.org/) for the vim navigations with `caps + HJKL`, which will then return arrow keys. This way I can use vim navigations in each app, as arrow keys are supported everywhere. For this I used [Kanata](https://github.com/jtroo/kanata/) on Linux. And use [XCompose](https://github.com/kragen/xcompose/) for simple Umlaut or replacements like `Â«Â«â` when I write.
+**Keyboard shortcuts**. An important one was keyboard shortcuts. I have advanced shortcuts and many different custom keyboards. First I use [Karabiner-Elements](https://karabiner-elements.pqrs.org/) for the vim navigations with `caps + HJKL`, which will then return arrow keys. This way I can use vim navigations in each app, as arrow keys are supported everywhere. For this I used [Kanata](https://github.com/jtroo/kanata/) on Linux. And use [XCompose](https://github.com/kragen/xcompose/) for simple Umlaut or replacements like `««—` when I write.
 
 
 **App Launcher**, **File content search** and **Clipboard manager**. I used Raycast for all of these. On Windows [Ditto](https://ditto-cp.sourceforge.io/) was great for clipboard only. But with [Walker](https://github.com/abenz1267/walker/) (Launcher), that has built-in file search called *finder*, and an additional tool called Clipse, I have the same features I needed. Plus more than I ever would have dreamed, because Walker is so customizable that you can add a quick script for everything.

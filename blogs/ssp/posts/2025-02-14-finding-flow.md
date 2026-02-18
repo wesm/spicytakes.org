@@ -76,7 +76,7 @@ To unblock, you can unblock or rest in different types of rest:
 - Sensory Rest
 
 
-More on [Rest Isnât the Opposite of Work](https://www.remoteworkprep.com/blog/rest-isnt-the-opposite-of-work).
+More on [Rest Isn’t the Opposite of Work](https://www.remoteworkprep.com/blog/rest-isnt-the-opposite-of-work).
 
 
 ### Mini Retirements
@@ -101,7 +101,7 @@ If we apply this to life, we get a [Deeper Life](https://ssp.sh/brain/deep-life/
 Turning off the phone, without the pressure or the urge to check if someone has messaged you, if you got a like on social media, your brain starts wondering. You start getting ideas and thoughts to ponder. But these don’t start immediately. If you have been distracted, living a fast life, are constantly on the go, and have no time to think about anything, without defined [principles](https://www.ssp.sh/brain/principles) to work towards, without [clarity](https://www.ssp.sh/brain/clarity/), your brain can’t just switch, and be **deeply focused**. But practicing it, like meditation or yoga, is undoubtedly worth it.
 
 Digital Minimalism
-Another book by Cal Newport is Digital Minimalism, which goes in the same directionâtrying to use fewer digital mediums, less social media, and less distraction. I thoroughly recommend it, too.
+Another book by Cal Newport is Digital Minimalism, which goes in the same direction—trying to use fewer digital mediums, less social media, and less distraction. I thoroughly recommend it, too.
 The basics: Food, Sleep, and Smartphones
 The basis on top of these, is also a good sleep, nutritious food. And the phone needs to be away on do not disturb mode, or best in another room.
 
@@ -138,7 +138,7 @@ These are more pointers related to this article’s topic, thoughts, or steps I 
 Walk every day; nature is tiding our thoughts, just like naps and sleep. Walking, or going outside, is suitable for mental, spiritual, and physical health. When I start walking, the ideas flow, my brain calms down, and I slowly begin to think and process anything I am pondering. It’s best when done in **nature**. Nature in itself is a remedy for calming down. It has helped all the big thinkers before our time and will help many after ours.
 
 
-Like our inner monkeys or daemons, they don’t want us to go out of bed or get fresh air. Walking frees us from themâthe opposite of what social media or smartphones do.
+Like our inner monkeys or daemons, they don’t want us to go out of bed or get fresh air. Walking frees us from them—the opposite of what social media or smartphones do.
 
 Pro Tip
 Sometimes, bring a paper notebook or camera to capture ideas or thoughts. But other times, go deliberately without.
@@ -164,7 +164,7 @@ Interestingly, if we change the medium, we can unblock it:
 - [Journaling](https://ssp.sh/brain/journaling/) for a while.
 
 
-### How I get into Deep Work â Flow
+### How I get into Deep Work — Flow
 
 
 The above strategies to unblock are also related to [Deep Work](https://ssp.sh/brain/deep-work/) and how I get into deep work:
@@ -194,13 +194,13 @@ Also, like *creative block*, add boundaries and constraints like no internet, us
 I Do Nothing
 When I don’t have inspiration or I have a block, I do nothing.
 **I live**
-. And it’s absolutely because of the deeper inspiration that I’m blessed to feel. I feel it’s been cultivated. I’m connected to it, and I know it’s real, and it doesn’t have to greet me every day. I know it’s there.â
+. And it’s absolutely because of the deeper inspiration that I’m blessed to feel. I feel it’s been cultivated. I’m connected to it, and I know it’s real, and it doesn’t have to greet me every day. I know it’s there.—
 **Jon Batiste**
 
 ### Turn Off, Shut Down, and Re-Energize for a Happy Life
 
 
-Something that is easy to say but hard to do. I enjoy **walks in nature** or a long bicycle ride. It does not matter what you do, but that you do something without distraction. I was listening to books on the walks for a long time, but this always felt like more work. Sure, if you have a great book, listening can be fun too, but I did my best to calm down when going without any decisionâjust me and nature.
+Something that is easy to say but hard to do. I enjoy **walks in nature** or a long bicycle ride. It does not matter what you do, but that you do something without distraction. I was listening to books on the walks for a long time, but this always felt like more work. Sure, if you have a great book, listening can be fun too, but I did my best to calm down when going without any decision—just me and nature.
 
 
 From the book “The Well-Lived Life: A 102-Year-Old Doctor’s Six Secrets to Health and Happiness at Every Age”, a [comment](https://www.goodreads.com/book/show/62918481-the-well-lived-life) by Liong on Goodreads says the six secrets may help us live a **long, happy, and healthy life**:
@@ -213,7 +213,7 @@ From the book “The Well-Lived Life: A 102-Year-Old Doctor’s Six Secrets to H
 6. Find your purpose. (Having a purpose is vital to living longer).
 
 
-Be grateful now. Help others. Have funâalso, more on my note on [What Makes a Happy Life](https://ssp.sh/brain/what-makes-a-happy-life/).
+Be grateful now. Help others. Have fun—also, more on my note on [What Makes a Happy Life](https://ssp.sh/brain/what-makes-a-happy-life/).
 
 
 ### Nature: How It Flourishes Creativity
@@ -231,7 +231,7 @@ Take gardening; it takes so much patience to grow those three. It puts time into
 I like to get inspiration from nature. I think of my **creative process as gardening**. Things inside us build up **slowly**, but great things will come out with constant nurturing: Art, a thought, an idea, anything. It doesn’t matter which day. It’s seasonal, similar to creativity; we can’t be creative all year.
 
 
-I hope any of these helped you; more so, it helped me to clarify focus in connection with the ever-growing (primarily digital) distractions to find a better life worth livingâA slower and deeper life could be possible.
+I hope any of these helped you; more so, it helped me to clarify focus in connection with the ever-growing (primarily digital) distractions to find a better life worth living—A slower and deeper life could be possible.
 
 
 ## Further Reads

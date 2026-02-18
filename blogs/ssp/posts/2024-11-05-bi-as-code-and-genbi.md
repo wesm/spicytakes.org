@@ -104,7 +104,7 @@ The benefits of each are clearly visible:
 ### Benefits of Code-First Analytics
 
 
-Today, newer code-first approaches let you define dashboards declaratively, bringing all the advantages of the [Declarative Data Stack](https://www.ssp.sh/blog/rise-of-declarative-data-stack/): automation, versioning, and separation of business logic from implementation. This approach offers the best of both worlds â an intuitive UI for design while producing clean YAML definitions that can be versioned and bulk-modified with `search + replace` across all dashboards for example.
+Today, newer code-first approaches let you define dashboards declaratively, bringing all the advantages of the [Declarative Data Stack](https://www.ssp.sh/blog/rise-of-declarative-data-stack/): automation, versioning, and separation of business logic from implementation. This approach offers the best of both worlds – an intuitive UI for design while producing clean YAML definitions that can be versioned and bulk-modified with `search + replace` across all dashboards for example.
 
 
 Code-first enables a **smaller data team to do more**. Think of the Ruby on Rails developer, who does end-to-end from changing the database theme to the front of the app. Instead of multiple people understanding every little column of a Shopify database model, **we can prompt** the BI model that has been trained on the physical data tables and potentially 100 or reference implementations from GitHub to generate a “dashboard for the sum of orders per month”. This will not be 100% accurate, but you might get 80% of the work within a very short time.
@@ -345,7 +345,7 @@ If you click, generate dashboard, that would look like this based on the infamou
 This implementation demonstrates the [future of one-click dashboards with generative AI](https://www.rilldata.com/blog/one-click-dashboards-with-generative-ai-and-bi-as-code), where LLMs like GPT can generate and modify dashboard definitions directly in code.
 
 
-Rillâs BI-as-code philosophy means dashboards are defined entirely in code and that large language models, like OpenAIâs GPT series, can generate based on these definitions. Rill today **does an OpenAI** call to get domain-specific understanding, e.g., if the data model is a certain industry.
+Rill’s BI-as-code philosophy means dashboards are defined entirely in code and that large language models, like OpenAI’s GPT series, can generate based on these definitions. Rill today **does an OpenAI** call to get domain-specific understanding, e.g., if the data model is a certain industry.
 
 
 Incorporating code generation into development environments makes the tool much more user-friendly and can significantly improve a single BI engineer’s productivity. Rill Developer also provides software engineers with a fast feedback loop, enabling them to edit code rapidly, visualize metrics, and instantly preview dashboards before deploying them into [Rill Cloud](https://www.rilldata.com/product) or a self-managed environment.
@@ -386,7 +386,7 @@ Check the [Quick Start](https://docs.rilldata.com/home/get-started) for more inf
 After seeing what GenBI is, I understand the evolution from traditional BI to GenAI, using BI-as-Code as the foundation to enable powerful AI use cases that generate full dashboards and metrics based on existing data sources. We’ve seen the core components GenBI needs and how GenBI looks in action, both from the user perspective with prompts and from the implementation side with actual products that have implemented GenBI. For businesses, this means faster time-to-insight and democratized access to data analytics without sacrificing the robustness of traditional BI approaches.
 
 
-So, what’s the future of GenBI? While this is difficult to predict, I’m confident Rill Developer will be at the forefront, enabling users with simple business requirements to access the entire BI stackâmaybe even beyond. In the following article, we’ll look at how a declarative data stack could be implemented, integrating the BI part and end-to-end what we discussed in Part 1 and the [Rise of the Declarative Data Stack](https://www.ssp.sh/blog/rise-of-declarative-data-stack/).
+So, what’s the future of GenBI? While this is difficult to predict, I’m confident Rill Developer will be at the forefront, enabling users with simple business requirements to access the entire BI stack—maybe even beyond. In the following article, we’ll look at how a declarative data stack could be implemented, integrating the BI part and end-to-end what we discussed in Part 1 and the [Rise of the Declarative Data Stack](https://www.ssp.sh/blog/rise-of-declarative-data-stack/).
 
 
 ---

@@ -250,7 +250,9 @@ class RssGenericScraper(BaseScraper):
         try:
             response = requests.get(url, timeout=30, headers=self.headers)
             response.raise_for_status()
-            soup = BeautifulSoup(response.text, "html.parser")
+            # Use response.content (bytes) to let BeautifulSoup
+            # handle encoding detection and avoid double-encoding
+            soup = BeautifulSoup(response.content, "html.parser")
 
             # Try to extract date from page
             date_str = None

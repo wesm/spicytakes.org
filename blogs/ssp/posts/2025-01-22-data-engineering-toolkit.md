@@ -12,10 +12,10 @@ Contents
 This article was written as part of
 [my services](https://www.ssp.sh/services)
 
-To be proficient as a data engineer, you need to know various toolkitsâfrom fundamental Linux commands to different virtual environments and optimizing efficiency as a data engineer.
+To be proficient as a data engineer, you need to know various toolkits—from fundamental Linux commands to different virtual environments and optimizing efficiency as a data engineer.
 
 
-This article focuses on the building blocks of data engineering work, such as operating systems, development environments, and essential tools. We’ll start from the ground upâexploring crucial Linux commands, containerization with Docker, and the development environments that make modern data engineering possible. We look at current programming languages and how they influence our workâproviding a comprehensive overview of the tools of a modern data engineer.
+This article focuses on the building blocks of data engineering work, such as operating systems, development environments, and essential tools. We’ll start from the ground up—exploring crucial Linux commands, containerization with Docker, and the development environments that make modern data engineering possible. We look at current programming languages and how they influence our work—providing a comprehensive overview of the tools of a modern data engineer.
 
 
 ---
@@ -36,13 +36,13 @@ Before starting as a data engineer, your laptop, operating system (OS), and envi
 ### Operating System Choices (Windows/Mac/Linux)
 
 
-Choosing the right operating system might seem significant. Primarily, it’s a preference for what you like and know. Still, there is the fact that mostÂ **data platforms**Â that run on a server will run on a Linux-based OS system. Working on Linux OS on the client might give you skills you can reuse, but you can also have that with Windows withÂ [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux)1Â and MacOS running a Darwin-based Linux.
+Choosing the right operating system might seem significant. Primarily, it’s a preference for what you like and know. Still, there is the fact that most **data platforms** that run on a server will run on a Linux-based OS system. Working on Linux OS on the client might give you skills you can reuse, but you can also have that with Windows with [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux)1 and MacOS running a Darwin-based Linux.
 
 
 Your employer also defines it. If you are a Microsoft shop, you use tools such as Power BI, Visual Studio (not Visual Studio Code), and C#. This requires using Windows or at least a VM with Windows.
 
 
-If you work at a startup and need great hardware that is easy to use, the company will probably provide you with the latest MacBook with MacOS installed. However, if you are a power user or need yourÂ [Dotfiles](https://www.freecodecamp.org/news/dotfiles-what-is-a-dot-file-and-how-to-create-it-in-mac-and-linux/), you may not use anything other than a Linux-based operating system. We will look later at fundamental Linux commands that make the life of every data engineer easier.
+If you work at a startup and need great hardware that is easy to use, the company will probably provide you with the latest MacBook with MacOS installed. However, if you are a power user or need your [Dotfiles](https://www.freecodecamp.org/news/dotfiles-what-is-a-dot-file-and-how-to-create-it-in-mac-and-linux/), you may not use anything other than a Linux-based operating system. We will look later at fundamental Linux commands that make the life of every data engineer easier.
 
 
 ### Virtual Machine (VM)
@@ -51,7 +51,7 @@ If you work at a startup and need great hardware that is easy to use, the compan
 As mentioned, you could run MacOS and Windows in a VM with VMware or Parallels. These are not native installations, but close to it, and they allow you to do most things.
 
 
-The same goes if you are on Windows; instead of using WSL, which sometimes can get tricky with companies’ proxies and network routing, you could use a Linux VM locally or somewhere hosted that you just SSH into or anÂ [advanced example with Nix](https://www.youtube.com/live/LA8KF9Fs2sk?si=_nQRGKJIa_NlFHn2&t=1072). There are other solutions to explore; e.g., your whole machine could be a VM provided by your company or deploy aÂ [VS Code server](https://code.visualstudio.com/docs/remote/vscode-server)Â to run VS Code instances inside your company network.
+The same goes if you are on Windows; instead of using WSL, which sometimes can get tricky with companies’ proxies and network routing, you could use a Linux VM locally or somewhere hosted that you just SSH into or an [advanced example with Nix](https://www.youtube.com/live/LA8KF9Fs2sk?si=_nQRGKJIa_NlFHn2&t=1072). There are other solutions to explore; e.g., your whole machine could be a VM provided by your company or deploy a [VS Code server](https://code.visualstudio.com/docs/remote/vscode-server) to run VS Code instances inside your company network.
 
 
 ### ENV variables
@@ -60,7 +60,7 @@ The same goes if you are on Windows; instead of using WSL, which sometimes can g
 The next layer that you commonly use is ENV variables. This is already a little more advanced. But think of your reproducible environments with your co-workers or managing different environments (dev/staging/prod) instead of hard copying all settings, which won’t work on other environments with different OS or other expectations.
 
 
-If you typeÂ `env`Â in a Linux-based OS terminal, you can see all your local env sets. To illustrate some, I have set these ENVs:
+If you type `env` in a Linux-based OS terminal, you can see all your local env sets. To illustrate some, I have set these ENVs:
 
 
 
@@ -82,7 +82,7 @@ AWS_ACCESS_KEY_ID=my-access-key
 
 
 
-These can be set in a projects-repositories folder, usually inÂ `.env`, and which will be picked up automatically. However, the recommended approach is using SSO CLI tools (likeÂ `aws sso login`Â orÂ `gcloud auth login`), which will automatically populate credentials in the expected locations, or alternatively adding them to your shell config (`~/.bashrc`,Â `~/.zshrc`).
+These can be set in a projects-repositories folder, usually in `.env`, and which will be picked up automatically. However, the recommended approach is using SSO CLI tools (like `aws sso login` or `gcloud auth login`), which will automatically populate credentials in the expected locations, or alternatively adding them to your shell config (`~/.bashrc`, `~/.zshrc`).
 
 Never commit `.env` files to version control
 They often contain sensitive credentials. Add
@@ -93,10 +93,10 @@ with dummy values.
 ### Docker and Container Images
 
 
-Another virtualized environment isÂ [Docker](https://www.docker.com/), and specificallyÂ **[Dockerfiles](https://docs.docker.com/build/concepts/dockerfile/)**. Docker is the engine that runs your Dockerfile on all platforms and architectures, letting you create a container image and build it for Linux on a Windows machine.
+Another virtualized environment is [Docker](https://www.docker.com/), and specifically **[Dockerfiles](https://docs.docker.com/build/concepts/dockerfile/)**. Docker is the engine that runs your Dockerfile on all platforms and architectures, letting you create a container image and build it for Linux on a Windows machine.
 
 
-That makes containers so powerful: you canÂ **package and containerize complex data engineering requirements into a single Dockerfile**, and everyone can run it on any machineâwhether locally, in CI/CD pipelines, or orchestrated in Kubernetes clusters. Think of container packages on ships that transport goods; the breakthrough was the standardized container size that fits on every boat; every harbor could maneuver them. Similarly, container images have become the standard for packaging data and software ecosystems, with formats originally defined by Docker now being widely supported acrossÂ [different container runtimes and platforms](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/).
+That makes containers so powerful: you can **package and containerize complex data engineering requirements into a single Dockerfile**, and everyone can run it on any machine—whether locally, in CI/CD pipelines, or orchestrated in Kubernetes clusters. Think of container packages on ships that transport goods; the breakthrough was the standardized container size that fits on every boat; every harbor could maneuver them. Similarly, container images have become the standard for packaging data and software ecosystems, with formats originally defined by Docker now being widely supported across [different container runtimes and platforms](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/).
 
 
 A simple nginx (webserver) example:
@@ -129,18 +129,18 @@ EXPOSE 80
 
 
 
-Docker also supportsÂ [different instructions](https://docs.docker.com/reference/dockerfile/)Â that you can use in a Dockerfile.
+Docker also supports [different instructions](https://docs.docker.com/reference/dockerfile/) that you can use in a Dockerfile.
 
 Different Architectures (amd64, arm64) and Line Feeds
 When buildingÂ
-Â images, be aware of theÂ
+ images, be aware of theÂ
 **different architectures**
 . Whether you build Docker images or want to run them on other servers,Â
 **line endings**
-Â can cause issues in Dockerfiles and scriptsâWindows uses CRLF (
+ can cause issues in Dockerfiles and scripts—Windows uses CRLF (
 ). In contrast, Linux/Mac uses LF (
 ), which can break shell scripts and Docker builds. UseÂ
-Â or configure your editor to use LF consistently.
+ or configure your editor to use LF consistently.
 Devcontainers
 Like Docker, Devcontainers is an extra file inÂ
 . It works well with VS Code, allowing you to use Docker containers as full-featured development environments with predefined tools and runtime stacks.
@@ -154,7 +154,7 @@ Even though you might use Windows, Linux is key to a data engineer. You don’t 
 ### Opening and Editing a File with Nano/Vim
 
 
-Editing or creating a new file might not be as easy as it seems. Command line text editors such asÂ [Nano](https://de.wikipedia.org/wiki/Nano_%28Texteditor%29)Â orÂ [Vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29)Â can be used for this task. Recommended is Nano, which displays the shortcuts to save or exit. Vim can be intimidating at first, but it’s aÂ [worthwhile investment](https://www.ssp.sh/blog/why-using-neovim-data-engineer-and-writer-2023/)Â when working 8 hours a day on the terminal, even more soÂ [Vim Motions](https://www.ssp.sh/brain/vim-language-and-motions/).
+Editing or creating a new file might not be as easy as it seems. Command line text editors such as [Nano](https://de.wikipedia.org/wiki/Nano_%28Texteditor%29) or [Vim](https://en.wikipedia.org/wiki/Vim_%28text_editor%29) can be used for this task. Recommended is Nano, which displays the shortcuts to save or exit. Vim can be intimidating at first, but it’s a [worthwhile investment](https://www.ssp.sh/blog/why-using-neovim-data-engineer-and-writer-2023/) when working 8 hours a day on the terminal, even more so [Vim Motions](https://www.ssp.sh/brain/vim-language-and-motions/).
 
 
 [
@@ -165,19 +165,19 @@ Editing or creating a new file might not be as easy as it seems. Command line te
 ### Basic Linux Tools and Commands
 
 
-In addition to the Linux basic commands you have probably used or encountered likeÂ `cp, mv, ssh`Â as seen below, which are also super helpful on a server, we focus on the data engineering Linux commands you run on your laptop, where you can install things.
+In addition to the Linux basic commands you have probably used or encountered like `cp, mv, ssh` as seen below, which are also super helpful on a server, we focus on the data engineering Linux commands you run on your laptop, where you can install things.
 
 
 ![/blog/data-engineering-toolkit/linux-basic.webp](https://www.ssp.sh/blog/data-engineering-toolkit/linux-basic.webp)
 
-*Image fromÂLinux is a MUST. Seriously…| Also, check more on the bookÂEfficient Linux at the Command LineÂ by Daniel J. Barrett.*
+*Image fromÂLinux is a MUST. Seriously…| Also, check more on the bookÂEfficient Linux at the Command Line by Daniel J. Barrett.*
 
 
 Most tools are Python-related to achieve the core tasks of a data engineer: ingestion of data, transforming and serving it to the organization or users. But the additional DE Linux commands I often use to quickly check an API, copy something over, or check processes are:
 
 - `curl`: Quickly check an API is available through the cmd line.
-- `make`Â /Â `cron`: Simple orchestration with the command line. More on this in the next chapter
-- `ssh`Â /Â `rsync`: Ssh to connect to another machine and Rsync for a fast, versatile, synchronization tool to quickly back up or move data from your machine to the server.
+- `make` / `cron`: Simple orchestration with the command line. More on this in the next chapter
+- `ssh` / `rsync`: Ssh to connect to another machine and Rsync for a fast, versatile, synchronization tool to quickly back up or move data from your machine to the server.
 - `bat`: Show data of a file nicely format and git integration.
 - `tail`: Displays the last part of a file, which is helpful if the file is big and cat/bat would take long.
 - `which`: Locate a program in the user’s path to check if the right tool is running.
@@ -201,13 +201,13 @@ AWS_SECRET_ACCESS_KEY=my-secret
 ` |
 
 
-- `ps aux`Â andÂ `htop`: To check the current process. Ps is also handy in combination with grep (`ps aux | my-program.py`)
-- `rg`Â andÂ `fzf`: Ripgrep (rg) is a recursive line-oriented search tool that searches through all files, and fzf is a fuzzy finder. In combination, you can interactively search fuzzy find the content of Python files in the current folder easily withÂ `rg -t python "def main" . | fzf`. (Also check outÂ [Recursive Search in Terminal with fzf](https://www.ssp.sh/brain/recursive-search-in-terminal-with-fzf/), this will change your cmd-line life with reverse searchÂ `ctrl+r`).
+- `ps aux` and `htop`: To check the current process. Ps is also handy in combination with grep (`ps aux | my-program.py`)
+- `rg` and `fzf`: Ripgrep (rg) is a recursive line-oriented search tool that searches through all files, and fzf is a fuzzy finder. In combination, you can interactively search fuzzy find the content of Python files in the current folder easily with `rg -t python "def main" . | fzf`. (Also check out [Recursive Search in Terminal with fzf](https://www.ssp.sh/brain/recursive-search-in-terminal-with-fzf/), this will change your cmd-line life with reverse search `ctrl+r`).
 
 TUIs for More Efficiency (and Fun!)
 If you frequently useÂ
 **git**
-Â orÂ
+ orÂ
 **docker**
 , please check outÂ
 [Lazygit](https://github.com/jesseduffield/lazygit/)
@@ -220,10 +220,10 @@ If you frequently useÂ
 ### Simple Orchestration
 
 
-The core responsibility of a data engineer is to orchestrate different jobs in the correct order and fully automate them. We use data orchestrators ([Airflow](https://github.com/apache/airflow),Â [Dagster](https://github.com/dagster-io/dagster),Â [Prefect](https://github.com/PrefectHQ/prefect)Â etc.), but Linux also covers us.
+The core responsibility of a data engineer is to orchestrate different jobs in the correct order and fully automate them. We use data orchestrators ([Airflow](https://github.com/apache/airflow), [Dagster](https://github.com/dagster-io/dagster), [Prefect](https://github.com/PrefectHQ/prefect) etc.), but Linux also covers us.
 
 
-**[Makefile](https://makefiletutorial.com/)**Â andÂ **[cron](https://en.wikipedia.org/wiki/Cron)**Â jobs are out of the box and installed on every Linux system. For example, Makefiles let us store a combination of commands like this:
+**[Makefile](https://makefiletutorial.com/)** and **[cron](https://en.wikipedia.org/wiki/Cron)** jobs are out of the box and installed on every Linux system. For example, Makefiles let us store a combination of commands like this:
 
 
 
@@ -273,7 +273,7 @@ clean:
 
 
 
-RunningÂ `make extract`Â will create download data from the HTTPS API and store it as CSV, which we can check withÂ `tail`:
+Running `make extract` will create download data from the HTTPS API and store it as CSV, which we can check with `tail`:
 
 
 
@@ -304,13 +304,13 @@ curl -s "https://api.coincap.io/v2/assets" | \
 Combining these commands can be quick and super powerful. Make is just one example of storing and checking the commands into git so everyone can use them.
 
 
-[Crontabs](https://en.wikipedia.org/wiki/Cron)Â are another way to schedule them daily, for example.
+[Crontabs](https://en.wikipedia.org/wiki/Cron) are another way to schedule them daily, for example.
 
 
-##### Pipeline command: Join different commands togetherÂ `|`
+##### Pipeline command: Join different commands together `|`
 
 
-In line with theÂ [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), to make one tool do one thing as best as possible, you can combine “[pipe](https://en.wikipedia.org/wiki/Pipeline_%28Unix%29)” different tools withÂ `|`Â as we’ve seen examples already above withÂ `grep`Â and others.
+In line with the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), to make one tool do one thing as best as possible, you can combine “[pipe](https://en.wikipedia.org/wiki/Pipeline_%28Unix%29)” different tools with `|` as we’ve seen examples already above with `grep` and others.
 
 
 Here is another example of checking if any Python packages for SQL have been installed
@@ -333,13 +333,13 @@ This allows the making of data pipelines within the terminal and a single cmd li
 
 
 
-The pipeline reads the above CSV file and extracts the coin name and market cap only (usingÂ `cut`), removes the quotes (`tr`), and then sorts by the market cap value numerically in descending order to show the top 4 biggest cryptocurrencies by market capitalization.
+The pipeline reads the above CSV file and extracts the coin name and market cap only (using `cut`), removes the quotes (`tr`), and then sorts by the market cap value numerically in descending order to show the top 4 biggest cryptocurrencies by market capitalization.
 
 
 #### Data Processing
 
 
-Another example could be data processing within the command lineâe.g., quickly splitting a large CSV that you are unable to open with a text editor:
+Another example could be data processing within the command line—e.g., quickly splitting a large CSV that you are unable to open with a text editor:
 
 
 
@@ -372,18 +372,18 @@ Next, we will look at the newer tools that can be added above the terminal and C
 An integrated development environment (IDE) is where we program our code and get code completion, linters, and AI assistance to make us (hopefully) more productive.
 
 
-Popular IDEs are with their used based on theÂ [StackOverflow Survey 2024](https://survey.stackoverflow.co/2024/technology#most-popular-technologies-new-collab-tools-prof):
+Popular IDEs are with their used based on the [StackOverflow Survey 2024](https://survey.stackoverflow.co/2024/technology#most-popular-technologies-new-collab-tools-prof):
 
-- **[Visual Studio Code](https://code.visualstudio.com/)**Â (73.6%) - Microsoft’s lightweight but powerful source code editor with extensive plugin support and language coverage.
-- **[Visual Studio](https://visualstudio.microsoft.com/)**Â (29.3%) - Microsoft’s full-featured IDE, powerful for .NET development and enterprise applications.
-- Other editors sorted percentage-wise areÂ [IntelliJ IDEA](https://www.jetbrains.com/idea/)Â (26.8%),Â [Notepad++](https://notepad-plus-plus.org/)Â (23.9%),Â [Vim](https://www.vim.org/)Â (21.6%),Â [PyCharm](https://www.jetbrains.com/pycharm/)Â (15.1%),Â [Jupyter](https://jupyter.org/)Â (12.8%),Â [Neovim](https://neovim.io/)Â (12.5%),Â [Sublime Text](https://www.sublimetext.com/)Â (10.9%),Â [Eclipse](https://www.eclipse.org/)Â (9.4%),Â [Xcode](https://developer.apple.com/xcode/)Â (9.3%)
+- **[Visual Studio Code](https://code.visualstudio.com/)** (73.6%) - Microsoft’s lightweight but powerful source code editor with extensive plugin support and language coverage.
+- **[Visual Studio](https://visualstudio.microsoft.com/)** (29.3%) - Microsoft’s full-featured IDE, powerful for .NET development and enterprise applications.
+- Other editors sorted percentage-wise are [IntelliJ IDEA](https://www.jetbrains.com/idea/) (26.8%), [Notepad++](https://notepad-plus-plus.org/) (23.9%), [Vim](https://www.vim.org/) (21.6%), [PyCharm](https://www.jetbrains.com/pycharm/) (15.1%), [Jupyter](https://jupyter.org/) (12.8%), [Neovim](https://neovim.io/) (12.5%), [Sublime Text](https://www.sublimetext.com/) (10.9%), [Eclipse](https://www.eclipse.org/) (9.4%), [Xcode](https://developer.apple.com/xcode/) (9.3%)
 
 
 Not even on the map 2024 were the IDEs that go all in with AI:
 
-- **[Cursor](https://cursor.sh/)**Â - A VS Code-based editor explicitly built for AI-assisted development, featuring GitHub Copilot integration and specialized AI tooling for code completion and refactoring.
-- **[Windsurf](https://www.windsurf.ai/)**Â - An AI-first code editor designed to streamline development workflow with features like natural language code generation and intelligent code suggestions.
-- **[Zed](https://zed.dev/)**Â - A high-performance, multiplayer code editor with AI capabilities created by former Atom developers.
+- **[Cursor](https://cursor.sh/)** - A VS Code-based editor explicitly built for AI-assisted development, featuring GitHub Copilot integration and specialized AI tooling for code completion and refactoring.
+- **[Windsurf](https://www.windsurf.ai/)** - An AI-first code editor designed to streamline development workflow with features like natural language code generation and intelligent code suggestions.
+- **[Zed](https://zed.dev/)** - A high-performance, multiplayer code editor with AI capabilities created by former Atom developers.
 
 
 ### Codespaces and Workspaces
@@ -392,7 +392,7 @@ Not even on the map 2024 were the IDEs that go all in with AI:
 In addition to IDEs that are usually installed locally, we also have codespaces (or workspaces, depending on the naming) that live in the browser. These are super handy because everyone has the same environment, and the days of “does not work on my machine” are gone.
 
 
-These tools includeÂ **[GitHub Codespaces](https://github.com/features/codespaces)**,Â **[Devpod](https://devpod.sh/)**,Â **[Replit](https://replit.com/)**,Â **[Stackblitz](https://stackblitz.com/)**,Â **[CodeSandbox](https://codesandbox.io/)**Â **[Gitpod](https://www.gitpod.io/)**, and many others.
+These tools include **[GitHub Codespaces](https://github.com/features/codespaces)**, **[Devpod](https://devpod.sh/)**, **[Replit](https://replit.com/)**, **[Stackblitz](https://stackblitz.com/)**, **[CodeSandbox](https://codesandbox.io/)** **[Gitpod](https://www.gitpod.io/)**, and many others.
 
 
 ### Notebooks
@@ -401,26 +401,26 @@ These tools includeÂ **[GitHub Codespaces](https://github.com/features/codespa
 In addition to IDEs and Codespaces, you can use a notebook that runs locally or in the cloud. This option is generally more flexible and allows you to visualize results and document the code. However, putting it in production has a downside: It’s harder to restart, backfill, or configure with different variables.
 
 
-Itâs more flexible and easier to get started, but transitioning notebooks to production remains challenging even on platforms like Databricks, which are designed to support a development-to-production workflow.
+It’s more flexible and easier to get started, but transitioning notebooks to production remains challenging even on platforms like Databricks, which are designed to support a development-to-production workflow.
 
 
-Notebooks likeÂ **[Jupyter Notebook](https://jupyter.org/)**Â /Â **[JupyterHub](https://jupyter.org/hub)**,Â **[Apache Zeppelin](https://zeppelin.apache.org/)**, orÂ **[Databricks Notebook](https://www.databricks.com/product/collaborative-notebooks)**. Newer versions of Jupyter Notebooks with more integrated features and a robust cloud behind them areÂ **[Deepnote](https://deepnote.com/)**,Â **[Hex](https://hex.tech/)**, andÂ **[Count.co](https://count.co/)**,Â **[Enso](https://ensoanalytics.com/)**, orÂ **[MotherDuck](https://motherduck.com/docs/getting-started/motherduck-quick-tour/)**, which combines the flexibility of notebooks with the power of DuckDB’s analytics engine.
+Notebooks like **[Jupyter Notebook](https://jupyter.org/)** / **[JupyterHub](https://jupyter.org/hub)**, **[Apache Zeppelin](https://zeppelin.apache.org/)**, or **[Databricks Notebook](https://www.databricks.com/product/collaborative-notebooks)**. Newer versions of Jupyter Notebooks with more integrated features and a robust cloud behind them are **[Deepnote](https://deepnote.com/)**, **[Hex](https://hex.tech/)**, and **[Count.co](https://count.co/)**, **[Enso](https://ensoanalytics.com/)**, or **[MotherDuck](https://motherduck.com/docs/getting-started/motherduck-quick-tour/)**, which combines the flexibility of notebooks with the power of DuckDB’s analytics engine.
 
 Spreadsheets
 There is even one more category:Â
 **spreadsheet-style apps**
 . They are similar to notebooks as they can also runÂ
 **Python**
-Â andÂ
+ andÂ
 **JavaScript**
-Â inside cells. ThinkÂ
+ inside cells. ThinkÂ
 [Quadratic](https://www.quadratichq.com/)
 , Excel, and others.
 
 ### Git Version Control
 
 
-[Git](https://git-scm.com/)Â is probably the most used version control in data engineering nowadays. There was a time ofÂ [TortoiseSVN](https://tortoisesvn.net/)Â and others.
+[Git](https://git-scm.com/) is probably the most used version control in data engineering nowadays. There was a time of [TortoiseSVN](https://tortoisesvn.net/) and others.
 
 
 As a data engineer, you need to version your code and product to easily roll back in case of error or work together as a team. The most common git workflow are:
@@ -443,7 +443,7 @@ git checkout -b feature/new-data-source # Create and switch to a new branch
 
 
 
-For more complex operations, consider using a Git GUI client. Some popular options includeÂ [GitKraken](https://www.gitkraken.com/),Â [SourceTree](https://www.sourcetreeapp.com/),Â [Lazygit](https://github.com/jesseduffield/lazygit)Â (terminal UI), andÂ [many more](https://github.com/dictcp/awesome-git#client).
+For more complex operations, consider using a Git GUI client. Some popular options include [GitKraken](https://www.gitkraken.com/), [SourceTree](https://www.sourcetreeapp.com/), [Lazygit](https://github.com/jesseduffield/lazygit) (terminal UI), and [many more](https://github.com/dictcp/awesome-git#client).
 
 
 ## Data Engineer Programming Languages
@@ -452,13 +452,13 @@ For more complex operations, consider using a Git GUI client. Some popular optio
 Before we wrap up, let’s look at a data engineer’s programming language. This will change depending on whether you are working more on infrastructure, pipeline, or business extraction.
 
 
-The most prominent language you will use is stillÂ **SQL**, as the language to query each BI tool, doing most transformations with dbt and others, and even having an API on the most popular DE libraries makes it the best first language to master. Just after, especially if you build a lot of data pipelines and do a bit above basic transformations, you won’t get aroundÂ **Python**. Python is the tooling language of a data engineer; think of it as the Swiss army knife.
+The most prominent language you will use is still **SQL**, as the language to query each BI tool, doing most transformations with dbt and others, and even having an API on the most popular DE libraries makes it the best first language to master. Just after, especially if you build a lot of data pipelines and do a bit above basic transformations, you won’t get around **Python**. Python is the tooling language of a data engineer; think of it as the Swiss army knife.
 
 
-Lastly, if you are in infrastructure and need to deploy the data stack, you primarily work withÂ **YAML**Â as a definition language for Helm, Kubernetes, Terraform, or other deployments. You could write some Rust if you are developing infrastructure and performance-heavy optimization.
+Lastly, if you are in infrastructure and need to deploy the data stack, you primarily work with **YAML** as a definition language for Helm, Kubernetes, Terraform, or other deployments. You could write some Rust if you are developing infrastructure and performance-heavy optimization.
 
 
-We can see the most popular languages as with theÂ [StackOverflow 2024](https://survey.stackoverflow.co/2024/technology#admired-and-desired)Â data, query with DuckDB with a shared DB on MotherDuckâsimplyÂ [sign up](https://app.motherduck.com/)Â (if you haven’t) andÂ [create a token](https://motherduck.com/docs/key-tasks/authenticating-and-connecting-to-motherduck/authenticating-to-motherduck/)Â to query the database with thisÂ [SQL-query](https://gist.github.com/sspaeti/64405c15ef5b0f969435195cbdd05c04):
+We can see the most popular languages as with the [StackOverflow 2024](https://survey.stackoverflow.co/2024/technology#admired-and-desired) data, query with DuckDB with a shared DB on MotherDuck—simply [sign up](https://app.motherduck.com/) (if you haven’t) and [create a token](https://motherduck.com/docs/key-tasks/authenticating-and-connecting-to-motherduck/authenticating-to-motherduck/) to query the database with this [SQL-query](https://gist.github.com/sspaeti/64405c15ef5b0f969435195cbdd05c04):
 
 
 
@@ -503,13 +503,13 @@ We can see the most popular languages as with theÂ [StackOverflow 2024](https:
 ### Beyond Languages
 
 
-Beyond programming languages, you must get to know variousÂ **databases and their concepts**, such asÂ [relational database theory](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf). It does not matter which SQL dialect you learn, as they are all related, but knowing the fundamentals of a specific database, such as Postgres, DuckDB, or a NoSQL database, will help you on your journey.
+Beyond programming languages, you must get to know various **databases and their concepts**, such as [relational database theory](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf). It does not matter which SQL dialect you learn, as they are all related, but knowing the fundamentals of a specific database, such as Postgres, DuckDB, or a NoSQL database, will help you on your journey.
 
 
 Python libraries and frameworks are the last we observe and where you can spend most of your time. Instead of learning as many as possible, I suggest investing in a few used at your company and where you benefit most.
 
 
-Typical starter libraries includeÂ [DuckDB](https://duckdb.org/docs/api/python/overview.html)Â (a powerful in-memory transformation library and database withÂ [scale-up](https://motherduck.com/blog/the-simple-joys-of-scaling-up/)Â capabilities via MotherDuck2),Â [Pandas](https://pandas.pydata.org/)Â (flexible data manipulation),Â [PyArrow](https://arrow.apache.org/docs/python/index.html)Â (optimized for columnar data),Â [Polars](https://pola.rs/)Â (fast and scalable DataFrame library), andÂ [PySpark](https://spark.apache.org/docs/latest/api/python/index.html)Â (for distributed data processing with Apache Spark).
+Typical starter libraries include [DuckDB](https://duckdb.org/docs/api/python/overview.html) (a powerful in-memory transformation library and database with [scale-up](https://motherduck.com/blog/the-simple-joys-of-scaling-up/) capabilities via MotherDuck2), [Pandas](https://pandas.pydata.org/) (flexible data manipulation), [PyArrow](https://arrow.apache.org/docs/python/index.html) (optimized for columnar data), [Polars](https://pola.rs/) (fast and scalable DataFrame library), and [PySpark](https://spark.apache.org/docs/latest/api/python/index.html) (for distributed data processing with Apache Spark).
 
 
 ### Python Libraries
@@ -520,22 +520,22 @@ There are many more libraries available, especially when you need to quickly acc
 
 Data Ingestion:
 
-- [Requests](https://requests.readthedocs.io/en/latest/)Â - HTTP library for API queries and web scraping
-- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)Â - HTML parsing library for web scraping
+- [Requests](https://requests.readthedocs.io/en/latest/) - HTTP library for API queries and web scraping
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) - HTML parsing library for web scraping
 
 
 Developer Tools:
 
-- [uv](https://github.com/astral-sh/uv)Â /Â [pip](https://pip.pypa.io/)Â - Package installers for Python, with uv being a modern, fast alternative to pip
-- [Ruff](https://docs.astral.sh/ruff/)Â - Fast linter and code formatter
-- [Pytest](https://docs.pytest.org/)Â - A testing framework for Python
+- [uv](https://github.com/astral-sh/uv) / [pip](https://pip.pypa.io/) - Package installers for Python, with uv being a modern, fast alternative to pip
+- [Ruff](https://docs.astral.sh/ruff/) - Fast linter and code formatter
+- [Pytest](https://docs.pytest.org/) - A testing framework for Python
 
 
 Data Validation:
 
-- [Pydantic](https://docs.pydantic.dev/)Â - Data validation for Python objects
-- [Pandera](https://pandera.readthedocs.io/)Â - Schema validation for dataframes
-- [Great Expectations](https://github.com/great-expectations/great_expectations)Â /Â [OpenLineage](https://github.com/OpenLineage/OpenLineage)Â - Data quality validation framework and data lineage tracking tools
+- [Pydantic](https://docs.pydantic.dev/) - Data validation for Python objects
+- [Pandera](https://pandera.readthedocs.io/) - Schema validation for dataframes
+- [Great Expectations](https://github.com/great-expectations/great_expectations) / [OpenLineage](https://github.com/OpenLineage/OpenLineage) - Data quality validation framework and data lineage tracking tools
 
 
 We could go on forever. Libraries exist for virtually everything: data ingestion, orchestration, BI tools, you name it. We could discuss setting up a Python project (it’s not a solved problem, and there are many ways of doing it), discuss DevOps and how to use a simple Helm script, set up a local storage system that mimics S3, and more.
@@ -544,22 +544,22 @@ We could go on forever. Libraries exist for virtually everything: data ingestion
 ## Wrapping Up
 
 
-Instead, we wrap it up, and I hope you enjoyed this article. It gave you an overview and a sense of how much is asked from a data engineer these days. But as this might be overwhelming, I suggest always focusing on fundamentals and, second, taking it step by step. It’s better to understand why than skip over it quickly. â Also, as we are in the AI area, use ChatGPT to explain a command or a CLI tool to you; it will do a much better job than any Google Search.
+Instead, we wrap it up, and I hope you enjoyed this article. It gave you an overview and a sense of how much is asked from a data engineer these days. But as this might be overwhelming, I suggest always focusing on fundamentals and, second, taking it step by step. It’s better to understand why than skip over it quickly. — Also, as we are in the AI area, use ChatGPT to explain a command or a CLI tool to you; it will do a much better job than any Google Search.
 
 
-We’ve covered theÂ **foundational**Â tools and environments of modern data engineering, skills that are often overlooked but crucial for any data engineer. From selecting the proper OS and virtualization setup to mastering Linux fundamentals and CLIs, these building blocks enable efficient data pipeline development without always requiring complex tools.
+We’ve covered the **foundational** tools and environments of modern data engineering, skills that are often overlooked but crucial for any data engineer. From selecting the proper OS and virtualization setup to mastering Linux fundamentals and CLIs, these building blocks enable efficient data pipeline development without always requiring complex tools.
 
 
-This foundation reminds us that sometimes the simplest solution is the most effectiveâa well-chosen Linux command can often replace a complex toolchain. I hope that these technical skills, provided by a modern data engineer, will help you along your journey when working from the command line on your machine.
+This foundation reminds us that sometimes the simplest solution is the most effective—a well-chosen Linux command can often replace a complex toolchain. I hope that these technical skills, provided by a modern data engineer, will help you along your journey when working from the command line on your machine.
 
 
 ---
 
 
-MotherDuck strives forÂ [modern data development](https://motherduck.com/docs/getting-started/)Â and developer productivity. For instance, its approach to developer productivity allows seamless scaling from local development to production: developers can work with DuckDB locally usingÂ `path: "local.duckdb"`Â for their development environment, then simply point their production environment to MotherDuck withÂ `path: "md:prod_database"`. This lets engineers focus on feature implementation while MotherDuck handles the scaling and performance.
+MotherDuck strives for [modern data development](https://motherduck.com/docs/getting-started/) and developer productivity. For instance, its approach to developer productivity allows seamless scaling from local development to production: developers can work with DuckDB locally using `path: "local.duckdb"` for their development environment, then simply point their production environment to MotherDuck with `path: "md:prod_database"`. This lets engineers focus on feature implementation while MotherDuck handles the scaling and performance.
 
 
-For a practical example, check out this implementation in theÂ [Deep Dive - Shifting Left and Moving Forward with MotherDuck](https://youtu.be/z3trqkKPbsI?si=mcLeiUi-5YBMs5oI&t=613):Â
+For a practical example, check out this implementation in the [Deep Dive - Shifting Left and Moving Forward with MotherDuck](https://youtu.be/z3trqkKPbsI?si=mcLeiUi-5YBMs5oI&t=613):Â
 
 
 ![/blog/data-engineering-toolkit/motherduck-dagster.webp](https://www.ssp.sh/blog/data-engineering-toolkit/motherduck-dagster.webp)

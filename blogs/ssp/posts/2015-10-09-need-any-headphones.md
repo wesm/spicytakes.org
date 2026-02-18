@@ -13,7 +13,7 @@ Contents
 They are not cheap, but they are best! This are the new technology of headphones. They do have an active noice canceling in it. So you will not hear (or almost not) the monotonous sounds of trams, train, flight or even talking from other peoples. If you are traveling a lot or working in a shared room with more than 5 people, you have to buy them, you won’t regret it!!
 
 
-I have the old one, the Bose QuietComfort 15, but I think the 25 series is even better, but not worser IÂ hope 🙂.
+I have the old one, the Bose QuietComfort 15, but I think the 25 series is even better, but not worser I hope 🙂.
 
 
 Try it or ask me in the comment section, I will love to answer your questions.

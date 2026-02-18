@@ -13,19 +13,19 @@ Contents
 There is a bit of a confusion between Data Warehouse vs Data Lake or ETL vs ELT. I hear that Data Warehouses are not used anymore, that they are replaced by Data Lakes altogether, but is that true? And why do we need Data Warehouses anyway? I will go into that as well as the definitions of both pluses explain the differences between them.
 
 
-## Data Warehouse vsÂ Data Lake
+## Data Warehouse vs Data Lake
 
 
 ### Data Warehouse definition
 
 
-A Data Warehouse, in short DWH and also known as anÂ Enterprise Data WarehouseÂ (EDW), is the traditional way of collecting data as we doÂ [since 31 years](https://www.ssp.sh/blog/data-warehouse-automation-dwa/). The DWH serves the purpose of being the data integration from many different sources, the single point of truth and the data management meaning cleaning, historize and data joined together. It provides greater executive insight into corporate performance with management Dashboards, Reports or Ad-Hoc Analyses.
+A Data Warehouse, in short DWH and also known as an Enterprise Data Warehouse (EDW), is the traditional way of collecting data as we do [since 31 years](https://www.ssp.sh/blog/data-warehouse-automation-dwa/). The DWH serves the purpose of being the data integration from many different sources, the single point of truth and the data management meaning cleaning, historize and data joined together. It provides greater executive insight into corporate performance with management Dashboards, Reports or Ad-Hoc Analyses.
 
 
-Various types ofÂ business data are analysedÂ with Data Warehouses. The need for it often becomes evident when analytic requirements run afoul of the ongoing performance of operational databases. Running a complex query on a database requires the database to enter a temporarily fixed state. This is often untenable for transactional databases. A data warehouse is employed to do the analytic work, leaving the transactional database free to focus on transactions.
+Various types of business data are analysed with Data Warehouses. The need for it often becomes evident when analytic requirements run afoul of the ongoing performance of operational databases. Running a complex query on a database requires the database to enter a temporarily fixed state. This is often untenable for transactional databases. A data warehouse is employed to do the analytic work, leaving the transactional database free to focus on transactions.
 
 
-The other characteristics are the ability to analyse data from multiple origins (e.g. your Google Analytics with your CRM data), and that is highly transformed and structured due to theÂ ETL (Extract Transform Load) process.
+The other characteristics are the ability to analyse data from multiple origins (e.g. your Google Analytics with your CRM data), and that is highly transformed and structured due to the ETL (Extract Transform Load) process.
 
 
 ### Data Lake definition
@@ -47,10 +47,10 @@ According to [Hortonworks Data Lake Whitepaper](http://hortonworks.com/wp-conten
 ### Differences between Data Warehouse and Data Lake
 
 
-I like the definition and comparison byÂ James Dixon, founder and CTO of Pentaho:
+I like the definition and comparison by James Dixon, founder and CTO of Pentaho:
 
 
-> If you think of a **DWH** as a store of bottled water â **cleansed and packaged and structured for easy consumption** â the **data lake** is a **large body of water in a more natural state**. The contents of the data lake stream in from a source to fill the lake and various users of the lake can come to examine, dive in, or take samples.
+> If you think of a **DWH** as a store of bottled water – **cleansed and packaged and structured for easy consumption** – the **data lake** is a **large body of water in a more natural state**. The contents of the data lake stream in from a source to fill the lake and various users of the lake can come to examine, dive in, or take samples.
 
 
 ### Different analogies
@@ -62,27 +62,27 @@ As you can see on the picture below, both Technologies are created for different
 ### When to use what?
 
 
-As mentioned in the introduction, companies are **shifting** **from the Data Warehouse to the Data Lake**, although it’s two different things, it still can make sense. Especially when you want real-time data, as the Data Warehouse typically works in batch processes, the Data Lake works near real timeÂ and handling Big Data. It’s made for huge data and stores them unstructured easy and fast. So when should I use what?
+As mentioned in the introduction, companies are **shifting** **from the Data Warehouse to the Data Lake**, although it’s two different things, it still can make sense. Especially when you want real-time data, as the Data Warehouse typically works in batch processes, the Data Lake works near real time and handling Big Data. It’s made for huge data and stores them unstructured easy and fast. So when should I use what?
 
-- **The Data Warehouse**Â is designed for *slowly changing data*:
+- **The Data Warehouse** is designed for *slowly changing data*:
 - **The Data Lakes** on the other side is designed for *quickly changing data*
 
 
 ### Modern Data and Analytics Environment
 
 
-It is common, especially in mid or large size organisation to have both environments. The image below illustrates how you would integrate itÂ with an Enterprise Data Warehouse and a Data Lake:
+It is common, especially in mid or large size organisation to have both environments. The image below illustrates how you would integrate it with an Enterprise Data Warehouse and a Data Lake:
 
 
 ![/blog/data-warehouse-vs-data-lake-etl-vs-elt/images/Modern-Data-Analytics-Environment.jpg](https://www.ssp.sh/blog/data-warehouse-vs-data-lake-etl-vs-elt/images/Modern-Data-Analytics-Environment.jpg)
 
-*Image fromHow Iâve Learned to Stop Worrying and Love the Data Lake*
+*Image fromHow I’ve Learned to Stop Worrying and Love the Data Lake*
 
 
 ## ETL vs ELT
 
 
-ETLÂ (Extract Transform and Load) and ELT (Extract Load and Transform) is what has described above. **ETL is what happens within a Data Warehouse and ELT within a Data Lake**.
+ETL (Extract Transform and Load) and ELT (Extract Load and Transform) is what has described above. **ETL is what happens within a Data Warehouse and ELT within a Data Lake**.
 
 
 ETL is the most common method used when transferring data from a source system to a **Data Warehouse**. In that process, you load data to your stage-layer of your DWH, [clean](https://en.wikipedia.org/wiki/Data_cleansing) and transform it to the [Dimensional Model](https://en.wikipedia.org/wiki/Dimensional_modeling) (Facts and Dimensions) and at the end, you load it to a final Data Mart or a Cube for further Data Visualisations.
@@ -97,7 +97,7 @@ If you want to use ELT, that’s when you want to build a **Data Lake**. You ext
 How is [Big Data](https://en.wikipedia.org/wiki/Big_data) connected to this topic? Big Data is more or less gathering massive amounts of data (several million rows per second) from devices like IoT (Internet of Things), different data points from each smartphone, etc. With specific Big Data infrastructure and algorithms (e.g. map-reduce) you collect the data and store it into the Data Lake. Big data is greatest used with a Data Lakes.
 
 
-As a new technology arises an old one gets replaced, that’s maybe why**Â many technologists and thought leaders are declaring the Data Warehouse is dead.**Â They say it’s no longer relevant **in the age of Big Data**. But why? The question is, are youÂ still have a traditional Data Warehouse with an ETL tool, are you 100% happy with it? There is a great chance that you are not.Â Because of a significant amount of coding required in traditional ETL tools,Â your ETL tool was probably outdated before you were ready to deploy it.
+As a new technology arises an old one gets replaced, that’s maybe why** many technologists and thought leaders are declaring the Data Warehouse is dead.** They say it’s no longer relevant **in the age of Big Data**. But why? The question is, are you still have a traditional Data Warehouse with an ETL tool, are you 100% happy with it? There is a great chance that you are not. Because of a significant amount of coding required in traditional ETL tools, your ETL tool was probably outdated before you were ready to deploy it.
 
 
 But these prognosticators are mistaken. **Big data can extend and enrich a Data Warehouse, but cannot replace it**. It is not a Data Warehouses that are dead, but the traditional way of designing and building them. A better and new approach is using Data Warehouse Automation (DWA) Tools that automates the recurring parts of developing a Data Warehouse to [cut down time development time by 40-60%](https://www.ssp.sh/blog/why-data-warehouse-automation-is-not-more-popular/#Speed). Find more information in the [DWA Blog post series](https://www.ssp.sh/blog/data-warehouse-automation-dwa/) or directly [why we should use DWA tools](https://www.ssp.sh/blog/why-automate-what-does-dwa-for-us/).
@@ -106,7 +106,7 @@ But these prognosticators are mistaken. **Big data can extend and enrich a Data 
 ## Data Vault
 
 
-Another way of adapting to Big Data and fast-changingÂ data connection points is theÂ [Data Vault](https://danlinstedt.com/solutions-2/data-vault-basics/) modelling and methodology which enables you a more dynamic and flexible way to implement additions to your Data Warehouse. Lately, **there has been an interesting move to use a Data Vault as a governed Data Lake**, because it addresses the elements of the problems we identified within Data Warehousing:
+Another way of adapting to Big Data and fast-changing data connection points is the [Data Vault](https://danlinstedt.com/solutions-2/data-vault-basics/) modelling and methodology which enables you a more dynamic and flexible way to implement additions to your Data Warehouse. Lately, **there has been an interesting move to use a Data Vault as a governed Data Lake**, because it addresses the elements of the problems we identified within Data Warehousing:
 
 - It adapts to a changing business environment
 - It supports huge data sets
@@ -134,7 +134,7 @@ Thanks for reading that far. Please feel free to add comments or anything you do
 
 
 ```
-Republished onÂ LinkedIn and Hacker Noon.
+Republished on LinkedIn and Hacker Noon.
 ```
 
 
@@ -174,13 +174,13 @@ Hi Simon,
 Here is another perspective on the subject of ETL vs ELT:
 
 
-The use of ELT is not just for big-data stores. ELT is relevant even for relational data when you are attempting to build a data-integration hub/platform from multiple system-of-record (SOR) databases. ELT is the boon you are looking for when you don’t want to âleave any data on the table’ and bring everything into the data integration hub. This is great because, ELT obviates the need for an physical enterprise data model, which mandates standards of object definition and naming.
+The use of ELT is not just for big-data stores. ELT is relevant even for relational data when you are attempting to build a data-integration hub/platform from multiple system-of-record (SOR) databases. ELT is the boon you are looking for when you don’t want to ‘leave any data on the table’ and bring everything into the data integration hub. This is great because, ELT obviates the need for an physical enterprise data model, which mandates standards of object definition and naming.
 
 
-The fundamental problem with ETL is that any data that does not conform to the transformation rules, will never make it into the data integration hub. With ELT, you bring all of your data in (yes mostly relational) and then transform your data, which then helps you understand side-by-side, the reasons why some of your data does not make the âtransformation cut’. And in doing ELT, one can always run transformation multiple times, after the relevant data cleansing and fixing has been undertaken.
+The fundamental problem with ETL is that any data that does not conform to the transformation rules, will never make it into the data integration hub. With ELT, you bring all of your data in (yes mostly relational) and then transform your data, which then helps you understand side-by-side, the reasons why some of your data does not make the ‘transformation cut’. And in doing ELT, one can always run transformation multiple times, after the relevant data cleansing and fixing has been undertaken.
 
 
-So where I come from, ETL is now ELT or even SLT (Stream, Load & Transform). It is important to note here that T in the context of ELT and SLT is to the power of n. Meaning, it can, will and should happen many times. As the business changes, you want your data integration hub to also change with it. âT to the power of n’ helps us support just that. You may wish to look at my LinkedIn posting about architecting âmeaningful data lakes’ here - [[https://www.linkedin.com/feed/update/urn:li:activity:6343284661518733312](https://www.linkedin.com/feed/update/urn:li:activity:6343284661518733312)](https://www.linkedin.com/feed/update/urn:li:activity:6343284661518733312). Hope that adds another perspective to what you are discussing ð
+So where I come from, ETL is now ELT or even SLT (Stream, Load & Transform). It is important to note here that T in the context of ELT and SLT is to the power of n. Meaning, it can, will and should happen many times. As the business changes, you want your data integration hub to also change with it. ‘T to the power of n’ helps us support just that. You may wish to look at my LinkedIn posting about architecting ‘meaningful data lakes’ here - [[https://www.linkedin.com/feed/update/urn:li:activity:6343284661518733312](https://www.linkedin.com/feed/update/urn:li:activity:6343284661518733312)](https://www.linkedin.com/feed/update/urn:li:activity:6343284661518733312). Hope that adds another perspective to what you are discussing ð
 
 
 Cheers,

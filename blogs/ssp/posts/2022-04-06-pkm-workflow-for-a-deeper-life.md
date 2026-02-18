@@ -1,19 +1,19 @@
 ---
-title: "Personal Knowledge Management Workflow for a Deeper Life â as a Computer Scientist"
+title: "Personal Knowledge Management Workflow for a Deeper Life — as a Computer Scientist"
 date: 2022-04-06
 url: https://www.ssp.sh/blog/pkm-workflow-for-a-deeper-life/
 slug: pkm-workflow-for-a-deeper-life
 word_count: 6575
 ---
 
-![Personal Knowledge Management Workflow for a Deeper Life â as a Computer Scientist](https://www.ssp.sh/blog/pkm-workflow-for-a-deeper-life/pkm-workflow-for-a-deeper-life.png)
+![Personal Knowledge Management Workflow for a Deeper Life — as a Computer Scientist](https://www.ssp.sh/blog/pkm-workflow-for-a-deeper-life/pkm-workflow-for-a-deeper-life.png)
 
 Contents
 
 With burnout and mental stress at every level of our lives, I find my [Personal Knowledge Management (PKM)](https://en.wikipedia.org/wiki/Personal_knowledge_management) system even more valuable. As a human, I forget lots of things. As a dad, I have more responsibilities with remembering all things related to my kid. As a developer and knowledge worker, I re-use code snippets or create new things. That’s why a PKM system such as a [Second Brain](https://fortelabs.co/blog/basboverview/) to store all of it in a sustainable way is crucial to me.
 
 
-It’s stress-reducing and good for my mental health because I do not need to remember, I’ll get more creative ideas when connecting them, and I plan and integrate my to-dos and futures plans organicallyâa deep life results additionally from reading and learning a lot over time.
+It’s stress-reducing and good for my mental health because I do not need to remember, I’ll get more creative ideas when connecting them, and I plan and integrate my to-dos and futures plans organically—a deep life results additionally from reading and learning a lot over time.
 
 
 ## How it started: Minimalism
@@ -49,7 +49,7 @@ Let’s get started with the **first thing you want to learn and integrate: To t
 For your mind to relax, you need to let go of things in your head. Best to release them in an external system. I usually let off my thoughts by dumping them all into a blank file in my text editor of choice. Doing this is more the journaling approach to the note-taking journey. The other is general note-taking.
 
 
-One principle I strongly agree from the book [How to Take Smart Notes Taking](https://www.amazon.com/How-Take-Smart-Notes-Nonfiction/dp/1542866502) by [SÃ¶nke Ahrens](https://takesmartnotes.com/about/) is that **writing is not the outcome of thinking; it is the medium in which thought occurs**.
+One principle I strongly agree from the book [How to Take Smart Notes Taking](https://www.amazon.com/How-Take-Smart-Notes-Nonfiction/dp/1542866502) by [Sönke Ahrens](https://takesmartnotes.com/about/) is that **writing is not the outcome of thinking; it is the medium in which thought occurs**.
 
 
 When you write about an idea or a blog post, the goal is not to start from a blank paper or a file, which leads to more procrastination. So what’s the alternative? With **Smart Note Taking, you write smaller notes and start connecting them in your Secon Brain**. Instead of brainstorming, you connect thoughts and naturally generate new ideas.
@@ -70,7 +70,7 @@ Recall seven random numbers is hard. It’s much easier if **numbers are connect
 [Nick Milo](https://twitter.com/NickMilo) calls it **note-*making* instead of taking** to emphasise the thinking part of just capturing notes.
 
 
-There is so much more to smart note-taking. I suggest, either read the [book](https://www.amazon.com/How-Take-Smart-Notes-Nonfiction/dp/1542866502) by SÃ¶nke or if in a hurry, the summary by [Tiago Forte](https://twitter.com/fortelabs) [here](https://fortelabs.co/blog/how-to-take-smart-notes/).
+There is so much more to smart note-taking. I suggest, either read the [book](https://www.amazon.com/How-Take-Smart-Notes-Nonfiction/dp/1542866502) by Sönke or if in a hurry, the summary by [Tiago Forte](https://twitter.com/fortelabs) [here](https://fortelabs.co/blog/how-to-take-smart-notes/).
 
 Writing is Thinking
 Remember: Writing is
@@ -86,7 +86,7 @@ After mastering the process of smart note-taking, the next step is to put it int
 For example, when I visit my doctor or the dentist today, I will write the condition of my health or my teeth in my second brain. I had COVID recently, and I found it necessary enough for my future self. Therefore added my symptoms and the details so next time I have a check-up or want to assess my health, I can open my notes from my second brain and connect the dots.
 
 
-So what is the second brain? In short, it is a **methodology for saving and systematically reminding** us of the ideas, inspirations, insights, and connections we’ve gained through our experience. It expands our memory and intellect using the modern tools of technology and networks. It is for **preserving those ideas but turning them into reality**. It provides a clear, actionable path to creating a “second brain” â an external, centralised, digital repository for the things you learn and the resources from which they come. If you want to know all about it, read more on Tiagos’s new website [B.A.S.B.](https://www.buildingasecondbrain.com/).
+So what is the second brain? In short, it is a **methodology for saving and systematically reminding** us of the ideas, inspirations, insights, and connections we’ve gained through our experience. It expands our memory and intellect using the modern tools of technology and networks. It is for **preserving those ideas but turning them into reality**. It provides a clear, actionable path to creating a “second brain” – an external, centralised, digital repository for the things you learn and the resources from which they come. If you want to know all about it, read more on Tiagos’s new website [B.A.S.B.](https://www.buildingasecondbrain.com/).
 
 
 After reading that, I transformed my folder-organised notes into an entire second brain. I started changing the **structure from my nested librarian folder to [Folder Structure P.A.R.A.](https://fortelabs.co/blog/para/)**. **PARA stand for Project, Area, Resources and Archive**. And that are the only four folders you have in this system. Regarding Tiago, our brain not built to handle an infinite amount of nested folders. That’s why PARA tries to keep **no more than four levels**.
@@ -143,7 +143,7 @@ In a Zettelkasten, we talk about three main types of notes. Firstly you start wi
 The second is [Literature Notes](https://deepstash.com/idea/89290/level-2-literature-notes). Niklas Luhmann would write them down on index cards with the bibliographic details on the back. Each contains the main point he didn’t want to forget or thought he could use in his writing.
 
 
-SÃ¶nke Ahrens offers four guidelines for creating literature notes:
+Sönke Ahrens offers four guidelines for creating literature notes:
 
 - Be **highly selective** in what you decide to keep
 - Keep the **overall note as short** as possible
@@ -245,13 +245,13 @@ A word to the term *Deep Life*. I heard it in the [latest Tim Ferriss Podcast](h
 ### Stoic - The Philosophy by the Greeks and Romans
 
 
-In case you never heard of the term stoic or [stoicism](https://en.wikipedia.org/wiki/Stoicism), it’s a **philosophy** designed to make us **more resilient, happier, more virtuous and wiserâand as a result, better people, better parents and better professionals.** Sounds a bit utopic? Maybe it is, but it helped me early in my personal life and career. I first heard of it by, again, Tim Ferriss and all his guests reading it. Famous leaders have been practising and shaping it, such as [Marcus Aurelius](https://en.wikipedia.org/wiki/Marcus_Aurelius), the emperor of Rome, [Theodore Roosevelt](https://en.wikipedia.org/wiki/Theodore_Roosevelt), [Epictetus](https://en.wikipedia.org/wiki/Epictetus), [Seneca](https://en.wikipedia.org/wiki/Seneca_the_Younger), to name a few.
+In case you never heard of the term stoic or [stoicism](https://en.wikipedia.org/wiki/Stoicism), it’s a **philosophy** designed to make us **more resilient, happier, more virtuous and wiser–and as a result, better people, better parents and better professionals.** Sounds a bit utopic? Maybe it is, but it helped me early in my personal life and career. I first heard of it by, again, Tim Ferriss and all his guests reading it. Famous leaders have been practising and shaping it, such as [Marcus Aurelius](https://en.wikipedia.org/wiki/Marcus_Aurelius), the emperor of Rome, [Theodore Roosevelt](https://en.wikipedia.org/wiki/Theodore_Roosevelt), [Epictetus](https://en.wikipedia.org/wiki/Epictetus), [Seneca](https://en.wikipedia.org/wiki/Seneca_the_Younger), to name a few.
 
 
 I got hooked when I read my all-time favourite book [The Daily Stoic](https://www.amazon.com/Daily-Stoic-Meditations-Wisdom-Perseverance/dp/0735211736), which makes it easier for people new to it. Quotes such as focusing on what’s in your control are stayed strong until today:
 
 
-> The chief task in life is simply this: to identify and separate matters so that I can say clearly to myself which are externals not under my control, and which have to do with the choices I controlâ¦ â Epictetus
+> The chief task in life is simply this: to identify and separate matters so that I can say clearly to myself which are externals not under my control, and which have to do with the choices I control… — Epictetus
 
 
 I practise this every day. For example, with COVID19, [we can’t control it](https://dailystoic.com/remember-you-dont-control-what-happens-you-control-how-you-respond/), no cursing, no ignoring will ever make it away. So the only way is to control ourselves and decide how we want to react to it. It’s another classic one, but many people face it twice a day and **valuable waste energy in traffic when they get angry at other drivers**. Why? Does it make any of it go away? Not really.

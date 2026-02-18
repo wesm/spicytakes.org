@@ -1,12 +1,12 @@
 ---
-title: "OLAP, whatâs coming next?"
+title: "OLAP, what’s coming next?"
 date: 2018-11-23
 url: https://www.ssp.sh/blog/olap-whats-coming-next/
 slug: olap-whats-coming-next
 word_count: 1976
 ---
 
-![OLAP, whatâs coming next?](https://www.ssp.sh/blog/olap-whats-coming-next/images/cube_k_flach.jpg)
+![OLAP, what’s coming next?](https://www.ssp.sh/blog/olap-whats-coming-next/images/cube_k_flach.jpg)
 
 Contents
 
@@ -191,7 +191,7 @@ You left out tabular analysis services which is really good.
 ### Comment by Simon on 2019-09-23 11:45
 
 
-Hi Wade, thanks for commenting. But actually under Why replace OLAP-Cubes, I stated that Tabular Cubes has similar problems or limitations as the Multidimensional. Search for âTabularâ and you’ll find it :-).
+Hi Wade, thanks for commenting. But actually under Why replace OLAP-Cubes, I stated that Tabular Cubes has similar problems or limitations as the Multidimensional. Search for “Tabular” and you’ll find it :-).
 
 [Discuss on Bluesky](https://bsky.app/search?q=domain%3A%20https://www.ssp.sh/blog/olap-whats-coming-next/)
 |

@@ -12,7 +12,7 @@ Contents
 This article was written as part of
 [my services](https://www.ssp.sh/services)
 
-As data engineers, we spend countless hours combing through logs - tracking pipeline states, monitoring Spark cluster performance, reviewing SQL queries, investigating errors, and validating data quality. TheseÂ **logs are the lifeblood of our data platforms**, but parsing and analyzing them efficiently remains a persistent challenge. This comprehensive guide explores whyÂ **data stacks are fundamentally built on logs**Â and why skilled log analysis is critical for the data engineer’s success.
+As data engineers, we spend countless hours combing through logs - tracking pipeline states, monitoring Spark cluster performance, reviewing SQL queries, investigating errors, and validating data quality. These **logs are the lifeblood of our data platforms**, but parsing and analyzing them efficiently remains a persistent challenge. This comprehensive guide explores why **data stacks are fundamentally built on logs** and why skilled log analysis is critical for the data engineer’s success.
 
 
 Throughout this article, we’ll categorize the various log types and formats you’ll encounter in your daily work, compare popular analysis tools, and most importantly, demonstrate practical, code-driven examples of parsing complex logs using DuckDB. You’ll see how DuckDB’s super fast parsers and flexible SQL syntax make it an ideal tool for log analysis across various formats including JSON, CSV, and syslog files.
@@ -30,7 +30,7 @@ The questions would be, “**What are we using logs for?**”, “What informati
 ### Categories of logs (application logs, system logs, etc.)
 
 
-There are various logs. To better understand them, we need to know who is producing them. Let’s look at theÂ **categories**Â of logs and the file formats they are usually in.
+There are various logs. To better understand them, we need to know who is producing them. Let’s look at the **categories** of logs and the file formats they are usually in.
 
 
 From a high-level perspective, we have different domains like application logs, system logs, error logs, and transaction logs:Â
@@ -41,7 +41,7 @@ From a high-level perspective, we have different domains like application logs, 
 *Different categories of LogFiles | Image fromÂWhat is a Log File?*
 
 
-As a data engineer, you’ll typically need to analyzeÂ **several types of logs**Â to monitor, troubleshoot, and optimize data pipelines and systems.
+As a data engineer, you’ll typically need to analyze **several types of logs** to monitor, troubleshoot, and optimize data pipelines and systems.
 
 
 Besides there being many more logs (like Security, Perimeter Device, Windows or Endpoint Log and many more), these are the major logs you’ll encounter most of the time:
@@ -67,7 +67,7 @@ These operational data logs are called pipeline and execution metadata logs. The
 A new emerging term: Meta Grid
 There is also a newer term called Meta Grid, see the bookÂ
 [Fundamentals of Metadata Management](https://www.oreilly.com/library/view/fundamentals-of-metadata/9781098162818/)
-Â by Ole Olesen-Bagneux that talks about metadata in a deeper way andÂ
+ by Ole Olesen-Bagneux that talks about metadata in a deeper way andÂ
 [compares it to data mesh and microservices architectures](https://olesenbagneux.medium.com/the-meta-grid-is-the-third-wave-of-data-decentralization-b18827711cec)
 .
 
@@ -77,13 +77,13 @@ Let’s now look at how these logs appear and what formats they use.
 ### Data Types and Formats of Data Logs
 
 
-What information does a log typically hold? Log files hold various data types, but two are always present: timestamp and someÂ **log, error or message**.
+What information does a log typically hold? Log files hold various data types, but two are always present: timestamp and some **log, error or message**.
 
 
 Further columns could include a user, event type (like a specific action or occurrence that triggered it), or running application (e.g., started within Airflow). Others include system errors and any metadata that helps debug the errors.
 
 
-These logs come in all shapes, styles, and formats. Most common areÂ **structured logs**Â for metadata as JSON or key-value pairs andÂ **plaintext-based logs**Â for execution sequences often in syslog-like formats. The JSON format has the advantage of a flexible schema, meaning columns can change each time, and the producers don’t need to think about types or fit into a pre-defined structureâleaving that job to the analyst later.
+These logs come in all shapes, styles, and formats. Most common are **structured logs** for metadata as JSON or key-value pairs and **plaintext-based logs** for execution sequences often in syslog-like formats. The JSON format has the advantage of a flexible schema, meaning columns can change each time, and the producers don’t need to think about types or fit into a pre-defined structure—leaving that job to the analyst later.
 
 
 A range of different log formats is shown below.
@@ -137,7 +137,7 @@ A range of different log formats is shown below.
 
 #### Semi-structured Formats
 
-- **[Syslog Format](https://en.wikipedia.org/wiki/Syslog)**: A standardized format that includesÂ a priority field, a header with information like timestamps and hostnames, and the actual message content.Â This format allows for centralized logging and easy analysis of logs across different systems and applications.
+- **[Syslog Format](https://en.wikipedia.org/wiki/Syslog)**: A standardized format that includes a priority field, a header with information like timestamps and hostnames, and the actual message content. This format allows for centralized logging and easy analysis of logs across different systems and applications.
 
 
 
@@ -159,10 +159,10 @@ A range of different log formats is shown below.
 
 
 
-#### `.log`Â File
+#### `.log` File
 
 
-The .log-file is a common file extension used for logging data, butÂ **not a format itself**. TheÂ `.log`Â extension indicates that the file contains log information, while the actual content could be any of the previously mentioned formats.
+The .log-file is a common file extension used for logging data, but **not a format itself**. The `.log` extension indicates that the file contains log information, while the actual content could be any of the previously mentioned formats.
 
 
 ## Why Data Stacks Are Built on Logs
@@ -171,10 +171,10 @@ The .log-file is a common file extension used for logging data, butÂ **not a f
 As data engineers, we have to deal with all of these various log types and formats because our data pipelines touch the full lifecycle of a business. From reading from many different source systems with potential network latencies or issues, to loading large tables that need more performance, to the whole ETL process where we transform data and need to make sure we don’t compromise granularity or aggregated KPIs with duplications or incorrect SQL statements.
 
 
-Data stacks and dataÂ **platforms are essentially built around logs**. We can’t debug the data stack; the logs are our way to find the error later on. Software engineers can debug more easily, as they are in control of what the user can and can’t do. But data is different, constantly changing and flowing from A to B. We have external producers that we can’t influence, and the business and requirements are changing too.
+Data stacks and data **platforms are essentially built around logs**. We can’t debug the data stack; the logs are our way to find the error later on. Software engineers can debug more easily, as they are in control of what the user can and can’t do. But data is different, constantly changing and flowing from A to B. We have external producers that we can’t influence, and the business and requirements are changing too.
 
 
-On the consumer side, we have the visualization tools that need to be fast and nice looking. We have security, data management, DevOps on how we deploy it, the modeling and architecture part, and applying software engineering best practices along with versioning, CI/CD, and code deployments. All of this happens under the umbrella of data pipelines and is part of theÂ [Data Engineering Lifecycle](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/ch02.html). On each level, we can have different data logs, performance and monitoring logs, data quality checks, and result sets of running pipelines with their sub-tasks.
+On the consumer side, we have the visualization tools that need to be fast and nice looking. We have security, data management, DevOps on how we deploy it, the modeling and architecture part, and applying software engineering best practices along with versioning, CI/CD, and code deployments. All of this happens under the umbrella of data pipelines and is part of the [Data Engineering Lifecycle](https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/ch02.html). On each level, we can have different data logs, performance and monitoring logs, data quality checks, and result sets of running pipelines with their sub-tasks.
 
 
 That’s why our data stacks run on metadata, and they are as important today as they were two decades ago. However, with more sophisticated tools, we can now analyze and present them more efficiently.
@@ -185,7 +185,7 @@ In theÂ
 , I highlighted how the trends of pipelines shifted more towards declarative and data products, which also influences our logging. With a code-first approach (
 **Data-as-Code**
 ) to data, we can implement reactive logic to logs in a declarative manner. More concretely, we can define annotations of a data pipeline that only runs if a log hasÂ
-Â written in the log. This is possible with non-declarative and UI-first solutions too, but it is more natural for the code-first solution.
+ written in the log. This is possible with non-declarative and UI-first solutions too, but it is more natural for the code-first solution.
 
 ### Log Analysis Use Cases and When to Use Log Files
 
@@ -193,16 +193,16 @@ In theÂ
 What are we doing when we analyze logs? Data engineers typically focus on several key use cases:
 
 
-**Debugging**Â is the most common use case. As we can’t simply use a debugger with complex data pipelines, we mustÂ **log our way through problems**. Good logs shouldÂ **identify**Â errors clearly. Since we work with complex business logic most of the time, on top of the technical stack, this requires significant expertise from data engineers and is where we can spend much of our time. But the better the logs, the less we need to search, and the more we can focus our time on fixing the bugs.
+**Debugging** is the most common use case. As we can’t simply use a debugger with complex data pipelines, we must **log our way through problems**. Good logs should **identify** errors clearly. Since we work with complex business logic most of the time, on top of the technical stack, this requires significant expertise from data engineers and is where we can spend much of our time. But the better the logs, the less we need to search, and the more we can focus our time on fixing the bugs.
 
 
-**Tracing**Â helps pinpoint the origin of errors in pipelines with many sub-tasks, whileÂ **performance analysis**Â uses logs from BI tools or orchestrators like dbt to identify bottlenecks.
+**Tracing** helps pinpoint the origin of errors in pipelines with many sub-tasks, while **performance analysis** uses logs from BI tools or orchestrators like dbt to identify bottlenecks.
 
 
-**Error pattern analysis**Â examines changes over time to prevent recurring issues.
+**Error pattern analysis** examines changes over time to prevent recurring issues.
 
 
-ForÂ **monitoring**, we often load logs into tools likeÂ [DataDog](https://www.datadoghq.com/),Â [Datafold](https://www.datafold.com/),Â [ELK Stack](https://www.elastic.co/elastic-stack), orÂ [InfluxDB](https://www.influxdata.com/use-cases/monitoring/), standardize metrics withÂ [Prometheus](https://prometheus.io/), and visualize usingÂ [Grafana](https://grafana.com/). For more, see the next chapter.
+For **monitoring**, we often load logs into tools like [DataDog](https://www.datadoghq.com/), [Datafold](https://www.datafold.com/), [ELK Stack](https://www.elastic.co/elastic-stack), or [InfluxDB](https://www.influxdata.com/use-cases/monitoring/), standardize metrics with [Prometheus](https://prometheus.io/), and visualize using [Grafana](https://grafana.com/). For more, see the next chapter.
 
 
 ### Tools and Solutions for Effective Log Analysis
@@ -221,17 +221,17 @@ Here’s an overview of some of the different tools, categorized in these two do
 
 These tools fall into several categories:
 
-- **Auto-profiling solutions**Â like Bigeye, Monte Carlo, and Metaplane offer automated monitoring with unique features ranging from ML-driven alerts to enterprise data lake integrations
-- **Pipeline testing tools**Â such as Great Expectations, Soda, and dbt tests provide granular validation within data workflows
-- **Infrastructure monitoring platforms**Â including DataDog and New Relic focus on system health and resource utilization
-- **Hybrid solutions**Â like Databand and Unravel unify infrastructure monitoring with data-specific observability
+- **Auto-profiling solutions** like Bigeye, Monte Carlo, and Metaplane offer automated monitoring with unique features ranging from ML-driven alerts to enterprise data lake integrations
+- **Pipeline testing tools** such as Great Expectations, Soda, and dbt tests provide granular validation within data workflows
+- **Infrastructure monitoring platforms** including DataDog and New Relic focus on system health and resource utilization
+- **Hybrid solutions** like Databand and Unravel unify infrastructure monitoring with data-specific observability
 
 Side-Note: Kafka Event-Driven Use-Cases
 While event streaming platforms like Kafka also use logs, this article focuses on pipeline error and trace logs rather than event-driven architectures. For Kafka analysis, tools likeÂ
 [kwack](https://github.com/rayokota/kwack)
-Â andÂ
+ andÂ
 [sql-flow](https://github.com/turbolytics/sql-flow)
-Â provide specialized capabilities.
+ provide specialized capabilities.
 
 ### DuckDB as the Ultimate Log Parser?
 
@@ -239,14 +239,14 @@ While event streaming platforms like Kafka also use logs, this article focuses o
 But how about using DuckDB as a log parser? Let’s imagine we have all the logs parked on an S3 storage or somewhere in our data warehouse. DuckDB is a very efficient tool for quickly analyzing the overall status.
 
 
-Whereas the above tools are doing real-time monitoring mostly, analyzing what is happening every second and minute, DuckDB can be used to have analytics for theÂ **overall state**. We can have advanced log analysis techniques such as:
+Whereas the above tools are doing real-time monitoring mostly, analyzing what is happening every second and minute, DuckDB can be used to have analytics for the **overall state**. We can have advanced log analysis techniques such as:
 
 - Time-series analysis of log data
 - Combining logs from multiple sources
 - Creating dashboards and monitoring systems
 
 
-DuckDB is theÂ **ultimate log parser**. It can run with zero-copy, meaning you don’t need to install or insert logs into DuckDB, but you can read from your data lake in S3, from your Snowflake Warehouse, and from your servers via HTTPS server, all within a single binary.
+DuckDB is the **ultimate log parser**. It can run with zero-copy, meaning you don’t need to install or insert logs into DuckDB, but you can read from your data lake in S3, from your Snowflake Warehouse, and from your servers via HTTPS server, all within a single binary.
 
 
 DuckDB has one of the fastest JSON and CSV parsers. This comes in very handy, as we learned that most logs are in these exact formats. The ability to query multiple file formats with consistent SQL syntax and the local processing capabilities that reduce network overhead are just two other big advantages that make DuckDB a great tool for log parsing.
@@ -269,7 +269,7 @@ Before we go any further, let’s analyze some logs to get a better understandin
 Data Sets Used in This
 The data sets used in this part are from two open data sets ofÂ
 [Loghub](https://github.com/logpai/loghub)
-Â that provides a large collection of system logs and datasets for log analytics. See download links below.
+ that provides a large collection of system logs and datasets for log analytics. See download links below.
 
 ## Practical Log Analytics: Analyzing Logs with DuckDB and MotherDuck
 
@@ -525,7 +525,7 @@ FROM read_csv('~/data/HDFS_v1/HDFS.log',
 
 
 
-If we check, we see that we have 11.18 million logsâquerying this directly takes about 3 seconds on my MacBook M1.
+If we check, we see that we have 11.18 million logs—querying this directly takes about 3 seconds on my MacBook M1.
 
 
 
@@ -653,11 +653,11 @@ The result looks something like this:
 â       block_id       â log_entries â                                                           components                                                           â
 â       varchar        â    int64    â                                                            varchar                                                             â
 ââââââââââââââââââââââââ¼ââââââââââââââ¼âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ¤
-â -4145674605155741075 â         298 â dfs.DataNode$DataXceiver, dfs.FSNamesystem, dfs.DataNode$DataTransfer, , dfs.DataNode, dfs.FSDataset, dfs.DataNode$PacketResâ¦  â
-â -2891794341254261063 â         284 â dfs.DataNode, dfs.DataNode$DataTransfer, dfs.DataNode$DataXceiver, dfs.DataNode$PacketResponder, dfs.FSDataset, dfs.FSNamesyâ¦  â
-â 2813981518546746323  â         280 â dfs.DataNode$DataTransfer, dfs.FSNamesystem, dfs.DataNode$DataXceiver, dfs.DataNode$PacketResponder, dfs.FSDataset, dfs.Dataâ¦  â
-â -2825351351457839825 â         278 â dfs.DataNode$PacketResponder, dfs.FSNamesystem, dfs.DataNode$DataXceiver, dfs.DataNode$DataTransfer, dfs.FSDataset, dfs.Dataâ¦  â
-â 9014620365357651780  â         277 â dfs.DataNode$DataTransfer, dfs.FSNamesystem, dfs.DataNode$PacketResponder, dfs.DataNode, dfs.DataNode$DataXceiver, dfs.FSDatâ¦  â
+â -4145674605155741075 â         298 â dfs.DataNode$DataXceiver, dfs.FSNamesystem, dfs.DataNode$DataTransfer, , dfs.DataNode, dfs.FSDataset, dfs.DataNode$PacketRes…  â
+â -2891794341254261063 â         284 â dfs.DataNode, dfs.DataNode$DataTransfer, dfs.DataNode$DataXceiver, dfs.DataNode$PacketResponder, dfs.FSDataset, dfs.FSNamesy…  â
+â 2813981518546746323  â         280 â dfs.DataNode$DataTransfer, dfs.FSNamesystem, dfs.DataNode$DataXceiver, dfs.DataNode$PacketResponder, dfs.FSDataset, dfs.Data…  â
+â -2825351351457839825 â         278 â dfs.DataNode$PacketResponder, dfs.FSNamesystem, dfs.DataNode$DataXceiver, dfs.DataNode$DataTransfer, dfs.FSDataset, dfs.Data…  â
+â 9014620365357651780  â         277 â dfs.DataNode$DataTransfer, dfs.FSNamesystem, dfs.DataNode$PacketResponder, dfs.DataNode, dfs.DataNode$DataXceiver, dfs.FSDat…  â
 ââââââââââââââââââââââââ´ââââââââââââââ´âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 ` |
 
@@ -725,12 +725,12 @@ The result comes back in 5-10 seconds for one single file:
 â column_name â column_type â         min          â...â       q75        â  count  â null_percentage â
 â   varchar   â   varchar   â       varchar        â...â     varchar      â  int64  â  decimal(9,2)   â
 âââââââââââââââ¼ââââââââââââââ¼âââââââââââââââââââââââ¼...â¼âââââââââââââââââââ¼ââââââââââ¼ââââââââââââââââââ¤
-â did         â VARCHAR     â did:plc:222i7vqbnnâ¦  â...â NULL             â 1000000 â            0.00 â
+â did         â VARCHAR     â did:plc:222i7vqbnn…  â...â NULL             â 1000000 â            0.00 â
 â time_us     â BIGINT      â 1732206349000167     â...â 1732206949533320 â 1000000 â            0.00 â
 â kind        â VARCHAR     â commit               â...â NULL             â 1000000 â            0.00 â
-â commit_json â JSON        â {"rev":"22222267axâ¦  â...â NULL             â 1000000 â            0.53 â
+â commit_json â JSON        â {"rev":"22222267ax…  â...â NULL             â 1000000 â            0.53 â
 â operation   â VARCHAR     â create               â...â NULL             â 1000000 â            0.53 â
-â collection  â VARCHAR     â app.bsky.actor.proâ¦  â...â NULL             â 1000000 â            0.53 â
+â collection  â VARCHAR     â app.bsky.actor.pro…  â...â NULL             â 1000000 â            0.53 â
 â record      â JSON        â null                 â...â NULL             â 1000000 â            0.53 â
 âââââââââââââââ´ââââââââââââââ´âââââââââââââââââââââââ´...â´âââââââââââââââââââ´ââââââââââ´ââââââââââââââââââ
 ` |
@@ -1124,7 +1124,7 @@ In wrapping up, we saw that logs are not as simple as we think and that data eng
 Log files provide crucial visibility into every aspect of our data stack. From application errors to performance metrics, from transaction records to security events, these logs form the digital breadcrumbs that allow us to trace, troubleshoot, and optimize our data platforms.
 
 
-The power of DuckDB as a log parser lies in its flexibility and performance. We’ve seen how it effortlessly handles different log formatsâfrom simple text files to complex JSON structuresâwithout requiring data to be pre-loaded into a database. The ability to query logs directly where they sit, whether on S3, in Snowflake or on local storage, makes DuckDB an incredibly powerful tool for ad hoc analysis.
+The power of DuckDB as a log parser lies in its flexibility and performance. We’ve seen how it effortlessly handles different log formats—from simple text files to complex JSON structures—without requiring data to be pre-loaded into a database. The ability to query logs directly where they sit, whether on S3, in Snowflake or on local storage, makes DuckDB an incredibly powerful tool for ad hoc analysis.
 
 
 For larger-scale log analysis, MotherDuck extends these capabilities, allowing teams to collaboratively analyze massive log datasets without being constrained by local hardware limitations. The ability to seamlessly scale from local analysis to cloud-based processing with the same familiar syntax makes this combination particularly powerful for data teams of all sizes.

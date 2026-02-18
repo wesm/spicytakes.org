@@ -26,7 +26,7 @@ If you’re someone who’s curious about finding your own path, then this artic
 
 Explainer to the Pathless Path and Default Path
 
-The [Pathless Path](https://ssp.sh/brain/pathless-path/) is experimenting on your own to find a life you want to live vs “getting ahead” on a script others follow â *embracing uncertainty & discomfort vs planning/conforming*.
+The [Pathless Path](https://ssp.sh/brain/pathless-path/) is experimenting on your own to find a life you want to live vs “getting ahead” on a script others follow – *embracing uncertainty & discomfort vs planning/conforming*.
 
 
 The default path is a “script” of decisions and accomplishments needed to be seen as a successful adult. For example `good grades -> good job -> own a home -> have a family`
@@ -54,7 +54,7 @@ My dad would come home early from work just so he could play with us. My mom wou
 I got so much love, care, and freedom to explore my interests.
 
 
-I didnât notice this love during my younger years growing up. But in hindsight, the **love** and security I got from my parents, and generally everyone around me, was the foundation for a Pathless Path that let me take more risks later in life and do things I wouldn’t have done otherwise. It also allowed me to be genuinely open to everyone without stereotypes or bad intentions; we treated everyone as they were.
+I didn’t notice this love during my younger years growing up. But in hindsight, the **love** and security I got from my parents, and generally everyone around me, was the foundation for a Pathless Path that let me take more risks later in life and do things I wouldn’t have done otherwise. It also allowed me to be genuinely open to everyone without stereotypes or bad intentions; we treated everyone as they were.
 
 Unconditional Love
 Later, when reading the book
@@ -70,10 +70,10 @@ Passion and **curiosity** to learn something new were always part of my life. Ac
 Most kids have an inborn curiosity, but it deepened with my dad working computers in the late 90’s. We would take apart a MS-DOS 386, that my dad got from eBay, from a seller who imported it from Taiwan. We spent time exchanging the RAMs, mainboard, and other parts. Then I watched as my dad installed the latest Unix system and taught himself the latest.
 
 
-Later in school, I wanted to start **learning** and working with computersâ I never had the goal of studying. In Switzerland, we have this [dual-track education system](https://www.swissinfo.ch/eng/business/school-and-work_why-switzerland-s-dual-track-education-system-is-unique/45512392). Instead of going to school until earning a bachelor’s or even master’s degree, you work and go to school simultaneously, right after “middle school,” at 17 years old. The dual-track system helps you explore the waters. “Do you like the job? Would you want to do this for your life?.” On top, you get precious early experiences. By the time you finish the four years as a computer scientist apprentice, you already have four years of work experience, plus a degree from school.
+Later in school, I wanted to start **learning** and working with computers— I never had the goal of studying. In Switzerland, we have this [dual-track education system](https://www.swissinfo.ch/eng/business/school-and-work_why-switzerland-s-dual-track-education-system-is-unique/45512392). Instead of going to school until earning a bachelor’s or even master’s degree, you work and go to school simultaneously, right after “middle school,” at 17 years old. The dual-track system helps you explore the waters. “Do you like the job? Would you want to do this for your life?.” On top, you get precious early experiences. By the time you finish the four years as a computer scientist apprentice, you already have four years of work experience, plus a degree from school.
 
 
-While doing my apprenticeship as a computer scientist, I started to explore the **programming** side of computers. I began to create a website with plain HTML, CSS, PHP, and Apache Webserver. I uploaded weekly party pictures from the weekend in my region â you can get a glimpse of how that looked in the feature image [here](https://www.ssp.sh/blog/why-i-moved-away-from-wordpress/).
+While doing my apprenticeship as a computer scientist, I started to explore the **programming** side of computers. I began to create a website with plain HTML, CSS, PHP, and Apache Webserver. I uploaded weekly party pictures from the weekend in my region — you can get a glimpse of how that looked in the feature image [here](https://www.ssp.sh/blog/why-i-moved-away-from-wordpress/).
 
 
 This early domain name, [sspaeti.com](http://sspaeti.com), has stayed with me to this date. My blog has had several iterations. From uploading party pictures, to creating a regional forum to exchange chat with friends, and  a [Flickr](https://www.flickr.com/)-like webpage, where I uploaded more aesthetic photographs. Eventually, I [converted](https://www.ssp.sh/blog/why-i-moved-away-from-wordpress/) it into a technical blog with WordPress, and in the latest iteration, changed it to a newer publication framework.
@@ -132,16 +132,16 @@ After finishing my bachelor’s degree and working a couple of months longer as 
 I only kept hearing from my inner self that I needed a **change**. Luckily, with the twelve accumulated years of experience, including my apprenticeship, I took a leap of faith. I decided  to leave the default path, live in a foreign country, and experience the anxiety and fear of the unknown yet again. I knew it wouldbe challenging, but I also knew the most impactful learnings I had were from throwing myself into the **unfamiliar**. It’s like an addiction.
 
 
-It was spontaneous, but as the Pathless Path would say: *embracing uncertainty & discomfort*. My three months in Australia taught me, “If not now, when else would I do it?â
+It was spontaneous, but as the Pathless Path would say: *embracing uncertainty & discomfort*. My three months in Australia taught me, “If not now, when else would I do it?”
 
 
-> Travel is the only thing you buy that makes you richerâAnonymous
+> Travel is the only thing you buy that makes you richer—Anonymous
 
 
 My goal was to find an English-speaking country near the water, best to be a sea with a beach. Places in the US and Australia came to mind first but swiftly got rejected due to the complex VISA process and the logistics, as these were far away. Finally, I landed in Copenhagen, Denmark, which tickedall the boxes and even had some job openings. It wasn’t the typical Miami beach beaches, but an excellent work-life balance and a different culture from mine. I could also quickly fly home over the weekend if there was a wedding or life event of family and friends I wanted to attend.
 
 
-> Friendship is the hardest thing in the world to explain. Itâs not something you learn in school. But if you havenât learned the meaning of friendship, you really havenât learned anythingâ**Muhammad Ali**.
+> Friendship is the hardest thing in the world to explain. It’s not something you learn in school. But if you haven’t learned the meaning of friendship, you really haven’t learned anything—**Muhammad Ali**.
 
 
 After finding a [company](https://www.satair.com/) that kindly employed me and even helped me with the relocations, I was again on my own in another country. Nobody I knew, or I could ask for help. But as learned in Australia, these challenges bring this mix of **anxiety**, **curiosity**, and **excitement** to explore new things.
@@ -177,19 +177,19 @@ You can see some of my early, embarrassing writing on the blog, e.g.,[ The more 
 While listening to multiple podcasts and recommended books, I discovered [stoicism](https://ssp.sh/brain/stoic/). The [Daily Stoic (366 Meditations)](https://www.goodreads.com/book/show/29093292-the-daily-stoic) book, with its 366 Meditations on wisdom, perseverance, and the art of living, had a profound impact.
 
 
-Since then, I have read and listened to it 5-6 times. Itâs a guided meditation, my prayer, journaling, and everything together. It changes my well-being with a basic understanding of what we can change and **canât**. Being in a bad mood because of lousy weather isnât helpful to anyone; itâs outside our control.
+Since then, I have read and listened to it 5-6 times. It’s a guided meditation, my prayer, journaling, and everything together. It changes my well-being with a basic understanding of what we can change and **can’t**. Being in a bad mood because of lousy weather isn’t helpful to anyone; it’s outside our control.
 
 
-> You have power over your mind â not outside events. Realize this, and you will find strength.â**Marcus Aurelius**
+> You have power over your mind — not outside events. Realize this, and you will find strength.—**Marcus Aurelius**
 
 
 It helped me guide myself through life with a compass and equally navigate challenging and joyful moments. It helped me be by myself in a foreign country to train and apply these newly learned principles. I went inwards and found closer to the path I wanted for my life.
 
 
-Stoicm also showed me that to master something truly, you must repeatedly learn and train somethingâ making it an [atomic habit](https://www.goodreads.com/book/show/40121378-atomic-habits). Like reading the bible for the first time, I didnât understand the language. It was foreign. But with everything in life, it becomes eventually second nature the more you immerse.
+Stoicm also showed me that to master something truly, you must repeatedly learn and train something— making it an [atomic habit](https://www.goodreads.com/book/show/40121378-atomic-habits). Like reading the bible for the first time, I didn’t understand the language. It was foreign. But with everything in life, it becomes eventually second nature the more you immerse.
 
 
-> The chief task in life is simply this: to identify and separate matters so that I can say clearly to myself which are externals not under my control, and which have to do with the choices I actually control.â**Epictetus**
+> The chief task in life is simply this: to identify and separate matters so that I can say clearly to myself which are externals not under my control, and which have to do with the choices I actually control.—**Epictetus**
 
 
 Stoicism can serve as an example of how one can develop a personal philosophy that guides one through the uncertainties and challenges of life or the Pathless Path. They are the perfect principles for **navigating the gut feeling**, preparing for the hard times, and being happy with what you have.
@@ -213,16 +213,16 @@ Maybe it was the Danish culture, the people that trusted in me, or the general r
 ## Entering the Path of Love
 
 
-I havenât told you about a big thing that happened during my stay in Copenhagen yet. After co-living with like-minded entrepreneurs in Bali, or nothing less than finding the love of my life. I met someone half a year (2016) into my stay abroad. We were just really good friends. Both being expats in Denmark connected us, and we explored the Nordics and surroundings together. We just had such a terrific time together.
+I haven’t told you about a big thing that happened during my stay in Copenhagen yet. After co-living with like-minded entrepreneurs in Bali, or nothing less than finding the love of my life. I met someone half a year (2016) into my stay abroad. We were just really good friends. Both being expats in Denmark connected us, and we explored the Nordics and surroundings together. We just had such a terrific time together.
 
 
-She is originally from the Philippines, and I am from Switzerland; I thought there wouldnât be a chance to be more than friends.
+She is originally from the Philippines, and I am from Switzerland; I thought there wouldn’t be a chance to be more than friends.
 
 
 But we truly became more over the weeks, months, and years. She was the perfect fit for my newly explored self that I discovered while leaving the Default Path. She embraced my new self, supported me with learning English, was genuinely interested in me, and appreciated my true self. Even though we came from such different places and cultures, deep inside, we cared for the same basics. It took me a while, but I knew this person was special.
 
 
-Fast forward one and a half years to the end of 2017, returning from Bali. I didnât know what to do.
+Fast forward one and a half years to the end of 2017, returning from Bali. I didn’t know what to do.
 
 
 ### I moved back to my parents
@@ -237,7 +237,7 @@ So I did what a Swiss would do, I quit my job in Denmark, returning to the beaut
 I followed my intuition.
 
 
-I saved two months before starting the new job for another short **sabbatical** and moved back in with my parentsâthe idea was to have time to search for a flat and think about what to do next.
+I saved two months before starting the new job for another short **sabbatical** and moved back in with my parents—the idea was to have time to search for a flat and think about what to do next.
 
 
 Being 32 years of age, I felt a bit too old to go back to my parents. But I also realized how much I enjoyed all the time I could get with them. It was so refreshing to have my parents close after moving away for a long time. I could spend **quality time** with them in a way that we wouldn’t get if we didn’t live together.
@@ -258,7 +258,7 @@ We talked for an hour. Without overthinking it, I asked her: “Do you want to v
 A few months later, she visited me in Switzerland, and we had to make a hard decision. I knew deep inside me I had to try everything I could. Being from the Philippines, there was only one way we could stay together. We had to marry.
 
 
-> Easy choices, hard life. Hard choices, easy life.â**Jerzy Gregorek**
+> Easy choices, hard life. Hard choices, easy life.—**Jerzy Gregorek**
 
 
 After spending the most romantic months together, exploring and traveling within Switzerland, and having had the time of our lives in Copenhagen, we knew we could achieve that as a team. We followed the new path, **together**!
@@ -267,19 +267,19 @@ After spending the most romantic months together, exploring and traveling within
 ### Family time!
 
 
-If youâd told me that I would marry a woman I met in a foreign country who is from a different continent, I wouldnât have believed it. How high are the odds?
+If you’d told me that I would marry a woman I met in a foreign country who is from a different continent, I wouldn’t have believed it. How high are the odds?
 
 
-> If ever there is tomorrow when weâre not togetherâ¦ there is something you must never forget. You are braver than you believe, stronger than you seem, and smarter than you think. But the most important thing is, even if weâre apartâ¦ Iâll always be with you.â**A.A. Milne**
+> If ever there is tomorrow when we’re not together… there is something you must never forget. You are braver than you believe, stronger than you seem, and smarter than you think. But the most important thing is, even if we’re apart… I’ll always be with you.—**A.A. Milne**
 
 
-Embracing this part of our relationship, we soon had a kid on thewayâtime to become a family. We found a house and somehow got back a Default Path. Or should it be called the **Path of Love**?
+Embracing this part of our relationship, we soon had a kid on theway—time to become a family. We found a house and somehow got back a Default Path. Or should it be called the **Path of Love**?
 
 
 ## My Pathless Path
 
 
-Going back into a house and having a kid raises the question, why did I return to the Default Path? Was it on purpose? I realized there is more than just the Default or Pathless Path. Ultimately, it is anyone’s path; This was *my* Pathless Path, and it was, in a sense, genuinely *pathless*âfollowing curiosity and my instincts that I learned throughout all the experiences. There is always the right timing for every path; the authentic path of life is knowing when to follow your gut and when to do the default thing.
+Going back into a house and having a kid raises the question, why did I return to the Default Path? Was it on purpose? I realized there is more than just the Default or Pathless Path. Ultimately, it is anyone’s path; This was *my* Pathless Path, and it was, in a sense, genuinely *pathless*—following curiosity and my instincts that I learned throughout all the experiences. There is always the right timing for every path; the authentic path of life is knowing when to follow your gut and when to do the default thing.
 
 
 Entering the COVID-19 times in April 2021, when everyone was remote and at home. It was great for us, as a family, as a dad. I could spend all my time seeing my daughter growing up, spending quality time together. Although this part is part of everyone’s lives, to me, it’s another step toward my Pathless Path.
@@ -299,12 +299,12 @@ Finishing up this article, finding My Pathless Path as part of [The Art of Moder
 
 I want to end this article with what I’ve learned through my Pathless Path to this day.
 
-- *Everyone you meet is fighting a battle you know nothing about. Be kind. Always*.âBrad Meltzer. Also, in this article, many battles were left out. One of my close family members had Bipolar disorder. Another had a hard time controlling their aggression during childhood. Cancer, death… I learned every obstacle would make you stronger. Hard to realize at the moment, but something that will be apparent in hindsight.
+- *Everyone you meet is fighting a battle you know nothing about. Be kind. Always*.—Brad Meltzer. Also, in this article, many battles were left out. One of my close family members had Bipolar disorder. Another had a hard time controlling their aggression during childhood. Cancer, death… I learned every obstacle would make you stronger. Hard to realize at the moment, but something that will be apparent in hindsight.
 - Try to be happy with less. Try minimalism. Then, happiness = reality - expectations.
 - Travel doesn’t always need to be to the other side of the globe. Traveling can be as beautiful just where you are, in the close surrounding.
 - Money is essential, but you can’t buy your experiences, your happiness, and your family with it.
 - It’s not certain that we will find our soulmate. Keep appreciating the people you meet - you never know - your best friend might get your buddy for life. Try to break out of your comfort zone and go to new places. Be open and vulnerable, and be prepared for love to find you when least expected. Finding love is likely to happen when you are your best self. Not when stuck in a daily commute or working 9-5.
-- If we train our intuition to understand what is important to us through journaling, praying, or other practices, we store memories that are more dedicated to what we wantâor gain a [deeper life](https://ssp.sh/brain/deep-life/) through a rigorous personal knowledge management [workflow](https://www.ssp.sh/blog/pkm-workflow-for-a-deeper-life/).
+- If we train our intuition to understand what is important to us through journaling, praying, or other practices, we store memories that are more dedicated to what we want—or gain a [deeper life](https://ssp.sh/brain/deep-life/) through a rigorous personal knowledge management [workflow](https://www.ssp.sh/blog/pkm-workflow-for-a-deeper-life/).
 
 
 Ultimately, goals and vision are good, but listening to your inner voice and believing in yourself matters most. I will try doing this today and every day in the future.

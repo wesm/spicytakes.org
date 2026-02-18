@@ -1,16 +1,16 @@
 ---
-title: "Migrate from Oracle to Microsoft (Views) â Part III"
+title: "Migrate from Oracle to Microsoft (Views) – Part III"
 date: 2016-09-24
 url: https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-iii/
 slug: migrate-from-oracle-to-microsoft-views-part-iii
 word_count: 592
 ---
 
-![Migrate from Oracle to Microsoft (Views) â Part III](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-iii/images/microsoft-sql-server-vs-oracle.jpg)
+![Migrate from Oracle to Microsoft (Views) – Part III](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-iii/images/microsoft-sql-server-vs-oracle.jpg)
 
 Contents
 
-Continued from [Migrate from Oracle to Microsoft (Views) â Part II](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-ii/) here part III withÂ the main focus on very interesting topic testing 😉.
+Continued from [Migrate from Oracle to Microsoft (Views) – Part II](https://www.ssp.sh/blog/migrate-from-oracle-to-microsoft-views-part-ii/) here part III with the main focus on very interesting topic testing 😉.
 
 
 ## Testing

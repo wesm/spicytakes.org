@@ -21,7 +21,7 @@ I’d argue that today’s data engineers face similar challenges, but with the 
 The catch is that while abstractions have made complex deployments more accessible, the toolkit has exploded in scope. One day, you’re optimizing SQL queries, the next, you’re debugging Kubernetes deployments, and by afternoon, you’ll be explaining data quality metrics to stakeholders who just want to know why their dashboard is empty.
 
 
-This is Part 2 of my in-depth exploration of the modern data engineer’s toolkit. While [Part 1](https://www.ssp.sh/blog/data-engineering-toolkit) covered the fundamentals of your development environment, programming languages, and core productivity tools, this essay addresses the more advanced technologiesâsuch as data processing, infrastructure, data quality, and observabilityârequired to transform data pipelines into production-grade data platforms.
+This is Part 2 of my in-depth exploration of the modern data engineer’s toolkit. While [Part 1](https://www.ssp.sh/blog/data-engineering-toolkit) covered the fundamentals of your development environment, programming languages, and core productivity tools, this essay addresses the more advanced technologies—such as data processing, infrastructure, data quality, and observability—required to transform data pipelines into production-grade data platforms.
 
 
 We’ll explore everything from SQL engines and workflow orchestration that form your daily toolkit to DevOps practices that make your deployments bulletproof, and the advanced utility tools that help you sleep better at night. Additionally, we’ll explore the soft skills that can make the difference between a data engineer and a data engineering leader.
@@ -84,7 +84,7 @@ Besides the [generic Python libraries](https://motherduck.com/blog/data-engineer
 - **[Modal](https://modal.com/docs)**: A cloud function platform that lets you run any code remotely within seconds.
 - **[reladiff](https://github.com/erezsh/reladiff)** (formerly [data-diff](https://github.com/datafold/data-diff) by Datafold): Tool to efficiently diff rows across databases
 - **[Quokka](https://marsupialtail.github.io/quokka/)**: An open-source push-based vectorized query engine.
-- **[Vaex](https://github.com/vaexio/vaex)**: High-performance library for lazyÂ out-of-core DataFrames, to visualize and explore big tabular datasets.
+- **[Vaex](https://github.com/vaexio/vaex)**: High-performance library for lazy out-of-core DataFrames, to visualize and explore big tabular datasets.
 - **[Xorq](https://github.com/xorq-labs/xorq)**: A declarative framework for building multi-engine computations.
 - **[gspread](https://github.com/burnash/gspread)**: Work with Google Sheets through Python API, or [with DuckDB](https://duckdb.org/community_extensions/extensions/gsheets.html).
 
@@ -147,7 +147,7 @@ Most of the time, it includes setting up an automated CI/CD pipeline that handle
 DevOps has become a bigger part of data engineers’ work in most scenarios in recent years, making deployment of every updated OSS tool straightforward, easy to test, and reproducible.
 
 
-Making the data stack **modular** so that additional tools can be added with a clearly defined path for integration, such as metadata, logging at the same place, and security, so user permissions can be given to existing users without needing to re-create users every single time. This usually involves integration with [Keycloak](https://github.com/keycloak/keycloak), [Okta](https://www.okta.com/), or [Auth0](https://auth0.com/). A good example of such an integrated data stack is [HelloData](https://github.com/kanton-bern/hellodata-be), but there are moreâsee [declarative data stacks](https://sh.reddit.com/r/dataengineering/comments/1g50jwi/should_we_use_a_declarative_data_stack/).
+Making the data stack **modular** so that additional tools can be added with a clearly defined path for integration, such as metadata, logging at the same place, and security, so user permissions can be given to existing users without needing to re-create users every single time. This usually involves integration with [Keycloak](https://github.com/keycloak/keycloak), [Okta](https://www.okta.com/), or [Auth0](https://auth0.com/). A good example of such an integrated data stack is [HelloData](https://github.com/kanton-bern/hellodata-be), but there are more—see [declarative data stacks](https://sh.reddit.com/r/dataengineering/comments/1g50jwi/should_we_use_a_declarative_data_stack/).
 
 
 But why would you invest all this energy and effort to have something run on Kubernetes? Besides the declarative approach mentioned, which is more robust than [imperative](https://www.ssp.sh/brain/imperative/) approaches that tend to break down more often, especially for large projects, Kubernetes has significant advantages. The DevOps-style deployment fosters a culture of collaboration and shared responsibility through configuration YAML files checked into a git repo, which is pivotal for how data teams can work with an efficient workflow and increase productivity.
@@ -157,7 +157,7 @@ There are a few advantages to using YAML files. The changes become more structur
 **straightforward**
 interface for each fix, which makes them more
 **maintainable**
-. They are easy to read, modify, and incrementally test instead of loose SQL files that are very complex.Â They are easily portable between programming languages.
+. They are easy to read, modify, and incrementally test instead of loose SQL files that are very complex. They are easily portable between programming languages.
 
 This way of working is called Infrastructure as Code, or [GitOps](https://kestra.io/blogs/2024-02-06-gitops), and is strongly related to [DataOps](https://en.wikipedia.org/wiki/DataOps). So, what are the toolkits for DevOps, you might ask?
 
@@ -224,7 +224,7 @@ DevOps isn’t binary; it’s about selecting the appropriate level of control a
 **Serverless and Managed Services** represent the highest abstraction level, where you focus purely on your data logic while the platform handles infrastructure concerns. Tools like AWS Lambda, Google Cloud Functions, and managed data warehouses let you deploy code and query data without worrying about servers, scaling, or maintenance. Your application remains portable, with core business logic that can typically be moved between providers, but you trade some customization for operational simplicity.
 
 
-**Container-as-a-Service (CaaS)** platforms, such as Google Cloud Run, AWS Fargate, or Azure Container Instances, offer a middle ground. You containerize your applications (maintaining portability) but delegate orchestration complexity to the platform. You still get the benefits of DevOps practicesâversion control, automated deployments, Infrastructure as Codeâwithout managing the underlying infrastructure.
+**Container-as-a-Service (CaaS)** platforms, such as Google Cloud Run, AWS Fargate, or Azure Container Instances, offer a middle ground. You containerize your applications (maintaining portability) but delegate orchestration complexity to the platform. You still get the benefits of DevOps practices—version control, automated deployments, Infrastructure as Code—without managing the underlying infrastructure.
 
 
 **Managed Kubernetes** services, such as Google GKE, Azure AKS, and AWS EKS, provide another abstraction layer, offering full Kubernetes capabilities without requiring control plane management. This bridges the gap between complete infrastructure control and operational simplicity.
@@ -236,7 +236,7 @@ The key is matching your abstraction level to your team’s expertise and requir
 ## Data Quality and Observability
 
 
-As the data platform becomes more complex and features additional tools, it becomes increasingly sensible to have a data quality or observability stackâtools to have an automated overview of the **health of your data platform**.
+As the data platform becomes more complex and features additional tools, it becomes increasingly sensible to have a data quality or observability stack—tools to have an automated overview of the **health of your data platform**.
 
 
 Below are some of the standard tools (without getting too lengthy) that we haven’t covered and were not mentioned in Part 1:
@@ -256,7 +256,7 @@ Below are some of the standard tools (without getting too lengthy) that we haven
 New AI-enhanced tools with LLMs or MCPs are being invented and are already useful today.
 
 
-For example, for data engineers, there are dedicated IDEs or integrations into MCPsâespecially **agentic workflows**:
+For example, for data engineers, there are dedicated IDEs or integrations into MCPs—especially **agentic workflows**:
 
 - **[nao](https://getnao.io/)**: An AI-enhanced editor specifically for data engineers. In its early days, it understands dbt and can create and run pipelines.
 - **[MCP server for DuckDB and MotherDuck](https://github.com/motherduckdb/mcp-server-motherduck)**: Makes your editor autonomously query the underlying database on the fly.
@@ -270,7 +270,7 @@ Also, check out [Faster Data Pipeline Development with MCP and DuckDB](https://w
 Agentic Workflows vs. AI Agents
 One word on the distinction between an agent and a workflow. Anthropic defines
 *Workflows*
-Â as systems where Large Language Models and tools are orchestrated through predefined code paths. And
+ as systems where Large Language Models and tools are orchestrated through predefined code paths. And
 *Agents*
 are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
 
@@ -289,7 +289,7 @@ Business **understanding** is crucial for practical data engineering. This means
 Cross-functional **collaboration** is equally important. Data engineers must translate technical constraints and possibilities into business terms for stakeholders, while also understanding their pain points and priorities. This includes stakeholder management, **documentation skills**, and the ability to ask the right questions to uncover hidden requirements and assumptions.
 
 
-While you can be a technical expert without these skills, combining technical expertise with strong business understanding and communication will set you apart. It helps you solve real business problems and deliver measurable valueâsomething we should always keep in mind.
+While you can be a technical expert without these skills, combining technical expertise with strong business understanding and communication will set you apart. It helps you solve real business problems and deliver measurable value—something we should always keep in mind.
 
 
 ## Building Your Data Engineering Toolkit

@@ -6,7 +6,7 @@ slug: linux-omarchy-the-good-bad-and-fixable
 word_count: 3440
 ---
 
-![Arch Linux (Omarchy) â 8 Months Later: The Good, the Bad, and the Fixable](https://www.ssp.sh/blog/linux-omarchy-the-good-bad-and-fixable/featured-image.png)
+![Arch Linux (Omarchy) — 8 Months Later: The Good, the Bad, and the Fixable](https://www.ssp.sh/blog/linux-omarchy-the-good-bad-and-fixable/featured-image.png)
 
 Contents
 
@@ -16,7 +16,7 @@ This is a follow-up to my part 1 of [Switching macOS to Arch Linux with Omarchy]
 Back then, I had a checklist of basics I needed before I could commit to Linux as a daily driver: Obsidian, a Raycast-like launcher for fuzzy finding files and folders, screenshots (Snagit), daylight adjustment (f.lux), calendar events in the top bar. Those were quick wins.
 
 
-Eight months later, I’ve gone through many more challenges and learnings. In this post, I’ll share which apps replaced my heavily integrated [macOS workflow](https://www.youtube.com/watch?v=sStKFOwNaSM), what my [Omarchy workflow](https://www.youtube.com/watch?v=XOp8lngtmPg) looks like now, and â honestly â what still doesn’t quite work.
+Eight months later, I’ve gone through many more challenges and learnings. In this post, I’ll share which apps replaced my heavily integrated [macOS workflow](https://www.youtube.com/watch?v=sStKFOwNaSM), what my [Omarchy workflow](https://www.youtube.com/watch?v=XOp8lngtmPg) looks like now, and — honestly — what still doesn’t quite work.
 
 
 ## Apps that Replaced My macOS Apps on Linux
@@ -115,7 +115,7 @@ Other dedicated clipboard managers are [cliphist](https://github.com/sentriz/cli
 I used [Kanata](https://github.com/jtroo/kanata) for integration of advanced features to switch between my keyboards and some of the advanced use cases such as using CAPS LOCK for vim-like movements. I use `caps + hjkl` to move left, down, up and right with the respective arrow keys as almost all programs work with arrow keys. Also F1-F12 functions with `caps+1` for F1.
 
 
-For simple replacements, I used XCompose to write Umlauts (`Ã¤Ã¶Ã¼` and special symbols `âÂ«Â»` and more). I used Karabiner-Elements heavily, and Kanata solved it for me, see my configs at [dotfiles.ssp.sh/kanata](https://github.com/sspaeti/dotfiles/blob/master/kanata/.config/kanata/kinesis.kbd).
+For simple replacements, I used XCompose to write Umlauts (`äöü` and special symbols `—«»` and more). I used Karabiner-Elements heavily, and Kanata solved it for me, see my configs at [dotfiles.ssp.sh/kanata](https://github.com/sspaeti/dotfiles/blob/master/kanata/.config/kanata/kinesis.kbd).
 
 
 ### Backups and Data Sync
@@ -340,7 +340,7 @@ Again, if you want to watch a full video workflow, check my short video about it
 ## Appendix: Troubleshooting and Things That Didn’t Work So Well, or I Had Already Fixed
 
 
-**GPU Crashes (AMD Radeon 890M).** This was the biggest recurring issue. The GPU’s MES (Micro Engine Scheduler) would become unresponsive and crash the entire system, triggered by Brave browser, Google Meet video calls, and Kdenlive video encoding. The root cause is that the Radeon 890M (gfx1150/RDNA 3.5) is still very new, and driver support on bleeding-edge kernels (6.17â6.18) is immature. Solutions included disabling hardware acceleration in Brave (`brave://settings/system`), adding kernel parameters (`amdgpu.gpu_recovery=1 amdgpu.noretry=0 amdgpu.ip_block_mask=0xfffff7ff`), and considering the LTS kernel as fallback. The community is tracking this on [Framework forums](https://community.frame.work/t/amd-gpu-mes-timeouts-causing-system-hangs-on-framework-laptop-13-amd-ai-300-series/71364) and [AMD’s GitLab](https://gitlab.freedesktop.org/drm/amd/-/issues/3067).
+**GPU Crashes (AMD Radeon 890M).** This was the biggest recurring issue. The GPU’s MES (Micro Engine Scheduler) would become unresponsive and crash the entire system, triggered by Brave browser, Google Meet video calls, and Kdenlive video encoding. The root cause is that the Radeon 890M (gfx1150/RDNA 3.5) is still very new, and driver support on bleeding-edge kernels (6.17–6.18) is immature. Solutions included disabling hardware acceleration in Brave (`brave://settings/system`), adding kernel parameters (`amdgpu.gpu_recovery=1 amdgpu.noretry=0 amdgpu.ip_block_mask=0xfffff7ff`), and considering the LTS kernel as fallback. The community is tracking this on [Framework forums](https://community.frame.work/t/amd-gpu-mes-timeouts-causing-system-hangs-on-framework-laptop-13-amd-ai-300-series/71364) and [AMD’s GitLab](https://gitlab.freedesktop.org/drm/amd/-/issues/3067).
 
 
 **Keyboard Freezing After Suspend (Tuxedo).** The internal keyboard would stop working after suspend/resume cycles due to a firmware bug in the keyboard controller (i8042). Fixed by adding `i8042.nomux=1 i8042.reset=1 i8042.noloop=1 i8042.nopnp=1` to the kernel command line in `/etc/default/limine` and regenerating the UKI with `sudo mkinitcpio -P`. Shared the solution on [Reddit](https://sh.reddit.com/r/tuxedocomputers/comments/1ndq7vw/comment/ne5kjob/).
@@ -349,10 +349,10 @@ Again, if you want to watch a full video workflow, check my short video about it
 **Hibernation Not Resuming.** After suspend-then-hibernate (triggered by closing the lid), the laptop wouldn’t resume and required a fresh boot. The cause was missing `resume=` and `resume_offset=` kernel parameters. Omarchy’s hibernation setup script added the mkinitcpio hook but never added the actual kernel parameters. Fixed by calculating the swap offset (`sudo btrfs inspect-internal map-swapfile -r /swap/swapfile`) and adding `resume=/dev/mapper/root resume_offset=<offset>` to `/etc/default/limine`. Documented the fix in [this Omarchy issue](https://github.com/basecamp/omarchy/issues/4259#issuecomment-3804954054).
 
 
-**Thermal Throttling (Lenovo).** The Lenovo ThinkBook would hit 99Â°C and become unusable during video calls. Turned out the bottom intake vents were blocked when the laptop sat flat on a desk. Simply elevating the laptop dropped temps to 73â77Â°C and performance was completely fine, even running stress tests while screen sharing. A laptop stand solved it permanently.
+**Thermal Throttling (Lenovo).** The Lenovo ThinkBook would hit 99Â°C and become unusable during video calls. Turned out the bottom intake vents were blocked when the laptop sat flat on a desk. Simply elevating the laptop dropped temps to 73–77Â°C and performance was completely fine, even running stress tests while screen sharing. A laptop stand solved it permanently.
 
 
-**WiFi Speed Drops (Tuxedo, Intel AX210).** Speeds dropped to 2â72 Mbps after a system update. Root cause was a bug in `linux-firmware-intel` version 20251125 that caused the Intel AX210 card to negotiate very low RX bitrates. Fixed by downgrading to the October firmware (`sudo pacman -U /var/cache/pacman/pkg/linux-firmware-intel-20251021-1-any.pkg.tar.zst`), disabling WiFi power save permanently via a systemd service, and adding `IgnorePkg = linux-firmware-intel` to `/etc/pacman.conf` until a proper fix ships.
+**WiFi Speed Drops (Tuxedo, Intel AX210).** Speeds dropped to 2–72 Mbps after a system update. Root cause was a bug in `linux-firmware-intel` version 20251125 that caused the Intel AX210 card to negotiate very low RX bitrates. Fixed by downgrading to the October firmware (`sudo pacman -U /var/cache/pacman/pkg/linux-firmware-intel-20251021-1-any.pkg.tar.zst`), disabling WiFi power save permanently via a systemd service, and adding `IgnorePkg = linux-firmware-intel` to `/etc/pacman.conf` until a proper fix ships.
 
 
 **Keyring/Brave Re-login on Every Boot.** Brave asked for login credentials after every reboot because the gnome-keyring file kept getting corrupted. This was caused by SDDM autologin. Without entering a password at login, PAM can’t unlock the keyring. The ultimate fix was launching Brave with `--password-store=basic` in the autostart config. Documented in [this Omarchy discussion](https://github.com/basecamp/omarchy/discussions/3523#discussioncomment-15286162).

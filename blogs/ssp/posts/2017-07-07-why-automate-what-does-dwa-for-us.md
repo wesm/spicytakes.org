@@ -10,16 +10,16 @@ word_count: 658
 
 Contents
 
-This article is for you if you considering to use Data Warehouse Automation (DWA) and asking yourself why you should use Data Warehouse Automation tools what does it do for you. After I explained in my previous blog [Why Data Warehouse Automation is not more popular](https://www.ssp.sh/blog/why-data-warehouse-automation-is-not-more-popular/), you will find theÂ *why* and *what* of Data Warehouse Automation in this second post of the [series](https://www.ssp.sh/blog/data-warehouse-automation-dwa/).
+This article is for you if you considering to use Data Warehouse Automation (DWA) and asking yourself why you should use Data Warehouse Automation tools what does it do for you. After I explained in my previous blog [Why Data Warehouse Automation is not more popular](https://www.ssp.sh/blog/why-data-warehouse-automation-is-not-more-popular/), you will find the *why* and *what* of Data Warehouse Automation in this second post of the [series](https://www.ssp.sh/blog/data-warehouse-automation-dwa/).
 
 
 ## Why automate your Data Warehouse?
 
 
-> Every industry has used automation to increase productivity, reduce manual effort, improve quality and consistency, and speed delivery. Henry Ford introduced the assembly to produce automobiles, and today Uber and countless other startups use the Internet and digital processing to reduce friction in commercial transactions. Thus, the time has come to introduce automation to data warehousing. Pointed out byÂ [Eckerson Group](http://www.eckerson.com).
+> Every industry has used automation to increase productivity, reduce manual effort, improve quality and consistency, and speed delivery. Henry Ford introduced the assembly to produce automobiles, and today Uber and countless other startups use the Internet and digital processing to reduce friction in commercial transactions. Thus, the time has come to introduce automation to data warehousing. Pointed out by [Eckerson Group](http://www.eckerson.com).
 
 
-I would say it like this. In a society where time flys remarkably fast and data became the new gold, it’s crucial to have proper analyses or even data predictive trends to navigate the company in the best direction. In order to get there, I believe automation is needed more than ever before. It’s not the time to do recurring tasks manually over again and producing additional errors. DWA could deliver you the first [KPI](https://en.wikipedia.org/wiki/Performance_indicator)âs within weeks based on your data foundation you already have. Why then waste another month, or two to figure out technical details instead of focusing on analysing the data and the business requirements?
+I would say it like this. In a society where time flys remarkably fast and data became the new gold, it’s crucial to have proper analyses or even data predictive trends to navigate the company in the best direction. In order to get there, I believe automation is needed more than ever before. It’s not the time to do recurring tasks manually over again and producing additional errors. DWA could deliver you the first [KPI](https://en.wikipedia.org/wiki/Performance_indicator)‘s within weeks based on your data foundation you already have. Why then waste another month, or two to figure out technical details instead of focusing on analysing the data and the business requirements?
 
 
 Some key reason why I would want to automate:
@@ -43,15 +43,15 @@ Now we know why we want to automate, but what is it actually that DWA is doing? 
 
 - Agile design & build
 - Standardize development
-- Operation of Data Warehouses (e.g. loading, design validation, scheduling,Â error tracking and performance monitoring)
+- Operation of Data Warehouses (e.g. loading, design validation, scheduling, error tracking and performance monitoring)
 - Quick and easy change management processes
 - Easy roll back to the latest fully functional release as everything is [version controlled](https://en.wikipedia.org/wiki/Version_control)
 
 
-But probably the most important point here to highlight isÂ *repetition*. We do the same thing over and over again in Data Warehousing. Is it addingÂ staging tables or to anyÂ layer, changing the structure of an attribute, creating schema (star, snowflake,Â third normal form, or data vault),Â adding foreign keys to the fact tables,Â creating the view layers, adding [slowly changing dimension](https://en.wikipedia.org/wiki/Slowly_changing_dimension), create default indexes, â¦, the list goes on and on.
+But probably the most important point here to highlight is *repetition*. We do the same thing over and over again in Data Warehousing. Is it adding staging tables or to any layer, changing the structure of an attribute, creating schema (star, snowflake, third normal form, or data vault), adding foreign keys to the fact tables, creating the view layers, adding [slowly changing dimension](https://en.wikipedia.org/wiki/Slowly_changing_dimension), create default indexes, …, the list goes on and on.
 
 
-Same thing said through a video made byÂ [Variance](http://varigence.com)Â and their brand new DWA framework [BimlFlex](https://varigence.com/bimlflex):
+Same thing said through a video made by [Variance](http://varigence.com) and their brand new DWA framework [BimlFlex](https://varigence.com/bimlflex):
 
 
 ## Conclusion

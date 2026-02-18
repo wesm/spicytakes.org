@@ -1,12 +1,12 @@
 ---
-title: "Tools I Use â Part III"
+title: "Tools I Use – Part III"
 date: 2018-04-07
 url: https://www.ssp.sh/blog/tools-i-use-part-iii/
 slug: tools-i-use-part-iii
 word_count: 1626
 ---
 
-![Tools I Use â Part III](https://www.ssp.sh/blog/tools-i-use-part-iii/images/stag-beetle-e1523140762598.jpg)
+![Tools I Use – Part III](https://www.ssp.sh/blog/tools-i-use-part-iii/images/stag-beetle-e1523140762598.jpg)
 
 Contents
 

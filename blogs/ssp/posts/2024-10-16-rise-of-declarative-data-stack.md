@@ -15,7 +15,7 @@ This article was written as part of
 Data stacks have come a long way, evolving from monolithic, one-fits-all systems like Oracle/SAP to today’s modular open data stacks. This begs the question, what’s next? Or why is the current not meeting our needs?
 
 
-As we see more analytics engineering and software best practices, embracing codeful, Git-based, and more CLI-based workflows, the future looks more code-first. Beyond SQL transformations, across the entire data stack. From ingestion to transformation, orchestration, and measures in dashboardsâall defined declaratively.
+As we see more analytics engineering and software best practices, embracing codeful, Git-based, and more CLI-based workflows, the future looks more code-first. Beyond SQL transformations, across the entire data stack. From ingestion to transformation, orchestration, and measures in dashboards—all defined declaratively.
 
 
 But what does this shift towards declarative data stacks mean? How does it change how we build and manage data stacks? And what are the implications for us data professionals? Let’s find out in this article.
@@ -93,7 +93,7 @@ Comparing **dbt with SQLMesh** is another one, where SQLMesh understands plus pa
 Semantic Layers and BI tools define metrics within YAML (**Cube, Rill**), dashboards can be created entirely in Markdown (Evidence), and data pipelines are created on top of YAML (Kestra, Dagster).
 
 
-Call it Infrastructure as Code, Visualization as Code, BI as Code, or anything as code. YAML engineering, or DSL (Domain Specific Language)âno matter what, it’s the way the data stack evolved to **empower non-programmers** to create data pipelines and infrastructure without losing the benefits of SW engineering best practices through declarative methods.
+Call it Infrastructure as Code, Visualization as Code, BI as Code, or anything as code. YAML engineering, or DSL (Domain Specific Language)—no matter what, it’s the way the data stack evolved to **empower non-programmers** to create data pipelines and infrastructure without losing the benefits of SW engineering best practices through declarative methods.
 
 
 ## What Is a Declarative Data Stack?
@@ -122,7 +122,7 @@ But it’s not the right choice if you combine a heterogeneous data stack into a
 A declarative data stack cleanly separates semantics from implementation, **decoupling** the business code from technical implementation, the *how* is rendered by the data stack engine. This gives us a **stateless stack** that can be recreated from scratch with its configuration, setting aside intermediate data assets (stateful) produced along the way.
 
 
-Think of Markdown. It is **universally portable**, and almost every application can render it with its various engines, such as HackMD, Obsidian, iA Writer, Neovim, and GitHub, to name a few. There is no need to fiddle with setting things up or configuring, as the Markup language defines everythingâthe engine decides/handles the rendering. The best part is that even images can be declaratively defined with [Mermaid](https://www.ssp.sh/brain/mermaid). Similarly, the declarative stack is programming language agnostic.
+Think of Markdown. It is **universally portable**, and almost every application can render it with its various engines, such as HackMD, Obsidian, iA Writer, Neovim, and GitHub, to name a few. There is no need to fiddle with setting things up or configuring, as the Markup language defines everything—the engine decides/handles the rendering. The best part is that even images can be declaratively defined with [Mermaid](https://www.ssp.sh/brain/mermaid). Similarly, the declarative stack is programming language agnostic.
 
 
 Let’s compare when to use which stack.
@@ -293,7 +293,7 @@ This is the only part of the declarative data stack that cannot be configured or
 However, in an ideal data stack, we can always recreate data assets from source data if we perform a full/initial load every time. The moment we perform an incremental load, it gets more complex.
 
 
-An interesting approach is the [Software-Defined Asset](https://www.ssp.sh/brain/software-defined-asset), which adds declarative capabilities to your stateful assetsâfor example, defining to daily update the assets. That would check if downstream events have changed or automatically versioning data assets. These are all things you can implement and attach to your data assets, which makes even the data asset behave more declarative.
+An interesting approach is the [Software-Defined Asset](https://www.ssp.sh/brain/software-defined-asset), which adds declarative capabilities to your stateful assets—for example, defining to daily update the assets. That would check if downstream events have changed or automatically versioning data assets. These are all things you can implement and attach to your data assets, which makes even the data asset behave more declarative.
 
 
 You could imagine writing a *data stack engine* for all data assets that automatically backfills required data assets if the declaration of your data stack has changed. All while keeping the idempotency and functional data engineering paradigm in mind.

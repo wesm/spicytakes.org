@@ -10,34 +10,34 @@ word_count: 1924
 
 Contents
 
-I tried the newÂ [Dagster](https://glossary.airbyte.com/term/dagster)Â feature to configure the Airbyte withÂ **Python code**. Why would you want to do that, and what is the difference between usingÂ [Octavia CLI](https://github.com/airbytehq/airbyte/tree/master/octavia-cli)Â with the YAML configurations?
+I tried the new [Dagster](https://glossary.airbyte.com/term/dagster) feature to configure the Airbyte with **Python code**. Why would you want to do that, and what is the difference between using [Octavia CLI](https://github.com/airbytehq/airbyte/tree/master/octavia-cli) with the YAML configurations?
 
 
 This feature allows for the dynamic creation of Airbyte sources, destinations, or connections depending on external factors such as changing API inputs, files that change (event-driven approach), or anything else that is not static.
 
 
-I created a short demo where I scraped theÂ [Awesome Data Engineering List](https://github.com/igorbarinov/awesome-data-engineering)Â links withÂ [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#)Â and ingested the stars from each GitHub repository to a Postgres databaseâseeing the trends for each. We could add any other excellent list and scrape all awesome lists from GitHub if we wanted to.
+I created a short demo where I scraped the [Awesome Data Engineering List](https://github.com/igorbarinov/awesome-data-engineering) links with [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#) and ingested the stars from each GitHub repository to a Postgres database—seeing the trends for each. We could add any other excellent list and scrape all awesome lists from GitHub if we wanted to.
 
 Code available on GitHub
 The code to all of here shown you find on theÂ
 [Open Data Stack](https://github.com/airbytehq/open-data-stack/)
-Â project underÂ
+ project underÂ
 [dagster](https://github.com/airbytehq/open-data-stack/tree/main/dagster)
 .
 
 ## When to use it?
 
 
-When to use this pythonic configuration? With our Octavia CLI, as explained in theÂ [version control Airbyte configurations](https://airbyte.com/tutorials/version-control-airbyte-configurations)Â article, you can import, edit, and apply Airbyte application configurations based on YAML files. These can be checked into git and automatically be used, as shown in the article.
+When to use this pythonic configuration? With our Octavia CLI, as explained in the [version control Airbyte configurations](https://airbyte.com/tutorials/version-control-airbyte-configurations) article, you can import, edit, and apply Airbyte application configurations based on YAML files. These can be checked into git and automatically be used, as shown in the article.
 
 
-What now if you are dependent on incoming metadata that can? If the configs are not hard coded, you’d need a script on top to generate the configurations dynamically. Dagster as a Python orchestrator implemented this, plus they created wrappers on top of theÂ [source](https://docs.airbyte.com/integrations/#sources)Â andÂ [destination](https://docs.airbyte.com/integrations/#destinations)Â connectors.
+What now if you are dependent on incoming metadata that can? If the configs are not hard coded, you’d need a script on top to generate the configurations dynamically. Dagster as a Python orchestrator implemented this, plus they created wrappers on top of the [source](https://docs.airbyte.com/integrations/#sources) and [destination](https://docs.airbyte.com/integrations/#destinations) connectors.
 
 
-For example, in my demo, I used theÂ [GithubSource](https://github.com/dagster-io/dagster/blob/master/python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/generated/sources.py#L5629), which provides all configurations that theÂ [Airbyte GitHub Source](https://docs.airbyte.com/integrations/sources/github)Â has to configure with Python, and the same forÂ [PostgresDestination](https://github.com/dagster-io/dagster/blob/ef723a6569224278c4208f9e5a16a26aded97a79/python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/generated/destinations.py#L2391). TheÂ [AirbyteConnection](https://github.com/dagster-io/dagster/blob/master/python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/types.py#L228)Â sets configure both together as a connection in Airbyte.
+For example, in my demo, I used the [GithubSource](https://github.com/dagster-io/dagster/blob/master/python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/generated/sources.py#L5629), which provides all configurations that the [Airbyte GitHub Source](https://docs.airbyte.com/integrations/sources/github) has to configure with Python, and the same for [PostgresDestination](https://github.com/dagster-io/dagster/blob/ef723a6569224278c4208f9e5a16a26aded97a79/python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/generated/destinations.py#L2391). The [AirbyteConnection](https://github.com/dagster-io/dagster/blob/master/python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/types.py#L228) sets configure both together as a connection in Airbyte.
 
 
-These features open instrumental use cases forÂ **data integration as code**. Imagine you need to provision Airbyte, have multi-tenancy requirements for teams or customers, or read from a dynamic API (imagine the Notion API where the content is nested into the databases and constantly evolves). Based on these configs, you can automatically apply new sync based on the latest status. Everything is versioned, which leads to changes with confidence.
+These features open instrumental use cases for **data integration as code**. Imagine you need to provision Airbyte, have multi-tenancy requirements for teams or customers, or read from a dynamic API (imagine the Notion API where the content is nested into the databases and constantly evolves). Based on these configs, you can automatically apply new sync based on the latest status. Everything is versioned, which leads to changes with confidence.
 
 
 ## How does it work
@@ -46,7 +46,7 @@ These features open instrumental use cases forÂ **data integration as code**. 
 So much for when to use it. Let’s explore now how it all works.
 
 
-Dagster offers the interfaces that we can define our Airbyte connections with Python and a command line tool calledÂ [dagster-airbyte](https://github.com/dagster-io/dagster/blob/master/python_modules/libraries/dagster-managed-elements/dagster_managed_elements/cli.py)Â that allows two functions to check or apply the defined connections to the Airbyte instance.
+Dagster offers the interfaces that we can define our Airbyte connections with Python and a command line tool called [dagster-airbyte](https://github.com/dagster-io/dagster/blob/master/python_modules/libraries/dagster-managed-elements/dagster_managed_elements/cli.py) that allows two functions to check or apply the defined connections to the Airbyte instance.
 
 
 As the name suggests, checking is verifying against the current live Airbyte instance vs. your pythonic configurations. Apply will delete an existing source, destination, and connection and re-apply based on your updated configs.
@@ -54,14 +54,14 @@ As the name suggests, checking is verifying against the current live Airbyte ins
 Skipping Postgres Setup
 Below, I will skip the step on setting up Airbyte and Postgres database; You can find that in theÂ
 [ReadMe](https://github.com/airbytehq/open-data-stack/tree/main/dagster/readme.md)
-Â orÂ
+ orÂ
 [Postgres Replication Tutorial](https://airbyte.com/tutorials/postgres-replication)
 .
 
 ## Configure Airbyte Connections in Python
 
 
-For myÂ [demo](https://github.com/airbytehq/open-data-stack/tree/main/dagster), I am scraping a GitHub repo that is evolving.
+For my [demo](https://github.com/airbytehq/open-data-stack/tree/main/dagster), I am scraping a GitHub repo that is evolving.
 
 
 ### Define Airbyte Instance
@@ -92,10 +92,10 @@ First, I define the airbyte instance in my dagster python code:
 
 Setting ENV Variable
 Make sure you set the environment variableÂ
-Â on your laptop. The default password is password. As well asÂ
+ on your laptop. The default password is password. As well asÂ
 [create](https://github.com/settings/tokens)
-Â a tokenÂ
-Â for fetching the stargazers from the public repositories in the below code.
+ a tokenÂ
+ for fetching the stargazers from the public repositories in the below code.
 
 ### Define Airbyte GitHub Source
 
@@ -125,7 +125,7 @@ After we create our Airbyte source with:
 #### Web Scraping GitHub List with Beautiful Soup
 
 
-TheÂ `get_awesome_repo_list()`Â could be any arbitrary Python code. In this demo, this function does web scraping with Beautiful Soup from the awesome repo list. Note: I limited it to 10 items for this demo case.
+The `get_awesome_repo_list()` could be any arbitrary Python code. In this demo, this function does web scraping with Beautiful Soup from the awesome repo list. Note: I limited it to 10 items for this demo case.
 
 
 
@@ -229,7 +229,7 @@ And the destination with:
 ### Define Airbyte Connection
 
 
-When we have both source and destination, we can merge them in an Airbyte connection where we specify the tables we sync with stream_config; in our demo case, we only need the tableÂ `stargazers`. Other configurations can be set, such asÂ [Airbyte Sync Modes](https://docs.airbyte.com/understanding-airbyte/connections/#sync-modes)Â andÂ [Normalization](https://docs.airbyte.com/cloud/core-concepts#normalization).
+When we have both source and destination, we can merge them in an Airbyte connection where we specify the tables we sync with stream_config; in our demo case, we only need the table `stargazers`. Other configurations can be set, such as [Airbyte Sync Modes](https://docs.airbyte.com/understanding-airbyte/connections/#sync-modes) and [Normalization](https://docs.airbyte.com/cloud/core-concepts#normalization).
 
 
 
@@ -266,7 +266,7 @@ airbyte_reconciler = AirbyteManagedElementReconciler(
 ### Applying Airbyte Configuration to Instance
 
 
-As we defined the necessary Airbyte source, destination, and connection, we will apply it to the Airbyte instance withÂ `dagster-airbyte`Â as follow:
+As we defined the necessary Airbyte source, destination, and connection, we will apply it to the Airbyte instance with `dagster-airbyte` as follow:
 
 
 
@@ -338,7 +338,7 @@ Changes found:
 
 
 
-After theÂ checkÂ identified the changes between our configurations in Python with the Airbyte instance, we canÂ applyÂ these changes with the following:
+After the check identified the changes between our configurations in Python with the Airbyte instance, we can apply these changes with the following:
 
 
 
@@ -421,7 +421,7 @@ Let’s look at the Airbyte UI before we apply anything.
 *Before I applied the changes, only my manual added connections.*
 
 
-After applying the changes,Â `fetch_stargazer`Â popped up with its corresponding GitHub source and Postgres destination.
+After applying the changes, `fetch_stargazer` popped up with its corresponding GitHub source and Postgres destination.
 
 
 ![/blog/data-integration-as-code-airbyte-dbt-python-dagster/images/airbyte-source-destination-connection.png](https://www.ssp.sh/blog/data-integration-as-code-airbyte-dbt-python-dagster/images/airbyte-source-destination-connection.png)
@@ -434,7 +434,7 @@ This is equivalent to going into the Airbyte UI and setting up the source and de
 ## Set up Dagster Software Defined Assets
 
 
-[Software-Defined Asset](https://glossary.airbyte.com/term/software-defined-assets)Â in Dagster treats each of our destination tables from Airbyte as aÂ [Data Product](https://glossary.airbyte.com/term/data-product)âenabling the control plane to see the latest status of eachÂ [Data Asset](https://glossary.airbyte.com/term/data-asset/)Â and its valuable metadata.
+[Software-Defined Asset](https://glossary.airbyte.com/term/software-defined-assets) in Dagster treats each of our destination tables from Airbyte as a [Data Product](https://glossary.airbyte.com/term/data-product)—enabling the control plane to see the latest status of each [Data Asset](https://glossary.airbyte.com/term/data-asset/) and its valuable metadata.
 
 
 We can set them up with a little bit of code in Dagster. As we created the Airbyte components with Dagster already, Dagster has all the information already:
@@ -455,7 +455,7 @@ We can set them up with a little bit of code in Dagster. As we created the Airby
 
 
 
-The same we do for our dbt project that is underÂ [dbt_transformation](https://github.com/airbytehq/open-data-stack/tree/main/dagster/dbt_transformation). The dbt projects create aÂ `mart_gh_cumulative`Â view on top of our replicated GitHub tables, which we can visualize with Metabase later. But first, let’s define the dbt assets simply by pointing them to the dbt folder:
+The same we do for our dbt project that is under [dbt_transformation](https://github.com/airbytehq/open-data-stack/tree/main/dagster/dbt_transformation). The dbt projects create a `mart_gh_cumulative` view on top of our replicated GitHub tables, which we can visualize with Metabase later. But first, let’s define the dbt assets simply by pointing them to the dbt folder:
 
 
 
@@ -505,7 +505,7 @@ Next, we can run the assets defined.
 ## Run Airbyte and dbt Assets with Dagster
 
 
-If we now hit the button âMaterialize allâ, Dagster will run our sync, fetching the stargazer for all repositories from GitHub, which dynamically fetch what we defined inÂ `get_awesome_repo_list()`.
+If we now hit the button “Materialize all”, Dagster will run our sync, fetching the stargazer for all repositories from GitHub, which dynamically fetch what we defined in `get_awesome_repo_list()`.
 
 
 Suppose you head over to the Airbyte UI after materializing the Dagster assets. The log will look something like the one below. It will take a while due to the rate limit of GitHub.
@@ -514,7 +514,7 @@ Suppose you head over to the Airbyte UI after materializing the Dagster assets. 
 When finished, the dagster job will look like this:
 
 
-Including theÂ dbt runÂ that Dagster triggered for us:
+Including the dbt run that Dagster triggered for us:
 
 
 And more interestingly, the Global Asset Lineage with the latest run information:
@@ -526,7 +526,7 @@ And finally, Airbyte UI finished successfully too as we can see below.
 ## Starting up Metabase and see Dashboard
 
 
-When we start Metabase as described in theÂ [Readme](https://github.com/airbytehq/open-data-stack/blob/main/visualization/metabase/readme.md)Â and head over to a straightforward dashboard, we can see the imported stars over the two-year timeline.
+When we start Metabase as described in the [Readme](https://github.com/airbytehq/open-data-stack/blob/main/visualization/metabase/readme.md) and head over to a straightforward dashboard, we can see the imported stars over the two-year timeline.
 
 
 ![/blog/data-integration-as-code-airbyte-dbt-python-dagster/images/metabase-dashboard-stargazer.png](https://www.ssp.sh/blog/data-integration-as-code-airbyte-dbt-python-dagster/images/metabase-dashboard-stargazer.png)
@@ -539,13 +539,13 @@ In the dashboard image, I replicatedj all 79 linked GitHub repos. For the sake o
 ## Wrapping Up
 
 
-Weâve seen how the new capabilities of Dagster can streamline traditional software engineering practices, such as testing and version control, to data integration with Airbyte.
+We’ve seen how the new capabilities of Dagster can streamline traditional software engineering practices, such as testing and version control, to data integration with Airbyte.
 
 
 The Pythonic definition of all Airbyte components opened the pandora box for more even-based use cases orchestrated by Dagster.
 
 
-Ben from Dagster implemented a similar project usingÂ [Data Integration as Code](https://youtu.be/JD0SNuihY-w); check it out. I also thank Ben for his support while trialing these new experimental features myself.
+Ben from Dagster implemented a similar project using [Data Integration as Code](https://youtu.be/JD0SNuihY-w); check it out. I also thank Ben for his support while trialing these new experimental features myself.
 
 
 ---

@@ -51,8 +51,8 @@ After pulling the Docker image (this might take a while the first time), you wil
 4
 ` | `â¯ docker ps
 CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS                            PORTS                              NAMES
-1cdf7f265fdf   kestra/kestra:latest   "docker-entrypoint.sâ¦"   4 seconds ago   Up 3 seconds                      0.0.0.0:8080-8081->8080-8081/tcp   kestra-dlt-snowflake-kestra-1
-aabb262aad3f   postgres               "docker-entrypoint.sâ¦"   4 seconds ago   Up 3 seconds (health: starting)   5432/tcp                           kestra-dlt-snowflake-postgres-1
+1cdf7f265fdf   kestra/kestra:latest   "docker-entrypoint.s…"   4 seconds ago   Up 3 seconds                      0.0.0.0:8080-8081->8080-8081/tcp   kestra-dlt-snowflake-kestra-1
+aabb262aad3f   postgres               "docker-entrypoint.s…"   4 seconds ago   Up 3 seconds (health: starting)   5432/tcp                           kestra-dlt-snowflake-postgres-1
 ` |
 
 
@@ -236,7 +236,7 @@ When working in an enterprise environment, there are additional best practices w
 ### Separation of Concerns: Orchestration vs. Business Logic
 
 
-One key consideration in an enterprise setup is where to put the **business logic**. In the old days, we put it into stored proceduresâcustom code that databases had like PL/SQL in Oracle and T-SQL in Microsoft SQL Server. In the world of composable data stacks, the business logic is usually in SQL statements, Python, or YAML.
+One key consideration in an enterprise setup is where to put the **business logic**. In the old days, we put it into stored procedures—custom code that databases had like PL/SQL in Oracle and T-SQL in Microsoft SQL Server. In the world of composable data stacks, the business logic is usually in SQL statements, Python, or YAML.
 
 
 Kestra eases life as it allows us to focus on the business implementation as parts of plugins for the most part, and some of the heavy technical logic is abstracted away by the [plugins](https://kestra.io/plugins) themselves. Sometimes you still need to bring your custom code to adapt to unique needs of your organization. In the example pipeline, we added our custom dlt data ingestion logic within a separate Python file, and we can use Kestra’s native orchestration concepts, such as flows, tasks, and namespace files, to glue it all together while keeping business logic separated from orchestration code. Let’s look at some other ways of doing the separation.
@@ -245,7 +245,7 @@ Kestra eases life as it allows us to focus on the business implementation as par
 #### Subflows
 
 
-[Subflows](https://kestra.io/docs/workflow-components/subflows) allow us to buildÂ **modular**Â andÂ **reusable**Â workflow components, and work similar to calling a function. This is where you can write [Functional Data Engineering](https://ssp.sh/brain/functional-data-engineering/) code, where a Subflow can be reused across multiple flows. For example, the integration with dlt, processing a specific file format that only your company has, or alerting errors to Slack and emailâall of those can be encapsulated into a subflow and called from any other flow.
+[Subflows](https://kestra.io/docs/workflow-components/subflows) allow us to build **modular** and **reusable** workflow components, and work similar to calling a function. This is where you can write [Functional Data Engineering](https://ssp.sh/brain/functional-data-engineering/) code, where a Subflow can be reused across multiple flows. For example, the integration with dlt, processing a specific file format that only your company has, or alerting errors to Slack and email—all of those can be encapsulated into a subflow and called from any other flow.
 
 
 With subflows, you can avoid copying and duplicating code across your codebase and avoid reimplementing logic in multiple places. You can reuse components across multiple flows. Think of it as a resource that data engineers build, which less technical people can reuse.
@@ -263,7 +263,7 @@ It provides an elegant way to isolate your Kestra instance for different teams, 
 ### Handling SQL within a Data Pipeline
 
 
-Another important question when building data pipelines is where to put your SQL transformationsâyour traditional business logic.
+Another important question when building data pipelines is where to put your SQL transformations—your traditional business logic.
 
 
 Kestra offers several approaches depending on your complexity needs. As seen in the simple example above, you can **integrate simple SQL statements** within the flow code. For more complex cases, e.g., a SQL file with hundreds of lines of code, it’s recommended to store your SQL code as a separate Namespace File and reference it in your pipeline.
@@ -398,7 +398,7 @@ Read more about all available secret management options and enterprise features 
 ### Triggers: React on Changing Events
 
 
-Use **[Triggers](https://kestra.io/docs/workflow-components/triggers)** for scheduling or reacting to event-based upstream events automatically. For example, starting a downstream flow based on a REST event with the [Webhook Trigger](https://kestra.io/docs/workflow-components/triggers/webhook-trigger). There are many more triggers such as polling, real-time, S3, and Kafkaâcheck them in the docs.
+Use **[Triggers](https://kestra.io/docs/workflow-components/triggers)** for scheduling or reacting to event-based upstream events automatically. For example, starting a downstream flow based on a REST event with the [Webhook Trigger](https://kestra.io/docs/workflow-components/triggers/webhook-trigger). There are many more triggers such as polling, real-time, S3, and Kafka—check them in the docs.
 
 
 ### YAML-based
@@ -413,7 +413,7 @@ As discussed in [Part 1](https://www.ssp.sh/blog/universal-data-orchestrator/), 
 Taking a step back after spotlighting the key parts and best practices for enterprise data pipelining: The key is still to ease the management of various tasks and components in a universal data orchestrator. To empower every user of Kestra, there’s obviously also an AI helper that improves the workflow in the form of [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol), helping us with data pipeline creation and maintenance.
 
 
-MCPs help integrate different models in the same way; it’s a unified protocol that defines the interface between a server and client (in this case, Kestra). This way, we can add an MCP Server to Claude Desktop, Cursor, Neovimâbasically in your Integrated Development Environment (IDE) of choice.
+MCPs help integrate different models in the same way; it’s a unified protocol that defines the interface between a server and client (in this case, Kestra). This way, we can add an MCP Server to Claude Desktop, Cursor, Neovim—basically in your Integrated Development Environment (IDE) of choice.
 
 
 ### Demos
@@ -461,7 +461,7 @@ And so it added the following:
 ](https://www.ssp.sh/blog/enterprise-universal-data-orchestrator-in-action/kestra-cursor2.webp)Generate OpenAI configuration by Cursor
 
 
-Which worked on the first try when I ran itânot the most useful step, but you could imagine adding something more sophisticated:
+Which worked on the first try when I ran it—not the most useful step, but you could imagine adding something more sophisticated:
 
 
 [
@@ -469,7 +469,7 @@ Which worked on the first try when I ran itânot the most useful step, but y
 ](https://www.ssp.sh/blog/enterprise-universal-data-orchestrator-in-action/kestra-openai.webp)Executed pipeline with OpenAI response
 
 
-With MCP implementation, Cursor (or other IDEs) can work more autonomously, like agent mode where they might autonomously ask OpenAI a couple of times until they have the answerâas seen in the demo example linked.
+With MCP implementation, Cursor (or other IDEs) can work more autonomously, like agent mode where they might autonomously ask OpenAI a couple of times until they have the answer—as seen in the demo example linked.
 
 
 ## The State of Universal Data Orchestrator in Action

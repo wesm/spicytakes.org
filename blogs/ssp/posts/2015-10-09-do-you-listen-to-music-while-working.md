@@ -24,12 +24,12 @@ Some advertising from their website:
 
 **Stop the wrong music.**
 
-50% of us play background music while studying, working or inventing. Butâ¦it’s the wrong music! Mainstream music lowers comprehension and creates distraction because it is designed to connect with you intellectually and emotionally.
+50% of us play background music while studying, working or inventing. But…it’s the wrong music! Mainstream music lowers comprehension and creates distraction because it is designed to connect with you intellectually and emotionally.
 
 
 **Use the right music!**
 
-Focus@will technology delivers various âAttention Amplifyingâ music channels scientifically designed to engage with your brain’s limbic system. This soothes the easily distracted fight or flight mechanism increasing attention span and general focus.
+Focus@will technology delivers various “Attention Amplifying” music channels scientifically designed to engage with your brain’s limbic system. This soothes the easily distracted fight or flight mechanism increasing attention span and general focus.
 
 
 **The science behind this.**

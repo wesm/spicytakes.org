@@ -223,7 +223,7 @@ Kestra is **language-agnostic**, meaning any programming language can be run as 
 Kestra offers [API-first design](https://kestra.io/features/api-first) principles, which means it is designed to enable programmatic access to all actions from managing workflows to user administration, seamlessly integrating into existing development workflows.
 
 
-Kestra’s API-first approach provides comprehensive programmatic access to all platform functionalities, creating a flexible foundation that seamlessly integrates with existing development workflows and tools. It eases everything from workflow creation to user administration via API calls, supports CI/CD pipelines for streamlined deployment, and works with Terraform and upcoming language-specific SDKs. By prioritizing APIs, Kestra allows teams to build custom solutions, automate processes through HTTP requests and event-driven triggers, and maintain development flexibility whether coding in Kestra’s UI or a preferred IDEâall while preserving a single source of truth within version control systems.
+Kestra’s API-first approach provides comprehensive programmatic access to all platform functionalities, creating a flexible foundation that seamlessly integrates with existing development workflows and tools. It eases everything from workflow creation to user administration via API calls, supports CI/CD pipelines for streamlined deployment, and works with Terraform and upcoming language-specific SDKs. By prioritizing APIs, Kestra allows teams to build custom solutions, automate processes through HTTP requests and event-driven triggers, and maintain development flexibility whether coding in Kestra’s UI or a preferred IDE—all while preserving a single source of truth within version control systems.
 
 
 Kestra tries to avoid building silos, which sometimes happens with drag-and-drop automation tools like Zapier. Zapier and co. are easier to start with, but they come with prebuilt integrations, there’s no heavy infrastructure to manage, and they require no coding skills. But as soon as you need something custom (like running a Python script in a container), these tools hit a wall.
@@ -232,7 +232,7 @@ Kestra tries to avoid building silos, which sometimes happens with drag-and-drop
 Kestra bridges this gap between ultra-customizable and rigid drag-and-drop tools. It combines the flexibility of code-based orchestration with a no-code interface that anyone can learn in minutes. After all, Kestra can scale simple workflows to millions of events with a cloud-native architecture, high availability with no single point of failure and the discussed deployment flexibility.
 
 
-This means your teams can start simple and scale up to complex distributed pipelinesâall within a single, unified platform.
+This means your teams can start simple and scale up to complex distributed pipelines—all within a single, unified platform.
 
 
 ## What’s Next?

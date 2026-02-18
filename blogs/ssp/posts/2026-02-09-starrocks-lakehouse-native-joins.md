@@ -233,7 +233,7 @@ He also missed the stability compared to Snowflake, as new releases sometimes in
 ### Forward-Looking: Lakehouse Architectures and Benchmarks
 
 
-When asked about using StarRocks with Iceberg/Lakehouse solutions and loading data directly, Eric said: “Both: hot and recent data (2 weeks ~ 3 months) are stored in StarRocks native layout on S3, such as partition, index, bucketing, colocation, â¦, while the cold historical data are federated from Iceberg/Delta to share the same data partitions from Lakehouse. Iceberg canât deliver the performance compared with the native storage format”.
+When asked about using StarRocks with Iceberg/Lakehouse solutions and loading data directly, Eric said: “Both: hot and recent data (2 weeks ~ 3 months) are stored in StarRocks native layout on S3, such as partition, index, bucketing, colocation, …, while the cold historical data are federated from Iceberg/Delta to share the same data partitions from Lakehouse. Iceberg can’t deliver the performance compared with the native storage format”.
 
 
 In terms of comparison and **benchmarks**, Eric says that StarRocks significantly outperformed ClickHouse in their TPC-H 1TB benchmarks. ClickHouse failed 12 of 22 queries due to out-of-memory errors, particularly on join-heavy queries. The data was 10 blockchains with 300+ tables and 573 billion rows.
@@ -481,7 +481,7 @@ Here’s my mental model as of now:
 
 | Use Case | Choose | Notes |
 | Real-time with complex joins | **StarRocks** | Native MPP shuffle joins, mature [CBO](https://docs.starrocks.io/docs/using_starrocks/Cost_based_optimizer/) with 5 join strategies, and high concurrency (1,000s of users). ClickHouse made join improvements in 2025 but lacks distributed shuffle, when [not colocated](https://clickhouse.com/docs/faq/general/distributed-join). |
-| Query Iceberg/Hive directly without ETL | **StarRocks** â but evaluate ClickHouse too | StarRocks has a small edge with [MVs on lake tables](https://docs.starrocks.io/docs/using_starrocks/async_mv/use_cases/data_lake_query_acceleration_with_materialized_views/), cross-node data cache, and [Iceberg compaction API](https://docs.starrocks.io/releasenotes/release-4.0/). ClickHouse improved with DataLakeCatalog, native Parquet reader ([Iceberg catalog docs](https://docs.starrocks.io/docs/data_source/catalog/iceberg/iceberg_catalog/)) |
+| Query Iceberg/Hive directly without ETL | **StarRocks** — but evaluate ClickHouse too | StarRocks has a small edge with [MVs on lake tables](https://docs.starrocks.io/docs/using_starrocks/async_mv/use_cases/data_lake_query_acceleration_with_materialized_views/), cross-node data cache, and [Iceberg compaction API](https://docs.starrocks.io/releasenotes/release-4.0/). ClickHouse improved with DataLakeCatalog, native Parquet reader ([Iceberg catalog docs](https://docs.starrocks.io/docs/data_source/catalog/iceberg/iceberg_catalog/)) |
 | Frequent updates/deletes with sub-second visibility | **StarRocks** for heavy CDC; **ClickHouse** for moderate updates | StarRocks’ [Primary Key table](https://docs.starrocks.io/docs/table_design/table_types/primary_key_table/) is GA and purpose-built for continuous upserts with native Flink CDC support. ClickHouse’s Lightweight Updates (25.7) made this faster but still experimental. |
 | Single-table, high-volume observability | **ClickHouse** | Extended leads here with query condition cache, lazy materialization, ClickStack, and full-text search redesign. StarRocks’ [inverted index](https://docs.starrocks.io/docs/table_design/indexes/inverted_index/) is still experimental. |
 
@@ -505,7 +505,7 @@ Special thanks to [Eric](https://www.linkedin.com/in/ericsun/) and [Anton](https
 
 *Delivering Faster Analytics at Pinterest*. Pinterest Engineering Blog.
 
-[Link](https://medium.com/pinterest-engineering/delivering-faster-analytics-at-pinterest-a639cdfad374) â Describes Pinterest’s migration from Druid to StarRocks for their
+[Link](https://medium.com/pinterest-engineering/delivering-faster-analytics-at-pinterest-a639cdfad374) — Describes Pinterest’s migration from Druid to StarRocks for their
 
 Partner Insights platform, achieving 50% p90 latency reduction at
 
@@ -518,7 +518,7 @@ product with StarRocks: Real-time and historical performance analysis*.
 
 Grab Tech Blog.
 
-[Link](https://engineering.grab.com/building-a-spark-observability) â Describes Grab’s “Iris” Spark observability platform redesign, migrating
+[Link](https://engineering.grab.com/building-a-spark-observability) — Describes Grab’s “Iris” Spark observability platform redesign, migrating
 
 from a TIG stack (Telegraf/InfluxDB/Grafana) to a StarRocks-centered
 
@@ -527,9 +527,9 @@ architecture to unify real-time + historical analysis and simplify
 ingestion/visualization.
 3. Shekhawat, V., & Andrews, M. (n.d.). *From BigQuery to Lakehouse: How
 
-We Built a Petabyte-Scale Data Analytics Platform â Part 1*. TRM Blog.
+We Built a Petabyte-Scale Data Analytics Platform – Part 1*. TRM Blog.
 
-[Link](https://www.trmlabs.com/resources/blog/from-bigquery-to-lakehouse-how-we-built-a-petabyte-scale-data-analytics-platform-part-1) â Explains TRM Labs’ move from BigQuery + distributed Postgres toward a
+[Link](https://www.trmlabs.com/resources/blog/from-bigquery-to-lakehouse-how-we-built-a-petabyte-scale-data-analytics-platform-part-1) — Explains TRM Labs’ move from BigQuery + distributed Postgres toward a
 
 lakehouse architecture, selecting Apache Iceberg for table format and
 
@@ -540,12 +540,12 @@ user-facing analytics.
 
 (Zhihu).
 
-[Link](https://zhuanlan.zhihu.com/p/1888656940533526592) â Event recap for a StarRocks community meetup hosted at Shopee’s
+[Link](https://zhuanlan.zhihu.com/p/1888656940533526592) — Event recap for a StarRocks community meetup hosted at Shopee’s
 
 Singapore office, describing talks and themes around customer-facing
 
 analytics use cases.
-5. Shen, S., & Sun, E. (2024, June). *Data Warehouse Performance on the Data Lakehouse* [Lightning Talk]. Data+AI Summit 2024, Databricks. [Link](https://www.youtube.com/watch?v=UTRcEqcTx4g) â A joint talk by CelerData and Coinbase presenting how StarRocks delivers data warehouse-level query performance directly on the data lakehouse.
+5. Shen, S., & Sun, E. (2024, June). *Data Warehouse Performance on the Data Lakehouse* [Lightning Talk]. Data+AI Summit 2024, Databricks. [Link](https://www.youtube.com/watch?v=UTRcEqcTx4g) — A joint talk by CelerData and Coinbase presenting how StarRocks delivers data warehouse-level query performance directly on the data lakehouse.
 
 
 ---

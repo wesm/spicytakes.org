@@ -61,7 +61,7 @@ The foundation was laid. But nobody called it “data engineering” yet.
 ### 1980s-1990s: The Warehouse Era
 
 
-[Bill Inmon](https://ssp.sh/brain/bill-inmon/) formalized data warehousing principles in the 1980s. Many call him the father of data warehousing. Then in 1996, Ralph Kimball published “[The Data Warehouse Toolkit](https://ssp.sh/brain/the-data-warehouse-toolkit-ralph-kimball/)” and gifted us with [dimensional modeling](https://ssp.sh/brain/dimensional-modeling/)âstar schemas, fact tables, slowly changing dimensions.
+[Bill Inmon](https://ssp.sh/brain/bill-inmon/) formalized data warehousing principles in the 1980s. Many call him the father of data warehousing. Then in 1996, Ralph Kimball published “[The Data Warehouse Toolkit](https://ssp.sh/brain/the-data-warehouse-toolkit-ralph-kimball/)” and gifted us with [dimensional modeling](https://ssp.sh/brain/dimensional-modeling/)—star schemas, fact tables, slowly changing dimensions.
 
 
 These concepts? They’re still relevant today.
@@ -76,7 +76,7 @@ The dot-com bubble burst. Tech titans were born such as Google, Amazon, Yahoo, h
 So Google released two [groundbreaking papers](https://ssp.sh/brain/data-engineering-whitepapers/): the Google File System in 2003, MapReduce in 2004. Yahoo responded with Hadoop in 2006. Hardware prices plummeted.
 
 
-Suddenly, we weren’t just BI engineers anymore. We were “**Big Data Engineers**”. We had to know traditional relational databases AND the new open-source filesystems. The skillset kept expandingâfrom data modeling to software development to mastering Hive and Spark, all coordinated with R and Python.
+Suddenly, we weren’t just BI engineers anymore. We were “**Big Data Engineers**”. We had to know traditional relational databases AND the new open-source filesystems. The skillset kept expanding—from data modeling to software development to mastering Hive and Spark, all coordinated with R and Python.
 
 
 The term “big” was everywhere. But how big is “big”? Nobody really knew. We just knew the old ways weren’t working anymore. And Facebook and co showed us the way.
@@ -95,7 +95,7 @@ Redshift. Snowflake. And then the open-source wave hit:
 - dbt for transformation (2016)
 
 
-And in 2017, Maxime Beaucheminâafter creating both Airflow and Supersetâpublished “[The Rise of the Data Engineer](https://medium.com/free-code-camp/the-rise-of-the-data-engineer-91be18f1e603)”. He defined, for the first time, what data engineering actually meant. He explained the shift from business intelligence to data engineering.
+And in 2017, Maxime Beauchemin—after creating both Airflow and Superset—published “[The Rise of the Data Engineer](https://medium.com/free-code-camp/the-rise-of-the-data-engineer-91be18f1e603)”. He defined, for the first time, what data engineering actually meant. He explained the shift from business intelligence to data engineering.
 
 
 I remember releasing my first viral article in March 2018: “[Data Engineering, the future of Data Warehousing?](https://www.ssp.sh/blog/data-engineering-the-future-of-data-warehousing/)” It got 200 likes. Back then, that was a lot ð.
@@ -166,7 +166,7 @@ Here’s what I’ve learned after 20+ years.
 ### The Excel File That Saved Me
 
 
-I was in a coffee meeting with a finance analystâcall her Maria. Fifteen years at the company. She opened her laptop and showed me an Excel file (sometimes it was Microsoft Access DB with a custom UI!).
+I was in a coffee meeting with a finance analyst—call her Maria. Fifteen years at the company. She opened her laptop and showed me an Excel file (sometimes it was Microsoft Access DB with a custom UI!).
 
 
 Forty-seven tabs. Formulas referencing other files on a shared drive. VBA macros from 2012. VLOOKUP nested inside SUMIF.
@@ -223,7 +223,7 @@ Fix the people process first, then update the code.
 ## The Lost Art of Data Modeling
 
 
-Max Beauchemin once [said](https://www.heavybit.com/library/podcasts/data-renegades/ep-3-building-tools-that-shape-data-with-maxime-beauchemin) in an interview: “I like the analysis side. I think I’m a good data modeler. It’s kind of a lost art,Â so I still do a lot of our data pipelines”.
+Max Beauchemin once [said](https://www.heavybit.com/library/podcasts/data-renegades/ep-3-building-tools-that-shape-data-with-maxime-beauchemin) in an interview: “I like the analysis side. I think I’m a good data modeler. It’s kind of a lost art, so I still do a lot of our data pipelines”.
 
 
 He’s right.
@@ -339,7 +339,7 @@ And you’ll only get faster by talking to the people who use it.
 **5. Presentation matters more than you think.**
 
 
-No matter how fancy your pipeline, how elegant your code, how profound your insightsâif the presentation isn’t right or the data quality is terrible, no one cares.
+No matter how fancy your pipeline, how elegant your code, how profound your insights—if the presentation isn’t right or the data quality is terrible, no one cares.
 
 
 Throughout my career, presenting data understandably has been as important as building the pipeline. That’s why these days, I focus on the [storyline and craft](https://craft.ssp.sh/) extensively.
@@ -414,14 +414,14 @@ Because 50 years from now, when we’re using tools we can’t even imagine toda
 The loop continues. The problems remain. Only the tools change.
 
 
-And that’s okay. Isn’t that somehow beautiful? Because beneath all the hype, all the new frameworks, all the promises of “this time it’s different”âthere’s you, the data engineer ð. Understanding the data. Knowing the business. Building the foundation.
+And that’s okay. Isn’t that somehow beautiful? Because beneath all the hype, all the new frameworks, all the promises of “this time it’s different”—there’s you, the data engineer ð. Understanding the data. Knowing the business. Building the foundation.
 
 
 That’s *[Data Engineering](https://ssp.sh/brain/data-engineering/)*.
 
 Inspiration
 
-*This piece was inspired by the confessional storytelling style of [Diary of a CEO](https://www.youtube.com/@TheDiaryOfACEO). If you enjoyed this format applied to data engineering, let me knowâI’d love to hear your own stories from the field.*
+*This piece was inspired by the confessional storytelling style of [Diary of a CEO](https://www.youtube.com/@TheDiaryOfACEO). If you enjoyed this format applied to data engineering, let me know—I’d love to hear your own stories from the field.*
 
 
 ---

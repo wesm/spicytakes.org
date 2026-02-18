@@ -24,13 +24,13 @@ On the flip side, closed-source platforms offer unified experiences but trap you
 **What if we could have the best of both worlds?**
 
 
-Enter declarative data stacks â open-source solutions that seamlessly integrate powerful orchestration tools like Airflow and Dagster while covering your entire data lifecycle. These are complete data platforms with “batteries included” where configuration replaces coding, dramatically reducing complexity while implementing best practices by default.
+Enter declarative data stacks – open-source solutions that seamlessly integrate powerful orchestration tools like Airflow and Dagster while covering your entire data lifecycle. These are complete data platforms with “batteries included” where configuration replaces coding, dramatically reducing complexity while implementing best practices by default.
 
 
 In this article, we’ll explore how declarative data stacks manage enterprise data complexity. You’ll discover how Starlake, an open-source declarative data stack, enables data transformations through simple configurations, helping teams deliver production-ready platforms in days instead of months while automatically maintaining governance and lineage.
 
 
-At its core, Starlake serves as your **data warehouse orchestrator** â a unified control center that manages your entire data ecosystem through a single, coherent lineage. Not just a tool, but an **end-to-end OSS data platform** that makes “configure, don’t code” a practical reality for enterprise teams.
+At its core, Starlake serves as your **data warehouse orchestrator** – a unified control center that manages your entire data ecosystem through a single, coherent lineage. Not just a tool, but an **end-to-end OSS data platform** that makes “configure, don’t code” a practical reality for enterprise teams.
 
 
 ## What Is a Declarative Data Stack?
@@ -219,7 +219,7 @@ Starlake is especially strong with large enterprises, which shows with the curre
 Starlake spans across **multiple verticals** within the data landscape and isn’t limited to one aspect of data engineering. Just as YAML has become the universal configuration language for various domains, declarative data stacks integrate several critical verticals of the data engineering ecosystem under a unified configuration approach.
 
 - **Orchestration**: Rather than writing complex DAG code, workflows are defined in YAML and automatically translated to Airflow or Dagster execution plans. This abstracts away the complexity of pipeline scheduling and dependency management.
-- **Transformation**: SQL is already declarative by nature, but Starlake enhances it with automated optimizations and transpilation across different warehouse dialectsâwrite once, run anywhere.
+- **Transformation**: SQL is already declarative by nature, but Starlake enhances it with automated optimizations and transpilation across different warehouse dialects—write once, run anywhere.
 - **Infrastructure**: Similar to how Terraform revolutionized infrastructure management, Starlake applies declarative principles to data infrastructure, enabling version-controlled data assets.
 - **API Integration**: Much like OpenAPI Specification uses YAML to define REST APIs, Starlake allows declarative configuration of data sources and destinations.
 - **Governance**: Data quality rules, schema validation, and access controls are all defined declaratively rather than scattered across multiple codebases.

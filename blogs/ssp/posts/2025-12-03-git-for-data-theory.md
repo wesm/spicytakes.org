@@ -28,7 +28,7 @@ There will be a part 2, where we look into the tools and implementations availab
 ## Why Git for Data?
 
 
-Besides the above two use casesârunning prod data in dev or reverting production data if a pipeline accidentally deleted or changed something incorrectlyâthe main goal of Git for data is giving the data engineer peace of mind during production runs.
+Besides the above two use cases—running prod data in dev or reverting production data if a pipeline accidentally deleted or changed something incorrectly—the main goal of Git for data is giving the data engineer peace of mind during production runs.
 
 
 ### The Problem We Have
@@ -153,7 +153,7 @@ The LakeFS solution (more on how it works later down) and its implemented Git-li
 [Tigris’s new Fork](https://www.tigrisdata.com/blog/fork-buckets-like-code/) capabilities solve some of these challenges with *fractal snapshots*:
 
 
-> You can instantly create an **isolated copy of your data** for development, testing, or experimentation. Have a **massive production dataset** you want to play with? You **don't need to wait for a full copy**. Just fork your source bucket, experiment freely, throw it away, and spin up a new one â instantly.
+> You can instantly create an **isolated copy of your data** for development, testing, or experimentation. Have a **massive production dataset** you want to play with? You **don't need to wait for a full copy**. Just fork your source bucket, experiment freely, throw it away, and spin up a new one — instantly.
 > Their timelines diverge from the source bucket at the moment of the fork. It's the many-worlds version of object storage.
 
 
@@ -201,7 +201,7 @@ Before we get into the architectural decisions and the tools, let’s *observe t
 **The most efficient approach uses metadata/catalog-based versioning**. Catalog pointers that just point to the same files multiple times (lakeFS and Iceberg are using this) create multiple logical versions of datasets without any physical duplication. No data movement involved.
 
 
-**The next best approach is zero-copy or data virtualization technologies**. Tools like Apache Arrow enable data sharing between processes and systems without serialization overhead. You avoid the costly conversion between formatsâno deserializing from source format to an intermediate representation and back again.
+**The next best approach is zero-copy or data virtualization technologies**. Tools like Apache Arrow enable data sharing between processes and systems without serialization overhead. You avoid the costly conversion between formats—no deserializing from source format to an intermediate representation and back again.
 
 
 **When changes occur, delta-based approaches are the best way**. Rather than copying the entire dataset, you only store what has changed in new files. If you need to roll back, you simply revert the pointer to the previous file and state while keeping the changed files. This requires data management to manage changes.

@@ -114,7 +114,7 @@ But now to the project. I have built a GitHub repo that you can clone, and after
 This is the first part of the project. The next part will be how to set up in the cloud to share with others.
 
 
-This solution is **composable**âdlt can ingest multi-cloud data and Rill can add any sources. The reports show a **single pane of glass** across multiple cost sources. See the dashboard examples below.
+This solution is **composable**—dlt can ingest multi-cloud data and Rill can add any sources. The reports show a **single pane of glass** across multiple cost sources. See the dashboard examples below.
 
 
 *This is a quick showcase of how the project works and what you’ll get from the reports. You’ll find the screenshots and detailed integration with setting up everything below | [Link](https://youtu.be/H9YjhdVNOOI)*
@@ -201,7 +201,7 @@ The key components are:
 - **dlt (Data Load Tool)**: Python-based data integration framework that handles incremental loading from AWS S3, GCP BigQuery, and Stripe API.
 - **DuckDB**: Embedded analytics query engine that queries **Parquet** files directly without requiring a separate database server (*Note*: I used Parquet as in the next step I want to ingest it directly to ClickHouse automatically)
 - **Rill Developer**: Fast, opinionated BI tool that generates interactive dashboards from SQL models
-- **Makefile**: Orchestrates the entire workflowâfrom data extraction to dashboard generation
+- **Makefile**: Orchestrates the entire workflow—from data extraction to dashboard generation
 - **Python & uv**: Modern Python package management with uv for fast dependency installation
 
 
@@ -229,7 +229,7 @@ The project and its data pipeline do the following steps:
 ## Setting Up Cost Exports: Initial Configurations
 
 
-For each providerâwe use AWS and GCP in this repositoryâyou need to manually go into the web portal and create a report that exports to either S3 or BigQuery.
+For each provider—we use AWS and GCP in this repository—you need to manually go into the web portal and create a report that exports to either S3 or BigQuery.
 
 
 Below is the step-by-step explanation on how to do that.
@@ -267,7 +267,7 @@ For the one-time manual setup, go to your AWS console and follow these steps to 
 
 **Data Export Delivery Options:**
 
-- **File format**: Select **Parquet** (required for this projectâmuch more efficient than CSV)
+- **File format**: Select **Parquet** (required for this project—much more efficient than CSV)
 - **File versioning**: Choose **Overwrite existing data export file**
 
 
@@ -293,7 +293,7 @@ For the one-time manual setup, go to your AWS console and follow these steps to 
 
 **Verify Your Export:**
 
-You can check your existing reports in the Cost Explorer to see if data is flowing. The Cost Explorer (shown in the third screenshot) provides a quick sanity checkâif you see costs appearing there, your CUR export should be working.
+You can check your existing reports in the Cost Explorer to see if data is flowing. The Cost Explorer (shown in the third screenshot) provides a quick sanity check—if you see costs appearing there, your CUR export should be working.
 
 
 ![/blog/cost-analyzer-aws-gcp/cost_preview_4.webp](https://www.ssp.sh/blog/cost-analyzer-aws-gcp/cost_preview_4.webp)
@@ -411,7 +411,7 @@ What makes this project worthwhile is the end result: **a clear overview of your
 It’s not perfect obviously, and there’s room to improve (as always in DE work). But with the great pre-work of aws-cur-wizard reports and my extension, you can spin up a cost overview instantly after the initial hurdle of setting up the cost exports for each provider. The result with daily updates gives you visibility you didn’t have before.
 
 
-If you want to dive deeper, check out the [FOCUS Specification](https://focus.finops.org/focus-specification/)âa FinOps Open Cost and Usage Specification that establishes common taxonomy, terminology, and metrics for cloud billing datasets from Cloud Service Providers (CSPs).
+If you want to dive deeper, check out the [FOCUS Specification](https://focus.finops.org/focus-specification/)—a FinOps Open Cost and Usage Specification that establishes common taxonomy, terminology, and metrics for cloud billing datasets from Cloud Service Providers (CSPs).
 
 
 This project gives you a simple, running dashboard that shows whether the cloud bills are eating all the revenue in a single command, locally. Clone the code on GitHub, configure your secrets, run `make run-all` , and off you go with **actual multi-cloud costs**.
@@ -465,7 +465,7 @@ You can check the initial prompt, the outcome summary by Claude, and the final c
 - Commit: [2-claude code prompt generation](https://github.com/ssp-data/cloud-cost-analyzer/commit/1553989362a3f6c26b07d178662308df1250c897)
 
 
-There are more [prompts](https://github.com/ssp-data/cloud-cost-analyzer/tree/main/_prompts) and results in this repo that you can check out. This doesn’t even use any MCP or similar, because everything is local and code-first with a **[declarative data stack](https://www.rilldata.com/blog/the-rise-of-the-declarative-data-stack)**âall configuration, all definition, all code, everything is in this single repo, even the data since it’s just Parquet files. If you want, you can vibe code new data sources into the project.
+There are more [prompts](https://github.com/ssp-data/cloud-cost-analyzer/tree/main/_prompts) and results in this repo that you can check out. This doesn’t even use any MCP or similar, because everything is local and code-first with a **[declarative data stack](https://www.rilldata.com/blog/the-rise-of-the-declarative-data-stack)**—all configuration, all definition, all code, everything is in this single repo, even the data since it’s just Parquet files. If you want, you can vibe code new data sources into the project.
 
 
 ---

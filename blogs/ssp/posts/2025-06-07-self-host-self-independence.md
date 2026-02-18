@@ -31,7 +31,7 @@ As someone who has hosted my own stuff for quite a while, and has been adding mo
 I self-host [my blog](https://www.ssp.sh), [my second brain](https://www.ssp.sh/brain), [my book](https://dedp.online), [my subscriber list](https://subscribe.ssp.sh) (with [Listmonk](https://ssp.sh/brain/listmonk/)), implemented my own paywall with [Memberstack](https://www.memberstack.com/), and have had my own website and blog for almost all my life (started my own domain, built WordPress, [moved](https://www.ssp.sh/blog/why-i-moved-away-from-wordpress/) to [GoHugo](https://ssp.sh/brain/gohugo/)).
 
 
-Lately, I also went into Homelab and built my own Home Server with SSH, backup, photos, Gitea, etc. Setting up my own configuration for Reverse Proxy and SSL Certificates for my Homeserver, creating SSL certificates, setting up SSH keys to SSH into without a loginâall great things you learn along the way.
+Lately, I also went into Homelab and built my own Home Server with SSH, backup, photos, Gitea, etc. Setting up my own configuration for Reverse Proxy and SSL Certificates for my Homeserver, creating SSL certificates, setting up SSH keys to SSH into without a login—all great things you learn along the way.
 
 
 Initially everything seems hard, but once you know how, it’s kind of obvious and less hard. It’s also, as ThePrimeagen [says](https://www.youtube.com/watch?v=KqPmH0Qsfns), that there is always a big part of **ignorance** where one tells themselves, “Oh that can’t be that hard”. But then you realize it’s much harder than you thought. But once you overcome the first hurdles, it’s really rewarding, and once working, it just works!

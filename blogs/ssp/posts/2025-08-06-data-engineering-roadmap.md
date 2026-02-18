@@ -44,7 +44,7 @@ You can learn the foundational skills in many ways: there are bootcamps, courses
 ### SQL Foundations
 
 
-Probably the most important skill of any data engineer, at any level, whether they are closer to the business or more technical, is SQLâthe language of data. You can descriptively explain what you want from your data much more precisely than natural language through LLM workflows. That’s why it will always be a core skill. For example, in the English language, you won’t specify the partitions or the exact date range (including or excluding the current month). There are many questions that you need to define in your WHERE statement or in the SELECT, which you would miss otherwise.
+Probably the most important skill of any data engineer, at any level, whether they are closer to the business or more technical, is SQL—the language of data. You can descriptively explain what you want from your data much more precisely than natural language through LLM workflows. That’s why it will always be a core skill. For example, in the English language, you won’t specify the partitions or the exact date range (including or excluding the current month). There are many questions that you need to define in your WHERE statement or in the SELECT, which you would miss otherwise.
 
 
 To get started with SQL until you master it, you can follow this roadmap below:
@@ -183,7 +183,7 @@ Implementing robust data quality frameworks and testing strategies is crucial fo
 - Great Expectations and other [data quality frameworks](https://www.startdataengineering.com/post/implement_data_quality_with_great_expectations/).
 - [Unit testing for data pipelines](https://docs.dagster.io/guides/test/unit-testing-assets-and-ops): How to test your data and pipelines in an automated fashion.
 - [Data lineage and governance](https://www.montecarlodata.com/blog-data-lineage/): How to get the lineage of your data flow.
-- [A Beginnerâs Guide for Observability](https://sixthsense.rakuten.com/blog/Demystifying-Data-Observability-A-Beginners-Guide-for-2025). Be sure to learn about [Data Contracts](https://atlan.com/data-contracts/), a concept for defining data interfaces between data and business teams.
+- [A Beginner’s Guide for Observability](https://sixthsense.rakuten.com/blog/Demystifying-Data-Observability-A-Beginners-Guide-for-2025). Be sure to learn about [Data Contracts](https://atlan.com/data-contracts/), a concept for defining data interfaces between data and business teams.
 - [Metadata Management](https://www.informatica.com/resources/articles/what-is-metadata-management.html): Data discovery with data catalogs, ratings of datasets to know which ones are actively used and of good quality. Check also the [Schema registry management](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html) to handle metadata.
 
 
@@ -244,7 +244,7 @@ All of it will help you **build your portfolio** and land your dream data engine
 Throughout the entire process, it’s beneficial to build your online portfolio, where you showcase your data engineering learnings, Git projects, website, and links to hackathons you participated in, among other things that demonstrate your motivation. Above all, sharing is also fun; people will reach out to you after reading your content, especially if they learn from it too.
 
 
-Remember to take your time learning new concepts. If you give yourself time to digest, you learn more easily, you’ll be able to recall specific terms better, and it’s easier to connect the knowledgeâthis is how our brains learn.
+Remember to take your time learning new concepts. If you give yourself time to digest, you learn more easily, you’ll be able to recall specific terms better, and it’s easier to connect the knowledge—this is how our brains learn.
 
 
 Consistency is key. Dedicate 1-2 hours daily for a couple of weeks, and you’ll be amazed at what compounding and consistent learning can achieve.

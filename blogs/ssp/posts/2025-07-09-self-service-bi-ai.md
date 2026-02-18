@@ -15,7 +15,7 @@ This article was written as part of
 Two decades ago, we talked about self-serve business intelligence when we could filter dashboards compared to pixel-perfect reports. Today, twenty years later, does conversational BI through MCP and semantic context finally deliver on the true promise of self-serve by allowing us to prompt our way through data analysis?
 
 
-With the right setup, **conversations can generate BI artifacts**. When we chat with a large language model about data, the output is typically narrowâa single number, a specific interpretation tied to one problem. But what if we could transform these focused conversations into comprehensive insights that executives can act on? What if narrow analysis could expand into full organizational views, complete with interactive filters and explorable dimensions?
+With the right setup, **conversations can generate BI artifacts**. When we chat with a large language model about data, the output is typically narrow—a single number, a specific interpretation tied to one problem. But what if we could transform these focused conversations into comprehensive insights that executives can act on? What if narrow analysis could expand into full organizational views, complete with interactive filters and explorable dimensions?
 
 
 In Part 1, [BI-as-Code, and the New Era of GenBI](https://www.ssp.sh/blog/bi-as-code-and-genbi), we explored iterating through BI dashboards and models with generative AI. This Part 2 dives deeper into how conversational BI transforms the human workflow and finally solves the self-serve promise that’s persisted for decades. We’ll examine the different conversational styles emerging in BI, the three distinct output types that matter most, and why Model Context Protocol (MCP) represents such a fundamental shift.
@@ -72,10 +72,10 @@ But today, with AI-powered large language models, the workflow can be improved m
 So, what is Model Context Protocol (MCP) anyway? Why is it so powerful?
 
 
-The MCP is a client-server architectureÂ [inspired by the Language Server Protocol (LSP)](https://spec.modelcontextprotocol.io/specification/2024-11-05/), which helps connect any IDE with different programming languages. Instead of VSCode needing to integrate Python language servers and PyCharm, we have one implementation and an LSP for Python that can get integrated by any IDE in a standardized way.
+The MCP is a client-server architecture [inspired by the Language Server Protocol (LSP)](https://spec.modelcontextprotocol.io/specification/2024-11-05/), which helps connect any IDE with different programming languages. Instead of VSCode needing to integrate Python language servers and PyCharm, we have one implementation and an LSP for Python that can get integrated by any IDE in a standardized way.
 
 
-You can consider it aÂ **common definition**, like an API interface,Â that standardizes the interfaces to integrate LLMs. Another example is [LSP (Language Server Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol), which did the same for language integration into editors with a protocol between the AI model and the client.  MCP is the same for **plug-and-play** any AI model to any IDE, whether Claude, Cursor, VS Code, Neovim, we can interact with AI with external systems in a standardized way through the [MCP standard](https://github.com/modelcontextprotocol).
+You can consider it a **common definition**, like an API interface, that standardizes the interfaces to integrate LLMs. Another example is [LSP (Language Server Protocol)](https://en.wikipedia.org/wiki/Language_Server_Protocol), which did the same for language integration into editors with a protocol between the AI model and the client.  MCP is the same for **plug-and-play** any AI model to any IDE, whether Claude, Cursor, VS Code, Neovim, we can interact with AI with external systems in a standardized way through the [MCP standard](https://github.com/modelcontextprotocol).
 
 
 *Example of Rill’s MCP Integration with Claude*
@@ -84,7 +84,7 @@ You can consider it aÂ **common definition**, like an API interface,Â that s
 This integration allows large language models (LLMs) to query, inspect, and interact with various tools like databases, code repositories, and APIs, usually guided by your prompts or through AI Agents.
 
 
-It was originally introduced byÂ AnthropicÂ in 2024, and made [open-source on GitHub](https://github.com/modelcontextprotocol). MCP quickly gained traction among AI-first developer tools and is now the way to integrate any AI model.
+It was originally introduced by Anthropic in 2024, and made [open-source on GitHub](https://github.com/modelcontextprotocol). MCP quickly gained traction among AI-first developer tools and is now the way to integrate any AI model.
 
 
 I won’t go into the details of how it works and what it is; there’s a lot of content out there. Instead, I will explain why it’s powerful for the data ecosystem and BI specifically.
@@ -157,7 +157,7 @@ Let’s look a little deeper at what conversational BI means and what the input 
 As alluded to in earlier chapters, BI offers rich semantic metadata that is simple for AI to understand. Metrics are defined as metrics like `average_tips_measure = AVG(tips)` that hold information unavailable in pure table schemas. Also, it’s much more precise than human language, so there are fewer misunderstandings.
 
 
-BI usually has direct access to the data layer; in the best case, it is a fast analytical database that responds in sub-seconds to queries. Many **data warehouses or data lakes arenât fast enough to support conversation-speed interrogations**.
+BI usually has direct access to the data layer; in the best case, it is a fast analytical database that responds in sub-seconds to queries. Many **data warehouses or data lakes aren’t fast enough to support conversation-speed interrogations**.
 
 
 A lot of conversational BI and generative AI is “**retrieval and rendering**”. In the next two chapters, we will have a closer look at what that means in terms of conversational style, the inputs and outputs of such systems, and how to render it to benefit the BI user.
@@ -191,24 +191,24 @@ Conversational BI involves prompt inputs that provide **three forms of output** 
 
 | Output Type | Purpose | Key Characteristics | Examples |
 | **Retrieval - Numerical Data** 
-(metrics via MCP) | **Objective**: Provide factual data that cannot be hallucinated | â¢ Must come from MCP-generated queries
-â¢ Act like vector stores for AI
-â¢ Must be fast for real-time interaction
-â¢ RAG-like retrieval for metrics | “Revenue for last 7 days”
+(metrics via MCP) | **Objective**: Provide factual data that cannot be hallucinated | • Must come from MCP-generated queries
+• Act like vector stores for AI
+• Must be fast for real-time interaction
+• RAG-like retrieval for metrics | “Revenue for last 7 days”
 Raw conversion rates
 Sales figures |
 | **Generation - Text** 
-(interpretations via data + world model) | **Subjective**: AI-powered insights and analysis | â¢ Where AI brings its power
-â¢ Combines retrieved data with world knowledge
-â¢ Interprets numerical data with context
-â¢ Can be included in AI-generated reports | “What is campaign performance?"
+(interpretations via data + world model) | **Subjective**: AI-powered insights and analysis | • Where AI brings its power
+• Combines retrieved data with world knowledge
+• Interprets numerical data with context
+• Can be included in AI-generated reports | “What is campaign performance?"
 “Conversion rate below 1% is low compared to benchmarks”
 Strategic recommendations |
 | **Generation - Visuals** 
-(charts and tables as BI-as-code) | **Visual**: Human interpretation and exploration | â¢ Only for human consumption
-â¢ LLMs/MCP should not use directly
-â¢ Serve as “leaping off” point for exploration
-â¢ Convert narrow analysis to broad views | Time-series profit trends
+(charts and tables as BI-as-code) | **Visual**: Human interpretation and exploration | • Only for human consumption
+• LLMs/MCP should not use directly
+• Serve as “leaping off” point for exploration
+• Convert narrow analysis to broad views | Time-series profit trends
 Top-selling products table
 Airport performance dashboards |
 

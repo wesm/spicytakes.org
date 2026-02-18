@@ -1,16 +1,16 @@
 ---
-title: "Todayâs Office â The Location Independent Lifestyle"
+title: "Today’s Office – The Location Independent Lifestyle"
 date: 2018-06-18
 url: https://www.ssp.sh/blog/the-location-independent-lifestyle/
 slug: the-location-independent-lifestyle
 word_count: 1107
 ---
 
-![Todayâs Office â The Location Independent Lifestyle](https://www.ssp.sh/blog/the-location-independent-lifestyle/img/sspaeti_com_south_east_asia_journey_001_.jpg)
+![Today’s Office – The Location Independent Lifestyle](https://www.ssp.sh/blog/the-location-independent-lifestyle/img/sspaeti_com_south_east_asia_journey_001_.jpg)
 
 Contents
 
-Today’s Office is something I started doing while I was working on the road and working remotely. Whenever suited I took a picture from my Â«OfficeÂ». Thus I’m sharing my best pictures over my latest few months, also because the independent-work-lifestyle resembles the way of working from many of us these days. If you want to go directly to the images, [click here](https://www.ssp.sh/blog/the-location-independent-lifestyle#my-entrepreneurial-journey).
+Today’s Office is something I started doing while I was working on the road and working remotely. Whenever suited I took a picture from my «Office». Thus I’m sharing my best pictures over my latest few months, also because the independent-work-lifestyle resembles the way of working from many of us these days. If you want to go directly to the images, [click here](https://www.ssp.sh/blog/the-location-independent-lifestyle#my-entrepreneurial-journey).
 
 
 ## What is location independent lifestyle?
@@ -47,7 +47,7 @@ A little bit about my journey to put the Today’s Office pictures in perspectiv
 More specific in Copenhagen, two and a half years ago, I put myself in a foreign country. I didn’t speak the language, only been there for a couple of days before and didn’t know the company I would work for. That was the first step for me to get out of my comfort zone and force myself to learn a bunch of new things. Without going into too many details, the goals were to comprehend how I will function in an entirely new environment, improve my English (learn a little of the local language), improve my work-life-balance and find new friends and meeting amazing people from all over the world.
 
 
-ThisÂ is still a 9-5 job in a new environment without the independent as I was still bond to a specific place. This some picture I took when I worked location-dependent:
+This is still a 9-5 job in a new environment without the independent as I was still bond to a specific place. This some picture I took when I worked location-dependent:
 
 
 However, already there I travel for the company as it was a global company where I started to get the feeling being on the road. As I liked it more and more, I searched for ways to add the independent to my location lifestyle.
@@ -56,7 +56,7 @@ However, already there I travel for the company as it was a global company where
 ### Bali-Spirit and Asian culture
 
 
-Therefore I decided to go one month to Bali with [Project Getaway](http://www.projectgetaway.com/)Â where I was around [like-minded entrepreneurial people](https://youtu.be/F9q2hwywcRs). I started developing, brainstorm, discuss, argue my own [ideas](http://www.projectgetaway.com/else-coming-bali-year-simon/) with all the awesome people around me. Also failed miserably with my first ideas and came to a conclusion these ideas or products where not yet to be done and worked on other ideas and ways to grow personally and try to find the right product for me.
+Therefore I decided to go one month to Bali with [Project Getaway](http://www.projectgetaway.com/) where I was around [like-minded entrepreneurial people](https://youtu.be/F9q2hwywcRs). I started developing, brainstorm, discuss, argue my own [ideas](http://www.projectgetaway.com/else-coming-bali-year-simon/) with all the awesome people around me. Also failed miserably with my first ideas and came to a conclusion these ideas or products where not yet to be done and worked on other ideas and ways to grow personally and try to find the right product for me.
 
 
 After that one month of excellent experience with the Bali-spirit, I wanted more and travelled to more unusual places in South East Asia. First stop was Singapore with its Asian hub for big businesses. After that, I continued to places like Hanoi in Vietnam, the Palawan Island in the Philippines which were called the best island in the world and finishing off in Bangkok Thailand. The Today’s Office pictures on the road you will see here:
@@ -104,13 +104,13 @@ Last but not least, be happy, with a smile.
 If you need to study or work on projects, or just want to get stuff done, I recommend the book from [Deep Work](https://amzn.to/2tc9Inq) by Cal Newport, which explains how to get focused and get most out of your time. (Deep Work = Professional activities performed in a state of distraction-free concentration that pushes your cognitive capabilities to their limit.)
 
 
-Or the one and only book that many of us out there got started, the [4-Hour Work Week](https://amzn.to/2yifvhb)Â by my favourite author [Tim Ferriss](https://tim.blog/).
+Or the one and only book that many of us out there got started, the [4-Hour Work Week](https://amzn.to/2yifvhb) by my favourite author [Tim Ferriss](https://tim.blog/).
 
 
 ### Productivity tips with gears and tools on the road
 
 
-Almost life-changing is the headphones fromÂ [Bose active-noise-cancelling](https://www.ssp.sh/blog/tools-i-use-part-iii#the-perfect-headphones)Â andÂ [Music that keeps you focused](https://www.ssp.sh/blog/tools-i-use-part-iii#music-focused)Â or other productivity tools described in great details inÂ *Tools I use* [part I](https://www.ssp.sh/blog/tools-i-use/), [part II](https://www.ssp.sh/blog/tools-i-use-onenote-part-ii/) or [part III](https://www.ssp.sh/blog/tools-i-use-part-iii/).
+Almost life-changing is the headphones from [Bose active-noise-cancelling](https://www.ssp.sh/blog/tools-i-use-part-iii#the-perfect-headphones) and [Music that keeps you focused](https://www.ssp.sh/blog/tools-i-use-part-iii#music-focused) or other productivity tools described in great details in *Tools I use* [part I](https://www.ssp.sh/blog/tools-i-use/), [part II](https://www.ssp.sh/blog/tools-i-use-onenote-part-ii/) or [part III](https://www.ssp.sh/blog/tools-i-use-part-iii/).
 
 [Discuss on Bluesky](https://bsky.app/search?q=domain%3A%20https://www.ssp.sh/blog/the-location-independent-lifestyle/)
 |

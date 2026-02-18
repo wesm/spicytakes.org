@@ -10,10 +10,10 @@ word_count: 632
 
 Contents
 
-The 5 top most searched Data Warehouse Automation tools on the market compared with [GoogleTrends](https://en.wikipedia.org/wiki/Google_Trends) is telling you that WhereScape is first before TimeXtender and BiReady (new Attunity Compose) over the last year. See the picture in [full size](https://www.ssp.sh/blog/what-dwa-tools-are-on-the-market/images/DataWarehouseAutomationTools_Compare_GoogleTrend.png)Â or go [directly to GoogleTrend comparison](https://trends.google.com/trends/explore?q=WhereScape,TimeXtender,BiReady,biGENiUS,BimlFlex) and change to your own needs.
+The 5 top most searched Data Warehouse Automation tools on the market compared with [GoogleTrends](https://en.wikipedia.org/wiki/Google_Trends) is telling you that WhereScape is first before TimeXtender and BiReady (new Attunity Compose) over the last year. See the picture in [full size](https://www.ssp.sh/blog/what-dwa-tools-are-on-the-market/images/DataWarehouseAutomationTools_Compare_GoogleTrend.png) or go [directly to GoogleTrend comparison](https://trends.google.com/trends/explore?q=WhereScape,TimeXtender,BiReady,biGENiUS,BimlFlex) and change to your own needs.
 
 
-Although the analysis is not representative, it still gives some insights and a good overview to size and presumably usage compared to each other, worldwide. Please consider that WhereScape and TimeXtender have more search results as the company name is the same as theirÂ product, meaning some of them are dedicated to the company name rather the Data Warehouse Automation (DWA) tool itself. And BimlFlex just published their first release and biGENiUS is rather new to market their product actively, they will probably increase slightly in the soon future.
+Although the analysis is not representative, it still gives some insights and a good overview to size and presumably usage compared to each other, worldwide. Please consider that WhereScape and TimeXtender have more search results as the company name is the same as their product, meaning some of them are dedicated to the company name rather the Data Warehouse Automation (DWA) tool itself. And BimlFlex just published their first release and biGENiUS is rather new to market their product actively, they will probably increase slightly in the soon future.
 
 
 ## Data Warehouse Automation Tools on the market
@@ -30,7 +30,7 @@ As you can imagine, there are plenty of tools on the market. From open-source, t
 - Contra
 
 
-### Â Data-driven approach
+###  Data-driven approach
 
 - You quickly generate a model with the data which is available
 - Developer approach as the way to communicate to the business by showing already the end results with a BI tool or MS Excel
@@ -74,13 +74,13 @@ A data warehouse automation tools survey again by [Hans Michiels](https://www.ha
 - and the conclusion / wrap up
 
 
-Link:Â [The Data Warehouse Automation tools Survey results](https://www.hansmichiels.com/2017/04/05/the-data-warehouse-automation-tools-survey-results-data-warehouse-series/)
+Link: [The Data Warehouse Automation tools Survey results](https://www.hansmichiels.com/2017/04/05/the-data-warehouse-automation-tools-survey-results-data-warehouse-series/)
 
 
 ## Prices
 
 
-One of the only ones whoÂ provide transparent pricing is [BimlFlex](https://varigence.com/BimlFlex). Other vendors are not transparent and hand over prices on request. Below the costs of BimlFlex:
+One of the only ones who provide transparent pricing is [BimlFlex](https://varigence.com/BimlFlex). Other vendors are not transparent and hand over prices on request. Below the costs of BimlFlex:
 
 - Small Business (1 - 100 Employees): Perpetual - $34,995 | Subscription* - $3,795/mo
 - Mid-size Business (101 - 1,000 Employees): Perpetual - $44,995 | Subscription* - $4,795/mo
@@ -91,7 +91,7 @@ One of the only ones whoÂ provide transparent pricing is [BimlFlex](https://va
 More information on their website: [BimlFlex - upfront-pricing](https://varigence.com/BimlFlex#upfront-pricing)
 
 
-Back to theÂ [Data Warehouse Automation (DWA) - Series](https://www.ssp.sh/blog/data-warehouse-automation-dwa/)Â overview.
+Back to the [Data Warehouse Automation (DWA) - Series](https://www.ssp.sh/blog/data-warehouse-automation-dwa/) overview.
 
 [Discuss on Bluesky](https://bsky.app/search?q=domain%3A%20https://www.ssp.sh/blog/what-dwa-tools-are-on-the-market/)
 |

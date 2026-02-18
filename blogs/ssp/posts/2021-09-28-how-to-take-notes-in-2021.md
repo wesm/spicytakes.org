@@ -169,69 +169,69 @@ As I imported my old notes, this is how it looks on my hard drive:
 65
 66
 ` | `âââ 0_ASIEN\ 2017
-âÂ Â  âââ ASIEN\ 2017.md
+â   âââ ASIEN\ 2017.md
 âââ 10_Travel\ route
-âÂ Â  âââ 11_Weather
-âÂ Â  âÂ Â  âââ 12_Bali
-âÂ Â  âÂ Â  âÂ Â  âââ Bali\ .md
-âÂ Â  âÂ Â  âââ 13_Vietnam
-âÂ Â  âÂ Â  âÂ Â  âââ Vietnam.md
-âÂ Â  âÂ Â  âââ 14_Philippines
-âÂ Â  âÂ Â  âÂ Â  âââ Philippines.md
-âÂ Â  âÂ Â  âââ 15_Cambodia
-âÂ Â  âÂ Â  âÂ Â  âââ Cambodia.md
-âÂ Â  âÂ Â  âââ 16_Thailand
-âÂ Â  âÂ Â  âÂ Â  âââ Thailand.md
-âÂ Â  âÂ Â  âââ Weather.md
-âÂ Â  âââ Travel\ route.md
+â   âââ 11_Weather
+â   â   âââ 12_Bali
+â   â   â   âââ Bali\ .md
+â   â   âââ 13_Vietnam
+â   â   â   âââ Vietnam.md
+â   â   âââ 14_Philippines
+â   â   â   âââ Philippines.md
+â   â   âââ 15_Cambodia
+â   â   â   âââ Cambodia.md
+â   â   âââ 16_Thailand
+â   â   â   âââ Thailand.md
+â   â   âââ Weather.md
+â   âââ Travel\ route.md
 âââ 17_Countries
-âÂ Â  âââ 18_Bali
-âÂ Â  âÂ Â  âââ Bali.md
-âÂ Â  âââ 19_Thailand,\ Kambodscha,\ Vietnam
-âÂ Â  âÂ Â  âââ Thailand,\ Kambodscha,\ Vietnam.md
-âÂ Â  âââ 20_Philippines
-âÂ Â  âÂ Â  âââ 21_Flight\ Boracay
-âÂ Â  âÂ Â  âÂ Â  âââ Flight\ Boracay\ .md
-âÂ Â  âÂ Â  âââ 22_Flight\ USU
-âÂ Â  âÂ Â  âÂ Â  âââ Flight\ USU.md
-âÂ Â  âÂ Â  âââ 23_Hotels
-âÂ Â  âÂ Â  âÂ Â  âââ Hotels.md
-âÂ Â  âÂ Â  âââ 24_3\ weeks\ travel
-âÂ Â  âÂ Â  âÂ Â  âââ 3\ weeks\ travel.md
-âÂ Â  âÂ Â  âââ Philippines.md
-âÂ Â  âÂ Â  âââ teavlwdfce.png
-âÂ Â  âÂ Â  âââ unxxuxrghe.png
-âÂ Â  âââ 25_Singapore
-âÂ Â  âÂ Â  âââ Singapore.md
-âÂ Â  âââ Countries.md
+â   âââ 18_Bali
+â   â   âââ Bali.md
+â   âââ 19_Thailand,\ Kambodscha,\ Vietnam
+â   â   âââ Thailand,\ Kambodscha,\ Vietnam.md
+â   âââ 20_Philippines
+â   â   âââ 21_Flight\ Boracay
+â   â   â   âââ Flight\ Boracay\ .md
+â   â   âââ 22_Flight\ USU
+â   â   â   âââ Flight\ USU.md
+â   â   âââ 23_Hotels
+â   â   â   âââ Hotels.md
+â   â   âââ 24_3\ weeks\ travel
+â   â   â   âââ 3\ weeks\ travel.md
+â   â   âââ Philippines.md
+â   â   âââ teavlwdfce.png
+â   â   âââ unxxuxrghe.png
+â   âââ 25_Singapore
+â   â   âââ Singapore.md
+â   âââ Countries.md
 âââ 1_Adresses\ to\ know
-âÂ Â  âââ 2_Bank\ cards\ -\ 5\ tips\ on\ cards\ for\ the\ holidays
-âÂ Â  âÂ Â  âââ Bank\ cards\ -\ 5\ tips\ on\ cards\ for\ the\ holidays.md
-âÂ Â  âââ Adresses\ to\ know.md
-âââ 26_FlÃ¼ge
-âÂ Â  âââ FlÃ¼ge.md
-âÂ Â  âââ caktaxhyna.png
-âÂ Â  âââ gieajqfaaq.png
-âÂ Â  âââ ipbsocrdic.png
-âÂ Â  âââ kgjphfakjw.png
-âÂ Â  âââ mjgsfwwpek.png
-âÂ Â  âââ moxkktrold.png
+â   âââ 2_Bank\ cards\ -\ 5\ tips\ on\ cards\ for\ the\ holidays
+â   â   âââ Bank\ cards\ -\ 5\ tips\ on\ cards\ for\ the\ holidays.md
+â   âââ Adresses\ to\ know.md
+âââ 26_Flüge
+â   âââ Flüge.md
+â   âââ caktaxhyna.png
+â   âââ gieajqfaaq.png
+â   âââ ipbsocrdic.png
+â   âââ kgjphfakjw.png
+â   âââ mjgsfwwpek.png
+â   âââ moxkktrold.png
 âââ 27_Tipps\ friends
-âÂ Â  âââ Tipps\ friends.md
+â   âââ Tipps\ friends.md
 âââ 3_Geld
-âÂ Â  âââ Geld.md
+â   âââ Geld.md
 âââ 4_Todo's
     âââ 5_Packliste
-    âÂ Â  âââ Packliste.md
+    â   âââ Packliste.md
     âââ 6_VISA\ Asia
-    âÂ Â  âââ VISA\ Asia.md
+    â   âââ VISA\ Asia.md
     âââ 7_Travel\ insurance
-    âÂ Â  âââ 8_WorldNomads.com\ Travel\ Insurance\ -\ Coverage
-    âÂ Â  âÂ Â  âââ WorldNomads.com\ Travel\ Insurance\ -\ Coverage.md
-    âÂ Â  âââ 9_Create\ a\ claim
-    âÂ Â  âÂ Â  âââ Create\ a\ claim.md
-    âÂ Â  âââ Travel\ insurance.md
-    âÂ Â  âââ vpzbwoifpl.png
+    â   âââ 8_WorldNomads.com\ Travel\ Insurance\ -\ Coverage
+    â   â   âââ WorldNomads.com\ Travel\ Insurance\ -\ Coverage.md
+    â   âââ 9_Create\ a\ claim
+    â   â   âââ Create\ a\ claim.md
+    â   âââ Travel\ insurance.md
+    â   âââ vpzbwoifpl.png
     âââ Todo's.md
     âââ xekhsabjah.jpeg
 ` |
@@ -258,7 +258,7 @@ In case you are stuck with OneNote as well, I hope these scrips will help you to
 I started with the [Python Script](https://github.com/Danmou/onenote_export) from [Daniel Mouritzen](https://github.com/Danmou) that helped me get started with configuring the Azure API to pull data from it.
 
 
-I added some additional features that were needed for my kind of OneNote structure. For example, the section-groups were not correctly handled, and I also fixed some errors I got along the wayâthe finalised [onenote_export.py](https://gist.github.com/sspaeti/8daab59a80adc664fa8cbcba707ea21d) you can find on GitHub. The top comments of the script contain a more step-by-step explanation of how to do everything in more detail.
+I added some additional features that were needed for my kind of OneNote structure. For example, the section-groups were not correctly handled, and I also fixed some errors I got along the way—the finalised [onenote_export.py](https://gist.github.com/sspaeti/8daab59a80adc664fa8cbcba707ea21d) you can find on GitHub. The top comments of the script contain a more step-by-step explanation of how to do everything in more detail.
 
 
 If you run that script until you export all your notebooks, you end up with lots of folders and an HTML file with your notes. HTML is excellent as it keeps the structure of your notes, e.g. if you added two columns or three, the HTML could rebuild that. But on the other hand, they are read-only, which is quite bad for notes as you might want to change, search, combine them later on.

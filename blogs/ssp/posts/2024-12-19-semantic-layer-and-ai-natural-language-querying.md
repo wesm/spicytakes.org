@@ -15,7 +15,7 @@ This article was written as part of
 Data-driven decision-making is crucial for business success, but organizations face a growing challenge of complexity and data governance. These challenges make it difficult to access data in a unified way.
 
 
-InÂ [Part 1](https://www.ssp.sh/blog/semantic-layer-through-the-lens-of-mvc/), we explored the semantic layer through the lens of MVC, and inÂ [Part 2](https://www.ssp.sh/blog/universal-semantic-layer-capabilities/), we outlined its benefits. In this final piece of the series, we examine the integration of a semantic layer with artificial intelligence and why it might be the best place to start with GenAI. Let’s explore the integration of semantic layers with existing data infrastructure and AI.
+In [Part 1](https://www.ssp.sh/blog/semantic-layer-through-the-lens-of-mvc/), we explored the semantic layer through the lens of MVC, and in [Part 2](https://www.ssp.sh/blog/universal-semantic-layer-capabilities/), we outlined its benefits. In this final piece of the series, we examine the integration of a semantic layer with artificial intelligence and why it might be the best place to start with GenAI. Let’s explore the integration of semantic layers with existing data infrastructure and AI.
 
 
 **[Continue reading the full article at Cube.dev â](https://cube.dev/blog/semantic-layer-and-ai-the-future-of-data-querying-with-natural-language)**

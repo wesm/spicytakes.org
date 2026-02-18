@@ -6,7 +6,7 @@ slug: omakase-data-stack
 word_count: 3863
 ---
 
-![Opinionated Data Platforms vs. Open-Source: The Chefâs Choice for Your Data Platform](https://www.ssp.sh/blog/omakase-data-stack/featured-image.png)
+![Opinionated Data Platforms vs. Open-Source: The Chef’s Choice for Your Data Platform](https://www.ssp.sh/blog/omakase-data-stack/featured-image.png)
 
 Contents
 This article was written as part of
@@ -139,7 +139,7 @@ In summary, choose open source when you have technical expertise and need maximu
 The best closed-source platforms are those **built on open standards**, providing the ability to use your data with other engines or platforms or integrate in different ways. Especially in larger organizations, you usually do not have only a single data solution.
 
 
-## The Foundation of Both Is Â«Open StandardsÂ»
+## The Foundation of Both Is «Open Standards»
 
 
 The link between the two is open standards. With them in place, we can interchange parts of the stack and use both, or migrate from one to the other.

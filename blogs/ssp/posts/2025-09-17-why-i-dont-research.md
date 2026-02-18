@@ -26,7 +26,7 @@ I see my goal as a writer not to recall info, but to make you **think, spark new
 What I do as well: I try the tool and get hands-on. So rather than browsing and reading, I get a *feel* for it.
 
 
-Know that there’s [different types of writers](https://ssp.sh/brain/different-types-of-writers/), but that’s me. I’m a technical author for data engineering and business intelligence. Things I have done in the pastâI can describe a feeling or experience much better than researching something, and recall them as if they were my words.
+Know that there’s [different types of writers](https://ssp.sh/brain/different-types-of-writers/), but that’s me. I’m a technical author for data engineering and business intelligence. Things I have done in the past—I can describe a feeling or experience much better than researching something, and recall them as if they were my words.
 
 
 I am using “research” loosely here. At a high-level I mean that I just don’t read lots of specific stuff (I listen to lots of books, unrelated), and just **writing from experience**.

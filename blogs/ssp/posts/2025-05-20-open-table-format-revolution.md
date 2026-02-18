@@ -227,7 +227,7 @@ By having a table format in place such as Iceberg, you also have a **validated a
 Besides SELECT statements, we can do UPSERTs (update and insert), but also [DDL](https://en.wikipedia.org/wiki/Data_governance) commands like `ALTER, DROP, CREATE`, etc. are possible. We can rename a table or truncate it by simply using SQL statements we’re familiar with.
 
 
-We get **Time Travel** as we have **ACID Transactions** that either succeed or fail for the full transaction. With each successful transaction, we get a new version, and we can query old versions for each tableâtherefore traveling back in time. This is not a backup but can give us peace of mind in case we mess up a UPSERT statement. This is only available for as long as the *retention interval* is set. In Delta, this is set to 7 days by default.
+We get **Time Travel** as we have **ACID Transactions** that either succeed or fail for the full transaction. With each successful transaction, we get a new version, and we can query old versions for each table—therefore traveling back in time. This is not a backup but can give us peace of mind in case we mess up a UPSERT statement. This is only available for as long as the *retention interval* is set. In Delta, this is set to 7 days by default.
 
 
 ### Newest Features: Unity and Cataloging
@@ -299,7 +299,7 @@ Interesting is the newly [announced](https://developers.cloudflare.com/r2/data-c
 With zero egress fees, we can store Iceberg tables on R2 and let others query them for free. Cloudflare has also integrated the Iceberg Catalog, which provides an endpoint for querying to retrieve a list of your tables and the current state of your data lake, using only R2 and no additional requirements. The Iceberg catalog [serves as a pointer](https://blog.cloudflare.com/r2-data-catalog-public-beta/) to the manifest files.
 
 
-Although they sell it as managed Iceberg, it’s more a managed Iceberg catalog, as the compute or the warehouse is not part of it as you can see in [their example](https://blog.cloudflare.com/r2-data-catalog-public-beta/#create-your-first-iceberg-table-on-r2), where you’d need to configure a warehouse engine (likeÂ [PyIceberg](https://py.iceberg.apache.org/),Â [Snowflake](https://www.snowflake.com/), andÂ [Spark](https://spark.apache.org/)) as part of your pipeline python code.
+Although they sell it as managed Iceberg, it’s more a managed Iceberg catalog, as the compute or the warehouse is not part of it as you can see in [their example](https://blog.cloudflare.com/r2-data-catalog-public-beta/#create-your-first-iceberg-table-on-r2), where you’d need to configure a warehouse engine (like [PyIceberg](https://py.iceberg.apache.org/), [Snowflake](https://www.snowflake.com/), and [Spark](https://spark.apache.org/)) as part of your pipeline python code.
 
 
 ## What about AWS S3 Tables?
@@ -361,31 +361,31 @@ According to [New Amazon S3 Tables: Storage optimized for analytics workloads | 
 Table buckets take care of some important maintenance duties that would be your responsibility if you were creating and managing your own Iceberg tables. To relieve you of these duties so that you can spend more time on your table, the following maintenance operations are performed automatically:
 
 
-**Compaction**Â â This process combines multiple small table objects into a larger object to improve query performance, in pursuit of a target file size that can be configured to be between 64 MiB and 512 MiB. The new object is rewritten as a new snapshot. This is referred to [Small File Problem](https://www.cloudera.com/blog/technical/the-small-files-problem.html).
+**Compaction** – This process combines multiple small table objects into a larger object to improve query performance, in pursuit of a target file size that can be configured to be between 64 MiB and 512 MiB. The new object is rewritten as a new snapshot. This is referred to [Small File Problem](https://www.cloudera.com/blog/technical/the-small-files-problem.html).
 
 
-**Snapshot Management**Â â This process expires and ultimately removes table snapshots, with configuration options for the minimum number of snapshots to retain and the maximum age of a snapshot to retain. Expired snapshots are marked as non-current, then later deleted after a specified number of days.
+**Snapshot Management** – This process expires and ultimately removes table snapshots, with configuration options for the minimum number of snapshots to retain and the maximum age of a snapshot to retain. Expired snapshots are marked as non-current, then later deleted after a specified number of days.
 
 
-**Unreferenced File Removal**Â â This process removes and deletes objects that are not referenced by any table snapshots.
+**Unreferenced File Removal** – This process removes and deletes objects that are not referenced by any table snapshots.
 
 
 ### Open or Proprietary API?
 
 
-The key question is, as some have mentioned, whether the API for reading and writing tables is the [open source API](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml) that is on GitHub, or if it’s proprietary. According to Daniel, **the [AWS S3 TableÂ API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Operations_Amazon_S3_Tables.html)Â is a proprietary one**, not following the Iceberg standard.
+The key question is, as some have mentioned, whether the API for reading and writing tables is the [open source API](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml) that is on GitHub, or if it’s proprietary. According to Daniel, **the [AWS S3 Table API](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Operations_Amazon_S3_Tables.html) is a proprietary one**, not following the Iceberg standard.
 
 
 While the managed Iceberg with all the additional services is most welcome, the proprietary API is not. This means that you can no longer access the underlying file format (Parquet files and transaction log folder) directly; instead, you must use their API. Others mentioned that not only is the API proprietary but also that the catalog was essentially created as proprietary and as a non-standard option that confuses users and makes integration difficult. This issue has apparently been addressed recently by releasing the [Iceberg REST endpoint](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html) embedded in the service.
 
 
-According to the [documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html), this allows us to connect with the Iceberg REST client to the Amazon S3 TablesÂ Iceberg REST endpoint and make REST API calls to create, update, or query tables in S3 table buckets.
+According to the [documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-open-source.html), this allows us to connect with the Iceberg REST client to the Amazon S3 Tables Iceberg REST endpoint and make REST API calls to create, update, or query tables in S3 table buckets.
 
 
-The endpoint implements a set of standardized Iceberg REST APIs specified in the officialÂ [Apache Iceberg REST Catalog Open API specification](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml)Â . The endpoint works by translating Iceberg REST API operations into corresponding S3 Tables operations.
+The endpoint implements a set of standardized Iceberg REST APIs specified in the official [Apache Iceberg REST Catalog Open API specification](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml) . The endpoint works by translating Iceberg REST API operations into corresponding S3 Tables operations.
 
 
-There are still many open issues, like AWS Glue integration and IAM permissions via LakeFormation as Tobias MÃ¼ller [points out](https://www.linkedin.com/feed/update/urn:li:activity:7315771851077484545?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7315771851077484545%2C7316066746702913537%29&*dashCommentUrn*=urn%3Ali%3Afsd_comment%3A%287316066746702913537%2Curn%3Ali%3Aactivity%3A7315771851077484545%29). But it’s definitely a good start for working with Iceberg and table formats if you are on AWS.
+There are still many open issues, like AWS Glue integration and IAM permissions via LakeFormation as Tobias Müller [points out](https://www.linkedin.com/feed/update/urn:li:activity:7315771851077484545?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7315771851077484545%2C7316066746702913537%29&*dashCommentUrn*=urn%3Ali%3Afsd_comment%3A%287316066746702913537%2Curn%3Ali%3Aactivity%3A7315771851077484545%29). But it’s definitely a good start for working with Iceberg and table formats if you are on AWS.
 
 
 But as all of this is very early, much can change and align over time.
@@ -466,13 +466,13 @@ The extension also supports Iceberg’s schema evolution, allowing users to foll
 Interesting also to get the insights of data engineers who voiced their opinion on LinkedIn or other places, which I’d like to include below to give different perspectives of the current ecosystem on the managed Iceberg ecosystem, particularly regarding AWS S3 Tables and Cloudflare R2 Data Catalog.
 
 
-**Daniel Beach** cautions that AWS S3 Tables may not be as “**open**” as they appear. He points out that they’re designed primarily for exclusive use with AWS products like Glue, Athena, and EMR, with limited support for query engines outside of Apache Spark. Daniel emphasizes that S3 Tables represent a proprietary API for reading and writing tablesânot filesâand that integrations require adoption of this **proprietary API** through a [third-party connector](https://github.com/awslabs/s3-tables-catalog/tree/main), potentially making it an expensive path to building a lakehouse architecture.
+**Daniel Beach** cautions that AWS S3 Tables may not be as “**open**” as they appear. He points out that they’re designed primarily for exclusive use with AWS products like Glue, Athena, and EMR, with limited support for query engines outside of Apache Spark. Daniel emphasizes that S3 Tables represent a proprietary API for reading and writing tables—not files—and that integrations require adoption of this **proprietary API** through a [third-party connector](https://github.com/awslabs/s3-tables-catalog/tree/main), potentially making it an expensive path to building a lakehouse architecture.
 
 
 **Roy Hasson** initially criticized AWS S3 Tables for creating their own catalog rather than following standard options, noting this would confuse users and complicate integration. However, in his [LinkedIn post](https://www.linkedin.com/posts/royhasson_when-s3-tables-were-announced-i-was-quick-activity-7315771851077484545-T4ef), he later acknowledged that AWS addressed his concerns by releasing an Iceberg **REST endpoint embedded** in the service. Roy now believes this represents “true customer obsession” and a major step forward for making Iceberg tables simpler to use within the AWS ecosystem, though he notes there are still limitations to overcome.
 
 
-**Tobias MÃ¼ller** highlights practical hurdles when working with S3 Tables in his [LinkedIn comment](https://www.linkedin.com/feed/update/urn:li:activity:7315771851077484545?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7315771851077484545%2C7316066746702913537%29), including the lack of **CloudFormation IaC** support for Namespaces and actual S3 Tables. He also questions the necessity of integrating **IAM permissions** via LakeFormation and using resource links between S3 Tables catalog and the “normal” Glue catalog, suggesting these implementations may not feel meaningful or straightforward for developers. MÃ¼ller is also working on a detailed blog post about [cost-efficient event ingestion into Iceberg S3 Tables on AWS](https://tobilg.com/cost-efficient-event-ingestion-into-iceberg-s3-tables-on-aws).
+**Tobias Müller** highlights practical hurdles when working with S3 Tables in his [LinkedIn comment](https://www.linkedin.com/feed/update/urn:li:activity:7315771851077484545?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7315771851077484545%2C7316066746702913537%29), including the lack of **CloudFormation IaC** support for Namespaces and actual S3 Tables. He also questions the necessity of integrating **IAM permissions** via LakeFormation and using resource links between S3 Tables catalog and the “normal” Glue catalog, suggesting these implementations may not feel meaningful or straightforward for developers. Müller is also working on a detailed blog post about [cost-efficient event ingestion into Iceberg S3 Tables on AWS](https://tobilg.com/cost-efficient-event-ingestion-into-iceberg-s3-tables-on-aws).
 
 
 **Amit Gilad** provides benchmark data comparing compaction performance in his [LinkedIn post](https://www.linkedin.com/posts/amit-gilad-45763433_apacheiceberg-dataengineering-awss3tables-activity-7322597968879017986-yY8u), demonstrating that **custom Rust-based** compaction significantly outperforms both Apache Spark and AWS S3 Tables in terms of speed and cost. According to his tests on a 200GB compressed dataset, custom binpack compaction completed in just 221 seconds at a cost of $0.21, while Spark took 1,612 seconds ($1.54) and S3 Tables reportedly cost around $10. He notes that sort-based compaction using Rust was more than twice as fast as Apache Spark while remaining cost-effective.
@@ -536,13 +536,13 @@ Learn more about Rill and its operational and fast features on [Rill Docs](https
 The ICE Stack and managed Iceberg tables represent an upcoming change in data architecture, where format wars matter less than interoperability through standardized APIs. With major Hyperscaler like AWS, Databricks, and Cloudflare offering managed Iceberg solutions, we’re seeing an apparent industry convergence toward open standards. Cost efficiency has become a key differentiator, particularly in operations such as compaction, while catalog federation and unified governance are emerging as crucial capabilities for the lakehouse architecture.
 
 
-What makes this shift particularly compelling is how managed Iceberg tables deliver database-like experiences while maintaining the flexibility of distributed files. Services like AWS S3 Tables and Cloudflare R2 Data Catalog abstract away complexity through managed services, offering the governance and performance of databases with the affordability of object storage. This explains why Databricks reportedly paid $2 billion to acquire Tabular, the company behind Icebergâthey recognized the strategic importance of standardizing around Iceberg rather than their proprietary Delta Lake format.
+What makes this shift particularly compelling is how managed Iceberg tables deliver database-like experiences while maintaining the flexibility of distributed files. Services like AWS S3 Tables and Cloudflare R2 Data Catalog abstract away complexity through managed services, offering the governance and performance of databases with the affordability of object storage. This explains why Databricks reportedly paid $2 billion to acquire Tabular, the company behind Iceberg—they recognized the strategic importance of standardizing around Iceberg rather than their proprietary Delta Lake format.
 
 
 Looking ahead, the industry is moving toward a future with truly interoperable query engines and polyglot architectures, where potential AI query planners can identify the best compute for each run. Ryan Blue, Iceberg’s creator, has already hinted at upcoming features, including new type support and a vision where formats like Iceberg and Delta might converge. With Neon’s [acquisition](https://neon.tech/blog/neon-and-databricks) by Databricks and zero egress costs becoming the new data gravity, the innovation continues to evolve.
 
 
-The true power of this open approach lies in its flexibilityâdata remains in open formats, engines become interchangeable, and organizations maintain ownership of their most valuable asset: their data. With managed Iceberg tables, we gain the cost efficiency of object storage combined with the query-ability of databases, creating a path to run large-scale, globally replicated databases at remarkably low costs while maintaining the freedom to choose the best tools for each specific workload.
+The true power of this open approach lies in its flexibility—data remains in open formats, engines become interchangeable, and organizations maintain ownership of their most valuable asset: their data. With managed Iceberg tables, we gain the cost efficiency of object storage combined with the query-ability of databases, creating a path to run large-scale, globally replicated databases at remarkably low costs while maintaining the freedom to choose the best tools for each specific workload.
 
 
 ---

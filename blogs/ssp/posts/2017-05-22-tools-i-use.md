@@ -42,7 +42,7 @@ Paste - [pasteapp.me](http://pasteapp.me/) (Mac)
 One of the best tools I ever installed on my computer is a clipboard manager. **What the heck is that and why should I use it?** Remember whenever you copy something with ctrl+c and paste it somewhere with ctrl+v, that will be saved in your clipboard. By default windows and also Mac is saving only one at a time. Meaning the next time you hit ctrl+c, the old one is gone. But wait, what if I want to go back and paste the IBAN number of my friend that I just copied before I copied the clearing number? What if I need to copy several different words/sentence from a website to my Excel or OneNote without changing the windows back and forth? Yes, then you need this clipboard manager.
 
 
-And you probably think now âI don’t really use that kind appâ, but I can tell as soon you used it, you don’t want to miss it anymore, give it a try. Especially at work, it’s *so* convenient. And the best part I didn’t’ even tell you!! As it is called a clipboard manager, you can even search your latest saves by a simple **full-text search**. And on top, it even keeps pictures. There is a lot more features, for the full list, please visit the web page.
+And you probably think now “I don’t really use that kind app”, but I can tell as soon you used it, you don’t want to miss it anymore, give it a try. Especially at work, it’s *so* convenient. And the best part I didn’t’ even tell you!! As it is called a clipboard manager, you can even search your latest saves by a simple **full-text search**. And on top, it even keeps pictures. There is a lot more features, for the full list, please visit the web page.
 
 
 An example of how to get to the latest clipboards including pictures:
@@ -57,10 +57,10 @@ Lastpass - [lastpass.com](http://www.lastpass.com)
 Keepass - [keepass.info](http://www.keepass.info)
 
 
-I cannot believe anyone not using a password tool nowadays, but it is still so common. **So many websites, usernames, emails and passwords have to be remembered, it’s not only about the passwords**, mostly it’s the question about âWhich username did I put here 2 months back, the one I always use or a different one because the other was not allowed?â. A simple solution is a password tool, which does everything for you, and the best part, it’s even more secure as you can put long safe and always different passwords on each website if you wish as the tool generates one for you.
+I cannot believe anyone not using a password tool nowadays, but it is still so common. **So many websites, usernames, emails and passwords have to be remembered, it’s not only about the passwords**, mostly it’s the question about “Which username did I put here 2 months back, the one I always use or a different one because the other was not allowed?”. A simple solution is a password tool, which does everything for you, and the best part, it’s even more secure as you can put long safe and always different passwords on each website if you wish as the tool generates one for you.
 
 
-The best tool I encountered is lastpass.com, at least when most of your passwords are used in web pages. If you’re using a lot of offline applications, then you better use Keepass.info. I use at work as I have many offline tools like SAP or similar which is not web based.Â This tool is not a cloud solution, you will have an **encrypted offline file** somewhere lying on your computer (which again you can but on Dropbox or similar to use the same file on multiple devices).
+The best tool I encountered is lastpass.com, at least when most of your passwords are used in web pages. If you’re using a lot of offline applications, then you better use Keepass.info. I use at work as I have many offline tools like SAP or similar which is not web based. This tool is not a cloud solution, you will have an **encrypted offline file** somewhere lying on your computer (which again you can but on Dropbox or similar to use the same file on multiple devices).
 
 
 I use Lastpass also for cross-off lists, scans of ID and passport, PIN number and any kind of secure information that I use on the go. If you have a **smartphone**, Lastpass is also excellent on Android, which files in every app or logins on your smartphone automatically as well. On an iPhone, it’s not that practical, because (I believe) iOS doesn’t allow the app to auto-fill, but you can copy + paste from the app, which is still much better than always reset the old password because you forgot it, right? 😉
@@ -89,9 +89,9 @@ As examples, you can see all the print screens above 🙂.
 F.Lux - [justgetflux.com](https://justgetflux.com)
 
 
-â*Ever wake up ready to write down the Next Great Idea, and get blinded by your computer screen?*
+“*Ever wake up ready to write down the Next Great Idea, and get blinded by your computer screen?*
 
-*During the day, computer screens look goodâthey’re designed to look like the sun. But, at 9PM, 10PM, or 3AM, you probably shouldn’t be looking at the sun.*â
+*During the day, computer screens look good—they’re designed to look like the sun. But, at 9PM, 10PM, or 3AM, you probably shouldn’t be looking at the sun.*”
 
 The above says pretty much everything. If you’re working/surfing/chilling on a computer, this is a must. Possibly you should install it on your smartphone as well to get the full benefit. **Although this sounds a bit over promised, it can improve your sleeping quality drastically**, especially if you use your computer/smartphone right before going to bed.
 
@@ -130,7 +130,7 @@ While writing this blog, I figured that I’m using quite a few tools on a daily
 See Matt Mullenweg: [[https://ma.tt/2009/06/the-way-i-work-annotated](https://ma.tt/2009/06/the-way-i-work-annotated)](https://ma.tt/2009/06/the-way-i-work-annotated/)
 
 
-Go ahead withÂ [Tools I use â OneNote â Part II](https://www.ssp.sh/blog/tools-i-use-onenote-part-ii/)
+Go ahead with [Tools I use – OneNote – Part II](https://www.ssp.sh/blog/tools-i-use-onenote-part-ii/)
 
 [Discuss on Bluesky](https://bsky.app/search?q=domain%3A%20https://www.ssp.sh/blog/tools-i-use/)
 |

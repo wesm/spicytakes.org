@@ -15,7 +15,7 @@ This article was written as part of
 Modern data teams face growing complexity: multiple data sources, various BI tools, and ever-increasing self-service analytics. Organizations must maintain consistency across their metrics while making data accessible to business users. This is where a semantic layer shines: It provides a single source of truth for business metrics while abstracting away the underlying complexity.
 
 
-InÂ [Part 1](https://www.ssp.sh/blog/semantic-layer-through-the-lens-of-mvc/), we explored the semantic layer through the lens of MVC, discovering how it acts as both a controller for data access and a model for business metrics. While this architectural pattern helps us understand its role, the real value of a semantic layer comes from its everyday use.
+In [Part 1](https://www.ssp.sh/blog/semantic-layer-through-the-lens-of-mvc/), we explored the semantic layer through the lens of MVC, discovering how it acts as both a controller for data access and a model for business metrics. While this architectural pattern helps us understand its role, the real value of a semantic layer comes from its everyday use.
 
 
 This article examines how semantic layers fit into modern data architectures and their critical benefits, from API-driven access to enhanced governance, and why they’ve become essential in today’s data stack.

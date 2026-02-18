@@ -18,7 +18,7 @@ MVC is an interesting concept from the late 70s that separates the View (present
 This design pattern got me thinking: Wouldn’t it be convenient to separate the presentation from the storage through a data modeling layer, similar to the model layer? A place where we can declaratively define our metrics, measures, and business KPIs so that we can update them confidently and version them.
 
 
-Today, we have the beginning of such a separation of concerns with aÂ [Semantic Layer](https://cube.dev/use-cases/semantic-layer). Let’s explore the parallels between MVC and data.
+Today, we have the beginning of such a separation of concerns with a [Semantic Layer](https://cube.dev/use-cases/semantic-layer). Let’s explore the parallels between MVC and data.
 
 
 In this article, we explore how the Model-View-Controller (MVC) pattern’s principles can be applied to modern data architecture through semantic layers. We’ll dive into how Active Record, the model layer implementation in Ruby on Rails, parallels with semantic layers in data modeling, and examine how this architectural pattern can solve similar challenges in data engineering that MVC solved for web development.

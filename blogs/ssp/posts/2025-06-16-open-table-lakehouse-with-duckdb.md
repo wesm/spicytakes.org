@@ -18,7 +18,7 @@ Wouldn’t it be great to build a data warehouse on top of affordable storage an
 That’s where databases shine, right? They offer numerous helpful features and a SQL interface for interaction. It’s fast and convenient, except that we need to define all schemas and structures before storing (remember the ELT vs. ETL debate, where we have schema on read vs schema on write).
 
 
-Data lakes with affordable storage and an open table format (Iceberg, Delta, Hudi, Lance) are here to provide database-like features on top of distributed files. They have SQL interfaces, versioning, ACID Transactions, and many more database-like featuresâas we’ll demonstrate with live examples using DuckDB and MotherDuck to query Iceberg tables directly from S3. Additionally, AI-powered workflows such as MCP and Claude explore how lightweight catalogs can make data more accessible than ever before.
+Data lakes with affordable storage and an open table format (Iceberg, Delta, Hudi, Lance) are here to provide database-like features on top of distributed files. They have SQL interfaces, versioning, ACID Transactions, and many more database-like features—as we’ll demonstrate with live examples using DuckDB and MotherDuck to query Iceberg tables directly from S3. Additionally, AI-powered workflows such as MCP and Claude explore how lightweight catalogs can make data more accessible than ever before.
 
 
 So, is that the future of databases or data warehouses, rebuilding database features on cheap storage? It might be. It’s something Databricks, with its Lakehouse architecture, has been promoting for a while. With the further unification of open table formats around Iceberg and the addition of managed Iceberg services by AWS, Cloudflare, and other hyperscalers, this promise is being fulfilled more than ever. Especially with the newer open catalogs such as Unity Catalog, Apache Polaris, and Glue Catalog, we also try to achieve better uniformity and integration through a set of defined APIs to manage access, permissions, or lists of tables in your lake.
@@ -350,7 +350,7 @@ that goes into details.
 ## Next Up, Write to a Data Lake
 
 
-We’ve seen how open table formats, such as Iceberg, Delta, and Hudi, provide powerful database-like features on top of affordable object storage. The Open Data Platform architecture, with its four interchangeable layersâfrom object storage to catalogâcreates a truly composable data ecosystem where each component can be swapped out without vendor lock-in. This modular approach enables us to develop advanced analytics capabilities while retaining data in its native format on affordable storage rather than relying on expensive, proprietary systems.
+We’ve seen how open table formats, such as Iceberg, Delta, and Hudi, provide powerful database-like features on top of affordable object storage. The Open Data Platform architecture, with its four interchangeable layers—from object storage to catalog—creates a truly composable data ecosystem where each component can be swapped out without vendor lock-in. This modular approach enables us to develop advanced analytics capabilities while retaining data in its native format on affordable storage rather than relying on expensive, proprietary systems.
 
 
 It is powerful to read directly from open table formats, such as Iceberg, using DuckDB. This approach embodies the principle of **Open Standards over Silos** - instead of loading data into proprietary formats of cloud vendors and getting locked in, we work directly with open standards.
@@ -496,7 +496,7 @@ MotherDuck’s DuckDB MCP Server implements a protocol to allow AI assistants li
 [Claude](https://claude.ai/)
 , or AI IDEs likeÂ
 [Cursor](https://www.cursor.com/)
-Â to directly interact with your local DuckDB or MotherDuck cloud databases. It enables conversational SQL analytics without complex setup, letting you analyze your data through natural language conversations.
+ to directly interact with your local DuckDB or MotherDuck cloud databases. It enables conversational SQL analytics without complex setup, letting you analyze your data through natural language conversations.
 
 Following the [initial setup](https://motherduck.com/docs/key-tasks/use-md-with-ai/) with setting up a MotherDuck token and MCP-compatible client. I used Claude Desktop and set up `claude_desktop_config.json`, and I can now ask questions; Claude can then run actual queries against my databases to figure things out.
 

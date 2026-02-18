@@ -143,7 +143,7 @@ DuckLake : Frozen data lakes
 It’s interesting how the **pendulum is swinging** forth and back a couple of times from being on the server side to client side to back and in between. From MV, One-Big-Table (OBT) on server-side data warehouses to bringing the data directly to the web application (e.g. WASM), no caching needed as data is super fast available with no latency, or not caching at all with a zero-copy layer with DuckDB and reading super fast with client-powered hardware.
 
 
-But we can say, to this day, it remains challenging to cache your data independently and in best cases automated. Caching means constantly duplicating data, storing it optimally, and updating data in case the source changes. However, because of the significant outcomes, we still use it in every data engineering solution. Also check out the [history of general architecture in data](https://www.youtube.com/watch?v=DxwDaoUijTc) that Hannes MÃ¼hleisen was presenting, which gives a lot of insights on how the architecture has not changed much from 1985 to 2015 with adding cloud servers, but shifting more to the clients and small data as we have [more powerful clients](https://15721.courses.cs.cmu.edu/spring2018/papers/14-networking/p1022-muehleisen.pdf) again.
+But we can say, to this day, it remains challenging to cache your data independently and in best cases automated. Caching means constantly duplicating data, storing it optimally, and updating data in case the source changes. However, because of the significant outcomes, we still use it in every data engineering solution. Also check out the [history of general architecture in data](https://www.youtube.com/watch?v=DxwDaoUijTc) that Hannes Mühleisen was presenting, which gives a lot of insights on how the architecture has not changed much from 1985 to 2015 with adding cloud servers, but shifting more to the clients and small data as we have [more powerful clients](https://15721.courses.cs.cmu.edu/spring2018/papers/14-networking/p1022-muehleisen.pdf) again.
 
 
 ### Key Insights: Positioning, Metadata Management, Freshness Strategies
@@ -521,14 +521,14 @@ Another benefit they had with DuckDB was to control the cache maintenance logic 
 DuckDB runs embedded in their control plane, refreshing static data (users, tenants) daily and dynamic metrics every minute. PostgreSQL stays the source of truth for writes while DuckDB handles all analytical reads.
 
 
-On modest hardware (4 vCPUs, 7GB RAM) they showcase a **5â10x speedup** with zero additional infrastructure costs:
+On modest hardware (4 vCPUs, 7GB RAM) they showcase a **5–10x speedup** with zero additional infrastructure costs:
 
 
 
 | Metric | Before | After |
 | Throughput | 3.95 tasks/sec | 11.71 tasks/sec |
 | Execution time | ~4 sec | ~0.8 sec |
-| Latency | â | 0.19â0.2 sec |
+| Latency | — | 0.19–0.2 sec |
 
 
 

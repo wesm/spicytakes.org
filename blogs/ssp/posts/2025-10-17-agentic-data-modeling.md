@@ -21,13 +21,13 @@ These days, everyone is embedding AI chat in their product. But to what end? Doe
 After spending the last year exploring where LLMs have genuine leverage in analytics (see my writing on [GenBI](https://www.ssp.sh/blog/bi-as-code-and-genbi/) and [Self-Serve BI](https://www.ssp.sh/blog/self-service-bi-ai/)), I’ve identified three essential pillars that make agentic data modeling actually work: semantics as the shared language both humans and AI need to understand metrics, speed through sub-second analytics that lets you verify numbers before they become decisions, and stewardship with guardrails that guide without constraining. The **TL;DR**? AI needs structure to understand, humans need speed to verify, and both need boundaries to stay productive.
 
 
-In this forward-looking article, we investigate how to build data stacks where AI augments rather than overtakes your analytics. The future of data modeling isn’t humans or agentsâit’s humans with agents, each doing what they do best.
+In this forward-looking article, we investigate how to build data stacks where AI augments rather than overtakes your analytics. The future of data modeling isn’t humans or agents—it’s humans with agents, each doing what they do best.
 
 
 ## The Three Pillars for Agent-Based Modeling
 
 
-So why are these three pillarsâsemantics, speed, and stewardshipâimportant for data modeling? If we look at how metrics are structured and see how SQL with its metrics works, we can then understand how LLMs can help us model our data stack to answer the questions we want to understand as business owners. With the right guardrails in place, agentic modeling can be a big success.
+So why are these three pillars—semantics, speed, and stewardship—important for data modeling? If we look at how metrics are structured and see how SQL with its metrics works, we can then understand how LLMs can help us model our data stack to answer the questions we want to understand as business owners. With the right guardrails in place, agentic modeling can be a big success.
 
 
 Let’s start with the foundation of agentic workflows in data modeling, condensed into the **three pillars** below.
@@ -66,15 +66,15 @@ The second part of stewardship is to involve the **human in the loop**. With the
 Before we continue, a word on data stewardship: **speed** with [real-time analytics databases](https://www.ssp.sh/blog/scaling-beyond-postgres/) is quite clear and I’ve written extensively about it, and we’ll discuss **semantics** and their metrics and the connection to agentic modeling later in great detail. Stewardship is something that is new in the context of AI and agentic workflows. Let’s define what we mean by that.
 
 
-With all the liberty that AI getsâsuch as access to databases, all KPIs, and sensitive context through promptsâcomes more risk. Besides the risk of failure, hallucination, poor data quality, leaks, privacy violations, regulatory breaches, etc., the models can also go off the rails without guardrails. We need more **robust governance** that is tightly integrated into the workflow.
+With all the liberty that AI gets—such as access to databases, all KPIs, and sensitive context through prompts—comes more risk. Besides the risk of failure, hallucination, poor data quality, leaks, privacy violations, regulatory breaches, etc., the models can also go off the rails without guardrails. We need more **robust governance** that is tightly integrated into the workflow.
 
 
-If we look at a [study by Barc](https://barc.com/research/data-ai-adoption-trends-requirements-practices/#download), they say that 78% of executives say we have guardrails in place, but at the same time 79% do not address it properlyâmeaning most executives are overly confident:
+If we look at a [study by Barc](https://barc.com/research/data-ai-adoption-trends-requirements-practices/#download), they say that 78% of executives say we have guardrails in place, but at the same time 79% do not address it properly—meaning most executives are overly confident:
 
 
 [
 
-](https://www.ssp.sh/blog/agentic-data-modeling/ai-adopters-are-overconfident.webp)A study done by Barc on Preparing and Delivering Data for AI â Adoption Trends, Requirements and Best Practices | [Image Source](https://barc.com/research/data-ai-adoption-trends-requirements-practices/#download)
+](https://www.ssp.sh/blog/agentic-data-modeling/ai-adopters-are-overconfident.webp)A study done by Barc on Preparing and Delivering Data for AI – Adoption Trends, Requirements and Best Practices | [Image Source](https://barc.com/research/data-ai-adoption-trends-requirements-practices/#download)
 
 
 I believe we’re still very early and surveys might not be highly accurate yet. Nevertheless, it’s clear that we need **constraints and control mechanisms**. That’s where stewardship comes in and helps significantly. We define the boundaries for the model.
@@ -95,7 +95,7 @@ But how can we **integrate** stewardship? What’s the interface? How can we ste
 We can prepare an introduction prompt with things the model should do and things it should not do. We can specify which API to use, which [MCP](https://modelcontextprotocol.io/docs/getting-started/intro) if one is available. We can instruct it to verify with an additional prompt if things are unclear instead of just assuming.
 
 
-For example, in Rill this can be easily added as [`ai_instructions`](https://docs.rilldata.com/reference/project-files/rill-yaml#ai_instructions) to your normal modelâeither on a project level in [`rill.yaml`](https://github.com/rilldata/rill-examples/blob/e6e8829147b3646e8b3e56074845895aa62cefb4/rill-openrtb-prog-ads/rill.yaml#L21) or inside the metrics such as [`auction_metrics.yaml`](https://github.com/rilldata/rill-examples/blob/e6e8829147b3646e8b3e56074845895aa62cefb4/rill-openrtb-prog-ads/metrics/auction_metrics.yaml#L108), which are considered [extra instructions](https://docs.rilldata.com/reference/project-files/metrics-views#ai_instructions) for the AI agents such as the [Rill MCP Server](https://docs.rilldata.com/explore/mcp). Here is an example of how this looks:
+For example, in Rill this can be easily added as [`ai_instructions`](https://docs.rilldata.com/reference/project-files/rill-yaml#ai_instructions) to your normal model—either on a project level in [`rill.yaml`](https://github.com/rilldata/rill-examples/blob/e6e8829147b3646e8b3e56074845895aa62cefb4/rill-openrtb-prog-ads/rill.yaml#L21) or inside the metrics such as [`auction_metrics.yaml`](https://github.com/rilldata/rill-examples/blob/e6e8829147b3646e8b3e56074845895aa62cefb4/rill-openrtb-prog-ads/metrics/auction_metrics.yaml#L108), which are considered [extra instructions](https://docs.rilldata.com/reference/project-files/metrics-views#ai_instructions) for the AI agents such as the [Rill MCP Server](https://docs.rilldata.com/explore/mcp). Here is an example of how this looks:
 
 
 [
@@ -103,7 +103,7 @@ For example, in Rill this can be easily added as [`ai_instructions`](https://doc
 ](https://www.ssp.sh/blog/agentic-data-modeling/rill-ai-instructions-nvim.webp)Example of how Rill integrated guardrail prompts into the project on the general level (rill.yaml) and metrics modeling level (bids_metrics.yaml)
 
 
-Good stewardship needs to be configurable and customizable to suit the project. It should exist at different levelsâsuch as at a low level on a dashboard or metrics level, or across the analytics platformânot only at the semantics level.
+Good stewardship needs to be configurable and customizable to suit the project. It should exist at different levels—such as at a low level on a dashboard or metrics level, or across the analytics platform—not only at the semantics level.
 
 
 ## Semantics: Metrics Modeling for Agentic Workflows
@@ -197,10 +197,10 @@ Here’s an example of the [dbt semantic layer definition language](https://docs
 
 
 
-So what has changed between 20 years ago and today? Mainly, the core semantics and metrics of BIâand therefore of the businessâare no longer hidden in obstructive XML files merged with lots of graphical references or other information that is irrelevant to the business user.
+So what has changed between 20 years ago and today? Mainly, the core semantics and metrics of BI—and therefore of the business—are no longer hidden in obstructive XML files merged with lots of graphical references or other information that is irrelevant to the business user.
 
 
-Modern BI tools and metrics layers store the key metrics, extracted to their core valueâthe business metricsâin a lean format usually using YAML. Therefore, we have minimized it to the essentials. We can version it, collaborate on it, and can now start using it to automate it, using it as context for AI models and agentic workflows.
+Modern BI tools and metrics layers store the key metrics, extracted to their core value—the business metrics—in a lean format usually using YAML. Therefore, we have minimized it to the essentials. We can version it, collaborate on it, and can now start using it to automate it, using it as context for AI models and agentic workflows.
 
 
 In essence, the semantics are extracted in a way that prepares them for an agentic future.
@@ -237,7 +237,7 @@ It’s an initiative by Snowflake that states that **interoperability and open s
 ## Metrics SQL: A SQL-Based Semantic Layer
 
 
-The easiest wayâand how it’s been done in BI tools for agesâis with SQL. As with the *YAML revolution* mentioned above, we’ve seen many SQL expressions or SQL expression split into different properties.
+The easiest way—and how it’s been done in BI tools for ages—is with SQL. As with the *YAML revolution* mentioned above, we’ve seen many SQL expressions or SQL expression split into different properties.
 
 
 SQL has its advantages over plain YAML as it’s very precise about what a user wants; there is no misunderstanding what’s needed. But at the same time, it can become very verbose without variables or other more advanced features. That’s mainly why [YAML](https://www.ssp.sh/blog/rise-of-declarative-data-stack/#yaml-the-language-of-declarative-configuration) is so popular; it’s easy to define declaratively and build on top of each definition without duplication.
@@ -257,10 +257,10 @@ But what if we could use SQL and extend it? Like a newer version of metrics with
 So what is “Metrics SQL” then? And how does it relate to other terms like LookML or semantic layers?
 
 
-Metrics SQL is a specialized SQL dialect designed exclusively for querying data from [Metrics Views](https://docs.rilldata.com/build/metrics-view/what-are-metrics-views#creating-a-metrics-view) (where you define your measures and dimensions). Metrics SQL can be seen as a semantic layer that leans fully on SQL and its capabilitiesâthink of it as extending SQL for analytics (more on this in the next chapter).
+Metrics SQL is a specialized SQL dialect designed exclusively for querying data from [Metrics Views](https://docs.rilldata.com/build/metrics-view/what-are-metrics-views#creating-a-metrics-view) (where you define your measures and dimensions). Metrics SQL can be seen as a semantic layer that leans fully on SQL and its capabilities—think of it as extending SQL for analytics (more on this in the next chapter).
 
 
-Metrics SQL transforms queries that referenceÂ `dimensions`Â andÂ `measures`Â within aÂ `metrics view`Â into their corresponding database columns or expressions. This transformation is based on the mappings defined in a metrics view YAML configuration, enabling reuse of dimension or measure definitions. Additionally, any security policies defined in the metrics view are also inherited.
+Metrics SQL transforms queries that reference `dimensions` and `measures` within a `metrics view` into their corresponding database columns or expressions. This transformation is based on the mappings defined in a metrics view YAML configuration, enabling reuse of dimension or measure definitions. Additionally, any security policies defined in the metrics view are also inherited.
 
 
 To better understand, let’s look at an example of a Metrics SQL definition that [Rill introduces](https://docs.rilldata.com/build/custom-apis#example-crafting-a-metrics-sql-query), which can look like this:
@@ -370,7 +370,7 @@ So what’s the advantage over normal SQL or YAML definitions? Here are the key 
 - **Compositional Building Blocks Approach**: Metrics SQL uses a **single FROM clause** referencing a metrics view **instead of requiring subqueries**. This creates a powerful compositional model where complex business logic is encapsulated once and reused everywhere. Each metrics view becomes a reliable building block that agents (or analysts) can query without understanding the underlying complexity.
 - **Built-in Security and Governance**: Any **security policies defined in the metrics view are automatically inherited** by Metrics SQL queries. Stewardship rules and access controls are enforced at the semantic layer rather than needing reimplementation in every query.
 - **Precision for Date/Time Logic**: Metrics SQL provides **more defined and precise date handling**, avoiding ambiguities that plague natural language queries (e.g., “does end of day include today’s partial data?”).
-- **Cross-Dimensional Calculations**: Metrics SQL enables **complex analytical patterns** like period-over-period comparisons, percent-of-total, and non-additive measures without writing repetitive SQL logicâthe semantic layer handles the complexity.
+- **Cross-Dimensional Calculations**: Metrics SQL enables **complex analytical patterns** like period-over-period comparisons, percent-of-total, and non-additive measures without writing repetitive SQL logic—the semantic layer handles the complexity.
 - **Optimized for AI Agents**: SQL is the language of data that **AI agents understand better than natural language**, being more accurate and detailed to avoid subtle misunderstandings. Since Metrics SQL is declarative and references well-defined semantic concepts, agents can query existing metrics reliably, create new metrics on the fly, and understand the data model through the metrics view schema.
 
 
@@ -383,7 +383,7 @@ Why does this matter for agentic workflows?
 With the three pillars of semantics, speed, and stewardship, Metrics SQL enables agents to operate on curated targets with immediate responses for iteration. The semantic definitions in metrics views provide the structured context agents need, while the SQL interface gives them a familiar, precise language to express queries without introducing hallucinations or ambiguity.
 
 
-Metrics SQL is extending SQL for the semantic layer eraâcreating a **higher-level SQL dialect** that operates on business concepts rather than raw database columns, making it the ideal interface for both humans and AI agents.
+Metrics SQL is extending SQL for the semantic layer era—creating a **higher-level SQL dialect** that operates on business concepts rather than raw database columns, making it the ideal interface for both humans and AI agents.
 
 Current Limitations
 
@@ -393,7 +393,7 @@ Metrics SQL is specifically designed for querying metrics views and may not supp
 ### Extending SQL for Analytics
 
 
-Others have been driving this change forward for a whileâfor example, Julian Hyde with one of his popular talks on [Extending SQL for analytics](https://www.datacouncil.ai/talks/cubing-and-metrics-in-sql) at Datacouncil.
+Others have been driving this change forward for a while—for example, Julian Hyde with one of his popular talks on [Extending SQL for analytics](https://www.datacouncil.ai/talks/cubing-and-metrics-in-sql) at Datacouncil.
 
 
 ![/blog/agentic-data-modeling/metrics-should-be-sql.webp](https://www.ssp.sh/blog/agentic-data-modeling/metrics-should-be-sql.webp)
@@ -410,7 +410,7 @@ Another example is Mike Driscoll, who says in [Introducing a SQL-based metrics l
 But let’s see Metrics SQL in action with agentic data modeling. This demo uses Rill to demonstrate the concepts and principles of semantics, speed, and, most importantly, stewardship.
 
 
-The key is having a semantic layerâor metrics modelâwith clear definitions, fast query responses with DuckDB connected to S3 files, and appropriate guardrails. Here’s a short example of how this could look.
+The key is having a semantic layer—or metrics model—with clear definitions, fast query responses with DuckDB connected to S3 files, and appropriate guardrails. Here’s a short example of how this could look.
 
 GitHub Repo
 
@@ -452,7 +452,7 @@ The stewardship could be as simple as this `ai_prompt`. This prompt would work w
 - If a relative date or time is involved, always verify with the user if the assumed date is correct
 - if it's more than 2 MB, prompt the user for more filters
 - avoid `select *`
-- You have access to Rill-MCP-Server. Use the below functions any time you are asked about metrics or business data to verify tables and columns, query small data to explore data and get more contextâe.g. what dimensions, measures or time ranges are available:
+- You have access to Rill-MCP-Server. Use the below functions any time you are asked about metrics or business data to verify tables and columns, query small data to explore data and get more context—e.g. what dimensions, measures or time ranges are available:
 	- `list_metrics` enables you to check what metrics are available
 	- `get_metrics_view` gets the list of measures and dimensions for a specific metrics view
 	- `query_metrics_view_time_rangechecks` what time ranges of data are available for a metrics view
@@ -482,7 +482,7 @@ For example, here is Claude Desktop with Rill MCP connected, and the first thing
 The great thing about Model Context Protocols is that they have an agentic workflow and work autonomously. As seen in the example below, they go back and forth on their own based on my initial prompt of `What's the average tip dollars per ride in the JFK Airport area in the last month? - use Rill MCP`. Notice I added to use MCP; this is not usually needed, but I just wanted to make sure.
 
 
-After a couple of back-and-forths, autonomously but guarded by the `ai_instructions` and guardrails and by using the MCP connection to verify that its numbers and measures existâe.g., here it found the dimension and the filter query (`dropoff_zone LIKE '%JFK%'`) on its own, as well as discovering that there is no tip amount but rather a percentage:
+After a couple of back-and-forths, autonomously but guarded by the `ai_instructions` and guardrails and by using the MCP connection to verify that its numbers and measures exist—e.g., here it found the dimension and the filter query (`dropoff_zone LIKE '%JFK%'`) on its own, as well as discovering that there is no tip amount but rather a percentage:
 
 
 The result of our prompt is based primarily on actual facts since we use MCP to verify everything, and is constrained and guided through the instructions provided.
@@ -521,7 +521,7 @@ Notice that I asked it to add missing metrics. With more domain knowledge, you c
 ### Built-in Conversational Analytics
 
 
-Or try the new feature of Rill with an AI agent built inâyou can [click here](https://ui.rilldata.com/demo/nyc-canvas-jam/explore/nyc_taxi_trips_metrics_explore?view=tdd&tr=2025-01+to+latest%2Fd+as+of+now%2FD&grain=month&compare_dim=borough&f=borough+IN+%28%27EWR%27%2C%27STATEN+ISLAND%27%2C%27QUEENS%27%2C%27BRONX%27%2C%27BROOKLYN%27%2C%27MANHATTAN%27%29&measure=average_fare_amount_measure&chart_type=bar) to jump to the NYC data set directly and play around with the AI Agent. Make sure to click that AI button on the top right.
+Or try the new feature of Rill with an AI agent built in—you can [click here](https://ui.rilldata.com/demo/nyc-canvas-jam/explore/nyc_taxi_trips_metrics_explore?view=tdd&tr=2025-01+to+latest%2Fd+as+of+now%2FD&grain=month&compare_dim=borough&f=borough+IN+%28%27EWR%27%2C%27STATEN+ISLAND%27%2C%27QUEENS%27%2C%27BRONX%27%2C%27BROOKLYN%27%2C%27MANHATTAN%27%29&measure=average_fare_amount_measure&chart_type=bar) to jump to the NYC data set directly and play around with the AI Agent. Make sure to click that AI button on the top right.
 
 
 ![/blog/agentic-data-modeling/rill-agentic-built-in.png](https://www.ssp.sh/blog/agentic-data-modeling/rill-agentic-built-in.png)
@@ -573,7 +573,7 @@ An agentic-powered workflow does just that. It lints our metric layer, helps us 
 It can’t understand all the details that someone who has worked with the data for a decade or has experienced the real-world behavior of the data would know. The linter should be a tool that is part of the workflow, assisting us as data modelers.
 
 
-Agent-based data modeling doesn’t mean that AI is replacing humans anytime soon or autonomously doing everything itself. But like an advanced linter, it helps us with short-term productivityâsuch as fixing typos, identifying missing obvious columns, correcting syntax, and creating simple metrics. And the **human driving the project is responsible for the long-term success**, maintaining the control.
+Agent-based data modeling doesn’t mean that AI is replacing humans anytime soon or autonomously doing everything itself. But like an advanced linter, it helps us with short-term productivity—such as fixing typos, identifying missing obvious columns, correcting syntax, and creating simple metrics. And the **human driving the project is responsible for the long-term success**, maintaining the control.
 
 
 ### Current AI Agent Stack
@@ -596,7 +596,7 @@ One big question is: how do we integrate with the [Data Engineering Lifecycle](h
 ### Optimize Agentic Workflow for Working with Data
 
 
-Coming back to the initially discussed agentic-powered analytics with **semantics** through Metrics SQL, **speed** with real-time databases, and **stewardship** with guardrails and human oversightâthese three pillars working together create a safe and effective workflow where agents work alongside us for data modeling, not replacing us but amplifying our capabilities. Recent research from the NBER study “[How People Use ChatGPT](https://www.nber.org/system/files/working_papers/w34255/w34255.pdf)” reveals that among 700 million weekly users, information-seeking and decision support dominate work usage, with about 81% of work-related messages focused on obtaining, documenting, and interpreting information. While data analysis represents only 0.4% of all messages, this creates an opportunity for making **conversational analytics accessible** to both technical and business users in ways that weren’t possible before.
+Coming back to the initially discussed agentic-powered analytics with **semantics** through Metrics SQL, **speed** with real-time databases, and **stewardship** with guardrails and human oversight—these three pillars working together create a safe and effective workflow where agents work alongside us for data modeling, not replacing us but amplifying our capabilities. Recent research from the NBER study “[How People Use ChatGPT](https://www.nber.org/system/files/working_papers/w34255/w34255.pdf)” reveals that among 700 million weekly users, information-seeking and decision support dominate work usage, with about 81% of work-related messages focused on obtaining, documenting, and interpreting information. While data analysis represents only 0.4% of all messages, this creates an opportunity for making **conversational analytics accessible** to both technical and business users in ways that weren’t possible before.
 
 
 A great agentic workflow is one that helps with your work but still lets you remain in the driver’s seat. Think of it as a **BI pair programmer** or an AI linter for business intelligence. It can lint your SQL or YAML metric definitions, format code, catch errors, and suggest improvements based on best practices. But just like a code linter, the final decision rests with you. The `ai_instructions` we discussed act as high-level guidelines and rules. Combined with fast analytics that enable immediate verification and a semantic layer that provides clear definitions, you get an agentic workflow that’s both powerful and safe. This is **stewardship in action**.
@@ -605,7 +605,7 @@ A great agentic workflow is one that helps with your work but still lets you rem
 As we’ve learned throughout this article, data modeling fundamentals haven’t changed over the years. Modeling remains the key to success for data projects, especially in the long run. What has changed is that we now have powerful agent collaborators that can assist with modeling.
 
 
-The traditional analytics workflow has been primarily about consumptionâviewing dashboards and reading reportsâbut with agentic workflows, we’re **shifting toward a hybrid of consumption and creation**. Every agent interaction becomes a potential user of your data platform, and just as you design for human users, you now must design your metrics layer with both human and agentic users in mind.
+The traditional analytics workflow has been primarily about consumption—viewing dashboards and reading reports—but with agentic workflows, we’re **shifting toward a hybrid of consumption and creation**. Every agent interaction becomes a potential user of your data platform, and just as you design for human users, you now must design your metrics layer with both human and agentic users in mind.
 
 
 Build your data stack with semantics, speed, and stewardship in mind, and you’ll be ready for the conversational, agentic analytics of tomorrow. Metrics SQL provides the structured language agents can work with reliably, real-time databases like DuckDB and ClickHouse enable the rapid iteration necessary for validation, and proper guardrails ensure quality without hindering innovation.
