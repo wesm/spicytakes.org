@@ -1,0 +1,25 @@
+{
+  "summary": "Julia recounts a day at the Recurse Center where she debugged a Rails login issue through pair programming and discovered several useful git tricks along the way. A missing database column was quickly tracked down using 'git log -S', which searches for commits that changed the count of a string. She also discovered the 'delta' tool for beautiful terminal diffs and learned about 'git log --patch'. The post also covers using Python's pathlib module and a working directory context manager for a cloud-init YAML generation script.",
+  "key_points": [
+    "Pair programming can rapidly transform frustrating bugs into quick fixes by bringing fresh perspective",
+    "'git log -S' finds commits that changed the count of a string's occurrences, which is different from 'git log -G' that searches diffs directly",
+    "The 'delta' tool provides beautiful side-by-side diffs in the terminal as a drop-in git pager",
+    "'git log --patch' shows diffs inline with log output, eliminating the need to manually copy commit IDs for 'git show'",
+    "Python's pathlib provides a clean interface for path manipulation and file reading"
+  ],
+  "money_quotes": [
+    "I'm always amazed by how quickly pairing can turn 'UGH THIS IS TERRIBLE' into solving the problem really quickly.",
+    "I ran 'git log -S provider' to find every commit that had added/removed the string 'provider' and Mikkel was like WHAT IS THAT??? Pairing is magic!",
+    "I learned that 'git log -S' doesn't actually search diffs to find diffs containing the string, instead it just counts occurrences of the string and reports when the count was changed.",
+    "I've been copying and pasting commit IDs from 'git log' and doing 'git show COMMIT_ID' to look at a diff for like 7 years.",
+    "It always brings me a lot of joy when I think of a little bit of simple code that I want to exist and I can kind of just summon it with a Google search."
+  ],
+  "themes": [
+    "git",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Pair programming is a superpower for debugging because sharing context with another person can collapse hours of frustration into minutes of productive problem-solving.",
+  "filename": "2021-01-07-day-33--a-login-bug--a-git-trick--and-generating-yaml-files"
+}

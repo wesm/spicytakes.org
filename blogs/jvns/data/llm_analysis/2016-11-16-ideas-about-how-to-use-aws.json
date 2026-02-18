@@ -1,0 +1,26 @@
+{
+  "summary": "Evans explores what she learned by examining Skyliner, a platform that deploys code to AWS instances, treating it as a case study in good architecture decisions. She discovers that new AWS instances start up faster than expected (under 5 minutes), that Docker can be used simply by avoiding its complex features like container networking and orchestration, and that AWS Application Load Balancers have useful APIs for managing deploys. The post advocates for studying other people's architecture choices as a way to learn, even if you don't use their product directly.",
+  "key_points": [
+    "New AWS instances can start in under 5 minutes, enabling a deploy strategy of launching fresh instances each time, which provides security updates and prevents state leakage",
+    "Docker can be used simply by sticking to host networking, syslog logging, and S3-based image distribution \u2014 avoiding registries, Swarm, and container orchestration entirely",
+    "AWS Application Load Balancers have APIs that let you query instance health and manage connection draining, enabling zero-downtime deploys",
+    "Studying how others architect their AWS infrastructure is valuable even if you don't use their product, because good architecture decisions are transferable",
+    "Complexity in tools like Docker and AWS comes from using too many features \u2014 constraining yourself to a small subset can make them manageable"
+  ],
+  "money_quotes": [
+    "I often think 'why can't we be as easy to use as Heroku?' and then try to make us a little more like that.",
+    "Use containers. Not too much. Mostly for packaging.",
+    "--net host means 'use the host networking namespace, don't do any weird container networking stuff'. GREAT.",
+    "They don't use a Docker registry. They package the Docker image into a tarball, encrypt it, put it in S3, and then download it onto your machine. Super simple.",
+    "It seems like if you're very careful with which features you use, maybe it will work fine!",
+    "This week I am weirdly extremely excited about load balancers with APIs, probably more than a normal person should be.",
+    "AWS is a super complicated platform. They have like 30 bajillion services you can use.",
+    "If someone can write down in a document how a system should work, and that description is workable, then it can save a ton of missteps even if you still have to write all the code."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, practical",
+  "key_insight": "Studying how others have assembled complex platforms like AWS into coherent products is a powerful way to learn which features actually matter and which complexity you can safely avoid.",
+  "filename": "2016-11-16-ideas-about-how-to-use-aws"
+}

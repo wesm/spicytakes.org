@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explores the non-caching benefits of CDNs after joining her company's infrastructure team. She explains how CDNs speed up TLS handshakes by terminating connections at edge servers closer to users, use private network infrastructure for smarter routing, and provide DDoS mitigation. She also discusses the security tradeoffs of handing SSL certificates to a CDN, including government surveillance concerns. The post acknowledges downsides like configuration complexity and reduced reliability from adding another dependency, concluding that CDNs are commonly used even without caching.",
+  "key_points": [
+    "CDNs dramatically speed up TLS handshakes by terminating connections at edge servers, avoiding multiple speed-of-light round trips to the origin",
+    "CDNs can route traffic through private network infrastructure rather than the public internet, using peering agreements and optimized paths",
+    "Giving a CDN your SSL certificate creates real security tradeoffs, including potential government data access through the CDN provider",
+    "Performance and reliability are inseparable \u2014 a site that takes 3 minutes to respond isn't meaningfully 'up'",
+    "Adding a CDN as a dependency can actually reduce reliability: two 99.9% uptime services chained together yield only 99.8% uptime"
+  ],
+  "money_quotes": [
+    "You are in New York, and the speed of light is slow (really!), and you are trying to send the javascript file to Sydney.",
+    "No public internet for you! You can buy MAGICAL FANCY INTERNET for your users to get to your server on.",
+    "As an extreme example, if your site takes 3 minutes to respond, you cannot truly fairly say that it is 'up'.",
+    "I used to think this was weird paranoia but I'm pretty sure by now we all know it's a real thing to worry about.",
+    "Nothing with computers is all butterflies & flowers and now we get to talk about a couple more disadvantages.",
+    "The more I learn about computers the more I learn to be skeptical of services other people are selling you.",
+    "It is apparently a pretty normal thing to put a site behind a CDN without caching it! Who knew? Not me, before today."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "curious, conversational, balanced",
+  "key_insight": "CDNs provide significant performance and reliability benefits beyond caching \u2014 particularly TLS termination and smart routing \u2014 but introduce real tradeoffs in security, configuration complexity, and dependency risk.",
+  "filename": "2016-04-29-cdns-arent-just-for-caching"
+}

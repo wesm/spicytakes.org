@@ -1,0 +1,24 @@
+{
+  "summary": "Julia documents her day spent learning qemu to automatically test cloud-init.yaml files locally instead of spinning up DigitalOcean VMs. She first tried virt-install and Vagrant's experimental cloud-init support, both of which failed. She eventually succeeded by using qemu directly, finding it surprisingly simple once she bypassed the abstraction layers. She shares a complete, working script for starting an Ubuntu image with cloud-init and qemu, while noting several things she still doesn't understand about the underlying mechanics.",
+  "key_points": [
+    "qemu is like ffmpeg \u2014 a powerful CLI tool with a million arguments, created by the same person (Fabrice Bellard), that can accomplish anything but is nontrivial to learn",
+    "Abstraction layers like virt-install and Vagrant's experimental cloud-init support were harder to get working than using qemu directly",
+    "The working solution was surprisingly simple: download an image, package cloud-init data, create a qcow2 snapshot, and run qemu-system-x86_64",
+    "Being transparent about what you still don't understand (like qcow2 internals) is a natural part of the learning process"
+  ],
+  "money_quotes": [
+    "qemu is a command line tool in a similar style to ffmpeg, with a million command line arguments that you can use to accomplish literally anything (which means it's very nontrivial to learn and is also an incredible tool).",
+    "The reason qemu is like ffmpeg is that they're by the same person, Fabrice Bellard.",
+    "Here's what I know about virt-install: 1. it's part of a package called libvirt 2. libvirt is some sort of abstraction over qemu and other virtualization providers 3. I can't get it to work",
+    "I spent a bunch of time trying to get various things using virt-install to work \u2013 I added myself to the libvirt group, installed some more packages, tried some random commands related to bridges that I found on the internet to get the networking to work, and got very frustrated eventually gave up.",
+    "This felt way simpler to me than all virt-install examples I found.",
+    "how exactly is my qcow2 \"snapshot\" of the Focal image is only 11MB? I expected the snapshot to make a copy of the data and be like 500MB."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "candid, exploratory, self-deprecating",
+  "key_insight": "Sometimes the direct, lower-level tool is easier to use than the abstraction layers built on top of it, because the abstractions introduce their own complexity and failure modes.",
+  "filename": "2021-01-08-day-34--learning-about-qemu"
+}

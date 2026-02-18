@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans documents setting up a new ThinkPad T14s laptop, sharing her pragmatic approach to OS migrations: tar the entire home directory, reinstall Ubuntu from scratch, and manually curate packages. She also switched from stimulus.js to Vue.js for frontend work and describes ongoing issues with her Go proxy server setup for SSH connections to VMs.",
+  "key_points": [
+    "Her OS migration strategy centers on copying the entire home directory via tar and always reinstalling Ubuntu fresh rather than upgrading in place",
+    "She manually curates which packages to reinstall rather than blindly restoring everything, filtering out accumulated cruft",
+    "She switched from stimulus.js to Vue.js because she wanted declarative conditional rendering instead of manually toggling CSS classes",
+    "Her SSH proxy architecture using gotty processes spawned per-connection is messy and unreliable, motivating a rewrite"
+  ],
+  "money_quotes": [
+    "I never upgrade Ubuntu, I always reinstall from scratch. (I tried breaking this rule and upgrading Ubuntu this year and it failed very spectacularly so I'm even more personally committed to this rule :) )",
+    "The `pv` is important to me because it takes a long time and I get impatient so it's nice to have a progress indicator.",
+    "I'm a bit mad that it has soldered RAM and that in general it's harder to service myself but I went with it anyway.",
+    "I don't claim that this is the Best Way to do things, it's just what I do and it works ok for me so far.",
+    "I find this whole thing pretty messy and it's also quite unreliable, the gotty processes sometimes don't quite start up right and I'm always worried about them dying and I have no real way to manage them."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "casual, pragmatic, reflective",
+  "key_insight": "A simple, repeatable OS migration strategy\u2014tar the home directory, reinstall fresh, manually curate packages\u2014beats more sophisticated approaches by being reliable and understandable.",
+  "filename": "2021-01-13-day-37--a-new-laptop-and-a-little-vue"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans makes the case that tcpdump is a powerful and approachable network debugging tool, despite its intimidating default output. She demonstrates a practical workflow: capture packets with tcpdump, then analyze them with Wireshark's friendly UI to diagnose problems like slow HTTP requests. She introduces pcap filter syntax for narrowing captures, discusses the overhead question for production use, and reveals tshark as a command-line tool that can decode application-layer protocols like HTTP and MongoDB. The post frames tcpdump mastery as achievable with just a few key techniques rather than deep TCP knowledge.",
+  "key_points": [
+    "tcpdump's raw output is intimidating, but you don't need to read it directly \u2014 capture to a pcap file and analyze with Wireshark instead",
+    "pcap filter rules let you narrow captures to specific ports or IPs, and you only need to know a few basics to be productive",
+    "tshark extends tcpdump's usefulness by understanding application-layer protocols like HTTP and MongoDB, letting you inspect request details directly",
+    "tcpdump gives you ground truth about network traffic, which can disprove misleading application-level metrics",
+    "Production overhead is manageable for most use cases if you filter appropriately and aren't capturing massive volumes"
+  ],
+  "money_quotes": [
+    "The first time I ran tcpdump I took one look at some output like that, went WELP NOPE NOPE NOPE NOPE NOPE NOPE and gave up on tcpdump.",
+    "The secret here is that we can use tcpdump to record network traffic, and then use a tool that we're less scared of (Wireshark) to analyze it on our laptop after.",
+    "With tcpdump I feel really confident that it's telling me the truth about what my network traffic is up to, because that's literally its whole job.",
+    "pcap files are like freshly baked chocolate chip cookies. Everybody loves them.",
+    "Wireshark was like 'yeah those are all taking 3ms. Your metrics are wrong, or at least counting something other than just the network request!' This was a very helpful fact to know.",
+    "tshark doesn't just know HTTP; it knows like EVERYTHING. Everything that Wireshark knows.",
+    "since tshark totally understands the Mongo protocol, it immediately started printing out Mongo collection names, and I could see exactly what was going on."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, approachable",
+  "key_insight": "tcpdump becomes a powerful and approachable debugging tool once you stop trying to read its raw output and instead capture packets to pcap files for analysis with friendlier tools like Wireshark and tshark.",
+  "filename": "2016-03-16-tcpdump-is-amazing"
+}

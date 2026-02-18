@@ -1,0 +1,24 @@
+{
+  "summary": "Evans advocates for debugging by dropping into a REPL at a breakpoint, showing how this works in Python (via ipdb), Ruby (via pry), and even partially in C (via gdb). She demonstrates the technique with concrete code examples, showing how you get access to all in-scope variables and functions at the breakpoint. She contrasts this with traditional debuggers, noting that REPL debugging is easier to remember because you just set a breakpoint and start running code interactively. The post positions this as a middle ground between print-statement debugging and full debugger usage.",
+  "key_points": [
+    "Setting a breakpoint that drops you into a REPL gives you both in-scope variables and access to all your program's functions interactively",
+    "Python's ipdb.set_trace() and Ruby's binding.pry are the practical ways to get this experience in those languages",
+    "GDB provides a surprisingly REPL-like experience for C thanks to extraordinary engineering effort, even though C is compiled",
+    "REPL debugging is easier to remember than traditional debugger workflows, especially for people who switch languages frequently",
+    "This technique works in interpreted languages but generally not in compiled ones, with GDB as a notable partial exception"
+  ],
+  "money_quotes": [
+    "I like doing this because it gives me both: all the variables in scope at the breakpoint, so I can print them out interactively, and easy access to all the functions in my program, so I can call them to try to find issues.",
+    "This stuff only works in gdb because the gdb developers put in a lot of work doing Very Weird Things to make it easier to get a REPL-like experience.",
+    "This is the only way I use gdb when looking at C programs \u2013 I never set watchpoints or do anything fancy, I just set a couple of breakpoints in the program and then poke around at those points.",
+    "I think part of the reason I like this type of REPL debugging more than using a more traditional debugger is \u2013 it's so easy to remember how to do it!",
+    "With debuggers, I always forget how to use the debugger (probably partly because I switch programming languages a lot) and I get confused about what features it has and how they work, so I never use it."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, conversational",
+  "key_insight": "Dropping into a REPL at a breakpoint combines the simplicity of print-statement debugging with the power of a full debugger, and its low cognitive overhead makes it a technique you'll actually use.",
+  "filename": "2021-09-16-debugging-in-a-repl-is-fun"
+}

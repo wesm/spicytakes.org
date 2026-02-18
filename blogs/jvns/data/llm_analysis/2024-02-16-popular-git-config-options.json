@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans surveyed her Mastodon followers about their favorite git config options and compiled the most popular ones into a ranked guide. The post covers options ranging from pull behavior (pull.rebase, pull.ff) and merge conflict display (zdiff3) to diff algorithms (histogram) and push defaults. She explains each option with practical examples, showing how merge.conflictstyle diff3 adds original code to conflict markers and how diff.algorithm histogram produces clearer diffs when functions are reordered. Evans shares her own minimal config and the three options she added after writing the post, while noting she's learned to be cautious about changing too many settings at once.",
+  "key_points": [
+    "The most popular git config options focus on avoiding accidental merge commits (pull.ff only, pull.rebase true) and making merge conflicts more readable (merge.conflictstyle zdiff3)",
+    "diff.algorithm histogram produces much clearer diffs than the default when code blocks are reordered, and is more popular than the patience algorithm",
+    "push.autoSetupRemote true is preferable to push.default current because it also enables pulling from the matching remote branch",
+    "Crowdsourcing popular options from real users is far more efficient than reading through all 600+ git config options in the documentation",
+    "Git's defaults have changed significantly over the years, so some popular config options people set are now actually the default behavior"
+  ],
+  "money_quotes": [
+    "I always wish that command line tools came with data about how popular their various options are, like: 'basically nobody uses this one' or '80% of people use this, probably take a look'",
+    "Having a list of 20 or 30 options to consider feels so much more efficient than combing through a list of all 600 or so git config options",
+    "I've learned to be cautious about setting new config options \u2013 it takes me a long time to get used to the new behaviour and if I change too many things at once I just get confused.",
+    "I'm always amazed by how useful to just ask a lot of people what stuff they like and then list the most commonly mentioned ones",
+    "I'm pretty sure it doesn't make sense to set both of them at once, since --ff-only overrides --rebase.",
+    "Someone explained it as 'detect data corruption eagerly. Rarely matters but has saved my entire team a couple times'",
+    "I usually set all of my options globally because it stresses me out to have different git behaviour in different repositories."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "practical",
+  "key_insight": "Crowdsourcing which git config options real developers actually use is far more valuable than reading documentation, because it surfaces the 20 options that matter from the 600 that exist.",
+  "filename": "2024-02-16-popular-git-config-options"
+}

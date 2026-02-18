@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans investigates why strace fails inside Docker containers with a 'ptrace not permitted' error. She systematically tests and rejects two hypotheses \u2014 missing CAP_SYS_PTRACE capability and user namespace differences \u2014 before discovering the real cause: Docker's default seccomp-bpf profile blocks the ptrace system call entirely. She then digs into Docker's source code to explain why --cap-add=SYS_PTRACE fixes it, finding that the flag secretly also whitelists related system calls in the seccomp profile. The post demonstrates how containers are built from multiple interacting security mechanisms that can produce surprising behavior.",
+  "key_points": [
+    "The real reason strace fails in Docker is not missing capabilities but Docker's seccomp-bpf profile blocking the ptrace system call",
+    "CAP_SYS_PTRACE is for tracing arbitrary processes across users \u2014 regular users can already ptrace their own processes without it",
+    "Docker's --cap-add flag does more than advertised: it also whitelists related system calls in the seccomp profile",
+    "The root user inside a Docker container (without user namespaces) is the same root user as on the host",
+    "Newer Docker versions (19.03+) allow ptrace by default for kernels newer than 4.8"
+  ],
+  "money_quotes": [
+    "I wasn't interested in fixing it, I wanted to know why it happens.",
+    "The point of CAP_SYS_PTRACE is to let you ptrace arbitrary processes owned by any user, the way that root usually can. You shouldn't need it to just ptrace a regular process owned by your user.",
+    "I hadn't realized that the root user in a Docker container is the same as the root user on the host, so I thought that was interesting.",
+    "--cap-add doesn't do exactly what it says it does in the man page, it's more like --cap-add-and-also-whitelist-some-extra-system-calls-if-required.",
+    "When the documentation doesn't help, the only thing to do is go look at the source.",
+    "This was a fun small thing to investigate, and I think it's a nice example of how containers are made of lots of moving pieces that work together in not-completely-obvious ways."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "investigative",
+  "key_insight": "Docker's --cap-add flag secretly does double duty, adding both Linux capabilities and seccomp-bpf whitelist entries, which is why it fixes strace even though the root cause is a seccomp rule blocking ptrace, not a missing capability.",
+  "filename": "2020-04-29-why-strace-doesnt-work-in-docker"
+}

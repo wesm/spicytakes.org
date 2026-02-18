@@ -1,0 +1,27 @@
+{
+  "summary": "Evans explores how Nix builds work under the hood by compiling a real C program (paperjam) from scratch, deliberately avoiding Nix's standard helpers. She starts with the core `derivation` function and an almost-empty build script, then iteratively fixes errors\u2014missing PATH binaries, compiler setup, header files, linker flags, and code signing\u2014to understand each layer. The post demystifies derivations as essentially environment variables passed to bash scripts, and shows how stdenv automates the tedious parts she did manually. She concludes with a clear three-step mental model: .nix files compile to .drv files (environment variables and inputs), which get passed to build scripts, with stdenv's bash code eval'd along the way.",
+  "key_points": [
+    "A Nix derivation is fundamentally just a function that produces environment variables and a bash build script\u2014the entire Nix language exists to call this one function",
+    "Nix enforces dependency isolation by stripping your PATH, forcing you to explicitly declare every tool your build needs, from tar to coreutils",
+    "The clang++ you run in Nix is actually a shell script wrapper that consumes special environment variables for compiler and linker flags",
+    "stdenv and its 1600-line setup.sh automate everything the post does manually: setting CFLAGS, LDFLAGS, running make, and managing build phases",
+    "The compiled .drv intermediate representation is surprisingly readable\u2014just inputs, outputs, and environment variables with concrete /nix/store paths"
+  ],
+  "money_quotes": [
+    "It turns out that derivation is a function in the Nix language. But not just any function! The whole point of the Nix language seems to be to call this function.",
+    "Nix needs you to declare all the dependencies for your builds. It forces this by removing your PATH environment variable so that you have no binaries in your PATH at all.",
+    "The plan is to start with an almost empty build script, and then resolve errors until we have a working build.",
+    "It turns out that the way Nix handles header files is that it has a shell script wrapper around clang. So when you run clang++, you're actually running a shell script.",
+    "This feels surprisingly easy to understand \u2013 you can see that there are a bunch of environment variables, our bash script, and the paths to our inputs.",
+    "I still don't feel very motivated to learn the Nix language, but now I have some idea of what Nix programs are actually doing under the hood!",
+    "I thought it was interesting that some of the environment variables in here are actually bash scripts themselves."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, hands-on, curious",
+  "key_insight": "Nix builds are ultimately just bash scripts receiving environment variables\u2014the Nix language exists primarily to generate these variables and ensure all dependencies are explicitly declared.",
+  "filename": "2023-03-03-how-do-nix-builds-work-"
+}

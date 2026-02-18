@@ -1,0 +1,24 @@
+{
+  "summary": "Evans shares community suggestions for practical uses of strace, collected after her previous post on using strace to avoid reading Ruby code. The suggestions range from debugging running Ruby processes with strace/gdb/lsof, to finding shared library loading paths, analyzing git performance with strace -c, and using related tools like ltrace and system-wide syscall tracing. She highlights several external resources including blog posts and slides that demonstrate strace as a versatile debugging tool.",
+  "key_points": [
+    "strace's 'open' system call tracking is invaluable for sandboxing and finding where programs load shared libraries",
+    "You can combine strace with gdb and lsof for open-heart surgery on running Ruby processes, though you risk killing the process",
+    "ltrace (library call tracing) and system-wide syscall tracing are useful complements to strace that many people overlook",
+    "strace -c provides useful performance profiling, such as analyzing git performance"
+  ],
+  "money_quotes": [
+    "There were so many excellent suggestions that I couldn't not share!",
+    "He remarks that some of the things are like open-heart surgery \u2013 you can go into a running Ruby process and execute code using gdb, but you might kill the process.",
+    "all I know is that I usually start with strace, get annoyed with it, then remember to use ltrace instead.",
+    "check out syscall tracing on Linux, it's like strace for the whole system, handy if you want to know which process is doing something.",
+    "I didn't know syscall tracing was a thing! This seems very worthy of investigation."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, collaborative, curious",
+  "key_insight": "strace is just the starting point of a rich ecosystem of tracing tools \u2014 ltrace, system-wide syscall tracing, and dtruss \u2014 that together form a powerful debugging toolkit for understanding what programs are actually doing.",
+  "filename": "2014-02-27-more-practical-uses-for-strace"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Evans documents a baffling array indexing bug in her Rust-based OS kernel where NUMS[2] and NUMS[keycode] produce different results even when keycode provably equals 2. The bug only manifests when the conditional checks for multiple keycodes, suggesting compiler optimization interactions. She methodically demonstrates the contradiction through output analysis and rules out obvious explanations. The fix turned out to be switching from raw binary linking to ELF format with objcopy, though she doesn't fully understand why that resolved it.",
+  "key_points": [
+    "A static array index with a literal constant produced different results than indexing with a variable holding the same value, which should be impossible in normal circumstances",
+    "The bug disappeared when the conditional was simplified, suggesting compiler optimizations were masking or causing the issue",
+    "The root cause was related to the binary linking format \u2014 switching to ELF linking with objcopy fixed it",
+    "Debugging was hampered by symbols being stripped during linking, preventing breakpoints in gdb"
+  ],
+  "money_quotes": [
+    "After 6 days, I have problems that I can't understand at all",
+    "I expect NUMS[2] to equal NUMS[keycode] when keycode == 2. This doesn't appear to be the case, and I don't understand how this is possible.",
+    "should be '2', BUT IT ISN'T. IT IS SOMETHING ELSE. HOW IS THIS HAPPENING.",
+    "I think this is because of a compiler optimization replacing keycode with 2.",
+    "Some hypotheses: There's something wrong with the Rust compiler. There's something wrong with the stack and how I'm calling _interrupt_handler_kbd. ?????????"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "frustrated, curious, transparent",
+  "key_insight": "When writing OS-level code, the most bewildering bugs often stem not from logic errors but from toolchain issues like linking format, where the abstraction layers between your code and the hardware silently break assumptions.",
+  "filename": "2013-12-06-day-38-after-7-days"
+}

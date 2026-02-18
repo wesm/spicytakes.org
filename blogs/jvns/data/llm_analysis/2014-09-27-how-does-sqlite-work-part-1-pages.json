@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans and Kamal explore how SQLite stores data by creating a test database and examining its binary file format. They discover that SQLite databases are divided into fixed-size pages, with the page size encoded in the file header. By downloading the SQLite source code and adding a print statement to the btree page-reading function, they can trace exactly which pages are accessed during queries. The experiment reveals how B-tree indexing works in practice: nearby rows share page traversal paths, while distant rows diverge at different levels of the tree. The post demonstrates learning database internals through hands-on experimentation rather than just reading documentation.",
+  "key_points": [
+    "SQLite databases are split into fixed-size pages, with the page size stored in bytes 16-17 of the file header",
+    "Adding a single print statement to SQLite's btreePageFromDbPage function reveals the entire page traversal path for any query",
+    "B-tree indexes work by traversing interior nodes (containing only pointers) to reach leaf nodes (containing actual data), requiring only a few page reads instead of scanning the whole file",
+    "Rows that are close together in the index share the same traversal path and end up on the same leaf page",
+    "SQLite's 140,000-line codebase is well-commented and approachable enough to modify for learning purposes"
+  ],
+  "money_quotes": [
+    "My favorite first thing to do with binary files is to cat them.",
+    "I've always understood indexes in a pretty vague way \u2013 I know that they're 'some kind of tree', which lets you access data in O(log n), and in particular that databases use something called a btree. I still do not really know what a btree is.",
+    "There's about 140,000 lines of SQLite source code, which is a bit intimidating!",
+    "All page reads need to go through this function, so we can just add some logging to it :)",
+    "Those two rows (1 and 20) are in the same page, so it traverses the same path to get to both of them!",
+    "Modifying open source programs to print out debug information to understand their internals better: SO FUN."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "You can demystify database internals by adding a single print statement to the source code and watching which pages get accessed during queries.",
+  "filename": "2014-09-27-how-does-sqlite-work-part-1-pages"
+}

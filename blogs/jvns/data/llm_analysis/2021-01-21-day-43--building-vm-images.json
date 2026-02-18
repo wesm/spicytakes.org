@@ -1,0 +1,23 @@
+{
+  "summary": "Julia documents her struggles building Ubuntu VM images for Firecracker, learning about disk image manipulation, kernel compilation, and base image selection along the way. She discovered that compiling the Linux kernel is surprisingly fast, taking only about 5 minutes. She tried both Ubuntu cloud images and Docker images as bases for her VMs, finding problems with each approach. The cloud image wouldn't boot due to a UEFI-related issue, while the Docker image boots but lacks essential system components.",
+  "key_points": [
+    "Disk image manipulation involves tools like sfdisk, dd, and sparse file handling with fallocate",
+    "Compiling a Linux kernel from source takes only about 5 minutes with parallel builds, far less than the expected 2 hours",
+    "Ubuntu cloud images and Docker images each have distinct problems when used as Firecracker VM bases",
+    "Docker images lack basic system components like init and udev since they aren't designed for full VM use"
+  ],
+  "money_quotes": [
+    "It only took me like 5 minutes to compile a Linux kernel from scratch (with `make -j12` on an AMD Ryzen 5). I was really surprised by this, I thought it would take like 2 hours.",
+    "The Firecracker instructions suggest building your own Linux kernel from source. This seemed intimidating to me because I hadn't done it before but it was actually totally fine!",
+    "Some Linux files are \"sparse\" which means that regions which are filled with 0s are collapsed. Very useful for disk images.",
+    "it's not really designed to be a system to log into so I feel like it's missing a lot of things",
+    "I spent all day yesterday trying to build Ubuntu VM images that work with Firecracker without too much success."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "candid, exploratory",
+  "key_insight": "Building Linux kernels from source is surprisingly fast and accessible, but assembling a working VM image from existing Ubuntu artifacts is harder than expected because cloud images and Docker images serve different purposes than a Firecracker VM.",
+  "filename": "2021-01-21-day-43--building-vm-images"
+}

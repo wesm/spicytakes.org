@@ -1,0 +1,27 @@
+{
+  "summary": "Evans discusses the significant investment required to run new software in production safely, particularly at high availability targets like 99.99% uptime. She presents a practical playbook: start with non-critical use, let it bake, run into problems, and fix them iteratively. Using Envoy and Kubernetes as concrete examples, she catalogs the kinds of issues teams encounter\u2014mostly configuration surprises rather than bugs\u2014and argues for treating each incident as a one-time learning opportunity. She emphasizes categorizing components into 'ok to break' and 'not ok to break' lists to focus attention where it matters most.",
+  "key_points": [
+    "At 99.99% SLO, a single serious incident discovered in production can consume half your annual downtime budget, making pre-understanding critical",
+    "Most issues with new software aren't bugs but configuration surprises where defaults don't match expectations, and figuring out correct configuration takes significant time",
+    "The playbook is iterative: deploy to non-critical systems, encounter problems, fix them thoroughly so each incident only happens once",
+    "Categorizing failure modes into 'ok to break' vs 'not ok' helps teams focus their attention on what actually matters for production reliability",
+    "Knowledge-sharing about incidents and failure modes across teams prevents the same incident from recurring through different people"
+  ],
+  "money_quotes": [
+    "That's 45 minutes / year of downtime, and if you find out about a serious issue for the first time in production it could easily take you 20 minutes or to revert the change. That's half your uptime budget for the year!",
+    "Just because something is great software doesn't mean you won't also run into 10 or 20 relatively serious issues along the way that need to be addressed in one way or another.",
+    "My view is that running new software in production inevitably results in incidents.",
+    "My experience so far has been that it's actually relatively possible to pull off 'have every incident only once'.",
+    "A lot of these aren't bugs \u2013 they're just cases where what we expected the default configuration to do one thing, and it did another thing.",
+    "Figuring out all the failure modes of a new piece of software and how they apply to your situation can take months. (this is why when you ask your database team 'hey can we just use NEW DATABASE' they look at you in such a pained way).",
+    "Understanding which parts are OK to break and which aren't lets me focus: I can put big boxes around some components and decide 'ok, if this breaks it doesn't matter, so I won't pay super close attention to it'."
+  ],
+  "themes": [
+    "debugging",
+    "learning",
+    "career"
+  ],
+  "tone": "practical, experienced, candid",
+  "key_insight": "Running new software in production inevitably causes incidents, so the strategy is to encounter them in non-critical contexts first, ensure each incident only happens once through thorough investigation, and categorize failure modes to focus attention where it matters.",
+  "filename": "2018-11-11-understand-the-software-you-use-in-production"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Evans argues that developers should build intuition about how fast computers actually are, rather than accepting slow performance as inevitable. She walks through concrete benchmarks showing nginx can handle 1M QPS, Java servers can do 50K QPS, and even toy Python servers can manage 1K QPS. She then catalogs common reasons servers underperform (CPU saturation, worker starvation, network limits, database load, disk I/O) and argues that understanding these bottlenecks requires investigation, not assumptions. Her core message is that developing an 'absolute sense' of computer speed helps you identify when something is unreasonably slow and gives you confidence to invest time in profiling and optimization.",
+  "key_points": [
+    "Concrete benchmarks show computers are far faster than most developers assume: nginx can do 1M QPS, Netty 50K QPS, even Python 1K QPS",
+    "It's easy to be wrong about why something is slow \u2014 assumptions about bottlenecks are frequently incorrect and need to be verified through profiling",
+    "Five common performance bottlenecks: CPU saturation, worker starvation, network bandwidth, database load, and disk I/O each require different fixes",
+    "Developing an absolute sense of computer speed (not just relative 'X is faster than Y') is a powerful debugging skill",
+    "Spending time setting up profiling feels terrible but pays off enormously when you actually find and fix the real bottleneck"
+  ],
+  "money_quotes": [
+    "When I first read that I thought it was a typo. Surely nothing can do a million anythings per second? It wasn't a typo.",
+    "Instead of 'Go is faster than Python', I want to be able to know things like 'I should be able to easily do 100 QPS in Python'.",
+    "I've found that it's really easy to be wrong about why something is slow.",
+    "Spending a day setting up profiling feels terrible but then is AWESOME when you make everything faster and everybody loves you.",
+    "Raising my expectations about how fast computers can and should be has been super useful to me. Now when I see that it takes a hour to process a million records, I get mad.",
+    "I try to restrict my anger to cases where it actually matters \u2013 if the processing job is in my way, or if web performance is actually a problem.",
+    "I have this mission to develop an absolute sense of how fast computers are."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, empowering",
+  "key_insight": "Building concrete intuition about how fast computers actually are \u2014 not just relative comparisons \u2014 gives you the confidence and ability to diagnose and fix real performance problems.",
+  "filename": "2016-02-10-have-high-expectations-for-computers"
+}

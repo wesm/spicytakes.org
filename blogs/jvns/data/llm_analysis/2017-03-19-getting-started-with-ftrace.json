@@ -1,0 +1,27 @@
+{
+  "summary": "The post introduces ftrace, a Linux kernel feature for tracing kernel function calls that has been available since kernel 2.6. Evans walks through practical examples using trace-cmd, a friendlier frontend to ftrace's filesystem-based interface, demonstrating how to trace individual functions like do_page_fault, all functions for a specific process, and kernel events like scheduling switches. She explains that ftrace works by dynamically inserting tracing instructions into kernel functions at runtime using pre-compiled NOP slots, meaning zero overhead when not in use. The post also points readers to Brendan Gregg's perf-tools and kernelshark for more accessible ways to leverage ftrace.",
+  "key_points": [
+    "ftrace traces Linux kernel function calls and has been available since kernel 2.6 (~2008), making it usable even on older systems",
+    "The raw filesystem interface at /sys/kernel/debug/tracing is cumbersome, but trace-cmd provides a much more usable command-line frontend",
+    "Function graph tracing instruments both entry and exit of functions, showing call hierarchies and timing for each function",
+    "ftrace works by dynamically modifying function code at runtime, inserting tracing instructions into pre-compiled NOP slots, so there's zero performance impact when not tracing",
+    "Beyond function tracing, ftrace supports kernel events like sched_switch that don't map cleanly to function calls"
+  ],
+  "money_quotes": [
+    "Unlike strace and perf, ftrace isn't a program exactly \u2013 you don't just run ftrace my_cool_function. That would be too easy!",
+    "When Linux allocates memory, it often does it lazily (\"you weren't really planning to use that memory, right?\").",
+    "Reading the function trace was definitely an easier way to find that out than by reading the kernel code, and it's nice to see how long all of the functions took.",
+    "The kernel will insert some extra instructions in the assembly for that function to notify the tracing system every time that function gets called.",
+    "I think ftrace is a bit of a niche tool (it's definitely less broadly useful and harder to use than strace) but that it's worth knowing about.",
+    "Being able to see all these function calls is pretty cool, even if I don't quite understand them.",
+    "The tradeoff here is that they're easier to use, but you're limited to things that Brendan Gregg thought of & decided to make a tool for. Which is a lot of things!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "ftrace lets you trace Linux kernel function calls with zero overhead when disabled, and trace-cmd makes it practical to use for understanding what the kernel is actually doing when debugging system-level problems.",
+  "filename": "2017-03-19-getting-started-with-ftrace"
+}

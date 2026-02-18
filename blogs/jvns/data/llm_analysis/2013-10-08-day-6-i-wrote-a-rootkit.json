@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents writing a simple rootkit as a kernel module during her Hacker School experience. The rootkit allows any unprivileged user to become root by writing a PID to /proc/buddyinfo. She explains how it works by hijacking file_operations structs to add a write handler to a read-only proc file, which then changes process ownership to root. She credits the code to an existing rootkit she studied and simplified.",
+  "key_points": [
+    "Kernel modules can modify file_operations structs to change how files behave, which is the same mechanism used for device drivers",
+    "A rootkit can be surprisingly simple - just hijack a proc file's write handler and change process ownership",
+    "Every file in Linux has a struct file_operations controlling read/write behavior, giving the kernel complete control",
+    "Process ownership can be changed by copying the owner credentials from PID 1 (init, always root)"
+  ],
+  "money_quotes": [
+    "I made some small improvements on my kernel module from yesterday \u2013 I made it into a rootkit!",
+    "What I mean by a \"rootkit\" is a kernel module that once I put it in my kernel, any unprivileged user who knows the right incantation can become root.",
+    "THEN I AM ROOT.",
+    "Since the kernel can do ANYTHING, it can change those file handlers and do nefarious things.",
+    "Print \"YOU HAVE BEEN HACKED: Making PID $PID root\" to the kernel log. Bwahaha.",
+    "Maybe tomorrow I will improve the rootkit so that people can exploit my computer over the network, not just when they're logged in."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "playful",
+  "key_insight": "Building a rootkit is a surprisingly effective way to learn how Linux kernel modules and file operations work, because it demonstrates the kernel's unrestricted power over process ownership and file handlers.",
+  "filename": "2013-10-08-day-6-i-wrote-a-rootkit"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans describes her discomfort with using machine learning models she doesn't understand and shares practical techniques for looking inside them. She contrasts simple logistic regression models (where you can read the coefficients) with large random forests that feel like black boxes. A colleague built a simple tool to show exactly which conditions each decision tree used for a given prediction, which immediately helped debug data quality issues and encoding mistakes. She argues that the common tradeoff framing of 'interpretability vs. performance' is a false choice, and that understanding what your models are doing is essential for making them better.",
+  "key_points": [
+    "Random forests are conceptually simple despite being large \u2014 each prediction is explainable by a set of conditions and probabilities from individual trees",
+    "A simple tool showing why a random forest made a specific choice immediately revealed training data problems and feature encoding bugs like improper handling of categorical variables",
+    "The 'interpretability vs. performance tradeoff' framing is unsatisfying \u2014 you need interpretability to debug and improve model performance",
+    "One practical approach is using ML to guide domain experts rather than replacing them: experts inspect ML outputs and incorporate the smart patterns into hand-built systems",
+    "Scikit-learn ships with very few model debugging tools despite debugging being essential for building good models"
+  ],
+  "money_quotes": [
+    "Not understanding what my models are doing made me very uncomfortable.",
+    "People told me a lot 'well, you have a tradeoff between interpretability and how well the model performs!' But I didn't feel satisfied with that. I wanted interpretability *and* a model that performs well.",
+    "If you have a model making important decisions, and you don't clearly understand what it's doing, how do you know it's not going to blow up in your face tomorrow?",
+    "When you train a model and it doesn't perform well, how do you know how to fix it? Is it missing features? Did you use the wrong hyperparameters? You have to sort of magically intuit why it's not performing well. Magical intuition is Very Hard.",
+    "It turns out that if you just do the simplest possible thing (get the random forest to report exactly why it made the choice that it did), it's actually surprisingly helpful in helping debug!",
+    "You fundamentally don't know whether the ML is doing a thing because it's smart and correct and better than you, or because there's a bug in the data.",
+    "How can you make your models better if you have no idea what they're doing? It makes no sense to me."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, practical, opinionated",
+  "key_insight": "You don't have to accept machine learning models as black boxes \u2014 even simple tools that show why a model made a specific decision can reveal bugs and dramatically improve your ability to build better models.",
+  "filename": "2016-04-10-why-i-dont-like-black-boxes"
+}

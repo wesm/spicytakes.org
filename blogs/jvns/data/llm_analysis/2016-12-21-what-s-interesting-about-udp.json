@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans explores what makes UDP interesting by crowdsourcing knowledge from Twitter. She covers UDP's key use cases including DNS, statsd metrics, WebRTC, gaming, and video streaming, while explaining the practical tradeoffs between UDP and TCP. The post highlights that UDP's lack of reliability guarantees makes it useful when speed matters more than delivery certainty, but warns against reimplementing TCP on top of UDP. She notes that the common wisdom about UDP use cases (gaming, video) is more nuanced than it appears, with many applications actually using TCP instead. The post ends with open questions about when UDP truly makes sense versus defaulting to TCP.",
+  "key_points": [
+    "DNS is probably the most important protocol built on UDP, because most DNS requests fit in a single packet making retry logic simple",
+    "UDP's lack of connection overhead makes it ideal for high-volume, low-stakes data like metrics (statsd) where losing some packets is acceptable",
+    "The common claim that games and video streaming use UDP is more nuanced than expected \u2014 many actually use TCP, and the decision depends on whether dropped frames are preferable to delayed frames",
+    "UDP packet size limits are practically important because unlike TCP, there's no automatic combining of packets \u2014 the 13 root DNS servers exist because that's how many fit in one UDP packet",
+    "The general advice is to default to TCP unless you genuinely don't care about packet delivery, ordering, or reliability"
+  ],
+  "money_quotes": [
+    "Technically speaking it stands for 'user datagram protocol' but I think 'unreliable data protocol' is better because it's funny and probably more accurate anyway.",
+    "Another fact about UDP is that if you mention UDP there will be 1000 jokes about dropping packets.",
+    "The reason there are only 13 root DNS servers is that DNS uses UDP and that is how many fit inside a single UDP packet!",
+    "The idea here is that statsd uses UDP because metrics reporting should be as cheap as possible (sending UDP packets is really fast, there is no connection to manage).",
+    "It's possible that, most of the time, the answer to 'when should I use UDP' is 'don't, just use TCP instead, it'll be easier'.",
+    "If you really actually do not care if your packets arrive or not and they are all basically independent of each other and the order does not matter at all, maybe that is a good time to use UDP.",
+    "UDP is used for video and some games because with TCP you can get huge delays for one dropped packet."
+  ],
+  "themes": [
+    "networking",
+    "learning",
+    "dns"
+  ],
+  "tone": "curious, informal, exploratory",
+  "key_insight": "UDP's value comes from its simplicity and lack of overhead, but the real-world cases where you should actually use it instead of TCP are narrower than commonly believed.",
+  "filename": "2016-12-21-what-s-interesting-about-udp"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans explores whether Unix signals should be feared, after being told by experienced developers that they shouldn't be. She explains how signal handlers work at the kernel level, then catalogs the specific dangers: interrupted system calls returning EINTR, concurrency issues since signal handlers can't safely use locks or malloc, and the restrictions on what functions are safe to call. She surveys important programs that use signals successfully (init, terminals, the JVM, unicorn) and examines signalfd as an alternative approach. She concludes that signals are not trivial but are manageable with care, and advocates replacing vague fear with specific knowledge of what can go wrong.",
+  "key_points": [
+    "Signal handlers create implicit concurrency that's harder to reason about than threads, since the handler interrupts paused code and can't even wait on locks that code holds",
+    "Many critical programs rely heavily on signals: init uses SIGINT for restart, terminals use SIGWINCH for resizing, shells use SIGCHLD, and the JVM uses signals for stop-the-world GC",
+    "Linux's signalfd offers an alternative that makes signal handling more explicit by turning signals into file descriptor events, though it has its own problems",
+    "Profiling tools like stackprof receive hundreds of signals per second via setitimer, which raises concerns about IO interruption overhead",
+    "The correct response to scary technical topics is replacing vague fear with specific knowledge of what can actually go wrong"
+  ],
+  "money_quotes": [
+    "When you get sent SIGKILL nobody communicates with you, you just die immediately.",
+    "Surprise! now you have a concurrent program! you need to be very careful if you modify anything in your signal handler code because WHO KNOWS what state that thing was in before you changed it.",
+    "It is perhaps telling that functions are by default unsafe to call from signal handlers.",
+    "I like this because it means you have a concurrent program, but it's much more explicit that you're running a concurrent program instead of having a weird signal handler that exists outside of space and time.",
+    "It's unreasonable to say 'threads are hard! never use threads! it is scary'. Threads are important! Sometimes you need to use them! It is possible to write correct threaded programs!",
+    "Instead it is better to say 'this code is not thread safe because of SPECIFIC REASON! it will not work!'.",
+    "I don't like having Fears and Uncertainties about things that I can't base in fact."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, exploratory, pragmatic",
+  "key_insight": "The right response to a scary technical concept like Unix signals isn't avoidance but understanding the specific things that can go wrong, turning vague fear into actionable knowledge.",
+  "filename": "2016-06-13-should-you-be-scared-of-signals"
+}

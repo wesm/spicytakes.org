@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explores how regular expressions are actually implemented on computers, sparked by an email about Google's RE2 and redgrep libraries. She contrasts the university textbook approach (converting regex to DFAs) with what actually happens in practice: Perl and friends use backtracking with exponential worst-case complexity, while Ken Thompson's 1960s algorithm avoids this blowup. She then introduces the surprising concept of 'regular expression derivatives' from Brzozowski's paper, where you can strip leading characters from a regex to produce a simpler regex. The redgrep library uses this derivative approach to compile regular expressions into LLVM bytecode via DFAs.",
+  "key_points": [
+    "Most popular regex engines (Perl, Python, Ruby, Java) use backtracking with exponential worst-case complexity, not the theoretically clean DFA approach taught in university",
+    "Ken Thompson wrote a regex algorithm in the 1960s that avoids exponential blowup, and Google's RE2 library uses this approach because they need guaranteed performance",
+    "You can take the 'derivative' of a regular expression by stripping off a leading character, producing a simpler regex \u2014 a formal operation from Brzozowski's 1964 paper",
+    "Google's redgrep library uses repeated regex derivatives to build a DFA, then compiles it to LLVM bytecode in just a few thousand lines of C++",
+    "Creating a full DFA upfront can also cause exponential blowup, which is why Thompson's approach avoids constructing it explicitly"
+  ],
+  "money_quotes": [
+    "I thought I knew how regular expressions worked on computers because I took a class on them in university, but it turns out that no, I did not know.",
+    "the important thing to know is: DFAs are simple and fast and very nice. they are state machines!",
+    "at google they care about worst-case complexity because they would like their regular expressions to never explode exponentially in complexity.",
+    "When Kamal told me about taking the derivative of a string I FREAKED OUT for like 10 seconds and I was like 'omg you can't take the derivative of a string! WHERE EVEN IS THE LIMIT. OMG.' But now I have calmed down and it seems cool.",
+    "perl & friends use a different algorithm (backtracking) that has worse worst-case complexity (exponential)",
+    "I wanted to write this up because I got this email, was like 'this will take me a while to read', and writing up my understanding has helped me understand it better!"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, accessible",
+  "key_insight": "Regular expression implementations in popular languages don't use the theoretically elegant DFA approach from textbooks, and there's a fascinating alternative using 'derivatives' of regular expressions that can compile them into efficient machine code.",
+  "filename": "2016-04-24-how-regular-expressions-go-fast"
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "Evans documents her experience pairing with Hacker School facilitator Allison on a Python bytecode interpreter, discovering that CPython's internals are surprisingly approachable. She explores ceval.c, the 3,500-line file containing CPython's main interpreter loop, and finds that individual opcodes like BINARY_SUBTRACT are straightforward to understand. The post walks through what a single opcode does step by step, demystifying the C code behind Python execution. Her core realization is that bytecode is literally made of bytes\u2014fewer than 256 instructions, each represented by a single byte.",
+  "key_points": [
+    "CPython's interpreter is mostly a single 3,500-line file with a 2,000-line switch statement, which sounds intimidating but is surprisingly readable",
+    "Individual bytecode operations like BINARY_SUBTRACT follow a simple pattern: pop arguments, perform operation, manage references, push result, dispatch next instruction",
+    "Pairing with an experienced guide can transform something that seems scary into something approachable",
+    "Python bytecode literally uses single bytes for instructions, with fewer than 256 possible opcodes"
+  ],
+  "money_quotes": [
+    "The CPython interpreter is mostly in one 3,500 file called ceval.c. The main part of this file is a 2,000-line switch statement \u2013 switch(opcode) {.... Ack.",
+    "But! This file is surprisingly not-scary.",
+    "I could TOTALLY WRITE THAT.",
+    "It's actually possible to read the C code that runs Python!",
+    "Bytecode is made of bytes. Like, there are less than 256 instructions and each one is a byte. I did not realize this until today. Laugh all you want =D"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "The C code that implements Python's interpreter is far more approachable than it sounds\u2014individual bytecode operations are simple, readable functions, and demystifying them just requires looking at the source.",
+  "filename": "2013-10-14-day-9-bytecode-is-made-of-bytes"
+}

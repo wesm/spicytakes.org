@@ -1,0 +1,23 @@
+{
+  "summary": "Evans recounts a Linux Kernel Club session at Hacker School where she learned about the difference between processes and threads. The post explains that processes have their own PID and address space while threads share both. She breaks down what address space includes (code, data, heap, stack, environment variables) and lists the tradeoffs of threads: easier communication but risk of race conditions. The group also discussed kernel modules as a good entry point for kernel development.",
+  "key_points": [
+    "Processes have their own PID and address space; threads share both with their parent process",
+    "Address space includes code/text, data, heap, stack, environment variables, and command line arguments",
+    "Threads trade easier inter-thread communication for the complexity of race conditions and mutexes",
+    "Writing a kernel module is considered a good entry point for Linux kernel development"
+  ],
+  "money_quotes": [
+    "Processes each have their own PID and address space, threads share the PID and address space of a single process.",
+    "Each process has a piece of memory that it's allowed to use, so that processes can't step on each others' toes.",
+    "Because they write to the same memory, you can have all kinds of race conditions. So you need to use mutexes and things.",
+    "The consensus was that writing a kernel module is a really good way to get started with Linux kernel development.",
+    "We talked a bit about exploits and rootkits and dastardly things that kernel modules can do."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory",
+  "key_insight": "The fundamental distinction between processes and threads comes down to address space isolation: processes get their own memory for safety, while threads share memory for efficiency at the cost of concurrency complexity.",
+  "filename": "2013-10-04-day-4-processes-vs-threads"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Julia investigates a puzzling production issue where machines with plenty of free memory were swapping and processes were being OOM killed. After trying swappiness tuning and disabling swap without success, she discovers that cgroup memory limits were the root cause \u2014 processes were constrained to less memory than the machine had available. The post walks through her debugging process of elimination and the key insight from reading dmesg output. She reflects on whether swap makes sense on production servers at all, given its unpredictable interactions with cgroups.",
+  "key_points": [
+    "Cgroup memory limits can cause OOM kills even when the host machine has plenty of free memory available",
+    "The vm.swappiness sysctl controls how aggressively Linux swaps versus reclaiming filesystem cache, but it won't help when cgroup limits are the real constraint",
+    "Processes in a cgroup that exceed their memory limit can still use swap rather than being killed immediately, which contradicts a common mental model",
+    "The dmesg output from OOM kills contains detailed memory usage information for everything in the cgroup, making it a critical debugging tool",
+    "Swap on production servers introduces unpredictable behavior and may not provide meaningful benefits"
+  ],
+  "money_quotes": [
+    "In my head I had an axiom 'if a computer has free memory, there is no reason the processes on it should get OOM killed'. Obviously there was something I did not understand.",
+    "My model of memory limits on cgroups was always 'if you use more than X memory, you will get killed right away'. It turns out that that assumption was wrong! If you use more than X memory, you can still use swap!",
+    "I think the reason that swap is considered bad in production systems is that it has weird/unpredictable effects and predictability is good.",
+    "It's really important to me to understand what's happening on the computers that I work with \u2013 when something happens like 'this computer is swapping and I don't know WHY' it bothers me a lot.",
+    "I finally looked at the output of dmesg and then there was this magic word: cgroups. Everything became clear pretty quickly."
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "curious, investigative, reflective",
+  "key_insight": "Cgroup memory limits create per-container memory boundaries that can cause swapping and OOM kills even when the host machine has free memory, breaking the intuitive assumption that available RAM prevents memory pressure.",
+  "filename": "2017-02-17-mystery-swap"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans investigates the Erlang virtual machine by comparing the system calls of 'hello world' programs written in C, Python, Java, and Erlang. She discovers that Erlang generates roughly 15,000 system calls compared to Java's 2,700, Python's 1,550, and C's 38. The types of system calls differ dramatically too: while other languages mostly do file operations and memory allocation, Erlang's top calls are futex and sched_yield, reflecting its concurrent nature. She also notices mysterious behaviors like Erlang binding to a TCP socket just to print hello world. The post demonstrates how system call analysis can reveal fundamental differences in language runtime design.",
+  "key_points": [
+    "Erlang's hello world generates 15,043 system calls compared to Java's 2,699, Python's 1,550, and C's 38",
+    "Erlang's dominant system calls (futex, sched_yield, ppoll) reflect concurrency primitives rather than the file I/O and memory allocation calls typical of other languages",
+    "Erlang inexplicably binds to a TCP socket and probes NUMA node directories just to run hello world, suggesting deep runtime infrastructure",
+    "System call analysis can reveal fundamental architectural differences between language runtimes without knowing the language itself",
+    "Familiarity with Linux debugging tools (strace) provides leverage even when investigating unfamiliar programming languages"
+  ],
+  "money_quotes": [
+    "I often use strace to see what system calls it runs. In my few experiments so far, the Erlang virtual machine runs a TON of system calls and I'm not sure exactly what it's doing.",
+    "I was surprised that the Erlang VM runs 6 times as many system calls as Java \u2013 I think of Java as already being pretty heavyweight.",
+    "The top 2 syscalls for the Erlang process are futex and sched_yield. So there's a lot of synchronization happening, and the operating system threads Erlang starts up keep scheduling themselves off the CPU.",
+    "So Erlang seems like a programming language with really significantly different primitives.",
+    "Why does it need to listen on a TCP socket to run hello world?",
+    "I think it's interesting to take an operating systems-level approach to understanding what a program is doing and I thought this was a cool example of that.",
+    "I was looking at this Erlang problem with Victor and David and they had OS X machines and I was like 'dude I can't debug anything on OS X'."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, exploratory, humble",
+  "key_insight": "Examining a program's system calls can reveal the fundamental design philosophy of its runtime, even if you've never written a line of code in that language.",
+  "filename": "2016-05-13-erlang-seems-really-complicated"
+}

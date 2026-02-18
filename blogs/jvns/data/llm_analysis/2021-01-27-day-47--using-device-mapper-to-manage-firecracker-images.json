@@ -1,0 +1,23 @@
+{
+  "summary": "Julia documents her exploration of Linux device mapper as a way to efficiently manage Firecracker VM filesystem images. Rather than copying base images every time a VM launches, she uses device mapper's copy-on-write snapshot feature to overlay writes on top of a read-only base image. She walks through a bash script implementation that uses losetup and dmsetup, following patterns from the Ignite project. The post is written as rough working notes, acknowledging it's not polished but meant as a personal reference.",
+  "key_points": [
+    "Copying VM base images on every launch is slow and inefficient; copy-on-write via device mapper solves this by overlaying writes on a read-only base",
+    "Unlike overlayfs which works at the file level, device mapper copy-on-write operates at the block/disk image level, making the overlay data meaningless without the base",
+    "The implementation is surprisingly simple \u2014 just two calls each to losetup and dmsetup",
+    "The losetup tool has a reliability issue where it sometimes enters an infinite loop trying to create a loop device"
+  ],
+  "money_quotes": [
+    "I can't use the filesystem image directly I launch a VM because if I do, the user will accidentally end up changing the base image themself if they write files.",
+    "The solution is to use copy on write! So instead of making a copy, instead we overlay another image on top. Reads come through the bottom, but any writes only go to the top level.",
+    "The weird thing I had to wrap my head around was that unlike with overlayfs, this copy-on-write thing is implemented at the disk image level \u2013 the overlay on top doesn't contain files, it just contains sort of random blocks of data that would be totally impossible for any program to interpret by themselves.",
+    "It was way simpler than I expected \u2013 it's just runs both losetup and dmsetup twice.",
+    "I noticed that sometimes losetup, instead of finding and creating a loop device, sometimes just ends up in an infinite loop where it tries and fails to create the same loop device forever."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "casual, exploratory, honest",
+  "key_insight": "Linux device mapper provides a surprisingly simple way to implement copy-on-write for VM images, avoiding expensive full copies by overlaying writes at the block level on top of a shared read-only base image.",
+  "filename": "2021-01-27-day-47--using-device-mapper-to-manage-firecracker-images"
+}

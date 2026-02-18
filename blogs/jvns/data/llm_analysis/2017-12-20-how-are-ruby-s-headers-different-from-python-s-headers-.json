@@ -1,0 +1,26 @@
+{
+  "summary": "Evans compares the public C API header files exposed by Ruby and Python, motivated by her work building a Ruby profiler similar to pyflame. She discovers that Python exposes far more structs and detailed type information than Ruby, whose API relies heavily on an opaque VALUE type. Both languages are technically embeddable, though Ruby's embedding story is less documented. The key finding is that Ruby's public headers don't expose the internal VM structs needed for external process profiling, unlike Python's headers which include things like PyThreadState.",
+  "key_points": [
+    "Python's public C headers expose ~60 structs with detailed fields, while Ruby exposes only ~12, making Python's internals more accessible to external tools",
+    "Ruby's C API uses an opaque VALUE type for nearly everything, whereas Python uses distinct typed structs like PyObject",
+    "Ruby's rb_profile_frames API requires being in the same process, unlike pyflame's approach of profiling Python from an external process",
+    "Both CRuby and Python are embeddable, but Ruby's embedding documentation is sparse compared to Python's",
+    "The stackprof profiler was built within 3 days of Ruby 2.1's new C profiling API being committed"
+  ],
+  "money_quotes": [
+    "pyflame uses Python's public headers. Can my profiler use the corresponding Ruby headers? I don't think so!",
+    "One surprising/interesting thing to me about the Ruby headers \u2013 the type returned by almost every function is VALUE.",
+    "Python gives you a lot more structs than Ruby, and those structs in general I think have more fields.",
+    "The structs I want access to are like PyThreadState, and they're not in Ruby's public header files.",
+    "This is a function though so to call it you need to be in the same Ruby process, not in a separate process.",
+    "When I said on twitter that ruby wasn't embeddable, Matz replied and said 'CRuby is also embeddable. But mruby has better API for embedding.'"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Python's C API exposes far more internal VM structure than Ruby's, which relies on opaque types \u2014 making it fundamentally harder to build external profiling tools for Ruby.",
+  "filename": "2017-12-20-how-are-ruby-s-headers-different-from-python-s-headers-"
+}

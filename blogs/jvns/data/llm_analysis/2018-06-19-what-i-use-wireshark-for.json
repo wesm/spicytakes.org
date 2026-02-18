@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans shares her practical Wireshark workflow for debugging networking problems, focusing on the small number of features she actually uses regularly. She describes her typical process of capturing packets with tcpdump in production, then analyzing them locally in Wireshark. The post covers five main techniques: analyzing pcap files, isolating TCP connections, decoding protocols on unusual ports, inspecting packet contents, and searching with Wireshark's query language. She emphasizes that knowing just a few Wireshark features covers 95% of her use cases, and that the tool doubles as a way to learn networking protocols by making them concrete and inspectable.",
+  "key_points": [
+    "Wireshark is most useful for determining whether a client or server is to blame in networking issues, by examining the lifecycle of TCP connections",
+    "A practical Wireshark workflow starts with tcpdump capture in production, then local analysis \u2014 separating packet capture from packet analysis",
+    "Wireshark's query language is much more powerful than tcpdump's, making it effective to capture broadly with tcpdump then filter precisely in Wireshark",
+    "The Statistics > Conversations view lets you find slow TCP connections by sorting on duration across thousands of packets",
+    "Wireshark can serve as a learning tool for networking protocols by making abstract concepts like TLS handshakes visible and concrete"
+  ],
+  "money_quotes": [
+    "Wireshark is one of my very favourite networking tools.",
+    "I only know how to do a very small number of things with it, and those things are really useful!",
+    "Usually there's a client and a server, and there's a bug or configuration error on either the client or the server. Wireshark is invaluable for helping me figure out whether I should blame the client or the server.",
+    "Wireshark's packet search language is much more powerful than tcpdump's (and it has tab completion!!), so I'll often capture a large amount of packets with tcpdump and then do some more in depth searching using Wireshark.",
+    "I can see that the first two packets are 'client hello' and 'server hello', and it makes the protocol seem less like a scary mystery and more like a concrete thing that I can easily look at the details of.",
+    "The 5 tricks I've described here are probably 95% of what I use Wireshark for \u2013 you only need to know a little Wireshark to start using it to debug networking issues!"
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, approachable",
+  "key_insight": "You only need a small number of Wireshark techniques to effectively debug most networking problems, and the tool's real power lies in making abstract protocols concrete and helping you quickly determine which side of a connection is misbehaving.",
+  "filename": "2018-06-19-what-i-use-wireshark-for"
+}

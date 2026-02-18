@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explains how she added Linux container support to rbspy, her Ruby profiler, so it could profile Ruby programs running inside containers from the host machine. The core problem was that containerized processes have different mount namespaces, meaning the Ruby binaries visible in /proc/PID/maps don't exist on the host filesystem. The fix involved using setns() to temporarily switch to the target process's mount namespace to read the binaries, then switching back. After publishing, someone pointed out an even simpler approach: reading files through /proc/PID/root/ which provides the process's filesystem view directly. The whole change was about 50 lines of code, illustrating how understanding container fundamentals makes container support straightforward.",
+  "key_points": [
+    "Programs in containers are just regular processes visible via ps; the only complication is they have different mount namespaces, so filesystem paths inside the container don't exist on the host",
+    "You can switch mount namespaces using setns() with the file descriptor from /proc/PID/ns/mnt, but you can't do this from a multithreaded process",
+    "An even simpler alternative exists: /proc/PID/root/ provides access to a process's filesystem view without switching namespaces at all",
+    "Understanding how containers actually work (Linux namespaces) makes adding container support trivial \u2014 no Docker API or container runtime interaction needed"
+  ],
+  "money_quotes": [
+    "Programs running in containers are just programs, like any other program! You can see them by running ps.",
+    "The precise issue here is that the target process (in the container) has a different mount namespace than rbspy.",
+    "A process may not be reassociated with a new mount namespace if it is multithreaded.",
+    "To read the file /usr/bin/ruby1.9.1 from a process's mount namespace you can just read /proc/PID/root/usr/bin/ruby1.9.1. That's way easier than switching mount namespaces!",
+    "We didn't need to care about Docker or anything like that \u2013 it's irrelevant what container runtime our containers are using, and we certainly don't interact with Docker at all.",
+    "Understanding the fundamentals of how containers work helped us add container support really easily."
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "technical, enthusiastic, exploratory",
+  "key_insight": "Container support often reduces to understanding Linux namespaces \u2014 once you know the mount namespace is the issue, the fix is a few system calls, no container runtime interaction required.",
+  "filename": "2018-01-26-spy-container"
+}

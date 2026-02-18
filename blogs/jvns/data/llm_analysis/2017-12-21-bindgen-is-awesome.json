@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans introduces bindgen, a Rust tool that automatically generates Rust bindings from C header files, framing it as essentially '#include for Rust.' She explains how bindgen fits into her vision of Rust as offering all the power of C with better tooling, and demonstrates its practical use by generating bindings for 33 different Ruby versions' internal header files for her Ruby profiler project. She highlights useful features like type whitelisting and automatic Debug derive annotations, and notes that while committing generated bindings works, the recommended approach is generating them at build time via build.rs.",
+  "key_points": [
+    "Bindgen automatically generates Rust struct definitions and function declarations from C header files, making C interop nearly as simple as #include",
+    "The tool handles complex real-world header files including #ifdefs and can whitelist specific types to keep output manageable",
+    "For the Ruby profiler project, bindgen generated bindings for 33 different Ruby versions to handle constantly-changing internal structs",
+    "The recommended approach is generating bindings at build time using build.rs rather than committing generated code, though both work",
+    "cbindgen exists as the reverse tool, generating C bindings from Rust code"
+  ],
+  "money_quotes": [
+    "To me the dream of Rust is \"it gives you all the power of C, but with a more powerful compiler, better documentation, better tools (cargo), and a great community\". I think bindgen is a really important part of \"great tools\"!",
+    "You can run `bindgen cool_header_file.h -o rust-bindings.rs` and it'll automatically generate Rust struct definitions or function declarations that will let you link in the C library. So simple!",
+    "I wanted to do something weird: #include vm_core.h, which is an internal header file in Ruby. And I didn't actually want to just include one vm_core_h, I wanted to generate bindings for 33 different Ruby versions.",
+    "Generate #[derive(Debug)] annotations for C structs so you can easily print them out. This is SO USEFUL when debugging!!!!",
+    "I'm still not sure if this approach of \"let's generate bindings for 33 different ruby versions and commit them into my repository\" will work. But I figure the best way to find out it to keep trying it and see how it goes!",
+    "I think I like the approach of having a build.rs + Cargo.toml instead of a Makefile a lot \u2013 it seems easier to maintain."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Rust's bindgen tool makes C interop nearly effortless by auto-generating bindings from header files, enabling practical use cases like supporting dozens of Ruby versions in a profiler.",
+  "filename": "2017-12-21-bindgen-is-awesome"
+}

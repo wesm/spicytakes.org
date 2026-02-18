@@ -1,0 +1,26 @@
+{
+  "summary": "Julia explores ftrace, a Linux kernel tracing tool, by trying to figure out which CPU registers hold system call arguments. Starting with Brendan Gregg's kprobe tool, she traces the read system call but initially can't see which file is being read. By printing all register values and cross-referencing with strace output, she deduces which registers hold the file descriptor and read length. She discovers this detective work makes ftrace usable for low-overhead system call tracing, and later learns there's actually a standard table mapping registers to system call arguments.",
+  "key_points": [
+    "Ftrace has much lower overhead than strace (strace makes 'find' 20x slower, ftrace doesn't), making it valuable for production tracing",
+    "You can deduce which CPU registers hold system call arguments by cross-referencing kprobe register dumps with strace output",
+    "On x86, there are only about 7 general-purpose registers to worry about, making the guessing game tractable",
+    "The registers used for Linux system calls are actually standardized and documented in a lookup table, eliminating the need to guess"
+  ],
+  "money_quotes": [
+    "But WHAT FILE DID IT READ? This is not good at all.",
+    "This was wizardry. How could he *guess* that the mode of a file was in the register %cx? What even are the registers? This makes no sense.",
+    "So that leaves me with only 7 registers to worry about (eax, ebx, ecx, edx, esi, edi, and ebp). That's way better.",
+    "I can label those now and be a register-guessing-wizard like Brendan Gregg!",
+    "The advantage of using ftrace instead of strace is that the overhead is way lower: when I strace find it makes it 20x slower, but with ftrace it's totally okay.",
+    "Guessing registers is really tedious but it seems to be totally possible!",
+    "turns out you don't have to guess at all! the registers used for system calls are always the same :D."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, humorous",
+  "key_insight": "You can figure out Linux kernel internals through experimentation and cross-referencing tools, turning seemingly wizardly knowledge into a systematic process of elimination.",
+  "filename": "2016-01-18-guessing-linux-kernel-registers"
+}

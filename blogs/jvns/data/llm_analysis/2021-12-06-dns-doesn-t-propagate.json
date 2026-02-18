@@ -1,0 +1,28 @@
+{
+  "summary": "The post argues that the common term 'DNS propagation' is misleading because it implies DNS records are actively pushed out to resolvers, when in reality DNS is a pull-based system where resolvers cache records and you're simply waiting for those caches to expire. Evans demonstrates that new DNS records are actually available instantly, and the delays people experience come from cached records at resolvers, browsers, and operating systems. She walks through four specific reasons DNS updates can be slow: resolvers ignoring TTLs, negative DNS caching, browser/OS caching, and long-lived nameserver record caches. She concludes that while the terminology is likely here to stay, recognizing its misleading nature can help people build more accurate mental models.",
+  "key_points": [
+    "DNS is pull-based, not push-based: authoritative nameservers never push updates to resolvers, they only respond to queries",
+    "New DNS records for previously nonexistent names are available instantly since there's nothing cached to expire",
+    "Four reasons DNS updates are slow: resolvers ignoring TTLs, negative caching of nonexistent records, browser/OS caching, and long-lived nameserver record caches",
+    "The 'propagation' metaphor implies an active push process, leading people to an incorrect mental model when the reality is passive cache expiration",
+    "Understanding the caching model lets you skip the common '24-48 hours' advice in many cases"
+  ],
+  "money_quotes": [
+    "you're not actually waiting for DNS records to 'propagate', you're waiting for cached records to expire",
+    "DNS is pull, not push",
+    "if you create a DNS record, it's possible that no DNS resolver will ever know about it!",
+    "new DNS records are actually available instantly",
+    "the reason that so many people have an incorrect mental model of how DNS works isn't because they're dumb \u2013 the 'propagation' terminology we use to talk about why DNS updates are slow implies an incorrect mental model!",
+    "For most programmers, 'there are a bunch of cached records you have no control over and you need to wait for them to expire' is a pretty normal and approachable concept!",
+    "DNS resolvers are much more difficult to work with because there are thousands of different DNS resolvers run by different organizations and running different software and there's no way to control what they do directly",
+    "I do think it's important to recognize when terms we use are potentially misleading"
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "explanatory, opinionated, practical",
+  "key_insight": "DNS 'propagation' is actually cache expiration \u2014 DNS is a pull-based system where resolvers cache records, and understanding this distinction lets you predict and minimize update delays.",
+  "filename": "2021-12-06-dns-doesn-t-propagate"
+}

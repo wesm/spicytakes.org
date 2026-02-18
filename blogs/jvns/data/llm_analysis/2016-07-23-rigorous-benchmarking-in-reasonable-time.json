@@ -1,0 +1,26 @@
+{
+  "summary": "Evans discusses the challenges of correct benchmarking, inspired by a paper on rigorous benchmarking and a floating-point printing paper that had incorrect performance claims. She highlights that many performance improvements are small (5-10%), which falls within typical measurement error, making confidence intervals essential. The post explores the concept of independence in benchmark samples, explaining that sequential runs may not be independent due to JIT warmup, periodic patterns, or other effects. She presents a visual smoke test for checking independence: randomly shuffling benchmark results and comparing them to the original sequence. The core message is that understanding your benchmark data matters more than blindly computing averages.",
+  "key_points": [
+    "A paper on printing floating-point numbers initially claimed 2x faster performance but was actually 2x slower, illustrating how hard benchmarking is even for researchers",
+    "The median performance improvement in surveyed papers was only 10%, yet more than half didn't publish confidence intervals",
+    "Benchmark samples may not be independent over time due to JIT warmup, caching effects, or periodic patterns, and you should graph results over time to check",
+    "A simple smoke test for independence: randomly shuffle your benchmark results and see if the shuffled version looks the same as the original",
+    "Understanding the properties of your benchmark data is more valuable than relying on a smart framework to solve problems for you"
+  ],
+  "money_quotes": [
+    "I love learning about programming problems (that are solved on my computer every day, when serializing numbers into JSON!) that I didn't even know existed.",
+    "I don't point this out to make fun of the researchers for coming up with an incorrect result. I'm pretty sure they're way better at performance analysis than I am.",
+    "Benchmarking programs and figuring out which one is faster is really hard \u2013 much much harder than you might think.",
+    "A great way to make your stuff WAY FASTER is to make many small 5% improvements. So you need to actually be able to detect a 5% improvement.",
+    "A 10% improvement is well within the bounds of error on a lot of experiments.",
+    "Graphing the speed of a benchmark over time is certainly something I've never done (usually I just blindly take an average or something).",
+    "The idea that you should look at the data that you're using to make an important decision (more than just calculating a single point estimate of the median / average) seems extremely reasonable to me."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, technical, reflective",
+  "key_insight": "Benchmarking correctly requires understanding statistical properties of your data\u2014checking for independence, using confidence intervals, and visualizing results over time\u2014rather than blindly averaging numbers.",
+  "filename": "2016-07-23-rigorous-benchmarking-in-reasonable-time"
+}

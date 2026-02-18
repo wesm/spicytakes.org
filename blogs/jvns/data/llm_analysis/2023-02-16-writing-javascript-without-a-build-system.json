@@ -1,0 +1,24 @@
+{
+  "summary": "Evans explains why she avoids JavaScript build systems for her small web projects, despite acknowledging their usefulness for complex applications. She demonstrates the problem with a concrete example: trying to rebuild a 2-year-old Vue project that fails due to dependency rot and Node.js incompatibilities. Her core argument is that for small ~500-line projects, the long-term maintenance cost of a build system outweighs its marginal benefits. She advocates for loading libraries via script tags, vendoring dependencies, and keeping projects simple enough to edit years later on a new machine.",
+  "key_points": [
+    "Build systems create maintenance debt: a project that worked 2 years ago may fail to build on a new machine due to dependency rot and environment changes",
+    "For small projects (~500 lines), the advantages of build systems like TypeScript, JSX, and bundling are marginal compared to the cost of future build failures",
+    "Some libraries (CodeMirror 6, Tailwind 3) have dropped no-build-system support, forcing developers to either use older versions or adopt a build step",
+    "A simple script tag approach with vendored libraries provides long-term stability and the ability to make quick edits years later",
+    "esbuild appears more stable than webpack-based toolchains for projects that do need a build step"
+  ],
+  "money_quotes": [
+    "I have approximately 0 maintenance energy for any of them, and I change them very infrequently.",
+    "My goal is that if I have a site that I made 3 or 5 years ago, I'd like to be able to, in 20 minutes: get the source from github on a new computer, make some changes, put it on the internet.",
+    "My experience with build systems (not just Javascript build systems!), is that if you have a 5-year-old site, often it's a huge pain to get the site built again.",
+    "I can just have one 400-line script.js file and call it a day.",
+    "A complicated Javascript build system just doesn't seem worth it for small 500-line projects \u2013 it means giving up being able to easily update the project in the future in exchange for some pretty marginal benefits.",
+    "I know, I know, you're not supposed to use the big CSS file, but it's only 300KB gzipped and I really don't want a build step."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "pragmatic",
+  "key_insight": "For small web projects, the long-term ability to make quick edits without fighting build tool rot is more valuable than the marginal benefits a build system provides.",
+  "filename": "2023-02-16-writing-javascript-without-a-build-system"
+}

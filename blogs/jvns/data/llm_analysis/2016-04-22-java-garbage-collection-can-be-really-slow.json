@@ -1,0 +1,26 @@
+{
+  "summary": "Evans recounts her first encounter with Java garbage collection performance problems, where a program slowed dramatically when processing 8 million lines instead of one million. Using the -XX:+PrintGCDetails JVM flag, she discovered that full GC collections were taking 1.5 seconds after only 0.2 seconds of work, effectively bringing the program to a halt. She explains the difference between fast young generation collections and slow full mark-and-sweep collections. The post introduces the concept of memory pressure: when an application uses memory close to its limit, constant garbage collection devastates performance. She concludes that sometimes the only fix is reducing memory allocation in the application itself.",
+  "key_points": [
+    "The -XX:+PrintGCDetails JVM flag reveals exactly how much time garbage collection is consuming, making it an essential debugging tool",
+    "Young generation collections are fast (0.09s) while full mark-and-sweep collections can be devastatingly slow (1.5s), creating a massive performance cliff",
+    "Memory pressure occurs when an application uses memory close to its limit, forcing constant garbage collection over the same still-live objects",
+    "Increasing memory limits can speed up a program even if actual memory usage stays the same, simply by reducing GC pressure",
+    "Sometimes the only real fix is changing the application to allocate less memory, not tuning GC parameters"
+  ],
+  "money_quotes": [
+    "Yes, friends, I know this is news to absolutely nobody. But today I had up-close-and-personal problems with Java garbage collection for the first time so I am going to tell you about it.",
+    "PROGRAM. You can't just stop for 1.5 seconds after working for 0.2 seconds! That makes no sense",
+    "I knew GC was important but did not know that it could bring a program to a screeching halt. But apparently it can!",
+    "If your application is using 3.5GB of memory normally, and has a limit of 4G, then it may constantly need to garbage collect and slow your program waaaaaay down.",
+    "I do not have a story of redemption for you here yet.",
+    "GC tuning can become a highly skilled exercise that often requires application changes to reduce object allocation rates or object lifetimes.",
+    "Now we know that garbage collection can ruin your program's day, what memory pressure is, and that memory pressure is bad."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, conversational",
+  "key_insight": "When a JVM application uses memory close to its limit, garbage collection can consume more time than actual computation, and the only real fix may be reducing how much memory the application allocates.",
+  "filename": "2016-04-22-java-garbage-collection-can-be-really-slow"
+}

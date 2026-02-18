@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans debugs a confusing 'file not found' error when running a Go binary inside an Alpine Docker container, even though the binary clearly exists on disk. She traces the problem through strace, readelf, and Google searches to discover that the ELF binary's dynamic linker interpreter (/lib64/ld-linux-x86-64.so.2) doesn't exist in Alpine Linux. The root cause is that Go unexpectedly produced a dynamically linked binary due to cgo being enabled by default. She finds two fixes: using the golang:alpine build container, or setting CGO_ENABLED=0 to produce a statically linked binary.",
+  "key_points": [
+    "The 'file not found' error from execve can mean the binary's ELF interpreter is missing, not that the binary itself is missing",
+    "Go binaries are not always statically linked by default \u2014 cgo can cause dynamic linking even without explicitly enabling it",
+    "Setting CGO_ENABLED=0 forces Go to produce a truly static binary that works across different Linux distributions",
+    "Tools like readelf, ldd, and file are essential for diagnosing dynamic linking issues in containers",
+    "The debugging process involved multiple wrong hypotheses (permissions) and incremental narrowing through strace, Google, and readelf"
+  ],
+  "money_quotes": [
+    "what do you MEAN file not found, the file is RIGHT THERE???!!??",
+    "I'm including this even though it's 'obviously' wrong just because I have a lot of wrong thoughts when debugging, it's part of the process :)",
+    "When execve() returns the error ENOENT, it can mean more than one thing: the program doesn't exist; the program itself exists, but it requires an 'interpreter' that doesn't exist.",
+    "ELF executables can request to be loaded by another program, in a way very similar to #!/bin/something in shell scripts.",
+    "I've run into this 'file not found' error a couple of times, and it feels kind of mind bending because it initially seems impossible (BUT THE FILE IS THERE!!! I SEE IT!!!).",
+    "I still don't understand why it's using cgo here, I ran env | grep CGO and I definitely don't have CGO_ENABLED=1 set in my environment, but I don't feel like solving that mystery right now."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, candid",
+  "key_insight": "A 'file not found' error when executing a binary that clearly exists usually means the binary's ELF dynamic linker interpreter is missing from the system, not the binary itself.",
+  "filename": "2021-11-17-debugging-a-weird--file-not-found--error"
+}

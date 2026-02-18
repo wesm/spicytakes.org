@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans shares how a coworker's lunchtime explanation corrected her misconception that RSA is used to directly encrypt messages in SSL/TLS. She learned that RSA is too slow for bulk encryption, so in practice it's used only to exchange session keys for faster symmetric ciphers like AES. This distinction between key exchange and bulk encryption is the core of how SSL cipher suites work. Understanding this made conversations about insecure TLS ciphers suddenly click for her.",
+  "key_points": [
+    "RSA is not used to encrypt messages directly in practice \u2014 it's too slow for bulk encryption and is instead used for key exchange or authentication",
+    "SSL/TLS uses a fast symmetric cipher (like AES) with a randomly generated session key for actual message encryption",
+    "Cipher suite names encode the full negotiation: key exchange method, authentication, cipher, and hash function",
+    "A secure key exchange is worthless if the chosen symmetric cipher is weak \u2014 attackers can just break the cipher directly"
+  ],
+  "money_quotes": [
+    "It turns out that no, you do not use RSA to encrypt messages in practice, which is what Cory told me and what surprised me so much.",
+    "If you're developing the SSL protocol, you want encryption to be pretty fast. RSA is super secure but not very fast. So what do you do?",
+    "If your server chooses a bad cipher to communicate with, it doesn't matter that the way you decided on that key is really good and totally secure!",
+    "They can just break the cipher and read your SSL traffic.",
+    "I made some offhand remark like 'I know basically nothing about security', which is true. Then at lunch Cory was like 'hey, you said you knew nothing about security! I have some facts for you!'"
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "RSA isn't used to encrypt your actual messages in SSL \u2014 it's only used to securely exchange a session key for a faster symmetric cipher, which is why the choice of that cipher matters so much for security.",
+  "filename": "2016-05-06-what-are-ssl-ciphers-and-session-keys"
+}

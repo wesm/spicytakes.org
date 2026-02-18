@@ -1,0 +1,25 @@
+{
+  "summary": "Julia recounts a frustrating day debugging her hobby OS project, where a mysterious bug kept zeroing out her array contents at runtime. After upgrading Rust and rust-core (which broke her build), she worked through the compilation issues only to hit the same recurring mystery bug. With help from Allison Kaptur and GDB debugging, she discovered that half her binary was being overwritten with zeros at runtime. The root cause turned out to be embarrassingly simple: her bootloader was only loading 12KB of the binary, so everything beyond that was missing.",
+  "key_points": [
+    "Upgrading dependencies in a chain (Rust \u2192 rust-core \u2192 build system) can consume an entire day just to get back to where you started",
+    "GDB proved invaluable for OS debugging by allowing memory inspection, searching for strings, and comparing core dumps against the original binary",
+    "The bug that seemed mysterious and complex had a mundane root cause: the bootloader's hardcoded size limit was too small for the growing binary",
+    "Having a debugging partner (Allison) who asks the right questions \u2014 like 'what debugging strategies do you have?' \u2014 can unstick you faster than working alone"
+  ],
+  "money_quotes": [
+    "SURPRISE MY CODE IS NOT WORKING BECAUSE SOMETHING IS ERASING IT.",
+    "Half of my binary gets overwritten with 0s at runtime. Why. What did I do to deserve this?",
+    "It is a wonder that this code even runs, man. Man.",
+    "Allison asks: \"What linker debugging strategies do you have?\"",
+    "Change the linker script randomly (actual thing that has worked)",
+    "I found why my binary has lots of 0s in it at runtime. It is because I was only loading 12k of it in loader.asm."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exasperated, humorous, self-deprecating",
+  "key_insight": "The most baffling bugs often have the most mundane root causes \u2014 in this case, days of mysterious runtime corruption traced back to a hardcoded size constant in a bootloader.",
+  "filename": "2013-12-16-day-43-hopefully-the-last-day-spent-fixing-linker-problems"
+}

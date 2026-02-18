@@ -1,0 +1,25 @@
+{
+  "summary": "Evans shares the results and her experience from a programming challenge to write a tiny window manager that bounces windows around the screen. She explains what an X window manager is and how it communicates with the X server via messages. The core technical lesson involves discovering that X batches XMoveWindow calls, which prevented sequential moves from working as expected. The solution was using XSync to force X to process events immediately. She also showcases several community solutions that went beyond the basic challenge requirements.",
+  "key_points": [
+    "An X window manager is just a program that sends messages to the X server telling it where to display windows, and you can trace these messages with xtrace",
+    "You can run graphical programs without a window manager at all, though you lose the ability to resize, move, or switch between windows",
+    "X batches XMoveWindow calls by default, so multiple sequential moves only apply the last one unless you force processing with XSync",
+    "The xtrace debugging tool was key to understanding that ConfigureWindow events were being sent all at once rather than sequentially"
+  ],
+  "money_quotes": [
+    "An X window manager is a program that sends messages to the X server (which is in charge of drawing your windows) to tell it which windows to display and where.",
+    "You technically don't need a window manager to run graphical programs.",
+    "It has some major usability problems, for example I don't think you can resize or move or switch between windows. Which is where the window manager comes in!",
+    "I ran into a problem (which I got stuck on for a couple of hours) where when I ran XMoveWindow twice, it would only apply the last move.",
+    "I used xtrace to trace the events and found out that my ConfigureWindow events that XMoveWindow was sending were all being sent at the same time. So it seemed like X was batching the events.",
+    "Sure enough, I used XSync and everything worked beautifully."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "X batches window management events by default, and understanding this through tracing tools like xtrace reveals how debugging at the protocol level can quickly resolve seemingly mysterious behavior.",
+  "filename": "2019-12-03-solutions-to-the-tiny-window-manager-challenge"
+}

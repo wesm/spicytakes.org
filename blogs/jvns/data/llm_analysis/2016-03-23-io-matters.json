@@ -1,0 +1,23 @@
+{
+  "summary": "Evans discovered why a Redshift query had been slow for months: a string column was taking up ~100GB on disk, requiring massive I/O on every query. Her coworker fixed it by enabling compression and changing the column from varchar(65536) to varchar(255). The post uses this as a reminder that cloud services are still bound by physical hardware constraints. Even 'magical' database-as-a-service products are just real computers with real disks and real I/O limits.",
+  "key_points": [
+    "Columnar databases like Redshift only read the columns you query, but column size still matters enormously",
+    "A varchar(65536) column storing short strings wastes massive disk space and I/O compared to varchar(255) with compression",
+    "Cloud services abstract away hardware details but don't eliminate physical I/O constraints",
+    "Performance problems that persist for months are worth investigating rather than accepting as normal"
+  ],
+  "money_quotes": [
+    "I'd been querying this table, for months and it had been slow for months. Finally I was like \"well, there has to be a reason why it's slow\".",
+    "With these Magical Cloud Services it can sometimes be hard to remember that your data is just living on real computers somewhere, with real disks, and you're still bound by the normal limits of I/O.",
+    "Having less data on disk will mean you have to do less I/O, and make your queries faster! That's how disks work =D",
+    "This is one of these super obvious things (of course Magical Cloud Things are just computers and are bound by the normal laws of computers!), but I'm happy every time I'm reminded of it.",
+    "If you have a 900GB table, but the column you want is only 1GB of data, then you only need to read 1GB."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, reflective",
+  "key_insight": "Cloud services don't eliminate physical I/O constraints \u2014 understanding how your data is stored on disk matters just as much in the cloud as anywhere else.",
+  "filename": "2016-03-23-io-matters"
+}

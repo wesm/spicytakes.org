@@ -1,0 +1,22 @@
+{
+  "summary": "Evans explains why quadratic-time algorithms are dangerously slow and how hashmaps can convert them to linear time. Using a concrete example of intersecting two lists, she shows that nested loops over 100,000 elements take nearly 3 minutes while a hashset-based approach handles 10 million elements in under 2 seconds. She demonstrates this with runnable Python code and actual timing results, making the performance difference visceral rather than theoretical. The post also notes that 'accidentally quadratic' code is a real-world problem that can sneak up on programmers because it works fine on small inputs.",
+  "key_points": [
+    "Quadratic algorithms seem fine on small inputs but become catastrophically slow at scale \u2014 100,000 elements took 160 seconds vs 0.04 seconds with the linear approach",
+    "Converting a list to a hash set enables constant-time lookups, turning a nested-loop O(n\u00b2) algorithm into O(n)",
+    "Quadratic slowdowns are sneaky because they don't manifest until inputs grow large enough, making them easy to ship accidentally",
+    "For very small inputs, the 'slower' algorithm can actually be faster due to overhead of hash structures \u2014 context matters"
+  ],
+  "money_quotes": [
+    "The weird thing about quadratic time algorithms is that when you run them on a small number of elements (like 1000), it doesn't seem so bad! It's not that slow! But then if you throw 1,000,000 elements at it, it can really take hours to run.",
+    "I didn't try to run this program on 1,000,000 elements, because I knew it would take 100x longer again \u2013 probably about 3 hours. I don't have time for that!",
+    "You might think that this check \u2013 if y in set1 \u2013 would be slower if the set1 contains 10 million elements than it is if set1 contains 1000 elements. But it's not! It always takes basically the same amount of time (SUPER FAST), no matter how big set1 gets.",
+    "So I think it's worth being broadly aware of them, so you can avoid writing them by accident. Especially if there's an easy way to write a linear-time algorithm instead (like using a hashmap).",
+    "Hashmaps aren't magic of course (you can learn the math behind why hashmap lookups are instant! it's cool!), but it always feels a little magical to me, and every time I use hashmaps in a program to speed things up it makes me happy :)"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, pedagogical",
+  "key_insight": "Quadratic algorithms sneak up on you because they work fine on small inputs, but replacing a list scan with a hashmap lookup is often a simple fix that delivers dramatic speedups at scale.",
+  "filename": "2021-09-10-hashmaps-make-things-fast"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans documents her experience starting to write a kernel in Rust using the rustboot project and rust-core library. After being encouraged by Lindsey Kuper to try Rust for her OS project, she progressed from turning the screen green to writing functions that print characters to the VGA buffer. She shares the actual code for writing to VGA memory and iterating over string bytes, along with the cryptic import requirements needed to make basic features work in freestanding Rust. The post highlights both the satisfaction of low-level programming without an OS and the challenges of working with an early-stage systems language.",
+  "key_points": [
+    "Rustboot provides a minimal 32-bit kernel starting point, and she extended it from displaying a colored screen to printing text via the VGA buffer",
+    "Writing freestanding Rust requires importing seemingly unrelated modules to enable basic features like iterators and loops",
+    "Rust stores string length separately rather than using null-terminated strings, unlike C",
+    "The Rust IRC community and rust-core maintainer were essential to making progress past obscure error messages",
+    "There's a mysterious bug where printing 10 characters fails despite 9 working correctly"
+  ],
+  "money_quotes": [
+    "So far I've made some minor changes \u2013 it now turns the screen *green* and hangs.",
+    "Rust is for systems programming, and right now I *am* trying to write an operating system, and this would be the perfect time to pick it up again!",
+    "It's nice that I can write code like this without having an OS in the background.",
+    "I got the cryptic error message `error: unreachable pattern`, which meant that I needed to add `use core::option::None`.",
+    "This small amount of accomplishment wouldn't have been remotely possible without the help of the lovely people on the #rust IRC channel.",
+    "That code prints 9 characters to the VGA buffer correctly, but if I try printing 10 characters, it doesn't work. I have no idea why. That will be for tomorrow."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Writing a kernel in Rust is possible with minimal scaffolding, but freestanding Rust development requires navigating cryptic import dependencies and relying heavily on community support to get even basic features working.",
+  "filename": "2013-11-29-writing-an-os-using-rustboot-and-rust-core"
+}

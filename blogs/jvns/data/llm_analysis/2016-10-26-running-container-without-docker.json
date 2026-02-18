@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans proposes a pragmatic migration plan for adopting containers: start by running containers without Docker, Kubernetes, or any orchestration layer. She argues for horizontal, incremental changes over building a 'Cool New World' cluster, suggesting teams use minimal tools like rkt to run container images in their existing infrastructure. The key insight is that containerizing applications is work you'd have to do anyway, so it can be separated into a smaller, less risky project. She outlines concrete benefits like reducing fragile Puppet configuration and eliminating hidden host dependencies, while acknowledging containers are worth learning about because that's where the ecosystem is heading.",
+  "key_points": [
+    "You can run containers with minimal tooling (like rkt) without adopting Docker, Kubernetes, or any orchestration platform",
+    "Horizontal incremental changes across infrastructure are less risky than building a parallel 'Cool New World' and migrating into it",
+    "Containers enforce discipline around packaging and running services by isolating them from host configuration, eliminating silent dependencies",
+    "Containerizing applications is prerequisite work for any orchestration platform, so doing it first is useful regardless of what you adopt later",
+    "Learning to operate new software in production takes time, so minimizing the amount of new moving parts in each step is valuable"
+  ],
+  "money_quotes": [
+    "You can run containers without using Docker or Kubernetes or Mesos or anything like that.",
+    "rkt just runs containers, the same way you run a program. I know how to run programs! This is awesome.",
+    "There's no way for it to silently depend on the host configuration, because its filesystem is totally separate from the host's filesystem.",
+    "Lots of cool orchestration features like with Kubernetes or Mesos or Docker Swarm mean that I need to learn how the software works and how it operates and exactly how it can fail in production.",
+    "In the short term, if I want to deploy changes that I can confidently run in production, using all kinds of exciting features like this just slows me down.",
+    "This is just about separating work into smaller useful chunks.",
+    "I used to be really annoyed about containers because it seemed like a buzzword."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "pragmatic, exploratory, cautiously optimistic",
+  "key_insight": "Containerizing your applications is valuable work on its own that you'd have to do anyway, so you can separate it from the much harder problem of adopting orchestration platforms.",
+  "filename": "2016-10-26-running-container-without-docker"
+}

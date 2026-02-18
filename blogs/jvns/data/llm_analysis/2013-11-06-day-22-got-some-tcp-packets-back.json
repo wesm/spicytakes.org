@@ -1,0 +1,23 @@
+{
+  "summary": "Julia describes her progress building a TCP stack from scratch, where she and Jessica managed to successfully receive HTTP responses by sending properly formatted TCP packets to example.com. The main breakthrough was realizing the problem was at the HTTP level (needing proper headers with CRLF line endings), not TCP. She successfully reassembled TCP packets into a webpage but notes several remaining tasks like handling FIN-ACK and deduplicating packets. She reflects on a less productive day due to giving a talk at NYC Python, and expresses eagerness to move toward building something concrete like a bittorrent client.",
+  "key_points": [
+    "The debugging breakthrough was recognizing the issue was HTTP-level formatting (proper CRLF headers), not a TCP-level problem",
+    "Successfully reassembled raw TCP packets into a readable webpage, a key milestone in her from-scratch networking project",
+    "Remaining TCP implementation work includes ACK responses, FIN-ACK handling, and packet deduplication",
+    "Tension between exploratory learning and desire to write 'real' production-style code"
+  ],
+  "money_quotes": [
+    "It turned out that the problem we were having was not at the TCP level, but actually at HTTP level",
+    "I then successfully reassembled a bunch of TCP packets into a webpage!",
+    "This exploratory networking stuff is super fun and I'm learning a lot, but I feel like I haven't written much code in a while and it is bothering me.",
+    "Maybe a bittorrent client will come soon =)",
+    "BUT WHICH LANGUAGE. Clojure? Hmm."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, reflective, candid",
+  "key_insight": "When debugging networking code, the problem often lives at a different layer of the stack than you expect \u2014 here an HTTP formatting issue masqueraded as a TCP problem.",
+  "filename": "2013-11-06-day-22-got-some-tcp-packets-back"
+}

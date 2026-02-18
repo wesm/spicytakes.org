@@ -1,0 +1,27 @@
+{
+  "summary": "Evans argues that understanding TCP basics is practically essential for any developer, not just systems programmers. She illustrates this through a real debugging story where HTTP requests to a local queue were inexplicably taking 40ms each. The root cause turned out to be the interaction between Nagle's algorithm and TCP delayed ACKs, which creates passive waiting between sender and receiver. By setting TCP_NODELAY, the delays instantly disappeared. She references John Nagle himself calling delayed ACKs a bad idea from 1985 that TCP continues to use even when it consistently loses its bet. The post demonstrates how a small amount of TCP knowledge can turn a mysterious week-long debugging puzzle into a simple fix.",
+  "key_points": [
+    "Nagle's algorithm and TCP delayed ACKs interact badly: when HTTP libraries split requests into multiple packets, both sides wait passively, adding hundreds of milliseconds of latency",
+    "This isn't an edge case\u2014delayed ACKs are enabled by default on every Linux system, so anyone sending data in multiple TCP packets can hit this",
+    "John Nagle himself considers the 200ms delayed ACK timer a bad idea from 1985 Berkeley that TCP continues using even when it consistently loses its bet",
+    "A week of debugging was solved instantly by enabling TCP_NODELAY, but only because Evans had previously read about the same TCP interaction in a different context",
+    "You don't need deep TCP expertise\u2014just enough surface knowledge to recognize when a problem might be TCP-related"
+  ],
+  "money_quotes": [
+    "It really should not take 40 milliseconds to send a HTTP request to localhost. Something was terribly wrong.",
+    "That period where the application and HAProxy are both passive-aggressively waiting for the other to send information? That's the extra 200ms.",
+    "So I committed a change turning on TCP_NODELAY for our application, and BOOM. All of the 40ms delays instantly disappeared. Everything was fixed. I was a wizard.",
+    "The 200ms 'ACK delay' timer is a bad idea that someone at Berkeley stuck into BSD around 1985 because they didn't really understand the problem.",
+    "A delayed ACK is a bet that there will be a reply from the application level within 200ms. TCP continues to use delayed ACKs even if it's losing that bet every time.",
+    "I used to think that TCP was really low-level and that I did not need to understand it. Which is mostly true! But sometimes in real life you have a bug and that bug is because of something in the TCP algorithm.",
+    "You don't have to be a systems programming wizard to run into this."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, narrative, practical",
+  "key_insight": "A small amount of TCP knowledge can turn mysterious performance bugs into instant fixes, because protocol-level issues like Nagle's algorithm interacting with delayed ACKs affect anyone making HTTP requests, not just systems programmers.",
+  "filename": "2015-11-21-why-you-should-understand-a-little-about-tcp"
+}

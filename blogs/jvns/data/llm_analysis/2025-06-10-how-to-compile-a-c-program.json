@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explains how non-C-programmers can compile C programs from source using make, walking through the full process from installing a compiler to dealing with dependency errors. She uses real examples (paperjam, sqlite, qf) to demonstrate common problems and solutions, focusing on how environment variables like CPPFLAGS and LDLIBS pass flags to the compiler and linker. The post demystifies the configure/make workflow and offers practical tips like looking at how Linux distributions build the same package to find clues for fixing errors. She concludes that understanding C compilation basics is valuable even for people who never plan to write C.",
+  "key_points": [
+    "C has no dependency manager, so you must hunt down dependencies yourself, but this forces C programmers to keep dependencies minimal",
+    "Most compiler errors during builds are dependency problems \u2014 knowing the difference between compiler flags (-I for headers) and linker flags (-L for libraries, -l for linking) is the key to fixing them",
+    "Make has implicit environment variables like CPPFLAGS that get automatically passed to the compiler, and there are two ways to pass env vars to make with different override behavior",
+    "Looking at how packaging systems (Nix, Homebrew, Debian) build the same C program is a powerful debugging technique when you're stuck",
+    "You can run 'make filename' without a Makefile and make will automatically expand it to a basic compile command"
+  ],
+  "money_quotes": [
+    "For a long time, my approach was basically \"install the dependencies, run `make`, if it doesn't work, either try to find a binary someone has compiled or give up\".",
+    "Unlike some newer programming languages, C doesn't have a dependency manager. So if a program has any dependencies, you need to hunt them down yourself.",
+    "It usually prints out a million compiler warnings when compiling the program. I always just ignore them. I didn't write the software! The compiler warnings are not my problem.",
+    "Over the years I've learned it's usually best not to overthink problems like this: if it's talking about `qpdf`, there's a good chance it just means that I've done something wrong with how I'm including the `qpdf` dependency.",
+    "I don't want to pretend that I \"magically\" knew that those were the right arguments to pass, figuring them out involved a bunch of confused Googling that I skipped over in this post.",
+    "Every Linux distribution has build files for every package that they build, so even if you can't install packages from that distribution directly, maybe you can get tips from that Linux distro for how to build the package.",
+    "It can be useful to understand some basics of how C programs work even if you're never planning to write a nontrivial C program in your life."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "practical",
+  "key_insight": "Compiling C programs from source is demystified once you understand that most build errors are dependency problems solvable by passing the right flags to the compiler and linker via make's environment variables.",
+  "filename": "2025-06-10-how-to-compile-a-c-program"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans documents her first experience writing threaded programs, starting with a deliberately buggy race condition in C and then fixing it using mutexes and atomics in both C and Rust. She discovers that mutexes carry a significant performance penalty (0.08s to 3.1s) and that Rust's mutex implementation was even slower due to its channel-based approach. She then explores atomic operations as a faster alternative, using perf and flame graphs to understand performance differences. The post traces the journey from abstract knowledge of concurrency concepts to hands-on understanding of the actual CPU instructions (the x86 LOCK prefix) that make thread-safe operations work.",
+  "key_points": [
+    "Race conditions produce wildly wrong results \u2014 a counter expected to reach 20,000,000 only hit 2.8-5.7 million due to unsynchronized increments",
+    "Mutexes give correct results but at enormous cost: 40x slower than the racy version, because futex system calls involve expensive kernel interactions",
+    "Rust's mutex implementation was nearly 3x slower than C's because it was built on channels, though both ultimately used the same futex syscall",
+    "Atomic operations (lock-free) were dramatically faster than mutexes while still being correct, taking 0.44-0.56 seconds versus 3-8 seconds",
+    "The x86 LOCK instruction prefix is what actually provides thread safety at the hardware level, giving a processor exclusive access to shared memory"
+  ],
+  "money_quotes": [
+    "Actually understanding a Thing is hard if I've never done it.",
+    "This is a really big performance hit, even if it means that we have a program that works instead of a program that doesn't!",
+    "It's sort of refreshing to hear the people who write GCC (who I think of as MAGICAL WIZARDS WHO KNOW EVERYTHING) say that they read some Intel documentation and it was not clear what it meant!",
+    "My reaction at the time was WHAT ARE YOU EVEN ASKING ME HELP. But these concurrency explorations make me feel like that question is a lot more reasonable!",
+    "Also when I see a process waiting in a futex(... system call when I strace it, I understand what's going on a little better! This is wonderful.",
+    "I did this without actually understanding what an atomic even is, so I'm not going to explain anything yet."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, hands-on",
+  "key_insight": "Hands-on experimentation with threading reveals that atomic operations can be orders of magnitude faster than mutexes because they use hardware-level CPU instructions instead of expensive kernel system calls.",
+  "filename": "2014-12-14-fun-with-threads"
+}

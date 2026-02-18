@@ -1,0 +1,26 @@
+{
+  "summary": "Evans explores why high-performance networking projects bypass the Linux kernel's TCP stack in favor of userspace implementations. Inspired by a talk about the Lwan web server and Seastar framework, she investigates through Twitter crowd-sourcing how companies like Google (Maglev) and high-frequency trading firms use userspace networking for massive speed gains. The post covers DPDK's polling approach, the locking overhead that makes kernel TCP slow, and the surprising insight that performance isn't the only reason \u2014 evolving TCP standards can't wait for kernel updates. She catalogs numerous open-source userspace TCP stacks while noting none are truly general-purpose yet.",
+  "key_points": [
+    "Seastar's custom TCP stack, built on Intel's DPDK, achieves several times the performance of the kernel's TCP stack by polling the network card instead of using interrupts",
+    "The kernel's TCP stack is slow primarily due to locking and shared data contention, as Van Jacobsen explained \u2014 pushing work toward applications follows the end-to-end principle",
+    "Performance isn't the only motivation: Google needs userspace TCP to deploy new features like TCP Fast Open without waiting for Android vendors to update kernels",
+    "High-frequency trading firms buy specialized hardware and userspace TCP stacks (like Solarflare's OpenOnload) for maximum networking speed",
+    "No general-purpose open-source userspace TCP/IP stack exists yet, though many specialized ones (mtcp, lwIP, Seastar, libuinet) are available"
+  ],
+  "money_quotes": [
+    "Most of the time is spent talking to the Linux kernel and copying things back and forth.",
+    "The TCP standard is evolving, and if you have to always use your kernel's TCP stack, that means you can NEVER EVOLVE.",
+    "The key to better networking scalability, says Van, is to get rid of locking and shared data as much as possible, and to make sure that as much processing work as possible is done on the CPU where the application is running.",
+    "I think with DPDK you can write networking applications that work entirely in userspace with no system calls.",
+    "Of course practically nobody needs to do 2 million requests per second. I sure don't. But thinking about high performance computing is a really awesome way to understand the limits of computers better!",
+    "There are like 100 interesting rabbit holes which I have zero time to investigate right now!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "The Linux kernel's TCP stack trades raw performance for generality, and bypassing it with userspace networking unlocks massive speed gains by eliminating locking, context switches, and memory copies \u2014 though no general-purpose alternative exists yet.",
+  "filename": "2016-06-30-why-do-we-use-the-linux-kernels-tcp-stack"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Evans explores Go's pprof profiling tool, focusing on heap profiling for debugging memory problems. She walks through the basics of setting up pprof, collecting profiles, and analyzing them with go tool pprof. The core of the post deconstructs the actual protobuf format of a pprof file to understand what data it contains. She explains key distinctions like alloc_space vs inuse_space and how the heap profiler tracks both allocations and frees. She also discovers through strace that pprof resolves function names by reading the original binary from disk, not from the profile file itself.",
+  "key_points": [
+    "A pprof profile is fundamentally a collection of stack traces with metadata, stored as protobuf, where each sample records the call sequence that led to a particular event like allocation",
+    "Heap profile stack traces show where memory was allocated, not where the leak is \u2014 the misbehaving function that should be freeing memory may be entirely different from what appears in the profile",
+    "The distinction between inuse_space and alloc_space matters: inuse helps debug memory usage while alloc_space helps debug garbage collection pressure",
+    "Pprof files don't always contain function names \u2014 go tool pprof resolves them by opening the original binary from the filesystem path stored in the profile",
+    "The trace endpoint (/debug/pprof/trace) produces a completely different file format from all other pprof endpoints and requires go tool trace instead of go tool pprof"
+  ],
+  "money_quotes": [
+    "When understanding how things work I like to start at the beginning. What is a \"profile\" exactly?",
+    "The 7th time I looked at the runtime/pprof docs, I read this very useful sentence.",
+    "The stack traces in the heap profile are the stack trace at time of allocation.",
+    "So the function to blame for the memory leak might be totally different than the function listed in the heap profile.",
+    "I was originally confused about this works \u2013 the profiles have already be collected! How can I make this choice after the fact?",
+    "I answered this with strace, obviously \u2013 I straced go tool pprof and this is what I saw.",
+    "There are probably also talks about pprof but I am too impatient to watch talks, that's part of why I write lots of blog posts and give few talks.",
+    "Flamegraphs are the best thing in the universe so I'm very excited for that to be available."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, hands-on, curious",
+  "key_insight": "Understanding what a pprof file actually contains \u2014 stack traces stored as protobuf with metadata \u2014 demystifies the tool and makes it easier to reason about what profiling data means and how to use it effectively.",
+  "filename": "2017-09-24-profiling-go-with-pprof"
+}

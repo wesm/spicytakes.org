@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans shares her positive experience using Docker Compose to set up a local development environment for a Ruby on Rails project with multiple services. She walks through her docker-compose.yml configuration, explains how Docker Compose networking works (including digging into the internal DNS server and iptables rules), and covers practical tips like persisting database files and Rails console history. She contrasts the simplicity of Docker Compose with her previous failed attempt using Puppet and Vagrant, and briefly discusses its viability for small-scale production use.",
+  "key_points": [
+    "Docker Compose makes it easy to run multiple interconnected services locally with a single short YAML configuration file",
+    "Docker Compose networking uses an internal DNS server (run by dockerd) with iptables port forwarding to let containers reference each other by name",
+    "Storing Postgres data in a mounted temp directory avoids the hassle of managing a local database installation",
+    "Docker Compose is a good fit for simple setups but has limitations with large microservice architectures, huge databases, and Mac performance due to VM overhead",
+    "Practical workarounds like persisting IRB history to a mounted volume solve container ephemerality annoyances"
+  ],
+  "money_quotes": [
+    "I'm also only talking about using Docker Compose for a dev environment here, not using it in production.",
+    "I spent two days getting frustrated with trying to set up a dev environment with other tools and Docker Compose was a lot easier and simpler.",
+    "If I have a Rails server running in my rails_server container on port 3000, then I can access that with http://rails_server:3000. So simple!",
+    "I really do not want to administer a Postgres installation on my laptop (I don't really know how to configure Postgres), and conceptually I like having my dev database literally be in the same directory as the rest of my code.",
+    "My first guess for 'this server seems to be running on port X but I'm accessing it on port Y, what's going on?' was 'iptables'.",
+    "I spent an entire day before this trying to configure a dev environment by using Puppet to provision a Vagrant virtual machine only to realize that VMs are kind of slow to start and that I don't really like writing Puppet configuration.",
+    "The whole point of Docker Compose is that it's super simple and Kubernetes is certainly not simple."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "dns",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, exploratory",
+  "key_insight": "Docker Compose provides a surprisingly simple way to set up multi-service dev environments, with built-in DNS-based networking that makes container-to-container communication trivial.",
+  "filename": "2021-01-04-docker-compose-is-nice"
+}

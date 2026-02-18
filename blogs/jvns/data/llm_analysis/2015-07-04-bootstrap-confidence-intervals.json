@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans explains bootstrap confidence intervals as a practical, non-parametric approach to quantifying uncertainty in statistical estimates. Using a playful airline overbooking scenario, she demonstrates how sampling with replacement from your data thousands of times can produce useful confidence intervals without needing to know the underlying distribution. She shows that with only 8 data points, bootstrapping reveals wide uncertainty, while 1000 data points yield much tighter estimates. She acknowledges skipping the mathematical justification for why bootstrapping works but emphasizes its practical value as a go-to method for getting error bars.",
+  "key_points": [
+    "Bootstrap confidence intervals let you quantify uncertainty without knowing your data's underlying distribution (nonparametric statistics)",
+    "The method works by sampling with replacement from your data many times and computing your target statistic on each resample",
+    "A single point estimate like '0.35 people' is meaningless without a confidence interval showing how much to trust it",
+    "More data dramatically tightens your bootstrap confidence interval, making the difference between 'could be 0-2' and 'pretty confident it's 2'",
+    "Bootstrapping can't save you from unrepresentative samples \u2014 if your data doesn't capture important real-world variation, no statistical method will fix that"
+  ],
+  "money_quotes": [
+    "I analyze data, and I rarely think about what the underlying distribution of my data is.",
+    "the technical term for not knowing your distributions is 'nonparametric statistics' :D",
+    "Maybe I shouldn't have switched to CS so I didn't have to take statistics (true story). Or alternatively maybe I can BOOTSTRAP MY WAY TO A CONFIDENCE INTERVAL WITH COMPUTERS.",
+    "This is actually way more useful! It's telling me I can oversell by 0 - 2 people, and I don't have enough data to decide which one.",
+    "I have not explained ANY of the math behind why you should believe this is a reasonable approach, which if you are like me then you are super uncomfortable right now.",
+    "If occasionally 100 people don't make the flight because they're all from the same group and that's important and not represented in your sample, bootstrapping can't save you.",
+    "This method is the bomb though. It is basically the only way I know to get error bars on my estimates and it works great."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "playful, practical, self-deprecating",
+  "key_insight": "Bootstrap confidence intervals give you a practical, distribution-free way to understand how much you should trust a statistical estimate, using nothing but resampling and computation.",
+  "filename": "2015-07-04-bootstrap-confidence-intervals"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans explores what network interfaces actually are by running hands-on experiments with Linux network namespaces. She creates a namespace with no interfaces to show that servers can bind to ports but can't receive packets without at least one interface. She then investigates why packets appear multiple times in tcpdump when containers are involved, tracing the answer to how routing assigns packets to specific network devices. The post builds up a working mental model of interfaces through experimentation rather than definitions.",
+  "key_points": [
+    "A network namespace with no interfaces can bind servers to 0.0.0.0 but cannot actually send or receive packets",
+    "Adding the loopback interface to an empty namespace immediately makes networking work without restarting servers",
+    "Packets appear multiple times in tcpdump because they pass through multiple virtual interfaces (veth, bridge, eth0) on the way out",
+    "The route table determines which network interface a packet gets assigned to, and this assignment happens early in the network stack",
+    "Packets to local IP addresses like 172.17.0.1 may route through 'lo' instead of the expected interface due to 'local' route table entries"
+  ],
+  "money_quotes": [
+    "When learning about new unfamiliar stuff, I often realize that I don't fully understand something much more fundamental.",
+    "This is a thing I thought I understood but it turns out there are at least 2 things I didn't know about them.",
+    "I'm not going to try to give you a crisp definition, instead we're going to make some observations, do some experiments, ask some questions, and make some guesses.",
+    "If you don't have any network interfaces, you can't do any networking (but you can start servers on 0.0.0.0 and netstat shows those servers).",
+    "Routing a packet means 'assigning it a network device'.",
+    "If you don't have any network interfaces, your packets don't enter the linux network stack at all really."
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning",
+    "debugging"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Network interfaces are the gateway into the Linux network stack \u2014 without one, packets never enter the stack at all, and the route table determines which interface each packet gets assigned to.",
+  "filename": "2017-09-03-network-interfaces"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans recaps the final day of the netdev 2.1 conference, covering nftables (the replacement for iptables), IoT mesh networking, and a networking daemon for data center reliability. She highlights nftables' unified approach to packet classification and its nearly 2x performance improvement over iptables. The post also explores low-power networking protocols like 6LoWPAN and the surprising constraints of devices that can only send 100 bytes per day. She closes with reflections on the conference culture, appreciating its deep specialization and friendly community while noting the lack of women's t-shirt sizes.",
+  "key_points": [
+    "nftables unifies the fragmented iptables/ip6tables/arptables/ebtables infrastructure into a single packet classification framework with nearly 2x performance gains",
+    "There are 2.5 million lines of network device driver code in the Linux kernel, and bandwidth demands may grow 1000x in the next decade",
+    "Low-power lossy networks (LLNs) operate at extreme constraints, with some wide-area networks limited to 100 bytes per day",
+    "The conference culture of requiring original research talks and filling slides with code rather than cat gifs created a uniquely valuable learning environment",
+    "A question about integrating eBPF into nftables highlighted the challenge of users needing to learn too many different networking tools (tc, nftables, etc.)"
+  ],
+  "money_quotes": [
+    "my main practical takeaway from today was 'oh man, maybe I don't ever have to learn iptables, I should maybe learn nftables instead?'",
+    "there are some wide-area networks where you might only be able to send 100 bytes per day",
+    "a thing that exists in the world is 'kinetically powered lightswitches' \u2013 they only get power when you flip them, and only enough to maybe send a packet before they die",
+    "the wifi in this room isn't working well because there are too many access points which are transmitting at too high power, and they're interfering with each other",
+    "on the balance I think I prefer some text/code to cat gifs if the person is trying to explain a code thing to me",
+    "they don't accept recycled talks, your talk is supposed to be kinda original research / a new development in linux kernel networking",
+    "the conference was super-specialized and focused (not for a general developer audience at all!) and that was really awesome because I got to learn a lot about linux kernel networking",
+    "Blogging this conference has been fun! It made me pay closer attention than I probably would have otherwise, and now I can remember what I learned about!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, curious, reflective",
+  "key_insight": "Deep specialization at a conference \u2014 where every attendee knows far more than you about the topic \u2014 creates an exceptionally valuable learning environment precisely because it exposes you to things you've never heard of.",
+  "filename": "2017-04-08-netdev-conference-day-3"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "The post categorizes terminal text input into four modes: baseline (no input library), readline-based, alternative libraries like libedit, and fully custom systems. Evans explains why entering and editing text at the command line is surprisingly complicated, primarily due to inconsistency between programs. She traces readline's keybindings back to Emacs, explains why some programs don't use readline (licensing, simplicity, minimal interactivity), and recommends rlwrap as a way to add readline support to any program. The core message is that understanding which input mode you're in makes the terminal feel predictable rather than chaotic.",
+  "key_points": [
+    "Terminal text input falls into four categories: no input library, readline, alternative libraries like libedit, and fully custom systems, each with different capabilities",
+    "Even baseline terminal mode provides useful shortcuts like Ctrl+W (delete word) and Ctrl+U (delete line) that work everywhere, without any library support",
+    "Readline's keybindings originate from Emacs, which explains why they feel arbitrary to vim users",
+    "GPL licensing of readline pushes some programs (like macOS Python) toward alternatives like libedit, creating subtle feature gaps",
+    "Custom input systems (fish, ipython, atuin) are usually readline-inspired, supporting the same core shortcuts while adding better autocomplete and features"
+  ],
+  "money_quotes": [
+    "It took me maybe 15 years of using the terminal every single day to get used to using Ctrl+A to go to the beginning of the line.",
+    "A big part of what makes entering text in the terminal hard is the inconsistency between how different programs handle entering text.",
+    "One of my absolute favourite things is that if you have a program like nc without readline support, you can just run rlwrap nc to turn it into a program with readline support!",
+    "It took me a very long time to understand where these keybindings come from (why Ctrl+A to go to the beginning of a line??? so weird!)",
+    "I'm extremely ignorant of most of readline's features. I only use maybe 5 keyboard shortcuts, so as long as they support the 5 basic commands I know I feel pretty comfortable.",
+    "Being able to diagnose what's going on like this makes the command line feel a more predictable and less chaotic.",
+    "I've always thought that vi mode seems really cool, but for some reason even though I'm a vim user it's never stuck for me."
+  ],
+  "themes": [
+    "terminals",
+    "linux",
+    "learning"
+  ],
+  "tone": "exploratory, practical, empathetic",
+  "key_insight": "Terminal text input is confusing because programs silently use four different input systems with varying capabilities, but learning to identify which one you're in transforms the experience from chaotic to predictable.",
+  "filename": "2024-07-08-readline"
+}

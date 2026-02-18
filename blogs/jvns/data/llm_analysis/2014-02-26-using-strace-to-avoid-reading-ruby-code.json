@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans describes using strace to quickly figure out what SSH command an internal Ruby tool was running, instead of reading through the Ruby source code. By running strace with the -f flag to follow child processes and filtering for execve system calls, she and a colleague were able to see the exact SSH command being executed. The post advocates for using system-level debugging tools as a faster alternative to reading unfamiliar code, and frames it as an example of how understanding system calls has practical everyday value.",
+  "key_points": [
+    "strace with -f and -e trace=execve can reveal exactly what commands a program runs without reading its source code",
+    "Following child processes (-f flag) is essential when the program spawns subprocesses",
+    "Understanding system calls is practically useful even for non-kernel programmers",
+    "Learning from colleagues who know different things accelerates skill acquisition"
+  ],
+  "money_quotes": [
+    "The normal way I'd think about doing this is by, well, reading the code. But that takes time!",
+    "This is super fun because what I'd usually do is go read the code to try and figure out what it's doing, and reading code is hard! strace is easy!",
+    "Also it's a great example of incidental/accidental learning. I like working with people who know more (and different!) things than I do :)"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "System-level tools like strace can answer questions about program behavior faster than reading source code, making them practical debugging shortcuts for everyday programming.",
+  "filename": "2014-02-26-using-strace-to-avoid-reading-ruby-code"
+}

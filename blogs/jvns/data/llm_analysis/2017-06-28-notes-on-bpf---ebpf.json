@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans shares notes from a Papers We Love talk about the original BPF paper and modern eBPF. She explains how BPF solved packet filtering by moving filtering logic into the kernel and using control flow graphs instead of inefficient tree evaluation. The post traces BPF's evolution from packet filtering to eBPF, which can attach programs to kernel functions, userspace functions, network cards, and more. She walks through how tcpdump converts filter expressions into BPF bytecode that gets JIT-compiled to native code. The piece highlights eBPF's ability to hook into virtually any kernel or userspace function through kprobes and uprobes, making it a powerful tracing and monitoring tool.",
+  "key_points": [
+    "BPF solved two problems: eliminating expensive userspace packet copying by filtering in the kernel, and replacing inefficient tree-based filtering with control flow graphs",
+    "BPF programs are compiled to bytecode, verified by the kernel, then JIT-compiled to native code that often runs only 100-200 CPU instructions per packet",
+    "eBPF extends BPF far beyond packet filtering \u2014 programs can attach to kernel functions (kprobes), userspace functions (uprobes), network cards (XDP), tracepoints, and more",
+    "eBPF programs can't access arbitrary kernel memory but can communicate with userspace through BPF maps, maintaining a safety model while enabling powerful tracing"
+  ],
+  "money_quotes": [
+    "if you filter in userspace, it means you have to copy all the packets into userspace, copying data is expensive",
+    "BPF programs run on these arrays of bytes. They're not allowed to have loops but they can have smart stuff to figure out the length of the IP header",
+    "It'll often run only 100-200 CPU instructions for each packet that needs to be processed, which is super fast!",
+    "You can pick a function (any function!) in the Linux kernel and execute a program that you write every time that function happens. This seems really amazing and magical.",
+    "I sort of knew you could attach eBPF programs to kernel functions, but I didn't realize you could attach eBPF programs to userspace functions! That's really exciting.",
+    "But BPF has been around for a long time! Now we live in the EXCITING FUTURE which is eBPF."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, technical, exploratory",
+  "key_insight": "eBPF transforms BPF from a packet filtering mechanism into a general-purpose framework for safely running custom programs in the kernel, enabling tracing and monitoring of virtually any kernel or userspace function.",
+  "filename": "2017-06-28-notes-on-bpf---ebpf"
+}

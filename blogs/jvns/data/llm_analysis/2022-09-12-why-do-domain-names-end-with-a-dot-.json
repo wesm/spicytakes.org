@@ -1,0 +1,26 @@
+{
+  "summary": "The post explains why domain names sometimes end with a trailing dot, tracing the answer through DNS internals, zone files, dig output, and search domains. Evans starts by noting that the simple answer ('it means fully qualified') doesn't explain why it matters. She shows that DNS wire format doesn't use dots at all, then explains how zone files use the trailing dot to distinguish absolute from relative names. The key practical insight is that search domains (used in local networks and Kubernetes) can silently append suffixes to domain names, so the trailing dot explicitly signals 'nothing else gets added.' She concludes with practical advice: use trailing dots when configuring DNS, but not in browsers where it often breaks.",
+  "key_points": [
+    "In DNS wire format, domain names contain no dots at all \u2014 they're encoded as length/string pairs, so the trailing dot is purely a convention of text representations.",
+    "Zone files use the trailing dot to distinguish fully qualified domain names from relative ones that get the zone's domain appended automatically.",
+    "Search domains (configured via /etc/resolv.conf) can silently modify lookups \u2014 'grapefruit' becomes 'grapefruit.lan' \u2014 and the trailing dot prevents this modification.",
+    "dig's output format with semicolons and trailing dots is designed to be paste-able into zone files, which explains its otherwise puzzling formatting choices.",
+    "Using a trailing dot in browsers often breaks things because web servers expect Host headers without the dot."
+  ],
+  "money_quotes": [
+    "Originally I thought I knew the answer to this ('uh, the dot at the end means the domain is fully qualified?'). And that's true \u2013 a fully qualified domain name is a domain with a '.' at the end! But that doesn't explain *why* dots at the end are useful or important.",
+    "When a computer sends a DNS request or response, the domain names in it don't have a trailing dot. Actually, the domain names don't have *any* dots.",
+    "So because domain names can actually be translated to something else in some cases, people like to put a '.' at the end to communicate 'THIS IS THE DOMAIN NAME, NOTHING GETS ADDED AT THE END, THIS IS THE WHOLE THING'.",
+    "I really wish dig had a +human flag that printed out all of this information in a more human readable way, but for now I'm too lazy to put in the work to actually contribute code to do that (and I'm a pretty bad C programmer) so I'll just complain about it on my blog instead :)",
+    "I always have to remind myself for the reasons for this because I rarely use zone files or search domains, so I often feel like \u2013 'of course I mean google.com and not google.com.something.else! Why would I mean anything else?? That's silly!'",
+    "The technical term for 'THIS IS THE WHOLE THING' is 'fully qualified domain name' or 'FQDN'."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "curious, exploratory, accessible",
+  "key_insight": "The trailing dot in domain names exists because both zone files and search domains can silently modify unqualified names, so the dot explicitly signals that the domain is complete and nothing should be appended.",
+  "filename": "2022-09-12-why-do-domain-names-end-with-a-dot-"
+}

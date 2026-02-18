@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans argues that system calls provide a powerful debugging approach that doesn't require source code, a debugger, or print statements. By using tools like strace and ltrace, developers can observe exactly what any program is doing at the OS level \u2014 which files it opens, which commands it runs, and what data it writes. She walks through specific system calls (open, execve, write) and the /proc filesystem, showing practical examples with ssh, Chrome, and killall. Her core argument is that learning your operating system is a better investment than learning language-specific debuggers, since OS-level tools work across all languages and even on closed-source binaries.",
+  "key_points": [
+    "System calls are the only way programs can interact with the OS, making them a universal and reliable debugging interface",
+    "strace and ltrace let you observe any program's behavior without source code access, by tracing system calls and library calls respectively",
+    "The /proc filesystem exposes every file a process has open, providing ground-truth information that 'won't lie to you'",
+    "Learning OS-level debugging tools is a better long-term investment than language-specific debuggers because you switch languages more often than operating systems",
+    "These tools are most useful for I/O-related debugging (files, network, processes) rather than logical errors in algorithms"
+  ],
+  "money_quotes": [
+    "I can look at the internal behavior of closed-source programs.",
+    "System calls are the API for your computer, so you don't have to know how a network card works to send a HTTP request.",
+    "At first debugging this way is confusing, but once you're familiar with the tools it can actually be faster, because you don't have to worry about getting the wrong information!",
+    "You probably switch languages more often than you switch OSes. So, learning your OS in depth and then using it as a debugging tool is likely a better investment of your time than learning a language-specific debugging tool.",
+    "If you learn your operating system, you acquire superpowers. You can debug programs that are binary-only and closed source.",
+    "My favorite thing about these methods is that your OS won't lie to you. The only way to run a program is with the execve system call.",
+    "The only way for a program to open a file on Linux is with the open system call."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, educational, empowering",
+  "key_insight": "Learning to debug through OS-level tools like strace gives you universal, language-agnostic superpowers because system calls are the only interface between any program and the operating system.",
+  "filename": "2014-04-20-debug-your-programs-like-theyre-closed-source"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Evans investigates whether Ruby's internal struct definitions change frequently enough to complicate building a sampling profiler. She compares two approaches: compiling against Ruby header files at build time (like pyflame does for Python) versus parsing DWARF debug symbols at runtime (like gdb). After examining struct layouts across Ruby 2.1 through 2.5, she finds that unlike Python which only has three variations, Ruby's internal structs change with every major version release. She concludes that either DWARF-based decoding or committing headers for all ~40 minor Ruby versions are the viable paths forward.",
+  "key_points": [
+    "A sampling profiler needs to decode Ruby's internal C structs to read the current stack, requiring knowledge of exact struct layouts",
+    "Python's internal structs only have 3 variations, making compile-time header inclusion practical, but Ruby's structs change every major version",
+    "Ruby 2.5 introduced a major refactor replacing ruby_current_thread with ruby_current_execution_context_ptr, completely changing the thread struct",
+    "Conditional compilation via #ifdefs adds another dimension of variation to Ruby struct layouts",
+    "The two viable approaches are using DWARF debug symbols at runtime or pre-generating bindings for all ~40 Ruby minor versions"
+  ],
+  "money_quotes": [
+    "The main question a sampling profiler needs to answer (over and over and over\u2026 :)) is \"what's the stack right now?\".",
+    "Dealing with DWARF is a pain and not every Ruby process has debug symbols, so I'd prefer to be able to use approach #2.",
+    "It seems like the situation with the Ruby structs defining the Ruby stack is very different from the situation in Python \u2013 instead of only having 3 versions to worry about, the struct layouts of the structs I care about change every major Ruby version.",
+    "There are maybe.. 40 minor ruby versions? That is a lot but not an infinite amount.",
+    "In Rust I could use bindgen to generate Rust bindings for all those ruby versions and just like.. commit all the versions into my repository."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Ruby's internal struct layouts change with every major version, making compile-time profiler approaches much harder than equivalent Python profilers and potentially requiring either DWARF parsing or pre-generated bindings for dozens of Ruby versions.",
+  "filename": "2017-12-19-how-much-does-the-ruby-abi-change-"
+}

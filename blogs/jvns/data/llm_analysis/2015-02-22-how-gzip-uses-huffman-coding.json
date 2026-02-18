@@ -1,0 +1,25 @@
+{
+  "summary": "This post explains the second half of how gzip compression works: Huffman coding for individual characters. After gzip uses LZ77 to eliminate repetitions in text, it uses Huffman codes to represent frequently-occurring characters with fewer bits. Evans walks through how prefix-free codes work, demonstrates reading real Huffman tables from compressed files using the infgen tool, and shows how the gzip spec converts code lengths into actual Huffman codes. The post connects theoretical computer science concepts to their practical application in everyday tools.",
+  "key_points": [
+    "Gzip compression is a two-step process: LZ77 removes repetitions, then Huffman coding compresses individual characters by assigning shorter bit sequences to more frequent characters",
+    "Huffman codes work because no code is a prefix of any other code, eliminating ambiguity when decoding a stream of bits",
+    "The infgen tool reveals how gzip internally represents its Huffman tables, showing only code lengths rather than the codes themselves",
+    "The gzip spec defines an algorithm to reconstruct full Huffman codes from just the code lengths, starting at 000000 and shifting left when lengths increase",
+    "Examining real Huffman tables reveals patterns about the content \u2014 English text compresses common letters like space, a, e, i most efficiently, while source code prioritizes parentheses and quotes"
+  ],
+  "money_quotes": [
+    "none of these codes is a prefix of any other code. So if we write down 010001001011 we can see that it's 010 00 1001 011 or baec! There wasn't any ambiguity",
+    "You might ALSO notice that these are all less than 8 bits! That means we're doing COMPRESSION.",
+    "Which initially seems totally unhelpful! Like, who cares if it's represented with a code of length 6 if I DON'T KNOW WHAT THAT CODE IS?!!",
+    "these are some of the most common letters in the English language, so it TOTALLY MAKES SENSE that these would be encoded most efficiently. Yay!",
+    "I tried it out on the compressed source code infgen.c.gz, and you can totally see it's source code and not a novel!",
+    "It's kind of my favorite when things I learned about in math class show up in the programs I use every day."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, educational",
+  "key_insight": "Gzip's Huffman coding assigns shorter bit sequences to more frequent characters, and you can reconstruct the full coding table from just the code lengths using the algorithm in the gzip specification.",
+  "filename": "2015-02-22-how-gzip-uses-huffman-coding"
+}

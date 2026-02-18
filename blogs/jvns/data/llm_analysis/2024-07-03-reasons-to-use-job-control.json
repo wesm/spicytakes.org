@@ -1,0 +1,26 @@
+{
+  "summary": "Evans explores the use cases for shell job control (fg, bg, Ctrl+Z) after polling her Mastodon audience for their habits. She explains the three process states (foreground, background, stopped) and the commands for moving between them. The post catalogs nine practical reasons people use job control, from killing unresponsive processes to suspending CPU-hungry programs. Evans admits she mostly prefers opening new terminal tabs but found several use cases compelling, particularly killing Ctrl+C-resistant processes and running tcpdump in the background alongside other commands.",
+  "key_points": [
+    "Shell job control manages three process states: foreground, background, and stopped, with commands like fg, bg, Ctrl+Z, jobs, kill, and disown to move between them",
+    "Ctrl+Z followed by kill is a faster way to deal with processes that don't respond to Ctrl+C than switching tabs to find and kill them",
+    "Running tcpdump in the background while executing network commands in the same terminal lets you see interleaved output with matching timestamps, avoiding confusion from tab-switching",
+    "Job control becomes essential in constrained environments like single-user mode, restricted machines, or SSH sessions without tmux/screen",
+    "Many people's first encounter with job control is accidentally pressing Ctrl+Z and needing to learn fg to recover their process"
+  ],
+  "money_quotes": [
+    "\"Job control\" is a set of commands for seeing which processes are running in a terminal and moving processes between these 3 states",
+    "I run into processes that don't respond to Ctrl+C pretty regularly, and it's always a little annoying \u2013 I usually switch terminal tabs to find and kill and the process.",
+    "This really surprised me because I usually think of having the output of lots of different commands interleaved as being a bad thing, but one person said that they like to do this with tcpdump specifically and I think that actually sounds extremely useful.",
+    "Many people replied that they didn't use job control intentionally, but that they sometimes accidentally ran Ctrl+Z, which stopped whatever program was running, so they needed to learn how to use fg to bring it back to the foreground.",
+    "Probably the most obvious reason to use job control to manage multiple processes is \"because you have to\" \u2013 maybe you're in single-user mode, or on a very restricted computer, or SSH'd into a machine that doesn't have tmux or screen.",
+    "I feel like I'd also be likely to switch terminal tabs and end up wondering \"wait\u2026 where did I put my editor???\" and have to go searching for it."
+  ],
+  "themes": [
+    "terminals",
+    "linux",
+    "learning"
+  ],
+  "tone": "curious, conversational, practical",
+  "key_insight": "Shell job control is an underused but practical tool with specific scenarios where it outperforms the common habit of opening new terminal tabs, especially for killing unresponsive processes and correlating interleaved output from background tools like tcpdump.",
+  "filename": "2024-07-03-reasons-to-use-job-control"
+}

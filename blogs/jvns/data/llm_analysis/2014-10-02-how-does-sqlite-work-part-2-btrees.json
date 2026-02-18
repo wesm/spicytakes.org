@@ -1,0 +1,24 @@
+{
+  "summary": "This second part of Julia Evans' SQLite series explains how btrees minimize disk reads when querying a database. She demonstrates that SQLite organizes data into btree structures where each node has many children, keeping tree depth small and reducing the number of page reads needed. Using her 100,000-row test database, she shows that a btree of depth 3 requires only 3 page reads versus 16 for a binary tree. She also reveals that tables and indexes each have their own separate btrees, and walks through a concrete query showing binary searches happening within each page.",
+  "key_points": [
+    "Disk I/O is the dominant cost in database queries \u2014 seeking to new file locations is far more expensive than CPU time spent searching data already in memory",
+    "Btrees keep their depth small by giving each node many children, so a 100,000-row database needs only 3 page reads versus 16 for a binary tree",
+    "Each table has its own btree for data, and each index has a separate btree for lookups, which is why maintaining many indexes slows down inserts",
+    "SQLite performs binary search within each page to find the next node to visit, combining tree traversal with intra-page searching",
+    "A single query like 'select * from fun where id = 1000' actually triggers two separate btree searches: one in the index btree to find the rowid, then one in the table btree to fetch the data"
+  ],
+  "money_quotes": [
+    "One of the most important things in database optimization is disk I/O. Reading more data than you absolutely need to read is really expensive, because seeking to a new location in a file takes a long time.",
+    "It takes way less CPU time to search through your data than it does to read the data into memory.",
+    "btrees are organized so that each node has lots of children, to keep the depth small, and so that we won't have to read too many pages to find a row.",
+    "My 100,000 row SQLite database has a btree with depth 3, so to fetch a node I only need to read 3 pages. If I'd used a binary tree I would have needed to do log(100000) / log(2) = 16 seeks!",
+    "This is why maintaining lots of indexes is slow \u2013 every time you insert a row you need to update as many trees as you have indexes.",
+    "So for a simple database scan, reading more data than you need is a huge problem."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Btrees minimize expensive disk seeks by keeping tree depth small through high branching factors, turning what would be 16 page reads in a binary tree into just 3 for a 100,000-row database.",
+  "filename": "2014-10-02-how-does-sqlite-work-part-2-btrees"
+}

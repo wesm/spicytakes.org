@@ -1,0 +1,27 @@
+{
+  "summary": "Julia documents a day spent trying to deploy a puzzle application on fly.io, covering three practical discoveries along the way. She learns about IPv6 address notation and when square brackets are needed, discovers that nginx resolves DNS only once at boot unless you use a variable in proxy_pass, and finds that setting up Wireguard is surprisingly simple. The post is a candid learning log where not everything works perfectly\u2014her nginx DNS fix still isn't functioning. It captures the messy reality of deploying applications and the incremental knowledge gained from wrestling with infrastructure.",
+  "key_points": [
+    "IPv6 addresses need square brackets when a port is included to avoid ambiguity, but not always in other contexts like SSH",
+    "Nginx resolves DNS for proxy_pass targets only once at boot; using a variable forces re-resolution, and you must explicitly set a resolver",
+    "Setting up Wireguard as a client is remarkably simple\u2014just install, drop in a config file, and run one command",
+    "Real deployment work involves hitting multiple small but surprising gotchas across different layers of infrastructure"
+  ],
+  "money_quotes": [
+    "CMD [\"rails\", \"server\", \"-b\", \"0.0.0.0\"] will only listen on IPv4 addresses!",
+    "I think the rule might be that you need to use square brackets if you're going to include a port, because otherwise it would be ambiguous whether the port is part of the IP address or not.",
+    "nginx will resolve some-website.com to an IP address once when it boots, and then never update again.",
+    "It turns out that if you proxy_pass to something with a variable with it, nginx will resolve DNS.",
+    "You also need to set a DNS server to use explicitly, nginx won't use what's in /etc/resolv.conf.",
+    "This actually still doesn't work and I don't know why, nginx. Maybe I'll figure that out today.",
+    "I set up Wireguard for the first time and it was very straightforward!"
+  ],
+  "themes": [
+    "networking",
+    "dns",
+    "linux",
+    "learning"
+  ],
+  "tone": "curious, candid, exploratory",
+  "key_insight": "Deploying real applications reveals surprising default behaviors in familiar tools\u2014like nginx caching DNS forever\u2014that you only discover by running into them.",
+  "filename": "2021-02-04-day-53--configuring-nginx"
+}

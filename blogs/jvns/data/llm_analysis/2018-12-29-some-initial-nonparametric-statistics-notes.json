@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans works through the early chapters of 'All of Nonparametric Statistics' by Larry Wasserman, trying to build intuition for nonparametric methods and the bootstrap. She explores how nonparametric statistics avoids strong distributional assumptions, walks through Hoeffding's inequality to show how confidence scales with dataset size, and attempts to understand the formal conditions under which bootstrap estimators are consistent. She finds that the math behind bootstrap consistency is surprisingly difficult and that even the textbook doesn't fully prove general consistency. The post is explicitly a work-in-progress learning journal rather than a polished explanation.",
+  "key_points": [
+    "Nonparametric statistics makes minimal assumptions about the underlying distribution, though it still requires independence and some smoothness conditions",
+    "Hoeffding's inequality shows that confidence in empirical estimates scales exponentially with dataset size \u2014 100,000 points is not 10x better than 10,000, it's astronomically better",
+    "The bootstrap method estimates statistics and their variance by resampling with replacement, but requires regularity conditions to be valid",
+    "Understanding when and why bootstrap estimators are consistent turns out to be mathematically very hard, even for simple cases like the median",
+    "The textbook warns against treating the bootstrap as a panacea \u2014 it should not be applied blindly"
+  ],
+  "money_quotes": [
+    "since these notes are from reading a math book and math books are extremely dense this is basically going to be 'I read 7 pages of this math book and here are some points I'm confused about'",
+    "100,000 data points is AMAZING, 10,000 data points is pretty good, and 1,000 is much less useful.",
+    "So 100,000 data points isn't 10x better than 10,000 data points, it's actually like 10000000000000x better.",
+    "If I'm estimating some parameter (like the median), I would DEFINITELY LIKE IT TO BE TRUE that if I do it with an infinite amount of data then my estimate works.",
+    "An estimator that is not consistent does not sound very useful!",
+    "there is a tendency to treat the bootstrap as a panacea for all problems. But the bootstrap requires regularity conditions to yield valid answers. It should not be applied blindly.",
+    "understanding when/why nonparametric bootstrap estimators are consistent in general might be very hard"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "The guarantees of nonparametric methods like the bootstrap rest on surprisingly deep mathematics, and having more data points provides exponentially \u2014 not linearly \u2014 better statistical confidence.",
+  "filename": "2018-12-29-some-initial-nonparametric-statistics-notes"
+}

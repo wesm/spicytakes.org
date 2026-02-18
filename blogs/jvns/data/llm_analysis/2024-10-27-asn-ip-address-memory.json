@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans describes her journey to reduce memory usage in Mess With DNS, which was getting OOM killed on a 465MB VM. The main culprit was a 117MB in-memory IP-to-ASN lookup database. She tried three approaches: SQLite (worked but was 500x slower), a trie (used even more memory), and optimizing her existing array-based binary search. The winning solution combined deduplicating ASN name/country strings and switching from net.IP to Go's newer netip.Addr type, cutting memory from 117MB to 46MB. She also honestly describes how the real debugging process was far messier than the linear narrative suggests.",
+  "key_points": [
+    "An IP-to-ASN lookup table consumed 117MB in memory despite the raw data being only 37MB on disk, revealing significant overhead from Go's data structures and string duplication",
+    "SQLite eliminated memory usage but was 500x slower than binary search, and couldn't effectively use both indexes for range queries despite various optimization attempts",
+    "Deduplicating repeated ASN name/country strings by storing them in a shared pool with index references saved 50MB, and switching to netip.Addr saved another 20MB",
+    "Go's newer netip.Addr type (originally from Tailscale) solves real memory overhead problems with the older net.IP type by avoiding unnecessary heap allocations",
+    "The author deliberately chooses to work within a 512MB VM constraint rather than throwing more hardware at the problem, treating it as a fun optimization puzzle"
+  ],
+  "money_quotes": [
+    "This database by itself used about 117MB of memory, and a simple du told me that was too much \u2013 the original text files were only 37MB!",
+    "Doing manual work like this is the #1 thing I try to avoid with all my web services (who has time for that!) so I really wanted to do something about it.",
+    "I always try to take my actual debugging process (total chaos) and make it seem more linear and understandable because the reality is just too annoying to write down.",
+    "It's always such a great feeling when I think 'hey, I don't like this, there must be a better way' and then immediately discover that someone has already made the exact thing I want, thought about it a lot more than me, and implemented it much better than I would have.",
+    "I could very easily afford to pay for a VM with 1GB of memory, but I feel like 512MB really should be enough (and really that 256MB should be enough!) so I'd rather stay inside that constraint. It's kind of a fun puzzle.",
+    "I had fun, I learned a few things about SQLite, I still don't know what to think about tries, and it made me love binary search even more than I already did.",
+    "I tried to figure out if there was a way to make SQLite use both indexes, but I couldn't find one and maybe it knows best anyway."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, honest, playful",
+  "key_insight": "Simple data structure optimizations like deduplicating strings and using properly-sized types can dramatically reduce memory usage without sacrificing the simplicity and speed of a basic binary search approach.",
+  "filename": "2024-10-27-asn-ip-address-memory"
+}

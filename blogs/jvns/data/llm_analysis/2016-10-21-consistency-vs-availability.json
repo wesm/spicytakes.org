@@ -1,0 +1,25 @@
+{
+  "summary": "Evans explains the tension between consistency and availability in distributed systems through a personal story about a database that kept going down at work. Rather than diving into the formal CAP theorem, she builds intuition: consistent systems require machines to communicate and agree, which is hard when networks are unreliable, while available systems can simply serve data from any machine without coordination. The key revelation is that her team's system stopped going down once they dropped consistency as a requirement, accepting slightly stale data in exchange for reliability. She argues that good distributed systems engineering means being extremely careful about a small number of consistent systems and making everything else as simple as possible.",
+  "key_points": [
+    "Consistency and availability conflict because machines must communicate to agree on state, and networks are unreliable",
+    "Building consistent distributed systems requires complex algorithms like Raft, while building available ones is comparatively simple if you accept stale data",
+    "Changing requirements (dropping consistency) can solve operational problems more effectively than fixing bugs",
+    "Good distributed systems engineering means isolating the few places that truly need consistency and keeping everything else as dumb as possible",
+    "Having fuzzy intuitions about formal concepts like consistency and availability is valuable even without understanding the full theory"
+  ],
+  "money_quotes": [
+    "We changed our mind about what we wanted out of the system, and that helped us operate it better!",
+    "Like \"the best distributed system is the one you deleted.\"",
+    "I feel like really good distributed systems engineering is being like extremely careful about a small number of consistent systems and then making everything else as dumb as possible.",
+    "These days when I see a distributed systems problem I'm more likely to think OH NO CAN WE NOT.",
+    "There are LOTS of systems that don't need to be consistent, it turns out!",
+    "If you don't care if the data you're reading is necessarily totally right, then there's no problem! Do whatever you want!",
+    "It wasn't because we fixed bugs, or because we were really smart. We changed our mind about what we wanted out of the system."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, self-deprecating, exploratory",
+  "key_insight": "Many systems don't actually need consistency, and recognizing that lets you trade it for availability \u2014 solving operational problems not through better engineering but through better requirements.",
+  "filename": "2016-10-21-consistency-vs-availability"
+}

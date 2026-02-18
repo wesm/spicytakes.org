@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans describes writing her first Rust macro using macro_rules! to solve a practical problem: generating the same get_stack_trace function for 30 different Ruby versions in her Ruby profiling tool. Each Ruby version had structurally similar but distinct bindings, so she needed the same code compiled against different type definitions. She found the macro system surprisingly easy to use, going from zero knowledge to a working solution in under an hour. The macro let her avoid massive code duplication by parameterizing the Ruby version identifier.",
+  "key_points": [
+    "Rust's macro_rules! system can be surprisingly approachable for straightforward code generation tasks, even for first-time users",
+    "The specific use case was generating version-specific functions for ~30 Ruby versions where structs had the same names but different layouts",
+    "Macros solved the problem of needing identical logic compiled against different type bindings without manual code duplication",
+    "The pattern was simple substitution: parameterize the version identifier and let the compiler generate different code for each version"
+  ],
+  "money_quotes": [
+    "The most striking thing to me about this was how easy it was \u2013 I kind of expected it to be a weird hard finicky thing, and instead I found that I could go from \"I don't know how macros work but I think I could do this with a macro\" to \"wow I'm done\" in less than an hour.",
+    "I basically just needed to put my code in and insert $ruby_version in the places I wanted it to go in. So simple!",
+    "I literally just looked at an example, tried the first thing I thought would work, and it worked pretty much right away.",
+    "I was SO HAPPY about this because I'd been worried getting this to work would be hard but instead it was so easy!!",
+    "I'm not actually going to try to explain what a macro is, instead I will just show you what I used a macro for yesterday and hopefully that will be interesting."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Rust's macro_rules! system is more approachable than its reputation suggests, and even simple textual substitution macros can solve real code generation problems like compiling the same logic against dozens of different type definitions.",
+  "filename": "2017-12-24-my-first-rust-macro"
+}

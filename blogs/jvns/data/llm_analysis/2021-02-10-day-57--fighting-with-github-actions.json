@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans describes her experience trying to migrate rbspy's CI from Travis to GitHub Actions, which turned into a frustrating debugging session. She also mentions an exciting pull request that adds C function identification to rbspy, a feature she'd wanted for years. The CI migration followed a familiar pattern: assuming it would be easy, then spending excessive time debugging. She found some hope in a tmate-based debugging action that allows SSH access to the CI environment.",
+  "key_points": [
+    "A long-wanted rbspy feature for identifying C functions in stack traces was contributed via PR, porting logic from Ruby's .gdbinit",
+    "Migrating CI from Travis to GitHub Actions followed the classic pattern of underestimating complexity",
+    "Debugging CI pipelines remains universally frustrating because of the slow feedback loops",
+    "The tmate GitHub Action for SSH debugging into CI runners offers a potential escape from the pain"
+  ],
+  "money_quotes": [
+    "think \"maybe I'll implement GitHub actions, how hard can it be?\"",
+    "This was just exactly the same as every other time I've tried to set up CI \u2013 it's fine, but it's always kind of frustrating.",
+    "spent a billion years trying to debug various things in GitHub actions",
+    "when I woke up this morning and opened Twitter I saw a tweet from someone who was also having a sad GitHub Actions day"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "candid, self-deprecating, relatable",
+  "key_insight": "Setting up CI always follows the same deceptively optimistic arc\u2014it seems simple until you're deep in debugging, and the shared frustration is universal among developers.",
+  "filename": "2021-02-10-day-57--fighting-with-github-actions"
+}

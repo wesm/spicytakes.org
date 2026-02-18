@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans surveys several Linux tools beyond strace for understanding what your operating system is doing. She covers netstat for checking open ports, dstat for real-time disk and network stats, lsof for tracking open files, ngrep/tcpdump for network packet inspection, opensnoop/ftrace for file access tracing, and atop for comprehensive process monitoring. Each tool is presented as a way to discover 'The Truth' about what's happening on your system. She emphasizes that these tools are valuable because they give you direct, unmediated answers to specific questions about your computer's behavior.",
+  "key_points": [
+    "Simple single-purpose tools like netstat, dstat, and lsof are powerful precisely because they answer one specific question directly",
+    "For network debugging, tcpdump output is best analyzed in Wireshark's GUI rather than reading raw packet dumps",
+    "Brendan Gregg's perf-tools and ftrace provide deep kernel-level tracing but require more effort to learn and may need modification for specific kernel versions",
+    "Man pages explain individual words and options but can't substitute for real stories of how people used tools to solve actual problems"
+  ],
+  "money_quotes": [
+    "netstat tells me the truth about whether it is running.",
+    "Want to know how much data is actually being written to your physical hard drive right this second? YEAH YOU DO.",
+    "as always with these systems tools, ngrep / tcpdump will tell you The Truth\u2122 about what's going on on your network.",
+    "I'm mostly including this as an example to show that a lot of stuff is possible to know.",
+    "you can read the man page for tcpdump and understand individually all the words, but it's not a substitute for someone telling you an Awesome Story about how they used tcpdump to debug an intermittent certificate problem or a DNS problem and then they Saved the Day.",
+    "I actually have no idea why I had redis installed so uh yeah I uninstalled it.",
+    "It's neat and a little terrifying to look at at first (SO MANY NUMBERS)."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, approachable",
+  "key_insight": "Linux provides a rich ecosystem of simple, focused tools that tell you the truth about what your system is actually doing, and learning them is best driven by real debugging stories rather than man pages alone.",
+  "filename": "2015-04-06-a-few-spy-tools-for-your-operating-system-other-than-strace"
+}

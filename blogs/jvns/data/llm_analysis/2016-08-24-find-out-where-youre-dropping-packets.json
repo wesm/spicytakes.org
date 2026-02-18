@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans explains the three places where UDP packets can be dropped: on the way out (socket send buffer overflow), in transit across the internet, and on the way in (socket receive buffer overflow). She walks through Linux sysctls that control buffer sizes and shows how to use netstat to monitor dropped packets. The post demystifies packet loss by emphasizing that packets don't disappear by magic \u2014 they get dropped because buffers get full. She concludes by noting that everything in networking is buffers, and TCP packets get dropped just as easily but are retried automatically.",
+  "key_points": [
+    "UDP packets are dropped at three stages: outgoing socket buffer, in transit, and incoming socket receive buffer, each with different causes",
+    "Linux provides sysctls like net.core.rmem_max and net.ipv4.udp_mem to control buffer sizes, and netstat -suna reveals exactly how many packets have been dropped",
+    "Most packet loss comes from full buffers somewhere in the chain \u2014 network cards, OS socket buffers, and intermediate routers all have buffers that can overflow",
+    "TCP packets get dropped just as easily as UDP packets, but TCP handles retries automatically so you're less likely to notice"
+  ],
+  "money_quotes": [
+    "When you're losing UDP packets, it's sort of tempting to say 'well, whatever, that's what happens when you use UDP!' But UDP packets don't get lost by magic.",
+    "EVERYTHING IS BUFFERS.",
+    "Your network card has a buffer that can get full! There are a bunch of intermediate routers between your computer and my computer. All of those have buffers! Those buffers can get full!",
+    "My current understanding is that most packet loss is because of full buffers one way or another.",
+    "Also everything here I said about UDP packets applies just as well to any kind of IP packet \u2013 TCP packets can get dropped just as easily, but they'll get retried, so you're not as likely to notice.",
+    "There's a joke about UDP. it goes like this: 'Never mind, you probably wouldn't get it.'"
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "debugging"
+  ],
+  "tone": "curious, explanatory, playful",
+  "key_insight": "UDP packet loss isn't mysterious \u2014 packets get dropped at specific, observable points where buffers overflow, and Linux gives you tools to monitor exactly where and how often it happens.",
+  "filename": "2016-08-24-find-out-where-youre-dropping-packets"
+}

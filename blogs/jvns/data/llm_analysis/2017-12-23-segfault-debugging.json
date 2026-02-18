@@ -1,0 +1,26 @@
+{
+  "summary": "Evans documents debugging a segfault in her Rust program that grabbed stack traces from Ruby processes. The bug stemmed from unsafe code that incorrectly used Vec::from_raw_parts, passing the wrong capacity and violating alignment requirements when casting a byte vector into a vector of structs. The segfault only occurred with jemalloc (not the system allocator), which made debugging confusing but ultimately revealed that jemalloc's stricter memory management was actually catching the bug earlier. She fixed it by creating a slice view of the byte vector instead of trying to transmute the vector itself, letting Rust handle deallocation of the original bytes.",
+  "key_points": [
+    "Segfaults in Rust almost always come from incorrect unsafe code rather than compiler bugs, and the fix requires carefully reading the invariants that unsafe functions expect",
+    "Different allocators (jemalloc vs system malloc) can surface or hide memory bugs \u2014 jemalloc's thread-local caching and size-bucketed approach made it stricter, which was actually a feature",
+    "The debugging process followed a systematic narrowing: print statements to locate the crash, valgrind to confirm it was during deallocation, mem::forget to identify the variable, then reducing to a minimal reproduction",
+    "Creating a minimal reproduction (under 50 lines) both enabled asking for help and led to self-discovery of the bug while writing up the question",
+    "Leaking memory is considered safe in Rust, and safe Rust code can still segfault (e.g., stack overflow guard pages) \u2014 undefined behavior and unsafe are related but not synonymous"
+  ],
+  "money_quotes": [
+    "It was a new class of bug for me and so it was a good learning opportunity!",
+    "So, as far as I understand it, there are 2 possible reasons your Rust program can segfault: you wrote unsafe code in a way that violates Rust's memory safety guarantees, or the Rust compiler has a bug.",
+    "step 5 was not a constructive step but instead just a lot of confusion.",
+    "As often happens when I try to explain what's going on in writing, halfway through writing the question I figured it out for myself.",
+    "The program that segfaulted was better than the program that didn't, because it was picking up a subtle problem that could bite me later if I didn't fix it.",
+    "I was kind of surprised to learn that leaking memory is safe in Rust.",
+    "Using unsafe functions can be safe! You just need to be careful to make sure to call those functions in a way that maintains the invariants that Rust expects."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, narrative, reflective",
+  "key_insight": "Debugging unfamiliar bug classes systematically \u2014 narrowing scope, creating minimal reproductions, and writing up the problem for others \u2014 often leads you to the answer yourself while teaching you about the underlying systems.",
+  "filename": "2017-12-23-segfault-debugging"
+}

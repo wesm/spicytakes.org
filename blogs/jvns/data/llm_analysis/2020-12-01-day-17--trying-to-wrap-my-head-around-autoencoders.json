@@ -1,0 +1,22 @@
+{
+  "summary": "Julia documents her attempt to use autoencoders to cluster neural network-generated face sketches. She wants to group Quick Draw faces into clusters so she can identify which groups she likes best and train models on those. She discovers autoencoders as a way to handle clustering sequences of vectors (where k-means won't work), learns the basic encoder-decoder pattern, but ends the day still confused about implementation details. She plans to try a simpler toy example next.",
+  "key_points": [
+    "K-means clustering doesn't work for sequences of vectors, which led to discovering autoencoders as an alternative",
+    "Autoencoders work by training an encoder to compress input into a lower-dimensional vector and a decoder to reconstruct the original from that compression",
+    "Listing specific unanswered questions (like what relu means, or which vector is the encoding) is a deliberate learning strategy",
+    "Starting with a complex dataset when you don't understand the technique is counterproductive \u2014 simplifying the data helps clarify the concept"
+  ],
+  "money_quotes": [
+    "The usual way to do clustering is with k-means or something, but these drawings of faces aren't a single vector, they're a sequence of vectors! So k-means wouldn't make any sense.",
+    "I'm still pretty confused about how this encoder / decoder pattern actually works, and I didn't get very far on this today.",
+    "As always trying to use a technique I don't understand at all with a complicated dataset is really confusing and demoralizing, I think if I simplify the dataset a LOT it should go better.",
+    "Both of the examples I'm looking at use a `relu` function as part of their neural networks. What does `relu` mean?",
+    "See if I like the faces in some groups more than others"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "reflective",
+  "key_insight": "When learning a new technique, simplifying your dataset dramatically is more productive than struggling with a complex one you don't yet understand.",
+  "filename": "2020-12-01-day-17--trying-to-wrap-my-head-around-autoencoders"
+}

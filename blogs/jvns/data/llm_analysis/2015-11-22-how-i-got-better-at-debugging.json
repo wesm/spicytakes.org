@@ -1,0 +1,30 @@
+{
+  "summary": "Julia Evans reflects on how she became good at debugging after receiving positive feedback in a performance review. She identifies several key factors: maintaining confidence that bugs have logical causes, building broad systems knowledge, talking through problems with others, and mastering observability tools like strace and tcpdump. She notes that debugging skill came not from being systematic and organized, but from persistence, knowledge accumulation, and learning to enjoy the challenge. The post concludes with her realization that difficult bugs are now more exciting to her than writing new code.",
+  "key_points": [
+    "Bugs always happen for logical reasons, and reminding yourself of that prevents giving up prematurely on hard-to-reproduce issues",
+    "Deep systems knowledge (TCP, garbage collection, OS internals) is prerequisite for debugging certain classes of problems \u2014 you can't fix what you can't conceptualize",
+    "Talking through problems out loud, even just rambling in Slack, often leads to breakthroughs through rubber-ducking or drawing in helpful colleagues",
+    "Observability tools like strace and tcpdump that show what a program is actually doing are indispensable for cutting through confusion",
+    "Debugging skill creates a positive feedback loop: getting better at it makes it more enjoyable, which makes you seek out harder bugs"
+  ],
+  "money_quotes": [
+    "Everything on a computer does in fact happen for a logical reason (however much the computer may try to convince you otherwise).",
+    "Also known as 'OK JULIA IT IS NOT FAIRIES WHAT ACTUAL REASON COULD BE CAUSING THIS?'",
+    "If you don't know that a common source of latency issues on the JVM is garbage collection pauses (or worse, if you don't know that garbage collection pauses are even a thing that happen), then you're going to have a really bad day trying to figure that out.",
+    "Understanding the structure of the system I'm trying to debug and what some of the common failure modes are has been really indispensable to me.",
+    "I've gotten way better at figuring out what I don't understand, articulating it, and asking about it.",
+    "Seriously I could not fix bugs without strace.",
+    "Being able to observe directly what a program is actually doing is incredibly valuable.",
+    "A difficult bug is way more likely to teach me something I didn't know before about how computers can break."
+  ],
+  "themes": [
+    "debugging",
+    "linux",
+    "networking",
+    "learning",
+    "career"
+  ],
+  "tone": "enthusiastic, reflective, personal",
+  "key_insight": "Debugging skill comes from combining confidence that bugs have logical causes, deep systems knowledge, willingness to talk through problems, and mastery of observability tools \u2014 and getting better at it makes it genuinely enjoyable.",
+  "filename": "2015-11-22-how-i-got-better-at-debugging"
+}

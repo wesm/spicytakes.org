@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents her struggles debugging why an RNN model's loss function climbs instead of converging, while experimenting with back-propagation through time (BPTT). She compares training one character at a time versus doing gradient descent periodically, finding that sequence length significantly affects whether the model trains successfully. The post captures the frustration of slow feedback loops in ML experimentation, where each hypothesis takes 30 minutes to test. She catalogs open questions about gradient clipping, exploding/vanishing gradients, and numerical stability, showing the messy reality of hands-on machine learning work.",
+  "key_points": [
+    "BPTT with a sequence length of 40 causes the model to fail (loss improves then worsens), while a sequence length of 10 works fine, and she doesn't yet understand why",
+    "Debugging ML training failures is hard because the feedback loop is slow (30 minutes per experiment) and the failure modes are unintuitive",
+    "She's learning to identify vanishing and exploding gradients by graphing gradient norms, but isn't confident in interpreting what she sees",
+    "The generated text from both BPTT and non-BPTT models looks similarly nonsensical, suggesting the training approach hasn't yet produced meaningfully different results"
+  ],
+  "money_quotes": [
+    "Basically, it went down for a while, and then it went back up a LOT. I still have no idea why this happened.",
+    "If the optimizer was struggling to optimize, I'd expect the loss to get stuck and plateau and maybe wobble around, but not just keep going up forever.",
+    "I've spent way too much time over the last couple of days waiting 30 minutes for a model to train so I can tell if it's working or not.",
+    "I need either a faster feedback loop or something to do while I'm waiting.",
+    "I think the main reason this is frustrating is that I have a lot of hypotheses I want to experiment with, but it takes so long for every one.",
+    "It's only one line of code, but I can't tell if it's helping yet."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective",
+  "key_insight": "Debugging ML training failures is uniquely frustrating because the feedback loops are slow, the failure modes are unintuitive, and even basic diagnostics like gradient norms are hard to interpret without experience.",
+  "filename": "2020-11-26-day-13--bptt---staring-at-graphs-a-lot"
+}

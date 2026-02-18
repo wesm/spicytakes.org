@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans investigates how the Linux perf profiling tool actually works by reading the kernel source code on a Saturday night. She discovers that hardware counters use the CPU's rdpmc instruction to provide exact counts of events like CPU instructions, with low enough overhead that the kernel runs them every context switch. For software event sampling, perf writes data to a mmap'd ring buffer in userspace, copying CPU register states at sample points. She traces the code path from the perf_event_open system call through core.c to the actual register-copying code in perf_regs.c, while honestly admitting she only understood about 10% of what she read.",
+  "key_points": [
+    "Hardware performance counters use the CPU's rdpmc instruction and provide exact counts, not samples or approximations, with low enough overhead to run on every context switch",
+    "Perf's software event sampling writes data to a mmap'd ring buffer, copying all ~15 x86 registers at each sample point",
+    "The core perf implementation lives in kernel/events/core.c, a 10,000-line C file containing the perf_event_open system call",
+    "Reading kernel source code is approachable even without deep expertise \u2014 skimming 4,000 lines in 3 hours and understanding only 10% still yielded real insights"
+  ],
+  "money_quotes": [
+    "So it turns out I don't really know how perf works. And I like knowing how stuff works.",
+    "To answer some of these questions, we're going to read the Linux kernel source code. Because it's Saturday night.",
+    "Hardware counters are exact counters, and they're low enough overhead that the kernel can just always run rdpmc every time it's done running a piece of code. There's no sampling or approximations involved.",
+    "Files with 10,000 lines of C code are not my specialty, but I'm going to try to make something of this.",
+    "I probably skimmed like 4000 lines of Linux kernel code (the perf parts!) to write this post, in 3 hours.",
+    "I only understood probably 10% of what I looked at, but I still learned some things about how perf works internally! This is neat."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, exploratory, candid",
+  "key_insight": "Reading kernel source code is surprisingly approachable \u2014 even understanding only 10% of what you read can teach you meaningful things about how your tools actually work.",
+  "filename": "2016-03-12-how-does-perf-work-and-some-questions"
+}

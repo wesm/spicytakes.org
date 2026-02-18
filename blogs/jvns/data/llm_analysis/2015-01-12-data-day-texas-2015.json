@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans recaps her experience at Data Day Texas 2015, a one-day conference where she attended talks on database upgrades, human-in-the-loop machine learning, and generating fake datasets. Her favorite talk was Charity Majors' presentation on upgrading MongoDB at scale at Parse, which gave her a new appreciation for the planning and testing required for database operations. She also highlights Robert Munro's talk on using human input to improve ML classifiers, particularly the psychological aspects of keeping human labelers engaged. The post reflects her enthusiasm for talks that genuinely advance her understanding of a topic.",
+  "key_points": [
+    "Database upgrades at scale require enormous planning \u2014 Parse spent about a year testing MongoDB upgrades, including replaying production workloads against snapshots",
+    "Human-in-the-loop machine learning can dramatically outperform pure model tuning, but you need to keep the human labelers engaged and show them their impact",
+    "Generating fake datasets has practical applications for debugging, proving statistical intuitions, and creating ML tutorials",
+    "Upgrades that seem routine can cause catastrophic performance regressions \u2014 one query type got 100x slower in the worst case"
+  ],
+  "money_quotes": [
+    "I understood before seeing this talk that doing database upgrades was hard, and that it's appropriate to be incredibly skeptical, but I didn't have any clue how to plan to reduce your uncertainty so that you can actually do the upgrade.",
+    "How much time is it appropriate to spend planning and testing a database upgrade? (they spend about a year)",
+    "I pretty rarely see talks that I feel really advance my understanding of a topic, and this was one of them.",
+    "He talked about how judiciously incorporating human input to get a better training set can give you much, much higher accuracy than just messing with your model parameters.",
+    "If you're writing a cat classifier and every single thing you show the human is not a cat, they'll get bored and exhausted.",
+    "It gave me a little more appreciation for what it means to do ops at scale and to keep services running."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, reflective",
+  "key_insight": "Reducing uncertainty in risky operations like database upgrades requires systematic, patient testing against real production workloads \u2014 not just hoping for the best.",
+  "filename": "2015-01-12-data-day-texas-2015"
+}

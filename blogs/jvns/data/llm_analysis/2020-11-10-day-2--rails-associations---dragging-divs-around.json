@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans shares her second day of building a refrigerator poetry forum in Rails, a toy project designed to help her evaluate Rails for small web projects. She describes using jQuery UI's draggable library to let users drag words around, and explores Rails' ORM associations feature for efficiently loading related data. She also highlights Rails scaffolding for code generation and database migrations for schema changes, finding both features surprisingly straightforward and somewhat magical.",
+  "key_points": [
+    "A refrigerator poetry forum cleverly solves the moderation problem by letting users interact without typing free text",
+    "Rails associations eliminate the N+1 query problem by letting you preload related records in a single query with minimal configuration",
+    "Rails scaffolding and database migrations provide a fast starting point for CRUD operations and schema evolution",
+    "jQuery UI draggable (with touch punch for mobile) makes drag-and-drop trivially easy without writing custom JavaScript"
+  ],
+  "money_quotes": [
+    "But of course if people can actually type on a website that creates all kinds of problems (what if they're spammers? or just mean?).",
+    "Rails now knows how to join these two tables even though I didn't tell it what columns to join on!",
+    "This is no good though \u2013 it's doing a separate SQL query for every post! I knew there was a better way.",
+    "Instead of having to go figure out where to add all the code, I could just run: rails generate scaffold Topic title:text",
+    "I'll probably delete a lot of it, but it feels kinda nice to have a starting point where I can expand on the parts I want and delete the parts I don't want.",
+    "That's it \u2013 just run a couple of command line incantations!",
+    "It feels pretty magical."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory",
+  "key_insight": "Rails' conventions like associations, scaffolding, and migrations dramatically reduce boilerplate by trading configuration for sensible defaults, making it appealing for small web projects.",
+  "filename": "2020-11-10-day-2--rails-associations---dragging-divs-around"
+}

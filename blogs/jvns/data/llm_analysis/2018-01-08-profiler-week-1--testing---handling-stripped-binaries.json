@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans shares her first weekly progress update on building a Ruby profiler during her open source sabbatical. The main challenges involve reliably extracting stack traces from Ruby processes across different OS and Ruby version combinations, especially when debug symbols are stripped. She set up Docker-based integration tests across multiple Linux distributions and made partial progress on profiling system Ruby without debug symbols by using educated guessing to find key memory addresses. She also discusses adopting the C4 open source contribution model after advice from a more experienced maintainer.",
+  "key_points": [
+    "Integration testing across multiple axes (Ruby version, symbol availability, OS) is essential for a profiler that reads process memory directly",
+    "System-packaged Ruby binaries often strip debug symbols, requiring creative workarounds like educated guessing of memory addresses",
+    "The profiler was rewritten to use bindgen-generated Ruby bindings instead of DWARF, making it possible to work without debug symbols",
+    "Open source project governance matters early on \u2014 she's considering the C4 (Collective Code Construction Contract) model from ZeroMQ"
+  ],
+  "money_quotes": [
+    "My profiler interact with the Ruby binaries in a pretty opaque way \u2013 it doesn't have much insight into Ruby's internals, it just looks at the process's memory and figures out its stack from there.",
+    "I managed to find the address of the ruby_current_thread symbol through some educated guessing!!",
+    "I could deal with this by just asking people to install the libruby2.3-dbg package (which contains debug symbols). But it seemed more fun to just try to get it to work without debug symbols.",
+    "Right now all the rbenv-installed Ruby tests pass and all the system Ruby tests fail.",
+    "This is a 'partial success' instead of a 'total success' because it worked great on my laptop, but then when I tried it in the Docker container it didn't work."
+  ],
+  "themes": [
+    "debugging",
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, candid, technical",
+  "key_insight": "Building a reliable profiler requires testing across a combinatorial explosion of environments, and the hardest part is making it work on stripped binaries where key symbols are missing.",
+  "filename": "2018-01-08-profiler-week-1--testing---handling-stripped-binaries"
+}

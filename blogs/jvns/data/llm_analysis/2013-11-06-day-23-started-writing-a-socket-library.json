@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans describes starting to build a minimal TCP stack in Python as a way to learn networking through hands-on coding. She's using scapy to handle low-level packet construction while implementing the TCP state machine herself, including socket management and a listener thread. So far she can establish connections and send data, but can't yet parse responses or properly tear down connections. The project is revealing practical challenges like managing half-dead connections and servers treating her implementation as unreliable.",
+  "key_points": [
+    "Building a TCP stack from scratch is an effective way to understand networking beyond just reading about it",
+    "Using scapy as a foundation lets her focus on TCP state machine logic without worrying about raw packet bit layout",
+    "The implementation includes a TCPSocket class tracking connection states and a TCPListener dispatching packets to sockets via threads",
+    "Practical challenges like zombie connections and servers throttling responses reveal real-world TCP behavior that reading alone wouldn't surface"
+  ],
+  "money_quotes": [
+    "Yesterday I realized that I really hadn't been writing as much code as I want to be, though.",
+    "So I've started working on a mini TCP stack! I'm not sure yet how far this will go, but so far I'm running into tons of problems, so I think this might be a good choice.",
+    "This is my first time using threads pretty much ever. Expecting all the problems.",
+    "I keep starting and stopping the library, so there are all kinds of connections that just die.",
+    "Also I think the servers I'm interacting with think I'm unreliable, so sometimes they send me packets slowly."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Building a TCP stack from scratch, even an incomplete one, teaches you more about networking than reading about it because the real-world problems you hit \u2014 zombie connections, threading issues, server behavior \u2014 are the actual substance of how TCP works.",
+  "filename": "2013-11-06-day-23-started-writing-a-socket-library"
+}

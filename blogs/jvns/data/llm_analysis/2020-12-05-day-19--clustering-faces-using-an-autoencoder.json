@@ -1,0 +1,22 @@
+{
+  "summary": "Evans documents her experiment using an RNN autoencoder to cluster hand-drawn faces from the Google Quick Draw dataset. She encodes each face (represented as a sequence of vectors) into a 50-dimensional vector, then decodes it back, training the network to minimize reconstruction error. The autoencoder learns to reproduce face outlines but fails at interior features. When she clusters the encoded vectors with DBSCAN, the clusters separate mostly by face size rather than facial features, which she notes logically follows from what the autoencoder learned to encode.",
+  "key_points": [
+    "RNN autoencoders compress a sequence of vectors into a single fixed-dimension vector, then reconstruct it, learning a compressed representation in the process",
+    "The autoencoder successfully learned to reproduce face outlines and approximate sizes but completely failed at reproducing interior features like eyes and mouths",
+    "Clustering on the encoded vectors revealed groupings by face size rather than facial features, directly reflecting what the autoencoder actually learned to encode",
+    "The quality of clustering is fundamentally limited by what the autoencoder's latent space captures, demonstrating that poor reconstruction leads to poor downstream representations"
+  ],
+  "money_quotes": [
+    "The idea is to train the Encoder and Decoder networks so that Decoder(Encoder(x)) is as close to x as possible for every x in the training set.",
+    "The training didn't go that well \u2013 I got the loss to go down a bit (from 0.3 to 0.25), but it definitely didn't seem that well trained. I think it would have maybe done better if I trained it for longer but I got bored.",
+    "I'm actually pretty impressed by this \u2013 it seems to have figured how to draw a circle of about the right size for the face, and vaguely that it should draw something inside the circle. Way better than nothing!",
+    "It seems to have clustered them mostly by the size of the face, and not by any of the interior features.",
+    "This makes sense because the decoder seems to be able to reproduce the size of the face pretty effectively but totally fails at reproducing the interior features."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "curious, playful, honest",
+  "key_insight": "Clustering quality from autoencoder embeddings is directly bounded by what the autoencoder actually learns to reconstruct, so if it only captures coarse features like size, the clusters will only reflect coarse features.",
+  "filename": "2020-12-05-day-19--clustering-faces-using-an-autoencoder"
+}

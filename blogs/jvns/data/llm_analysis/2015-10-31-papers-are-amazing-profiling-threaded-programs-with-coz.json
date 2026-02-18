@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans enthusiastically reviews the COZ paper on causal profiling, a technique for profiling multithreaded programs. Traditional profiling breaks down with threads because speeding up one thread may not help if another thread is the bottleneck. COZ's core insight is to simulate speeding up a line of code by slowing down all other threads, using Linux perf without modifying the program. The technique was validated on real programs like SQLite and Memcached, finding issues like hash table collisions and unnecessary locking. Evans also speculates about applying causal profiling to single-threaded async applications.",
+  "key_points": [
+    "Profiling single-threaded programs is straightforward, but threads break traditional profiling because parallel work means speeding up one part may not help overall performance",
+    "COZ's key innovation is simulating a speedup by slowing down all other threads, implemented using Linux perf without requiring code modifications",
+    "The profiler found real optimizations in SQLite and Memcached including hash collisions, unnecessary locking, and thread rebalancing opportunities",
+    "COZ can also detect cases where speeding up code would paradoxically cause slowdowns due to increased contention, which helps identify locking problems",
+    "The technique might extend to profiling single-threaded async applications by slowing down other work in the event loop"
+  ],
+  "money_quotes": [
+    "The core idea in this paper is \u2013 if you have a line of code in a thread, and you want to know if it's making your program slow, speed up that line of code to see if it makes the whole program faster!",
+    "Of course, you can't actually speed up a thread. But you can slow down all other threads!",
+    "They also find out places where speeding up a line of code would introduce a slowdown (because of increased contention around some resource).",
+    "This seems like literally magic except that THEY EXPLAIN HOW IT WORKS. Papers. Wow.",
+    "Speeding up one of a() or b() won't help you, because they both need to finish in order for the program to finish.",
+    "the implemention here is super super super interesting \u2013 they use the perf Linux system to do this, and in particular they can do it without modifying the program's code. So this is a) wizardry, and b) uses perf"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Causal profiling solves the hard problem of profiling threaded programs by simulating speedups through slowing down all other threads, revealing which code actually matters for overall performance.",
+  "filename": "2015-10-31-papers-are-amazing-profiling-threaded-programs-with-coz"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans documents her hands-on exploration of HDFS internals by setting up an Amazon Elastic MapReduce cluster and using Spotify's snakebite Python library to understand how distributed file storage actually works. She walks through the process of discovering how files are split into blocks, how the namenode tracks block locations, and how data is read from data nodes. Along the way she uses strace to observe the actual network traffic, revealing the protocol buffer messages exchanged between client and cluster. The post captures the satisfaction of peeling back layers of abstraction to see raw Wikipedia text coming back from a distributed filesystem.",
+  "key_points": [
+    "HDFS files are split into blocks, and the namenode serves as a directory telling clients which data nodes hold which blocks",
+    "Using strace to observe network calls reveals the actual protocol buffer messages sent between HDFS clients and the namenode/data nodes",
+    "Spotify's snakebite Python library provides a readable, hackable way to understand HDFS internals by reading its source code",
+    "Hadoop versioning is confusing \u2014 getting the right combination of AMI version, Hadoop version, and client library required significant trial and error"
+  ],
+  "money_quotes": [
+    "I knew how to navigate the filesystem from the command line, but not how to figure out how it works internally.",
+    "Hadoop versions are confusing.",
+    "We needed to edit snakebite/config.py to say 'fs.default.name' instead of 'fs.defaultFS'. Who knows. It worked.",
+    "One of the first things I did was use strace to find out what data actually gets sent over the wire when I call this function.",
+    "So we have two blocks! The two numBytes add up to the total size of the file! Cool!",
+    "AMAZING. We have conquered HDFS."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, hands-on",
+  "key_insight": "You can demystify distributed systems by using tools like strace and readable client libraries to observe what actually happens on the wire when you read a file.",
+  "filename": "2014-05-15-diving-into-hdfs"
+}

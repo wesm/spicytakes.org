@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans argues that log files are an underrated debugging tool, especially for diagnosing tail latency problems that sampling profilers and dashboards miss. Inspired by Dan Luu's post on the limitations of sampling profilers, she shares how looking at raw logs for slow requests immediately revealed the source of a performance problem that graphs couldn't surface. She explains that while graphs are great for overall trends and correlations, logs excel at tracing individual slow requests to pinpoint exactly where time is being spent. She connects this to the broader insight that tracing tools, from simple print statements to sophisticated distributed tracing systems like Zipkin, all share the same fundamental advantage over aggregated metrics.",
+  "key_points": [
+    "Sampling profilers aggregate events into averages, making them bad at diagnosing tail latency problems which are by definition not average",
+    "Looking at log files for the 10 slowest requests immediately revealed the performance bottleneck that dashboard graphs couldn't surface",
+    "Graphs are best for overall system pictures and correlations, while logs are best for digging into specific slow requests and short spikes",
+    "Strategic placement of log statements at key points in code creates a lightweight tracing system that makes debugging straightforward",
+    "Advanced tracing tools described as 'from the future' are fundamentally doing the same thing as log files, just with more sophistication"
+  ],
+  "money_quotes": [
+    "Sampling profilers, the most common performance debugging tool, are notoriously bad at debugging problems caused by tail latency because they aggregate events into averages. But tail latency is, by definition, not average.",
+    "if you have 1000 events that were unusually slow, they probably failed because of a relatively uncommon event. And uncommon events do not always show up in graphs. But know where they show up? LOG FILES. WHICH ARE THE BEST.",
+    "I stopped trying to look at graphs, took Nelson's advice and looked at the log files for the 10 slowest requests.",
+    "graphs are a great way to get an overall general picture of the system",
+    "logs are amazing for digging into short spikes of timeouts or slow requests. Often I'll look at the logs for a few requests, they'll all exhibit the same behavior, and I'll have a much clearer understanding of what happened there.",
+    "these performance tools from the future that Dan describes are basically like.. magical wizard log files. And they're great for the same reason that log files are great. Because they are both tracing tools and tracing is important!"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical",
+  "key_insight": "Log files beat dashboards and profilers for diagnosing tail latency because they preserve the individual event traces that aggregated metrics hide.",
+  "filename": "2016-02-12-why-i-love-log-files"
+}

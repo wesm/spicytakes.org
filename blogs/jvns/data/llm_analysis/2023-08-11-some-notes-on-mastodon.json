@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans shares her experience running a single-person Mastodon server after migrating from mastodon.social. She explains the tradeoffs of self-hosting: you get identity control via your own domain, but suffer from poor reply visibility, incomplete profiles, and lack of discovery features due to how Mastodon's distributed architecture works. She covers practical details like managed hosting costs, account migration gotchas, the surprisingly good API, and quirks around DMs, search limitations, and defederation. Despite the rough edges, she finds Mastodon worth it for the quality of technical conversations.",
+  "key_points": [
+    "Single-person Mastodon servers have significant visibility downsides: incomplete reply threads, empty-looking profiles, and inaccurate favorite/boost counts because servers only store posts they've been explicitly sent.",
+    "Bad reply visibility makes conversations repetitive because participants on small servers literally cannot see each other's replies to popular posts.",
+    "Account migration moves followers but not posts, and some followers on non-Mastodon ActivityPub software may never migrate over.",
+    "Mastodon's API is far easier to use than Twitter's, enabling frontend-only client apps and simple scripting.",
+    "Search limitations are intentional for privacy/safety reasons, but make it nearly impossible to find posts you've previously seen on your timeline."
+  ],
+  "money_quotes": [
+    "I've found Mastodon quite a bit more confusing than Twitter because it's a distributed system.",
+    "I chose to run my own mastodon server because it seemed simplest \u2013 I could pick a domain I liked, and I knew I'd definitely agree with the moderation decisions because I'd be in charge.",
+    "Every Mastodon server has a database of posts. Servers only have posts that they were explicitly sent by another server in their database.",
+    "Replies can get pretty repetitive because people literally cannot see each other's replies.",
+    "I think it's possible to end up in a state where no one person can see all of the replies, including the original poster.",
+    "DMs aren't very private: the admins on the sending and receiving servers can technically read your DMs if they have access to the database.",
+    "I don't regret setting up a single-user server \u2013 even though it's inconvenient, it's important to me to have control over my social media."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "technical, practical, candid",
+  "key_insight": "Running a single-person Mastodon server gives you identity control and moderation autonomy, but Mastodon's distributed architecture means you'll see an incomplete view of conversations, profiles, and engagement \u2014 tradeoffs that stem directly from how federation works.",
+  "filename": "2023-08-11-some-notes-on-mastodon"
+}

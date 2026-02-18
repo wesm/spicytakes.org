@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans traces the complete lifecycle of running a rkt container, from fetching and storing images to preparing pods and finally executing the containerized process. She examines how rkt maintains a local image store backed by a SQL database, then pre-renders container filesystems into a 'tree store' (doubling disk usage) due to ACI's DAG-based dependency format. The post walks through overlay filesystem mounting for pods and shows the actual system calls that culminate in a chroot and execve. She deliberately chose the simplest possible options (disabling security, using the lightweight 'fly' stage1) to make the internals tractable, and argues that understanding your infrastructure at this level is valuable when you're the person responsible for operating it.",
+  "key_points": [
+    "rkt stores container images in a content-addressed blob store backed by a 'ql' embedded SQL database, then pre-renders them into a separate tree store, effectively doubling disk usage",
+    "The ACI format uses a directed acyclic graph for dependencies (unlike Docker's linked list of layers), requiring a more complex rendering step before containers can run",
+    "Running a container ultimately comes down to a chroot, setting uid/gid, and execve \u2014 the ceremony is in the preparation, not the execution",
+    "rkt's 'stage1' architecture separates container setup logic into swappable programs, from heavyweight (systemd-based) to lightweight ('fly' using just chroot)",
+    "Understanding the storage model and system calls of your container runtime lets you make accurate capacity planning decisions in production"
+  ],
+  "money_quotes": [
+    "I've claimed previously on this blog that rkt 'just runs programs, it's not that complicated, that's why it's cool'. But if you look at the source for rkt, excluding tests, there are about 34,000 lines of Go code today.",
+    "If you think this takes extra disk space, you are right! When you use rkt to run a container you get 2 copies of every file in that container.",
+    "Simplest does not mean best \u2013 the simplest way includes turning off all security features :)",
+    "Everyone should not need to know all the details of how everything they use works. That would take too much time. Imagine if every Linux user needed to read Linux kernel code to do their job!",
+    "If I know rkt's storage model, then I can make guesses at exactly how much disk space rkt is going to use in production, then I can plan to give my machines an appropriate amount of storage, and then nobody will run out of disk space!",
+    "When you work with complex systems, a lot of the time someone needs to understand how they work, so they can plan to operate the system correctly.",
+    "Right now I get to be that someone, for some things. Yay!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Understanding the full lifecycle of your container runtime \u2014 from image storage to system calls \u2014 transforms capacity planning from guesswork into informed engineering.",
+  "filename": "2016-11-03-what-happens-when-you-run-a-rkt-container"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans describes her Hacker School project of writing a minimal TCP stack in Python using the scapy library, with the goal of fetching a webpage from Google. She walks through the TCP handshake, discovers that her kernel's existing TCP stack interferes by sending RST packets, and solves this with ARP spoofing to use a fake IP address. After getting it working, she finds that Python is too slow to send ACKs fast enough, causing Google's server to reset the connection. Despite only working 25% of the time, she considers the project more fun and instructive than writing a proper TCP stack in C.",
+  "key_points": [
+    "Writing a TCP stack in userspace conflicts with the kernel's own TCP stack, which sends RST packets for connections it didn't initiate",
+    "ARP spoofing to claim a different IP address is a clever hack to bypass the kernel's interference with raw socket TCP",
+    "Python's performance is too slow for the millisecond-level timing TCP expects for ACK responses, causing servers to assume connection problems",
+    "The TCP spec is extremely complicated, but servers will respond to you even if your implementation is extremely sketchy",
+    "Building a broken version of something from scratch can be more instructive than building a correct version in the right language"
+  ],
+  "money_quotes": [
+    "I didn't care much about proper error handling or anything; I just wanted to get one webpage and declare victory :)",
+    "my kernel: lol wtf I never asked for this! RST!",
+    "This is when I remembered that I *already* have a TCP stack on my computer, in my kernel.",
+    "Google was sending me packets way faster than my program could keep up and send ACKs.",
+    "If you're actually writing a production TCP stack, don't use Python.",
+    "The TCP spec is really complicated, but you can get servers to reply to you even if your implementation is extremely sketchy.",
+    "I think this was actually way more fun and instructive than trying to write a TCP stack in an appropriate language like C :)"
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, humorous, exploratory",
+  "key_insight": "Building a deliberately impractical TCP stack in Python reveals how networking actually works \u2014 from kernel interference to timing constraints \u2014 in ways that reading specs or using proper tools never would.",
+  "filename": "2014-08-12-what-happens-if-you-write-a-tcp-stack-in-python"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explores how the killall command works internally by tracing its system calls with strace. She discovers that killall performs an exhaustive search through every PID in /proc, reading each process's stat file to check its name against the target. When it finds a match, it sends the appropriate signal (SIGTERM by default, SIGKILL with -9). The post also introduces ltrace for seeing library-level calls like strcmp, and mentions attaching strace to running processes.",
+  "key_points": [
+    "killall works by iterating through every PID directory in /proc and reading each process's /proc/$PID/stat file to find matching process names",
+    "strace captures system calls (the kernel interface) while ltrace captures library calls, showing different levels of abstraction for the same operation",
+    "The string comparison to match process names happens in userspace and is invisible to strace, but visible with ltrace",
+    "You can attach strace or ptrace to already-running processes to observe their behavior in real time"
+  ],
+  "money_quotes": [
+    "What strace does is capture every single system call that gets called when executing a program.",
+    "System calls are the interface between userspace programs and the kernel, so looking at the output from strace is a fun way to understand how Linux works, and what's really involved in running a program.",
+    "I never thought of killall as having to do an exhaustive search through all PIDs before, but it makes sense.",
+    "The kernel isn't involved in seeing whether or not the process has the right name, so we don't see that in the strace output.",
+    "SIGTERM isn't a very serious killing-y signal \u2013 it's signal 15, and processes can ignore it or save their state before they stop."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Using strace to trace system calls reveals that killall performs a brute-force search through every process in /proc, showing how simple tools can teach you about Linux internals.",
+  "filename": "2013-12-22-fun-with-strace"
+}

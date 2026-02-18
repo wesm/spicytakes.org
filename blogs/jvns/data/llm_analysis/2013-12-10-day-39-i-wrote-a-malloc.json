@@ -1,0 +1,23 @@
+{
+  "summary": "Julia describes writing a deliberately broken malloc implementation in Rust as part of her OS project at Hacker School. Her first version always returns the same memory address, causing every variable to share the same value. She then shows the working version that properly increments a base pointer. She notes that writing malloc is easy if you never need to free memory, and the hardest part was actually getting the Rust type signatures right.",
+  "key_points": [
+    "A malloc that always returns the same pointer makes every variable share one value, producing entertaining wrong behavior",
+    "Writing a basic malloc is straightforward \u2014 just maintain a counter and keep incrementing it, as long as you never need to free",
+    "Getting Rust's type system to accept the function signature was harder than the actual memory allocation logic",
+    "The free implementation is literally empty, which is fine for a toy OS context"
+  ],
+  "money_quotes": [
+    "My major achievement for today is writing the following five lines of code and having them do the wrong thing.",
+    "This means that every time I allocate memory, I get the same pointer back, and so a and b will always be equal no matter what.",
+    "This is of course a terrible idea in real life, but it is really fun.",
+    "Writing malloc is easy, as long as you never need to free memory.",
+    "The hard part was getting the type of the function right, because Rust :)."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "playful",
+  "key_insight": "Writing a basic malloc is surprisingly simple \u2014 the real complexity lives in freeing memory and satisfying the type system, not in allocation itself.",
+  "filename": "2013-12-10-day-39-i-wrote-a-malloc"
+}

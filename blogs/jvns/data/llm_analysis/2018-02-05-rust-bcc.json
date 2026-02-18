@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans announces an experimental Rust library (rust-bcc) for writing BPF tracing tools, porting the Go BCC library to Rust. She explains how the BPF Compiler Collection works \u2014 compiling C to eBPF bytecode, attaching it to kernel/userspace functions, and communicating results back via data structures like hashmaps and perf buffers. She argues that while Python BCC bindings work well for simple tools, Rust is better suited for more complex tracing experiments like streaming Ruby memory allocations. The post walks through two working examples (strlen counting and opensnoop) and demonstrates practical Ruby allocation tracking.",
+  "key_points": [
+    "BCC lets you compile C to eBPF bytecode, attach it to kernel/userspace functions, and communicate results back through shared data structures like hashmaps and perf ring buffers",
+    "Python BCC bindings are great for simple tools but fall short for complex experiments requiring high-performance data processing and rich type representations",
+    "Rust's #[repr(C)] attribute makes sharing data structures between Rust and C straightforward, and its byteorder crate handles binary decoding naturally",
+    "The rust-bcc library enables streaming perf events via Rust closures as callbacks, opening the door to more sophisticated tracing tools",
+    "A practical application is already working: tracking Ruby memory allocations in real-time using BPF probes from Rust"
+  ],
+  "money_quotes": [
+    "It turns out that writing BPF-based tracing tools in Rust is really easy (in some ways easier than doing the same things in Python).",
+    "I think it's exciting that you can say 'hey, run this tiny bit of code every time a Ruby object is allocated' and get data back about ongoing allocations!",
+    "Once you want to start doing more complicated experiments like 'stream every memory allocation from this Ruby program, calculate some metadata about it, query the original process to find out the class name for that address, and display a useful summary', Python doesn't really cut it.",
+    "The really exciting thing about eBPF is what comes next \u2013 there's no use keeping a hashmap of string counts if you can't access it!",
+    "Basically all the data that comes out of a BPF program is an opaque Vec<u8> right now, so you need to figure out how to decode them yourself. Luckily decoding binary data is something that Rust is quite good at.",
+    "This crate is still extremely sketchy and there are bugs & missing features but I wanted to put it on the internet because I think the examples of what you can do with it are really exciting!!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, technical, exploratory",
+  "key_insight": "Rust's type system and performance make it a natural fit for building complex BPF tracing tools that outgrow Python's capabilities, while remaining just as approachable for simple cases.",
+  "filename": "2018-02-05-rust-bcc"
+}

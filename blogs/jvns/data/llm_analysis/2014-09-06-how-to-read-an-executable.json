@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans demystifies binary executables by walking through the structure of a simple compiled C program on Linux. She explains the three key organizational concepts of ELF binaries: symbols (function names used for linking), sections (logical groupings like .text for code and .rodata for read-only data), and segments (runtime memory layout). Using tools like readelf, objdump, and nm, she shows how to inspect each layer, from raw bytes to disassembled instructions. The post emphasizes that executables are regular file formats that anyone can learn to read, not impenetrable magic.",
+  "key_points": [
+    "ELF binaries are organized into three hierarchical layers: symbols enable linking by naming functions, sections group code and data at link time, and segments control memory layout at execution time",
+    "Programs don't start at main \u2014 they start at _start, which performs initialization before calling main",
+    "The compiler may silently optimize your code, such as replacing printf with puts when the format string is simple",
+    "Sections have different permissions: .text is read/execute, .rodata is read-only, and .data is read-write, enforced through segment mappings",
+    "Standard tools like readelf, objdump, and nm make binary inspection accessible without any special knowledge"
+  ],
+  "money_quotes": [
+    "I used to think that executables were totally impenetrable. I'd compile a C program, and then that was it! I had a Magical Binary Executable that I could no longer read.",
+    "It is not so! Executable file formats are regular file formats that you can understand.",
+    "When the program starts running, you might think it starts at main. It doesn't! It actually goes to _start.",
+    "Those are bytes that our CPU interprets as code! And runs! However we are not magicians (I don't know what 31 ed means!) and so we will use a disassembler instead.",
+    "Executables aren't magic. ELF is a file format like any other!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, educational",
+  "key_insight": "Binary executables aren't opaque magic \u2014 they're structured file formats with symbols, sections, and segments that anyone can inspect using standard Linux tools.",
+  "filename": "2014-09-06-how-to-read-an-executable"
+}

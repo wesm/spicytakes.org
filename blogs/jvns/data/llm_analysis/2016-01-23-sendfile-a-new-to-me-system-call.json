@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explores the sendfile system call, explaining how it optimizes the common pattern of reading a file and writing it to a network socket by eliminating unnecessary data copies and context switches. She presents impressive performance benchmarks, including a Python FTP library doubling throughput and Netflix going from 6Gbps to 40Gbps on FreeBSD. However, she also covers the pitfalls, including a serious OS X bug that caused 5-second delays. The post connects sendfile to related system calls like splice and tee, and discusses practical configuration options in web servers like nginx and Apache.",
+  "key_points": [
+    "sendfile eliminates the need to copy data from kernel to user space and back, reducing both CPU overhead and context switches when serving files over a network",
+    "Real-world benchmarks show dramatic improvements: 800MB/s to 1.5GB/s for Python FTP, and 6Gbps to 40Gbps for Netflix on FreeBSD",
+    "sendfile isn't universally safe \u2014 an OS X bug caused it to not send any data until the socket closed, which is why web servers let you toggle it on and off",
+    "sendfile is now a wrapper around the more general splice system call, which copies data between file descriptors without passing through user space",
+    "Understanding low-level system calls has practical implications for anyone configuring or building web servers that serve large files"
+  ],
+  "money_quotes": [
+    "So the idea is \u2013 this pattern of reading a file and writing to a socket is really common! So they made a system call to just do that!",
+    "That post describes how on OS X, sendfile wouldn't send any data until the socket was closed, causing up to 5 second delays. That's TERRIBLE.",
+    "So sendfile isn't some kind of universal panacea, and that's why webservers let you turn it on and off.",
+    "It's super interesting to me how much abstractions break down when you're trying to really optimize performance.",
+    "It makes me really happy when learning a new system call helps me understand how to do something really practical.",
+    "I straced cp on my machine just now, and it seems like it does not use sendfile."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, technical, exploratory",
+  "key_insight": "The sendfile system call can dramatically improve file-serving performance by keeping data in kernel space, but its platform-specific bugs remind us that even performance optimizations need to be tested and configurable.",
+  "filename": "2016-01-23-sendfile-a-new-to-me-system-call"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans shares her experience adopting the nix package manager on Mac as an alternative to Homebrew, deliberately keeping her usage as simple as possible. She explains how to install packages, build custom nix packages for a C++ program called paperjam, and install a 5-year-old version of Hugo. While she finds nix confusing and overly complex, she appreciates its ability to compile software with correct dependencies and install multiple library versions simultaneously. She explicitly avoids nix's more advanced features like flakes, NixOS, and home-manager. A later update reveals she eventually switched back to Homebrew, finding nix not worth the complexity.",
+  "key_points": [
+    "Nix can be used simply as a package installer (like brew or apt-get) without learning the Nix language, flakes, home-manager, or other advanced features",
+    "Nix's killer feature is isolated builds with explicit dependencies \u2014 no more fighting with LD_LIBRARY_PATH or wrong library versions",
+    "Building custom nix packages is doable by copying and modifying existing package definitions from the nixpkgs repository",
+    "Nix made it possible to compile software that was otherwise difficult \u2014 a C++ program needing the right libiconv, and a 5-year-old Go program whose build norms had changed",
+    "Despite nix's advantages, the complexity cost was ultimately too high and she switched back to Homebrew after about 18 months"
+  ],
+  "money_quotes": [
+    "nix has a reputation for being confusing (it has its whole own programming language!), so I've been trying to figure out how to use nix in a way that's as simple as possible and does not involve managing any configuration files or learning a new programming language.",
+    "People often describe nix as \"declarative package management\". I don't care that much about declarative package management.",
+    "No more fighting with LD_LIBRARY_PATH!",
+    "I set the hashes by first leaving the hash empty, then running nix-build to get an error message complaining about a mismatched hash. Then I copied the correct hash out of the error message.",
+    "reproducible builds aren't magic, they're really hard",
+    "I've found it much easier to start in a simple way and then start using more features if I feel the need instead of adopting a whole bunch of complicated stuff all at once.",
+    "I've mostly switched back to Homebrew, nix was interesting but overall I think it's not worth the complexity for me"
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "exploratory, pragmatic, honest",
+  "key_insight": "You can use nix as a simple package installer without buying into its full ecosystem, and its real value lies in isolated builds with explicit dependencies \u2014 though the complexity cost may not be worth it for casual use.",
+  "filename": "2023-02-28-some-notes-on-using-nix"
+}

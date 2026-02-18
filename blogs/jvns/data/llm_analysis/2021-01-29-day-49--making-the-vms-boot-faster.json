@@ -1,0 +1,28 @@
+{
+  "summary": "Julia documents her attempts to make Firecracker VMs boot faster, initially planning to replace systemd with a lighter init system. Along the way she encounters loop device allocation bugs, learns about the devpts filesystem for pseudoterminals, and ultimately discovers she can keep systemd by disabling most services. The real revelation comes at the end: after optimizing userspace, she realizes the kernel itself is taking 1 second to boot \u2014 7x slower than Firecracker's benchmark of 150ms \u2014 suggesting the kernel compilation is the actual bottleneck.",
+  "key_points": [
+    "Loop device allocation can fail mysteriously when the kernel reports a device as free but it can't actually be used, possibly due to reusing devices for the same file",
+    "Replacing systemd with a minimal init reveals how much Linux infrastructure (procfs, devpts) systemd quietly sets up for you",
+    "The devpts filesystem is a dedicated filesystem for managing pseudoterminals, required for SSH to allocate a PTY",
+    "Disabling most systemd services via a targeted cleanup script got systemd boot time down to 0.3 seconds",
+    "The actual bottleneck was kernel boot time (1 second vs Firecracker's expected 150ms), not the init system"
+  ],
+  "money_quotes": [
+    "My plan for making them boot faster was: 1. replace systemd with a lighter weight init system 2. that's it",
+    "I think I actually discovered that the problem wasn't systemd and that I can keep systemd!",
+    "I didn't know that Linux had was a devpts filesystem for managing pseudoterminals, that feels like a major missing piece in my \"how do terminals even work\" model.",
+    "Well, if you need to do so little to have an init system, maybe you can just disable most of systemd and then keep using systemd!",
+    "I got systemd's start time to about 0.3s on my fast computer, which felt pretty good.",
+    "Once I got systemd to be fast, I noticed something new I hadn't noticed before: my kernel was taking 1 second to boot and get into userspace!",
+    "I don't know why my kernel is 7x slower, but that's what I'm going to look into next. Probably I compiled it wrong or something."
+  ],
+  "themes": [
+    "linux",
+    "terminals",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, curious, candid",
+  "key_insight": "Optimizing the wrong layer first (init system) led to discovering the real bottleneck (kernel boot time), illustrating how performance debugging often requires peeling back assumptions one at a time.",
+  "filename": "2021-01-29-day-49--making-the-vms-boot-faster"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans announces integer.exposed, a new interactive playground for exploring how integers work at the bit level. Inspired by Bartosz Ciechanowski's float.exposed, the tool lets users visualize and manipulate integer representations including signed/unsigned values, bitwise operations, and endianness. The playground accompanies her upcoming zine about integers and floating point numbers. She walks through several exercises demonstrating signed integer representation, arithmetic vs logical right shift, binary counting, and byte order swapping. The tool is deliberately simple, built with Vue.js in just two files.",
+  "key_points": [
+    "integer.exposed is a companion playground for an upcoming zine about how integers and floating point numbers work",
+    "The tool is directly inspired by Bartosz Ciechanowski's float.exposed, which Evans found invaluable for demonstrating floating point concepts in talks",
+    "While integers are simpler than floats, there are nonobvious aspects like signed vs unsigned representation, endianness, and bitwise shift operations that benefit from hands-on exploration",
+    "The playground uses big endian byte order for readability, though most computers actually store bytes in reverse order",
+    "The implementation is deliberately minimal \u2014 just two files (index.html and script.js) using Vue.js"
+  ],
+  "money_quotes": [
+    "Whenever I make a zine I like to release a playground to go with it.",
+    "Integers aren't as complicated as floats, but there are some nonobvious things about them: you have signed integers and unsigned integers, you have endianness, and there are some weird operations like right/left shift.",
+    "It's an incredible way to get hands on with floats and improve your intuition around how they work.",
+    "See how NOT is almost exactly the same as negation, but not quite.",
+    "If you want to see how it works you can just view source \u2013 it's only two files, index.html and script.js.",
+    "Take a number like 12345678 and see how if you swap the byte order, the result is an unrecognizably different number."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, practical",
+  "key_insight": "Interactive playgrounds that let people manipulate bits directly build better intuition about integer representation than any amount of abstract explanation.",
+  "filename": "2023-04-19-new-playground-integer-exposed"
+}

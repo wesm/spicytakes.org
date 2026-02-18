@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans shares practical lessons from building a web application in Go, covering routing improvements in Go 1.22, SQL code generation with sqlc, SQLite configuration tips, and garbage collector tuning. She highlights a trailing-slash gotcha in Go's new router that silently breaks POST requests by redirecting them to GET. She explains why she prefers Go for small web projects: single binary deployment, minimal toolchain setup, and code that's easy to return to after long breaks. She contrasts this with Rails, where the magic that makes initial development fast becomes an obstacle when returning to abandoned projects.",
+  "key_points": [
+    "Go 1.22's improved standard library routing eliminates the need for third-party routers like gorilla/mux, but has a trailing-slash redirect gotcha that can silently break POST requests",
+    "sqlc generates Go boilerplate from SQL queries, offering the control of raw SQL without ORM abstraction overhead",
+    "Go's default garbage collector can double heap usage, which causes OOM kills on memory-constrained VMs \u2014 GOMEMLIMIT (Go 1.19+) fixes this",
+    "For SQLite in Go, using a single-connection writer prevents SQLITE_BUSY errors from concurrent writes",
+    "Go's simplicity and explicitness make projects easy to abandon for years and resume without confusion, unlike framework-heavy approaches"
+  ],
+  "money_quotes": [
+    "In general everything about it feels like it makes projects easy to work on for 5 days, abandon for 2 years, and then get back into writing code without a lot of problems.",
+    "It feels easier to me to come back to my Go projects that are full of a lot of repetitive boilerplate, because at least I can read the code and figure out how it works.",
+    "I've never felt motivated to learn any of the Go routing libraries (gorilla/mux, chi, etc), so I've been doing all my routing by hand.",
+    "What I like about this is that if I'm ever unsure about what Go code to write for a given SQL query, I can just write the query I want, read the generated function and it'll tell me exactly what to do to call it.",
+    "I ran into an issue with this where sending a POST request to /records redirected to a GET request for /records/, which broke the POST request because it removed the request body.",
+    "I've tried to learn Rails a couple of times and I really want to love Rails \u2013 I've made a couple of toy websites in Rails and it's always felt like a really magical experience. But ultimately when I come back to those projects I can't remember how anything works.",
+    "In general I'm not sure how to implement security-sensitive features so I don't start projects which need login/CSRF/etc."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "practical",
+  "key_insight": "Go's explicit, boilerplate-heavy approach to web development pays off over time because code you can read and understand after a two-year break is more valuable than code that was magical to write initially.",
+  "filename": "2024-09-27-some-go-web-dev-notes"
+}

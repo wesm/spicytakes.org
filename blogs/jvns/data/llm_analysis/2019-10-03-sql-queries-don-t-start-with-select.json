@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explains that SQL SELECT queries don't conceptually execute starting with SELECT \u2014 they follow a specific semantic order: FROM/JOIN, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT. This ordering explains why certain operations are valid or invalid, like why you can't filter on window functions in WHERE. While database engines optimize and reorder operations for performance, understanding the semantic order helps reason about query correctness. She notes that other query tools like LINQ and pandas naturally follow this more logical order, and expresses surprise that this foundational concept isn't more widely taught.",
+  "key_points": [
+    "SQL queries semantically execute in the order FROM/JOIN \u2192 WHERE \u2192 GROUP BY \u2192 HAVING \u2192 SELECT \u2192 ORDER BY \u2192 LIMIT, not starting with SELECT",
+    "This ordering explains common SQL puzzles like why you can't use window functions in WHERE clauses or filter GROUP BY results with WHERE",
+    "Database engines don't literally follow this order \u2014 they apply optimizations like filtering before joining \u2014 but the semantic order determines what's valid",
+    "Column aliases in SELECT can be used in GROUP BY because the engine rewrites the query, not because GROUP BY runs after SELECT",
+    "Other query tools like LINQ and pandas naturally use this more logical FROM-first ordering"
+  ],
+  "money_quotes": [
+    "SELECT isn't the first thing, it's like the 5th thing!",
+    "This was something that I felt like I knew intuitively ('I've written at least 10,000 SQL queries, some of them were really complicated! I must know this!') but I struggled to actually articulate what the order was.",
+    "You can use this diagram when you just want to understand which queries are valid and how to reason about what results of a given query will be.",
+    "You shouldn't use this diagram to reason about query performance or anything involving indexes, that's a much more complicated thing with a lot more variables.",
+    "It would be silly to do the whole left join and match up all the rows in the 2 tables if you just need to look up the 3 cats named 'mr darcy'.",
+    "I was SO SURPRISED that I'd never seen it written down that way before \u2013 it explains basically everything that I knew intuitively about why some queries are allowed and others aren't."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, explanatory",
+  "key_insight": "Understanding that SQL queries semantically execute in the order FROM \u2192 WHERE \u2192 GROUP BY \u2192 HAVING \u2192 SELECT \u2192 ORDER BY \u2192 LIMIT demystifies why certain queries are valid and others aren't, even though database engines optimize the actual execution order.",
+  "filename": "2019-10-03-sql-queries-don-t-start-with-select"
+}

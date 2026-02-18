@@ -1,0 +1,26 @@
+{
+  "summary": "Evans reviews Martin Kleppmann's paper critiquing the CAP theorem, arguing that CAP is less profound and less useful than its reputation suggests. The theorem's proof is surprisingly simple, and it only applies to linearizable systems, leaving it with nothing to say about the vast majority of distributed systems people actually use. The paper proposes a better alternative that frames the consistency-availability tradeoff in terms of network latency rather than binary partition tolerance. This alternative maps different consistency levels (linearizable, sequential, causal) to how fast reads and writes can be under adverse network conditions, which is far more practical.",
+  "key_points": [
+    "The CAP theorem's proof is extremely simple \u2014 it boils down to two computers that can't communicate being unable to stay consistent and available simultaneously",
+    "CAP only applies to linearizable systems and has nothing useful to say about common setups like replicated databases, making 'AP' a near-useless label",
+    "Kleppmann proposes an alternative framing where consistency levels map to read/write latency under slow networks: linearizable means both are slow, sequential means slow writes but fast reads, causal means both fast",
+    "The FLP impossibility theorem is a far more profound result, showing distributed consensus algorithms can get stuck in infinite loops",
+    "Feeling bad about not understanding CAP turned out to be unwarranted \u2014 the theorem is genuinely limited in scope and applicability"
+  ],
+  "money_quotes": [
+    "This system is not linearizable. So the CAP theorem has\u2026 uh\u2026 nothing to say about this system.",
+    "I thought that the CAP theorem was like this complicated deep result in distributed systems theory.",
+    "CAP is a useful shorthand for a useful idea, but it's not really that profound.",
+    "It turns out that the CAP theorem is actually a relatively small theorem which is only useful in a limited number of cases!",
+    "Sometimes my network is not totally down, but communication is SLOW! I would love my distributed systems theory to explain what will happen!",
+    "So it was less that I didn't understand it and more that it's actually just not thaaaaaaat useful.",
+    "'AP' is not a very useful description for this system since it has some interesting consistency properties, and is quite different from some other 'AP' systems."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, demystifying, opinionated",
+  "key_insight": "The CAP theorem is far less useful than its reputation suggests because it only addresses linearizable systems; framing consistency tradeoffs in terms of network latency gives practitioners much better tools for reasoning about the systems they actually use.",
+  "filename": "2016-11-19-a-critique-of-the-cap-theorem"
+}

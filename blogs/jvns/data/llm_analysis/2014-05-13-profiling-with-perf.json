@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans introduces perf, a Linux profiling tool that goes beyond strace by revealing CPU-level performance details like instruction counts, cache misses, and branch predictions. She demonstrates three use cases: basic performance counters with perf stat, generating flame graphs to visualize where execution time is spent, and measuring L1 cache misses to confirm a hypothesis about why a program with bad memory access patterns was slow. The post builds on her previous exploration of why computers are fast, using perf to verify that a stride-based memory access pattern caused 60x more L1 cache misses. She references Brendan Gregg's perf resources as essential reading.",
+  "key_points": [
+    "perf fills a gap that strace can't: it measures CPU instructions, cache misses, branch predictions, and other hardware performance counters",
+    "Flame graphs generated from perf output provide an intuitive visualization of where a program spends its execution time across the call stack",
+    "perf can empirically verify performance hypotheses \u2014 the stride-based program had 60x more L1 cache misses than the mmap version, confirming the suspected cause of slowness",
+    "Hardware performance counters make invisible bottlenecks visible, turning speculation about cache behavior into measurable data"
+  ],
+  "money_quotes": [
+    "strace only does system calls, and none of those things are system calls. So it can't tell you any of those things!",
+    "Basically perf periodically interrupts the program and finds out where in the stack it is.",
+    "Apparently stopping my program takes a long time! Neat!",
+    "So, uh, that's really bad. We now have 60 times more L1 cache misses, and also 3 times more hits.",
+    "There are still so many things I don't understand at all!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "perf transforms performance debugging from guesswork into empirical measurement by exposing CPU-level details like cache misses and instruction counts that are invisible to higher-level tools like strace.",
+  "filename": "2014-05-13-profiling-with-perf"
+}

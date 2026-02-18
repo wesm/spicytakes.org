@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans demonstrates how DNS resolution works by building a toy DNS resolver in 80 lines of Go (with the core function being just 20 lines). She explains the four sections of a DNS response (Question, Answer, Authority, Additional) and shows how a resolver iteratively queries nameservers starting from root servers, following referrals through glue records and authority records until it finds an answer. She compares her toy resolver's behavior to the real resolver 'unbound' using tcpdump, revealing that production resolvers make additional queries to cache nameserver addresses. She also wrote a bash version that, despite being janky, actually helped simplify the Go version's design.",
+  "key_points": [
+    "DNS responses contain four sections (Question, Answer, Authority, Additional) that work together during resolution, not just a simple question-and-answer exchange",
+    "The core DNS resolution algorithm is surprisingly simple: start at a root nameserver, then loop checking Answer for results, Additional for glue records, or Authority for the next nameserver to query",
+    "Real DNS resolvers like unbound make more queries than strictly necessary, proactively caching nameserver addresses for future use",
+    "The number of queries needed varies by domain hierarchy depth \u2014 jvns.ca needs 6 queries (3 nameservers) while www.maths.ox.ac.uk needs 7 (4 nameservers)",
+    "Writing a constrained bash version first helped debug the Go version by forcing design simplification"
+  ],
+  "money_quotes": [
+    "I usually find it easier to understand things work when they come in the form of programs that I can run and modify and poke at.",
+    "When they start, DNS resolvers don't know any DNS records (except the IP addresses of the root nameservers). But they do know how to find DNS records for you.",
+    "I really recommend writing a toy DNS resolver that actually does the parsing of DNS packets if you want to learn about binary protocols though, it's really fun and it's a totally doable to get something basic working in a weekend.",
+    "You might think of DNS queries as just being a question and an answer. But actually DNS responses contain 4 sections, and we need to use all 4 sections to write our DNS resolver.",
+    "The bash version is even more janky and uses grep in very questionable ways but it did resolve every domain I tried which is cool.",
+    "Bash's limitations forced me to simplify the design and simplifying it fixed a bug I was running into.",
+    "As usual I always learn something from writing tiny versions of real programs."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "technical, enthusiastic, exploratory",
+  "key_insight": "The entire DNS resolution algorithm is simple enough to fit in 20 lines of code \u2014 start at a root nameserver and iteratively follow referrals through the Answer, Additional, and Authority sections until you get your answer.",
+  "filename": "2022-02-01-a-dns-resolver-in-80-lines-of-go"
+}

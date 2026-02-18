@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans investigates why so many git users feel unconfident about understanding HEAD, discovering it's more complicated than she initially thought. She breaks HEAD into three distinct concepts: the .git/HEAD file, HEAD as a revision parameter in commands, and HEAD as it appears in various git output formats. She explains detached HEAD state, how to interpret git log's parenthetical references, and why HEAD in merge conflicts is particularly confusing because its meaning flips between merge and rebase operations. She concludes that git's inconsistent terminology around HEAD makes it harder to learn than it needs to be.",
+  "key_points": [
+    "HEAD has three closely related but distinct meanings: the .git/HEAD file contents, HEAD as a revision parameter, and HEAD in command output",
+    "The .git/HEAD file contains either a branch reference or a raw commit ID, and the latter triggers 'detached HEAD state'",
+    "HEAD in merge conflicts is genuinely confusing because during a rebase, HEAD refers to the other commit you're rebasing onto, not what HEAD was when you ran git rebase",
+    "Git's terminology is inconsistent: it talks about 'detached HEAD' but never 'attached HEAD', and 'on a branch' but never 'not on a branch', making these concepts harder to connect",
+    "The git log output uses 'HEAD -> main' to indicate an active branch versus 'HEAD,' to indicate detached state, a subtle distinction"
+  ],
+  "money_quotes": [
+    "Usually when people say that a topic is confusing when I think it's not, the reason is that there's actually some hidden complexity that I wasn't considering.",
+    "Having no current branch is a little dangerous because if you make new commits, those commits won't be attached to any branch \u2013 they'll be orphaned!",
+    "The fact that the meaning of HEAD changes depending on whether I'm doing a rebase or merge is really just too confusing for me and I find it much simpler to just ignore HEAD entirely.",
+    "How is the user supposed to guess that HEAD detached has anything to do with branches at all, or that 'on branch main' has anything to do with HEAD?",
+    "I've honestly never actually heard the term 'revision parameter' before, but that's the term that'll get you to the documentation for this concept.",
+    "Git talks about 'detached HEAD state', but never about 'attached HEAD state' \u2013 git's documentation never uses the term 'attached' at all to refer to HEAD."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "exploratory, pedagogical",
+  "key_insight": "HEAD in git is more confusing than it appears because it conflates three related concepts and its meaning changes depending on context, particularly flipping between merge and rebase operations.",
+  "filename": "2024-03-08-how-head-works-in-git"
+}

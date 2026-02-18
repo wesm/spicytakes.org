@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans recounts a productive day at Hacker School covering three topics: using Python's __setattr__ to automatically test TCP state transitions, learning about floating point number representation, and exploring the idea of visualizing Git workflows from shell history. She worked with Allison Kaptur on a clever testing approach for her TCP client, attended a lecture on floats by Stefan Karpinski, and brainstormed with Philip Guo about using command history files to understand how people actually use tools. The post concludes with her realization that social interaction is her most effective learning channel.",
+  "key_points": [
+    "Overriding Python's __setattr__ enables elegant automatic logging of state transitions for testing stateful code like TCP connections",
+    "There are exactly 2^64 possible 64-bit floats, and the distribution between powers of two has useful mathematical properties",
+    "Shell history files could be valuable for teaching novices, understanding tool usage patterns, and studying expert workflows",
+    "Learning about command line tools happens primarily through social interactions and folklore rather than documentation",
+    "Visualizing transitions between Git commands from history data reveals personal workflow patterns"
+  ],
+  "money_quotes": [
+    "Allison had the amazing idea of subclassing my socket class to log every time I set the state attribute.",
+    "The key thing I learned there is that there are a finite amount of 64-bit floats (2^64 of them!). Which is obvious in retrospect, but I hadn't thought about it before.",
+    "There are always 2^52 floats between 2^n and 2^(n+1).",
+    "I find it really interesting how I learn about command line tools largely through social interactions and folklore, and rarely by reading documentation or man pages.",
+    "I need to talk to more people. I learn more when I talk to more people."
+  ],
+  "themes": [
+    "learning",
+    "networking",
+    "debugging",
+    "git"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "The most effective way to learn technical tools and concepts is through social interaction and collaboration rather than solo documentation reading.",
+  "filename": "2013-11-13-day-27-magic-testing-functions"
+}

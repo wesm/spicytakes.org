@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans introduces entr, a command line tool that reruns arbitrary commands whenever specified files change. She explains how it fills a gap when custom build processes lack built-in file watching, unlike frameworks like Hugo or Flask. The post covers key flags like -r for restarting servers, -c for clearing the screen, and -d for detecting new files. She demonstrates practical patterns combining entr with git ls-files to watch tracked and untracked files. The post briefly explains that entr uses inotify on Linux to watch for filesystem events.",
+  "key_points": [
+    "entr watches a set of files passed via stdin and reruns any command when they change, providing instant feedback for custom build processes",
+    "Key flags include -r (restart servers), -c (clear screen), and -d (exit when new files are added to watched directories)",
+    "Combining entr with git ls-files is a natural pattern since tracked files usually match what you want to watch",
+    "A while loop wrapping entr -d with git ls-files handles the case of newly added files that aren't yet tracked",
+    "Under the hood on Linux, entr uses inotify with inotify_add_watch system calls for each watched file"
+  ],
+  "money_quotes": [
+    "I found out about entr relatively recently and I felt like WHY DID NOBODY TELL ME ABOUT THIS BEFORE?!?!",
+    "Like possibly every single programmer in the universe, I find it Very Annoying to have to manually rerun my build / tests every time I make a change to my code.",
+    "entr lets me have a magical build experience where I get instant feedback on whether my change fixed the weird bug with just one line of bash.",
+    "A lot of tools (like hugo and flask) have a built in system to automatically rebuild when you change your files, which is great! But often I have some hacked together custom build process that I wrote myself.",
+    "Usually the set of files I want to track is about the same list of files I have in git, so git ls-files is a natural thing to pipe to entr."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "entr gives any custom build process the same instant-feedback file-watching experience that frameworks provide built-in, with just one line of bash.",
+  "filename": "2020-06-28-entr"
+}

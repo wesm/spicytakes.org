@@ -1,0 +1,26 @@
+{
+  "summary": "Evans explores the gap between how people intuitively think about git branches (as offshoots from a parent branch) and how git actually implements them (as pointers to commits with full history). She argues that the intuitive model is actually quite useful because it closely matches how rebases, merges, and pull requests work in practice. The key disconnect is that git has no concept of branch hierarchy or parent-child relationships between branches, forcing users to specify these relationships explicitly every time. She also highlights confusing UI choices like the different meanings of '..' and '...' in git log versus git diff.",
+  "key_points": [
+    "Git branches are stored as simple text files containing a commit ID, with no concept of parent-child relationships between branches",
+    "The intuitive 'offshoot' model of branches closely matches how rebases, merges, and GitHub PRs actually work, making it more useful than people give it credit for",
+    "Git's lack of branch hierarchy means it can't prevent confusing operations like rebasing main onto a feature branch",
+    "The '..' and '...' syntax means different things for git log vs git diff, making it hard to inspect just the 'offshoot' commits on a branch",
+    "GitHub's concept of a default branch adds back some of the hierarchy that git itself lacks"
+  ],
+  "money_quotes": [
+    "In git, a branch is the full history of every previous commit, not just the \"offshoot\" commits.",
+    "In general, even if people's intuition about a topic is technically incorrect in some ways, people usually have the intuition they do for very legitimate reasons! \"Wrong\" models can be super useful.",
+    "Git doesn't have any notion of whether a branch is an \"offshoot\" of another branch, it won't give you any guidance about if/when it's appropriate to rebase branch X on branch Y. You just have to know.",
+    "I hear the statement \"the main branch is not special\" a lot and I've been puzzled about it \u2013 in most of the repositories I work in, main is pretty special!",
+    "You have to tell git explicitly about the relationship between branches every single time you run a git command like git rebase or git merge, and if you make a mistake things can get really weird.",
+    "So to see the 2 commits x and y with git log, you need to use 2 dots (..), but to look at the same commits with git diff, you need to use 3 dots (...).",
+    "This all seems extremely obvious in retrospect, but it took me a long time to figure out what a more \"intuitive\" idea of a branch even might be because I was so used to the technical \"a branch is a reference to a commit\" definition."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "reflective, explanatory, empathetic",
+  "key_insight": "People's intuitive model of git branches as offshoots from a parent branch is actually very close to how merges, rebases, and pull requests work in practice\u2014git just refuses to track that relationship, forcing users to re-specify it every time.",
+  "filename": "2023-11-23-branches-intuition-reality"
+}

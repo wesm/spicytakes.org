@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans documents her experience setting up OAuth login in a Rails project using Devise and OmniAuth. She followed tutorials without fully understanding them, which mostly worked for GitHub login but broke when implementing a custom OAuth provider. She discovered two key bugs: misunderstanding that access_token.get('/me') makes an HTTP request rather than a hashmap lookup, and needing the X-FORWARDED-PROTO header set to https for correct redirect URIs. She ends by questioning whether Devise is even necessary.",
+  "key_points": [
+    "Following tutorials without understanding them can get you surprisingly far in Rails, but breaks down when you need to customize beyond the tutorial's scope",
+    "The access_token.get('/me') call in OmniAuth is an HTTP request to the OAuth provider's API, not a hashmap lookup \u2014 a misunderstanding that blocked the custom OAuth integration",
+    "When behind a reverse proxy like Cloudflare, Rails needs the X-FORWARDED-PROTO header to generate https URLs correctly for OAuth redirect URIs",
+    "After getting everything working with Devise, she considers removing it entirely in favor of using OmniAuth directly \u2014 a common pattern of simplifying after understanding the problem"
+  ],
+  "money_quotes": [
+    "But one nice thing about Rails is that there are about 10 billion blog posts & Stack Overflow questions that make it possible to figure out what's going on even if you don't really know anything.",
+    "I followed all the steps without really understanding them and it kind of worked! Hooray.",
+    "I had this vague notion that once the OAuth server sent my application an access token, it would be \"done\".",
+    "which I thought meant \"get the /me field from a hashmap called access_token\" but which actually means \"make an HTTP request to the OAuth provider's API using the access token, and get the path /me\".",
+    "And devise seems pretty complicated, so now that I have everything working I'm considering totally removing it and instead just using Omniauth."
+  ],
+  "themes": [
+    "learning",
+    "networking"
+  ],
+  "tone": "candid, humorous, exploratory",
+  "key_insight": "Following tutorials without understanding them works until you need to customize, at which point the bugs you encounter become the actual learning moments.",
+  "filename": "2020-12-08-day-22--getting-oauth-to-work-in-rails"
+}

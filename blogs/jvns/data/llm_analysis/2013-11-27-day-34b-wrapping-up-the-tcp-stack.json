@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans wraps up her TCP stack project at Hacker School by writing a minimal curl implementation on top of it. The tool uses ARP spoofing to bypass the kernel's built-in TCP stack, listening on a fake IP address to avoid the kernel resetting connections. She candidly documents that the implementation is finicky and unreliable, often requiring multiple runs to succeed. The post catalogs both what works (connecting, sending packets, reassembling replies) and what doesn't (multi-packet sends, retransmission, server functionality).",
+  "key_points": [
+    "Building a userspace TCP stack requires bypassing the kernel's own stack via ARP spoofing, since the kernel would otherwise intercept and reset connections",
+    "The implementation works as a barely functional client but is essentially useless as a server, highlighting how much complexity a real TCP stack handles",
+    "TCP stacks aren't designed to start and stop \u2014 they're meant to run as daemons, which creates fundamental design friction for a project like this",
+    "Python's performance creates visible problems: ACKs pile up and the connection closing process becomes comically slow when watched in Wireshark"
+  ],
+  "money_quotes": [
+    "I discovered that it was impossible to explain my TCP fun project because it was, er, mostly not working.",
+    "I found that if I ran it 5 times then it would work. Mostly.",
+    "This IP address needs to be in my subnet and should not belong to anyone else, because it would do bad things to them.",
+    "Basically it is a marginally acceptable client and a totally ineffective server",
+    "TCP stacks aren't really *supposed* to start and stop.",
+    "It's slow, because Python. If you watch it in Wireshark, it does a hilarious thing where it gets backed up sending ACKs and then sends a load of ACKs at the end and takes forever to close the connection."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "humorous, self-deprecating, technical",
+  "key_insight": "Building a TCP stack from scratch reveals how much invisible complexity the kernel handles, even when the result barely works.",
+  "filename": "2013-11-27-day-34b-wrapping-up-the-tcp-stack"
+}

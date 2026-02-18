@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans documents her experience setting up a Rails deployment on a Digital Ocean VM after getting frustrated with GCP's IAM complexity. She explores Digital Ocean's app platform and marketplace VM images, sets up push-to-deploy using git post-receive hooks, and learns about systemd's ExecStartPre for running pre-deployment scripts. She encounters a confusing journald logging issue that was fixed by restarting the service. The post captures the pragmatic joy of hacking together a simple deployment system rather than over-engineering it.",
+  "key_points": [
+    "Digital Ocean's app platform is Heroku-compatible but too restrictive for projects needing SSH access to other instances",
+    "Git post-receive hooks provide a simple push-to-deploy workflow without needing a full CI/CD platform",
+    "systemd's ExecStartPre directive can run pre-deployment scripts like bundle install and database migrations before a service starts",
+    "Digital Ocean marketplace images provide reasonable pre-configured stacks (nginx, Rails, Postgres, systemd) as deployment starting points",
+    "Sometimes a hacked-together bash script deployment is more fun and practical than a fancy stable system"
+  ],
+  "money_quotes": [
+    "I got mad because of my experience with IAM on Friday and decided to try Digital Ocean instead.",
+    "It turns out that Digital Ocean is MUCH EASIER to use than GCP (at least at first) and so I decided to try it out.",
+    "This approach feels more like \"hacked together bash script\" than \"fancy stable system\" but after spending some time wrangling systemd I got it to work and it's kind of fun to have a more basic system where I push directly to the VM I'm running my code on.",
+    "I spent a LOT of time being confused because systemd-journald didn't have my Rails app's logs, even though it seemed to be running correctly.",
+    "Eventually I restarted journald and it fixed everything, but I don't really understand why.",
+    "I found setting up a VM in a very non-reproducible way with a hacked together build/deploy system pretty fun."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "casual, exploratory, pragmatic",
+  "key_insight": "A simple, hacked-together deployment using git hooks and systemd on a plain VM can be more fun and practical than wrestling with complex cloud platforms.",
+  "filename": "2020-12-08-day-21--wrangling-systemd"
+}

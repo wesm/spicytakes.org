@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans introduces Lima, a tool for running Linux VMs on Mac, which she finds much simpler than Vagrant. She needed Linux VMs to run projects that depend on Linux namespaces and bubblewrap. Lima's setup is just three commands and provides sensible defaults like mounting your home directory read-only. She encounters some issues with read-write mounts and networking quirks but finds the tool useful enough. She also mentions OrbStack as an alternative with better networking, and explains why she prefers VMs over containers for her use case.",
+  "key_points": [
+    "Lima requires just three steps to get a working Linux VM on Mac: install, start, and shell in",
+    "Lima's sensible defaults (Ubuntu image, home directory mount, single global VM) make it much less frustrating than Vagrant's per-project configuration approach",
+    "There are real rough edges with Lima including read-write mount limitations and broken ICMP/networking behavior",
+    "VMs are preferable to containers when you need Linux namespaces inside your environment, since containers already run inside a VM on Mac anyway"
+  ],
+  "money_quotes": [
+    "I think the paradigm of \"I have a single chaotic global Linux VM which I use for all my projects\" might work better for me than super carefully configured per-project VMs.",
+    "on Mac you need to run containers inside a Linux VM anyway, so I'd rather use a VM directly and not introduce another unnecessary layer",
+    "one of my biggest frustrations with it is that often I need to run Linux-specific software",
+    "all of my playgrounds use Linux namespaces, and I don't know how to create a namespace inside a container. Probably you can but I don't feel like figuring it out and it seems like an unnecessary distraction.",
+    "it provides a default config"
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "practical",
+  "key_insight": "Lima offers a refreshingly simple way to run Linux VMs on Mac, and sometimes a single chaotic global VM with sensible defaults beats carefully configured per-project environments.",
+  "filename": "2023-07-10-lima--a-nice-way-to-run-linux-vms-on-mac"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans announces Memory Spy, a new interactive playground that lets users run C programs and visualize how variables are represented in memory. The tool is designed as a companion to her upcoming zine about integers and floats, making low-level memory representation accessible even to people who don't know C. The playground compiles code with clang, runs it through lldb, and returns byte-level variable representations. She discusses the design decisions, including a click-on-a-line navigation model instead of traditional step-through debugging, and her pragmatic approach to security for running untrusted code.",
+  "key_points": [
+    "Low-level integer and float representations are the same across C, C++, Rust, Go, and Swift, making C a useful lens for understanding memory in any language",
+    "The tool deliberately avoids requiring C knowledge by providing simple example programs with no fancy language features",
+    "The security model is pragmatically 20% sandboxing and 80% making the target not worth attacking",
+    "The click-on-a-line navigation design works better than step-through debugging for this specific use case because the focus is on memory representation, not control flow",
+    "Tree-sitter is used on the frontend to identify which lines have variable definitions"
+  ],
+  "money_quotes": [
+    "It lets you run C programs and see how their variables are represented in memory.",
+    "A 32-bit unsigned int is going to be the same in C, C++, Rust, Go, Swift, etc. The exact name of the type is different, but the representation is the same.",
+    "C is the language where it's the most straightforward to map between 'the code in your program' and 'what's in your computer's memory'.",
+    "In general my approach to running arbitrary untrusted code is 20% sandboxing and 80% making sure that it's an extremely low value attack target so it's not worth trying to break in.",
+    "Instead of using next/previous arrows to step through the code one line at a time, you can just click on a line to view its variables.",
+    "Under the hood a float in Python contains a C double, so the C representation is still pretty relevant."
+  ],
+  "themes": [
+    "learning",
+    "debugging"
+  ],
+  "tone": "enthusiastic, practical, accessible",
+  "key_insight": "Making low-level memory representation visible and interactive through simple C programs helps demystify how computers actually store data, regardless of what programming language you use.",
+  "filename": "2023-05-25-new-playground--memory-spy"
+}

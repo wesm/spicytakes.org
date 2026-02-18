@@ -1,0 +1,26 @@
+{
+  "summary": "This post introduces Envoy, a network proxy in the same space as HAProxy and nginx, focusing on practical configuration basics. Evans walks through a minimal working example, explaining Envoy's core concepts: listeners (bind to ports), filters (process requests), routes (match and direct traffic), and clusters (backend server groups). She then covers Envoy's distinctive feature of dynamic configuration via discovery services (CDS, EDS, RDS, LDS), which allow centralized control of network routing without config file restarts. The post concludes that discovery services are what make Envoy genuinely exciting, enabling circuit breaking, traffic shaping, and encrypted communication without application code changes, while acknowledging the significant operational complexity involved.",
+  "key_points": [
+    "Envoy's core configuration model consists of four concepts: listeners (ports), filters (request processing), routes (traffic matching), and clusters (backend groups)",
+    "Unlike HAProxy or nginx, Envoy can be configured dynamically via discovery services (XDS protocol) rather than static config files, enabling runtime changes to routing, backends, and listeners",
+    "The service mesh pattern puts Envoy on every machine to proxy all network traffic, giving centralized control over how applications communicate",
+    "Envoy's HTTP timeout and retry headers let you control retry/timeout behavior without implementing it in application code, which Evans considers particularly valuable since people get timeout logic wrong constantly",
+    "Envoy is both very powerful and very complex, similar to Kubernetes, and the operational overhead of discovery services may not be appropriate for most use cases"
+  ],
+  "money_quotes": [
+    "Even after using Envoy for a year this basic configuration actually took me 45 minutes to get right.",
+    "One thing that makes Envoy really different from HAProxy or nginx is that Envoy often isn't configured with a configuration file.",
+    "I think these discovery services are really the exciting thing about Envoy.",
+    "Implementing timeout / retry logic correctly works differently in every programming language and people get it wrong ALL THE TIME.",
+    "Like Kubernetes, it's both very powerful and very complicated.",
+    "Obviously setting up a bunch of discovery services and operating them and using them to configure your internal network infrastructure in complicated ways is a lot more work than just 'write an nginx configuration file and leave it alone'.",
+    "Basically it's a very powerful/flexible decentralized load balancer."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "technical",
+  "key_insight": "Envoy's real power over traditional proxies like nginx and HAProxy lies in its dynamic configuration via discovery services, which enable centralized control of distributed network infrastructure without application code changes, though this power comes with significant operational complexity.",
+  "filename": "2018-10-27-envoy-basics"
+}

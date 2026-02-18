@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans catalogs the unwritten rules that terminal programs follow, despite there being no formal standards beyond POSIX and a few guidelines. She identifies seven conventions: Ctrl-C quits noninteractive programs, q quits TUIs, Ctrl-D quits REPLs, programs stick to 16 ANSI colors, readline keybindings are loosely supported, colors are disabled when piping, and - means stdin/stdout. She emphasizes these are descriptive observations from 20 years of terminal use, not prescriptions, and notes that understanding which rules are the program's responsibility helps explain why implementations vary slightly.",
+  "key_points": [
+    "Terminal program behavior is governed by unwritten conventions rather than formal standards, yet programs behave surprisingly consistently",
+    "Many behaviors that feel like 'laws of terminal physics' (like Ctrl-D quitting a REPL) are actually explicitly implemented by each program to mimic OS defaults",
+    "Understanding whether a behavior comes from the OS, shell, terminal emulator, or program itself makes exceptions less surprising",
+    "Programs adapt their output format and color when writing to a pipe versus a terminal, which is a widely followed but uncodified convention",
+    "Learning these rules is a multi-stage process from basic awareness through subconscious pattern recognition to explicit understanding"
+  ],
+  "money_quotes": [
+    "As far as I know, there are no real standards for how programs in the terminal should behave.",
+    "Instead of 'uh, programs could do literally anything', it's 'ok, here are the basic rules I expect, and then I can keep a short mental list of exceptions'.",
+    "I actually thought that this one was a 'Law of Terminal Physics' until very recently because I've basically never seen it broken, but you can see that it's just something that each individual input library has to implement.",
+    "None of those programs actually uses readline directly, they just sort of mimic emacs/readline keybindings.",
+    "A lot of my understanding of the terminal is honestly still in the 'subconscious pattern recognition' stage.",
+    "The only reason I've been taking the time to make things explicit at all is because I've been trying to explain how it works to others.",
+    "If you stick to the default 16 base colours, you have a much better chance that the user has configured those colours in their terminal emulator so that they work reasonably well with their background color."
+  ],
+  "themes": [
+    "terminals",
+    "learning"
+  ],
+  "tone": "exploratory, practical, curious",
+  "key_insight": "Terminal programs follow a consistent set of unwritten conventions that feel like laws of nature but are actually explicitly implemented by each program, and making these implicit rules explicit accelerates learning for newcomers.",
+  "filename": "2024-11-26-terminal-rules"
+}

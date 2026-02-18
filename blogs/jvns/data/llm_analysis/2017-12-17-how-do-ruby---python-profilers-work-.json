@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans surveys the internals of 14 Ruby and Python CPU profilers to understand how they actually work under the hood. She identifies two fundamental categories\u2014tracing profilers that record every function call via interpreter hooks, and sampling profilers that periodically snapshot the stack using setitimer signals. She demonstrates that all these profilers are built from a surprisingly small set of fundamental capabilities (setitimer, PyEval_SetProfile, rb_add_event_hook, ptrace). The post includes code examples showing how simple stack sampling can be, highlights tradeoffs like tracing overhead and setitimer's signal interference with syscalls, and notes her particular interest in pyflame's out-of-process ptrace approach for her own Ruby profiler project.",
+  "key_points": [
+    "All CPU profilers fall into two categories: tracing profilers (record every function call via interpreter hooks) and sampling profilers (periodically snapshot the stack, typically via setitimer)",
+    "Almost all Ruby/Python profilers run inside the target process, where accessing the call stack is trivially easy\u2014Python's sys._current_frames() or Ruby's caller method",
+    "The setitimer system call is the dominant mechanism for sampling profilers, letting you receive periodic signals to trigger stack collection, but it can interfere with system calls if sampling too frequently",
+    "Tracing profilers add fixed overhead per function call, which can distort results by making function-call-heavy code appear disproportionately slow",
+    "Pyflame stands out by profiling from outside the process using ptrace, avoiding in-process overhead but introducing tradeoffs around consistent snapshots"
+  ],
+  "money_quotes": [
+    "The interesting thing here is that all profilers are implemented using a pretty small set of fundamental capabilities.",
+    "If you're having a serious performance problem (like 80% of your time is being spent in 1 slow function), 200 samples a second will often be enough to figure out which function to blame!",
+    "It's a useful, working, profiler, and it's only about 100 lines of Python. So cool!",
+    "If you have 2 implementations of something \u2013 one with a lot of function calls and one without, which take the same amount of time, the one with a lot of function calls will appear to be slower when profiled.",
+    "One INTERESTING downside of setitimer-based profilers is that the timers cause signals! Signals sometimes interrupt system calls! System calls sometimes take a few milliseconds! If you sample too frequently, you can make your program keep retrying the same syscall forever!",
+    "process_vm_readv is lower overhead because it doesn't stop the process, but it also can give you an inconsistent snapshot because it doesn't stop the process :)."
+  ],
+  "themes": [
+    "debugging",
+    "linux",
+    "learning"
+  ],
+  "tone": "technical, exploratory, enthusiastic",
+  "key_insight": "CPU profilers are built from a surprisingly small set of OS and interpreter primitives\u2014setitimer for sampling, interpreter hooks for tracing, and ptrace for out-of-process observation\u2014and understanding these building blocks demystifies how any profiler works.",
+  "filename": "2017-12-17-how-do-ruby---python-profilers-work-"
+}

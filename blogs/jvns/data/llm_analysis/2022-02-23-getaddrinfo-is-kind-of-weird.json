@@ -1,0 +1,27 @@
+{
+  "summary": "The post explores the surprising behaviors of getaddrinfo, the libc function responsible for most DNS lookups. Evans explains that not all programs use it (dig and Go have their own resolvers), that its implementation differs significantly across platforms (glibc, musl, Mac OS), and that Mac's version doesn't even use /etc/resolv.conf, instead routing through mDNSResponder. These differences explain common DNS mysteries like why dig doesn't check /etc/hosts, why switching Linux distributions can break DNS, and why Macs have DNS caching but Linux doesn't always.",
+  "key_points": [
+    "getaddrinfo is the standard DNS lookup function in libc, but it has at least three major implementations (glibc, musl, Mac OS) with significant behavioral differences",
+    "Not all programs use getaddrinfo \u2014 dig, Go's pure-Go resolver, and browsers with DNS-over-HTTPS all implement their own DNS resolution",
+    "Mac OS getaddrinfo routes through mDNSResponder instead of /etc/resolv.conf, which explains why DNS caching works differently on Macs",
+    "musl libc's getaddrinfo doesn't support TCP DNS and handles search domains differently from glibc, which can cause subtle breakage when switching distributions like Alpine Linux"
+  ],
+  "money_quotes": [
+    "When you resolve a DNS name in a Python program, it checks /etc/hosts, but when you use dig, it doesn't.",
+    "Before you learn what getaddrinfo is, it's not at all obvious that socket.gaierror: [Errno -2] Name or service not known means \"that domain doesn't exist\". It doesn't even say the words \"DNS\" or \"domain\" in it anywhere!",
+    "I used to use a Mac for work, and I always felt vaguely unsettled by DNS on Mac. I could tell that something was different from how it worked on my Linux machine, but I couldn't figure out what it was.",
+    "You might think ok, Mac OS getaddrinfo is different, but the two versions of getaddrinfo in glibc and musl libc must be mostly the same, right?",
+    "I found it really surprising that such a widely used library function has such different behaviour on different platforms.",
+    "It definitely makes DNS a bit more difficult to reason about."
+  ],
+  "themes": [
+    "dns",
+    "linux",
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, exploratory, conversational",
+  "key_insight": "The widely-used getaddrinfo function behaves differently across platforms and implementations, which is the hidden cause of many confusing DNS behaviors developers encounter.",
+  "filename": "2022-02-23-getaddrinfo-is-kind-of-weird"
+}

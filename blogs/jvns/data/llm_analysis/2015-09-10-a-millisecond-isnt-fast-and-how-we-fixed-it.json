@@ -1,0 +1,25 @@
+{
+  "summary": "Evans describes profiling a slow machine learning pipeline at Stripe where processing 6 million records took 1.5 hours. Using VisualVM, she and colleagues traced the bottleneck to a single Math.pow() call inside a HyperLogLog estimation loop in Twitter's Algebird library. By replacing the expensive floating-point power function with a bit shift operation or lookup table, they achieved a 100x speedup. The post emphasizes building intuition for when code is unreasonably slow by knowing baseline performance expectations for simple operations.",
+  "key_points": [
+    "A loop doing ~10,000 simple floating point operations should take microseconds, not milliseconds \u2014 knowing baseline latency numbers helps identify unreasonable slowness",
+    "Math.pow() was the hidden bottleneck: replacing it with bit shifting (1.0 / (1 << mj)) gave a 47x speedup, and a 256-entry lookup table gave 100x",
+    "Profiling with VisualVM identified the exact code block consuming all the time, turning a vague 'it's slow' into a targeted one-line fix",
+    "Building intuition for expected performance is a learnable skill \u2014 being able to say 'this should not take this long' is the first step to fixing it"
+  ],
+  "money_quotes": [
+    "I used to think a millisecond was fast.",
+    "This meant that processing 6 million things would take 1.5 hours, which is Slow. The code is kind of complicated, so originally we all thought this was a reasonable amount of time. But my heart was sad.",
+    "Since this loop is hardly doing anything omg, the obvious target is java.lang.Math.pow(2.0, -mj), because that looks like the hardest thing.",
+    "Many CPU instructions take a nanosecond or something. so 10K of them should be on the order of 10 microseconds or so. Definitely not a millisecond.",
+    "So we can literally make this code 100 times faster by just changing one line.",
+    "I'm learning intuitions for when code is slower than it should be and it is THE BEST.",
+    "Being able to say 'this code should not take 10s to process 10,000 records' is amazing. It is even more amazing when you can actually fix it."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, technical, narrative",
+  "key_insight": "Developing intuition for expected performance baselines \u2014 knowing that 10,000 simple CPU operations should take microseconds, not milliseconds \u2014 is the key skill that turns vague slowness into targeted, dramatic fixes.",
+  "filename": "2015-09-10-a-millisecond-isnt-fast-and-how-we-fixed-it"
+}

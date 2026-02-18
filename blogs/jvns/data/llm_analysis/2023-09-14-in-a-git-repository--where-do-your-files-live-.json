@@ -1,0 +1,26 @@
+{
+  "summary": "This post explores exactly where git stores your files inside the .git/objects directory, using short Python scripts to demonstrate the mechanics. Evans shows how git uses content-addressed storage, where each file is stored at a path derived from its SHA1 hash, compressed with zlib. She walks through the full process of tracing an old version of a file by navigating from commit to tree to blob objects. The post also explains packfiles, which git uses to compress many objects together, and demonstrates that git log must traverse every commit's tree to track a file's history. Evans ends by counting the historical file versions in her repository and noting git automatically ran gc when objects got too numerous.",
+  "key_points": [
+    "Git stores every version of every file as a zlib-compressed blob in .git/objects, addressed by the SHA1 hash of its contents (content-addressed storage)",
+    "Finding an old version of a file requires traversing from commit to tree objects through the directory hierarchy, which is exactly what git log does behind the scenes",
+    "Git stores full file snapshots by default, not diffs \u2014 packfiles created by git gc can store deltas for efficiency, but that's an optimization layer",
+    "Content-addressed storage means duplicate files cost nothing extra \u2014 50 identical files all point to the same object",
+    "git log FILENAME can be slow because it must traverse the tree structure for every commit to detect whether the file changed"
+  ],
+  "money_quotes": [
+    "Every previous version of every file in your repository is in .git/objects.",
+    "One neat thing about content addressed storage is that if I have two files (or 50 files!) with the exact same contents, that doesn't take up any extra space in Git's database.",
+    "One thing that surprised me here is the first time I learned it: there aren't any diffs here!",
+    "That file is the 9th version of that blog post, but the version git stores in the .git/objects is the whole file, not the diff from the previous version.",
+    "This whole process we just went through (find the commit, go through the various directory trees, search for the filename we wanted) seems kind of long and complicated but this is actually what's happening behind the scenes when we run git log.",
+    "I thought I already knew how git worked, but I'd never really thought about pack files before so this was a fun exploration.",
+    "So it looks like there are 5183 old versions of files lying around in my git repository that git is keeping around for me in case I ever want to get them back. How nice!"
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Git stores every file version as a complete snapshot in content-addressed storage, and finding old versions requires traversing the same commit-tree-blob hierarchy that git log walks behind the scenes.",
+  "filename": "2023-09-14-in-a-git-repository--where-do-your-files-live-"
+}

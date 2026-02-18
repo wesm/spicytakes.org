@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans presents a detective-style investigation into diagnosing why programs are slow, using three mystery programs as case studies. She demonstrates how to distinguish between CPU-bound programs, those waiting on network responses, and those doing heavy disk I/O using language-independent OS tools. The first mystery is solved using `ps` with `wchan` to reveal network socket waiting, the second is identified as CPU-bound via `time`, and the third reveals surprising filesystem cache behavior where writes appear fast but are deferred by the kernel. The disk I/O case is the most interesting, showing how consecutive runs take dramatically different times due to the kernel's write caching filling up. She also compiles a comprehensive list of Linux performance tools recommended by her Twitter followers.",
+  "key_points": [
+    "The `time` command alone can immediately tell you whether a program is CPU-bound or waiting on something else by comparing elapsed time to CPU time",
+    "The `ps -eo wchan` trick reveals what kernel function each process is currently blocked on, quickly identifying network vs disk waits",
+    "Filesystem write caching means programs can appear to finish writing before data hits disk, causing confusing performance variations between consecutive runs",
+    "Knowing when NOT to use OS-level tools matters too \u2014 a CPU-bound Python program is best debugged with a language-specific profiler",
+    "Tools like `dstat` provide real-time snapshots of disk, network, and CPU activity that reveal what the OS is doing behind the scenes"
+  ],
+  "money_quotes": [
+    "I specifically wanted programming-language-independent ways to investigate questions like this, and I guess people who follow me on twitter get me because I got SO MANY GREAT ANSWERS.",
+    "It's important to know when you *shouldn't* use fancy operating systems tools to debug performance, and I think this is one of those cases.",
+    "Writing to disks is super slow, and the kernel loves you and wants you to not have to wait. So it says 'okay, got it!', but doesn't actually write the data to disk until a little later.",
+    "When the filesystem cache runs out of space, it says 'okay you need to stop writing now' and actually writes the data to disk and makes you wait until it's done.",
+    "The whole point of this exercise is to debug using our operating system, so we need to get a better picture of what the OS is doing!",
+    "I actually originally thought I understood this one but I TOTALLY DIDN'T."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, investigative, educational",
+  "key_insight": "A handful of OS-level tools like `time`, `ps -eo wchan`, and `dstat` can quickly diagnose whether a slow program is CPU-bound, network-bound, or IO-bound without ever reading the source code.",
+  "filename": "2015-03-15-nancy-drew-and-the-case-of-the-slow-program"
+}

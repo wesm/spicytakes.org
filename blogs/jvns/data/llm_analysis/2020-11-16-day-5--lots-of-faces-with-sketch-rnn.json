@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans documents her exploration of sketch-rnn, a neural network trained on Google's Quickdraw dataset, to generate drawings of faces during generative art week at the Recurse Center. She walks through getting the model working, refactoring callback-heavy code to use async/await, and building a simple gallery website that draws faces in real time. While the generated faces aren't particularly appealing yet, she identifies the next challenge: teaching the model to distinguish between 'interesting' and 'boring' faces. The post captures her iterative, curiosity-driven approach to learning about RNNs through a concrete creative project.",
+  "key_points": [
+    "sketch-rnn is an RNN trained on the Quickdraw dataset that can generate line drawings, and ml5js provides accessible JavaScript bindings for it",
+    "Refactoring callback-heavy example code to async/await made the model much easier to experiment with interactively",
+    "The generated faces were uniformly uninteresting, raising the question of whether a neural network can learn aesthetic preferences like 'interesting' vs 'boring'",
+    "Performance was notably slow on older hardware due to LSTM computations running in JavaScript",
+    "Learning about machine learning models is more effective when driven by a concrete creative question rather than abstract study"
+  ],
+  "money_quotes": [
+    "I don't really like *any* of these faces, but it's a start!",
+    "Can I convince the neural network to distinguish between faces that I think are 'interesting' and 'boring' and maybe only generate more 'interesting' faces?",
+    "I still don't really know anything about RNNs, but maybe if I can answer this question I will learn something about them.",
+    "I didn't spend a lot of time profiling it, but it seems to spend a lot of time in some function with `lstm` in its name \u2013 I don't know what an LSTM is exactly but I know it's a component of an RNN.",
+    "People wrote some charming poems and I'm happy with it."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "curious, exploratory, candid",
+  "key_insight": "Pursuing a specific creative question \u2014 like why some generated faces are more interesting than others \u2014 is an effective way to bootstrap understanding of a complex ML model you know nothing about.",
+  "filename": "2020-11-16-day-5--lots-of-faces-with-sketch-rnn"
+}

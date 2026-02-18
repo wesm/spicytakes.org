@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans investigates Ruby HTTP client libraries and discovers surprising default behaviors hidden in commonly used dependencies. She finds that Net::HTTP automatically retries idempotent requests (GET, PUT, DELETE) without any way to disable it, following an HTTP/1.1 RFC recommendation that may not be appropriate for programmatic API clients. She also discovers that Excon splits HTTP request headers and body into separate TCP packets, causing performance problems related to Nagle's algorithm. The post advocates for actually reading the source code of your dependencies, noting that Net::HTTP is only about 2000 lines and reviewable. Evans approaches the discoveries with curiosity rather than blame, tracing each decision back to its rationale through open source archaeology.",
+  "key_points": [
+    "Ruby's Net::HTTP automatically retries idempotent HTTP requests on failure with no way to disable it, which can be dangerous for operations like executing trades",
+    "Excon splits headers and body into separate socket writes, creating two TCP packets per request and triggering Nagle's algorithm delays",
+    "The real taxonomy of Ruby HTTP libraries is just 4 base implementations (Net::HTTP, Excon, httpclient, libcurl bindings) despite there being 15-20 libraries total",
+    "Reading the actual source code of dependencies is feasible and valuable \u2014 Net::HTTP is only ~2000 lines",
+    "Open source projects make surprising decisions for understandable reasons, and the response should be to critique code rather than people"
+  ],
+  "money_quotes": [
+    "A HTTP library is conceptually a really simple thing \u2013 all HTTP is, for the most part, is you send some text to a server, and they send you some other text back.",
+    "Instead of having 15 or 20 libraries to think about, now there are just 4!",
+    "I was really surprised and kind of taken aback to learn this.",
+    "It makes a lot of sense for a web browser to retry, and perhaps less sense for a library you're calling from your code to automatically retry, without the ability configure it.",
+    "The scariest thing about introducing dependencies to me is \u2013 how do I know if it will surprise me unpleasantly a year from now, in production?",
+    "At work, I'd consider a 2000-line pull request somewhat arduous to review, but perhaps not totally outside the bounds of reasonableness! I can read 2000 lines of code, mostly!",
+    "It turns out that open source projects are just like all software projects \u2013 they do unexpected stuff, and then when I go find out why a person decided to do that I'm usually like 'oh, I see why you made that decision!'",
+    "Critique code instead of people \u2013 be kind to the coder, not to the code."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, investigative, generous",
+  "key_insight": "Dependencies hide surprising default behaviors that can cause real production problems, and the best defense is to actually read their source code and trace their design decisions back to their rationale.",
+  "filename": "2016-03-04-whats-up-with-ruby-http-libraries"
+}

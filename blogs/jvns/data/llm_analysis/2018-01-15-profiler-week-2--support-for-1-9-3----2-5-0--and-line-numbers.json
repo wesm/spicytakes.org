@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans reports on the second week of building a Ruby profiler in Rust. She expanded version support to cover Ruby 1.9.1 through 2.5.0, added line number tracking, and improved error handling using Rust's failure crate. The highlight was successfully profiling Rubocop, a popular Ruby linter, which produced interesting flamegraph visualizations showing how Rubocop's call stacks mirror the AST structure of the code it analyzes. She plans to release a first experimental version in the coming week.",
+  "key_points": [
+    "The profiler now supports every Ruby version from 1.9.1 to 2.5.0, covering essentially all versions in active use",
+    "Profiling Rubocop revealed that its cached mode spends 40% of time on file checksums, while uncached mode shows call stacks that mirror the AST structure of the linted program",
+    "Practical compromises were made: C extension calls are handled by simply ignoring them rather than crashing",
+    "The next milestone is a first experimental release with line number support, flamegraph generation, and a name for the profiler"
+  ],
+  "money_quotes": [
+    "I profiled Rubocop, and it worked!!!!! Rubocop is a popular linter/static analysis tool for Ruby.",
+    "the call stack of Rubocop basically reflects the structure of the program it's linting, which is kind of interesting.",
+    "I added \"support\" for calling into C extensions (by which I mean: the profiler doesn't crash, it just ignores all calls into C extensions)",
+    "did you know Rubocop has a cache? I didn't!",
+    "there are lots of problems but it's producing useful output!!",
+    "lots of bugs that I don't know about yet =)"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Building a profiler that works across many Ruby versions reveals surprising insights about the tools you profile, like how Rubocop's call stacks mirror the AST structure of the code it analyzes.",
+  "filename": "2018-01-15-profiler-week-2--support-for-1-9-3----2-5-0--and-line-numbers"
+}

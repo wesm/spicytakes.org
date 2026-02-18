@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans documents her attempt to implement char-rnn (character-level recurrent neural network) using PyTorch, following Karpathy's famous blog post on RNN effectiveness. She walks through the entire process: preparing training data from Hans Christian Andersen fairy tales, defining an LSTM model, writing training code, and generating text output. While her results don't match Karpathy's quality, she produces text that resembles English and shares the complete ~75 lines of code. She reflects on lessons learned, including that letting PyTorch's built-in LSTM handle backpropagation through time worked better than her manual implementation.",
+  "key_points": [
+    "A character-level RNN can be implemented in roughly 75 lines of PyTorch code, training on fairy tales to generate English-like text",
+    "Letting nn.LSTM handle backpropagation through time internally produced better results than manually passing one letter at a time",
+    "Temperature controls output diversity: high temperature produces varied but nonsensical text, low temperature produces repetitive but more coherent text",
+    "She abandoned fastai's training helper class in favor of writing her own training loop because she couldn't understand what the helper was doing",
+    "The model learned to produce English-like text from scratch based purely on character sequences, despite having no concept of words or grammar"
+  ],
+  "money_quotes": [
+    "I'd never trained a neural network before so this seemed like a fun way to start.",
+    "I found that kind of confusing because I didn't understand what it was doing, so I ended up writing my own training code.",
+    "This kind of worked, but my loss would go down for a while and then kind of spike later in training. I still don't understand why this happened.",
+    "I reran this training code over the same data maybe 300 times, until I got bored and it started outputting text that looked vaguely like English.",
+    "It doesn't make any sense, but what did we expect really.",
+    "It's weirdly obsessed with beetles and confectioners, and the sun, and the sea. Seems fine!",
+    "I got bored with training after an hour and didn't have the patience to babysit the Colab notebook for longer."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "exploratory, self-deprecating, honest",
+  "key_insight": "You can learn neural networks by implementing them from scratch, and even imperfect results that generate vaguely English-like nonsense are genuinely impressive when you understand the model learned everything from individual characters.",
+  "filename": "2020-11-30-implement-char-rnn-in-pytorch"
+}

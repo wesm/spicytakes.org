@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans explores the Linux system calls select, poll, and epoll for monitoring multiple file descriptors, drawing from The Linux Programming Interface book. She explains that select and poll share the same underlying kernel code but differ in their interfaces, with poll performing better for sparse file descriptor sets. The key insight is that epoll dramatically outperforms both by having the kernel remember which file descriptors to monitor, avoiding redundant work on each call. She walks through epoll's three-step API (create, ctl, wait) and shows real strace output from a Go program using epoll for DNS queries. The post also covers level-triggered vs edge-triggered notifications and links to libraries like libuv, libev, and Go's runtime that use epoll under the hood.",
+  "key_points": [
+    "poll and select use fundamentally the same kernel code, but poll can perform better with sparse file descriptor sets because select must iterate through all descriptors up to the highest numbered one",
+    "epoll dramatically outperforms select/poll at scale because the kernel remembers the list of monitored file descriptors between calls, avoiding redundant setup work",
+    "epoll works with pipes, sockets, and other I/O primitives but notably not regular files, because files lack the simple readable/writable semantics of streams",
+    "Event loops and green thread runtimes (Node.js via libuv, Go's runtime, Python's gevent via libev) all use epoll on Linux for non-blocking I/O",
+    "The performance difference is stark: at 10,000 file descriptors, poll/select take ~930-990 units vs epoll's 0.66"
+  ],
+  "money_quotes": [
+    "Instead of spending all CPU time to ask \"are there updates now? how about now? how about now? how about now?\", instead we'd rather just ask the Linux kernel \"hey, here are 100 file descriptors. Tell me when one of them is updated!\"",
+    "The first surprising thing I learned from this chapter are that poll and select fundamentally use the same code.",
+    "Every time you call select or poll, the kernel needs to check from scratch whether your file descriptors are available for writing. The kernel doesn't remember the list of file descriptors it's supposed to be monitoring!",
+    "Files are weird! You can write to the middle of a file! So it doesn't really make sense to say \"there's new data available for reading in this file\".",
+    "Writing test programs is important: quite a few kernel and glibc bugs have been uncovered while writing test programs during the preparation of man pages.",
+    "I learned quite a few new things about select & epoll by writing this post!",
+    "One small thing I like about my job is that I can expense programming books! This is cool because sometimes it causes me to buy and read books that teach me things that I might not have learned otherwise."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "epoll outperforms select and poll because it asks the kernel to persistently track file descriptors rather than re-specifying them on every call, making it the foundation of modern event-driven servers on Linux.",
+  "filename": "2017-06-03-async-io-on-linux--select--poll--and-epoll"
+}

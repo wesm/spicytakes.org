@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans discovers scanimage, a command line tool for scanning documents on Linux. After struggling with a GUI scanning application, she finds that scanimage from the sane-utils package works easily from the terminal. She walks through discovering her scanner, listing its options, and writing a simple 5-line shell script to scan documents to PDF. The post captures her surprise that Linux scanning turned out to be straightforward rather than the nightmare she expected.",
+  "key_points": [
+    "scanimage is a command line scanning tool in the sane-utils Debian package that uses the SANE libraries",
+    "Each scanner has different options discoverable via --help, including duplex scanning and resolution settings",
+    "scanimage doesn't output PDFs directly, but a simple 5-line shell script combining scanimage and convert solves this",
+    "Linux printer/scanner support has a reputation for difficulty but scanimage worked with minimal friction"
+  ],
+  "money_quotes": [
+    "I always expect using printers/scanners on Linux to be a nightmare and I was really surprised how scanimage Just Worked.",
+    "At first I couldn't get this to work and I was a bit frustrated but it turned out that I'd connected the scanner to my computer, but not plugged it into the wall. Oops.",
+    "I started by using gscan2pdf and had trouble figuring out the user interface \u2013 I wanted to scan both sides of the page at the same time but couldn't get it to work.",
+    "I think all Linux scanning tools use the sane libraries (\"scanner access now easy\") so my guess is that it has similar abilities to any other scanning software.",
+    "I could just run my script with scan-single-sided receipts.pdf and it would scan a document and save it to receipts.pdf!"
+  ],
+  "themes": [
+    "linux",
+    "terminals",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Command line tools like scanimage can be simpler and more effective than GUI alternatives for tasks like scanning, turning a dreaded Linux hardware interaction into a quick shell script.",
+  "filename": "2020-07-11-scanimage--scan-from-the-command-line"
+}

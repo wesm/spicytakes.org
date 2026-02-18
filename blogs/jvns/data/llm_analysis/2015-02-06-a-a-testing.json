@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explains A/A testing, a technique she learned at a Data Science meetup from an Airbnb talk about common experimentation mistakes. The concept involves comparing two control groups (instead of a treatment and control) to gauge how much natural variation exists in your data. By seeing how much difference appears between two identical groups, you can get an intuitive sense of whether your experimental results are meaningful or just noise. She walks through a widget store example showing how a promising 2% sales increase looks less impressive when the control-vs-control comparison shows similar variation. The technique is formally called A/A/B testing when combined with an experimental group.",
+  "key_points": [
+    "A/A testing compares two control groups to reveal how much random variation naturally exists in your experiment's metrics",
+    "If the variation between two control groups is as large as your experimental effect, your results are likely just noise",
+    "A/A testing provides an intuitive sanity check for experimental significance without requiring a formal statistical model",
+    "The formal version with an experimental group included is called A/A/B testing"
+  ],
+  "money_quotes": [
+    "I'd never heard of A/A testing before, didn't really understand what she meant at the time, and didn't manage to ask. (pro tip: ask questions when you have them :))",
+    "I now think a) that I get it and b) it's really simple and c) that it's SUPER COOL AND MAYBE USEFUL TO ME.",
+    "But let's say you want to get a rough sense for whether or not your results might be significant without doing statistics.",
+    "The idea here is to compare two sets of users in the same experimental group and see how high the variation is.",
+    "Suddenly, the group we're experimenting on doesn't look so good anymore. It looks like any difference is likely to be just because of random noise.",
+    "I like this because it seems like it can give you a rough sense for how significant your results are without having to decide on a statistical model.",
+    "A question like \"if we compare two groups of this size with the same characteristics, do we naturally see a lot of variation?\" is a great smoke test."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, pedagogical",
+  "key_insight": "Comparing two control groups against each other reveals the natural noise level in your data, giving you an intuitive baseline to judge whether your experimental results are real or just random variation.",
+  "filename": "2015-02-06-a-a-testing"
+}

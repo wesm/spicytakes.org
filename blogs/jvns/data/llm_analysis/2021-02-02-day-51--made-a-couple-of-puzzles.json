@@ -1,0 +1,24 @@
+{
+  "summary": "Julia describes consolidating her server's scattered logging setup\u2014Rails, a Go proxy, and a Firecracker manager were each logging to different places. She unified them through journald and Docker Compose configuration, then wrote a small bash helper to query logs easily. She also created two beginner strace puzzles for her teaching project, both centered on discovering where programs write their output.",
+  "key_points": [
+    "Having logs scattered across multiple systems (files, Docker defaults, journald) creates confusion and makes debugging harder",
+    "Docker Compose can be configured to use journald as its logging driver, enabling unified log viewing",
+    "Simple shell functions can smooth over the rough edges of tools like journalctl",
+    "Strace puzzles that involve finding where programs write output are effective beginner exercises for learning system tracing"
+  ],
+  "money_quotes": [
+    "This was very annoying because I was constantly confused about where to look for logs and it was impossible to see everything in one place.",
+    "Use strace to find out what it's writing.",
+    "It's logging its output to a log file, but you can't find the name of the log file ANYWHERE in its documentation!",
+    "These aren't particularly good yet, probably because I spent maybe 5 minutes writing them.",
+    "Lots of work to do on this front, but I'll probably do most of it after RC is over."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "casual",
+  "key_insight": "Centralizing logs into a single system like journald eliminates the cognitive overhead of remembering where to look when debugging, and strace is a natural teaching tool for understanding program I/O.",
+  "filename": "2021-02-02-day-51--made-a-couple-of-puzzles"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents her first attempt at writing a TCP stack in Python using scapy. She gets a TCP three-way handshake working but runs into a problem: her own machine's existing network stack sends RST packets in response to unexpected SYN-ACK replies. She solves this by using a fake IP address and ARP broadcasting to bypass her OS's interference. The post captures the messy, iterative reality of learning networking by building things from scratch.",
+  "key_points": [
+    "Writing a TCP stack from userspace conflicts with the OS's own network stack, which resets connections it didn't initiate",
+    "Using a fake IP address with ARP spoofing is a clever workaround to prevent the kernel from interfering with raw packet experiments",
+    "The TCP three-way handshake (SYN, SYN-ACK, ACK) can be implemented in surprisingly few lines of Python with scapy",
+    "Reading historical source code like the 4.4BSD network stack provides valuable context for understanding networking internals"
+  ],
+  "money_quotes": [
+    "Today I started trying to write a TCP stack. In Python. We will see if this is a good idea.",
+    "I already have a network stack on my machine, and it was like \"what's this SYN-ACK packet? I didn't ask for this!\". So it would just reset the connection.",
+    "I think I could also use iptables here to tell the kernel to ignore those packets. But I'm currently afraid of iptables.",
+    "Upon inspecting Wireshark, it turned out that *my* machine was the problem: it was sending out a RST (reset) packet after I got a SYN-ACK packet back from Google.",
+    "That is my small amount of code for the day."
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning"
+  ],
+  "tone": "curious, playful, self-deprecating",
+  "key_insight": "Building a TCP stack from userspace forces you to confront the reality that your OS already has one, and it will fight you for control of the network unless you find creative workarounds.",
+  "filename": "2013-11-05-day-21-trying-to-tcp"
+}

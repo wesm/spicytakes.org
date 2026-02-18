@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans shares her excitement about writing her first Linux kernel module during Hacker School. The module uses the Netfilter framework to intercept incoming packets and print 'Hello packet' to the kernel log. While it doesn't do anything useful, the exercise taught her fundamental differences between kernel-space and user-space programming, like the inability to use glibc functions. She shares resources for others interested in kernel module development.",
+  "key_points": [
+    "Writing a basic kernel module that hooks into Netfilter to log incoming packets is surprisingly accessible",
+    "Kernel code can't use glibc functions like malloc \u2014 the kernel has its own memory allocation with kmalloc and vmalloc",
+    "Building a firewall that blocks all traffic is trivially easy once you have a Netfilter hook \u2014 just change NF_ACCEPT to NF_DROP",
+    "kernelnewbies.org is highlighted as a valuable resource for learning kernel development"
+  ],
+  "money_quotes": [
+    "I WROTE A KERNEL MODULE. It doesn't do anything useful or anything, but still!",
+    "You can't use malloc inside the kernel (?!!?). This is because anything that's used in the kernel needs to be defined in the kernel, and malloc is in glibc.",
+    "This seems obvious in retrospect, but kind of blew my mind",
+    "It is really easy to write a firewall that doesn't let any packets in or out \u2013 just replace NF_ACCEPT with NF_DROP in my kernel module.",
+    "I think I'm going to work on writing a rootkit tomorrow. eee."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Kernel module development is more accessible than it seems, and even a simple packet-intercepting module reveals fundamental differences between kernel-space and user-space programming.",
+  "filename": "2013-10-07-day-5-i-wrote-a-kernel-module"
+}

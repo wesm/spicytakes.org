@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans writes a comprehensive guide to adding a directory to your PATH, a task that seems obvious to experienced terminal users but has many undocumented gotchas. She walks through identifying your shell, finding the correct config file, determining which directory to add, and restarting the shell. The post also covers common problems like running the wrong program version, duplicate PATH entries, and losing shell history when reloading config. She includes shell-specific syntax for bash, zsh, and fish, and discusses tools like cargo and Homebrew that use source scripts instead of explicit PATH additions.",
+  "key_points": [
+    "Bash has three possible config files (~/.bashrc, ~/.bash_profile, ~/.profile), and the simplest way to figure out which one your system uses is to test empirically rather than memorize flowcharts",
+    "Finding which directory to add is often the hardest part \u2014 installers print PATH directions during setup that are easy to miss, and there's no universal way to discover where tools install binaries",
+    "Adding directories to the beginning vs. end of PATH matters when multiple versions of a program are installed, since the shell uses the first match",
+    "PATH modifications only apply to programs run from your shell \u2014 cron jobs, IDEs, and GUIs require different approaches",
+    "Running 'bash' to reload config can cause duplicate PATH entries and lost command history, making 'source ~/.bashrc' a better alternative"
+  ],
+  "money_quotes": [
+    "It's something that feels 'obvious' to me since I've been using the terminal for a long time, but when I searched for instructions for how to do it, I actually couldn't find something that explained all of the steps.",
+    "There are a lot of elaborate flow charts out there that explain how bash decides which config file to use but IMO it's not worth it to internalize them and just testing is the fastest way to be sure.",
+    "How do you find what directory http-server is in? Honestly in general this is not that easy \u2013 often the answer is something like 'it depends on how npm is configured'.",
+    "An extremely important step: updating your shell's config won't take effect if you don't restart it!",
+    "Personally I usually use the second approach because I prefer knowing exactly what configuration I'm changing.",
+    "Sometimes fish_add_path will update the PATH for every session in the future (with a 'universal variable') and sometimes it will update the PATH just for the current session and it's hard for me to tell which one it will do."
+  ],
+  "themes": [
+    "terminals",
+    "learning"
+  ],
+  "tone": "practical, thorough, empathetic",
+  "key_insight": "Adding a directory to your PATH involves multiple shell-specific decisions and subtle gotchas that are rarely documented in one place, making a seemingly simple task genuinely confusing for newcomers.",
+  "filename": "2025-02-13-how-to-add-a-directory-to-your-path"
+}

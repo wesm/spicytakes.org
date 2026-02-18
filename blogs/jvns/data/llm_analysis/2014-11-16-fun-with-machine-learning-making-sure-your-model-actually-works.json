@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans previews a talk she's preparing for PyData NYC about the practical challenges of evaluating machine learning models over time. She argues that the hardest part of machine learning isn't training models with scikit-learn, but answering 'how well does it work?' She references Cathy O'Neil's critiques of supposedly objective models to emphasize that measurement itself is fraught. The post introduces ROC curves and confusion matrices as evaluation tools, but pivots to her real interest: tracking model performance historically and designing systems that let you compare results across months and tools.",
+  "key_points": [
+    "Training ML models is easy with modern tools; evaluating whether they actually work is the hard part",
+    "You can't trust a model if you can't define and measure success, especially when the model affects people's lives",
+    "ROC curves show the tradeoffs between true positives and false positives, and are a practical evaluation tool",
+    "The deeper challenge is building systems to track model performance over time so you can tell if things are improving",
+    "Practical concerns like changing metrics, multiple tools, and ease of use make historical evaluation surprisingly hard"
+  ],
+  "money_quotes": [
+    "I often feel like the only thing I've ever learned about machine learning is how important it is to be able to answer this question, and how hard it is.",
+    "We should never trust a so-called 'objective mathematical model' when we can't even decide on a definition of success.",
+    "If your model is actually doing something important (deciding whether teachers should lose their jobs, or how risky a stock portfolio is, or what the weather will be tomorrow), you have to measure if it's working.",
+    "There's no fixed answer to how to do this \u2013 if it were easy, statisticians wouldn't have jobs.",
+    "I've seen a lot of 'training a model with scikit-learn for beginners' talks. They are not the talk I'm going to give.",
+    "But honestly how to use scikit-learn is not something I struggle with, and I wanted to talk about something harder."
+  ],
+  "themes": [
+    "learning",
+    "career"
+  ],
+  "tone": "reflective, practical, honest",
+  "key_insight": "The real challenge in machine learning isn't building models but designing systems to rigorously measure whether those models actually work, and tracking that over time.",
+  "filename": "2014-11-16-fun-with-machine-learning-making-sure-your-model-actually-works"
+}

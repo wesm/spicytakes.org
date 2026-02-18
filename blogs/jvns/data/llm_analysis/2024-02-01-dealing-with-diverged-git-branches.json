@@ -1,0 +1,24 @@
+{
+  "summary": "The post explains what it means for local and remote git branches to diverge, how to recognize the situation, and what to do about it. Evans walks through the four possible states of local vs remote branches and focuses on the diverged case. She shows three ways to detect divergence (git status, git push errors, git pull errors) and notes that git's error messages can be confusing for newcomers. She then presents three main resolution strategies: rebasing to keep both sets of changes, force-pushing to overwrite remote changes, or hard resetting to overwrite local changes. The key message is that there's no single best solution\u2014it depends on your workflow and why the divergence happened.",
+  "key_points": [
+    "Git's error messages for diverged branches are intimidating and don't clearly explain what's happening, making the problem harder than it needs to be",
+    "There are exactly four states for local vs remote branches (up to date, local behind, remote behind, diverged) and understanding this model makes the problem tractable",
+    "The three main solutions map to three situations: keep both changes (rebase), overwrite remote (force push), or overwrite local (hard reset)",
+    "Force-with-lease is recommended as a safer alternative to force push, but it's not foolproof\u2014VSCode's autofetch feature can undermine it",
+    "When you accidentally committed to main, the pattern of branching first then resetting is a safe way to preserve work while fixing the divergence"
+  ],
+  "money_quotes": [
+    "If you're not used to interpreting git's error messages, it's nontrivial to even realize that your main has diverged from the remote main.",
+    "There's no \"best\" way to resolve branches that have diverged \u2013 it really depends on your workflow for git and why the situation is happening.",
+    "I'd rather be warned \"hey, these branches have diverged, how do you want to handle it?\" and decide for myself if I want to rebase or not.",
+    "As always git reset --hard is a dangerous action and you can permanently lose your uncommitted work.",
+    "I'd never really thought about how confusing the git push and git pull error messages can be if you're not used to reading them."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "practical",
+  "key_insight": "Diverged branches aren't a single problem with a single fix\u2014recognizing which of three situations you're in (keep both, overwrite remote, or overwrite local) determines the right resolution strategy.",
+  "filename": "2024-02-01-dealing-with-diverged-git-branches"
+}

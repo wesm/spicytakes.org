@@ -1,0 +1,24 @@
+{
+  "summary": "Julia describes a day spent debugging her OS's interrupt descriptor table by switching the implementation from assembly to Rust. She found two bugs\u2014an operator precedence error and a wrong function name\u2014by using GDB to compare memory contents between working and non-working code. Despite taking all day, the debugging felt manageable thanks to GDB's memory examination tools. The fix lets her set up interrupt handlers in Rust, moving her closer to being able to run programs on her OS.",
+  "key_points": [
+    "Operator precedence bugs (like `1 << 16 - 1` vs `(1 << 16) - 1`) can be subtle and hard to spot without examining actual memory contents",
+    "GDB's memory examination commands (`x/`) make it straightforward to compare expected vs actual memory layouts for debugging low-level code",
+    "Replacing assembly with a higher-level language like Rust reduces liability when you don't fully understand the lower-level language",
+    "Debugging can feel manageable even when it takes all day, as long as you have the right tools and a systematic approach"
+  ],
+  "money_quotes": [
+    "This actually ended up being really easy to debug! \"Really easy\" as in \"it took all day, but I did not feel like hiding under the table at any point\".",
+    "Comparing sections of memory and figuring out why they're wrong is tedious, but pretty straightforward \u2013 I had a good handle on what all my code was doing.",
+    "I don't really know assembly and the less of it I have in my OS, the less of a liability it is.",
+    "gdb isn't totally the best interface \u2013 I can certainly imagine having better ones. But it is Very Useful.",
+    "These are pretty awesome superpowers already, and I'm sure there are tons more."
+  ],
+  "themes": [
+    "debugging",
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, reflective",
+  "key_insight": "GDB's ability to examine and compare raw memory contents makes debugging low-level OS code systematic rather than terrifying, even when bugs take all day to find.",
+  "filename": "2013-12-17-day-44-gdb-is-great"
+}

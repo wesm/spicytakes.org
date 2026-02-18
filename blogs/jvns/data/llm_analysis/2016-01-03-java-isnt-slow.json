@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans challenges the common misconception that Java is inherently slow, arguing that the language itself is capable of extremely high performance. She points to examples like the LMAX Disruptor processing 6 million events per second and databases like Cassandra written in Java. She acknowledges her own Java code was slow due to excessive object allocation and garbage collection pressure, not the language itself. The post highlights a thriving ecosystem of high-performance Java libraries and recommends VisualVM as a free, easy first step to profiling slow JVM code.",
+  "key_points": [
+    "Java's performance is comparable to C for many workloads \u2014 the language isn't slow, but naive code patterns like excessive object allocation are",
+    "There's a meaningful performance gap between Java and interpreted languages like Python/Ruby, with Java capable of millions of operations per second",
+    "A rich ecosystem of high-performance Java libraries exists (LMAX Disruptor, Netty, HikariCP, Chronicle) proving Java's performance credentials",
+    "The JVM ships with VisualVM, a free profiler that's an accessible first step to finding and fixing performance bottlenecks",
+    "Understanding that your tools are capable of high performance should raise your expectations for what your code can achieve"
+  ],
+  "money_quotes": [
+    "I used to write Java at work, and my Java programs were really slow. I thought (and people sometimes told me) that this was because Java is a slow programming language.",
+    "Java is fast like C is fast (really fast). People write databases (Cassandra) in Java!",
+    "So if your Java code is doing something easier than processing 6 million events a second, and it's slow, you can maybe make it faster!",
+    "I find it inspiring to think about when I'm having trouble processing like.. 10 things per second :)",
+    "My Java code was probably slow because I was creating like a bajillion objects all the time, and destroying them, and doing a bajillion allocations takes time.",
+    "Did you know the JVM ships with a free profiler that can tell you which part of your code is the slowest?",
+    "Computers are fast, and you should expect a lot out of your computer programs."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, encouraging, practical",
+  "key_insight": "Java isn't a slow language \u2014 slow Java code is usually caused by patterns like excessive object allocation, and profiling with free tools like VisualVM is the first step to fixing it.",
+  "filename": "2016-01-03-java-isnt-slow"
+}

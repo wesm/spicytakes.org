@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans recounts her first day at Hacker School, where she paired with another student to build a shell in C. They encountered a subtle bug where a local array allocated on the stack was accessed after the function returned, causing corrupted output. The post walks through a minimal code example showing how a pointer to stack-allocated data becomes invalid once the function scope ends. Evans expresses excitement about encountering low-level bugs that would be impossible in higher-level languages like Python.",
+  "key_points": [
+    "Local arrays in C are allocated on the stack and become invalid after the function returns, leading to dangling pointer bugs",
+    "The bug manifested as correct output on the first print but garbage on the second, because an intervening variable declaration overwrote the stack memory",
+    "This class of bug is impossible in garbage-collected languages like Python, making it a novel learning experience",
+    "Pairing with another programmer was an effective way to debug and learn C fundamentals"
+  ],
+  "money_quotes": [
+    "So this looks like normal code that would print 'banana' twice.",
+    "the pointer in strings points to the stack and when you do something like setting a variable, it becomes something weird.",
+    "It's sort of exciting to get bugs that are (as far as I know) totally impossible in Python."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Returning a pointer to stack-allocated data in C creates a dangling pointer that silently corrupts when the stack is reused, a class of bug that simply cannot exist in memory-managed languages.",
+  "filename": "2013-09-30-hacker-school-day-1-messing-around-with-the-stack-in-c"
+}

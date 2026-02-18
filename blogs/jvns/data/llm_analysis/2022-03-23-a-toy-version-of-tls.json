@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans documents her experience implementing a toy version of TLS 1.3 in Go, motivated by her habit of learning networking protocols by building working implementations. She dramatically simplifies the task by only supporting one cipher suite, skipping certificate verification, and targeting a single website (her own blog). Using the invaluable resource tls13.ulfheim.net, she walks through each step: the client/server hello exchange, elliptic curve Diffie-Hellman key exchange, the surprisingly complex key derivation process, authenticated encryption with AES-GCM, and finally downloading her blog's homepage. The project reinforced her belief that you should never roll your own crypto while giving her concrete understanding of TLS internals.",
+  "key_points": [
+    "TLS 1.3 involves at least 4 different symmetric keys (client/server handshake and application keys), and the key derivation process using HKDF is surprisingly complex",
+    "Elliptic curve Diffie-Hellman with Curve25519 is elegantly simple to use \u2014 any random 32-byte string works as a private key, and generating a public key is just one multiplication",
+    "TLS data is transmitted in blocks rather than as a continuous stream, with each block requiring a different initialization vector derived by XORing with the message count",
+    "You don't technically need to parse or verify the server's certificate to establish a TLS connection, though you obviously should",
+    "Unit tests using known-good example data from tls13.ulfheim.net made the implementation roughly 10 times easier by catching parsing and crypto errors quickly"
+  ],
+  "money_quotes": [
+    "I already 100% believed that I should not invent my own crypto implementations, and seeing how the crypto in TLS 1.3 works gave me even more of an appreciation for why I shouldn't.",
+    "I can't stress enough how helpful this was, I looked at probably more than a hundred times and I only looked at the TLS 1.3 RFC for a few small things.",
+    "I was surprised to learn that there are at least 4 different symmetric keys involved in TLS.",
+    "I was surprised that you don't technically need to look at the server's certificate at all to make a TLS connection (though obviously you should verify it!).",
+    "I previously thought that once you established the connection, encrypted TLS data was just a stream. But that's not how it works \u2013 instead, it's transmitted in blocks.",
+    "Every time I write networking code like this, I forget that unit testing is good, and I thrash around with a bunch of parsing / formatting code that does not work.",
+    "My code truly is terrible, it can connect to my site (jvns.ca) and I think literally no other sites.",
+    "I won't pretend to understand all the reasons TLS is designed this way, but it was a fun way to spend a couple of days."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, self-deprecating",
+  "key_insight": "Implementing a deliberately simplified toy version of a real protocol like TLS 1.3 reveals surprising complexity in key derivation and encryption layering that you'd never appreciate from reading documentation alone.",
+  "filename": "2022-03-23-a-toy-version-of-tls"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans documents her deep dive into how linkers work, motivated by a linker bug in her kernel project. She summarizes the first 11 parts of Ian Lance Taylor's 20-part series on linkers, covering core concepts like relocations, ELF sections and segments, shared libraries, position-independent code, thread local storage, and symbol versioning. Throughout, she uses hands-on exploration with tools like objdump and readelf to make abstract concepts concrete. The post serves as both personal reference notes and an accessible introduction to linker internals.",
+  "key_points": [
+    "Linkers fundamentally don't care about your code's semantics - they just combine bytes and make address replacements, making 'cat' a reasonable performance benchmark",
+    "Position-independent code trades runtime speed for faster library loading, using the Global Offset Table (GOT) for variables and Procedure Lookup Table (PLT) for functions",
+    "ELF segments are collections of sections that the OS actually uses to run programs - sections like .text and .data are separated into different segments based on read/write/execute permissions",
+    "Linkers are architecture-dependent because different CPU architectures generate different relocation patterns for the same C code",
+    "Symbol versioning in ELF allows multiple versions of the same symbol to coexist, enabling backward compatibility when function signatures change"
+  ],
+  "money_quotes": [
+    "Linkers don't care about your functions and variables! They're just bytes.",
+    "A benchmark you could compare a linker to is cat, because it's just combining the bytes together, and making some replacements along the way.",
+    "The compiler and linker will do a bunch of stuff so that every thread has its own copy of the variable.",
+    "Apparently the operating system doesn't use the sections at all to run programs, just the segments.",
+    "This indicates the address and size of the segment table. This is not too useful in practice as you have to have already found the segment table before you can find this segment.",
+    "Could you abuse this to have polymorphism in object files without doing name mangling?",
+    "I had no idea this was a thing the linker did. Linkers are crazy."
+  ],
+  "themes": [
+    "linux",
+    "learning",
+    "debugging"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Linkers are surprisingly complex systems that handle relocations, position independence, thread-local storage, and symbol versioning \u2014 but at their core they're just combining bytes and filling in addresses.",
+  "filename": "2013-12-10-day-40-learning-about-linkers"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans shares progress on her TCP stack implementation, describing a key insight from TCP/IP Illustrated: that every TCP packet except the initial SYN can have the ACK flag set. This realization significantly simplified her packet-sending code. She's taking a correctness-first approach by ACKing every received packet, and has started thinking about implementing bind() for server-side TCP, which turns out to be surprisingly complex. She also celebrates how tests enabled a major refactoring.",
+  "key_points": [
+    "Every TCP packet except the initial SYN can have the ACK flag set, which dramatically simplifies packet construction code",
+    "A correctness-first approach (ACKing every packet) is a valid strategy even if it's not efficient",
+    "The bind() syscall is deceptively complex\u2014it must manage multiple connections and queuing simultaneously",
+    "Tests enabled a confident large-scale refactoring of the TCP stack code"
+  ],
+  "money_quotes": [
+    "I realized I can construct basically every packet the same way, except for the flags and the payload.",
+    "Right now the way I'm handling ACKs is basically to send an ACK for every packet I receive. This isn't really efficient... But it is not incorrect, which is all that I'm going for.",
+    "Seriously I did not ever think about how bind() works before. It has to manage multiple connections! And keep a queue!",
+    "What am I supposed to do when people send me packets all at once? Just ignore them until I have time? I don't get it.",
+    "The code still works, because tests. =D"
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "A correctness-first approach\u2014doing the simple, technically valid thing before optimizing\u2014is a powerful strategy when building complex protocol implementations from scratch.",
+  "filename": "2013-11-12-day-25-ack-all-the-things"
+}

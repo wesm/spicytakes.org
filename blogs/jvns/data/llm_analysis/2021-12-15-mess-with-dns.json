@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans announces Mess With DNS, an interactive educational tool that gives users a real subdomain and DNS server to experiment with. The tool addresses three barriers to learning DNS: lack of a safe domain to test with, invisible behind-the-scenes queries, and not knowing what experiments to try. She details the design process, including user testing that significantly improved the UI, and the backend implementation in Go with a custom authoritative DNS server, websocket-based live streaming, and pragmatic security decisions. The post is a thorough technical walkthrough that doubles as a reflection on building educational tools.",
+  "key_points": [
+    "DNS is hard to learn because queries are invisible, people lack safe test domains, and they don't know what experiments would be revealing",
+    "User testing with just 5 people produced massive improvements to the sidebar, terminology, and instructions \u2014 proving that observing real users is far more valuable than guessing",
+    "The backend uses Go channels for pub/sub instead of external services, deliberately trading distributed systems complexity for simpler architecture at the cost of latency",
+    "The DNS server intentionally doesn't follow RFCs strictly, taking a pragmatic approach that prioritizes educational value over spec compliance",
+    "Design is fundamentally about how things work, not how they look \u2014 functionality and clarity matter more than aesthetics"
+  ],
+  "money_quotes": [
+    "I like to learn in a very hands-on way. And so when I write a zine, I often close the zine by saying something like '\u2026 and the best way to learn more about this is to play around and experiment!'.",
+    "Instead of viewing these as frustrating, I thought \u2013 I'll make these into an interesting experiment with no consequences, that people can learn from!",
+    "One of the basic facts about DNS is that people don't have a consistent experience of it. So I think it's better to just be honest about that reality.",
+    "I used to think that design is about how things look \u2013 that websites should look nice. But every time I talk to someone who's better at design than me, the first question they always ask instead is 'okay, how should this work?'.",
+    "Usually my testing strategy for Javascript is 'write a bunch of terrible untested code, manually test it, hope for the best'.",
+    "And this means I don't need to deal with any distributed systems, which is amazing. Distributed systems are very annoying.",
+    "I spent a few minutes trying to read the IETF draft about what HTTPS queries are and I couldn't really understand it so I gave up."
+  ],
+  "themes": [
+    "dns",
+    "learning",
+    "networking"
+  ],
+  "tone": "enthusiastic, transparent, pragmatic",
+  "key_insight": "The best way to make a complex system like DNS learnable is to give people a safe, real environment to break things in, with visibility into what's happening behind the scenes.",
+  "filename": "2021-12-15-mess-with-dns"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Evans recaps a netdev conference tutorial on building a DDoS prevention filter using eBPF and XDP. The tutorial walked through a complete working example: an XDP program running in the kernel that filters packets by IP address, a userspace command-line tool for managing the blacklist, and per-CPU counters tracking blocked packets. She explains the key concepts\u2014eBPF as a kernel virtual machine without loops, XDP as an early-stage packet filter running at the network driver level, and BPF maps as the communication mechanism between kernel and userspace. The XDP approach achieved 9.7 million packets/second compared to iptables' 4.5 million, demonstrating both the performance and flexibility advantages.",
+  "key_points": [
+    "XDP programs run at the network driver level before normal kernel networking, making them extremely fast for packet filtering\u2014more than twice as fast as iptables in their benchmark",
+    "eBPF programs interact with userspace through key-value maps, and the BPF map files in sysfs mean the command-line tool doesn't need root access",
+    "The kernel performs static analysis on eBPF code to verify bounds checking and memory safety before allowing it to run, rejecting programs that could access data they shouldn't",
+    "The entire XDP packet-parsing and filtering program is only 270 lines of C, partly because kernel data structures like ethernet headers can be reused directly",
+    "eBPF's lack of loops guarantees bounded execution time, which also makes programs easier to understand and reason about"
+  ],
+  "money_quotes": [
+    "eBPF is a virtual machine in the kernel.",
+    "eBPF doesn't have loops, so every eBPF program will finish within some bounded execution time.",
+    "In particular eBPF isn't turing complete :) :)",
+    "If you don't do your bounds checking properly, the kernel will reject your code.",
+    "This whole program that parses the packet, finds the IP address in the IP header, looks it up in the BPF map, and returns is only 270 lines of C! That seems really reasonable!!",
+    "It's just an ELF file, it's not magic.",
+    "This XDP program really was more than twice as fast as iptables!",
+    "This made the idea of writing eBPF programs to make my kernel filter packets seem WAY more concrete/feasible."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, technical",
+  "key_insight": "XDP and eBPF make custom kernel-level packet filtering both fast and accessible, with a complete DDoS filter implementable in just 270 lines of C that outperforms iptables by more than 2x.",
+  "filename": "2017-04-07-xdp-bpf-tutorial"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans shares her learning experience about clock skew in distributed systems, prompted by reading the debate between Martin Kleppmann and antirez about Redis's Redlock distributed locking system. She walks through Kleppmann's arguments about why distributed locks can fail\u2014process pauses, network delays, and unreliable clocks\u2014and admits she initially found clock skew hard to believe since she'd never personally encountered it. After asking distributed systems experts on Twitter, she learned that clocks running at wrong speeds is a real and well-documented problem, not just a theoretical concern.",
+  "key_points": [
+    "The Redlock debate between Kleppmann and antirez illustrates fundamental challenges in distributed locking: process pauses, network delays, and clock unreliability",
+    "Clock skew\u2014where a computer's clock runs at the wrong speed\u2014is a real operational problem, not just a theoretical edge case for researchers",
+    "Distributed systems researchers worry about uncommon failures because they're proving theorems and operating at massive scale where every possible failure will occur",
+    "Google invested heavily in their Spanner system specifically because knowing the correct time at scale is genuinely difficult",
+    "Reasoning through distributed systems debates yourself, even as a non-expert, is a valuable learning exercise"
+  ],
+  "money_quotes": [
+    "These are very interesting to read as a distributed systems n00b \u2013 the authors of the articles are making significantly different arguments, and so it's a useful exercise to try to reason through the arguments and figure out who you think is right.",
+    "Here's the thing \u2013 I haven't seen a lot of systems, but I've never seen a system with a clock running too fast.",
+    "They were basically both totally 'julia systems with clocks that go at bogus speeds totally exist. 2x clock skew is real'.",
+    "if you have 20 million computers everything that can go wrong with a computer will go wrong.",
+    "if you prove a theorem that your system is safe, then it'll be safe even if you have 20 million computers. Theorems are the best.",
+    "So my laptop's clock is probably mostly okay, but at Google scale I'd imagine you have computers with broken clocks all the time.",
+    "People I know have experienced it! It is not just a weird theoretical thing to give researchers jobs. Huh."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious",
+  "key_insight": "Clock skew is a real operational problem in distributed systems, not just a theoretical edge case, and reasoning through expert debates is a valuable way to build understanding of distributed systems challenges.",
+  "filename": "2016-02-09-til-clock-skew-exists"
+}

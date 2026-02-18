@@ -1,0 +1,29 @@
+{
+  "summary": "Julia Evans introduces tc (traffic control), a Linux tool for deliberately adding network latency to test how applications behave under slow conditions. She demonstrates adding 500ms delay to her laptop's wireless interface and discovers something surprising: HTTPS pages degraded far less than HTTP pages under high latency, because HTTP/2 (which requires HTTPS) enables parallel requests. She also notes tc's usefulness for testing server behavior, such as observing how a DNS client handles a slow DNS server, while warning about the side effects of slowing down all packets on a machine you're SSHed into.",
+  "key_points": [
+    "tc (traffic control) is a simple Linux command that can add artificial latency to all outgoing packets on a network interface",
+    "Under 500ms added latency, HTTP page loads degraded 10x while HTTPS/HTTP2 loads degraded far less, demonstrating HTTP/2's parallel request advantage",
+    "TLS connection reuse dramatically reduces latency impact \u2014 an HTTPS page loaded in 1.1s with a reused connection vs 5s with a fresh one, compared to 33s for HTTP",
+    "tc is useful for testing how services handle network latency in controlled environments, like observing DNS client timeout behavior",
+    "Adding latency to all packets on a remote machine also affects your SSH connection, which is an easy gotcha to forget"
+  ],
+  "money_quotes": [
+    "This week I learned how to make my internet slower on purpose!",
+    "That's weird, right? The HTTP version got 10x slower, but the https version didn't slow down as much.",
+    "HTTP/2 lets you do a lot more requests in parallel, so you're not slowed down as much.",
+    "I might conceivably wait 5 seconds for a page to load but I feel like I'd get too bored in 30 seconds.",
+    "So it's really neat to see that HTTPS and HTTP/2 are really possibly making things faster for people with high latency!",
+    "You probably don't want to add a delay to every packet on a machine in production, you might have a bad day.",
+    "If you add a delay to every packet on a machine you're SSHed into, your SSH connection is also sending packets, so your SSH connection also gets slow.",
+    "I think it's cool that you can pretend to be on a machine that is Really Far Away by just running one command on your laptop!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, hands-on",
+  "key_insight": "Deliberately adding network latency with tc reveals that HTTPS with HTTP/2 handles high-latency conditions dramatically better than plain HTTP, making a compelling performance case for HTTPS adoption.",
+  "filename": "2017-04-01-slow-down-your-internet-with-tc"
+}

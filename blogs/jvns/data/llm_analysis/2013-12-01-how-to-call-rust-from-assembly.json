@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explains the mechanics of calling Rust functions from assembly and vice versa, as part of her project building a kernel in Rust. She walks through the key concepts: calling conventions, object files, symbols, and linkers. The post demonstrates how the `extern` keyword works in both assembly (NASM) and Rust to declare functions defined elsewhere. She shows how a linker script combines the object files into a single binary by matching symbol tables. The post demystifies linker errors by explaining they simply mean a symbol wasn't found in any linked object file, and shows how to inspect symbol tables with `objdump`.",
+  "key_points": [
+    "A function call is fundamentally just jumping to a memory address with arguments on the stack/registers \u2014 the code doesn't care if that address comes from Rust, C, or assembly",
+    "Both assembly (NASM) and Rust use the `extern` keyword to declare functions defined in other object files, though Rust requires type annotations",
+    "The linker combines object files by matching symbol names across their symbol tables, and linker errors just mean a declared symbol wasn't found",
+    "You can inspect object file symbol tables with `objdump -t` to see which symbols are defined and which are undefined"
+  ],
+  "money_quotes": [
+    "As far as I understand it, a function call is just jumping to an address in memory and putting some stuff on the stack and in registers, and the code doesn't care at all if that address in memory comes from Rust or C or assembly or what.",
+    "This is like a function declaration in C, except without the types.",
+    "I haven't tested this yet so there's probably something wrong with it. But it compiles.",
+    "But this kind of linker error isn't scary any more! It just means that _interrupt_handler_kbd_wrapper isn't in the symbol table of any of the other object files we're linking.",
+    "We have no idea what the function could be doing, so it's unsafe.",
+    "Disclaimer: even more than usual, some of this is probably wrong."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, humble",
+  "key_insight": "Cross-language function calls between Rust and assembly are demystified once you understand that linkers simply match symbol names across object files, regardless of the source language.",
+  "filename": "2013-12-01-how-to-call-rust-from-assembly"
+}

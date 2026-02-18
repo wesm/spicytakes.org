@@ -1,0 +1,27 @@
+{
+  "summary": "Evans explores what actually happens at the byte level when you press keys in a terminal, using a browser-based terminal (xterm.js with goterm) to log bytes sent and received over a websocket. She demonstrates that the client is essentially 'dumb' \u2014 it sends raw keystrokes and relies on the server to echo them back. She maps out how Ctrl combinations, special keys, and escape sequences are encoded as bytes, revealing that Alt is literally the same as Escape, and Ctrl+letter simply maps to that letter's position in the alphabet. The post explains how ANSI escape sequences control terminal display, originating from the VT100 era. She acknowledges the encoding scheme is weird by modern standards but exists for decades of backwards compatibility.",
+  "key_points": [
+    "Terminal clients are 'dumb' \u2014 they send keystrokes and must be told by the server what to display, even for simple character echoing",
+    "Ctrl+letter maps to the letter's position in the alphabet (Ctrl+a=1, Ctrl+c=3, etc.), and Ctrl+Shift does the same thing as Ctrl alone",
+    "Alt is functionally identical to Escape, which creates ambiguity that programs resolve with timeouts to distinguish escape sequences from the Escape key itself",
+    "ANSI escape sequences starting with \\x1b control terminal display (colors, cursor position, formatting) and originate from VT100 terminals in the 1970s-80s",
+    "Window resizing is handled differently from normal byte communication \u2014 it uses the ioctl system call with TIOCSWINSZ rather than sending bytes"
+  ],
+  "money_quotes": [
+    "when you press a key on your keyboard in a terminal (like Delete, or Escape, or a), which bytes get sent?",
+    "The client sends l and then immediately receives an l sent back. I guess the idea here is that the client is really dumb \u2013 it doesn't know that when I type an l, I want an l to be echoed back to the screen.",
+    "I thought this was really cool because I've always been a bit confused about how Ctrl+C works \u2013 it's good to know that it's just sending an \\x03 character.",
+    "the Linux kernel on the server side receives this \\x03 character, recognizes that it means \"interrupt\", and then sends a SIGINT to the process that owns the pseudoterminal's process group. So it's handled in the kernel and not in userspace.",
+    "Alt is literally the same as \"Escape\", except that pressing Alt by itself doesn't send any characters to the terminal and pressing Escape by itself does.",
+    "all of this was designed in the 70s or 80s or something and then needed to stay the same forever for backwards compatibility, so that's what we get :)",
+    "Escape codes are why your terminal can get messed up if you cat a bunch of binary to your screen \u2013 usually you'll end up accidentally printing a bunch of random escape codes which will mess up your terminal"
+  ],
+  "themes": [
+    "terminals",
+    "linux",
+    "learning"
+  ],
+  "tone": "curious, exploratory, technical",
+  "key_insight": "Terminal communication is fundamentally just bytes sent back and forth \u2014 keystrokes encoded as simple byte values and display instructions as escape sequences \u2014 a protocol largely unchanged since the 1970s VT100.",
+  "filename": "2022-07-20-pseudoterminals"
+}

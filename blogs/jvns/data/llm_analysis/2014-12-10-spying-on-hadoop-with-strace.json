@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans demonstrates how to use strace to observe the internal workings of Hadoop's distributed filesystem (HDFS). She sets up a small Hadoop cluster and traces the system calls made when reading a file, revealing the two-phase process: first contacting the namenode to get block locations, then connecting to datanodes to retrieve the actual data. She decodes the Protocol Buffer messages in the strace output and locates the physical block files on the datanode's filesystem. The post culminates in a live demo discovery where she directly edits a block file on the datanode and finds the changes reflected when reading through HDFS, revealing that checksums weren't enforced on reads.",
+  "key_points": [
+    "HDFS splits files into 128MB blocks distributed across datanodes, and strace reveals the exact sequence of network calls to locate and retrieve them",
+    "The client first contacts the namenode (port 8020) for block locations, then connects to individual datanodes (port 50010) to read data, and strace shows this protocol clearly",
+    "The raw strace output of Hadoop's Protocol Buffer messages can be decoded to reveal readable block IDs, pool IDs, and client names",
+    "Block data is stored as plain files on the datanode filesystem and can be found and even edited directly, with changes visible through HDFS when replication is set to 1"
+  ],
+  "money_quotes": [
+    "So when the people at Big Data Montreal asked if I wanted to give a talk about stracing Hadoop, the answer was YES OBVIOUSLY.",
+    "This sequence matches up exactly with the order of the blocks in the table up at the top! So fun.",
+    "And suddenly I thought\u2026 WAIT WHAT IF WE EDITED IT GUYS?!",
+    "And someone commented 'No, it won't work, there's metadata, the checksum will fail!'. So, of course, we tried it, because toy clusters are for breaking.",
+    "And it worked! Which wasn't perhaps super surprising because replication was set to 1 and maybe a 128MB file is too big to take a checksum of every time you want to read from it, but REALLY FUN.",
+    "live demos are GREAT",
+    "writing a blog is great because then people ask me to give talks about fun things I write about like stracing Hadoop"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Strace can demystify even complex distributed systems like Hadoop by revealing the actual network calls and data flow at the system call level, turning opaque infrastructure into something you can observe, understand, and even tamper with.",
+  "filename": "2014-12-10-spying-on-hadoop-with-strace"
+}

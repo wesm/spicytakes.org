@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans describes her experience discovering LD_PRELOAD at Hacker School with a fellow participant. She shows how surprisingly easy it is to override arbitrary function calls in dynamically linked programs by writing a tiny shared library and setting an environment variable. The post walks through a minimal example of replacing rand() to always return 42, then briefly explains the underlying mechanism of how dynamic linkers resolve function names. She also touches on the security implications, noting that LD_PRELOAD is useful for spying on program internals, and mentions defenses like static linking.",
+  "key_points": [
+    "LD_PRELOAD lets you override any function in a dynamically linked program with just a few lines of C and a single environment variable",
+    "The dynamic linker resolves function names at runtime, and LD_PRELOAD simply says 'look in me first' when searching for functions",
+    "You can call the original overridden function using dlsym, allowing transparent interception",
+    "Defenses include static linking or checking for the LD_PRELOAD variable, though even the latter can be circumvented via LD_PRELOAD itself"
+  ],
+  "money_quotes": [
+    "I'd been hearing for a while that you can override arbitrary function calls in a program using an environment variable called LD_PRELOAD. But I didn't realize how easy it was!",
+    "That is LITERALLY ALL THE CODE YOU HAVE TO WRITE.",
+    "LD_PRELOAD is an environment variable that says 'Whenever you look for a function name, look in me first!'",
+    "Somebody explained to me at some point that if you work for the NSA and you're trying to spy on what information a program is using internally, tools like LD_PRELOAD are VERY USEFUL.",
+    "the attacker could also LD_PRELOAD the function that lets you read environment variables\u2026"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "LD_PRELOAD is a powerful and surprisingly easy-to-use mechanism for overriding function calls in dynamically linked programs, requiring only a few lines of C code.",
+  "filename": "2014-11-27-ld-preload-is-super-fun-and-easy"
+}

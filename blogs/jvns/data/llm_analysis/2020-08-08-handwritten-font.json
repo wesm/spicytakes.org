@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans documents her experiment using OpenType font features to make her handwritten font look more like actual handwriting by introducing character variation. She used iFontMaker to create the original font, then learned from Tristan Hume's !!Con talk that OpenType rules can replace characters based on context. Using the fonttools Python library, she wrote about 33 lines of code to merge multiple handwriting fonts and apply substitution rules. While she found the process surprisingly easy and fun, she wasn't fully satisfied with the results, describing them as 'uncanny valley' \u2014 still obviously a font but with slightly more variation.",
+  "key_points": [
+    "iFontMaker lets you create a TTF font of your handwriting in about 15 minutes with an iPad and Apple Pencil",
+    "OpenType substitution rules let you replace glyphs based on surrounding context, introducing variation without randomness",
+    "The fonttools Python library makes it trivially easy to add OpenType rules to existing fonts in just 5 lines of code",
+    "The results fell into an 'uncanny valley' where the font had more variation but still didn't feel like real handwriting"
+  ],
+  "money_quotes": [
+    "It feels a little uncanny valley to me, like it's obviously still a font but it's pretending to be something else.",
+    "I started out being extremely confused about what OpenType even is. I still don't know much, but I learned that you can write extremely simple OpenType rules to change how a font looks, and you don't even have to really understand anything about fonts.",
+    "I'm actually not super happy with the results of this experiment, but I wanted to share it anyway because it was very easy and fun to play with fonts.",
+    "It's like 33 lines of code and I think it's pretty straightforward.",
+    "Mostly what was delightful to me here is that it's so easy to add OpenType rules to change how fonts work, like you can pretty easily make a font where the word 'the' is always replaced with 'teh'.",
+    "I'm skeptical of the 'just your fingers' claim \u2013 I used an Apple Pencil, which has much better accuracy."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "playful, honest, exploratory",
+  "key_insight": "OpenType substitution rules and fonttools make it surprisingly easy to programmatically modify font behavior, though making a font truly mimic handwriting remains an unsolved challenge.",
+  "filename": "2020-08-08-handwritten-font"
+}

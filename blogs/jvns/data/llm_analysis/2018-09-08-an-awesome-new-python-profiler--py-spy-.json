@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans highlights py-spy, a new Python profiler written in Rust by Ben Frederickson that takes a similar approach to her own rbspy project. She explains how py-spy can profile any running Python program using process_vm_readv to read memory, and praises its top-like default UI and pip-based installation. She notes that py-spy is likely more stable long-term than rbspy because it relies on Python's public header files rather than unstable internal interpreter structures. Evans expresses excitement about an emerging ecosystem of Rust-based sampling profilers that share code and could eventually cover many programming languages with consistent interfaces.",
+  "key_points": [
+    "py-spy profiles any running Python program without modification by reading process memory with process_vm_readv, similar to rbspy's approach for Ruby",
+    "py-spy uses Python's public bindings (Python.h) rather than internal interpreter headers, making it significantly easier to maintain than rbspy which depends on 42 unstable Ruby binding files versus py-spy's 6",
+    "The tool is installable via pip despite being a Rust program, meeting Python developers where they are",
+    "rbspy and py-spy share code through extracted crates like proc-maps, enabling an ecosystem of similar profilers for other languages",
+    "Evans envisions a suite of open source sampling profilers for many languages with consistent user interfaces, noting phpspy already exists for PHP"
+  ],
+  "money_quotes": [
+    "It can profile any running Python program, it uses process_vm_readv to read memory, and it by default displays profiling information in a really easy-to-use way.",
+    "Even though py-spy is a Rust program, obviously Python programmers are used to installing software with pip and not cargo.",
+    "Since rbspy depends on unstable internal Ruby interfaces, even though it works relatively well today, future versions of Ruby could break it at any time.",
+    "If someone wants to make a py-spy/rbspy-like profiler in Rust for another language like Perl or Javascript or something, it's even easier!",
+    "I have this secret dream that we could eventually have a suite of open source profilers for lots of different programming languages that all have similar user interfaces.",
+    "Today every single profiling tool is different and it's a pain."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Rust-based sampling profilers like py-spy and rbspy are converging on a shared ecosystem of code and consistent interfaces that could make profiling accessible across many programming languages.",
+  "filename": "2018-09-08-an-awesome-new-python-profiler--py-spy-"
+}

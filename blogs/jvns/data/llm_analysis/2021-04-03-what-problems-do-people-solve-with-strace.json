@@ -1,0 +1,27 @@
+{
+  "summary": "Evans crowdsourced 200 responses from Twitter about real-world strace use cases and categorized them into 11 problem types. The problems fall into three broad categories: finding files a program depends on, figuring out why a program is stuck or slow, and finding out why a program is failing. The most popular use case is simply finding where a program's config file lives. She highlights that strace's power comes from its simplicity\u2014it just traces system calls\u2014yet this is sufficient to debug an enormous range of problems from permissions errors to network failures to reverse engineering closed-source software. The post serves as both a practical reference and motivation for practice challenges she's building.",
+  "key_points": [
+    "Finding config files is the #1 use case for strace because there's only one way a program can actually open a file: with a system call",
+    "Strace can serve as a coarse profiling tool by showing timestamps on system calls, revealing unexpected slowness from things like repeated file reads or blocking network calls",
+    "Debugging 'why does this work one way but fail another' (different user, cron job, systemd) is a common pattern where comparing strace outputs is invaluable",
+    "Hidden permissions errors are a frequent culprit that strace exposes when programs fail with inscrutable error messages",
+    "The same simple mechanism\u2014tracing system calls\u2014solves problems across an enormous range of domains from network debugging to reverse engineering"
+  ],
+  "money_quotes": [
+    "There are a million ways for a program to document where its config file is (in a man page, on its website, in --help, etc), but there's only one way for it to actually open it (with a system call!)",
+    "You have a program, it's just sitting there doing nothing, what's going on? This one is especially easy to answer because a lot of the time you just need to run strace -p PID and look at what system call is currently running.",
+    "We straced the J2EE application server and found that it was reading class files one. byte. at. a. time.",
+    "In an ideal world programs would report those errors, but of course the world is not perfect, so strace can really help with this!",
+    "Server using 100% CPU time randomly with low actual traffic. Turns out it's hitting the number of open files limit accepting a socket, and retrying forever after getting EMFILE and not reporting it.",
+    "I think it's really delightful how such a simple tool ('trace system calls!') can be used to solve so many different kinds of problems.",
+    "As long as the program makes system calls while it's running, this is super easy to answer with strace \u2013 just strace it and see if it's making new system calls!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, taxonomic",
+  "key_insight": "Strace's power comes from the fact that programs can document their behavior in many ways, but they can only interact with the operating system through system calls\u2014making strace a universal debugging tool.",
+  "filename": "2021-04-03-what-problems-do-people-solve-with-strace"
+}

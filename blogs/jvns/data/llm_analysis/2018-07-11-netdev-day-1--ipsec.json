@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans shares her notes from the first day of the netdev conference, where she attended an IPsec workshop. She explains that IPsec is a kernel-level protocol for encrypting IP packets, commonly used for VPNs but not exclusively. The post breaks down how IPsec works with its userspace key exchange (IKE) and kernel encryption components, and contrasts it with TLS to explain why IPsec lives in the kernel. She covers the two modes of IPsec (transport and tunnel), the concept of opportunistic IPsec using DNS records, and notes that IPsec and TLS have historically influenced each other's design.",
+  "key_points": [
+    "IPsec has two parts: userspace handles key exchange via IKE, while the kernel handles actual packet encryption, managed through the unintuitive 'ip xfrm' command",
+    "IPsec is easier to implement in the kernel than TLS because key exchanges happen infrequently and sessions are long-lived, unlike TLS's constant per-connection handshakes",
+    "IPsec has two modes: transport mode (encrypts packet contents, similar to TLS) and tunnel mode (encrypts entire packet including headers, used for VPNs)",
+    "Opportunistic IPsec allows encrypted connections to any supporting host by looking up public keys via DNS IPSECKEY records, encrypting even plain HTTP connections"
+  ],
+  "money_quotes": [
+    "VPN is just a general term meaning 'your IP packets get encrypted and sent through another server' and VPNs can be implemented using a bunch of different protocols.",
+    "The way you inspect these databases is, extremely unintuitively, using a command called `ip xfrm`. What does xfrm mean? I don't know!",
+    "For some reason that might be obvious but that I don't understand yet (??) people don't want to do key exchange in the kernel.",
+    "With TLS, there isn't a natural protocol boundary where you need to start doing encryption \u2013 with IPsec, you just encrypt every IP packet in a given IP range.",
+    "Somewhat confusingly, even though Libreswan and Strongswan are different software packages, they both install a binary called `ipsec` for managing IPsec connections, and the two `ipsec` binaries are not the same program.",
+    "Your connection is now encrypted! Even though it's a HTTP connection! so interesting!",
+    "The IPsec and TLS protocols have actually learned from each other over time \u2013 like they said IPsec's IKE protocol had perfect forward secrecy before TLS."
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "IPsec's split architecture\u2014userspace for infrequent key exchange, kernel for packet encryption\u2014is what makes it practical to implement in the Linux kernel, unlike TLS which requires constant per-connection negotiation.",
+  "filename": "2018-07-11-netdev-day-1--ipsec"
+}

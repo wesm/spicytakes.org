@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans breaks down how IP addresses and routing work on Linux, covering three systems that affect packet delivery: route tables, iptables, and IPsec. She explains subnets and CIDR notation, then walks through how Linux decides where to send packets using the route table. The bulk of the post covers iptables NAT \u2014 both destination NAT (used to redirect packets to different addresses, as in container networking tools like kube2iam) and source NAT (used to masquerade container IPs as host IPs). She closes by mapping these Linux networking concepts to their AWS VPC equivalents, showing how the same principles apply at cloud infrastructure scale.",
+  "key_points": [
+    "IP headers contain source/destination addresses and TTL but not ports \u2014 ports live at the TCP/UDP layer, which is why TCP port 8080 and UDP port 8080 are different",
+    "Linux route tables map subnets to network devices, which becomes especially important when working with container networking and virtual devices like docker0",
+    "iptables can intercept packets at various stages and rewrite source or destination IP addresses through NAT, enabling powerful tricks like making a local service impersonate a remote IP",
+    "Source NAT (MASQUERADE) is essential for containers because the outside world has no idea about internal container IP addresses and can't reply to them",
+    "AWS VPC networking concepts like route tables, NAT gateways, and VPC peering map directly to their Linux counterparts"
+  ],
+  "money_quotes": [
+    "There are 14 fields in the IP header. The only 3 important ones for most people to know about are: the source IP address, the destination IP address, the TTL.",
+    "One thing you'll notice isn't in the IP header is a port! The TCP and UDP protocols both have ports, but that lives at a different network layer.",
+    "Usually iptables rules make me want to hide under the couch but in the last year I've become a little less afraid of them.",
+    "Linux won't just rewrite packets to 169.254.169.254:80 to go to $LOCAL_IP:8081, it'll also modify the reply packets from $LOCAL_IP:8081 to make them appear as if they came from 169.254.169.254. So from the perspective of the application receiving the reply, it has no idea that it's not talking to the IP 169.254.169.254. Lies!!!",
+    "MASQUERADE is a confusing way of saying 'use source NAT and pretend the packet is coming from this host's IP address'.",
+    "If you have a bunch of containers with weird virtual container IP addresses sending packets to the outside world, you can't just let them use those IP addresses!! The outside world has no idea about your container IPs and will not be able to reply to those packets.",
+    "Not understanding what those things mean hasn't hurt me yet."
+  ],
+  "themes": [
+    "networking",
+    "linux"
+  ],
+  "tone": "technical, approachable, curious",
+  "key_insight": "IP routing on Linux involves three layered systems \u2014 route tables, iptables NAT, and IPsec \u2014 and understanding how they intercept and rewrite packets is essential for anyone working with containers or cloud networking.",
+  "filename": "2018-07-24-ip-addresses-routing"
+}

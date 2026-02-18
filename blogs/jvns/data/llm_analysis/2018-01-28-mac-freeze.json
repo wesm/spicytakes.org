@@ -1,0 +1,25 @@
+{
+  "summary": "While building Mac support for rbspy (her Ruby profiler), Julia Evans accidentally discovered what appears to be a Mac kernel bug in High Sierra. Early adopters reported that rbspy was freezing their computers, which was mystifying since the program wasn't running as root. With help from the community, she narrowed it down to a race condition in the `task_for_pid` Mach function and reproduced it with a 17-line C program. The bug causes `ps` and Activity Monitor to stop working when `task_for_pid` is called on a process immediately after exec'ing it. The same bug was independently affecting htop users. Her workaround is simply to sleep for a few milliseconds before calling `task_for_pid`.",
+  "key_points": [
+    "A race condition in macOS High Sierra's task_for_pid Mach function can freeze system tools like ps and Activity Monitor, reproducible with just 17 lines of C",
+    "The bug only affects High Sierra (10.13.2), not Sierra, suggesting it was introduced as a regression",
+    "Community collaboration was essential \u2014 early adopters filed detailed bug reports, @parkr helped narrow the cause, and Twitter users connected it to a known htop issue",
+    "The workaround is simple: add a small delay before calling task_for_pid on newly exec'd processes",
+    "A non-root user program can effectively freeze parts of macOS without allocating extra memory or doing anything obviously dangerous"
+  ],
+  "money_quotes": [
+    "I accidentally found something that looks like a Mac kernel bug!",
+    "I managed to write a very short (17 line) C program that reliably causes ps to stop working. Without allocating any memory or anything like that!",
+    "I was really mystified by this \u2013 how could a program not running as root freeze someone's computer?",
+    "If I exec a new program and then immediately run task_for_pid on that program, then the process I ran task_for_pid from will hang and ps will stop working.",
+    "This is weird and I don't really understand the underlying kernel issue.",
+    "Systems programming is weird and exciting though!"
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "curious, enthusiastic, collaborative",
+  "key_insight": "A race condition in macOS High Sierra's task_for_pid can be triggered by a trivial 17-line C program, freezing system tools \u2014 demonstrating how subtle kernel bugs lurk in common system call sequences.",
+  "filename": "2018-01-28-mac-freeze"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explains why the question 'how much memory is my process using?' doesn't have a simple answer, by walking through how virtual memory works on Linux. She covers page tables, the TLB cache, shared memory via copy-on-write, swap, and mmap to show why memory accounting is fundamentally approximate. She then maps this understanding back to the VIRT, RSS, SHR, and %MEM columns in top, explaining what each actually measures. The post resolves a years-long confusion by showing that the complexity isn't arbitrary\u2014it reflects how virtual memory systems actually work.",
+  "key_points": [
+    "Virtual memory addresses are per-process and mapped to physical RAM via page tables, with the CPU itself performing lookups (cached by the TLB)",
+    "Shared memory through copy-on-write means any 4KB page could be shared by an arbitrary number of processes, making clean per-process accounting impossible",
+    "Not all virtual memory maps to physical RAM\u2014swap and mmap mean some addresses point to disk, which is why VIRT can be vastly larger than RSS",
+    "RSS (resident set size) is the closest approximation to 'how much RAM am I using' but still doesn't account for shared memory properly",
+    "PSS (proportional share size) via /proc/$PID/smaps could give a fairer count by dividing shared pages among processes, but top doesn't use it"
+  ],
+  "money_quotes": [
+    "The way memory works on Linux is just fundamentally more complicated than 'process Y is using memory X', so asking 'how much memory is my process using' can only ever have approximate answers.",
+    "You have RAM in your computer (i have touched mine with my hands!).",
+    "When the CPU comes across this, it'll be like 'what the hell is this, operating system, please fix it'. (the technical term is a 'page fault')",
+    "There's no clean way to logically split up shared and non-shared memory. Basically any 4 kilobyte page could be shared or not shared.",
+    "VIRT means 'this is how much virtual address space this program has'. This number is not really that useful if you want to know how much RAM you're using.",
+    "I've been confused about this for years so it feels nice to actually understand what these numbers mean and why there are so many of them and why it's so confusing."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, conversational, demystifying",
+  "key_insight": "Linux memory accounting is inherently approximate because virtual memory, shared pages, swap, and mmap mean there's no single number that accurately captures 'how much memory a process uses.'",
+  "filename": "2016-12-03-how-much-memory-is-my-process-using-"
+}

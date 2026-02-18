@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans shares a week 4 progress update on rbspy, her Ruby profiler written in Rust. The project received external contributions including new flags and callgrind output format support, and she added container profiling support. Mac support proved harder than expected due to kernel bugs and memory map difficulties. She's considering building a reusable Rust visualization library and is excited about prototyping memory profiling capabilities.",
+  "key_points": [
+    "External contributors are successfully submitting PRs to the Rust codebase despite not being Rust programmers, validating the language's accessibility",
+    "Mac systems programming turned out to be significantly harder than expected, with kernel bugs and difficult memory map APIs",
+    "Container profiling support was added, expanding rbspy's usefulness for production environments",
+    "She's thinking ahead to memory profiling as a natural extension, with two approaches: object summaries and allocation tracking"
+  ],
+  "money_quotes": [
+    "it turns out that Mac systems programming is more complicated than I thought",
+    "So far it seems like Rust is easy enough that some non-Rust-programmers can come in and start contributing PRs to rbspy, which is really nice to see!",
+    "I think it could be cool to build a Rust crate with support for different visualization formats, so that if people build other profilers then they can kinda have access to a consistent library of visualization formats.",
+    "I don't really know if I have time for that though! For now I'm going to stay focused on lower level concerns.",
+    "I'm not done with CPU profiling (there are still lots of rough edges to sort out!) but once I get things slightly more feature complete I think I kinda want to let the CPU profiler rest for a bit"
+  ],
+  "themes": [
+    "debugging",
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Building developer tools in Rust can lower the barrier to contribution enough that non-Rust programmers can meaningfully contribute, while the real complexity lies in platform-specific systems programming.",
+  "filename": "2018-01-29-profiler-week-4"
+}

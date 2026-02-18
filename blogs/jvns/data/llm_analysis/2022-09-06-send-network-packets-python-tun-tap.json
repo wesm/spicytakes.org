@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explains how to send raw network packets in Python using tun/tap virtual network devices. The core problem is that if you try to implement TCP yourself on a normal network interface, the Linux kernel will interfere by closing connections it didn't initiate. Tun/tap solves this by creating a virtual network device that your program controls directly. The post walks through creating a tun interface, setting up NAT with iptables, and writing a minimal Python program that sends a hardcoded SYN packet to example.com and receives a SYN ACK reply. She also demonstrates using tcpdump to observe the packets on both the virtual and real network interfaces.",
+  "key_points": [
+    "The Linux kernel's existing TCP implementation will kill TCP connections it didn't initiate, so you need tun/tap to experiment with your own TCP implementation",
+    "A tun device acts like a virtual network interface that a Python program can read from and write to like a regular file",
+    "NAT via iptables is required to route packets from the virtual tun device out to the real internet",
+    "tcpdump on different interfaces reveals how NAT rewrites IP addresses and shows TCP retry behavior like exponential backoff",
+    "This approach is much more reliable than the alternative of ARP spoofing, which is also sketchy to do on networks you don't own"
+  ],
+  "money_quotes": [
+    "the Linux kernel on your machine gets the SYN ACK, thinks \"wtf?? I didn't make this connection??\", and closes the connection",
+    "imagine I have a tiny computer in my network which is sending and receiving network packets. But instead of it being a real computer, it's just a Python program I wrote.",
+    "I'm not going to explain this ip addr add command because I don't understand it, I find ip to be very inscrutable and for now I'm resigned to just copying and pasting ip commands without fully understanding them.",
+    "The iptables part is very important because otherwise the packets would only exist inside my computer and wouldn't be sent to the internet, and what fun would that be?",
+    "There's actually a type of DDOS attack like this called SYN flooding, but just sending one or two SYN packets isn't a big deal.",
+    "And ARP spoofing is kind of a sketchy thing to do on a network you don't own."
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning"
+  ],
+  "tone": "technical, conversational, self-deprecating",
+  "key_insight": "Tun/tap virtual network devices let you bypass the kernel's TCP stack and send raw packets from userspace programs, making it possible to experiment with your own network protocol implementations.",
+  "filename": "2022-09-06-send-network-packets-python-tun-tap"
+}

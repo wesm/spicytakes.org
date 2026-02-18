@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans shares her stream-of-consciousness notes from day 1 of netdev, a Linux networking conference. The talks covered XDP (eXpress Data Path) usage at Cloudflare and Facebook for DDoS mitigation and load balancing, showing how XDP provides dramatic performance improvements over iptables and IPVS. She documents her learning process openly, including things she didn't understand, conversations at lunch about RX queues and tc capabilities, and a networking performance workshop covering memory allocation bottlenecks and AF_PACKETv4. The post captures how much new material she absorbed despite much of it going over her head.",
+  "key_points": [
+    "XDP enables packet filtering much earlier in the Linux networking stack, giving Cloudflare and Facebook dramatic performance gains (10x faster than IPVS at Facebook) for DDoS mitigation and load balancing",
+    "Network cards can have multiple RX queues that can be split between the kernel and userspace programs, enabling kernel bypass for specific traffic",
+    "The tc tool can do far more than rate limiting \u2014 it can program network cards to do hardware offload of packet processing like checksums",
+    "AF_PACKETv4 is a work-in-progress effort to make tools like tcpdump faster by eliminating packet copying into userspace memory",
+    "There's a sharp throughput cliff in latency-vs-throughput graphs where systems simply refuse to process more requests and latency spikes"
+  ],
+  "money_quotes": [
+    "If you want to filter out packets very quickly, you don't want to go through all those steps! You want to just read packets off the network card, be like 'NOPE not that one!', and move on really quickly.",
+    "I think I'm learning more at this conference than most conferences I've been at in the last few years. A lot of it goes above my head, but I kind of like that! It means there are a lot of new ideas and terminology.",
+    "I thought it was interesting that they talked about it like it's a normal thing because I think of it as like.. something totally magical that doesn't exist in real life.",
+    "He said that XDP is 10x faster.",
+    "I like tcpdump a lot so anything that could make tcpdump faster is something I am excited about!",
+    "I know that there's a tradeoff between latency and throughput for any system, and it was nice to see graphs of that tradeoff. And it was interesting to see such an abrupt throughput cliff."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "curious, enthusiastic, humble",
+  "key_insight": "XDP represents a fundamental shift in Linux networking by allowing packet filtering to happen as early as possible in the stack, and companies like Cloudflare and Facebook are already using it in production for massive performance gains in DDoS mitigation and load balancing.",
+  "filename": "2017-04-06-netdev-2-1"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans shares her notes from the second day of the netdev conference, covering several networking topics including Google's BBR TCP congestion control algorithm, running the Linux kernel networking stack in userspace, XDP/eBPF capabilities and myths, and the surprisingly powerful tc tool. She explains how BBR differs from traditional TCP congestion algorithms by estimating bandwidth rather than just reacting to packet loss, and documents interesting benchmarking challenges encountered when running BBR in the Linux Kernel Library project. The post also covers practical details about programming network cards with tc and the importance of rigorous network benchmarking.",
+  "key_points": [
+    "BBR is a new TCP congestion control algorithm from Google that estimates bandwidth instead of interpreting all packet loss as congestion, potentially replacing CUBIC",
+    "The Linux Kernel Library project lets you use the Linux networking stack as a userspace library on any OS, but performance tuning (timing resolution, buffer sizes) matters enormously",
+    "XDP is a powerful packet processing framework that runs at the device driver level, is stateless and allocation-free, with use cases from DDoS prevention to high frequency trading",
+    "tc can not only manipulate packets in software but also program network cards to perform those operations in hardware, which is surprisingly accessible from the command line",
+    "Network benchmarking is unreliable \u2014 the same test under the same conditions can produce wildly different results, making repetition essential"
+  ],
+  "money_quotes": [
+    "TCP algorithms today all fundamentally interpret packet loss as 'congestion'. The idea is that \u2013 if packets are being lost along the way, then there must be too much data being sent, so you should slow down.",
+    "So basically instead of using Linux, you take all the Linux networking code and just use it as a library!",
+    "Being able to program your network card to do stuff for you just by running a thing on the command line seems pretty magical.",
+    "He was like 'is that a serious question' but he answered me!",
+    "He tested this 25 times, and 3 of those 25 times, the results were REALLY BAD. Like the second TCP stream only got to 100Mbps bandwidth even though there was a lot more available.",
+    "I'm still pretty vague about all of this but I know more than yesterday so that's cool",
+    "high frequency trading ('but they won't tell us what they did, it's their secret sauce :)')"
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, curious, exploratory",
+  "key_insight": "Modern Linux networking is evolving rapidly with tools like BBR, XDP, and tc that challenge fundamental assumptions about congestion control, packet processing, and hardware programmability, but benchmarking these advances reliably remains surprisingly difficult.",
+  "filename": "2017-04-07-netdev-conference-day-2"
+}

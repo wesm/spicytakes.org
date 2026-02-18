@@ -1,0 +1,27 @@
+{
+  "summary": "Motivated by the 2021 Facebook outage, Julia Evans explores tools that let anyone investigate BGP routing information, despite BGP being a protocol most people can't directly experiment with. She walks through BGP terminology (autonomous systems, routes, announcements) and demonstrates four practical tools: BGPView for looking up AS information, traceroute/mtr with ASN flags, looking glass services like PCH that let you query real routing tables, and BGPlay for visualizing historical BGP events. She uses the Facebook outage as a concrete example throughout, showing how routes disappeared and returned. The post concludes that understanding BGP tools is practically useful even for people who can't publish routes, because it helps diagnose network issues caused by upstream routing problems.",
+  "key_points": [
+    "Unlike most networking protocols (TLS, HTTP, TCP, DNS), BGP is uniquely difficult to experiment with because you need your own ASN to publish routes on the real internet",
+    "Tools like BGPView, mtr -z, looking glass services, and BGPlay make BGP surprisingly observable to regular people despite being considered a 'secret network wizard' thing",
+    "The mtr tool looks up ASN information via DNS queries to cymru.com, reversing the IP address similar to reverse DNS lookups",
+    "BGPlay's visualization of the Facebook outage clearly shows all BGP routes disappearing and then gradually returning, making the abstract concept of route withdrawal concrete",
+    "Even though you can't fix someone else's bad BGP routes, understanding BGP tools lets you confidently diagnose that a problem is upstream and out of your control"
+  ],
+  "money_quotes": [
+    "I got frustrated because none of the articles showed me how I could actually look up information related to BGP on my computer.",
+    "With most networking protocols, you can pretty trivially get access to implement the protocol yourself if you want.",
+    "But with BGP, I think that unless you own your own ASN, you can't publish routes yourself!",
+    "What happened yesterday with Facebook is that they basically made BGP announcements withdrawing all their BGP routes, so every router in the world deleted all of its routes related to Facebook, so no traffic could get there.",
+    "I think for most companies all you can do to respond to outages caused by someone else's bad BGP routes is 'do nothing and wait for it to get fixed', but it's nice to be able to confidently do nothing.",
+    "I was surprised by how much information I could get about BGP just as a regular person, I always think of it as a 'secret network wizard' thing but apparently there are all kind of public machines anybody can just telnet to and use to look at the route tables!"
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "dns",
+    "learning"
+  ],
+  "tone": "exploratory, enthusiastic, hands-on",
+  "key_insight": "BGP may be a protocol you can't directly experiment with, but there are surprisingly accessible public tools that let anyone observe and understand internet routing, which is practically useful when upstream routing problems affect your network.",
+  "filename": "2021-10-05-tools-to-look-at-bgp-routes"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Julia Evans presents a talk from Strange Loop about using systems debugging tools to investigate programs without reading source code or even knowing what language they're written in. She demonstrates strace for tracing system calls, time and /proc for diagnosing slow programs, perf top for identifying CPU-intensive functions, dstat for monitoring disk and network activity, and ngrep for inspecting network traffic. Through a series of mysteries (wrong config files, slow programs, French websites), she shows how these tools let you ask questions of the operating system to get concrete answers. Her core message is that debugging doesn't require genius-level intuition \u2014 it requires the right tools and a willingness to not be intimidated by systems-level concepts.",
+  "key_points": [
+    "You can debug programs without source code or knowing the language, because all programs use the same OS primitives (system calls, TCP, files)",
+    "strace reveals every system call a program makes, but can slow programs 50x \u2014 eBPF tools like opensnoop provide similar insights without the overhead",
+    "The 'time' command breaks down CPU vs wall-clock time, and combining it with /proc call stacks, dstat, and perf top can quickly categorize why a program is slow",
+    "ngrep lets you search network traffic the way grep searches text files, making it easy to spot differences in HTTP requests between tools",
+    "Sampling profilers give statistical overviews but tracing tools capture everything, which matters when debugging rare events in high-volume systems"
+  ],
+  "money_quotes": [
+    "I used to think to debug things, I had to be really really smart. I thought I had to stare at the code, and think really hard, and magically intuit what the bug was.",
+    "It turns out that this isn't true at all! If you have the right tools, fixing bugs can be really easy.",
+    "But if you're not scared, you can usually figure out almost anything!",
+    "You can totally debug programs without having their source code or even knowing what language they're written in at all.",
+    "When I use strace, I ignore practically everything, and just grep to find the one thing I'm interested in.",
+    "We can peer into the Linux kernel's soul and figure out what it was doing when the program was waiting.",
+    "Computer programs aren't always deterministic, but they're always logical. If you're seeing a difference where you think there shouldn't be any, there's always a reason.",
+    "I was so excited when I learned about strace, and I couldn't believe that I'd been programming for 9 years without knowing about it."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "You don't need to be a genius to debug complex problems \u2014 you just need the right systems tools to ask your operating system what's actually happening.",
+  "filename": "2016-09-17-strange-loop-talk"
+}

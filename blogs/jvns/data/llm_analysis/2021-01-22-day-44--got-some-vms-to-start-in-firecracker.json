@@ -1,0 +1,25 @@
+{
+  "summary": "Evans documents her progress building VMs with Firecracker, pivoting from cloud-init to Docker for building VM images after cloud-init proved too slow. She converts Docker container filesystems to ext4 images that boot in Firecracker, which is both simpler and faster than her previous approach. She also figures out Docker Compose networking to put VMs and containers on the same bridge. After getting frustrated building her own VM service, she discovers fly.io, which does essentially the same Docker-to-Firecracker conversion she built, and gets VMs running there using their undocumented Go API.",
+  "key_points": [
+    "Docker container filesystems can be extracted and converted to ext4 images for use as Firecracker VM root filesystems, which is simpler than cloud-init",
+    "Docker Compose allows explicit bridge naming via driver_opts, enabling VMs and containers to share the same network bridge",
+    "fly.io uses the same Docker-to-Firecracker approach rather than running a container runtime inside the VM like Fargate or Kata Containers",
+    "When APIs aren't documented, reading the source code of open-source CLI tools can serve as effective documentation"
+  ],
+  "money_quotes": [
+    "I really wanted the VM to boot in less than 2 seconds.",
+    "So I decided to instead build my containers with Docker, convert the Docker filesystem to an ext4 image, and then start that image in Firecracker.",
+    "Actually building my VMs with Docker feels a lot simpler than doing it with cloud-init.yaml, I think they might be easier to develop this way.",
+    "It turns out that fly.io supports a Docker container interface, but they actually just unpack the Docker container's files, convert it into an ext4 filesystem, and boot a Firecracker VM with it.",
+    "I'd initially assumed it was a container because Fargate and Kata Containers both run containers images in VMs by putting a container runtime inside the Firecracker VM and running the container that way.",
+    "Their command line management tool is open source so I could just read the source for flyctl to figure out how it worked."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, pragmatic",
+  "key_insight": "Docker's container image format serves as a surprisingly effective and simple build system for Firecracker VM filesystems, bypassing the complexity and slowness of cloud-init.",
+  "filename": "2021-01-22-day-44--got-some-vms-to-start-in-firecracker"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans explores the 33 ASCII control characters and how they actually work in modern terminals. She categorizes them into OS-handled codes (like Ctrl-C for SIGINT), literal keypresses (Enter, Tab), readline shortcuts, and application-specific bindings. The post reveals surprising details like how there are only 33 possible control codes, how Ctrl-M is literally identical to Enter, and how the original ASCII names bear little relationship to modern terminal behavior. She discusses the complexity of canonical vs noncanonical mode, the configurable nature of these codes via stty, and the surprisingly deep history behind something as simple as the Backspace key.",
+  "key_points": [
+    "There are only 33 ASCII control codes (A-Z plus 7 more), meaning Ctrl+1 or Ctrl+Shift+C aren't real control codes \u2014 they work completely differently from GUI keyboard shortcuts",
+    "The codes mix together several unrelated categories: OS terminal driver signals, literal keypresses, readline shortcuts, and application-specific bindings, with no logical structure to the organization",
+    "The original ASCII names for control characters are largely meaningless for modern terminal usage since they were designed for telegraph machines, not UNIX terminals",
+    "Canonical vs noncanonical mode determines whether the OS or the application handles certain codes like Ctrl-W and Ctrl-U",
+    "The Backspace key has a surprisingly contentious history \u2014 some systems send byte 127 (DEL) and others send byte 8 (BS), leading to decades of configuration headaches"
+  ],
+  "money_quotes": [
+    "There's no real structure to which codes are in which categories, they're all just kind of randomly scattered because this evolved organically.",
+    "This 'there are only 33 codes' thing is totally different from how keyboard shortcuts work in a GUI where you can have Ctrl+KEY for any key you want.",
+    "50% of the time the name in ASCII has no actual relationship to what that code does on UNIX systems today.",
+    "I have personally never remapped any of these and I cannot imagine a reason I would (I think it would be a recipe for confusion and disaster for me).",
+    "I've used the terminal pretty successfully every day for the last 20 years without knowing literally any of this.",
+    "Telegraph machines aren't the same as UNIX terminals so a lot of the codes were repurposed to mean something else.",
+    "I think the contents of this post are kind of interesting but I don't think they're necessarily that useful."
+  ],
+  "themes": [
+    "terminals",
+    "linux",
+    "learning"
+  ],
+  "tone": "curious, exploratory, self-deprecating",
+  "key_insight": "The 33 ASCII control characters are a messy historical artifact where telegraph-era codes, OS signals, readline shortcuts, and application bindings all collide in the same tiny namespace with no logical organization.",
+  "filename": "2024-10-31-ascii-control-characters"
+}

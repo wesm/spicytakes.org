@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans catalogs nine common problems developers encounter when working with integers across programming languages. She covers database primary key overflow, unsigned integer underflow in Go, two's complement representation quirks, Java's signed-only byte shifting, byte order confusion, modulo behavior differences across languages, C compilers optimizing away overflow checks due to undefined behavior, and the subtle && vs & typo bug. The post uses concrete code examples in Go, Java, C, and JavaScript to demonstrate that integer problems aren't limited to low-level C programming. She explains two's complement representation as foundational context for understanding why these bugs occur.",
+  "key_points": [
+    "Integer overflow isn't just theoretical: it causes real security vulnerabilities (CVEs), database outages, and subtle correctness bugs across all programming languages",
+    "Languages handle integer edge cases very differently \u2014 Python and Java avoid unsigned integers entirely, Rust crashes on overflow in debug mode but wraps in release mode, and C treats signed overflow as undefined behavior",
+    "C compilers can silently remove your hand-written overflow safety checks because signed integer overflow is undefined behavior, meaning optimizers are free to assume it never happens",
+    "Two's complement representation means the same bit pattern (like 0xFFFFFFFF) can mean either -1 or 4294967295 depending on whether the type is signed or unsigned",
+    "Single-character typos like & vs && create intermittent bugs because bitwise and often gives truthy results when boolean and would, making the bug hard to catch"
+  ],
+  "money_quotes": [
+    "You create a database table where the primary key is a 32-bit unsigned integer, thinking \"4 billion rows should be enough for anyone!\"",
+    "The reason Rust doesn't check for overflows if you compile your program in release mode (and the reason C and Go don't check) is that \u2013 these checks are expensive!",
+    "\"undefined behaviour\" in C means \"the compiler is free to do literally whatever it wants after that point\"",
+    "Some compiler optimizations assume that undefined behaviour will never happen. They're free to do this, because \u2013 if that undefined behaviour did happen, then they're allowed to do whatever they want.",
+    "It's easy to imagine this turning into a REALLY annoying bug since it would be intermittent \u2013 often x & y does turn out to be truthy if x && y is truthy.",
+    "I certainly would not have expected that though.",
+    "I've tried to use a variety of languages in the examples to show that these problems don't just show up in super low level C programs \u2013 integers are everywhere!"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, approachable, technical",
+  "key_insight": "Integer bugs lurk in every programming language \u2014 not just C \u2014 and the same bit pattern can mean completely different things depending on signedness, byte order, and language semantics.",
+  "filename": "2023-01-18-examples-of-problems-with-integers"
+}

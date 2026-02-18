@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans documents her experience upgrading Hugo from version 0.40 (2018) to v0.135 (2024), detailing every breaking change she encountered along the way. The most painful change was switching markdown renderers from Blackfriday to Goldmark, which required manually updating 80 out of 700 markdown files. She developed a systematic process of diffing old and new HTML output to find silent rendering differences. Despite the tedium, she considers the upgrade worthwhile because the new CommonMark-compliant renderer is more futureproof and actually fixed some long-standing rendering bugs she hadn't noticed. She also reflects on static site generator backwards compatibility, noting Jekyll and 11ty are reportedly better in this regard.",
+  "key_points": [
+    "Upgrading Hugo across 6 years of versions required handling template syntax changes, API renames, and a complete markdown renderer swap from Blackfriday to Goldmark",
+    "The markdown renderer change was by far the hardest part, requiring a manual diff-every-HTML-file process to find silent rendering breakages across 700 posts",
+    "CommonMark compliance introduces subtle but important differences: HTML/markdown mixing requires blank lines, nested list indentation rules change, and smart quotes behave differently in code blocks",
+    "The new Goldmark renderer actually fixed several long-standing bugs including unwanted smart quotes in code blocks and broken blockquotes inside lists",
+    "Jekyll and 11ty were cited as static site generators with better backwards compatibility track records"
+  ],
+  "money_quotes": [
+    "But what are blogs for if not documenting one's very boring yakshaves from time to time?",
+    "There's no real reason to do this \u2013 I've been using Hugo version 0.40 to generate this blog since 2018, it works fine, and I don't have any problems with it.",
+    "Almost all of the problems just silently broke the site, they didn't cause any errors or anything. So I had to diff the HTML to hunt them down.",
+    "This was very time consuming but it was a little bit fun for some reason so I kept doing it until it seemed like nothing too horrible was left.",
+    "I might have spent 10 hours on this upgrade, but I've probably spent 1000+ hours writing blog posts without thinking about Hugo at all so that seems like an extremely reasonable ratio.",
+    "I don't think I'd particularly recommend moving 700 blog posts to a new Markdown renderer unless you're really in the mood for a lot of computer suffering for some reason.",
+    "Relying on someone else to keep a theme updated feels kind of scary to me, I think if I were using a third-party theme I'd just copy the code into my site's github repo and then maintain it myself."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective",
+  "key_insight": "Upgrading a static site generator after years of stability is mostly a markdown renderer migration problem, where the hardest part is finding silent rendering breakages that produce no errors.",
+  "filename": "2024-10-07-some-notes-on-upgrading-hugo"
+}

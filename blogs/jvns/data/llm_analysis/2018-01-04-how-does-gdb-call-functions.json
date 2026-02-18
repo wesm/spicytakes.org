@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans investigates how gdb can call C functions in a running program, a capability she found surprisingly non-obvious. She walks through the mechanics: finding function addresses via the symbol table, creating stack frames, changing the instruction pointer, and setting trap instructions. Through experiments with strace and register inspection, she pieces together that gdb builds new stack frames on top of the existing stack, modifies the instruction pointer via ptrace, and places trap instructions in libc functions like longjmp to regain control. She concludes that the process is more complicated than it first appears and embraces having unanswered questions.",
+  "key_points": [
+    "Calling a function from gdb requires pausing the program, finding the function address, setting up a new stack frame, changing registers, and restoring state afterward",
+    "You can't simply jump to a function address \u2014 gdb must carefully manage the stack pointer, instruction pointer, and return mechanism using trap instructions",
+    "GDB creates new stack frames right on top of the current stack rather than allocating a separate pseudo-stack",
+    "Breakpoints work by replacing an instruction with 0xcc (int3/SIGTRAP) via PTRACE_POKEDATA, then restoring the original instruction after the trap fires",
+    "GDB places trap instructions in libc functions like __libc_siglongjmp and __longjmp, likely as a mechanism to regain control when the called function returns"
+  ],
+  "money_quotes": [
+    "I thought this was cool because I'd previously thought of gdb as mostly a read-only debugging tool.",
+    "You can't just find the address of the function you want to run and then jump to that address. I tried that in gdb (jump foo) and the program segfaulted. Makes sense!",
+    "If you're going to run a C function, most likely it needs a stack to store variables on! You definitely don't want it to clobber your current stack.",
+    "I stared at the strace output and I still don't understand how it changes, but that's okay.",
+    "It seems like the answer to 'how does gdb call a function?' is definitely not that simple.",
+    "I still have a lot of unanswered questions about how exactly gdb does all of these things, but that's okay. I don't really need to know the details of how this works and I'm happy to have a slightly improved understanding."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, exploratory, technical",
+  "key_insight": "Calling C functions from gdb is far more complex than just jumping to an address \u2014 it requires carefully orchestrating stack frames, registers, instruction pointers, and trap instructions via ptrace.",
+  "filename": "2018-01-04-how-does-gdb-call-functions"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans explores bubblewrap as a fast alternative to Docker for running containers, motivated by her need for sub-5ms container startup times for an nginx playground project. She benchmarks Docker/podman at ~300ms startup versus bubblewrap at ~8ms, explaining that bubblewrap achieves this by being a much lower-level tool that skips features like overlay filesystems and networking bridges. The post documents several surprising pitfalls she encountered: processes appearing in ps but being unkillable due to mismatched PID namespaces, capabilities issues with privileged ports, and UID mapping problems that break tools like apt. Despite these sharp edges, she concludes that bubblewrap works well for her constrained use cases and is worth the tradeoffs.",
+  "key_points": [
+    "Docker and podman containers take ~300ms to start, while bubblewrap achieves ~8ms by operating at a lower level without overlay filesystems or networking bridges",
+    "Bubblewrap runs containers as an unprivileged user using Linux user namespaces, avoiding the need for a root daemon like Docker requires",
+    "The lower-level interface exposes Linux namespace details that Docker abstracts away, leading to confusing states like processes visible in ps but unkillable due to mismatched /proc mounts",
+    "UID mapping differences between bubblewrap and podman cause tools like apt to fail because unmapped users can't be used in system calls",
+    "For simple, constrained use cases like running a single binary in a sandbox, bubblewrap's tradeoffs are worthwhile"
+  ],
+  "money_quotes": [
+    "I want to stress that, while I'm not sure exactly what the slowest part of Docker and podman startup time is (I spent 5 minutes trying to profile them and gave up), I'm 100% sure it's something important.",
+    "The way we're going to run containers faster with bubblewrap has a lot of limitations and it's a lower level interface which is a lot trickier to use.",
+    "I was surprised the first time I learned that Docker actually runs containers as root \u2013 even though I run docker run ubuntu:20.04 as an unprivileged user, that message is actually sent to a daemon running as root.",
+    "I tried to do this 6 months ago and I don't remember most of the details, but basically I spent 8 hours working on it, got frustrated because I couldn't get anything to work, and gave up.",
+    "ps doesn't actually list all the processes in your current PID namespace. Instead, it iterates through all the entries in /proc and prints those out.",
+    "But that's the price I pay for wanting things to be fast I guess :)",
+    "At the end of the day I think it's a VM and it's not going to be anywhere near as low overhead as a process \u2013 there's a whole operating system to start!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, curious, candid",
+  "key_insight": "Bubblewrap can start containers 35x faster than Docker by operating at a lower level, but this exposes Linux namespace complexities that Docker deliberately abstracts away.",
+  "filename": "2022-06-28-some-notes-on-bubblewrap"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explains CPU load averages by connecting them to practical web server performance analysis through Little's Law from queueing theory. She shows that dividing the load average by request throughput gives you the average CPU time per request, a formula she found useful for real-world debugging. The post walks through what load averages actually measure (processes in running or runnable state), then derives the formula and lists important caveats, including Linux's inclusion of uninterruptible sleep processes. She also proposes an extension for estimating actual on-CPU time versus waiting time when CPUs are overloaded.",
+  "key_points": [
+    "Load average is the average number of processes in a running or runnable state over 1/5/15 minutes, not a mysterious opaque number",
+    "Little's Law from queueing theory lets you calculate CPU time per request as load average divided by throughput (requests per second)",
+    "Linux load averages include processes in uninterruptible sleep (usually disk I/O), which can distort the calculation",
+    "The formula breaks down when load is fluctuating, when processes handle multiple requests per thread, or when non-HTTP work contributes to load",
+    "When CPUs are overloaded, you can estimate actual on-CPU time (excluding wait time) by substituting the number of cores for the load average"
+  ],
+  "money_quotes": [
+    "CPU load averages have long been a little mysterious to me. I understood that low is good, and high is bad, but I thought of them as a mostly inscrutable number.",
+    "100ms is a bajillion years of CPU time, and I was super concerned.",
+    "Being able to calculate that number so quickly was SUPER USEFUL to me for understanding the server's performance.",
+    "This is pretty intuitive: if 10 people per hour arrive at your store, and they spend 30 minutes each there, then on average there will be 5 people at a time in your store.",
+    "As far as I understand, 'runnable' means \"I'd be running if you'd let me\". Processes that are asleep don't count.",
+    "If there are 3 processes that want to run on a CPU at the same time, and your computer has 4 CPU cores, then you're totally okay!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Little's Law from queueing theory turns the seemingly opaque CPU load average into a practical debugging tool: divide it by your request throughput to get average CPU time per request.",
+  "filename": "2016-02-07-cpu-load-averages"
+}

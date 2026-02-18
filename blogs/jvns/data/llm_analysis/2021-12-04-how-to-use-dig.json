@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans provides a practical guide to using the dig command-line tool for DNS queries. She breaks down dig's arguments into two categories: query options (name, type, server) and formatting options. She shows how to tame dig's verbose default output using +noall +answer, +short, and a .digrc configuration file. She also covers reverse DNS lookups with -x and the +trace option for understanding DNS resolution. The post concludes by explaining why she prefers dig over simpler alternatives like dog and host: dig shows all sections of DNS responses when needed.",
+  "key_points": [
+    "dig arguments fall into two categories: what query to make (name, type, server) and how to format the response",
+    "The default dig output is overwhelming for beginners, but +noall +answer or +short make it much more readable",
+    "You can create a ~/.digrc file to change dig's default output format permanently",
+    "dig +trace mimics what a DNS resolver does by starting at root nameservers and working down",
+    "dig's verbosity is actually its advantage over simpler tools like dog and host, since it shows all DNS response sections"
+  ],
+  "money_quotes": [
+    "When I first started using dig I found it a bit intimidating \u2013 there are so many options!",
+    "If you're not used to reading this, it might take you a while to sift through it and find the IP address you're looking for.",
+    "By the way: if you've ever wondered what IN means, it's the \"query class\" and stands for \"internet\". It's basically just a relic from the 80s and 90s when there were other networks competing with the internet like \"chaosnet\".",
+    "What I like about dig is actually the same thing I don't like about dig \u2013 it shows a lot of detail!",
+    "I only learned about .digrc recently and I love using it so much, so I hope it helps some of you spend less time sorting though dig output!",
+    "-x isn't magic \u2013 dig -x 172.217.13.174 just makes a PTR query for 174.13.217.172.in-addr.arpa."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "practical",
+  "key_insight": "dig's verbose default output becomes manageable with a few formatting flags and a .digrc file, and that same verbosity is actually dig's advantage over simpler DNS tools when you need full response details.",
+  "filename": "2021-12-04-how-to-use-dig"
+}

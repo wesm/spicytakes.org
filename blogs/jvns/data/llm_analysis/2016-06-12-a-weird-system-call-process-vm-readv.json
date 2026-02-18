@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explores how to build a 'jstack for Ruby' \u2014 a tool that can inspect a running Ruby program's stack trace without pre-instrumentation. She walks through using gdb to read Ruby's internal data structures and extract stack frames from memory, then explains why gdb's ptrace-based approach is too heavyweight. She discovers the process_vm_readv system call, which can read another process's memory with minimal impact, and builds a prototype Rust program that samples Ruby stack traces every 10 milliseconds to generate flame graphs.",
+  "key_points": [
+    "Java and C have built-in tools (jstack, perf top) to inspect running programs without pre-instrumentation, but Ruby and Python lack equivalent tooling",
+    "gdb can extract Ruby stack traces by traversing internal structs (rb_thread_t, rb_control_frame_t, rb_iseq_t), but uses ptrace which is slow and stops the target process",
+    "The process_vm_readv system call can read another process's memory directly without passing through kernel space, with much less impact on the running program",
+    "Building a debugger requires two things: debugging info (DWARF) to understand struct layouts, and the ability to read target process memory",
+    "She built a working Rust prototype that samples Ruby stack traces every 10ms and generates flame graphs, though it has hardcoded struct types"
+  ],
+  "money_quotes": [
+    "One of the most frustrating things to me is \u2013 when I run a Ruby or Python program, I can't find out what that program is doing RIGHT NOW.",
+    "IF JAVA CAN HAVE NICE THINGS THEN WHY NOT RUBY AND PYTHON??",
+    "When you attach to a program with gdb, it seems like basically black magic, but as usual it's actually not magic at all.",
+    "This is amazing, because we started with practically nothing \u2013 just an address of the current thread! And we finished with a file and a place we are in that file.",
+    "The reason this is awesome and better than what gdb does is \u2013 as far as I can tell, the impact of process_vm_readv on the running process is WAY SMALLER. You just spy on the memory and get out of the way!",
+    "Instead of feeling bad that I haven't actually gotten the software to work yet on other peoples' computers, I thought I would take a couple of hours and tell you how it works!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "You can build lightweight debugging tools for any language runtime by combining DWARF debug info with process_vm_readv to read process memory without stopping the target program.",
+  "filename": "2016-06-12-a-weird-system-call-process-vm-readv"
+}

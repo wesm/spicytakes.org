@@ -1,0 +1,26 @@
+{
+  "summary": "The post explains how Linux starts new processes using the fork and exec system calls rather than a single 'start process' call. Fork creates a clone of the current process, then exec replaces that clone's memory and program with the new one. Evans uses the memorable metaphor of a child clone getting its 'brain eaten' to explain how exec works. She covers the zombie process state, copy-on-write optimization for fork, and which process attributes survive across exec. The post concludes by showing why understanding this mechanism matters for debugging real bugs, like inherited signal handlers causing unexpected behavior.",
+  "key_points": [
+    "Linux starts processes via two system calls (fork + exec) rather than a single 'start process' call, with fork creating a clone and exec replacing its program",
+    "When exec runs, most process attributes (environment variables, open files, signal handlers) are preserved \u2014 only memory, registers, and the executable change",
+    "Fork uses copy-on-write so the parent's memory isn't actually duplicated until one process modifies it, making fork cheap",
+    "After a child exits it becomes a zombie process, waiting for the parent to read its return value via the wait system call",
+    "Understanding fork/exec inheritance matters for debugging \u2014 inherited signal handlers or environment variables can cause programs to behave differently depending on their parent process"
+  ],
+  "money_quotes": [
+    "Instead of having children, what I do is you have a child that is a clone of myself, and then that child gets its brain eaten and turns into ls.",
+    "At this point ls is actually a zombie process! That means it's dead, but it's waiting around for me in case I want to check on its return value.",
+    "The only thing that changes is, well, all of your memory and registers and the program that you're running. Which is a pretty big deal.",
+    "It turns out that Linux implements 'copy on write' for fork() calls, so that for all the 2GB of memory in the new process it's just like 'look at the old process! it's the same!'.",
+    "This means that the program will behave differently depending on whether you started it from a Python script or from your shell!",
+    "Your program's environment (environment, signal handlers, etc.) can matter! It inherits its environment from its parent process, whatever that was!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, approachable, technical",
+  "key_insight": "Linux starts processes not by creating them from scratch but by cloning the parent with fork and then replacing the clone's program with exec, which means new processes inherit most of their parent's attributes \u2014 and understanding this inheritance is key to debugging subtle bugs.",
+  "filename": "2016-10-04-exec-will-eat-your-brain"
+}

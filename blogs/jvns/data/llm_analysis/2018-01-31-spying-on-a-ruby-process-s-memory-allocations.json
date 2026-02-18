@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans describes a one-day experiment building a tool that can spy on a running Ruby process's memory allocations using eBPF and uprobes, without modifying the target process. She attaches a small BPF program to Ruby's internal newobj_slowpath function to count allocations per class, using bcc's Python/C toolkit. To resolve class pointers into human-readable names, she writes a Rust program that copies the target process's memory maps into its own address space and calls rb_class2name directly. The result is a live-updating view of which Ruby classes are being allocated most frequently, achieved in a single day of hacking.",
+  "key_points": [
+    "eBPF uprobes let you attach instrumentation code to any userspace function from outside the process, without modifying it",
+    "bcc makes writing BPF programs accessible by combining C code that runs in the kernel with Python code that reads results in userspace",
+    "To resolve class pointers to names, she copied the Ruby process's entire memory maps into her profiler process and called rb_class2name directly",
+    "She handled intermittent segfaults by forking before each potentially crashing call and ignoring child process crashes",
+    "The guiding design principle is building tools that feel magical \u2014 streaming live memory allocation data from an unmodified process"
+  ],
+  "money_quotes": [
+    "My idea at the beginning of the day was \u2013 what if you could take an arbitrary Ruby process's PID (that was already running!) and start tracking its memory allocations?",
+    "You can't ask the kernel to run just any code, though (at least not with eBPF) \u2013 you ask it to run \"eBPF bytecode\" which is basically C code where you're restricted in what memory you can access. And it can't have loops.",
+    "But I wasn't inside the Ruby process, so I couldn't exactly call the function. OR COULD I?!",
+    "My (terrible/delightful) plan for calling rb_class2name was basically \u2013 copy all the memory maps from the target process into my profiler process, and then just call rb_class2name and hope it works.",
+    "Of course all of this (copying the memory maps, casting essentially a random address into a function pointer, calling the resulting function) is unsafe in Rust, but I can still do it!",
+    "When I finally got this to work at like 9pm today I was so delighted.",
+    "The main design principle I'm using right now is \u2013 how can I build tools that just feel really magical?"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "eBPF uprobes enable building magical debugging tools that can observe a running process's internals from the outside, without any code changes to the target program.",
+  "filename": "2018-01-31-spying-on-a-ruby-process-s-memory-allocations"
+}

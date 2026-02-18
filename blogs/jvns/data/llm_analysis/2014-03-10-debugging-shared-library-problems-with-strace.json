@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans demonstrates how strace can solve shared library version conflicts by tracing which files a program actually opens. She was trying to install IRuby notebook but kept getting the wrong version of libzmq loaded despite upgrading it. By using strace to trace system calls and grepping for the library name, she discovered two different versions of libzmq were being loaded from different paths. Removing the outdated version fixed the problem.",
+  "key_points": [
+    "strace reveals which shared libraries a program actually loads at runtime by showing open() system calls",
+    "Library version conflicts can be invisible without tracing tools because multiple copies can exist in different paths",
+    "Filtering strace output with grep (excluding ENOENT failures) quickly isolates the relevant library loads",
+    "When debugging feels impossible, dropping down to the system call level removes all ambiguity"
+  ],
+  "money_quotes": [
+    "It's official. I have a love affair with strace.",
+    "This doesn't sound so useful until you find out that it is useful FOR EVERYTHING.",
+    "strace is like an immersion blender. I use strace more than my immersion blender.",
+    "I will get strace to tell me which shared libraries are being loaded! strace will never lie to me.",
+    "AH HA. The first libzmq is the right version (libzmq.so.3), but the second one is all wrong! It is libzmq1 and it is a disaster and a disgrace."
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "When shared library conflicts defy normal debugging, strace reveals exactly which files a program loads at runtime, cutting through all the confusion about library paths and versions.",
+  "filename": "2014-03-10-debugging-shared-library-problems-with-strace"
+}

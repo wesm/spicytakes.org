@@ -1,0 +1,24 @@
+{
+  "summary": "Evans shares her struggle to implement a readable TCP state machine handler function in Python as part of building a TCP stack. She shows two iterations of the code: the first naively sends an ACK after every packet (which turns out to be wrong), and the second handles flags more explicitly but introduces ordering dependencies. She candidly admits that the messiness of her code reflects her incomplete understanding of TCP itself, and that the combinatorial nature of states and flags makes it hard to verify correctness without extensive testing.",
+  "key_points": [
+    "A naive assumption that you always send an ACK after receiving a packet turns out to be wrong in several cases (ACK packets and RST packets)",
+    "Restructuring the handler to dispatch on TCP flags rather than connection state made the code more correct but introduced ordering dependencies between cases",
+    "The combinatorial explosion of TCP states and flags makes the code hard to reason about and verify without extensive unit testing",
+    "Messy code often reflects incomplete understanding of the underlying problem domain"
+  ],
+  "money_quotes": [
+    "In particular, I thought this _send_ack() call at the end was a great idea, because you always want to send an ACK! Except when you don't!",
+    "My confusion about this function largely reflects my confusion about TCP at this point, I think.",
+    "The cases aren't all mutually exclusive, so the order matters. :[",
+    "Each one is a seemingly random combination of self.seq += 1, self._send_ack(), self._close(), and a change to self.state. It's hard to make sure the whole thing is right without a ton of unit testing.",
+    "Today I made a bunch of progress (I can now be a TCP server, kinda!), but I want to talk about problems instead."
+  ],
+  "themes": [
+    "networking",
+    "learning",
+    "debugging"
+  ],
+  "tone": "candid, self-deprecating, exploratory",
+  "key_insight": "The messiness of code implementing a protocol often directly mirrors incomplete understanding of that protocol, and iterating on the code is itself a way of deepening that understanding.",
+  "filename": "2013-11-12-day-26-trying-to-describe-the-tcp-state-machine"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans describes a six-month intermittent bug where her blog would display raw HTML instead of rendered pages due to a missing Content-Type HTTP header. Despite extensive debugging attempts, she couldn't reliably reproduce the issue or determine whether her web host or Cloudflare's CDN was dropping the header. She ultimately solved it using Cloudflare Workers, a paid feature that lets you run custom JavaScript on every HTTP request, to detect and add the missing Content-Type header. She acknowledges it's a hack but finds it preferable to migrating web hosts.",
+  "key_points": [
+    "Intermittent bugs that can't be reliably reproduced are extremely difficult to report and debug, especially when they involve infrastructure you don't fully control",
+    "Sometimes the pragmatic fix is a workaround rather than finding the root cause \u2014 Cloudflare Workers let her patch the symptom without understanding the underlying server configuration issue",
+    "Cloudflare Workers provide a powerful mechanism for modifying HTTP responses with custom JavaScript at the CDN edge, useful for fixing problems in infrastructure you can't directly control",
+    "Adding a custom debug header (x-julia-test) is a practical technique for verifying that your fix is actually being applied in production"
+  ],
+  "money_quotes": [
+    "People do not want to read raw HTML. I would like my pages to render!",
+    "I think debugging weird computer networking bugs is super fun, what I've been doing at work for the last while has been debugging computer networking bugs and so I'm not that motivated to do it at home too.",
+    "Even though I don't know *why* this is happening and I have no visibility into it, I can still try to fix it!",
+    "The most annoying thing about this issue is that I couldn't reliably reproduce it, so it seemed hard to report to my web host.",
+    "Running custom javascript on every single HTTP request is an extremely silly way to fix what is probably some kind of server configuration issue somewhere.",
+    "It's definitely a hack... But it helps me fix my problem until I decide to spend the time to migrate web hosts or whatever, so I'm happy with that.",
+    "Paying $60/year is definitely worth it to me to fix the problem & not have to spend the time to migrate to a different host right now."
+  ],
+  "themes": [
+    "networking",
+    "debugging"
+  ],
+  "tone": "pragmatic, self-deprecating, enthusiastic",
+  "key_insight": "When you can't find or fix the root cause of an intermittent infrastructure bug, a well-placed workaround that patches the symptom at the right layer can be the most practical solution.",
+  "filename": "2018-09-03-editing-my-blog-s-http-headers-with-cloudflare-workers"
+}

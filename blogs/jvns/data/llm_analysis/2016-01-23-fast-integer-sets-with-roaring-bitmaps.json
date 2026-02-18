@@ -1,0 +1,25 @@
+{
+  "summary": "Evans recounts a Papers We Love meetup talk by Daniel Lemire about roaring bitmaps, a data structure for fast integer set operations. She explains why integer sets matter for databases (row ID intersections for queries), introduces bitmaps as a compact alternative to hash sets, and dives into how modern CPUs can execute multiple instructions per cycle. The post connects CPU architecture concepts like instruction pipelines and SIMD to why roaring bitmaps are designed the way they are. She uses perf stat to demonstrate instructions-per-cycle differences between programs, showing that simple bitwise operations parallelize well at the CPU level.",
+  "key_points": [
+    "Hash sets are not fast for large integer set operations; bitmaps offer dramatically better performance for intersections and unions",
+    "Modern CPUs can execute multiple instructions per cycle through instruction pipelines, not just one per cycle like older CPUs",
+    "Parallelization isn't just about multiple cores or machines \u2014 a single core can do more than one instruction per cycle for simple operations like bitwise AND",
+    "Roaring bitmaps compress sparse bitmaps efficiently (2-3 bits per integer) while maintaining fast set operations by leveraging SIMD instructions",
+    "Database queries like WHERE clauses with AND conditions are fundamentally set intersection problems on row IDs"
+  ],
+  "money_quotes": [
+    "One of the big takeaways for me in this talk was 'whoa, hashsets are not fast. okay.'",
+    "Taking 'AND' or 'OR' of two bitmaps corresponds to set intersection or union, and is extremely wizard fast.",
+    "This is about doing more than one instruction per CPU cycle, on a single core, in a single thread.",
+    "I have this idea in my head that my CPU can do 2.7 billion instructions a second (that's what 2.7 GHz means, right?). But I learned this is not actually really true!",
+    "Old CPUs used to do only one instruction per cycle, and it was easy to reason about. New CPUs have 'instruction pipelines' and can do LOTS.",
+    "The whole goal of the Papers We Love meetup is to show programmers work academics are doing that can actually help them write programs. This was a fantastic example of that."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Fast integer set operations matter for real systems like databases, and designing data structures that align with how modern CPUs actually work (instruction-level parallelism, SIMD) can yield massive performance gains beyond what naive implementations achieve.",
+  "filename": "2016-01-23-fast-integer-sets-with-roaring-bitmaps"
+}

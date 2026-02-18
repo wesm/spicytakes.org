@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans discovers server-sent events (SSE) as a simpler alternative to websockets for streaming updates from a server to a client. She explains that SSE is just regular HTTP with a text/event-stream content type and a dead-simple wire protocol. While implementing SSE with Rails behind nginx, she hits two surprising bugs: nginx defaulting to HTTP/1.0 for upstream connections (which breaks long-lived connections), and Rack's ETag middleware buffering the entire response before sending. Both bugs were solved with help from Stack Overflow, reinforcing that weird computer interactions are often well-documented by others who hit the same problems.",
+  "key_points": [
+    "Server-sent events are just HTTP requests with a keep-alive connection and text/event-stream content type, requiring no special server libraries",
+    "Unlike websockets, SSE only allows server-to-client communication, but the browser's EventSource API automatically reconnects if the connection drops",
+    "Nginx defaults to HTTP/1.0 for upstream proxying, which silently breaks SSE connections after the first event",
+    "Rack's ETag middleware buffers entire responses to compute hashes, defeating the purpose of streaming \u2014 setting Last-Modified bypasses it",
+    "Stack Overflow solutions that seem unrelated to your problem sometimes turn out to be exactly right, but you should understand why before applying them"
+  ],
+  "money_quotes": [
+    "I was SO DELIGHTED to learn that they're just HTTP requests.",
+    "The wire protocol is really simple (just set event: and data: and maybe id: and retry: if you want), so you don't need any fancy server libraries to implement server-sent events.",
+    "I think the reason why it worked if I didn't pause between sending the 2 events was basically that the server was racing with the client to send the second part of the response before the connection closed.",
+    "I expected it to return 1 event per second for 10 seconds, but instead it waited 10 seconds and returned 10 events all at once. That's not how we want streaming to work!",
+    "Sometimes computers interact in weird ways, other people have experienced computers interacting in the exact same weird ways in the past, and Stack Overflow sometimes has answers about why.",
+    "I do think it's important to not just randomly try things from Stack Overflow.",
+    "It's always such a delight to learn about a new easy-to-use web technology that I'd never heard of."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Server-sent events offer a dramatically simpler alternative to websockets for server-to-client streaming, though real-world deployment behind proxies like nginx introduces subtle bugs from protocol version mismatches and middleware buffering.",
+  "filename": "2021-01-12-day-36--server-sent-events-are-cool--and-a-fun-bug"
+}

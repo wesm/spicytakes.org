@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans aggregates community wisdom on debugging into a practical framework after realizing there aren't many good debugging guides. She breaks down the process into reproducible steps: reproduce the bug, reproduce it quickly, check your assumptions, and experiment methodically. The post emphasizes that good error handling and informative error messages are as important as debugging technique itself. She highlights creative debugging approaches like using sounds and LEDs when traditional tools aren't available. The post acknowledges that debugging skill is hard to teach because the hardest parts vary by experience level, and she's still trying to understand where newer programmers actually get stuck.",
+  "key_points": [
+    "Debugging follows a loop: make a guess about what's happening, design an experiment to check it, repeat until you understand the system",
+    "Most bugs are in your own code, not in libraries or infrastructure, and accepting this quickly saves time",
+    "Writing code that produces clear, chained error messages (not silent failures) is a form of pre-debugging that pays off enormously",
+    "Checking assumptions is critical because many bugs stem from things you were sure were true but aren't, like editing the wrong file or misunderstanding which server handles a request",
+    "The skill of interpreting error messages is domain-specific and non-transferable, making it a recurring challenge even for experienced programmers in new areas"
+  ],
+  "money_quotes": [
+    "A lot of debugging is realizing that something you were sure was true is actually\u2026 not true.",
+    "In general between an established library and my code that I wrote last month, usually it's my code that I wrote last month that's the problem.",
+    "The point here is that information is the most important thing and you need to do whatever's necessary to get information.",
+    "Debuggable code isn't necessarily clean, and code that's littered with checks or error handling rarely makes for pleasant reading.",
+    "One interpretation of 'easy to debug' is 'every single time there's an error, the program reports to you exactly what happened in an easy to understand way'.",
+    "The skill of understanding what error messages mean is often not transferable when you switch to a new area.",
+    "It's easy to say 'reproduce the problem, then start coming up with guesses and verifying them' but where are people actually getting stuck in practice?"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective, practical, curious",
+  "key_insight": "Debugging is fundamentally a cycle of questioning your own assumptions, designing experiments to test them, and building better mental models of the system \u2014 and the hardest part to teach is knowing where you're stuck.",
+  "filename": "2019-06-23-a-few-debugging-resources"
+}

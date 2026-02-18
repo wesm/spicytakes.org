@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans documents her experience learning to use Firecracker, AWS's open-source microVM technology, for a personal project: a CTF-like game where each player gets their own virtual machine. She explains why she chose VMs over containers (needing full root access for sysctls, iptables, perf), why Firecracker's sub-second boot time solves her problem compared to DigitalOcean VMs (60s) or qemu (20s), and walks through practical setup including hello-world scripts, Docker bridge networking, and building custom images. She shares her Go HTTP service for managing VMs and discusses running Firecracker with nested virtualization on DigitalOcean.",
+  "key_points": [
+    "Firecracker is not just for cloud providers \u2014 individuals can use it directly for DIY VM management with relatively straightforward setup",
+    "Containers weren't sufficient because the project needed full Linux system access including sysctls, iptables, perf, and nsenter",
+    "Building custom Firecracker images involves compiling a Linux kernel (surprisingly easy and fast) and creating ext4 filesystem images from Docker containers",
+    "The Go SDK and firectl made it practical to build a custom HTTP service for programmatically launching and stopping VMs",
+    "Nested virtualization on DigitalOcean works out of the box, making it feasible to run Firecracker VMs in the cloud on cheap instances"
+  ],
+  "money_quotes": [
+    "I didn't think that it was something that I could directly use myself.",
+    "I wanted to use virtual machines and not containers for this project basically because I wanted to mimic a real production machine that the user has root access to.",
+    "I didn't think it was an acceptable user experience for people to have to wait a minute.",
+    "I was kind of intimidated by this because I'd somehow never compiled a Linux kernel before, but I followed the instructions and it just worked the first time.",
+    "I thought it would be super slow but it actually took less than 10 minutes to compile from scratch.",
+    "I still don't totally understand why Firecracker is fast (or alternatively, why qemu is slow).",
+    "It does start VMs successfully though which is an important first step!!!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, exploratory",
+  "key_insight": "Firecracker is accessible enough for individual developers to use directly for personal projects, not just cloud providers, and its sub-second VM boot times enable interactive experiences that were previously impractical.",
+  "filename": "2021-01-23-firecracker--start-a-vm-in-less-than-a-second"
+}

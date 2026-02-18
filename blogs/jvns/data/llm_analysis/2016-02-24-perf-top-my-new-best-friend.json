@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans introduces perf top as a simple but powerful tool for understanding CPU usage on Linux systems. She walks through three real-world debugging stories: identifying garbage collection issues in a Node program, discovering that encrypted swap was causing high kernel CPU usage, and finding that HTTPS connection overhead dominated a Python program's CPU time. The post demonstrates how perf top can quickly triage CPU problems even for programs written in high-level languages like Node, Python, or Java. She positions perf top as an essential addition to any developer's debugging toolbox alongside strace.",
+  "key_points": [
+    "perf top shows which functions are consuming CPU in real-time, like top does for processes but at the function level",
+    "Even for high-level languages like Node and Python, perf top reveals useful information about C-level functions consuming CPU time",
+    "The tool can quickly distinguish between very different root causes: garbage collection, kernel swapping, and crypto overhead all look distinct in perf top output",
+    "perf can be extended to understand Java and Node.js functions through additional configuration, making it even more powerful",
+    "perf top is safe to run in production and requires just one command: sudo perf top"
+  ],
+  "money_quotes": [
+    "strace has not ever been able to solve all my problems \u2013 it only tells me about system calls, it can slow down my code up to 50x. Not ideal!",
+    "Since my new hobby is to run perf top any time I have a question about CPU usage, I ran perf!",
+    "I didn't know what all of it meant, but it seemed clear that the program was spending most of its time doing garbage collection.",
+    "It turns out that the computer was swapping its memory to disk, and that the swap partition was encrypted. So every time it saved memory to disk or read it back, it needed to encrypt and decrypt all that memory.",
+    "It turns out that opening a HTTPS connection is pretty slow! You need to spend a bunch of time in crypto functions in order to be secure.",
+    "perf is even more magical than you might expect, though! You can tell perf about your Java and node functions.",
+    "I'm slowly building a toolbox of easy-to-use tools that will help me understand what my programs are doing.",
+    "But perf top is so simple (just one command!), and so straightforward, and I think it deserves to go in your toolbox."
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "enthusiastic, practical, exploratory",
+  "key_insight": "perf top is a simple one-command tool that can immediately reveal what's consuming CPU at the function level, making it invaluable for quickly triaging performance problems even in high-level language programs.",
+  "filename": "2016-02-24-perf-top-my-new-best-friend"
+}

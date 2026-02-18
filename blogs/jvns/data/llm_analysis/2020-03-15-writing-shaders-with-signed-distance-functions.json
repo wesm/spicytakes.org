@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans walks through her process of learning to write GPU shaders, starting from the default Shadertoy example and building up to a shiny spinning octahedron animation. She introduces the core concept of signed distance functions (SDFs) as a powerful alternative to hardcoded if-statements for defining shapes, explaining how they're simple to define, easy to compose, and easy to transform. The post demonstrates a step-by-step learning approach: start with the basics, iterate quickly with better tooling, draw simple shapes with math, then adopt SDFs and raytracing for 3D rendering. She emphasizes that shaders are more approachable than they appear, especially when you copy working tutorial code and modify it experimentally.",
+  "key_points": [
+    "Shaders map coordinates and time to colors, making them trivially parallelizable and perfect for GPUs",
+    "Signed distance functions define shapes by how far any point is from the surface, replacing brittle if-statement approaches and enabling easy composition, rotation, and transformation",
+    "The three steps to rendering a 3D shape are: define an SDF, raytrace/raymarch it into 2D, then texture and light the surface",
+    "Shaders provide instant visual feedback on math, making them a fun playground for building intuition about trigonometry and geometry",
+    "The 'copy code and change things chaotically' approach is a legitimate and effective way to learn shader programming"
+  ],
+  "money_quotes": [
+    "The neat thing about this programming model is that it's extremely trivially parallelizable.",
+    "I love that you get instant visual feedback about your math code \u2013 if you multiply something by 2, things get bigger! or smaller! or faster! or slower! or more red!",
+    "But the problem with this is that it's not clear how it generalizes to more complicated shapes! Writing a bajillion if statements doesn't seem like it would work well.",
+    "Signed distance functions are awesome because they're: simple to define, easy to compose, easy to rotate / stretch / bend!",
+    "I used the time honoured programming practice here of 'copy the code and change things in a chaotic way until I get the result I want'.",
+    "Basically I just changed parameters to the noise function mostly at random until I got an effect I liked.",
+    "My shader skills are still extremely basic, but this fun spinning thing turned out to be a lot easier to make than I thought it would be."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Signed distance functions make shader programming surprisingly approachable by replacing complex conditional geometry with simple, composable mathematical functions that define shapes by distance.",
+  "filename": "2020-03-15-writing-shaders-with-signed-distance-functions"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Evans examines how the common DNS terms 'nameserver' and 'DNS resolver' each have multiple meanings depending on context, which creates confusion for people learning DNS. 'Nameserver' can mean either an authoritative nameserver (storing domain records) or a recursive nameserver (caching and resolving queries). 'DNS resolver' can mean a stub resolver library like getaddrinfo, a stub resolver server like dnsmasq, or a full recursive nameserver like 8.8.8.8. She provides real-world examples for each meaning and a Google results survey showing the ambiguous generic terms vastly outnumber the precise ones. Rather than inventing clearer terminology, she argues it's better to explain the existing messy terminology people actually encounter.",
+  "key_points": [
+    "The term 'nameserver' refers to either authoritative nameservers (in the context of a specific domain) or recursive nameservers (in the context of your computer's DNS settings)",
+    "'DNS resolver' has three possible meanings: a stub resolver library (like libc's getaddrinfo), a stub resolver server (like dnsmasq or systemd-resolved), or a full recursive nameserver (like 8.8.8.8)",
+    "The generic terms 'nameserver' and 'DNS resolver' are orders of magnitude more common than precise terms like 'authoritative nameserver' or 'stub resolver'",
+    "Context clues reliably disambiguate: if it's about a domain, it's authoritative; if it's about your computer's settings, it's recursive; if it's a library, it's a stub resolver"
+  ],
+  "money_quotes": [
+    "Two of the most common DNS server terms ('nameserver' and 'DNS resolver') have different meanings depending on the situation.",
+    "This isn't a problem if you already understand how DNS works \u2013 I can easily figure out what type of 'nameserver' is being discussed based on context.",
+    "But it can be a problem if you're trying to learn how DNS works and you don't realize that those words might refer to different things depending on the context \u2013 it's confusing!",
+    "A DNS resolver can either be a library or a server. (I'm sorry, I know I said that a DNS resolver is a server earlier. But sometimes it's a library.)",
+    "The terminology is a bit messier than I'd like, but it seems better to me to explain it than to use less-ambiguous language that isn't as commonly used in practice.",
+    "The more specific terms like 'recursive nameserver', 'authoritative nameserver', and 'stub resolver' are much less common."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "pedagogical, systematic, empathetic",
+  "key_insight": "DNS terminology is genuinely ambiguous because the most commonly used terms ('nameserver' and 'DNS resolver') each have multiple meanings, and the precise alternatives are rarely used in practice, so learners need to rely on context clues to disambiguate.",
+  "filename": "2022-02-14-some-dns-terminology"
+}

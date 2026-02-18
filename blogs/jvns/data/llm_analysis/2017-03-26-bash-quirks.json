@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans catalogs the quirks and safety tips every bash scripter should know, from variable assignment pitfalls to the critical importance of `set -eu` flags. She covers basic constructs like for loops, if statements, and functions, but focuses on the non-obvious gotchas that trip people up even after years of use. The post emphasizes defensive practices: always quoting variables, using `set -e` to stop on errors, `set -u` to catch unset variables, and running shellcheck to lint scripts. She advocates for keeping bash scripts simple rather than fighting the language's weirdness.",
+  "key_points": [
+    "Unquoted bash variables cause subtle, hard-to-debug failures\u2014always quote them to avoid word splitting surprises",
+    "The `set -eu` flags transform bash from a language that silently continues past errors into something safer, and `set -o pipefail` catches failures in pipelines",
+    "Shellcheck is a linter that catches bash quirks automatically and knows more best practices than most scripters",
+    "Bash syntax has genuinely confusing design choices, like `[` being a program while `[[` is syntax, and spaces around `=` in assignment changing meaning entirely",
+    "The pragmatic approach is to keep bash scripts simple, use defensive practices, and not fight the language's inherent weirdness"
+  ],
+  "money_quotes": [
+    "It's very important that you don't put spaces around the = sign \u2013 VARIABLE= 2, VARIABLE = 2, and VARIABLE =2 are not syntax errors, but will all do different unwanted things.",
+    "I put quotes because i know bash will betray me otherwise.",
+    "There are cases where it's okay to just use $X instead of \"$X\", but can you really keep track of when it's okay and when it's not okay? I sure can't.",
+    "If one of the programs in my script fails, I do not want it to just merrily keep going and do possibly undefined / questionable things! That is terrifying.",
+    "rm -rf \"$DIRECTORY/*\" will actually run rm -rf /* if $DIRECTORY is unset.",
+    "We get truly into bash quirk territory: [ is a program (/usr/bin/[) but [[ is bash syntax. [[ is better.",
+    "Shellcheck knows about way way more bash scripting best practices than I do.",
+    "I just try to not write very complicated bash scripts, stick to some of the best practices here, and don't worry too much about it."
+  ],
+  "themes": [
+    "linux",
+    "learning",
+    "debugging"
+  ],
+  "tone": "practical, conversational, self-deprecating",
+  "key_insight": "Bash is full of non-obvious gotchas that bite even experienced users, but a few defensive habits\u2014quoting variables, using set -eu, and running shellcheck\u2014make it manageable without needing to master every quirk.",
+  "filename": "2017-03-26-bash-quirks"
+}

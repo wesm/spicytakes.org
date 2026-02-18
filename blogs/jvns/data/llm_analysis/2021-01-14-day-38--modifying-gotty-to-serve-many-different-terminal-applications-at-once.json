@@ -1,0 +1,24 @@
+{
+  "summary": "Julia describes modifying gotty, a Go webserver that puts terminals on websites, to handle multiple websocket connections simultaneously instead of running separate processes per session. Her previous setup required coordinating three different pieces (multiple gotty processes, a proxy server, and a Rails server), which was fragile and flaky. By pairing with another Recurser, they forked gotty and wrote a simple HTTP handler that routes requests by session ID to the right command, replacing the complex multi-process architecture with a single Go program. The solution turned out to be much simpler than expected.",
+  "key_points": [
+    "Gotty only supports one session at a time, forcing a fragile multi-process architecture with separate gotty instances, a proxy server, and a Rails coordinator",
+    "The fix was surprisingly simple: a single HTTP handler with an if statement that routes websocket connections to different commands based on URL path",
+    "Go's http.ResponseWriter and http.Request interfaces make it easy to wrap and modify existing HTTP handlers",
+    "They had to fork gotty rather than use it as a library because the needed functions were private (lowercase in Go)",
+    "Consolidating three moving pieces into one Go program eliminated the flakiness of the original setup"
+  ],
+  "money_quotes": [
+    "I was originally worried that it would be really complicated to modify gotty to handle multiple websocket connections but actually it was very straightforward!",
+    "Because all Go HTTP handlers take a http.ResponseWriter and a http.Request, it's super easy to wrap other HTTP request handlers and make them behave slightly differently.",
+    "We forked gotty instead of using it as a library because the functions we needed were private, you can tell because they're lowercase and in Go the way you know if a function is private or public is based on whether it starts with an uppercase or lowercase letter.",
+    "I paired on this with Chetan and it was SO MUCH easier to do with someone else than on my own.",
+    "Having everything coordinated in 1 simple Go program instead of having 3 different moving pieces to coordinate works SO MUCH BETTER.",
+    "I really thought this would be super hard and it wasn't \u2013 it was really helpful to talk it through with another person and we got the main functionality working in just 1 hour!"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Complex-looking problems often have simple solutions, especially when you pair with someone else and look at the actual code instead of assuming it will be hard.",
+  "filename": "2021-01-14-day-38--modifying-gotty-to-serve-many-different-terminal-applications-at-once"
+}

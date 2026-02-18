@@ -1,0 +1,23 @@
+{
+  "summary": "Julia documents her attempt to figure out how to run a simple ELF executable inside her hobby operating system (called 'puddle'). She breaks down the problem into concrete steps: parsing ELF headers, implementing system call handlers, finding the entry point, and jumping to it. She explicitly lists what she's skipping for now (virtual memory, security, scheduling) and what questions remain unanswered, particularly around position-independent code and address resolution. The post captures the messy, exploratory middle of a learning project where the path forward is only partially clear.",
+  "key_points": [
+    "Running an ELF binary requires writing a 'loader' that parses headers, sets up system call handlers, and jumps to the entry point",
+    "She deliberately skips virtual memory, security, scheduling, and proper memory management to get a minimal version working first",
+    "Static linking simplifies the problem significantly by removing the need for dynamic linking infrastructure like PLT/GOT",
+    "The post honestly catalogs unresolved questions alongside the known steps, showing learning as a process of narrowing unknowns"
+  ],
+  "money_quotes": [
+    "I've discovered that this \"set stuff up so that a program can run\" business is called loading, and what I'm doing is writing a loader. Sweet.",
+    "Right now I'm doing this before implementing paging and virtual memory and not after, because this seems more fun than virtual memory for now. If this is a very bad idea, I would like to know.",
+    "I'm just going to allocate everyone's memory in the same part of physical memory for now. And never free. Yeah.",
+    "The goal is to get everything just barely working, so that it will print the string to the screen and not crash the whole system.",
+    "Is there even a PLT in a static executable, or is that just for dynamic linking? Eep. Hmm."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "curious, candid, exploratory",
+  "key_insight": "Breaking an intimidating systems problem into a checklist of concrete steps and explicit unknowns transforms it from overwhelming to tractable.",
+  "filename": "2013-12-13-day-42-how-to-run-an-elf-executable-i-dont-know"
+}

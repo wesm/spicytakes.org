@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans created a visualization of gzip decompression applied to Edgar Allan Poe's 'The Raven,' showing how the LZ77 algorithm replaces text with pointers to earlier parts of the document. The visualization highlights copied text segments during decompression, revealing how poetic structures like rhyming naturally emerge in the compression patterns. She built this by implementing gunzip from scratch and adding print/sleep statements to show the process. The post includes links to visualizations of the full poem and Hamlet.",
+  "key_points": [
+    "Gzip's LZ77 compression works by replacing text with pointers to earlier occurrences of the same text",
+    "Applying gzip visualization to poetry reveals how rhyming and repeated structures naturally show up in compression patterns",
+    "She implemented gunzip from scratch in Julia, then hacked on a visualization layer with print and sleep statements",
+    "Gzip/DEFLATE has two steps: LZ77 compression (shown) and Huffman coding (not shown)"
+  ],
+  "money_quotes": [
+    "Gzip compresses by replacing text with pointers to earlier parts of the text.",
+    "I really like how you can see the rhyming inside the poem like (rapping\u2026 tapping) come out in the compression algorithm.",
+    "I implemented gunzip from scratch to learn how it works.",
+    "This visualization is a small hack on top of that, just adding some print and sleep statements.",
+    "This in fact shows how LZ77 compression works, which is the first step of gzip (or DEFLATE) compression."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Visualizing gzip decompression on poetry reveals how compression algorithms naturally detect and exploit the repeated structures that make poems poetic, like rhyme and refrain.",
+  "filename": "2013-10-24-day-16-gzip-plus-poetry-equals-awesome"
+}

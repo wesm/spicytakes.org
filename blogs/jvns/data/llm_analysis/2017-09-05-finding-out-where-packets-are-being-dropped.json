@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explores how to detect and diagnose packet drops on a Linux server. She starts with the basic diagnostic of using `netstat -i` to see if packets are being dropped on any interface, then introduces `dropwatch`, a tool that identifies which kernel function is responsible for dropping packets. She also covers using `perf` to monitor the `kfree_skb` kernel event for packet drop debugging. The post is framed as personal notes for future reference rather than a battle-tested guide.",
+  "key_points": [
+    "Use `netstat -i` as a first step to check RX-DRP and TX-DRP columns for evidence of packet loss on specific interfaces",
+    "The `dropwatch` tool can pinpoint which kernel function is dropping packets, giving you a specific location to investigate",
+    "The `perf` tool can monitor the `kfree_skb` kernel event to trace packet drops with full kernel stack traces",
+    "Packet drops happen for a reason and the diagnostic approach differs between packets dropped locally vs. somewhere on the internet"
+  ],
+  "money_quotes": [
+    "When packets are being dropped on a computer, they're being dropped for a reason. How do you find out whether/why packets are being dropped?",
+    "I'm not interested here in 'packets are being dropped somewhere else on the internet, let's diagnose it with traceroute / by counting TCP retransmits'",
+    "I asked on Twitter and got the very useful answer 'look at netstat -i!'",
+    "It tells me at which kernel function I'm losing packets. Cool!",
+    "I still haven't ever used these tools to seriously debug a packet loss problem yet, just wanted to write this down so that I have the notes if I do want to in the future!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "debugging"
+  ],
+  "tone": "technical",
+  "key_insight": "Linux provides layered tools for packet drop diagnosis: `netstat -i` tells you if drops are happening, `dropwatch` tells you which kernel function is responsible, and `perf` gives you full stack traces.",
+  "filename": "2017-09-05-finding-out-where-packets-are-being-dropped"
+}

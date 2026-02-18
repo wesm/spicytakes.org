@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans discovers that Linux group membership checks don't work the way most people assume. Rather than checking /etc/group at runtime, Linux stores group IDs as attributes directly on each process. This means adding a user to a group doesn't affect already-running processes \u2014 you need to start a new login session for the changes to take effect. The post walks through the discovery, demonstrates the behavior with concrete examples, and explains how the login process initializes groups via initgroups().",
+  "key_points": [
+    "Linux checks group membership by looking at group IDs stored as process attributes, not by reading /etc/group at runtime",
+    "Adding a user to a new group doesn't affect existing processes \u2014 the shell and its children retain their original group IDs",
+    "The login program (/bin/login) runs as root and calls initgroups() to set up a user's groups from /etc/group when starting a login session",
+    "You can use 'newgrp' or 'sg' to start a new shell with updated group membership without a full re-login",
+    "Setuid programs like passwd work by setting the effective user ID to root while keeping the real user ID as the original user"
+  ],
+  "money_quotes": [
+    "Linux does not check which groups a process's user belongs to every time that process tries to access a file.",
+    "The key new insight for me was pretty simple! User and group IDs are attributes of the process.",
+    "Adding a user to a group doesn't put existing processes in that group.",
+    "There needs to be some 'first' process that has your groups set on it, and all the other processes you set inherit their groups from that.",
+    "If I really want the new panda group everywhere, I need to restart my login session completely, which means quitting my window manager and logging in again.",
+    "Reading 17 pages about how users and groups work is really approachable, self-contained, super useful, and I don't have to tackle all 1300 pages of it at once to learn helpful things."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Linux group permissions are checked against group IDs baked into each process at creation time, not looked up dynamically from /etc/group, which is why adding a user to a group doesn't affect already-running processes.",
+  "filename": "2017-11-20-groups"
+}

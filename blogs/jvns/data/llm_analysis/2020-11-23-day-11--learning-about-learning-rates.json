@@ -1,0 +1,23 @@
+{
+  "summary": "Evans documents her experience debugging why her RNN model couldn't learn to generate Shakespeare-like text after successfully training it to count to three. She discovered two problems: the learning rate was set too high (0.01 instead of 0.002), and she was accidentally resetting the Adam optimizer's state in her training loop. After fixing both issues, the model progressed from generating random characters to producing vaguely English-looking text. Along the way, she provides a concise mathematical explanation of how deep learning training and learning rates work.",
+  "key_points": [
+    "A learning rate that's too high prevents the model from learning anything, as shown by a non-decreasing loss function",
+    "The optimizer's internal state matters because it gradually adjusts the learning rate during training, so reinitializing it mid-training destroys progress",
+    "Training a neural network involves practical debugging skills similar to regular programming, where small configuration mistakes can completely block progress",
+    "Gradient descent learning rates are fundamentally hard to choose, requiring heuristics like Adam rather than exact solutions"
+  ],
+  "money_quotes": [
+    "machine learning model training is a lot like general continuous function optimization in that finding the \"right\" step size to do gradient descent is basically impossible so there are a lot of heuristics for picking step learning rates that will work.",
+    "By \"not learning anything\", I mean that the value of the loss function was not going down over time.",
+    "I'd written the code this way because I didn't realize that the state of the optimizer (\"Adam\") was important, so I just reset it sometimes because it seemed convenient at the time.",
+    "It turns out that the optimizer's state is very important, I think because it slowly reduces the training rate as training progresses.",
+    "It's a big improvement! There are some actual English words in there! \"Woman steed and oppet!\""
+  ],
+  "themes": [
+    "learning",
+    "debugging"
+  ],
+  "tone": "enthusiastic, exploratory",
+  "key_insight": "Debugging machine learning training often comes down to mundane configuration issues like learning rate tuning and accidentally resetting optimizer state, not algorithmic breakthroughs.",
+  "filename": "2020-11-23-day-11--learning-about-learning-rates"
+}

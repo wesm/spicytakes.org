@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans describes her new project of building choose-your-own-adventure-style debugging puzzles using Twine, where players diagnose specific networking bugs using real tools like tcpdump, dig, and curl. She explains key design decisions: showing realistic command output rather than pre-interpreted results, letting players collect knowledge like an inventory, using free-form text boxes without penalizing wrong answers, and including red herrings to mirror real debugging. The puzzles reproduce actual bugs in VMs to ensure realistic output. Early feedback was overwhelmingly positive, with the main critique being that players wanted more tool options than were available. She frames the experience as simulating debugging alongside a knowledgeable coworker.",
+  "key_points": [
+    "Flowcharts for debugging are too rigid and exhaustive to be useful, but choose-your-own-adventure games capture the exploratory nature of real debugging",
+    "Showing raw command output and asking players to interpret it is more realistic and educational than pre-interpreting results for them",
+    "Unlike traditional choose-your-own-adventure games where wrong choices kill you, debugging has no permanent failure \u2014 you can always keep trying, which the puzzles reflect",
+    "Red herrings are valuable because they teach how to prove what the bug ISN'T, which is harder than proving what it is",
+    "Reproducing real bugs in VMs makes building puzzles more straightforward than imagining theoretical output"
+  ],
+  "money_quotes": [
+    "I've don't think I've ever seen a flowchart that I found helpful in solving a problem, so I found it really hard to imagine creating one \u2013 there are so many possibilities!",
+    "One of the biggest problems with using some of these command line networking tools is that their output is hard to interpret!",
+    "When debugging, if you make a 'wrong' choice (for example by making a guess about the bug that isn't correct), there's no cost except your time!",
+    "One thing I like about including red herrings is that it lets me show how you can prove what the cause of the bug isn't which is even harder than proving what the cause of the bug is.",
+    "I kind of think of my zines as being the experience 'your coworker explains something to you in a really clear way'.",
+    "I think the experience here might be 'you're debugging a problem together with your coworker and they're really knowledgeable about the tools you're using'.",
+    "I don't learn about how to read all of the output all at once, I learn it in bits and pieces by debugging real problems."
+  ],
+  "themes": [
+    "debugging",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, reflective, design-oriented",
+  "key_insight": "The best way to teach debugging is not through flowcharts or documentation but through interactive puzzles that show real tool output and let learners safely make mistakes, mirroring how debugging actually works.",
+  "filename": "2021-04-16-notes-on-debugging-puzzles"
+}

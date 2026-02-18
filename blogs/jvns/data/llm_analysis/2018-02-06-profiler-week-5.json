@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans reports on week 5 of building rbspy, a sampling CPU profiler for Ruby. The week's highlights include completing Mac support and experimenting with memory allocation profiling. She demonstrates a tool that tracks every Ruby memory allocation by function, filename, and line number, showing how it can reveal surprising allocation sources like Range object creation. She outlines upcoming work including Debian packaging, UI improvements beyond flamegraphs, and continued memory profiling experiments.",
+  "key_points": [
+    "Mac support for rbspy is complete, already being used for real performance work on CocoaPods despite Macs being primarily laptops rather than production servers",
+    "A new memory profiling experiment tracks every Ruby allocation's function, filename, and line number from outside the process using just a PID",
+    "The eBPF-based allocation tracker revealed that a Range object creation was responsible for over 1200 allocations in rubocop's parser",
+    "Flamegraphs don't work well for recursive programs, motivating exploration of alternative visualization styles like pprof's graph output",
+    "Core rbspy functionality is mostly complete, shifting focus toward UX, packaging, and experimental profiling capabilities"
+  ],
+  "money_quotes": [
+    "I'm curious about what memory profiling tools I can build that work from outside of the Ruby process (just give the tool a PID and it tells you about the internals of your Ruby program!)",
+    "It's not immediately obvious what the allocation is here, but it turns out that it's self.begin_pos...self.end_pos \u2013 that allocates a new Range object.",
+    "This particular example doesn't let us make any actual performance improvements to rubocop (1000 allocations over 10 seconds is actually not a lot at all), but it's interesting to be able to see which lines are allocating the most.",
+    "Supporting Mac is kind of an interesting thing because in my mind rbspy is a production profiler, and Macs are basically all laptops.",
+    "Flamegraphs are a nice way to present profiler data, but they don't work well for recursive programs."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "Profiling tools that work from outside a process\u2014requiring only a PID\u2014can reveal surprising allocation patterns like implicit Range object creation that would otherwise go unnoticed.",
+  "filename": "2018-02-06-profiler-week-5"
+}

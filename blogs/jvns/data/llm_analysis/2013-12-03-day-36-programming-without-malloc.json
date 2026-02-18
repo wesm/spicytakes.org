@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans describes the experience of writing a kernel in Rust without access to malloc, standard libraries, or basic OS facilities. She catalogs what's unavailable\u2014memory allocation, printing, sleep, files, stdin\u2014and finds it surprisingly manageable. The constraint forces all memory to be compile-time or stack-allocated, which gives her new appreciation for why the Linux kernel uses so many global variables. She shares VGA buffer code that writes characters directly to screen memory.",
+  "key_points": [
+    "Writing an OS kernel means losing nearly every convenience programmers take for granted: memory allocation, printing, files, sleep, and other processes",
+    "Programming without malloc is less difficult than expected\u2014memory just needs to be compile-time or stack-allocated",
+    "Global variables in the Linux kernel make more sense when you realize malloc/free overhead is pointless for singleton structs",
+    "The shift from high-level Python to bare-metal Rust inverts expectations: fewer resources but code runs fast with no excuse not to"
+  ],
+  "money_quotes": [
+    "My OS literally can't allocate memory, and there's no standard way to print (I have to write to the VGA buffer manually).",
+    "I expect my code to run super fast, because it has no excuse not to.",
+    "Right now I definitely don't have timers or anything, so I'm looping 80,000,000 times to sleep.",
+    "read from stdin (I don't have a keyboard driver yet. There is no stdin.)",
+    "open files (there are no files)",
+    "This is less difficult than I expected it to be!",
+    "It's given me an appreciation for why there is so much use of global variables in the Linux kernel \u2013 if just need 1 struct, it makes so much more sense to just have 1 global struct than to keep malloc'ing and free'ing it all the time."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory",
+  "key_insight": "Programming without malloc on bare metal is surprisingly tractable and reveals why kernel code relies on global variables\u2014when you only need one of something, dynamic allocation is pointless overhead.",
+  "filename": "2013-12-03-day-36-programming-without-malloc"
+}

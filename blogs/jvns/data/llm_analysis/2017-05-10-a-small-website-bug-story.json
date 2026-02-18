@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans debugs why her website was displaying garbled content by tracing the issue through HTTP headers. She discovers the response was gzipped but missing the Content-Encoding: gzip header, which meant browsers couldn't decode it. The root cause was an old Apache .htaccess rule she'd written years ago to always serve gzipped content regardless of what the client requested, which interacted badly with Cloudflare's caching. She fixed it by removing the .htaccess rule and clearing the Cloudflare cache, though she never fully determined why the Content-Encoding header was being stripped.",
+  "key_points": [
+    "The website was serving gzipped content without the Content-Encoding: gzip header, causing browsers to display garbled data",
+    "An old Apache rewrite rule was unconditionally serving pre-gzipped files regardless of whether clients requested gzip encoding",
+    "The interaction between the misconfigured Apache backend and Cloudflare's caching layer compounded the problem",
+    "Enabling HSTS the previous week prevented her from simply bypassing Cloudflare to diagnose the issue, since her backend didn't have HTTPS",
+    "Even after fixing the issue, the exact mechanism that stripped the Content-Encoding header remained unknown"
+  ],
+  "money_quotes": [
+    "How do you check if a file is gzipped? The easiest way is probably to try to unzip it and see if it works.",
+    "I happen to know that those are the 2 bytes every gzip stream starts with!",
+    "When a site sends gzipped data, it's meant to send a Content-Encoding: gzip header to say 'hey, this content is gzipped, unzip it before displaying it!'",
+    "This tells Apache 'hey, always send gzipped replies no matter what!!'",
+    "Hilariously, I turned on Strict-Transport-Security last week, which means my site only works if it's served over HTTPS. And my normal webhost isn't set up with HTTPS yet, so I can't just turn off Cloudflare.",
+    "I still don't know where the Content-Encoding: gzip header went! Did Cloudflare remove it? Did my webhost stop serving it for some reason? I have no idea!"
+  ],
+  "themes": [
+    "debugging",
+    "networking"
+  ],
+  "tone": "curious, conversational, playful",
+  "key_insight": "Small configuration decisions made years apart\u2014pre-gzipping files for bandwidth savings, adding Cloudflare, enabling HSTS\u2014can interact in unexpected ways that create debugging puzzles where no single component is clearly at fault.",
+  "filename": "2017-05-10-a-small-website-bug-story"
+}

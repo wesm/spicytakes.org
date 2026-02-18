@@ -1,0 +1,23 @@
+{
+  "summary": "The post explains how to use Linux's clock_gettime system call to measure CPU time spent by a process or thread. Evans discovered this after a colleague mentioned measuring CPU time per HTTP request at work. The key insight is that clock_gettime with the CLOCK_PROCESS_CPUTIME_ID flag returns actual CPU time consumed, not wall-clock time, letting you distinguish between time spent computing and time spent waiting. She walks through the different clock flags available and shows how to bracket code with clock_gettime calls to measure CPU consumption.",
+  "key_points": [
+    "clock_gettime is a Linux system call that does much more than tell wall-clock time \u2014 it can report per-process and per-thread CPU time",
+    "Using CLOCK_PROCESS_CPUTIME_ID lets you measure exactly how much CPU time a specific operation consumes, which is critical for distinguishing CPU-bound from I/O-bound slowness",
+    "System calls like clock_gettime are accessible from high-level languages like Ruby, not just C",
+    "CLOCK_MONOTONIC provides a time source that never goes backward, which is useful for avoiding clock skew issues"
+  ],
+  "money_quotes": [
+    "If you have a slow program, the first thing you want to know is whether your program is spending that time calculating things on the CPU, or whether it's waiting for something else (a disk, a network, user input).",
+    "It turns out that if you're a HTTP server, and you want to know exactly how much CPU time your HTTP requests are taking, you can just ask the Linux kernel!",
+    "I'd seen this system call before, but I thought it was only for getting the time, like 5:03pm. Not so!",
+    "System calls aren't just for C hackers, they're for everyone.",
+    "It makes sense to me that Linux keeps track of the CPU time spent per process."
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "enthusiastic, technical, curious",
+  "key_insight": "Linux's clock_gettime system call with CLOCK_PROCESS_CPUTIME_ID lets you measure actual CPU time consumed by your code, distinguishing computation from waiting \u2014 and it's accessible from any language, not just C.",
+  "filename": "2016-02-20-measuring-cpu-time-with-clock-gettime"
+}

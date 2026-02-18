@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans shares her notes from running a workshop teaching coworkers how to use tcpdump and strace for debugging. The tcpdump section progresses from basic packet capture on localhost to analyzing production traffic in Wireshark for performance debugging. The strace section covers reading system call output, finding configuration files, attaching to running processes, and diagnosing performance problems. She reflects that the hour-long format worked for experienced users but was too fast for beginners, and plans to iterate on the workshop format.",
+  "key_points": [
+    "tcpdump is a powerful general-purpose debugging tool for web services since almost all services communicate via network requests",
+    "Wireshark complements tcpdump by making packet analysis much more accessible - pcap files are a universal format that every packet analysis tool understands",
+    "strace reveals how programs interact with the OS, making it useful for discovering configuration files, understanding performance problems, and debugging running processes",
+    "Production use of these tools requires caution: tcpdump can fill disks and capture customer data, while strace will slow down running programs",
+    "Preparing good workshop material is hard, and giving the same talk multiple times is valuable because you learn so much each time"
+  ],
+  "money_quotes": [
+    "We do a lot of web development; almost all of our services talk to each other with network requests. So a tool that can spy on network requests can be a really good general-purpose debugging tool.",
+    "pcap files are like chocolate cookies \u2013 every packet analysis tool understands how to read them.",
+    "as you've seen, tcpdump output is a little difficult to interpret and search. some people are really good at that but IMO it's easier to stick with a basic knowledge of tcpdump and do more advanced stuff in Wireshark",
+    "if the client sends a packet and then the server takes 5 seconds to reply to it, that's AWESOME EVIDENCE",
+    "we have no idea how it's configured! How will we ever find out? STRACE OBVIOUSLY",
+    "STRACING PRODUCTION PROGRAMS WILL SLOW THEM DOWN AND YOU NEED TO BE VERY CAREFUL. Sometimes you do it anyway if the process is a mess",
+    "I want to get better at doing workshops and talks at least 2-3 times because preparing good material is so hard, and I always learn so much about the talk/workshop the first time I give it."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, conversational",
+  "key_insight": "tcpdump and strace are essential debugging tools that let you spy on network traffic and system calls respectively, turning opaque production problems into visible, diagnosable evidence.",
+  "filename": "2016-05-06-a-workshop-on-strace-and-tcpdump"
+}

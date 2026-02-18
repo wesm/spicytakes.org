@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans built a simple web tool for making DNS queries because existing tools like dig and Google's DNS lookup tool produce output that's overwhelming for most people. She wanted something approachable for a zine she's writing about owning a domain name. The tool presents DNS responses in a clean table format, strips out unnecessary technical details like flags and the 'IN' class, and includes a 'GET ME ALL THE RECORDS' button that queries every record type. The backend is a small Go service running on Netlify functions, with a Vue.js frontend. She also explains why ANY queries don't reliably work and why record types in responses aren't actually redundant.",
+  "key_points": [
+    "dig's output includes too much information for most people\u2014flags, message sizes, and cryptic abbreviations make it hard to parse without prior knowledge",
+    "Google's DNS lookup tool has a nice query interface but its output is just as complex as dig's command-line output",
+    "DNS ANY queries are unreliable because many servers (like Cloudflare) have dropped support for them, so querying each record type individually is more practical",
+    "Response record types aren't redundant information\u2014an A record query can return CNAME records, as with www.twitter.com",
+    "Lambda-style serverless functions make deploying small tools like this trivially easy"
+  ],
+  "money_quotes": [
+    "This is great if you're used to reading it and if you know which parts to ignore and which parts to pay attention to, but for many people this is too much information.",
+    "Like, what does flags: qr rd ra mean? Why does it say QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1? What is the point of MSG SIZE rcvd: 68? What does IN mean?",
+    "I mostly know the answers to these questions because I implemented a toy DNS server one time, but it's kinda confusing!",
+    "This is just as bad as dig!",
+    "I put the answers in a table and left out a lot of information I thought wasn't necessary for most people like the flags, and the IN (we're all on the internet!)",
+    "Using an AWS Lambda-style function was really nice and made this project super easy to deploy. It's fun not to have worry about servers!"
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical",
+  "key_insight": "Most DNS tools expose the full complexity of the protocol when most people just need to see what records exist for a domain, so stripping away unnecessary details makes DNS far more approachable.",
+  "filename": "2021-02-24-a-little-tool-to-make-dns-queries"
+}

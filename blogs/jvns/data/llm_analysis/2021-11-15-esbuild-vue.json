@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans describes her journey from a simple 'pretend it's 2005' frontend approach (plain HTML and script tags) to adopting esbuild as a build tool. She explains how she was frustrated by npm libraries that require imports and complex build pipelines she didn't understand. After discovering esbuild, she hit a problem where Vue's runtime-only build was loaded instead of the full build with template compiler. She traces through the issue using strace and learns about npm build artifacts, eventually fixing it by importing the specific Vue distribution file she needed.",
+  "key_points": [
+    "Frontend build tools like vue-cli-service and webpack are confusing because they do too many things at once, making them hard to debug when they break",
+    "esbuild provides a simpler alternative that just resolves imports and bundles files, without the complexity of a full build pipeline",
+    "NPM packages can ship multiple build artifacts (dev/prod, runtime/full, ESM/CommonJS) and understanding which one gets loaded is key to debugging import issues",
+    "The package.json 'main' field directs which build artifact gets loaded by default, which may not be the one you need",
+    "Using strace to debug which files esbuild actually opens is a practical way to understand what's happening under the hood"
+  ],
+  "money_quotes": [
+    "I stopped using those tools and went back to my old <script src=\"script.js\"> system because I don't understand what those vue-cli-service and vite are doing and I didn't feel confident that I could fix them when they break.",
+    "I'm excited about it because it lets me use imports in my code without using a giant build pipeline that I don't understand.",
+    "So I'd rather stick to a setup that I actually understand.",
+    "I also double checked which version of Vue esbuild is loading using strace, because I love strace.",
+    "I don't understand everything esbuild is doing, but it feels a lot more approachable and transparent than the Webpack-based tools that I've used previously.",
+    "The other thing I like about esbuild is that it's a static Go binary, so I feel more confident that I'll be able to get it to work in the future than with tool written in Javascript, just because I understand the Javascript ecosystem so poorly."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "You don't need to adopt a complex build pipeline you don't understand just to use npm imports \u2014 simpler tools like esbuild can bridge the gap between 'pretend it's 2005' and modern JavaScript packaging.",
+  "filename": "2021-11-15-esbuild-vue"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans catalogs the many ways DNS can break systems in practice, noting that textbook knowledge of DNS doesn't prepare you for real-world failures. She collected examples from Twitter of DNS problems that didn't initially appear to be DNS problems. The post covers issues ranging from slow resolvers and timeouts to Kubernetes ndots configuration, negative caching, nginx and Java caching DNS forever, musl's lack of TCP DNS support, and round-robin DNS breaking with getaddrinfo. The key theme is that DNS failures are diverse, often subtle, and frequently masquerade as other problems.",
+  "key_points": [
+    "DNS problems in practice are far more varied than textbook descriptions suggest, and many don't initially appear to be DNS problems at all",
+    "Caching is a recurring theme: negative caching, nginx resolving once on startup, Java's JVM never refreshing DNS, and forgotten /etc/hosts entries all cause subtle failures",
+    "Kubernetes introduces several DNS-specific pitfalls including the ndots:5 configuration that causes 4 unnecessary lookups before the real query, and race conditions between containers",
+    "Implementation differences between libraries (musl vs glibc, getaddrinfo vs gethostbyname) can silently break DNS behavior in ways that are extremely hard to debug",
+    "Even DNS servers themselves can have bugs, like returning NXDOMAIN instead of NOERROR when a record type doesn't exist but the domain does"
+  ],
+  "money_quotes": [
+    "With DNS, reading about how it works in a textbook doesn't prepare you for the sheer volume of different ways DNS can break your system in practice.",
+    "So every time you make a DNS query, you need to wait for 4 DNS queries to fail before you can get to the actual real DNS query that succeeds.",
+    "If you visit a domain before creating a DNS record for it, the absence of the record will be cached.",
+    "nginx will resolve some.domain.com once on startup and never again. This is especially dangerous if the IP address changes infrequently, because it might keep happily working for months and then suddenly break at 2am one day.",
+    "This is extra confusing because dig ignores /etc/hosts, so everything SEEMS like it should be fine.",
+    "I've implemented this bug myself too, so I understand why it happens \u2013 it's easy to think 'there aren't any records for this query, I should return an NXDOMAIN error'.",
+    "This is especially insidious because you might not realize that you're switching from gethostbyname to getaddrinfo at all \u2013 if you're not writing a C program, those function calls are hidden inside some library."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "debugging",
+    "linux"
+  ],
+  "tone": "practical, cataloging, empathetic",
+  "key_insight": "DNS failures in production are extraordinarily diverse and often masquerade as unrelated problems, making the 'it's always DNS' meme a reflection of genuine operational pain rather than just a joke.",
+  "filename": "2022-01-15-some-ways-dns-can-break"
+}

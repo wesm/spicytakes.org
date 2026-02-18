@@ -1,0 +1,24 @@
+{
+  "summary": "Evans shares her excitement about reading Martin Kleppmann's 'Designing Data-Intensive Applications' and explains the concept of log-structured storage she learned from it. She breaks down two fundamental approaches to database storage: log-structured engines (which append writes sequentially for faster writes) and page-oriented engines like B-trees (which update data in place). She illustrates the concept with a two-line bash script that functions as the 'world's simplest database.' She also clarifies the distinction between log-structured storage and write-ahead logs, explaining how WALs protect against data loss during crashes.",
+  "key_points": [
+    "Database storage fundamentally divides into two approaches: log-structured (append-only, faster writes) and page-oriented (B-trees, faster reads)",
+    "A functional database can be built with just two bash functions that append to and grep a text file, illustrating the core idea of log-structured storage",
+    "Write-ahead logs are distinct from log-structured storage \u2014 both types of storage engines can use WALs to prevent data loss on crash",
+    "The tradeoff between LSM and B-tree storage shows up clearly in benchmarks: LSM has higher write throughput, B-tree has higher read throughput",
+    "The word 'consistency' has at least five completely unrelated meanings in database contexts, and ACID's 'C' is about application-level invariants, not linearizability"
+  ],
+  "money_quotes": [
+    "I seriously thought atomicity in databases was the same idea as atomicity in concurrent programs like an 'atomic instruction' and it's a TOTALLY DIFFERENT THING.",
+    "It's really helpful to know that there are actually 5 completely unrelated uses of the word 'consistency' when talking about databases.",
+    "Basically this appends to a text file (called `database`) every time you write, and greps that text file for the latest update every time you read. I tried it! This is a totally functional database :)",
+    "The idea here is that this way you don't need to make random disk writes \u2013 you can just write to the end, and so writes can be a lot faster.",
+    "Writing to disk is expensive. Because of that, databases will often just do writes to memory, and then save their state to disk later. This is smart and efficient!",
+    "But if you crash, then you can lose data. Losing data is bad. To avoid losing data, you can just log all your writes to disk by appending to a file."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Database storage engines split into two fundamental approaches \u2014 log-structured (fast sequential writes) and page-oriented (fast random reads) \u2014 and understanding this distinction unlocks comprehension of real-world database design tradeoffs.",
+  "filename": "2017-06-11-log-structured-storage"
+}

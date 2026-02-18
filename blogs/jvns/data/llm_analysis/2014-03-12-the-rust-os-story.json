@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans documents her experience writing a tiny operating system in Rust, breaking it down into small incremental steps starting from copying an existing project called rustboot. She walks through turning the screen blue, writing I/O functions, handling keyboard interrupts, and implementing malloc, explaining the challenges at each stage. A key digression explains why you can't write a kernel in Python (because print ultimately calls the write system call, which is implemented in the kernel you're trying to write) but can in Rust using #[no_std] mode. The post emphasizes that even seemingly simple tasks like printing a string required days of learning about freestanding mode, Rust's type system, and rust-core.",
+  "key_points": [
+    "Starting from an existing project (rustboot) and making a tiny change (red to blue) is psychologically important for building momentum when tackling something intimidating",
+    "You can't write a kernel in Python because all I/O ultimately depends on system calls implemented by the kernel you're trying to write \u2014 Rust's #[no_std] mode solves this by letting you opt out of the standard library entirely",
+    "Rust's language feature gating lets you selectively enable capabilities like memory allocation by implementing the underlying primitives yourself, which is powerful for OS development",
+    "Simple-looking code like iterating over a string's bytes required wrestling with Rust's type system, freestanding mode limitations, and rust-core's unfamiliar APIs",
+    "You can get surprisingly far without malloc \u2014 Rust automatically puts local variables on the stack and global variables are laid out at compile time"
+  ],
+  "money_quotes": [
+    "My experience of writing a kernel that it was like jumping in puddles: it's a lot of fun, and there are a lot of mishaps.",
+    "This sounds silly, but psychologically it's an important step! It forced me to look at the code and understand how it worked, and it was really exciting that it worked right away.",
+    "This code looks simple! It is a lie.",
+    "OH WAIT YOU DON'T HAVE A KERNEL YET. YOU ARE WRITING ONE.",
+    "Wrapping it in an unsafe block tells Rust 'okay, I checked and I promise this code is actually doing the right thing and won't blow anything up'.",
+    "It also needs implements of realloc and free, but I left those blank :)",
+    "The hardest parts of this were not writing the function, but getting the type right and understanding how Rust's language features can be turned on and off."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, candid, pedagogical",
+  "key_insight": "Writing an operating system becomes approachable when you break it into tiny steps and embrace the messiness of learning, starting from copying existing code and changing one color.",
+  "filename": "2014-03-12-the-rust-os-story"
+}

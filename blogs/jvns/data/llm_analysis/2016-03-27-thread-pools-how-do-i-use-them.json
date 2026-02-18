@@ -1,0 +1,26 @@
+{
+  "summary": "Evans describes her struggle to parallelize a computation across 32 CPU cores in Scala/JVM, expecting it to be simple but encountering a cascade of concurrency problems. She discovered threads were blocked by Scala's lazy vals using synchronized internally and Java 7's synchronized Double.parseDouble method. After fixing blocking, she found the main thread couldn't feed work fast enough, then hit OutOfMemoryError from an unbounded work queue. The post uses this experience to reflect on how thread pool abstractions are leaky compared to truly great abstractions like TCP/IP or Unix pipes, which can be used for years without understanding their internals.",
+  "key_points": [
+    "Scala's lazy vals use synchronized internally, creating unexpected thread contention in parallel code",
+    "Java 7's Double.parseDouble is synchronized, meaning only one thread can parse doubles at a time \u2014 fixed in Java 8",
+    "Moving parsing into the thread pool solved the bottleneck of the main thread being too slow to feed workers, but created an unbounded queue that consumed all memory",
+    "Thread pool abstractions are leaky \u2014 unlike TCP/IP or Unix pipes, you quickly need to understand implementation details like work queues to use them effectively",
+    "Not knowing something isn't a personal failing; it's just an opportunity to learn it today"
+  ],
+  "money_quotes": [
+    "Double.parseDouble in Java 7 is a synchronized method. So only one thread can parse doubles from strings at a time. Really? Really.",
+    "This is like if you get a 5 year old to mix the batter for the cake when you're doing a Complicated Kitchen Thing and they're like OK OK OK OK OK OK WHAT NEXT and you're like JUST A MINUTE.",
+    "The best abstractions I work with (the TCP/IP network layer! unix pipes!) let me use them for years without understanding in the slightest how they worked.",
+    "When working with these concurrency abstractions I end up having to worry almost immediately about what's underneath because the underlying queue has filled up and crashed my program.",
+    "This kind of thing makes me feel dumb, but in a really good and awesome way. I now know a bunch of things I didn't know before about Java concurrency!",
+    "I used to feel bad when I realized I didn't know how to work with stuff like this. Now I don't really feel bad usually I'm just like WELL TODAY IS THE DAY WHEN I LEARN IT."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, reflective, technical",
+  "key_insight": "Thread pool abstractions are fundamentally leaky \u2014 unlike great abstractions like TCP/IP, you cannot use them effectively without understanding the underlying implementation details like synchronization, work queues, and backpressure.",
+  "filename": "2016-03-27-thread-pools-how-do-i-use-them"
+}

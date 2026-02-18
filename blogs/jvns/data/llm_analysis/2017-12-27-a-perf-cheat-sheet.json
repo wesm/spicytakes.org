@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans shares a one-page perf cheat sheet she created as part of her upcoming perf zine. After struggling to explain perf concisely, she decided to make a centerfold reference covering basic and advanced command line arguments. The examples are sourced from Brendan Gregg's perf reference page. She highlights surprising capabilities like counting system calls by process with live updates and tracking sent network packets by process.",
+  "key_points": [
+    "A concise cheat sheet format can be an effective way to cover a tool's command line arguments comprehensively",
+    "perf can do more than basic profiling \u2014 it can count system calls and network packets by process in real time",
+    "Brendan Gregg's perf reference page is a canonical resource for perf examples"
+  ],
+  "money_quotes": [
+    "I've been struggling with how to explain all there is to say about perf in a concise way.",
+    "Yesterday I finally hit on the idea of making a 1-page cheat sheet reference which covers all of the basic perf command line arguments.",
+    "sudo perf top -e raw_syscalls:sys_enter -ns comm -d 1 counts system calls by process and shows you live updates",
+    "stdbuf -oL perf top -e net:net_dev_xmit -ns comm | strings counts sent network packets by process and prints an update every second.",
+    "I didn't realize you could do either of those things!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical",
+  "key_insight": "A well-designed one-page cheat sheet can make a powerful but complex tool like perf immediately accessible, revealing capabilities that even experienced users might not know about.",
+  "filename": "2017-12-27-a-perf-cheat-sheet"
+}

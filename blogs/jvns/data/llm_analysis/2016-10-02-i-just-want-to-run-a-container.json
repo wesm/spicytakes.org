@@ -1,0 +1,25 @@
+{
+  "summary": "Evans walks through the hidden complexity behind 'just running a container' in production, starting from the simplest case (runC) and progressively discovering requirements like overlay filesystems, image verification, and process supervision. She compares Docker and rkt architectures, explaining why Docker's monolithic approach is being broken apart into components like containerd. The post traces her learning journey through each layer of the container stack, showing that what sounds simple actually involves kernel version requirements, filesystem drivers, security signing, and process management. She concludes that running containers without Docker is possible but far from simple, and understanding the components helps demystify the ecosystem.",
+  "key_points": [
+    "Running containers in production requires overlay filesystems to avoid duplicating shared libraries across dozens of containers, which in turn requires specific kernel versions",
+    "runC intentionally excludes overlay filesystem support to stay simple, forcing users toward rkt or Docker for that functionality",
+    "Docker's historical problem in production was coupling process supervision with many other features; containerd represents a move toward separating these concerns",
+    "Container image verification is a real gap: rkt can run Docker images but cannot check their signatures, creating a security blind spot",
+    "The OCI standard and tools like skopeo are working toward modular container infrastructure, but the ecosystem was still evolving"
+  ],
+  "money_quotes": [
+    "The concerns when you run containers in production are pretty different from running it on a laptop.",
+    "If I'm running 50 containers I don't want to have 50 copies of all my shared libraries in memory. That's why we invented dynamic linking!",
+    "If you want to run containers using as few new things as possible, you can start out by just running your containers as normal programs that run on normal ports, like any other program on your computer.",
+    "No matter what tools you use it's definitely not as simple as 'just run a container'.",
+    "Either way going through all these steps helps me understand what the actual components of running a container are and what all these different pieces of software are trying to do.",
+    "This landscape is pretty confusing but I think it's not impossible to understand! There are only a finite number of different pieces of software to figure out the role of."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "What appears to be a simple request\u2014'just run a container'\u2014actually involves overlay filesystems, kernel requirements, image verification, and process supervision, and understanding each layer demystifies the entire container ecosystem.",
+  "filename": "2016-10-02-i-just-want-to-run-a-container"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Evans digs into the exact mechanics of why 0.1 + 0.2 equals 0.30000000000000004 in floating point arithmetic, rather than settling for the vague explanation that 'floating point is inexact.' She walks through the calculation step by step, showing the exact decimal values of 0.1 and 0.2 as 64-bit floats, adding them together, and demonstrating that the result lands exactly between two representable floating point numbers. The tiebreaker rule (round to even significand) produces 0.30000000000000004 rather than 0.3. She also explores how floating point display works, noting that computers print the shortest decimal that rounds back to the correct float, and wonders whether showing exact values might actually be less confusing.",
+  "key_points": [
+    "The exact sum of the float representations of 0.1 and 0.2 lands precisely between two representable 64-bit floats, and the 'round to even' tiebreaker rule selects 0.30000000000000004",
+    "All floating point numbers can be represented exactly in base 10 \u2014 you just need a lot of digits, since they're stored in base 2",
+    "When printing floats, computers display the shortest decimal that uniquely identifies that float, not the exact value \u2014 a nontrivial algorithm with dedicated academic papers",
+    "0.1 and 0.2 have the same significand because x and 2x always share a significand in floating point representation",
+    "PHP appearing to give a different answer (0.3) is just a less precise display algorithm, not different underlying math"
+  ],
+  "money_quotes": [
+    "There's a floating point number that's closer to 0.3 than 0.30000000000000004! So why do we get the answer 0.30000000000000004?",
+    "These really are the exact values: because floating point numbers are in base 2, you can represent them all exactly in base 10. You just need a lot of digits sometimes :)",
+    "The computer isn't actually printing out the exact value of the number, instead it's printing out the shortest decimal number d which has the property that our floating point number f is the closest floating point number to d.",
+    "In a way I feel like it might be more intuitive if computers just printed out the exact value of a floating point number \u2014 it might make it seem a lot less surprising when you get weird results.",
+    "It's not a coincidence that 0.1 and 0.2 have the same significand \u2014 it's because x and 2*x always have the same significand.",
+    "I kind of doubt that anyone had the patience to follow all of that arithmetic, but it was helpful for me to write down, so I'm publishing this post anyway."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "curious, methodical, self-deprecating",
+  "key_insight": "The famous 0.1 + 0.2 result isn't just generic floating point imprecision \u2014 the exact sum lands precisely between two representable floats, and the IEEE 754 round-to-even tiebreaker rule picks 0.30000000000000004.",
+  "filename": "2023-02-08-why-does-0-1-plus-0-2-equal-0-30000000000000004"
+}

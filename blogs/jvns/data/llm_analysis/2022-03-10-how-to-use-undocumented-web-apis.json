@@ -1,0 +1,26 @@
+{
+  "summary": "Evans walks through a practical step-by-step process for using undocumented web APIs by intercepting browser requests with developer tools. She demonstrates copying a request as cURL from the network tab, stripping unnecessary headers through trial and error, and translating the minimal request into a Python script. She discusses practical limitations like expiring session cookies and the importance of being respectful with request volume. The post concludes with the critical security insight that this technique applies to your own APIs too \u2014 anyone can inspect and manipulate the requests your frontend makes.",
+  "key_points": [
+    "You can reverse-engineer any web API by copying requests from the browser's network tab as cURL commands, then stripping headers until you find the minimal set needed",
+    "The process is mechanical: find a JSON response in dev tools, copy as cURL, remove irrelevant headers by trial and error, translate to Python",
+    "Browsers aren't magic \u2014 they send standard HTTP requests, so there's no way for a backend to distinguish a Python script sending identical headers from a real browser",
+    "This approach has practical limits: session cookies expire, making it unsuitable for long-running programs, and you should be careful not to overwhelm smaller sites",
+    "The most important takeaway is defensive: anyone can do this to your own API, so your backend must properly authorize every request"
+  ],
+  "money_quotes": [
+    "The answer is sort of yes \u2013 browsers aren't magic! All the information browsers send to your backend is just HTTP requests.",
+    "It's much more important to understand that anyone can do this to your backend API!",
+    "I usually just figure out which headers I can delete with trial and error \u2013 I keep removing headers until the request starts failing.",
+    "So if anyone can just change some parameters to get another user's information, that's no good.",
+    "I also stick to downloading data that's either mine or that's intended to be publicly accessible \u2013 I'm not searching for vulnerabilities.",
+    "Everyone has developer tools and the network tab, and it's pretty easy to see which parameters you're passing to the backend and to change them."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "technical, practical, approachable",
+  "key_insight": "Browsers aren't magic \u2014 any request your browser makes is just HTTP that anyone can replicate, which is both a useful hack for personal scripts and a critical security lesson for API developers.",
+  "filename": "2022-03-10-how-to-use-undocumented-web-apis"
+}

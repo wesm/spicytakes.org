@@ -1,0 +1,24 @@
+{
+  "summary": "Julia documents a day of progress on her Firecracker VM puzzle platform, tackling three problems: speeding up kernel boot times, building puzzle tarballs using Docker's internal overlayfs, and loading those tarballs into VMs. She found that a kernel boot delay was caused by i8042 AUX port detection and fixed it with a boot option, though a second delay remained unsolved. She built a Python script that exploits Docker's overlay filesystem internals to create tarballs, and a Go function to extract them into VM images.",
+  "key_points": [
+    "A 0.3-second kernel boot delay was fixed by using the i8042.noaux option, which was suggested right in the kernel log output she'd overlooked",
+    "She built puzzle tarballs by directly accessing Docker's overlayfs upper directory rather than using Docker's official interfaces, which proved simpler",
+    "She chose to shell out to command-line tools like mount/umount/tar in Go rather than reimplementing them, reasoning that known tools beat buggy reimplementations",
+    "A second 0.5-second boot delay remained unsolved despite trying six different kernel configurations"
+  ],
+  "money_quotes": [
+    "I asked about this in the Firecracker Slack and got a reply suggesting to use the i8042.noaux option for the first delay. (which I hadn't noticed, even though it says it right there :))",
+    "Basically I took advantage of the fact that I know how Docker uses overlayfs internally and just took a tarball of the upper part of the overlay directly.",
+    "I did this because I couldn't find a good way to do it using the normal Docker interfaces",
+    "I feel like these command line tools (mount/umount/tar) are really a known quantity and if I tried to reimplement them in Go I would just write a buggy version that I'd then have to maintain.",
+    "I spent a while poking at my kernel config and tried compiling with 6 different configurations and didn't get anywhere, so I gave up for the day and moved onto something else."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective",
+  "key_insight": "Sometimes the pragmatic approach is to leverage existing tools and their internals directly rather than reimplementing them or using official but inadequate interfaces.",
+  "filename": "2021-01-30-day-50--building-some-tarballs-for-puzzles"
+}

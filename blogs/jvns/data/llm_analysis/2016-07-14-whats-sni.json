@@ -1,0 +1,25 @@
+{
+  "summary": "Evans explains how web servers route HTTP requests to the right site using the Host header, then builds up to the more complex problem of TLS/SNI. She starts by showing how to make raw HTTP requests with netcat, demonstrating that the Host header is the simple mechanism behind virtual hosting. She then explains why HTTPS breaks this model\u2014the Host header is encrypted, so the server can't read it before choosing a certificate\u2014and how SNI solves this by including the hostname in the unencrypted TLS Client Hello packet. She verifies her understanding by reading nginx source code, discovering that virtual server lookup happens twice per TLS request.",
+  "key_points": [
+    "The HTTP Host header is the mechanism that lets a single web server host multiple sites\u2014it's the only part of the request that identifies which site you want",
+    "With HTTPS, the Host header is encrypted inside the TLS session, creating a chicken-and-egg problem: the server needs to know which certificate to use before it can read the Host header",
+    "SNI (Server Name Indication) solves this by putting the hostname in the unencrypted TLS Client Hello packet, letting the server pick the right certificate before decryption",
+    "In nginx, virtual server lookup happens twice per TLS request: once for SNI (to pick the certificate) and once for the Host header (to pick the response)",
+    "Understanding the fundamentals of HTTP made previously opaque web server configuration suddenly obvious"
+  ],
+  "money_quotes": [
+    "The difference between 17-year old Julia and 25-year-old Julia is that 25-year-old Julia knew how HTTP works.",
+    "If you remove the Host: part from this request, it does not work. Zero. Apache is all '400 Bad request'. 400 means it is your fault.",
+    "I like this because once you know what a HTTP request looks like \u2013 it becomes kind of obvious how a web server would decide where to send the request. There are only 4 things in it and only one of them is julia.com!",
+    "So the problem is that you need to choose which certificate you're going to use before you see the Host header.",
+    "SNI is a standard where, when getting a website, you say 'hey I'm gonna want julia.com' and the server is like 'ok encryption time! I will use the cert for julia.com!' and then you say, secretly: 'Host: julia.com. here's more about that.'",
+    "Learning how HTTP works was an a+ move. It would be totally impossible for me to configure webservers at work if I didn't know how it worked!"
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, educational",
+  "key_insight": "Understanding what an HTTP request actually looks like makes web server configuration intuitive rather than magical, and SNI extends that same routing concept into the encrypted TLS handshake.",
+  "filename": "2016-07-14-whats-sni"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents her attempt to understand what happens at the OS level when running a simple 'Hello, world' program. She posted her current understanding as a GitHub gist and asked Twitter for corrections and additions, receiving many helpful comments. The post walks through the key steps: loading code and data segments into memory, setting up the heap and stack, and handling system calls. She simplifies the program by replacing printf with a direct write() call and uses strace to observe the actual system calls made. Throughout, she's honest about gaps in her understanding, particularly around virtual memory and certain system calls like arch_prctl.",
+  "key_points": [
+    "A statically compiled hello world program still requires the OS to load code and data segments, set up heap and stack, and handle multiple system calls",
+    "Replacing printf() with write() dramatically simplifies the program for learning purposes, removing layers of abstraction",
+    "strace reveals the actual system calls made by a simple program, including memory allocation via brk before the write can happen",
+    "Posting your incomplete understanding publicly and asking for corrections is an effective learning technique"
+  ],
+  "money_quotes": [
+    "The question: If I were an OS, what would I need to do to run 'Hello, world?'",
+    "printf() is a pretty complicated function, so it's better to not use it.",
+    "I'm still really not sure about the details of what this set up looks like \u2013 people talk a lot about virtual memory and I don't know how I would implement that at all or if I would have to implement it.",
+    "I wanted to understand what happens when I run a 'hello world' program, but I wasn't at Hacker School. So I wrote down my current understanding and a bunch of questions and asked Twitter!",
+    "I don't think I have to worry about the first two system calls, since the first one is definitely called by my shell."
+  ],
+  "themes": [
+    "linux",
+    "learning",
+    "debugging"
+  ],
+  "tone": "curious, exploratory, candid",
+  "key_insight": "Even the simplest program involves a complex chain of OS operations \u2014 loading segments, setting up memory, handling system calls \u2014 and the best way to learn this is to strip away abstractions and examine what actually happens.",
+  "filename": "2013-11-29-what-happens-when-you-run-a-unix-program"
+}

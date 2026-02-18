@@ -1,0 +1,26 @@
+{
+  "summary": "The post explains why piping commands like 'tail -f file | grep thing1 | grep thing2' often appear to produce no output. The root cause is that programs buffer their output (typically 8KB) when writing to a pipe rather than a terminal, so data never actually reaches the next command in the pipeline. Programs use the isatty function to decide between line buffering (for terminals) and block buffering (for pipes). Evans catalogues which common commands buffer, how various programming languages handle it, and presents five practical solutions including stdbuf, unbuffer, and using line-buffered flags. She also notes that pressing Ctrl-C on a buffered pipeline loses the buffer contents entirely.",
+  "key_points": [
+    "Programs check isatty to decide buffering strategy: line buffering for terminals, 8KB block buffering for pipes, which is why adding a second grep to a pipeline breaks visible output",
+    "Common commands like grep, sed, awk, tcpdump, and jq all buffer output when writing to pipes, each with different flags to disable it",
+    "Pressing Ctrl-C on a buffered pipeline loses all buffered data because grep receives SIGINT before the upstream program can flush",
+    "Five practical solutions exist: avoid slow pipes, use line-buffer flags, consolidate into awk, use stdbuf (LD_PRELOAD-based), or use unbuffer (forces TTY)",
+    "A standard environment variable like NO_BUFFER (analogous to NO_COLOR) could solve this universally but doesn't exist yet"
+  ],
+  "money_quotes": [
+    "The reason why 'pipes get stuck' sometimes is that it's VERY common for programs to buffer their output before writing it to a pipe or file. So the pipe is working fine, the problem is that the program never even wrote the data to the pipe!",
+    "I internalized this as 'uh, I guess pipes just get stuck sometimes and don't show me the output, that's weird'",
+    "grep thing1 is saving up all of its matches until it has 8KB of data to write, which might literally never happen.",
+    "When you press Ctrl-C, what happens? In a magical perfect world, what I would want to happen is for tcpdump to flush its buffer, grep would search for example.com, and I would see all the output I missed. But in the real world, what happens is that all the programs get killed and the output in tcpdump's buffer is lost.",
+    "Programs do not use 8KB output buffers when writing to a terminal isn't, like, a law of terminal physics, a program COULD use an 8KB buffer when writing output to a terminal if it wanted, it would just be extremely weird if it did that.",
+    "Does anyone REALLY want to read 3000 words about buffering?"
+  ],
+  "themes": [
+    "terminals",
+    "linux",
+    "debugging"
+  ],
+  "tone": "technical, curious, conversational",
+  "key_insight": "Pipes don't get stuck \u2014 programs silently buffer their output when they detect they're not writing to a terminal, and understanding the isatty check is the key to diagnosing and fixing the problem.",
+  "filename": "2024-11-29-why-pipes-get-stuck-buffering"
+}

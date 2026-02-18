@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans built an nginx playground website that lets users paste in nginx configurations and test them with curl commands, getting back either results or error logs. She walks through the technical architecture: a static Vue.js frontend on a CDN paired with a single-endpoint Go backend that runs each nginx config in an isolated network namespace. The security approach combines practical isolation measures (network namespaces, no database, separate frontend hosting) with an honest acknowledgment of remaining risks. She discusses performance tradeoffs of running on a tiny fly.io instance and design decisions borrowed from JSFiddle and CodePen. The project came together quickly because she kept the scope minimal, and she's considering building similar playgrounds for other tools.",
+  "key_points": [
+    "Playgrounds are valuable learning tools because they let you experiment safely without fear of breaking things, and nginx's finicky configuration makes this especially useful",
+    "The security approach combines practical measures (network namespaces, no database, CDN-hosted frontend, isolated VM) with honest acceptance of residual risk",
+    "Keeping the architecture simple\u2014static frontend plus a single Go API endpoint\u2014made the project buildable in a couple of days",
+    "Performance on a tiny instance (1 shared CPU, 256MB RAM) is acceptable at ~400ms per request because the CDN handles all frontend traffic",
+    "A SIGKILL vs SIGTERM bug caused nginx worker process leaks and eventual memory exhaustion\u2014a concrete example of why process lifecycle management matters"
+  ],
+  "money_quotes": [
+    "I find that playgrounds really help me learn \u2013 it's incredibly useful to be able to quickly and safely experiment and try out different options without worrying that Something Terrible is going to happen if you make a mistake.",
+    "And nginx in particular is EXTREMELY finicky to configure, so I think it's extra important to have a playground for nginx to quickly test things out.",
+    "Don't use a database, just browser local storage (can't hack the database if there isn't one!)",
+    "Ask people to be nice in the FAQ (that's the \"YOLO\" part :) )",
+    "Someone already showed how to read the /etc/passwd file which is fun, but there's nothing sensitive in there.",
+    "I didn't want to use an npm build step to combine them because I'm pretty bad at Javascript and I'm always worried my Javascript build will break and then I'll be too lazy to fix it and then it'll be impossible for me to deploy changes.",
+    "I added a little rocket ship gif that plays while the backend is running to make it a little more fun to wait",
+    "This was a lot easier to build than I thought it would be!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, candid",
+  "key_insight": "Building useful developer tools doesn't require complex architecture\u2014a static frontend, a single API endpoint, and pragmatic security tradeoffs can produce something genuinely valuable for learning.",
+  "filename": "2021-09-24-new-tool--an-nginx-playground"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans documents her multi-day journey to read memory maps from a Mac process, something she needs for her Ruby profiler rbspy. On Linux this is trivial via /proc/PID/maps, but on Mac it requires diving into Mach kernel APIs. She first tried the vmmap command-line tool but found it unacceptably slow (2 seconds). She then wrote her own partial vmmap clone in Rust using the mach crate, achieving 15x faster performance in about 100 lines of code. She's still working on handling dynamically linked libraries stored in the 'dyld shared cache' and shares useful resources for others tackling the same problem.",
+  "key_points": [
+    "Linux's /proc filesystem makes reading memory maps trivial compared to Mac's Mach kernel API approach, which took days instead of hours",
+    "The vmmap tool works but is impractically slow at 2 seconds per invocation, likely because it pauses the target process",
+    "A custom Rust implementation using the mach crate achieved the same result in ~80ms, about 15x faster than vmmap",
+    "Mac's 'dyld shared cache' for dynamically linked libraries adds another layer of complexity not yet solved",
+    "ASLR means you can't just look up symbol addresses\u2014you need the memory maps to find where binaries are actually loaded"
+  ],
+  "money_quotes": [
+    "Trying to do this on Mac gave me a lot of appreciation for Linux's \"everything is a text file in /proc\" philosophy \u2013 it feels a little janky sometimes to be parsing a text file, but getting the memory maps on Linux took me like 2 hours and I was done, and trying to figure it out on Mac has taken me like 3 days and I'm still not finished.",
+    "My Rust program did what I hoped \u2013 it runs in like 80ms or something, about 15x faster than vmmap.",
+    "I still don't know exactly what vmmap is doing that's slow (dtruss didn't tell me anything terribly helpful), but whatever it is, my Rust program isn't doing that thing.",
+    "It made me happy that I could write a reasonable first approximation of a vmmap clone in 100ish lines of Rust!",
+    "I've never done any Mac or BSD systems programming before, and I'm still trying to understand basic concepts like \"what is a port?\" but I feel like I'm making good progress :D",
+    "if vmmap really is pausing the process, that's not good \u2013 I'd really prefer that my profiling tool not interfere with the process it's profiling at all."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, enthusiastic, technical",
+  "key_insight": "Linux's /proc filesystem approach to exposing process information, while seemingly janky, is dramatically more accessible than Mac's Mach kernel APIs for the same task\u2014a difference measured in hours versus days of development effort.",
+  "filename": "2018-01-26-mac-memory-maps"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans explains the Strict-Transport-Security (HSTS) header after enabling it on her own site. She walks through why simply redirecting HTTP to HTTPS isn't sufficient\u2014browsers can still leak cookies or be tricked by malicious networks on that first HTTP request. She demonstrates how GitHub uses the HSTS header and the browser preload list to ensure HTTPS is always used. She also covers the practical tradeoff: once you enable HSTS, you're committing to serving HTTPS indefinitely, since browsers will refuse to load the HTTP version.",
+  "key_points": [
+    "Redirecting HTTP to HTTPS isn't enough because the browser still makes one insecure request first, potentially leaking cookies or being intercepted",
+    "The HSTS header tells browsers to never visit the HTTP version of a site again after the first secure visit, and the preload list eliminates even that first insecure visit",
+    "Enabling HSTS is a one-way commitment\u2014if you stop serving HTTPS, your site becomes inaccessible to visitors until the max-age expires",
+    "Mixed HTTP/HTTPS content is dangerous because any HTTP content on a page can be tampered with, even if secure elements like payment forms use HTTPS",
+    "ISPs can inject ads into HTTP sites, so HTTPS ensures visitors see the site exactly as intended"
+  ],
+  "money_quotes": [
+    "If I go to http://github.com, by default my browser will send my GitHub cookies unencrypted, which is bad! Somebody could steal them!",
+    "If a sketchy free wifi portal starts serving a fake 'github.com' site, then I don't want my browser to be tricked.",
+    "Someone could replace the secure payments thing with an Evil Bad Payments Thing. That would be no good!",
+    "Sometimes ISPs will inject ads into sites. I don't want ads injected into my site! I want people to see my site exactly how I intended them to see it.",
+    "Basically browsers will really refuse to visit the HTTP version of your site after you turn on HSTS. So you'd better make sure that you can keep having a HTTPS version of your site forever.",
+    "Technically the fact that my site uses HTTPS doesn't mean that everything on the site is from me \u2013 Cloudflare actually owns the TLS certificate for my site, and they can (and do!) add stuff to my website."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, approachable, cautiously educational",
+  "key_insight": "HSTS and the preload list exist because redirecting HTTP to HTTPS still leaves a window where the first request is insecure, and closing that window requires a permanent commitment to serving HTTPS.",
+  "filename": "2017-04-30-using-strict-transport-security"
+}

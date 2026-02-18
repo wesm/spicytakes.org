@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans shares her five favorite Linux debugging tools: strace, dstat, tcpdump/wireshark, perf, and opensnoop. She frames them as a swiss army knife that works across any programming language when something on your system is wrong or slow. The post gives brief descriptions of each tool's purpose and links to deeper resources, including her own prior writing. She emphasizes practical utility over theoretical completeness, noting she's used nearly all of them to debug actual problems.",
+  "key_points": [
+    "Five core debugging tools (strace, dstat, tcpdump/wireshark, perf, opensnoop) form a versatile toolkit applicable across any programming language",
+    "strace is her favorite tool overall but comes with the caveat that it can significantly slow down programs",
+    "perf top provides a live sampling profiler view that's useful even for non-C programs, and can generate flame graphs",
+    "opensnoop represents a new generation of eBPF-based tools that are faster than strace for specific tasks",
+    "Having basic networking knowledge (IP vs TCP vs HTTP, what's a packet) is achievable and makes tcpdump/wireshark much more useful"
+  ],
+  "money_quotes": [
+    "I think of these tools like a swiss army knife \u2013 if something on your system is wrong or slow, in any programming language, knowing how to use them can really help you out.",
+    "strace is pretty broadly useful, but keep in mind it can really slow down your programs.",
+    "I like to use perf top no matter what language my programs are written in, just to see if I can understand anything from it. Sometimes it works!",
+    "Luckily the basics ('what's the difference between IP and TCP and HTTP? what's a network packet?') are totally possible to pick up :D.",
+    "It just shows you which files are being opened right now on your computer. And it's fast, unlike strace!",
+    "You don't need to know how it works to use it, though :)."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, practical, encouraging",
+  "key_insight": "A small set of system-level debugging tools \u2014 strace, dstat, tcpdump, perf, and opensnoop \u2014 forms a universal toolkit that works across any programming language to diagnose what's wrong or slow on a Linux system.",
+  "filename": "2016-07-03-debugging-tools-i-love"
+}

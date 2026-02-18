@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans documents her experience setting up NixOS on a personal server to replace her chaotic Ansible-managed setup. She walks through the process step by step, from installing NixOS via nixos-infect on Hetzner, to creating a flake, deploying configuration, and setting up a Go service with Caddy. She finds NixOS more reliable than Ansible because it controls the entire OS rather than just parts of it, but acknowledges the Nix language syntax and debugging experience remain confusing. The post is a practical guide mixed with honest reflections on the tradeoffs of using Nix.",
+  "key_points": [
+    "NixOS feels more reliable than Ansible because it controls the entire OS, so ad-hoc changes get blown away on rebuild rather than persisting as drift",
+    "Nix flakes have counterintuitive git rules: files must be git-added but don't need to be committed, and unstaged changes are fine",
+    "Nix error messages can be deeply unhelpful, with truncated stack traces, missing line numbers, and cached errors hiding the real problem",
+    "SystemD's DynamicUser and StateDirectory features provide a clean way to run services with isolated users and persistent storage without boilerplate",
+    "Despite finding Nix difficult and confusing to debug, she appreciates the result of having all service configuration defined declaratively in one file"
+  ],
+  "money_quotes": [
+    "I think the reason NixOS feels more reliable than Ansible to me is that NixOS is the operating system.",
+    "Because Nix has so much control over the OS, I think that if I tried to make any ad-hoc changes at all to my Nix system, Nix would just blow them away the next time I ran nixos-rebuild.",
+    "These rules feel very counterintuitive to me (why require that you git add files but allow unstaged changes?) but that's how it works.",
+    "I definitely skipped Step 1 in nixos-infect's README ('Read and understand the script'), but I didn't feel too worried because I was running it on a new instance and I figured that if something went wrong I'd just delete it.",
+    "My plan for now with NixOS is to just keep copying and pasting that my-service.nix file above forever.",
+    "I will say that I find using Nix to be very difficult and I really struggle when debugging Nix problems, but I kind of like it anyway.",
+    "Maybe because I'm not using Linux on my laptop right now I miss having linux evenings and Nix feels like a replacement for that."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "exploratory, candid, practical",
+  "key_insight": "NixOS offers more reliable server configuration than Ansible by controlling the entire OS state rather than just the parts you remember to manage, but the learning curve and debugging experience remain genuinely painful.",
+  "filename": "2024-01-01-some-notes-on-nixos"
+}

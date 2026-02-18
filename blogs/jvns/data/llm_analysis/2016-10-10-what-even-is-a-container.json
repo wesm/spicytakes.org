@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans demystifies containers by breaking them down into their underlying Linux kernel primitives: namespaces, cgroups, and seccomp-bpf. She demonstrates that containers aren't virtual machines but rather isolated processes using these kernel features. Through hands-on examples, she shows how to create a PID namespace with unshare, limit memory with cgroups, and explains how seccomp-bpf restricts system calls. The post concludes that Docker is essentially tooling built on top of these basic primitives.",
+  "key_points": [
+    "The word 'container' doesn't refer to a precise technology \u2014 it's shorthand for using Linux namespaces and cgroups to isolate processes",
+    "Namespaces (pid, networking, mount) let you create isolated views of system resources, and creating them is surprisingly easy with the unshare command",
+    "Cgroups provide resource limits (memory, CPU) for groups of processes, evolved from the concept of nice but with far more control",
+    "Seccomp-bpf adds security by filtering which system calls a process can execute",
+    "Docker containers are built on these basic Linux kernel primitives \u2014 there's no magic involved"
+  ],
+  "money_quotes": [
+    "The word \"container\" doesn't mean anything super precise. Basically there are a few new Linux kernel features (\"namespaces\" and \"cgroups\") that let you isolate processes from each other. When you use those features, you call it \"containers\".",
+    "Basically these features let you pretend you have something like a virtual machine, except it's not a virtual machine at all, it's just processes running in the same Linux kernel.",
+    "Wow, we're in a whole new world! There are only 2 processes running \u2013 bash and ps. Cool, that was easy!",
+    "So they're two views on the same thing, but one is a lot more restricted.",
+    "10 megabytes should be enough for anyone!",
+    "That's all Docker is! Of course Docker has a lot of features these days, but a lot of it is built on these basic Linux kernel primitives."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, demystifying, hands-on",
+  "key_insight": "Containers are not virtual machines or magic \u2014 they're just ordinary Linux processes isolated using namespaces, cgroups, and seccomp-bpf, and you can create them yourself with simple command-line tools.",
+  "filename": "2016-10-10-what-even-is-a-container"
+}

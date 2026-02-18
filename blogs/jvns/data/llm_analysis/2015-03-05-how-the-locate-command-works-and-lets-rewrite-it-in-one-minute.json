@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans investigates how the locate command works by examining its database file, discovering it's essentially a compressed recursive directory listing. She builds a homegrown alternative by piping find's output to a text file and searching it with grep, and finds that this naive approach is actually faster than locate despite using 3x more disk space. She traces this back to a 1983 paper that justified locate's compressed format based on constraints\u2014slow grep over 20,000 files, limited disk space\u2014that no longer apply with modern hardware. The post questions whether other Unix tools carry similar outdated design assumptions.",
+  "key_points": [
+    "The locate database is fundamentally just a compressed recursive directory listing (ls -R /), not the Complicated Thing it might seem",
+    "A homegrown locate using find piped to a text file and searched with grep is actually 3x faster than locate, despite using 3x more disk space",
+    "The original 1983 locate design optimized for constraints (30-second grep times, limited disk) that are irrelevant on modern hardware with SSDs and 700,000+ files searchable in 0.05 seconds",
+    "Standard Unix tools may carry design assumptions from decades ago that no longer hold true"
+  ],
+  "money_quotes": [
+    "But I always somehow thought of the locate database as this Complicated Thing. Until today I started looking at it!",
+    "COINCIDENCE THAT ALL OF THESE WORDS ARE THE SAME? I THINK NOT!",
+    "Whoa, our homegrown locate using grep is actually way faster! That is surprising to me.",
+    "This kind of makes me wonder if our database format which doesn't use any clever compression tricks might actually be a better format if you're not worried about the extra space it takes up.",
+    "The 1983 paper specifically calls out 'Why not simply build a list of static files and search with grep?', and says that grepping a list of 20,000 files took 30 seconds.",
+    "I have 700,000 files on my hard disk, and it takes about 0.05 seconds. It seems to me like the locate authors' original issues are really not a problem anymore, 30 years later.",
+    "This really makes me wonder what other standard unix programs make design assumptions that aren't true in 2015."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, playful, exploratory",
+  "key_insight": "The locate command's compressed database format was optimized for 1983 hardware constraints that no longer exist, and a naive grep over a plain text file list is actually faster on modern systems\u2014raising the question of what other Unix tools carry outdated design assumptions.",
+  "filename": "2015-03-05-how-the-locate-command-works-and-lets-rewrite-it-in-one-minute"
+}

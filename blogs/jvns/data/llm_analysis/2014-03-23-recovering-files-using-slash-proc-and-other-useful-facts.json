@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans shares her discovery that /proc can be used to recover accidentally deleted files that are still held open by a process, via /proc/$pid/fd/. She explores file descriptors, showing how they're symbolic links that reveal where processes direct their stdin, stdout, and stderr. She demonstrates practical uses like tracking which file a backup program is currently processing, and shows that even standard tools like ps get their information from /proc. The post ends with a list of related topics to investigate further.",
+  "key_points": [
+    "Deleted files can be recovered through /proc/$pid/fd/ if a process still has them open, because file descriptors maintain a reference to the underlying file",
+    "File descriptors 0, 1, and 2 are symbolic links to stdin, stdout, and stderr, letting you discover where any process redirects its output",
+    "Standard Unix tools like ps actually get their information by reading files in /proc, as revealed by strace",
+    "The /proc filesystem turns kernel internals into readable files, making process inspection accessible without special tools"
+  ],
+  "money_quotes": [
+    "If you accidentally delete a file that a process still has open, you can recover it with cat /proc/$pid/fd/$file_descriptor.",
+    "Suddenly it was like /proc was turned into a magical unicorn! I can use it to recover my files?!",
+    "I didn't know that! It turns out this is also a great way to find out where a process that you didn't start is redirecting its output.",
+    "So ps gets its information from /proc! Neat.",
+    "I thought they were trolling me, but then I clicked on it and it was actually useful!",
+    "I still feel like there are concrete uses for /proc/ that I don't know about, though. What are they?"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, curious",
+  "key_insight": "The /proc filesystem exposes kernel internals as ordinary files, enabling powerful capabilities like recovering deleted files and inspecting any process's state with basic shell commands.",
+  "filename": "2014-03-23-recovering-files-using-slash-proc-and-other-useful-facts"
+}

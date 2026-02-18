@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans discusses three software development practices she's encountered while working with Kubernetes that originate from Google's internal culture. She covers cherry-picking commits for release management, writing shell scripts in Go instead of bash, and using services instead of scripts for infrastructure automation. While she finds the first two practices genuinely useful at any scale, she's more skeptical about the service-oriented approach for smaller teams. She concludes with a broader point about being critical of practices from large companies, noting that what works for 50,000 engineers may not suit a team of 20.",
+  "key_points": [
+    "Kubernetes release branches receive hundreds of cherry-picked bugfixes after release, raising questions about when it's safe to upgrade",
+    "Writing shell scripts in Go gives you a compiler, proper argument handling, static compilation, and safer contributions from inexperienced programmers",
+    "Google's SRE book describes replacing ad-hoc shell scripts with peer-reviewed RPC servers for infrastructure management",
+    "Practices from large companies like Google should be evaluated critically rather than adopted wholesale, since scale changes what works",
+    "Building software from source gives teams the flexibility to apply their own patches on top of official releases"
+  ],
+  "money_quotes": [
+    "The practices you need to work with 50,000 other engineers effectively don't necessarily have any relationship to the practices that work with like 20 or 100 or 200 engineers.",
+    "I'd much rather have an inexperienced Go programmer contribute to a Go program than an inexperienced bash programmer contribute to a Bash script.",
+    "you get a COMPILER so it can tell you if you make typos (this is such a big deal to me)",
+    "SREs moved from writing shell scripts in their home directories to building peer-reviewed RPC servers with fine-grained ACLs.",
+    "you can't edit the script with vim in production (you could also say this is a 'con' but i'm gonna go with 'pro' for now :))",
+    "This idea of 'admin servers are in charge of installing packages' instead of 'scripts are in charge of installing packages' is new to me!",
+    "if they can convince people to adopt their operations practices (and software, like kubernetes!), then it makes it much more natural for those people to switch to using Google-managed infrastructure."
+  ],
+  "themes": [
+    "linux",
+    "learning",
+    "career"
+  ],
+  "tone": "curious, pragmatic, skeptical",
+  "key_insight": "Practices from large tech companies can contain genuinely useful ideas, but they need to be evaluated critically against your own team's scale rather than adopted as gospel.",
+  "filename": "2017-07-30-a-couple-useful-ideas-from-google"
+}

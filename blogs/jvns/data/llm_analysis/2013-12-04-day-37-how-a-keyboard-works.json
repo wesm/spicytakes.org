@@ -1,0 +1,27 @@
+{
+  "summary": "Julia documents her multi-day struggle to get keyboard interrupts working in her hobby operating system written in Rust. She walks through 16 steps of debugging, from creating descriptor tables to remapping the PIC, each step revealing a new way the OS could crash. The post captures the grueling iterative nature of OS development, where each fix reveals the next obscure problem. After five days, she achieved the milestone of pressing a key without crashing, though initially only for the first keypress.",
+  "key_points": [
+    "Getting keyboard input working in a hobby OS requires a chain of low-level steps: GDT, IDT, interrupt handlers, PIC remapping, and each one can silently break everything",
+    "The OSDev wiki page 'I Can't Get Interrupts Working' was essential \u2014 she recommends reading it three times every time you have a problem",
+    "An Intel design bug requires remapping the PIC so hardware interrupts don't collide with CPU exceptions, and forgetting to update the IDT after remapping cost two days of debugging",
+    "Testing interrupts manually before enabling hardware interrupts is a key debugging technique for OS development"
+  ],
+  "money_quotes": [
+    "Right now I'm working towards being able to: 1. press keys on my keyboard 2. having the OS not crash 3. and have the key I pressed be echoed back",
+    "Read this three times every time you have a problem. For real.",
+    "Press a key. The OS crashes. Continue experimenting in this vein for some time. Still crashing.",
+    "Remap the PIC so that interrupt i gets mapped to i + 32, because of an Intel design bug. This basically looks like just typing in a bunch of random numbers, but it works.",
+    "THE OS IS STILL CRASHING WHEN I PRESS A KEY. This continues for 2 days.",
+    "Press a key. My interrupt handler runs. Practically faint with joy.",
+    "As far as I can tell this is all totally normal and just how OS programming is.",
+    "I'm seriously amazed that operating systems exist and are available for free."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, humorous, vulnerable",
+  "key_insight": "OS development is a chain of obscure, interdependent low-level details where each fix reveals the next crash, making every small milestone \u2014 like pressing a key without crashing \u2014 a genuine triumph.",
+  "filename": "2013-12-04-day-37-how-a-keyboard-works"
+}

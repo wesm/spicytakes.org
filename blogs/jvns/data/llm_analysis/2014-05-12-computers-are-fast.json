@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans explores how fast her computer can process a 1GB file by writing progressively optimized C programs to sum all bytes. Starting with a simple implementation that runs in 0.6 seconds (after caching), she discovers that vector intrinsics (SIMD) can cut that to 0.25 seconds, while deliberately engineering cache misses makes it 40x slower. She uses perf to analyze where the remaining time is spent, finding roughly 32% on memory access and 68% on computation. The post demonstrates a hands-on, experimental approach to understanding hardware performance.",
+  "key_points": [
+    "A simple C program can process a 1GB file in 0.6 seconds once it's cached in RAM, with SSD reads adding about 2 seconds on the first run",
+    "SIMD vector intrinsics doubled the program's speed from 0.6 to 0.25 seconds by doing multiple additions simultaneously",
+    "Deliberately engineering cache misses made the program 40x slower, demonstrating how much CPU caches matter for performance",
+    "Linux's perf tool can annotate assembly code with performance statistics to show where time is actually spent",
+    "The gap between dynamic languages and optimized C for raw data processing is enormous"
+  ],
+  "money_quotes": [
+    "So today I paired with Sasha Laundy, and we ran Serious Investigations into how fast my computer can process a 1GB file.",
+    "So our program now runs twice as fast, and we know a whole bunch of new words (SSE! SIMD! vector intrinsics!)",
+    "We've learned that cache misses can make your code 40 times slower.",
+    "I used perf, which is a totally magical performance measurement tool for Linux.",
+    "I'm also kind of amazed by how fast C is. I'm used to writing in dynamic programming languages, which definitely do not process 1GB files in 0.25 seconds."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, hands-on",
+  "key_insight": "By progressively optimizing a simple byte-summing program and deliberately breaking it, you can build concrete intuition about how CPU caches, SIMD instructions, and memory access patterns determine real-world performance.",
+  "filename": "2014-05-12-computers-are-fast"
+}

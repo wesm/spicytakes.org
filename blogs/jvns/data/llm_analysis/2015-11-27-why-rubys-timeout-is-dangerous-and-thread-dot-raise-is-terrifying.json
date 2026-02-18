@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans explains why Ruby's Timeout module is dangerous after encountering a difficult bug at work caused by it. The core issue is that Timeout uses Thread.raise to inject an exception into a running thread at any arbitrary point in execution, meaning the exception can fire during cleanup code, rescue blocks, or any line of code whatsoever. She surveys how other languages handle the same problem\u2014Java deprecated and then disabled Thread.stop, C# discourages Thread.Abort, and C++ threads aren't interruptible at all. The fundamental flaw isn't Ruby-specific: there is no way to safely interrupt an arbitrary block of code. Java's Thread.interrupt offers a better model by only allowing interruption at specific safe points.",
+  "key_points": [
+    "Ruby's Timeout works by spawning a thread that calls Thread.raise on the original thread after a delay, injecting an exception at whatever line happens to be executing",
+    "Thread.raise can fire during rescue blocks, cleanup code, or object creation\u2014nobody writes code to defend against exceptions on literally any line",
+    "This is a fundamental design flaw, not just an implementation bug: safely interrupting arbitrary code blocks is impossible",
+    "Java deprecated Thread.stop in 1998 and disabled it entirely in Java 8; C# similarly discourages Thread.Abort",
+    "Java's Thread.interrupt is a safer alternative because InterruptedException can only be thrown at specific safe points"
+  ],
+  "money_quotes": [
+    "Nobody writes code to defend against an exception being raised on literally any line. That's not even possible.",
+    "Thread.raise is basically like a sneak attack on your code that could result in almost anything.",
+    "There is no way to safely interrupt an arbitrary block of code. Anything could be happening at the end of that 5 seconds.",
+    "Timeout uses Thread.raise, so it is not safe to use.",
+    "You know all the times we say Ruby is more fun than Java? TODAY JAVA IS MORE FUN BECAUSE IT MAKES MORE SENSE.",
+    "I felt awesome about tracking it down, and upset with myself about creating it in the first place."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "opinionated",
+  "key_insight": "There is no way to safely interrupt an arbitrary block of code because an exception injected at any random line can corrupt state during cleanup, rescue blocks, or any other operation.",
+  "filename": "2015-11-27-why-rubys-timeout-is-dangerous-and-thread-dot-raise-is-terrifying"
+}

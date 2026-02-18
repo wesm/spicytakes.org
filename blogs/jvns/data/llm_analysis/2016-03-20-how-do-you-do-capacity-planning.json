@@ -1,0 +1,25 @@
+{
+  "summary": "Evans explores the fundamentals of capacity planning, starting from identifying which resources (CPU, network, disk, databases) are bottlenecks during traffic spikes. She walks through a practical approach: observe failures, check graphs, identify the constrained resource, then measure usage. She discusses the subtlety of locks as a non-scalable resource and demonstrates through simulation how random load balancing creates uneven distribution across servers. The post concludes that measuring resource usage and reasoning about capacity is more effective than blindly adding servers.",
+  "key_points": [
+    "Capacity planning starts with identifying your most constrained resource\u2014CPU, disk I/O, network, or database\u2014usually by observing what breaks first under load",
+    "Locks are a fundamentally different kind of resource that can't be scaled by adding more servers, since they're about synchronization rather than throughput",
+    "Random load balancing creates surprisingly uneven distribution\u2014a simulation shows one server getting half the load of another across just 7 machines",
+    "The 'power of two choices' algorithm (pick 2 random servers, send to the less loaded one) is a simple but highly effective load balancing strategy",
+    "Measuring actual resource usage and reasoning about capacity is far more effective than reactively throwing more machines at problems"
+  ],
+  "money_quotes": [
+    "The first step when capacity planning is to figure out which resource(s) you're the most limited by, how much of that resource you're using right now, and how much capacity have you there.",
+    "This sucks because your application has to explode but it seems pretty easy otherwise.",
+    "Locks are not a kind of resource you can just get more of, since they're about synchronization!",
+    "db7 has half as much work to do as db1! That's not fair at all!",
+    "So you're paying for machines that aren't helping you solve your problem!",
+    "I'm very slowly starting to realize that, when you're trying to make computers do a lot of stuff, there are maybe easier strategies than 'just throw more computers at it until you are no longer on fire'.",
+    "My job got quite a bit less confusing when I realized I could actually measure how much CPU I was using, and scale CPU resources accordingly."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "curious, informal, exploratory",
+  "key_insight": "Capacity planning becomes far less mysterious when you systematically measure which specific resource is your bottleneck and reason about usage rather than reactively adding servers.",
+  "filename": "2016-03-20-how-do-you-do-capacity-planning"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans documents her weekend project building an ltrace clone using eBPF and bcc, written in Rust. The original ltrace tool traces library calls but has problems: it can't reliably attach to running processes and introduces significant performance overhead via ptrace. Her prototype solves both issues by using eBPF uprobes instead, parsing ELF files to find dynamically linked functions, then attaching eBPF probes to trace them. The whole thing is about 200 lines of Rust and successfully traces library calls on a running Firefox process.",
+  "key_points": [
+    "ltrace's two main problems are inability to attach to running processes and high performance overhead from ptrace",
+    "eBPF uprobes offer a faster, lower-overhead alternative to ptrace for tracing library calls in production",
+    "Finding dynamically linked functions requires parsing ELF relocations (rela.dyn and rela.plt sections), which is straightforward with the goblin Rust crate",
+    "The prototype generates per-function eBPF tracing code from a template and attaches each as a uprobe to the target library",
+    "The entire implementation is about 200 lines of Rust, demonstrating how accessible systems-level tooling has become"
+  ],
+  "money_quotes": [
+    "This is neat because it's a way to spy on what a program is doing that's different from spying on its system calls!",
+    "I don't fully understand why ltrace can't attach to processes, but that's not what this post is about.",
+    "It turns out it's not hard!!!!!!!! Basically if we run readelf -a we can find a bunch of function names in the sections rela.dyn and rela.plt, and that lists the functions.",
+    "I thought it was cool that it was possible to implement such a cool thing in so little code so I wanted to explain how it works!",
+    "Using eBPF + bcc to do tracing is in general faster than using ptrace to do tracing (which is what ltrace does) so this approach should also be lower overhead and maybe more suitable for production use.",
+    "I like that Rust crates generally don't try to make things simpler or harder than they are \u2013 like they don't introduce unnecessary abstractions, they just make it relatively easy for you get the information you need."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, technical, exploratory",
+  "key_insight": "eBPF uprobes combined with ELF parsing make it possible to build a working ltrace alternative in about 200 lines of Rust that solves the original tool's inability to attach to running processes and its performance overhead.",
+  "filename": "2018-02-24-an-ltrace-clone-using-ebpf"
+}

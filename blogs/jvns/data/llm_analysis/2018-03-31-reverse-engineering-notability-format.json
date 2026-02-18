@@ -1,0 +1,25 @@
+{
+  "summary": "Julia reverse engineered the Notability app's proprietary .note file format to convert her existing SVG drawings from another app. She discovered the format is a zip file containing Apple plist files with drawing data stored as arrays of 32-bit floats. The entire process took about a day and resulted in less than 200 lines of Python. She walks through each step from unzipping the file to decoding curve points, demonstrating that reverse engineering is more approachable than it seems because developers tend to reuse standard formats rather than inventing custom ones.",
+  "key_points": [
+    "The Notability .note format is just a zip file containing Apple plist files, with drawing data stored as arrays of 32-bit floats for curve points, colors, and widths",
+    "Reverse engineering file formats is approachable because developers reuse standard formats (zip, plist, float arrays) rather than inventing custom ones",
+    "The decoding process involved trial and error - trying msgpack, bencode, and other formats before realizing the data was simply an array of 32-bit floats",
+    "Proprietary file formats in mobile drawing apps prevent interoperability, but reverse engineering makes conversion possible",
+    "A useful debugging tactic was regenerating an existing plist file from decoded data and verifying it matched, then turning that into a unit test"
+  ],
+  "money_quotes": [
+    "I thought I'd write up the process of reverse engineering this file format because it wasn't really THAT hard, and reverse engineering often seems kind of unapproachable and scary.",
+    "I think the thing that makes reverse engineering not that hard is \u2013 developers reuse code! People don't usually invent totally custom file formats!",
+    "Nothing in here was really complicated \u2013 it was just some existing standard formats (zip! apple plist! an array of floats!) combined together in a pretty simple way.",
+    "It's really fun to start with a seemingly intractable or very manual task, think 'wait, I'm a programmer!!' and manage to use the power of programming to (at least sort of) do what I want!",
+    "This is going to sound pretty straightforward but in real life I was more confused and complained more.",
+    "I do find it kind of frustrating that all these mobile drawing apps use proprietary file formats and you can't convert between them without reverse engineering. But reverse engineering is possible!"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, demystifying",
+  "key_insight": "Reverse engineering proprietary file formats is more approachable than it seems because developers reuse standard formats like zip, plist, and simple float arrays rather than inventing custom encodings.",
+  "filename": "2018-03-31-reverse-engineering-notability-format"
+}

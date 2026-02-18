@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explores using perf as an alternative to strace for observing system calls, motivated by strace's significant performance overhead. She demonstrates that strace slowed du by 65x due to 260,000 system calls, while perf record can capture the same information with minimal impact. She walks through the basic perf record and perf script commands but notes a limitation: perf shows memory addresses for filenames rather than the actual strings. The post ends with a call for help from readers on resolving this limitation.",
+  "key_points": [
+    "strace can slow programs dramatically (65x in this example) when they make many system calls, making it unsuitable for production or performance-sensitive profiling",
+    "perf record with syscall tracepoints captures system call data with much less overhead than strace's ptrace-based approach",
+    "perf script output shows system call arguments but only as raw addresses, not resolved strings like filenames",
+    "perf's scripting capabilities (including Python script generation) open the door to building strace-like tools without the performance penalty",
+    "The practical threshold matters: strace is fine for programs with few syscalls but problematic for syscall-heavy workloads like filesystem traversal"
+  ],
+  "money_quotes": [
+    "You all know by now that I'm pretty into strace, but \u2013 strace is not always a good choice! If your program runs too many system calls, strace will slow it down. A lot.",
+    "That's 65 times slower! This is because du needed to use 260,000 system calls, which is uh a lot.",
+    "But what if we still want to know what du is doing, and du is actually a Really Important Program like a database or something?",
+    "But it doesn't give us the filename, just\u2026 the address of the filename? I don't know how to get the actual filename out and that makes me sad.",
+    "Like maybe you could pretty it up and have a script that's like strace but doesn't slow your program down so much."
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "enthusiastic, exploratory, hands-on",
+  "key_insight": "When strace's performance overhead is unacceptable for syscall-heavy programs, perf's tracepoint-based recording offers a low-overhead alternative for observing system calls, though with less convenient output.",
+  "filename": "2015-03-30-seeing-system-calls-with-perf-instead-of-strace"
+}

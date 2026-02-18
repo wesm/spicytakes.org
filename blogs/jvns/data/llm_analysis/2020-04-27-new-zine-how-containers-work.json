@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans announces her new zine 'How Containers Work!' which explains the Linux kernel features that make containers possible. She describes how containers initially confused her despite her Linux knowledge, and explains they're actually six different features glued together. The zine covers cgroups, namespaces, pivot_root, seccomp-bpf, and related fundamentals. She demonstrates that containers can be implemented in just 15 lines of bash, demystifying them. The zine is deliberately container-runtime-agnostic, focusing on kernel primitals rather than Docker or Kubernetes. She also announces a redesign of wizardzines.com done with designer Melody Starling.",
+  "key_points": [
+    "Containers are not a single feature but six different Linux kernel features glued together, which is why they seem confusing at first",
+    "Understanding the fundamentals (cgroups, namespaces, pivot_root, seccomp-bpf) makes debugging container problems in production much easier",
+    "A basic container can be run with just 15 lines of bash, showing containers aren't magic \u2014 the complexity comes from security features like dropping capabilities and blocking syscalls",
+    "Working with a designer improved not just the visual appearance of wizardzines.com but the information architecture and organization"
+  ],
+  "money_quotes": [
+    "It turns out that containers ARE actually pretty weird. They're not just one thing, they're what you get when you glue together 6 different features that were mostly designed to work together but have a bunch of confusing edge cases.",
+    "As usual, the thing that helped me the most in my container adventures is a good understanding of the fundamentals \u2013 what exactly is actually happening on my server when I run a container?",
+    "Once I understood those ideas, it got a lot easier to debug when my containers were doing surprising things in production.",
+    "If you understand the fundamentals you can figure all those things out!",
+    "One cool thing about working with a designer is \u2013 they don't just make things look better, they help organize the information better so the website makes more sense and it's easier to find things!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, educational",
+  "key_insight": "Containers stop being confusing once you understand they're just six Linux kernel features glued together, and that understanding of fundamentals is what makes debugging production container issues tractable.",
+  "filename": "2020-04-27-new-zine-how-containers-work"
+}

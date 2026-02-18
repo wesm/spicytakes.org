@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans collects real-world examples of floating point bugs to make abstract warnings concrete. She presents eight specific cases: an odometer that stops counting, corrupted tweet IDs in JavaScript, a variance calculation that goes negative, cross-language calculation discrepancies, the Kerbal Space Program 'Deep Space Kraken,' inaccurate timestamps, page layout errors, and collision checking failures. Throughout, she emphasizes that floating point isn't 'bad' or random\u2014it's standardized and predictable\u2014but developers need to understand when gaps between representable numbers cause problems. She provides runnable code for most examples and suggests practical fixes like using doubles, integers, or better algorithms.",
+  "key_points": [
+    "Floating point numbers get farther apart as they get bigger, which means adding small values to large accumulators can eventually produce zero change",
+    "JavaScript's lack of a native integer type causes real data corruption with large IDs, and this problem extends to JSON processing in other tools like jq",
+    "Catastrophic cancellation occurs when subtracting two large imprecise numbers, as demonstrated by a naive variance calculation that produces a negative result",
+    "Using integers instead of floats is often the right solution for things like timestamps, monetary values, and IDs",
+    "Floating point is standardized and deterministic\u2014the problems are predictable, not random\u2014so understanding the representation lets you anticipate and avoid bugs"
+  ],
+  "money_quotes": [
+    "I've heard a million times about the dangers of floating point arithmetic, but I find all of this a little abstract on its own, and I really wanted some specific examples of floating point bugs in real-world programs.",
+    "I don't want you to read this post and conclude that floating point is bad. It's an amazing tool for doing numerical calculations.",
+    "Floating point is standardized (IEEE 754), so operations like addition on floating point numbers are deterministic \u2013 0.1 + 0.2 will always give you the exact same result. It might not be the result you expected, but it's actually very predictable.",
+    "This is VERY bad \u2013 it's not a small error, 262km is a LOT less than 10,000km.",
+    "Not only is the bad variance way off, it's NEGATIVE! (the variance is never supposed to be negative, it's always zero or more)",
+    "In general, the lesson here is that sometimes it's better to use integers.",
+    "I think the lesson here is to never calculate the same thing in 2 different ways with floats."
+  ],
+  "themes": [
+    "learning",
+    "debugging"
+  ],
+  "tone": "technical, curious, approachable",
+  "key_insight": "Floating point problems aren't random or unpredictable\u2014they follow directly from how numbers are represented, and understanding the gaps between representable values explains most real-world bugs.",
+  "filename": "2023-01-13-examples-of-floating-point-problems"
+}

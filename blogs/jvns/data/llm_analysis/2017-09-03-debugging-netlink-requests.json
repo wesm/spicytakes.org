@@ -1,0 +1,26 @@
+{
+  "summary": "Evans walks through debugging a Kubernetes networking problem where a container network backend couldn't delete routes. She discovers netlink, the Linux kernel interface for managing routes and network configuration, and demonstrates how to use strace to capture netlink messages, pyroute2 to decode them, and tcpdump/wireshark as alternatives. The root cause turned out to be an invalid RTA_OIF field set to 0 (not a valid network interface ID) in the netlink message. She also covers other debugging tools like ip monitor and nltrace, evaluating their usefulness for this specific problem.",
+  "key_points": [
+    "Netlink is a Linux kernel socket interface used for IPC between kernel and userspace, commonly used for managing routes and network interfaces",
+    "Strace can capture raw netlink messages, and pyroute2's decoder tool can parse those hex bytes into human-readable route attributes like destination, gateway, and interface ID",
+    "The bug was that the program set RTA_OIF (output interface) to 0, which is not a valid network interface ID, causing route deletion to fail",
+    "Multiple tools exist for debugging netlink (strace, tcpdump+wireshark, ip monitor, nltrace) but strace combined with pyroute2 decoding proved most practical",
+    "Running Kubernetes networking in production means learning low-level Linux networking details through painful debugging sessions"
+  ],
+  "money_quotes": [
+    "Not super understandable, right? Well, luckily there's a Python tool that can help us understand it!",
+    "But in our errant program, the RTA_OIF field was set to 0! 0 is not even a valid value for this field, I don't think!",
+    "It always makes me happy when I learn about a NEW LINUX THING during the course of my job.",
+    "kubernetes is cool but definitely not easy, my experience is definitely like 'learn how all the networking works in excruciating detail'",
+    "it's less like 'set up networking and it works' and more like 'pick a networking backend, wait a month, discover weird problems, strace it, learn things about netlink and what a RTA_OIF is, fix the bugs, eventually it works'",
+    "I actually found it harder to work with than the strace method \u2013 it captured too many packets and I found it hard to filter them in Wireshark."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "debugging"
+  ],
+  "tone": "technical",
+  "key_insight": "Debugging opaque kernel networking problems becomes tractable when you combine strace to capture raw netlink messages with pyroute2 to decode them into human-readable route attributes.",
+  "filename": "2017-09-03-debugging-netlink-requests"
+}

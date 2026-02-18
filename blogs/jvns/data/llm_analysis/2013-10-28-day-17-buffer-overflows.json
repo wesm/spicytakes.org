@@ -1,0 +1,25 @@
+{
+  "summary": "Evans walks through creating a basic buffer overflow exploit as part of her Hacker School security week, inspired by Jon Erickson's 'Hacking: The Art of Exploitation.' She demonstrates a vulnerable C program that uses gets() to read into a fixed-size buffer, then shows how to overwrite the return address to redirect execution to an arbitrary function. The post covers practical details like disabling gcc's stack protector, dealing with little-endian byte ordering, and the difference between 32-bit and 64-bit exploitation. She notes the existence of more sophisticated techniques like NOP sleds but sticks with the simpler brute-force approach.",
+  "key_points": [
+    "Buffer overflows work by writing past a buffer's bounds to overwrite the return address on the stack, redirecting program execution",
+    "Modern gcc includes stack smashing protection by default, which must be explicitly disabled with -fno-stack-protector for the exploit to work",
+    "Little-endian memory layout on Intel architectures means addresses must be written in reverse byte order in the exploit payload",
+    "The gets() function is inherently dangerous because it has no way to limit how many characters it reads into a buffer",
+    "When you don't know the exact offset of the return address, repeating the target address multiple times can brute-force the overwrite"
+  ],
+  "money_quotes": [
+    "Oh look! It turns out that gcc already knows about this exploit and has special built-in protections! We can disable those, though\u2026",
+    "BOOM. We win!",
+    "Since gets doesn't know how many characters to read into buf, it keeps reading into the stack until the string is over and writes over that address.",
+    "We don't know exactly where the address is, so we keep writing it over and over and over again until it works.",
+    "\"Little-endian\" basically means \"backwards\". Intel architectures are always like this."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, hands-on, exploratory",
+  "key_insight": "Buffer overflows exploit the fact that functions like gets() write past buffer boundaries, allowing an attacker to overwrite the return address on the stack and redirect program execution.",
+  "filename": "2013-10-28-day-17-buffer-overflows"
+}

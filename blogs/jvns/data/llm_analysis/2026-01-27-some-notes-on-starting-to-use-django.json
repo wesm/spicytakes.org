@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans shares her experience starting to learn Django after years of building websites with Go binaries and static sites. She compares it favorably to Rails, appreciating Django's explicitness which makes it easier to return to projects after months away. She highlights several features she's enjoying: the built-in admin interface, the ORM's elegant JOIN syntax using double underscores, automatic migrations, and the batteries-included approach to email, CSRF, and other web features. She's running Django with SQLite in production and finding the documentation excellent, though she remains slightly uneasy about the settings file's lack of typo protection.",
+  "key_points": [
+    "Django's explicitness over Rails' convention-based magic makes it easier to return to projects after long breaks",
+    "Django's ORM uses __ syntax for JOINs across multiple tables, making complex queries far more concise than raw SQL",
+    "Automatic migration generation from model changes removes significant friction during iterative development",
+    "SQLite works well for small Django sites in production, with simple backup via VACUUM INTO",
+    "Django's batteries-included approach (admin, email, CSRF, CSP) reduces the need for external dependencies"
+  ],
+  "money_quotes": [
+    "One of my favourite things is starting to learn an Old Boring Technology that I've never tried before but that has been around for 20+ years.",
+    "It feels really good when every problem I'm ever going to have has been solved already 1000 times and I can just get stuff done easily.",
+    "Being able to abandon a project for months or years and then come back to it is really important to me (that's how all my projects work!), and Django feels easier to me because things are more explicit.",
+    "In the past my attitude has been \"ORMs? Who needs them? I can just write my own SQL queries!\". I've been enjoying Django's ORM so far though.",
+    "I have zero concern about the performance of my ORM-generated queries so I'm pretty excited about ORMs for now, though I'm sure I'll find things to be frustrated with eventually.",
+    "I'm realizing that being able to do migrations easily is important for me right now because I'm changing my data model fairly often as I figure out how I want it to work.",
+    "I'm still a bit intimidated by the settings.py file... what if I make a typo in the name of one of those variables? How will I know?"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, candid",
+  "key_insight": "Mature, 'boring' frameworks like Django reward beginners with explicitness and batteries-included features that let you get things done without fighting the tooling.",
+  "filename": "2026-01-27-some-notes-on-starting-to-use-django"
+}

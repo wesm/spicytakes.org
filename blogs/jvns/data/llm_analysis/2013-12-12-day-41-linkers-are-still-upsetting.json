@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans documents a frustrating day spent debugging a linker problem in her OS project. She and a pair programming partner discovered that ELF files only work when sections are ordered in a specific way (.text .rodata .data .bss), but she can't figure out why. Despite fixing the issue, the lack of understanding is clearly bothering her. She posted a StackOverflow question that went unanswered and began writing a tutorial on binary formats as a consolation project.",
+  "key_points": [
+    "ELF section ordering (.text .rodata .data .bss) matters for correctness, but the reason why is not obvious even after fixing the bug",
+    "Pair programming helped discover the fix through experimentation, even without full understanding of the root cause",
+    "Some low-level systems topics like linker scripts have sparse community support, even on StackOverflow",
+    "Writing tutorials and explanations can be a productive response to frustration with a problem"
+  ],
+  "money_quotes": [
+    "I've fixed it, but I don't understand *why* it's fixed, and I am having no luck.",
+    "Today I spent pretty much the whole day trying to figure out what's going on with a linker problem I'm having.",
+    "I also created a StackOverflow question but it is not getting any love."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "frustrated",
+  "key_insight": "Fixing a bug without understanding why it's fixed is deeply unsatisfying, and linker internals are one of those areas where even community resources fall short.",
+  "filename": "2013-12-12-day-41-linkers-are-still-upsetting"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans explains how to import frontend JavaScript libraries without using a build system, a task she finds repeatedly frustrating because most library documentation assumes a build system. She identifies three types of JS files libraries provide: 'classic' global variable files, ES modules, and CommonJS modules. She walks through real examples (Chart.js, @atcute/oauth-browser-client, @atproto/oauth-client-browser) showing how to identify each type and use them in the browser. The post covers practical techniques including UMD files with script tags, ES modules with importmaps, and using esm.sh to convert CommonJS modules. She concludes that ES modules being a web standard gives her confidence in their longevity, and frames the post as understanding the JS landscape rather than complaining about it.",
+  "key_points": [
+    "JavaScript libraries provide three types of files: 'classic' global variable scripts, ES modules, and CommonJS modules \u2014 and you need to identify which you're dealing with before you can use them",
+    "Even without using Node, you're still consuming NPM builds \u2014 CDN files all originate from NPM, so npm installing locally to inspect what's available is a useful detective technique",
+    "ES modules with dependencies require importmaps in the browser, which are fiddly to set up and can cause issues with many small file downloads in development",
+    "CommonJS modules cannot be used in the browser without a build step, but services like esm.sh can convert them to ES modules on the fly",
+    "ES modules being a web standard provides long-term confidence \u2014 browsers commit to backwards compatibility for web standards forever"
+  ],
+  "money_quotes": [
+    "I ran into a problem where I needed to figure out how to import a Javascript library in my code without using a build system, and it took FOREVER to figure out how to import it because the library's setup instructions assume that you're using a build system.",
+    "I sometimes like to npm install the library even if I'm not planning to use Node to build my library at all \u2014 I'll just create a new temp folder, npm install there, and then delete it when I'm done.",
+    "Unhelpfully a .js or .min.js file extension could be any of these 3 options, so if the file is something.js you need to do more detective work to figure out what you're dealing with.",
+    "If I write some code using ES modules today, I can feel sure that it'll still work the same way in 15 years.",
+    "I don't really trust CDNs to keep working forever \u2014 usually I like to copy dependencies into my repository so that they don't go away for some reason in the future.",
+    "A lot of the time when I talk about this stuff I get responses like 'I hate javascript!!! it's the worst!!!' But my experience is that there are a lot of great tools for Javascript.",
+    "The goal of this post is definitely not to complain about Javascript, it's to understand the landscape so I can use the tooling in a way that feels good to me."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "practical, exploratory, constructive",
+  "key_insight": "Importing JavaScript libraries without a build system requires understanding the three types of JS files (classic, ES module, CommonJS) and knowing how to identify and work with each, which is learnable detective work despite poor documentation.",
+  "filename": "2024-11-18-how-to-import-a-javascript-library"
+}

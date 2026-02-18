@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans walks through practical tools and techniques for determining whether a server or networking problem is caused by DNS. She covers browser error messages (which are unhelpfully vague), programming language error messages, using dig to confirm DNS resolution, querying multiple DNS servers to catch caching issues, and using tcpdump to spy on DNS traffic. She illustrates each technique with real debugging stories, including a negative caching gotcha and an nginx failure caused by a DNS server bug.",
+  "key_points": [
+    "Browser error messages for DNS failures and TCP connection failures are nearly identical, so you need command-line tools to distinguish them",
+    "Querying multiple DNS servers (local vs public like 8.8.8.8) reveals caching discrepancies, including negative caching of missing records",
+    "tcpdump on port 53 lets you see exactly what DNS queries are being made and whether they're timing out or returning errors like NXDOMAIN",
+    "DNS problems can exist even without visible DNS failures \u2014 stale cached records from application-level DNS caching cause issues that don't look DNS-related",
+    "Different programming languages produce surprisingly varied error messages for the same DNS failure, making it hard to recognize DNS issues from errors alone"
+  ],
+  "money_quotes": [
+    "These two error messages ('we can't connect to the server' and 'firefox can't establish a connection to the server') are so similar that I don't try to distinguish them \u2013 if I see any kind of 'connection failure' error in the browser, I'll immediately go the command line to investigate.",
+    "I'd gone to https://bananas.wizardzines.com in my browser before I'd created the DNS record (huge mistake!), and then my ISP's DNS server cached the absence of a DNS record.",
+    "I think it would have been literally impossible for me to guess what was happening here without using tcpdump to see what queries nginx was making.",
+    "The NXDOMAIN response made nginx think that that domain didn't exist, so it ignored the IPv6 address it got later.",
+    "This is a DNS problem (your program should be requesting DNS updates more often!) but you have to diagnose it by noticing that there are missing DNS queries.",
+    "Even if my programming language gives me a clear DNS error, I like to use dig to independently confirm because there are still a lot of different error messages and I find them confusing."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "debugging"
+  ],
+  "tone": "practical",
+  "key_insight": "Diagnosing DNS problems requires going beyond browser and application error messages to actively probe with dig, compare multiple DNS servers, and watch actual DNS traffic with tcpdump.",
+  "filename": "2021-11-04-how-do-you-tell-if-a-problem-is-caused-by-dns"
+}

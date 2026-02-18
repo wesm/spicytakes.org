@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans demonstrates how strace can be used to spy on SSH passwords by attaching to the sshd process and reading system call arguments. She walks through the process of finding the child sshd process, attaching strace to it, and observing the password appear in plaintext in the read() system call output. The key insight is that strace doesn't just show which system calls are running\u2014it shows their arguments, including sensitive data like passwords. She notes this requires root access so it's not a vulnerability per se, but it illustrates how thoroughly compromised a machine becomes once root is obtained.",
+  "key_points": [
+    "strace reveals not just which system calls a process makes, but also the arguments passed to them, which can include sensitive data like passwords",
+    "By attaching strace to the sshd child process handling an incoming connection, you can see SSH passwords in plaintext in the read() syscall output",
+    "This requires root access, so it's not a new vulnerability\u2014but it demonstrates the depth of compromise that root access enables",
+    "When sshd receives a connection it forks child processes, and the password is passed from the child to the main process via a readable system call",
+    "Root access means far more than just reading sensitive files\u2014it means real-time surveillance of any running process"
+  ],
+  "money_quotes": [
+    "Hey! If you can look at the system calls with strace and the library calls with ltrace, can you spy on people's ssh passwords?!",
+    "The reason this is possible is that strace doesn't just tell you which system calls a given program is running. It also tells you what the arguments are!",
+    "So if a program ever calls a function with a password the odds are pretty good that you can find out the password this way.",
+    "This just means that if your machine is already compromised, it's really, really, compromised.",
+    "But you can also spy on running processes and learn basically anything you want around them!",
+    "So if the NSA has root on your server, it can easily find out everyone's password who logs in via SSH. Whoa."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, playful",
+  "key_insight": "strace exposes not just system call names but their full arguments, meaning any process handling sensitive data like passwords can be trivially surveilled by anyone with root access.",
+  "filename": "2014-02-17-spying-on-ssh-with-strace"
+}

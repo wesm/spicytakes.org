@@ -1,0 +1,23 @@
+{
+  "summary": "Julia tests how many Firecracker VMs she can run on a small 1GB DigitalOcean droplet and discovers the limit is about 4 VMs before the kernel starts OOM killing them. Each VM uses roughly 100MB of memory, which she considers reasonable given that the kernel alone is 30MB and VMs can't share memory. She reconciles this with Firecracker's impressive demo of 4000 VMs by noting it ran on a machine with 512GB of RAM \u2014 simple arithmetic shows the per-VM memory usage is consistent. She concludes by considering fly.io as an alternative.",
+  "key_points": [
+    "Each Firecracker VM uses about 100MB of memory, with the kernel alone accounting for 30MB since it must be fully loaded into memory",
+    "A 1GB RAM droplet can only run about 4 VMs before the OOM killer intervenes",
+    "The impressive 4000-VM Firecracker demo used a 512GB RAM machine \u2014 the per-VM memory usage was actually the same ~125MB",
+    "VMs cannot share memory with each other, setting a hard floor on per-VM resource usage"
+  ],
+  "money_quotes": [
+    "each VM as configured right now seems to use about 100% of memory",
+    "I can start about 4 VMs at a time before they start getting OOM killed by the kernel for using too much memory",
+    "I think I'd definitely need a bigger machine to use this approach",
+    "Then I did the arithmetic and it seems pretty straightforward \u2013 they were running the demo on an i3.metal which has 512GB of RAM",
+    "512GB divided 4000 gives each VM about 125MB of memory, which is what I'm using"
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Impressive VM density numbers in demos are often just a function of having more RAM \u2014 the per-VM memory cost stays roughly the same regardless of scale.",
+  "filename": "2021-02-04-day-52--out-of-memory-errors"
+}

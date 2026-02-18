@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents debugging a networking issue where pinging the host IP from inside a container worked on her laptop but not on her server. After initially suspecting bridge configuration issues, she discovered through iptables verbose output that Ubuntu's ufw firewall was silently dropping packets. She disabled ufw entirely since the server already had DigitalOcean's external firewall. The post also briefly covers her experiments with Ignite for managing Firecracker VMs.",
+  "key_points": [
+    "Networking problems that work in one environment but not another are often caused by firewall rules rather than fundamental networking misunderstandings",
+    "The iptables verbose flag (-L -n -v) showing 'policy DROP 2 packets' was the key clue that revealed ufw was silently dropping traffic",
+    "Ubuntu servers often come with ufw enabled by default, which can interfere with container networking in non-obvious ways",
+    "When a cloud provider already offers an external firewall, running a host-level firewall may add complexity without meaningful security benefit"
+  ],
+  "money_quotes": [
+    "Then Kamal said \"well, maybe it's iptables\" and so I spent some time looking into that. I really didn't think it was iptables because I didn't think there were any special iptables rules except the Docker rules.",
+    "policy DROP 2 packets! That is suspicious!",
+    "I double checked that this was 100% definitely the problem by running iptables -Z to reset all of iptables' counts and tried again. Same result! Hooray!",
+    "DigitalOcean comes with an external firewall anyway and I didn't really see why I also needed an extra iptables firewall running on my machine.",
+    "At first I thought that maybe I didn't understand something about how bridges work, and I spent some time reading about bridges. I think I learned a tiny bit more about bridges but this didn't really help."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "debugging"
+  ],
+  "tone": "exploratory, candid",
+  "key_insight": "When container networking works locally but fails on a server, the culprit is often a host firewall like ufw silently dropping packets rather than a fundamental networking misconfiguration.",
+  "filename": "2021-01-26-day-46--debugging-an-iptables-problem"
+}

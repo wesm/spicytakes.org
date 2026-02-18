@@ -1,0 +1,25 @@
+{
+  "summary": "Evans walks through the practical steps of debugging a segfault on Linux, from getting a core dump to extracting a useful stack trace with gdb. She explains the two key settings that often prevent core dumps from being written: ulimit and kernel.core_pattern. The post covers how Ubuntu's Apport system intercepts core dumps by default and how to override it. She also briefly mentions valgrind and ASAN as alternative approaches. The post distills what took her a full week of frustration into a clear, reproducible five-step process.",
+  "key_points": [
+    "Core dumps are often silently disabled because ulimit -c defaults to 0, meaning the kernel won't write them at all",
+    "Ubuntu's Apport system intercepts core dumps via kernel.core_pattern and ignores crashes from non-package binaries, which silently eats your core dumps",
+    "The practical debugging flow is: try valgrind first, then if needed set ulimit and core_pattern, get a core dump, and open it in gdb with debugging symbols",
+    "Loading both the binary's symbols and shared library symbols in gdb is essential to get meaningful stack traces instead of question marks",
+    "ASAN can change program behavior enough to make bugs disappear, since it may use a different memory allocator"
+  ],
+  "money_quotes": [
+    "I'd never done this before, and some of the basic things involved (get a core dump! find the line number that segfaulted!) took me a long time to figure out.",
+    "When I originally tried to get a core dump, I was pretty frustrated for a long time because \u2013 Linux wasn't writing a core dump!! Where was my core dump????",
+    "This caused me a lot of confusion (what is this apport thing and what is it doing with my core dumps??)",
+    "If you have a core dump & debugging symbols and gdb, you are in an amazing situation!! You can go up and down the call stack, print out variables, and poke around in memory to see what happened.",
+    "I ended up just overriding this Apport business and setting kernel.core_pattern because I was on a dev machine, I didn't care whether Apport was working on not, and I didn't feel like trying to convince Apport to give me my core dumps.",
+    "in my case the segfault disappeared with ASAN turned on for some reason, possibly because the ASAN build used a different memory allocator"
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "technical",
+  "key_insight": "Getting a useful stack trace from a segfault on Linux is straightforward once you know the two settings that silently prevent core dumps: ulimit -c and kernel.core_pattern.",
+  "filename": "2018-04-28-debugging-a-segfault-on-linux"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans provides a guided tour of the .git directory, explaining each component with concrete examples. She covers the core data model (HEAD, branches, commits, trees, blobs) and supporting structures (reflog, remote-tracking branches, tags, stash, config, hooks, staging area). Each section shows the actual file contents using cat or git cat-file commands, demystifying what are often treated as opaque internals. She emphasizes that while understanding .git internals is valuable, it doesn't explain everything about git \u2014 merges, rebases, collaboration workflows, and conflict resolution require separate understanding.",
+  "key_points": [
+    "The core of git is just 5 things: HEAD, branches, commits, trees, and blobs \u2014 all stored as small files in .git",
+    "Branches, remote-tracking branches, tags, and stash are all just commit IDs in .git/refs, but git treats each type very differently",
+    "The stash is unique among reflogs because entries are deleted when you git stash pop, unlike branch reflogs which keep entries for ~90 days",
+    "Understanding the .git directory structure alone doesn't explain merges, rebases, collaboration workflows, or conflict resolution",
+    "Tree permissions look like Unix permissions but are restricted to only 644 and 755"
+  ],
+  "money_quotes": [
+    "HEAD is a tiny file that just contains the name of your current branch.",
+    "A branch is stored as a tiny file that just contains 1 commit ID.",
+    "When git status says \"you're up to date with origin/main\", it's just looking at this. It's often out of date, you can update it with git fetch origin main.",
+    "Unlike branches, when you make new commits it doesn't update the tag.",
+    "The stash is the only reflog in git where things get deleted very soon after they're added.",
+    "Every ref is a commit ID, but the different types of refs are treated VERY differently by git, so I find it useful to think about them separately even though they all use the same file format.",
+    "One of the most common pieces of advice I hear about git is \"just learn how the .git directory is structured and then you'll understand everything!\" I love understanding the internals of things more than anyone, but there's a LOT that \"how the .git directory is structured\" doesn't explain."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "technical, approachable, pragmatic",
+  "key_insight": "The .git directory is mostly just small text files containing commit IDs, and understanding this structure is useful but insufficient \u2014 git's complexity lives in the operations and workflows built on top of it.",
+  "filename": "2024-01-26-inside-git"
+}

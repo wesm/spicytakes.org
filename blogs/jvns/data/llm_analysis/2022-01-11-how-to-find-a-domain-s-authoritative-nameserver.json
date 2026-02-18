@@ -1,0 +1,25 @@
+{
+  "summary": "This post explains how to reliably find a domain's authoritative nameserver, a key debugging step when DNS updates don't seem to be working. Evans walks through a two-step process: querying a root nameserver, then querying the TLD nameserver to get the definitive answer. She explains why this method is guaranteed to be correct\u2014it mirrors exactly what DNS resolvers do behind the scenes. The post also evaluates several alternative methods (dig ns, dig soa, whois, dig +trace) and explains why each can give incorrect results in edge cases.",
+  "key_points": [
+    "When a DNS update doesn't work, the first diagnostic step is determining whether the authoritative nameserver has the wrong record or whether you're seeing a cached version",
+    "The guaranteed-correct method walks the DNS hierarchy manually: root nameserver \u2192 TLD nameserver \u2192 authoritative nameserver, which mirrors how real DNS resolution works",
+    "Common shortcuts like 'dig ns DOMAIN' can return stale cached results or NS records from a different source than what resolvers actually use",
+    "After updating nameservers with a registrar, the change isn't instant\u2014querying the TLD nameserver directly lets you check whether the update has propagated"
+  ],
+  "money_quotes": [
+    "If you made a DNS update and it didn't work, there are 2 options: your authoritative nameserver doesn't have the correct record, or your authoritative nameserver does have the correct record, but an old record is cached and you need to wait for the cache to expire.",
+    "When I looked up 'how to find a domain's authoritative nameserver' to see what advice was out there, I found a lot of different methods being mentioned, some of which can give you the wrong answer.",
+    "Because this method uses the exact same information source as a real DNS query, you're guaranteed to get a correct answer every time.",
+    "The reason I like this method is that it mimics what's happening behind the scenes when you make a DNS query.",
+    "When I update my nameservers with my domain registrar, they don't actually update the authoritative nameserver right away. It takes a while, maybe an hour.",
+    "This does the exact same thing so it will always give you the right answer, but the output is a bit confusing to read so I'm a bit more hesitant to recommend it."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "debugging"
+  ],
+  "tone": "technical",
+  "key_insight": "The only guaranteed way to find a domain's authoritative nameserver is to walk the DNS hierarchy from the root, because this uses the exact same information source that real DNS resolvers use.",
+  "filename": "2022-01-11-how-to-find-a-domain-s-authoritative-nameserver"
+}

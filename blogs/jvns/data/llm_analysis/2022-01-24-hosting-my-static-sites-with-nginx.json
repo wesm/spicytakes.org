@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans describes her experience migrating all her static sites from Netlify to a self-hosted $5/month DigitalOcean droplet running nginx. She walks through her decisions: building a tiny Docker-based build system that clones clean Git repos, using rsync for deployment, Ansible for configuration management, and rewriting a small Lambda function in Go. The result is faster builds (7 seconds vs. a minute on Netlify), cheaper bandwidth (20x less than Netlify's overage pricing), and better visibility into 404 errors through nginx logs. She notes that the setup is simpler than expected and acknowledges she doesn't yet know what long-term maintenance will look like.",
+  "key_points": [
+    "A conversation with a friend convinced her that self-hosting static sites might not be the maintenance burden she assumed, prompting the experiment",
+    "She built a minimal Docker-based build system that clones a clean Git repo each time, avoiding the problem of uncommitted local files leaking into production",
+    "Local git clones use hard links instead of copying, making even 1GB repo clones fast and rendering --depth 1 unnecessary",
+    "Moving from Netlify to a $5/month droplet cut build times from ~60 seconds to ~7 seconds and reduced bandwidth costs by 20x",
+    "Running her own nginx gave her direct access to logs, which revealed broken links that had existed for years unnoticed"
+  ],
+  "money_quotes": [
+    "Originally I thought that running my own servers would require a lot of maintenance and be a huge pain, but I was chatting with Wesley about what kind of maintainance their servers require, and they convinced me that it might not be that bad.",
+    "Everything in here is pretty standard but I wanted to write down what I did anyway because there are a surprising number of decisions and I like to see what choices other people make.",
+    "I have pretty bad hygiene around files on my laptop \u2013 often I have a bunch of uncommitted files that I don't want to go onto the live site.",
+    "I didn't use any Ansible plugins because I wanted to maximize the probability that I would actually be able to run this thing in 3 years.",
+    "I ran grep 404 /var/log/nginx/access.log to figure out if I'd broken anything during the migration, and I actually ended up finding a lot of links that had been broken for many years, but that I'd just never noticed.",
+    "I don't really know what this will be like to maintain, we'll see how it goes \u2013 maybe I'll like it! maybe I'll hate it!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "practical, exploratory, transparent",
+  "key_insight": "Self-hosting static sites on a simple nginx server can be faster, cheaper, and more transparent than managed services, with less maintenance overhead than expected.",
+  "filename": "2022-01-24-hosting-my-static-sites-with-nginx"
+}

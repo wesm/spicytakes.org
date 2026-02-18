@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents her experiment with ARP cache poisoning, a technique for intercepting network packets on a wireless network. She explains how ARP (Address Resolution Protocol) works by translating IP addresses to MAC addresses, and how the protocol's trust-based design makes it trivially exploitable. Using the arpspoof tool, she demonstrates how you can trick a device into sending its packets to your machine instead of the router. She notes some devices are more susceptible than others, with her Linux machine resisting the attack while a Macbook Pro was vulnerable.",
+  "key_points": [
+    "ARP cache poisoning works because devices blindly trust unsolicited ARP replies, accepting MAC address updates from anyone on the network",
+    "The attack requires only a single command (arpspoof) to redirect traffic from a target device through the attacker's machine",
+    "MAC addresses belong to network interface cards (NICs), not machines \u2014 a computer's ethernet and wireless cards have different MAC addresses",
+    "Different operating systems and devices handle ARP poisoning differently \u2014 routers and Linux machines may resist while others like macOS accept the spoofed addresses"
+  ],
+  "money_quotes": [
+    "What this line basically does is \"Hey phone! You want to send a packet to the router? Send that to me instead. Thanks!\"",
+    "It's not just that anyone can reply, they can reply even if the phone didn't ask for a MAC address.",
+    "And my phone will just think \"Sweet. Thanks for the update!\"",
+    "I think the router doesn't take as much bullshit so it doesn't work.",
+    "It'll eventually fix itself up, so you have to keep sending it these messages over and over again to keep the cache poisoned."
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning"
+  ],
+  "tone": "playful",
+  "key_insight": "ARP's fundamental design flaw is that devices trust unsolicited MAC address updates from anyone on the network, making packet interception trivially easy with a single command.",
+  "filename": "2013-10-29-day-18-in-ur-connection"
+}

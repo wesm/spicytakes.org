@@ -1,0 +1,26 @@
+{
+  "summary": "Julia describes using ltrace for the first time to debug a memory leak in a Rust async library that was leaking 500 bytes per HTTP request. She explains that ltrace traces library calls like malloc and free, which don't go through the kernel. After valgrind proved unhelpful with its complex stack traces, ltrace revealed allocations that were never freed. By combining ltrace output with strategic print statements, they narrowed the leak to specific .boxed() calls in the Rust code that allocated memory on the heap.",
+  "key_points": [
+    "Memory allocation with malloc and free happens in userspace, not through the kernel, making ltrace the right tool to observe them",
+    "Valgrind produced overwhelming stack traces that weren't actionable, while ltrace gave a simple, readable view of allocations and frees",
+    "The debugging strategy combined ltrace's allocation tracking with print statements to narrow down exactly which code was leaking",
+    "In Rust, .boxed() and Box::new allocate on the heap, and even Rust's ownership model doesn't prevent leaks when references are accidentally kept alive"
+  ],
+  "money_quotes": [
+    "ltrace traces library calls. This is cool because there are a lot of important things that happen that don't go through the kernel!",
+    "One thing that took me a while to learn is that memory allocation with malloc and free aren't something that your operating system handles.",
+    "We tried using valgrind to find the memory leak, but that was not super successful. It was like 'dude here are some huge stack traces in this library you don't really understand' and we were like 'I don't know what that means'.",
+    "Then I thought \u2013 ltrace! I know what ltrace is!",
+    "We used grep to find out that 0xf4d010\u2026 never got freed! A MEMORY LEAK! WE WIN.",
+    "There is probably a smart and clever way to figure what the 32 bytes are. Instead, we added print statements to our program to try to find the leak.",
+    "I'm always really happy when I make progress a bug using a thing in my toolkit I haven't used properly before. Yay ltrace!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, narrative, exploratory",
+  "key_insight": "ltrace provides a simple, readable view of memory allocations that can make finding memory leaks straightforward when more sophisticated tools like valgrind produce overwhelming output.",
+  "filename": "2016-06-15-using-ltrace-to-debug-a-memory-leak"
+}

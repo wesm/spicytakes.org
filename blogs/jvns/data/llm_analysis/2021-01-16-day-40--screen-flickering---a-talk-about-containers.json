@@ -1,0 +1,24 @@
+{
+  "summary": "Julia investigates whether her new ThinkPad laptop's screen is causing daily headaches, learning about pulse width modulation (PWM) as a backlight dimming technique that some people are sensitive to. She discovers the 'panel lottery' phenomenon where Lenovo ships different display panels in the same laptop model without telling buyers. She takes slow-motion videos of three different laptops to compare flickering behavior and identifies her panel model using Linux commands. Despite finding her panel has a 980 Hz PWM frequency (considered high enough that most sensitive people shouldn't notice), she remains unsure if PWM is the actual cause of her headaches.",
+  "key_points": [
+    "Some laptop screens use pulse width modulation (PWM) to dim the backlight by rapidly flickering on and off, which can cause headaches in sensitive people",
+    "Lenovo engages in a 'panel lottery' where the same laptop model may ship with different display panels that have meaningfully different characteristics",
+    "You can identify your Linux laptop's display panel by running 'strings /sys/class/drm/card0-eDP-1/edid'",
+    "Slow-motion video can reveal screen flickering patterns not visible to the naked eye, though interpreting the results isn't straightforward"
+  ],
+  "money_quotes": [
+    "I've had a headache every day this week since I got a new laptop which has been pretty unpleasant.",
+    "Apparently the way some screens do screen dimming is to rapidly flicker the screen on/off.",
+    "Another thing I learned which was surprising to me is that Lenovo won't tell you which exact monitor panel you get when you order a laptop from them.",
+    "I thought a screen was called a screen but everyone on the internet talking about laptop/TV screens seem to call them 'panels' so I guess I'll say 'panel' for the rest of this post.",
+    "That seems kind of high (900 times a second is fast!) and that site says 'The frequency of 980.4 Hz is quite high, so most users sensitive to PWM should not notice any flickering.' So I'm still not quite sure if this is the reason I have a headache."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, investigative, uncertain",
+  "key_insight": "Debugging a physical discomfort problem follows the same systematic approach as debugging software: gather information, form hypotheses, collect evidence, and iterate when results are ambiguous.",
+  "filename": "2021-01-16-day-40--screen-flickering---a-talk-about-containers"
+}

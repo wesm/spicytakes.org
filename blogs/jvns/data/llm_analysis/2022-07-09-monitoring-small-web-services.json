@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans describes her approach to monitoring small, low-stakes web services she runs as side projects. She explains how she went from no monitoring (and embarrassing downtime discoveries) to a simple three-step system: uptime checkers that email on failure, end-to-end healthchecks that verify the service actually works, and automatic restarts when healthchecks fail. The key insight is that monitoring doesn't have to be complex or expensive \u2014 her entire setup costs about $5/year and achieves 99.95% uptime. She emphasizes that this approach is specifically for tiny services where occasional downtime is acceptable.",
+  "key_points": [
+    "Past oncall experience created an intimidating mental model of server management that initially kept her from running servers at all",
+    "A healthcheck that just returns 200 OK is nearly useless \u2014 end-to-end checks that exercise actual functionality catch real problems",
+    "Automatic restarts on healthcheck failure are a pragmatic way to paper over bugs you haven't fixed yet",
+    "Hourly healthchecks at $5/year are sufficient for low-stakes services where immediate response isn't critical",
+    "This simple three-step approach (uptime checker, real healthcheck, auto-restart) took her sites from embarrassing downtime to 99.95% uptime"
+  ],
+  "money_quotes": [
+    "I want the sites to mostly work, but I also want to spend approximately 0% of my time on the ongoing operations.",
+    "In my mind \"being responsible for servers\" meant \"get woken up at 2am to fix the servers\" and \"have lots of complicated dashboards\".",
+    "So for a while I only made static websites so that I wouldn't have to think about servers.",
+    "This had the extremely predictable outcome of \u2013 sometimes the site broke, and I didn't find out about it until somebody told me!",
+    "\"Restart a lot\" is a very useful strategy to paper over bugs that I haven't gotten around to fixing yet.",
+    "It was nice to have a workaround in place that could keep things running while I was procrastinating fixing the bug.",
+    "If there is a problem there's no guarantee I'll get to fixing it all that quickly anyway."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "practical, conversational, self-deprecating",
+  "key_insight": "Monitoring tiny web services doesn't require sophisticated infrastructure \u2014 a cheap uptime checker, an end-to-end healthcheck, and automatic restarts can achieve 99.95% uptime with near-zero operational effort.",
+  "filename": "2022-07-09-monitoring-small-web-services"
+}

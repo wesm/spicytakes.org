@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans documents her early exploration of writing a shell in C during Hacker School, breaking down what a shell actually needs to do. She lists the core responsibilities: parsing commands, glob expansion, pipes and redirection, signal handling, process management, and shell scripting. She also notes what the shell doesn't handle \u2014 PATH resolution is done by exec. The post captures the moment of demystifying something fundamental by trying to build it from scratch.",
+  "key_points": [
+    "A shell's core jobs include parsing, glob expansion, pipes/redirection, signal handling, process management, and scripting",
+    "PATH resolution is not the shell's job \u2014 exec handles that",
+    "Building something from scratch forces you to understand what it actually does",
+    "Honest acknowledgment of gaps ('I don't really understand this yet') is part of the learning process"
+  ],
+  "money_quotes": [
+    "Before yesterday, I didn't have a very clear idea of what writing a shell even *meant*.",
+    "If you press `Ctrl+C`, it needs to send that signal to whatever process you're running. Or something. I don't really understand this yet.",
+    "Figure out which command to execute using the `$PATH` environment variable. `exec` does that, apparently."
+  ],
+  "themes": [
+    "linux",
+    "learning",
+    "terminals"
+  ],
+  "tone": "curious",
+  "key_insight": "You don't truly understand a tool until you try to build it yourself, and listing what it must do is the first step toward that understanding.",
+  "filename": "2013-09-30-hacker-school-day-2-what-does-a-shell-even-do"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans categorizes the reasons why bugs can feel 'impossible' to understand, based on about 400 Twitter responses. She identifies five main categories: the bug is hard to reproduce, you don't understand the overall system, it's hard to get data about the program's internal state, one of your assumptions is wrong, and the bug is genuinely complex. She emphasizes that bugs always have logical explanations but can feel impossible due to combinations of these factors. The post is groundwork for a debugging zine she's writing, and she finds it reassuring that many developers encounter the same types of 'impossible' bugs.",
+  "key_points": [
+    "Impossible-feeling bugs fall into five categories: hard to reproduce, system unfamiliarity, difficulty observing internal state, wrong assumptions, and genuine complexity",
+    "Many bugs that seem very difficult are actually simple once understood \u2014 the difficulty comes from wrong assumptions or lack of system knowledge, not inherent complexity",
+    "Multiple factors often compound to make a single bug feel impossible, such as being intermittent AND in production AND in an unfamiliar system",
+    "Debugging tools themselves can change program behavior \u2014 debuggers and print statements can make race conditions disappear",
+    "The experience of 'impossible' bugs is widely shared, even the weirdest variants like debuggers hiding the bug"
+  ],
+  "money_quotes": [
+    "Of course, bugs always happen for logical reasons, but I've definitely run into bugs that felt like they might be impossible for me to understand (until I figured them out!)",
+    "The ones that make me contemplate a career change are usually bugs that are only happen to a few users, can't be reproduced consistently by users or at all in-house, and have slightly varying descriptions in each bug report (kinda like Bigfoot sightings).",
+    "A lot of bugs that are VERY DIFFICULT to understand are actually pretty simple in the end! They're just difficult to understand because of some of the above reasons.",
+    "Debugging sometimes feels like a really intense personal struggle (WHY is this happening to ME?!?!) and I thought it was really cool to see that even some of the weirdest reasons for bugs are shared by a lot of people!",
+    "It's also easy to drown in too much output \u2013 I've turned on debug output and then been totally overwhelmed by how much information there is.",
+    "This one is SO frustrating when it happens \u2013 you're 100% sure nothing changed but somehow the code is no longer working! (of course, the answer is that something did change, you just can't see it)",
+    "It's a lot harder when multiple things are broken at once \u2013 maybe there's a bug in your program, and also a bug in a library you're using, and also some unexpected behaviour on the part of your load balancer."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective, empathetic, systematic",
+  "key_insight": "Most 'impossible' bugs aren't genuinely complex \u2014 they feel impossible because of compounding factors like wrong assumptions, lack of system knowledge, and difficulty observing program state.",
+  "filename": "2021-06-08-reasons-why-bugs-might-feel-impossible"
+}

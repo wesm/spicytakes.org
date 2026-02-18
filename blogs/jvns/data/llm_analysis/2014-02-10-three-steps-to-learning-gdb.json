@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans shares a beginner-friendly introduction to GDB, the C debugger, motivated by her experience debugging her own operating system. She walks through three fundamental GDB operations: setting breakpoints, viewing disassembled code, and examining memory contents. The post uses a minimal C program to demonstrate each concept with concrete examples. She emphasizes that just knowing breakpoints and memory examination got her surprisingly far in real debugging work.",
+  "key_points": [
+    "GDB can be learned incrementally - just three commands (break, disassemble, x) provide significant debugging capability",
+    "Setting breakpoints and using 'where' to inspect the call stack are the most basic but essential GDB operations",
+    "The 'examine' (x) command lets you inspect raw memory with different format specifiers like strings or individual characters",
+    "Compiling with -g flag is necessary to get useful debugging symbols in GDB"
+  ],
+  "money_quotes": [
+    "Debugging C programs used to scare me a lot.",
+    "The main thing I used gdb for when I was debugging my kernel was to examine regions of memory to make sure they were what I thought they were.",
+    "I know that gdb does lots of other stuff, but I still don't know it very well and x and break got me pretty far."
+  ],
+  "themes": [
+    "debugging",
+    "linux",
+    "learning"
+  ],
+  "tone": "encouraging, tutorial-style, curious",
+  "key_insight": "You don't need to master GDB to get real value from it - just learning breakpoints and memory examination can carry you surprisingly far in debugging C programs.",
+  "filename": "2014-02-10-three-steps-to-learning-gdb"
+}

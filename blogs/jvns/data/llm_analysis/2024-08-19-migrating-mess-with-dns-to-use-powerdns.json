@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans describes migrating Mess With DNS, her DNS learning playground, from a custom DNS implementation to PowerDNS after users reported various RFC compliance issues. The migration involved eight distinct challenges including intercepting DNS queries, redesigning the API, managing record IDs, translating error messages, switching from Postgres to SQLite, upgrading Vue.js, improving frontend state management, and sequencing the rollout. She shares practical lessons about API design, particularly that internal APIs should be tailored to the frontend's needs rather than following abstract purity principles. The project was split into phases and deployed incrementally to keep changes manageable.",
+  "key_points": [
+    "Replacing a custom DNS implementation with PowerDNS eliminated a whole class of RFC compliance bugs that would have been impractical to fix individually",
+    "Internal APIs can and should duplicate information when it serves the frontend's display needs, rather than adhering to normalization principles",
+    "Switching from Postgres to SQLite solved chronic OOM issues on a low-traffic site, with practical choices like single connection limits and separate databases per table",
+    "Error messages from underlying APIs need thoughtful translation for end users, combining upfront validation with hacky-but-effective message rewriting",
+    "Splitting a large migration into phases with working deployments between each kept the project manageable"
+  ],
+  "money_quotes": [
+    "I wasn't very careful with the DNS implementation though (to quote the release blog post: \"following the DNS RFCs? not exactly\"), and people started reporting problems that eventually I decided that I wanted to fix.",
+    "I could just swap out my own crappy DNS implementation for PowerDNS.",
+    "Writing even more complex code in Javascript didn't feel that appealing to me \u2013 I don't really know how to write tests in Javascript and it seemed like it wouldn't end well.",
+    "I realized that I could return the same information in the API in 2 different ways! Then the frontend just has to display it.",
+    "If I'm making an API that isn't intended for external use, I can tailor it very specifically to the frontend's needs and that's okay.",
+    "If I'm building a user-facing application on top of an API, I need to be pretty thoughtful about how I resurface those errors to users.",
+    "I made sure that the website was (more or less) 100% working and then deployed it in between phases, so that the amount of changes I was managing at a time stayed somewhat under control."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "reflective, practical, candid",
+  "key_insight": "When building on top of an existing API for internal use, pragmatism beats purity \u2014 tailor your API to your frontend's needs, duplicate information freely, and translate error messages for your actual users.",
+  "filename": "2024-08-19-migrating-mess-with-dns-to-use-powerdns"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans breaks down the confusing landscape of Linux tracing systems into three clear categories: data sources (kprobes, uprobes, tracepoints, USDT probes), mechanisms for collecting data (ftrace, perf_events, eBPF, systemtap, LTTng), and user-facing frontends (perf, bcc, trace-cmd). She explains how probes dynamically modify assembly at runtime while tracepoints are compiled into programs, and walks through how each mechanism extracts data from the kernel. The post concludes that eBPF is the most promising direction for newer kernels, while perf trace remains the simplest tool for tracing system calls.",
+  "key_points": [
+    "Linux tracing systems become understandable when split into three layers: data sources, collection mechanisms, and frontends",
+    "Probes (kprobes/uprobes) dynamically modify assembly at runtime, while tracepoints are compiled in and have near-zero overhead when inactive",
+    "eBPF is the most powerful and exciting collection mechanism because it's built into Linux, requires no kernel modules, and lets you define custom aggregation programs",
+    "The tracing landscape is fragmented but each piece serves a specific role \u2014 knowing which layer a tool operates at helps you choose the right one",
+    "For practical use, perf trace handles system calls simply, while kprobes via eBPF or ftrace give deeper kernel visibility"
+  ],
+  "money_quotes": [
+    "You can split linux tracing systems into data sources, mechanisms for collecting data for those sources, and tracing frontends.",
+    "A probe is when the kernel dynamically modifies your assembly program at runtime (like, it changes the instructions) in order to enable tracing. This is super powerful (and kind of scary!).",
+    "Basically kprobes let you dynamically change the Linux kernel's assembly code at runtime (like, insert extra assembly instructions) to trace when a given instruction is called.",
+    "eBPF is cool because it's part of Linux (you don't have to install any kernel modules) and you can define your own programs to do any fancy aggregation you want so it's really powerful.",
+    "Being able to know what's going on in the kernel is a good superpower.",
+    "Ftrace is a kind of janky interface which is a pain to use directly."
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "enthusiastic, exploratory, technical",
+  "key_insight": "The confusing Linux tracing ecosystem becomes navigable once you understand its three layers: data sources (where tracing data originates), collection mechanisms (how data leaves the kernel), and frontends (the tools you actually use).",
+  "filename": "2017-07-05-linux-tracing-systems"
+}

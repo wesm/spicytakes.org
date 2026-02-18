@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans surveys the landscape of ANSI escape code standards, from the 1976 ECMA-48 specification through xterm control sequences and the terminfo database. She identifies two competing approaches programs take: using terminfo to adapt to different terminals, or hardcoding a 'common set' of widely-supported escape codes. She draws a parallel between terminfo's TERM variable and browser user agent detection, noting both led to similar workaround patterns. The post concludes that clearer standards could make terminals feel less 'outdated' and enable richer features, drawing hope from how web standards eventually improved from a similarly fragmented state.",
+  "key_points": [
+    "ANSI escape codes handle both input (keypresses, mouse) and output (colors, cursor, clipboard) but lack a single comprehensive standard",
+    "Programs are split between two approaches: consulting the terminfo database via TERM, or hardcoding a common set of escape codes that work in most emulators",
+    "The TERM environment variable functions like browser user agent detection, with terminal emulators misreporting identity to work around broken detection, mirroring Safari's bloated user agent string",
+    "There is no 'Can I Use' equivalent for terminal escape codes, and terminfo takes 10+ years to add new features, limiting its usefulness for modern terminal development",
+    "The terminal landscape is more fragmented and less well-funded than the web, making standardization harder but potentially just as valuable"
+  ],
+  "money_quotes": [
+    "I just had a kind of vague 'there be dragons' feeling around them.",
+    "Did you know there's a way to copy to your system clipboard when SSHed into a remote machine?? It's an escape code called OSC 52!",
+    "They aren't completely standardized, and because of that they don't always work reliably. And because they're also invisible, it's extremely frustrating to troubleshoot escape code issues.",
+    "The way iTerm2 reports itself as being 'xterm-256color' feels similar to how Safari's user agent is 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15'.",
+    "On the web we ended up deciding that user agent detection was not a good practice and to instead focus on standardization so we can serve the same HTML/CSS to all browsers.",
+    "Maybe if we had a clearer standards landscape (like we do on the web!) it would be easier for terminal emulator developers to build new features and for authors of terminal applications to more confidently adopt those features.",
+    "Obviously standardizing ANSI escape codes is not easy (ECMA-48 was first published almost 50 years ago and we're still not there!)."
+  ],
+  "themes": [
+    "terminals",
+    "learning"
+  ],
+  "tone": "curious, exploratory, optimistic",
+  "key_insight": "The terminal's escape code ecosystem suffers from the same fragmentation that plagued early web browsers, and could benefit from the same shift toward clear, shared standards rather than per-terminal detection.",
+  "filename": "2025-03-07-escape-code-standards"
+}

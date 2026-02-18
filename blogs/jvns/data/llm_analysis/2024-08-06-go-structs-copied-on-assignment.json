@@ -1,0 +1,24 @@
+{
+  "summary": "Evans describes discovering that Go structs are copied on assignment, a basic language behavior she'd missed despite years of casual Go usage. A bug in a range loop where she returned a pointer to a copied struct rather than the original led her to the '100 Go Mistakes' book, which revealed additional gaps in her understanding. She catalogs several Go pitfalls including slice append side effects and the distinction between value and pointer receivers. The post serves as both a practical Go debugging story and an endorsement of the '100 common mistakes' learning format.",
+  "key_points": [
+    "Go structs are copied on assignment, meaning modifying a copy doesn't affect the original \u2014 a subtle difference from Python, JS, and Java where objects are references",
+    "Range loops in Go copy each element, so returning a pointer to the loop variable gives you a pointer to a copy, not to the original slice element",
+    "Slice sub-expressions share backing arrays, so appending to a sub-slice can silently mutate the original slice",
+    "The '100 common mistakes' book format is effective because it lets experienced developers quickly triage which gaps in their knowledge matter most",
+    "Years of casual use of a language can leave fundamental misconceptions undetected until the right bug surfaces"
+  ],
+  "money_quotes": [
+    "I thought I more or less understood the basics of the language, but this week I've been writing a lot more Go than usual while working on some upgrades to Mess with DNS, and ran into a bug that revealed I was missing a very basic concept!",
+    "When I learned that I was mistaken about how assignment worked in Go I was really taken aback, like \u2013 it's such a basic fact about the language works! If I was wrong about that then what ELSE am I wrong about in Go????",
+    "But somehow it never occurred to me that you need to think about the same thing for assignments, perhaps because in most of the other languages I use (Python, JS, Java) I think everything is a reference anyway.",
+    "I don't think this has ever actually happened to me, but it's alarming and I'm very happy to know about it.",
+    "It made it really easy for me to skim through the mistakes and very quickly mentally classify them into: yep, I know that; not interested in that one right now; WOW WAIT I DID NOT KNOW THAT, THAT IS VERY USEFUL!!!!"
+  ],
+  "themes": [
+    "learning",
+    "debugging"
+  ],
+  "tone": "reflective, candid, enthusiastic",
+  "key_insight": "Years of casual experience with a programming language can leave fundamental misconceptions undetected, and structured 'common mistakes' resources are an efficient way to surface and fill those gaps.",
+  "filename": "2024-08-06-go-structs-copied-on-assignment"
+}

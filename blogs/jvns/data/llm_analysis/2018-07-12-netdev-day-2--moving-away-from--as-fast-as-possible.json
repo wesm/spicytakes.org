@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans summarizes a keynote by Van Jacobson at netdev about the future of congestion control on the internet. The talk argued that the internet has fundamentally changed since 1988: switches are no longer dramatically faster than servers, so clients can easily saturate links in the middle of the network. Counter-intuitively, sending packets more slowly at the bottleneck rate actually improves performance because it avoids tail-of-stream packet drops that cause expensive timeouts. The proposed solution involves adding an 'earliest departure time' timestamp to Linux kernel packet data structures and replacing queues with timing wheels for scheduling. Since Linux runs on Android phones, wifi routers, and most servers, changing the Linux networking stack alone could meaningfully improve internet congestion.",
+  "key_points": [
+    "The internet's architecture has shifted: switches in routers are no longer dramatically faster than server NICs, making it easier for clients to saturate links and cause congestion",
+    "Sending packets more slowly at the bottleneck rate is better even selfishly, because packet loss at the end of a stream causes expensive timeouts while mid-stream loss is cheap to recover from",
+    "Google's BBR algorithm can measure bottleneck speeds, but the Linux networking stack's queue-based design makes it hard to send at controlled rates",
+    "Adding an 'earliest departure time' timestamp to Linux's skb packet data structure and using timing wheels instead of queues would enable more sophisticated traffic shaping",
+    "Linux's dominance across servers, Android phones, and consumer routers means improving just the Linux networking stack could have outsized impact on internet congestion"
+  ],
+  "money_quotes": [
+    "It turns out that if you implemented TCP that way, the internet would collapse and grind to a halt. We know that it would collapse because it did kinda collapse, in 1986.",
+    "Sending packets more slowly often actually results in better performance (even if you are the only one doing it).",
+    "The key observation is that packet loss in the middle of your stream is much better than packet loss at the end of your stream.",
+    "Even if everybody else is sending all their packets really fast, it's still more advantageous for you to send your packets at the correct rate.",
+    "Networking software isn't really designed to send data at a controlled rate!",
+    "He said that timing wheels actually perform better than queues for scheduling work \u2013 they both offer constant time operations, but the timing wheels constant is smaller because of some stuff to do with cache performance.",
+    "I usually think of TCP/IP as something that we figured out in the 80s, so it was really fascinating to hear that folks think that there are still serious issues with how we're designing our networking protocols."
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic, technical, curious",
+  "key_insight": "Counter-intuitively, sending network packets more slowly at the bottleneck rate produces better performance than sending as fast as possible, and a small change to Linux's packet data structure could enable this across much of the internet.",
+  "filename": "2018-07-12-netdev-day-2--moving-away-from--as-fast-as-possible"
+}

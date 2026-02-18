@@ -1,0 +1,26 @@
+{
+  "summary": "Evans explores what 'current branch' actually means in git by testing four different definitions across six scenarios. She compares what .git/HEAD contains, what git status reports, what was most recently checked out, and what the shell prompt shows. Through scenarios like detached HEAD, mid-rebase, bare repositories, and fresh git init, she demonstrates that these definitions frequently disagree with each other. The post concludes that 'current branch' is not as well-defined a concept as the git glossary implies, and that git does significant work behind the scenes to track context beyond what HEAD alone captures.",
+  "key_points": [
+    "Four plausible definitions of 'current branch' (HEAD file, git status, last checkout, shell prompt) diverge in edge cases like rebases, tag checkouts, and bare repos",
+    "During a rebase, HEAD points to a detached commit but the 'real' current branch is preserved in .git/rebase-merge/head-name and restored afterward",
+    "When checking out a tag, .git/HEAD stores a commit ID while git status and the prompt helpfully resolve it back to the tag name",
+    "Git status provides richer context than HEAD alone, distinguishing between detached states, rebases in progress, and bare repositories",
+    "The concept of 'current branch' is genuinely ambiguous in git's design, not just confusing to newcomers"
+  ],
+  "money_quotes": [
+    "I originally thought that these 4 definitions were all more or less the same, but after chatting with some people on Mastodon, I realized that they're more different from each other than I thought.",
+    "My original instinct when talking about git was to agree with the git glossary and say that HEAD and the 'current branch' mean the exact same thing. But this doesn't seem as ironclad as I used to think anymore!",
+    "I have a lot more sympathy than I used to for the definition 'the current branch is whatever you last checked out'.",
+    "Git does a lot of work to remember which branch you last checked out (even if you're currently doing a bisect or a merge or something else that temporarily moves HEAD off of that branch) and it feels weird to ignore that.",
+    "it doesn't have the usual implications of being in 'detached HEAD state' \u2013 if you make a commit, it won't get orphaned! Instead, assuming you finish the rebase, it'll get absorbed into the rebase and put somewhere in the middle of your branch.",
+    "The more I think about git the more I can understand why people get confused.",
+    "'current branch' doesn't seem completely well defined"
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "exploratory, methodical, curious",
+  "key_insight": "Git's 'current branch' is not a single well-defined concept but at least four different things that usually agree but meaningfully diverge during rebases, tag checkouts, and other edge cases.",
+  "filename": "2024-03-22-the-current-branch-in-git"
+}

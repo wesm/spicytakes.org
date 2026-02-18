@@ -1,0 +1,25 @@
+{
+  "summary": "The post explores the question of maximum packet sizes on the internet, starting from UDP's theoretical 65535-byte limit and explaining why real-world packets are constrained to 1500 bytes by Ethernet's Maximum Transmission Unit (MTU). Evans walks through what happens when packets exceed the MTU (they get dropped or fragmented), how Path MTU Discovery works using ICMP packets and the 'don't fragment' flag, and notes that jumbo frames allow larger packets in controlled environments like datacenters.",
+  "key_points": [
+    "UDP packets have a theoretical maximum of 65535 bytes (2^16 - 1), but Ethernet frames limit actual transmission to 1500 bytes (the MTU)",
+    "Packets exceeding the MTU will either be dropped entirely or fragmented into smaller pieces, with fragmentation being more problematic for UDP than TCP",
+    "Path MTU Discovery works by sending packets with a 'don't fragment' flag and listening for ICMP responses that reveal where fragmentation would occur",
+    "Jumbo frames allow larger packets in controlled environments like datacenters where you own all the network infrastructure",
+    "The Linux tool tracepath can discover the path MTU between two points on a network"
+  ],
+  "money_quotes": [
+    "So, if I try to send a 30,000 UDP packet using an Ethernet protocol with an MTU of 1500 bytes, what will happen? We can't send 30,000 bytes in 1500 bytes. It doesn't work.",
+    "So one of two things will happen: either the packet will get dropped (not sent at all) or fragmented.",
+    "Ethernet frames can only contain 1500 bytes of data. This is called the 'maximum transmission unit' or 'MTU'!",
+    "On the internet in general, you can't expect to be able to send packets above 1500 bytes, but if you own the whole datacenter and all of your network infrastructure? Why not!",
+    "I'm definitely still confused about how packet fragmentation works and in what cases it makes you lose packets."
+  ],
+  "themes": [
+    "networking",
+    "linux",
+    "learning"
+  ],
+  "tone": "curious, exploratory, accessible",
+  "key_insight": "While UDP theoretically allows packets up to 65535 bytes, Ethernet's 1500-byte MTU is the practical limit on the internet, and packets exceeding it will be dropped or fragmented.",
+  "filename": "2017-02-07-mtu"
+}

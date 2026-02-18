@@ -1,0 +1,23 @@
+{
+  "summary": "Evans describes two improvements she made to her puzzle game project during a Recurse Center batch. First, she deployed her Docker Compose setup to production on a DigitalOcean droplet, finding it easier than expected and more robust than her previous systemd-based approach. Second, she switched her Puzzle model from database-backed ActiveRecord to ActiveHash, which stores data in a file/hashmap instead of a database table, making it much easier to edit her small set of puzzles.",
+  "key_points": [
+    "Deploying Docker Compose to production on a single droplet was easier than expected and felt more robust than manually managing systemd files",
+    "ActiveHash lets you define Rails model data in a file instead of a database table, which works well for small, frequently-edited datasets",
+    "Storing puzzle definitions in the database made editing too slow through a web interface and caused dev/prod sync problems",
+    "ActiveHash preserves enough ActiveRecord-compatible methods (like Puzzle.find) that switching required minimal code changes",
+    "The main risk with ActiveHash is manually managing IDs that other database tables reference via foreign keys"
+  ],
+  "money_quotes": [
+    "This is pretty far from \"just click one thing and you're done\" but I feel like if I had to do it again because I lost my production server it wouldn't be too bad.",
+    "It's definitely much better than \"just create a lot of systemd files by hand\" which is what I was doing before.",
+    "This really wasn't working for me because I needed to make a lot of updates to the puzzles (at least to start) and having to do it through a web interface felt way too slow.",
+    "This feels good for now because I only have like 6 puzzles and so having them all in a file makes it way easier to edit them.",
+    "And because I'm using ActiveRecord methods, if I ever want to switch back to using a database to manage them, it should be pretty easy!"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "casual, pragmatic, reflective",
+  "key_insight": "For small, frequently-edited datasets, storing model data in files rather than a database can dramatically simplify the development workflow while preserving the option to switch back later.",
+  "filename": "2021-01-07-day-32--a-rails-model-that-doesn-t-use-the-database-with-activehash"
+}

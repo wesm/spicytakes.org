@@ -1,0 +1,22 @@
+{
+  "summary": "Julia documents her experience learning to call C functions from Rust, working through compiler errors with help from a friend. She shows a minimal example of using Rust's FFI to call strcpy and puts from C, wrapping them in an unsafe block. She also notes how easy cargo makes it to start new Rust projects, and that Rust installation has improved since 2013 though error messages remain challenging.",
+  "key_points": [
+    "Calling C from Rust requires declaring extern functions with proper pointer types and wrapping calls in unsafe blocks",
+    "Rust's cargo tool makes project scaffolding and building remarkably simple",
+    "Rust has gotten easier to install since 2013, but compiler error messages are still hard to understand",
+    "Even a simple task like copying and printing a string requires navigating Rust's pointer and safety system"
+  ],
+  "money_quotes": [
+    "calling C code is definitely unsafe. it could be doing ANYTHING",
+    "It turned out to be a little harder than I expected! Largely because I don't know Rust well, and fixing compiler errors is nontrivial.",
+    "Rust is way easier to install than it was in 2013, though I still find the error messages hard to understand.",
+    "30 minutes and some number of inscrutable-to-me compiler errors later, we figured it out.",
+    "I'm mostly writing this down so that I don't forget, but maybe it will be useful for you too!"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "casual, exploratory",
+  "key_insight": "Calling C from Rust is straightforward once you understand extern declarations and unsafe blocks, but Rust's strict type system makes even simple FFI tasks a learning experience.",
+  "filename": "2016-01-18-calling-c-from-rust"
+}

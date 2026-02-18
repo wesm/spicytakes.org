@@ -1,0 +1,27 @@
+{
+  "summary": "Evans explores whether her Ruby profiler should use ptrace to pause a Ruby process before collecting stack traces. She finds that not pausing yields about 1 error per 1000 traces, while pausing reduces errors to about 1 per 10,000 \u2014 but doesn't eliminate them entirely. The remaining errors occur when the Ruby interpreter is paused mid-execution of internal functions like vm_call_iseq_setup, where the stack is temporarily in an invalid state. She demonstrates how easy ptrace is to use from Rust, leveraging RAII to ensure processes are always restarted. She concludes that since it's a sampling profiler, dropping a few invalid traces is acceptable.",
+  "key_points": [
+    "Pausing a Ruby process with ptrace reduces stack trace errors from ~1/1000 to ~1/10,000 but doesn't eliminate them entirely",
+    "Errors during paused collection occur when the Ruby interpreter is mid-execution of internal functions like vm_call_iseq_setup where the stack is temporarily invalid",
+    "Rust's RAII pattern (Drop trait) makes it easy to guarantee a ptraced process is always restarted, even on errors",
+    "Ruby's relative slowness compared to a Rust profiler makes unpauseed profiling surprisingly viable \u2014 the profiler usually wins the race",
+    "For a sampling profiler, losing a small fraction of traces is acceptable and doesn't meaningfully affect results"
+  ],
+  "money_quotes": [
+    "Ruby programs are relatively slow! Like, trying to collect stack traces from a C program without pausing it at all I think would be a losing battle.",
+    "It's still a race, but the profiler has a pretty good chance of winning.",
+    "An error rate of 1 in 1000 isn't nothing, but it's also maybe not the end of the world!",
+    "I went and took a shower to think about it, and then came up with a way to figure out why!",
+    "I wanted to make absolutely sure that after I stopped the Ruby process, I restarted it again.",
+    "It does definitely seem like there are points during execution of the Ruby interpreter when the stack is not valid though. That's fine! I can just drop a few stack traces, say 'whoops, those didn't work', and move on.",
+    "That is the joy of having a sampling profiler."
+  ],
+  "themes": [
+    "debugging",
+    "linux",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "Even pausing a process with ptrace doesn't guarantee valid stack traces because the interpreter's internal stack can be in a transitional state, but for a sampling profiler, dropping the rare invalid trace is perfectly acceptable.",
+  "filename": "2018-01-15-should-i-pause-a-ruby-process-to-collect-its-stack"
+}

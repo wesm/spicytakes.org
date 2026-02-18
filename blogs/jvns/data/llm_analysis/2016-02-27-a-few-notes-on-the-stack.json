@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explores why 'the stack' is treated as a fundamental, almost revered concept in programming. Starting from basic call stacks in any language, she traces how C's call stack became the canonical One True Stack, examining the x86 assembly instructions (push, pop, callq, retq) that are built around specific assumptions about memory layout and the stack pointer register. She shows how deeply the stack format is baked into hardware instructions, then explores what happens when languages like Rust use different calling conventions. The post concludes that the stack really is fundamental because assembly instructions themselves encode assumptions about how it's organized.",
+  "key_points": [
+    "The x86 assembly instruction set has built-in assumptions about how the stack is organized, making the C stack format effectively canonical",
+    "Instructions like callq and retq directly manipulate the stack pointer, meaning the hardware itself enforces a particular stack convention",
+    "Languages like Rust that use different calling conventions must do extra work (like implementing libbacktrace) to interoperate with tools that assume the C stack format",
+    "There's a chicken-and-egg question about whether x86 instructions shaped C's stack layout or vice versa",
+    "Having a non-standard stack format has real consequences: Rust's libbacktrace only works with ELF binaries, limiting stack traces on some platforms"
+  ],
+  "money_quotes": [
+    "The basic question I want to answer here is \u2013 why do people sometimes discuss 'the stack' like it's some kind of revered fundamental object?",
+    "As in most cases with the One True Anything on Linux, the One True Call Stack is the C call stack.",
+    "I found it pretty surprising that the x86 assembly instruction set knows about the C stack pointer and how the stack in C is laid out.",
+    "Of course, you could invent your own new smart stack format, but you wouldn't be able to use the callq and retq instructions to call functions.",
+    "There are consequences to having an unusual stack format, and real work you need to do to make the rest of the world understand you.",
+    "This explains why people talk about The Stack like it's this fundamental data structure instead of just one choice about how you could organize your program. It kind of is!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "curious, exploratory, enthusiastic",
+  "key_insight": "The stack isn't just a software abstraction \u2014 it's baked into hardware instructions, which is why it's treated as fundamental rather than as one of many possible choices.",
+  "filename": "2016-02-27-a-few-notes-on-the-stack"
+}

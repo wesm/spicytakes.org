@@ -1,0 +1,25 @@
+{
+  "summary": "Evans investigates how the Kubernetes scheduler works internally after encountering a bug where pods got stuck in Pending state forever. She traces through the scheduler's source code to discover it uses an event-driven queue system rather than a simple polling loop, which is an optimization for performance at scale. The bug turned out to be a missing error handler call that prevented failed pods from being re-queued. She explores the concept of Kubernetes 'informers' and the deliberate design decision not to resync the scheduler, since maintainers prefer correctness bugs to be surfaced rather than hidden. The post doubles as a demonstration of how to reverse-engineer a complex system's internals by reading source code with specific questions in mind.",
+  "key_points": [
+    "The Kubernetes scheduler uses an event-driven queue rather than polling all pods, primarily for performance reasons at scale (scheduling 30,000 pods went from 2 hours to 10 minutes).",
+    "Kubernetes 'informers' are a key abstraction that provide add/update/delete notifications and shared caches, used by most controllers for efficiency.",
+    "The scheduler deliberately never resyncs because maintainers believe resync hides correctness bugs that should be found and fixed instead.",
+    "When reading unfamiliar code, concatenating files together and having specific questions to answer makes the process much more productive.",
+    "The event-driven design introduces failure modes that simpler polling doesn't have \u2014 if error handling misses a case, pods can be permanently lost from the queue."
+  ],
+  "money_quotes": [
+    "It's also an illustration of how to go from 'how is this system even designed I don't know anything about it?' to 'okay I think I understand the basic design decisions here and why they were made' without actually.. asking anyone.",
+    "If for whatever reason a pod fails to get scheduled, there's nothing in here yet that would make the scheduler retry. It'd get taken off the queue, it fails scheduling, and that's it. It lost its only chance!",
+    "If resync ever fixes a problem, it means there is an underlying correctness bug that we are hiding. I do not think resync is the right solution.",
+    "So it makes sense to me that it would be too slow to query for all 30,000 pods in your system every time you want to schedule a new pod, and that you'd actually want to do something more complicated.",
+    "I've definitely had to practice 'read the documentation and if it's not there read the code' more than usual. But that's a good skill to get better at anyway!",
+    "Be careful when you do this. If you ever skip requeuing your item on failures, you could fail, not requeue, and then never retry that item again."
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, technical, curious",
+  "key_insight": "Optimizing distributed systems for performance often introduces subtle failure modes that simpler but slower designs would avoid, and understanding these tradeoffs requires reading the actual source code.",
+  "filename": "2017-07-27-how-does-the-kubernetes-scheduler-work"
+}

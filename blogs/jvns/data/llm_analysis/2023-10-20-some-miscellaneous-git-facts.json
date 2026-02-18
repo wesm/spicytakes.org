@@ -1,0 +1,25 @@
+{
+  "summary": "Evans shares four lesser-known Git facts she discovered while working on explaining how Git works. She clarifies that 'index', 'staging area', and '--cached' all refer to the same .git/index file. She explains that git stash works by creating actual commits labeled with a stash reference, that not all Git references are branches or tags, and that merge commits appear empty in diffs because git show only displays conflicts, not the full changes.",
+  "key_points": [
+    "The 'index', 'staging area', and '--cached' flag all refer to the same underlying file (.git/index), despite Git using three different names for the concept",
+    "Git stash works by creating real commits (one for the index, one for unstaged changes) and labeling them with a 'stash' reference, with older stashes stored in the reflog",
+    "References in Git aren't limited to branches, tags, and HEAD \u2014 stash, git notes, pull request refs, and bisect refs are all examples of non-branch, non-tag references",
+    "Merge commits appear empty in git show because the diff only displays conflicts, not the full set of changes merged in"
+  ],
+  "money_quotes": [
+    "None of these things feel super surprising in retrospect, but I hadn't thought about them clearly before.",
+    "This 'staging area' actually gets referred to by 3 different names in Git. All of these refer to the exact same thing (the file .git/index).",
+    "It turns out that when you run git stash, git makes some commits with your changes and labels them with a reference called stash.",
+    "I found this kind of heartening because I've been working on a tool to snapshot and restore the state of a git repository and I came up with a very similar design, so that made me feel better about my choices.",
+    "Personally 99% of the time when I deal with a 'reference' in Git it's a branch or HEAD and the other 1% of the time it's a tag.",
+    "It seems kind of obvious in retrospect that merge commits aren't actually 'empty' (they're snapshots of the current state of the repo, just like any other commit), but I'd never thought about why they appear to be empty.",
+    "The reason that these merge diffs are empty is that merge diffs only show conflicts."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "curious, reflective, exploratory",
+  "key_insight": "Many confusing aspects of Git come from the same concept having multiple names or from default display behavior hiding what's actually happening under the hood.",
+  "filename": "2023-10-20-some-miscellaneous-git-facts"
+}

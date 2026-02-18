@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans reports on week 3 of building rbspy, a Ruby profiler written in Rust. She released an alpha version, refactored the codebase from a single 1000-line file into well-organized modules, and implemented a clever testing strategy using core dumps. The refactoring was guided by writing an architecture document, which helped identify parts of the code that didn't make sense. She highlights contributions from collaborator Kamal and early community engagement, with plans for Mac support and container support next.",
+  "key_points": [
+    "Writing an architecture document was the most useful refactoring strategy \u2014 explaining the project to an outsider revealed what didn't make sense",
+    "Core dump-based testing allows verifying stack trace reading against real Ruby processes without needing live processes, giving high confidence in correctness",
+    "Keeping test data (core dumps) in a separate repository prevents bloating the main repo while enabling comprehensive testing",
+    "Early community engagement through an alpha release yielded bug reports, issues, and a merged pull request within days",
+    "The project was refactored from one monolithic file into clearly separated concerns: initialization, OS-specific code, Ruby-version-specific code, and UI"
+  ],
+  "money_quotes": [
+    "My most useful strategy for refactoring was to write an architecture document. Basically I tried to explain to an outsider how the project was put together, found parts that really didn't make sense, and then refactored until those parts were easier to explain.",
+    "I'm very happy to have these tests and they make me feel a lot more confident that the project is actually doing the right thing.",
+    "I wanted something that was a little bit fun (profiling is fun!), but not too clever \u2013 I want people to be able to actually tell what the project does from the name.",
+    "This is exciting because one of my major goals is to get more people contributing to rbspy so it's a sustainable project and not just me.",
+    "And they let me make improvements! For example \u2013 right now I have a core dump of a process where rbspy gives me an error if I try to get a stack trace out of it. Once I fix the issue, I can check that core dump into rbspy-testdata, add a test, and make sure it stays fixed!"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Writing an architecture document for others is one of the most effective refactoring strategies because explaining your code to an outsider forces you to confront the parts that don't make sense.",
+  "filename": "2018-01-22-profiler-week-3--refactoring--better-testing--and-an-alpha-release"
+}

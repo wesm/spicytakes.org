@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents 12 things she learned about linkers from reading an 11-part series on LWN. The post covers ELF file structure, including segments vs sections, symbol types and visibility, relocation tables, and shared library linking. She explains practical tools like objdump, readelf, and nm for inspecting object files. The post ends with a curiosity about why symbol name mangling is used for polymorphism instead of ELF symbol versions.",
+  "key_points": [
+    "ELF executables have both segments and sections, but the OS only looks at segments for read/write/execute permissions",
+    "Linkers do surprisingly complex work to enable shared libraries to save memory across programs, using mechanisms like PLT/GOT",
+    "Every .o file contains a relocation table listing every symbol reference the linker needs to update",
+    ".a archive files are simply collections of .o object files",
+    "The speed benchmark for a linker is comparing it to cat, suggesting the goal is to be I/O-bound rather than compute-bound"
+  ],
+  "money_quotes": [
+    "Those `.a` files? Those are just collections of `.o` object files, and they're called \"archives\"!",
+    "Linkers actually have to do fairly complicated stuff to allow the code in a shared library to be shared between different programs and save memory.",
+    "If you're making a speed comparison for a linker, you might compare it to `cat`.",
+    "In the Mach-O executable format you can have assembly code for *different architectures* in the same executable. Nuts.",
+    "Every `.o` file has a \"relocation table\" listing every single reference to a symbol that the linker will need to update, and how it will need to update it."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Linkers are far more complex than they appear, handling symbol resolution, memory optimization for shared libraries, threading awareness, and relocation \u2014 all while trying to run as fast as cat.",
+  "filename": "2013-12-10-day-40-12-things-i-learned-today-about-linkers"
+}

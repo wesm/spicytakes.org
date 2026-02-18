@@ -1,0 +1,27 @@
+{
+  "summary": "Evans explores why the seemingly simple question 'what's a server?' turns out to be surprisingly hard to answer. She walks through multiple valid meanings: a server can be a program listening on a port, a virtual machine you SSH into, a container with cgroup limits, a physical 1U rack-mounted computer, or an entire distributed system of thousands of machines. Using Gmail search as a concrete example, she shows how 'it happens on the server' can mean a request touches 20 computers across 3 countries. The conclusion is that 'server' is context-dependent and genuinely ambiguous, which is fine until something goes wrong.",
+  "key_points": [
+    "The word 'server' can refer to a program, a virtual machine, a container, a physical computer, or a distributed system depending on context",
+    "A Gmail search for 'boarding pass' might involve many computers across multiple datacenters, but we casually say it happens 'on the server'",
+    "The ambiguity of 'server' is usually harmless \u2014 the abstraction lets us avoid caring about what happens behind the scenes until something breaks",
+    "Physical servers look nothing like home computers \u2014 they're short, wide, rack-mounted machines measured in 'rack units'",
+    "Containers add another layer where 'the server is running out of memory' really means a cgroup limit was exceeded and the kernel OOM-killed processes"
+  ],
+  "money_quotes": [
+    "Somebody asked me recently what a server was, and I had a harder time explaining it than I expected!",
+    "You can't ssh to a program, though the ssh server that runs on the VM is itself a program!",
+    "'The server is running out of memory' could mean 'we set a cgroup memory limit on this container and the programs in the container with that cgroup exceeded the limit so the Linux kernel OOM killed them'.",
+    "There's not just one computer or program or virtual machine that searches your Gmail, there are probably lots of computers and programs at Google that are responsible for that and they're probably distributed across many datacenters all over the world.",
+    "Even if we're just talking about doing 1 search, there could easily be 20 different computers in 3 different countries involved in just running that 1 search.",
+    "We can just say 'it happens on the server' and not worry too much about the ambiguity of what exactly that means (until something weird goes wrong).",
+    "At first when I thought about the question 'what's a server?' I really thought there was going to be a single simple answer!"
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "learning"
+  ],
+  "tone": "curious, exploratory, conversational",
+  "key_insight": "The word 'server' is genuinely ambiguous \u2014 it can mean a program, a VM, a container, a physical machine, or a distributed system \u2014 and this ambiguity is usually a useful abstraction rather than a problem.",
+  "filename": "2019-12-26-whats-a-server"
+}

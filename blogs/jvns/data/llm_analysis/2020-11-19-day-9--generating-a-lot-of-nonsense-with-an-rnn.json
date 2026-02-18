@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans documents her early attempts to train a character-level RNN to generate text, following Karpathy's char-rnn approach. She describes the learning curve of working with tensors, debugging dimension mismatches, and discovering that PyTorch's cross entropy loss isn't what she expected. Her model currently produces gibberish instead of coherent text, and she shares the broken code openly. The post captures the messy, iterative reality of learning neural networks from scratch by just trying things and getting confused.",
+  "key_points": [
+    "Tensor dimension mismatches are one of the most common and time-consuming debugging problems when building neural networks",
+    "PyTorch's cross entropy loss secretly applies softmax first, which can confuse newcomers who expect identical vectors to produce zero loss",
+    "GPU training was literally 10x faster than CPU, making it essential for practical experimentation",
+    "Her preferred learning style is banging her head against a problem until very confused, then reading to understand \u2014 not starting with courses or books",
+    "Sharing broken, non-working code is valuable because it honestly represents the learning process"
+  ],
+  "money_quotes": [
+    "I decided that since I knew literally nothing about neural networks it would be good to start with something simpler.",
+    "I tweeted about this and a bunch of people agreed with me that they have also spent a bunch of time debugging dimension mismatches so at least I'm not alone.",
+    "It turns out that in PyTorch the 'cross entropy loss' of x and y isn't actually the cross entropy of x and y.",
+    "This makes it seem like it's learned something \u2013 those letters are common letters in the English language, sure! It's better than generating zxisqqqqxw.",
+    "If you're interested in what some code for an RNN that DOES NOT WORK looks like, here's the code I've written so far.",
+    "Unlike his code, it does not generate text that looks vaguely Shakespeare after I train it, it generates gibberish! Maybe tomorrow I will find out why.",
+    "For whatever reason I prefer to just bang my head against a problem I'm trying to solve until I get VERY CONFUSED and then resort to reading things that might help me understand what's going on.",
+    "It's been pretty fun so far, I know a bunch of things about loss functions that I didn't know before at least, and now I kind of know what a softmax is!"
+  ],
+  "themes": [
+    "learning",
+    "debugging"
+  ],
+  "tone": "enthusiastic, candid, self-deprecating",
+  "key_insight": "Learning neural networks by building something broken and debugging it piece by piece \u2014 sharing failures openly \u2014 is more honest and instructive than pretending to understand everything from the start.",
+  "filename": "2020-11-19-day-9--generating-a-lot-of-nonsense-with-an-rnn"
+}

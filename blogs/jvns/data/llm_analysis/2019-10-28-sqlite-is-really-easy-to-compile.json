@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans needed a newer version of SQLite to support window functions for a SQL examples website, but upgrading turned into a surprisingly educational adventure. After failing to use a pre-built binary (wrong loader for the build server), breaking her system trying to install a mismatched Debian package, and hitting shared library version mismatches, she finally tried compiling from source. SQLite's compilation process turned out to be remarkably simple: just download the amalgamation tarball and run a single gcc command. The experience highlighted how SQLite's design for embedded contexts makes it uniquely easy to build from source.",
+  "key_points": [
+    "A binary can fail with 'File not found' not because it's missing, but because its loader (visible via ldd) doesn't exist on the system",
+    "Installing packages from a different Debian version than you're running is reliably a bad idea and can break critical dependencies like git",
+    "SQLite's entire codebase compiles from a single amalgamation file with no weird dependencies, making it far easier to build than most software",
+    "The simplicity of SQLite's build process reflects its design philosophy for embedded and restricted environments",
+    "Sometimes compiling from source is actually easier than finding the right pre-built binary"
+  ],
+  "money_quotes": [
+    "I straced it, and sure enough execve was returning the error code ENOENT, which means \"File not found\". This was kind of maddening because the file was DEFINITELY there and it had the correct permissions and everything.",
+    "To run a binary, you don't just need the binary to exist! You also need its loader to exist.",
+    "Trying to install a package from a different Debian version that I'm not using is literally never a good idea, but for some reason I decided to try it anyway.",
+    "Doing this completely unsurprisingly broke the sqlite installation on my computer (which also broke git).",
+    "All the code is in one file (sqlite.c), and there are no weird dependencies! It's amazing.",
+    "Often compiling things feels like this: run ./configure, realize i'm missing a dependency, run ./configure again, run make, the compiler fails because actually i have the wrong version of some dependency, go do something else and try to find a binary."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, narrative, self-deprecating",
+  "key_insight": "SQLite's single-file amalgamation build is so simple that compiling from source is actually easier than hunting for compatible pre-built binaries.",
+  "filename": "2019-10-28-sqlite-is-really-easy-to-compile"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Evans describes building a 'focus and reply' email feature for Fastmail using their JMAP protocol, inspired by a similar feature in Hey.com. She walks through the process of authenticating with JMAP, querying for emails in a 'Reply Later' folder, and rendering them in a simple Vue.js frontend. The post serves as a practical quickstart guide for JMAP since she found few examples when learning the API. She highlights JMAP's request chaining as a key design feature that reduces latency. The whole project came out to 170 lines of JavaScript running entirely in the browser with no server code.",
+  "key_points": [
+    "JMAP is Fastmail's modern replacement for IMAP that's significantly easier to work with for building email tools",
+    "JMAP's request chaining lets you bundle multiple dependent queries into a single API call, reducing round trips",
+    "The entire email UI experiment works as a pure frontend app with no server code, authenticating via HTTP Basic with an app password",
+    "She started read-only to stay safe, copying replies into webmail rather than sending through the API directly",
+    "Fastmail's own web interface uses JMAP differently than the public API, with a different endpoint and Bearer token authentication"
+  ],
+  "money_quotes": [
+    "I think the idea that anyone can just use JMAP to make fun email UI experiments without dealing with the Hard Parts of email is really fun!",
+    "I was a bit too scared to actually send email to start (read-only is safe!), so I decided to start by just making a UI that would show me all the emails I needed to reply to.",
+    "The API wasn't that intuitive at first, but I was able to figure how to do what I wanted to by reading the spec.",
+    "One of the big ideas in JMAP seems to be this chaining \u2013 it really reduces latency if you can do all your work in a single request.",
+    "This is a little janky, but I don't mind it for now.",
+    "And it's really cool that I could get this to work 100% as a frontend app, without any server code at all!"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, practical",
+  "key_insight": "JMAP makes it surprisingly easy for anyone to build custom email UI experiments as pure frontend apps, lowering the barrier that IMAP's complexity previously imposed.",
+  "filename": "2020-08-18-implementing--focus-and-reply--for-fastmail"
+}

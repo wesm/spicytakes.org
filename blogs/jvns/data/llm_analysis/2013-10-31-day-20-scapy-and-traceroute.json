@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans implements traceroute in just 16 lines of Python using the Scapy library. She explains how IP packets have a TTL (Time-To-Live) attribute that decrements at each hop, and how traceroute exploits this by sending packets with incrementally increasing TTLs. When a packet's TTL expires, the intermediate router sends back an ICMP error, revealing its address. The implementation sends UDP packets with increasing TTLs and checks whether the reply indicates a timeout (keep going) or a destination reached (done).",
+  "key_points": [
+    "Scapy lets you construct and send custom network packets in Python with minimal code, making protocol experimentation accessible",
+    "Traceroute works by exploiting the TTL field in IP packets \u2014 each router decrements it, and when it hits zero, the router sends back an ICMP error revealing its address",
+    "A basic traceroute implementation only needs to send UDP packets with incrementing TTLs and check the ICMP reply type",
+    "Unix traceroute typically sends UDP packets while Windows traceroute sends ICMP packets; tcptraceroute sends TCP packets"
+  ],
+  "money_quotes": [
+    "IP packets have a ttl attribute, which stands for \"Time-To-Live\". Every time a machine receives an IP packet, it decreases the ttl by 1 and passes it on. Basically this is a super smart way to make sure that packets don't get into infinite loops.",
+    "If a packet's ttl runs out before it replies, the last machine sends back an ICMP packet saying \"sorry, failed!\".",
+    "I thought it would take a long time, but turns out that (a basic version) is really easy.",
+    "To implement traceroute, we send out a UDP packet with ttl=i for i = 1,2,3,... Then we look at the reply packet and see if it's a \"Time ran out\" or \"That port doesn't exist\" error message.",
+    "So it turns out traceroute is kind of easy!"
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, tutorial",
+  "key_insight": "Traceroute is a surprisingly simple concept \u2014 just send packets with incrementing TTLs and read the ICMP errors back \u2014 and can be implemented in about 15 lines of Python with the right library.",
+  "filename": "2013-10-31-day-20-scapy-and-traceroute"
+}

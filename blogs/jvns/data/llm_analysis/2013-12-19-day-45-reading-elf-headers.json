@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents her progress writing a kernel in Rust, specifically getting to the point where she can parse ELF headers and execute simple programs. After receiving help from Graydon Hoare (Rust's creator), she got a minimal 897-byte test program to work with instead of an 800k Hello World. She walks through the steps needed to load and run an ELF executable: reading headers, finding segments, copying them into memory, and jumping to the entry point. The post shows her actual Rust code for parsing ELF headers and executing programs, noting the heavy use of unsafe code.",
+  "key_points": [
+    "A statically compiled Hello World is 800k, but a minimal program using inline assembly for a single syscall compiles to just 897 bytes \u2014 about 1000x smaller",
+    "Running an ELF executable requires reading the header, finding loadable segments, copying them to the right memory address, and jumping to the entry point",
+    "Writing OS-level Rust code requires extensive use of unsafe blocks, since operations like casting raw pointers and jumping to arbitrary addresses can't be verified by the compiler",
+    "Community engagement through blogging led directly to expert help \u2014 Graydon Hoare emailed answers to her questions after reading her previous post"
+  ],
+  "money_quotes": [
+    "I wanted to be able to run executables because THAT WOULD BE COOL.",
+    "One of my favourite things about this blog is when delightful people comment or email and answer my questions",
+    "This is super great, because it means that I can understand the whole program and it doesn't have a bunch of glibc/Linux stuff compiled into it.",
+    "I could also make up my own convention for system calls, but that seems unnecessary.",
+    "This is typical of a lot of Rust code I'm writing \u2013 I need to write a lot of `unsafe` code.",
+    "What could be more unsafe than jumping to a possibly arbitrary address in memory?"
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "Running executables from a hobby kernel boils down to parsing ELF headers and jumping to the right memory address, and working with a minimal test program makes each step understandable.",
+  "filename": "2013-12-19-day-45-reading-elf-headers"
+}

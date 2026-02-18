@@ -1,0 +1,23 @@
+{
+  "summary": "Julia documents her process of customizing the terminal colors in gotty, a web-based terminal tool, by finding and integrating HTerm themes from Blink Shell's open source theme collection. She modified gotty's JavaScript to inject Solarized theme preferences, though the result didn't perfectly match her local terminal. She also improved her deployment workflow by switching from building Docker images on the server to pulling pre-built images from GitHub's container registry.",
+  "key_points": [
+    "Gotty uses HTerm as its terminal, and Blink Shell's open source theme collection provides compatible color themes",
+    "Customizing gotty's terminal colors required modifying gotty.js directly since the theme variable wasn't available in external HTML",
+    "The Solarized theme looked different in gotty than in a native terminal, possibly due to shell differences between fish and bash",
+    "Moving Docker image builds from the server to a registry dramatically improved deployment speed and reliability"
+  ],
+  "money_quotes": [
+    "I couldn't find any explanation on the internet of how to do this, so here's what I did.",
+    "I've never really understand shell colors so maybe this will be the reason I finally learn.",
+    "This took a long time like things like this always do but it was pretty boring so I don't have much more to say about it.",
+    "I also wasted a bunch of hours trying to build the images in CI but in the end I decided to just build them on my laptop because I couldn't get Docker image caching to work with github actions.",
+    "It's way faster and also feels like it's going to be more reliable."
+  ],
+  "themes": [
+    "terminals",
+    "learning"
+  ],
+  "tone": "casual, pragmatic",
+  "key_insight": "Customizing web-based terminal tools often requires digging into their JavaScript internals, and the results may not perfectly match native terminal rendering due to subtle differences in how shells handle colors.",
+  "filename": "2021-01-15-day-39--customizing-gotty-s-terminal"
+}

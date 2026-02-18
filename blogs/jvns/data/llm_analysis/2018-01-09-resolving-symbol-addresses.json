@@ -1,0 +1,27 @@
+{
+  "summary": "Julia Evans documents three specific problems she encountered when trying to resolve symbol addresses in memory while building a Ruby profiler. She explains how ASLR randomizes where binaries are loaded, how symbols may live in dynamically linked libraries rather than the main binary, and how the ELF program header's vaddr offset must be accounted for. She walks through each problem using concrete examples with readelf, /proc/PID/maps, and musl's dlsym source code. The post illustrates how a seemingly simple task \u2014 finding a symbol's memory address \u2014 requires navigating multiple layers of OS and binary format complexity.",
+  "key_points": [
+    "ASLR means you can't just read the symbol table offset directly \u2014 you must find the binary's random base address via /proc/PID/maps",
+    "Symbols may not be in the main binary at all; they can live in dynamically loaded libraries like libruby, requiring you to search all memory-mapped libraries",
+    "The ELF program header's vaddr field introduces yet another offset that must be subtracted to get the correct address",
+    "Reading musl's dlsym source code revealed the correct formula: map_base - ph->p_vaddr + sym->st_value",
+    "There are two symbol table sections (.symtab and .dynsym), and readelf -a is the easiest way to inspect both"
+  ],
+  "money_quotes": [
+    "Unsurprisingly, it turns out that figuring out the address in memory corresponding to a given symbol is actually not really that straightforward.",
+    "readelf -a is the same in both cases because readelf -a just shows you everything in an ELF file. It's my favorite because I don't need to guess where the information I want is, I can just print out everything and then use grep.",
+    "Here we're meeting our good friend /proc/$PID/maps \u2013 this file contains a list of memory maps for a process.",
+    "It turns out that virtual memory isn't contiguous! Instead process get a bunch of possibly-disjoint memory maps!",
+    "So I decided to, instead of randomly guessing, go read the code for dlsym.",
+    "It's interesting that such a seemingly simple thing ('what's the address of this symbol?') is so complicated!",
+    "It would be nice to be able to just call dlsym and have it do all the right calculations for me, but I think I can't because the symbol is in a different process."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, curious, technically detailed",
+  "key_insight": "Resolving a symbol's runtime memory address requires navigating three layers of indirection \u2014 ASLR base addresses, dynamically loaded libraries, and ELF program header offsets \u2014 turning a seemingly simple lookup into a surprisingly complex task.",
+  "filename": "2018-01-09-resolving-symbol-addresses"
+}

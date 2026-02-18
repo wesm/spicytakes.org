@@ -1,0 +1,27 @@
+{
+  "summary": "Evans explores why web servers should support IPv6 despite major sites like Twitter and GitHub not doing so. She explains how ISPs without enough IPv4 addresses use CGNAT to share addresses among customers, which creates performance bottlenecks. The post catalogs reasons gathered from Twitter responses, ranging from reducing CGNAT load and improving performance to enabling IPv6-only servers and making home server networking easier. She also honestly notes that adding IPv6 support can sometimes cause problems when broken network equipment fails IPv6 connections. Evans frames IPv6 support partly as a public commons issue where broad adoption benefits everyone, especially users in regions with limited IPv4 access.",
+  "key_points": [
+    "ISPs without enough IPv4 addresses use CGNAT to share addresses, creating performance bottlenecks and attractive DDoS targets",
+    "IPv6 support is partly a public commons issue: broad adoption reduces pressure on shared IPv4 infrastructure, especially benefiting users outside North America",
+    "Supporting IPv6 can paradoxically cause problems when broken network equipment on dual-stack networks fails IPv6 connections silently",
+    "For many sites behind CDNs or modern hosting, IPv6 support comes essentially for free with just an AAAA record",
+    "The IPv6 address space is too large to scan, providing a secondary security benefit for IPv6-only servers"
+  ],
+  "money_quotes": [
+    "twitter.com does not support IPv6. Presumably it can't be causing them THAT many issues to not support it. So why do websites support IPv6?",
+    "CGNAT is a bottleneck and it causes performance issues, and it's going to continue to get worse over time as access to IPv4 addresses becomes more and more restricted.",
+    "It's less that supporting IPv6 will make your site specifically work better, and more that if almost everyone supports IPv6 then it'll make the experience of the internet better for everyone.",
+    "If your server only has a public IPv6 address, attackers can't easily find it by scanning the whole internet. The IPv6 address space is too big to scan!",
+    "Any time I run an IPv4 public server I'm always a tiny bit surprised by how it's constantly being scanned for vulnerabilities.",
+    "I thought it was interesting and surprising that supporting IPv6 can actually in some cases make things worse for people on dual stack networks.",
+    "One of Facebook's IPv6 addresses is '2a03:2880:f10e:83:face:b00c:0:25de' \u2014 it has face:b00c in it."
+  ],
+  "themes": [
+    "networking",
+    "dns",
+    "learning"
+  ],
+  "tone": "curious, exploratory, balanced",
+  "key_insight": "IPv6 adoption is as much a public commons problem as a technical one \u2014 supporting it reduces strain on shared IPv4 infrastructure and improves the internet for users in regions with scarce IPv4 addresses.",
+  "filename": "2022-01-29-reasons-for-servers-to-support-ipv6"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Evans traces the full chain of events that occur when running a simple 'Hello World' Python program on Linux, from shell parsing through PATH resolution, inode lookups, forking, execve, ELF parsing, dynamic linking, and finally the write system call. Rather than focusing on Python-specific behavior, she examines what happens for any dynamically linked executable. The post emphasizes hands-on exploration, showing readers how to use tools like strace, readelf, debugfs, dd, ldd, and ltrace to observe each step themselves. She digs surprisingly deep, reading raw inodes from disk and decoding ELF permission bits by hand, while honestly noting the parts she still doesn't fully understand.",
+  "key_points": [
+    "Running even a trivial program involves a long chain: shell parsing, PATH search via stat calls, fork/clone, execve, ELF parsing, dynamic linking, and finally the actual write system call",
+    "The filesystem splits file access into two steps: mapping filenames to inodes (metadata) and then using inodes to get contents, which you can verify by reading raw bytes from disk with debugfs and dd",
+    "Dynamic linking happens in userspace via ld-linux, which uses a cache (ld.so.cache) to avoid searching LD_LIBRARY_PATH every time, and libraries can run initialization code through .init sections",
+    "Most programming languages (Python, Ruby, Node, Rust) go through libc for system calls, while Go notably calls Linux system calls directly, and different libc implementations (glibc vs musl) can cause subtle bugs",
+    "Tools like strace, ltrace, readelf, ldd, debugfs, and /proc give you direct visibility into every layer of this process"
+  ],
+  "money_quotes": [
+    "Behind the scenes, there's a lot more going on.",
+    "The way new processes start on Unix is a little weird \u2013 first the process clones itself, and then runs execve, which replaces the cloned process with a new process.",
+    "When your OS opens a file, it's split into 2 steps: it maps the filename to an inode, which contains metadata about the file, then it uses the inode to get the file's contents.",
+    "I honestly am always a little suspicious of ltrace \u2013 unlike strace (which I would trust with my life), I'm never totally sure that ltrace is actually reporting library calls accurately.",
+    "Programs don't have to use libc (on Linux, Go famously doesn't use it and calls Linux system calls directly instead), but most other programming languages I use (node, Python, Ruby, Rust) all use libc.",
+    "One of my frustrations with Mac OS is that I don't know how to introspect my system on this level \u2013 when I print hello world, I can't figure out how to spy on what's going on behind the scenes the way I can on Linux.",
+    "ldd is actually a shell script that just sets the LD_TRACE_LOADED_OBJECTS=1 environment variable and starts the program."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "exploratory, hands-on, curious",
+  "key_insight": "A simple 'Hello World' program triggers a complex chain of OS operations \u2014 PATH resolution, forking, ELF parsing, dynamic linking \u2014 all of which you can observe yourself using Linux debugging tools like strace, readelf, and debugfs.",
+  "filename": "2023-08-03-behind--hello-world"
+}

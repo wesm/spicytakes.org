@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans walks through building a minimal DNS query tool in Ruby from scratch, demonstrating how to generate DNS queries and parse DNS responses in about 120 lines of code. She starts by capturing a real DNS query from Wireshark, then progressively replaces hardcoded bytes with proper encoding functions. The post covers the DNS packet format including headers, domain name encoding, and the tricky DNS compression scheme. She builds a complete working clone of `dig` that can resolve domain names to IP addresses, explaining each step of the binary protocol along the way.",
+  "key_points": [
+    "DNS queries and responses are structured as concatenated binary fields that can be generated and parsed with basic byte manipulation",
+    "Wireshark is invaluable for understanding binary protocols\u2014you can capture a working query and reverse-engineer the format from there",
+    "DNS compression, where domain names reference earlier positions in the packet, is the most complex part of parsing DNS responses and can even be exploited for infinite loops",
+    "The entire DNS query/response cycle is just sending and receiving a single UDP packet, making it one of the simplest network protocols to implement from scratch",
+    "Building things from scratch in ~120 lines reveals that protocols that seem mysterious are actually quite approachable when broken into small steps"
+  ],
+  "money_quotes": [
+    "I left out \"how to generate and parse DNS queries\" because I thought it was boring, but a few people pointed out that they did not know how to parse and generate DNS queries and they were interested in how to do it.",
+    "The easiest way to get a DNS query to play with and make sure our UDP connection is working is to just copy one that already works!",
+    "Along the way I'm going to try to explain how you could figure out some of this stuff yourself if you were trying to figure out how DNS queries are formatted from scratch. Mostly that's \"poke around in Wireshark\" and \"read RFC 1035, the DNS RFC\".",
+    "The hardest part of this (maybe surprisingly) is going to be \"parse a DNS name\".",
+    "All c00c is saying is: The first 2 bits mean \"DNS compression ahead!\" The remaining 14 bits are an integer.",
+    "A malicious actor could exploit this code by sending a DNS response with a DNS compression entry that points to itself, so that read_domain_name would end up in an infinite loop."
+  ],
+  "themes": [
+    "dns",
+    "networking",
+    "learning"
+  ],
+  "tone": "enthusiastic, pedagogical, hands-on",
+  "key_insight": "DNS query generation and parsing, which sounds intimidating, can be implemented from scratch in 120 lines of Ruby by starting with a captured packet from Wireshark and progressively replacing hardcoded bytes with proper encoding logic.",
+  "filename": "2022-11-06-making-a-dns-query-in-ruby-from-scratch"
+}

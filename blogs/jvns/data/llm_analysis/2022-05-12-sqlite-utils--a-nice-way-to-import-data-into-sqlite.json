@@ -1,0 +1,22 @@
+{
+  "summary": "Julia Evans describes sqlite-utils, a tool that makes importing data into SQLite easy for ad-hoc data analysis. She walks through a practical example of importing Shopify order data, showing how the tool auto-generates schemas from JSON, handles schema changes with alter, and deduplicates with upsert. She also covers the command line interface and pairs it with Metabase for visualization. The post highlights how this setup replaced a more complex Flask/plotly/pandas workflow.",
+  "key_points": [
+    "sqlite-utils auto-generates database schemas from JSON data, eliminating tedious manual schema definition",
+    "The alter flag and upsert method handle real-world messiness like evolving schemas and duplicate data gracefully",
+    "The tool works both as a Python library and a command line tool for importing CSV and JSON data",
+    "Pairing sqlite-utils with Metabase provides a simpler alternative to custom Flask/plotly/pandas dashboards"
+  ],
+  "money_quotes": [
+    "The Shopify data has about a billion fields and I really did not want to type out a schema for it.",
+    "But this seemed like a lot of boring work, like I'd have to write a schema and write a Python program.",
+    "This whole setup (sqlite-utils + metabase + SQL) feels a lot easier to use than my previous setup, where I had a custom Flask website that used plotly and pandas to draw graphs.",
+    "I was really delighted by sqlite-utils, it was super easy to use and it did everything I wanted.",
+    "Luckily, sqlite-utils thought of that: there's an alter flag which will update the table's schema to include the new fields."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "sqlite-utils removes the friction of getting data into SQLite by auto-generating schemas and handling real-world import problems like evolving fields and duplicates, making ad-hoc data analysis much more accessible.",
+  "filename": "2022-05-12-sqlite-utils--a-nice-way-to-import-data-into-sqlite"
+}

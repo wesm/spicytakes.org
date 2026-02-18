@@ -1,0 +1,26 @@
+{
+  "summary": "Evans explores how people mentally model Git commits, finding through a Mastodon poll that opinions are nearly evenly split between thinking of commits as diffs (51%) versus snapshots (42%). She explains that Git internally stores commits as snapshots but uses packfiles for compression, making both mental models partially correct. She argues that 'wrong' mental models (like thinking commits are diffs) can be extremely useful for everyday Git usage. The post examines the practical advantages of each perspective and why the common advice to 'just learn Git internals' often fails as a teaching strategy.",
+  "key_points": [
+    "Git internally stores commits as snapshots, not diffs, but uses packfiles with delta compression to save disk space \u2014 making both mental models partially true",
+    "The 'just learn the internals' approach to teaching Git hasn't been as successful as expected, because people with correct internal knowledge still struggle with Git",
+    "Wrong mental models about Git (commits as diffs, editable commit messages, movable commits) form a coherent and useful set of ideas well-supported by Git's UI",
+    "People are reluctant to share their 'wrong' mental models because Git Explainers will correct them, creating a chilling effect on honest discussion about how people actually think about Git",
+    "The diff vs snapshot framing maps to different use cases: diffs are better for thinking about changes and rebasing, snapshots are better for understanding checkouts and merge conflicts"
+  ],
+  "money_quotes": [
+    "I've been considering other options besides 'just learn how Git represents things internally, and everything will make sense.'",
+    "I think wrong mental models are often extremely useful, and this one doesn't seem very problematic to me for every day Git usage.",
+    "Checking out a Git commit is always fast: it's just as easy for Git to check out a commit from yesterday as it is to check out a commit from 1 million commits ago.",
+    "It takes deltas, turns them into a snapshot, and then calculates a diff. It feels a little weird because it starts with a diff-like-thing and ends up with another diff-like-thing.",
+    "People get really into policing 'wrong' mental models even though those 'wrong' models are often really useful, so folks are reluctant to share their 'wrong' ideas for fear of some Git Explainer coming out of the woodwork.",
+    "I really like that it makes the thing that we deal with the most often (the diff) the most fundamental \u2013 it seems really intuitive to me.",
+    "Git often gets confused about file moves because git only stores snapshots, so when it says 'moved old.py -> new.py', it's just guessing because the contents are similar."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "curious, exploratory, reflective",
+  "key_insight": "Wrong mental models about Git can be more useful than correct ones for everyday work, and the near-even split between people who think of commits as diffs versus snapshots suggests there's no single 'right' way to conceptualize them.",
+  "filename": "2024-01-05-do-we-think-of-git-commits-as-diffs--snapshots--or-histories"
+}

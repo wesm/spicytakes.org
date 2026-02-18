@@ -1,0 +1,21 @@
+{
+  "summary": "Julia Evans discovers the new -y flag in strace after upgrading from Ubuntu 12.04 to 16.04. The flag resolves file descriptor numbers into human-readable filenames in strace output, making it much easier to understand what files a program is reading from and writing to. She demonstrates this by tracing cp and mv commands, showing how cp reads and writes 128KB chunks between files while mv is just a single rename system call. She also highlights the -yy flag which resolves network socket file descriptors into IP addresses and ports.",
+  "key_points": [
+    "The strace -y flag resolves numeric file descriptors into human-readable filenames, eliminating a major usability pain point",
+    "Tracing cp reveals it reads and writes 128KB chunks at a time, while mv is just a single rename() system call - explaining the speed difference",
+    "The -yy flag goes further by resolving network socket descriptors into source/destination IP addresses and ports",
+    "Usability improvements to established developer tools are valuable and worth celebrating"
+  ],
+  "money_quotes": [
+    "It's important to know about file descriptors, but when I tell people about strace, I always feel like it's kind of annoying! Why can't strace just tell me which file it wrote to, instead of hiding it behind some number?",
+    "That's just one system call! No wonder moving is so fast and copying is so slow :)",
+    "I love seeing programs like strace get usability improvements!"
+  ],
+  "themes": [
+    "linux",
+    "debugging"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "The strace -y flag is a significant usability improvement that replaces opaque file descriptor numbers with human-readable filenames, making system call tracing far more accessible.",
+  "filename": "2016-06-07-strace-y"
+}

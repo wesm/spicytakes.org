@@ -1,0 +1,25 @@
+{
+  "summary": "Julia describes improving her TCP library's test suite by replacing network-dependent tests with mock-based unit tests. The tests went from taking 5-10 seconds to 0.009 seconds and became deterministic. She acknowledges the implementation is still messy and she's stuck on implementing the TCP state machine, so she plans to study a minimal C implementation of TCP for guidance.",
+  "key_points": [
+    "Replacing network-dependent tests with a MockListener class made tests faster and deterministic",
+    "Good unit tests should not depend on external resources like the network or arbitrary sleeps",
+    "Sometimes you need to study existing implementations to understand how to build something complex like a TCP state machine",
+    "Having only 100 lines of Python (with scapy handling packet unpacking) versus 1000 lines of C shows the power of high-level abstractions"
+  ],
+  "money_quotes": [
+    "I realized I'd been having a lot of trouble testing this TCP library yesterday, because all of the tests needed to use the network.",
+    "I did this by adding a MockListener class which takes packets.",
+    "The tests are faster (0.009 seconds instead of 5 or 10), and deterministic (they do the same thing every time).",
+    "The implemention is still pretty much a scattered mess.",
+    "I'm at the point where I have no idea of how to implement this TCP state machine.",
+    "Right now I have about 100 lines of Python, and I don't even have to unpack the packets or anything because scapy does that."
+  ],
+  "themes": [
+    "networking",
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective",
+  "key_insight": "Replacing network-dependent tests with mocks makes tests dramatically faster and deterministic, which is essential for making progress on complex networking code.",
+  "filename": "2013-11-07-day-24-unit-testing-this-tcp-library"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans explores a quirky Unix behavior where 'cd //' preserves the double slash in the path while 'cd ///' collapses to a single slash. She discovers through the POSIX specification that three or more leading slashes are collapsed to one, but two leading slashes are explicitly left as implementation-defined. The post uses stat to confirm that / and // point to the same inode, deepening the mystery of why the distinction exists in the spec at all. She ends with an open question about the historical reason, later updated with a Stack Overflow link explaining the behavior.",
+  "key_points": [
+    "In bash, 'cd //tmp' preserves the double slash in $PWD, while 'cd ///tmp' collapses to '/tmp' \u2014 but fish normalizes both to single slash",
+    "The POSIX cd specification explicitly says to replace three or more leading slashes with one, but is silent on two leading slashes",
+    "A separate POSIX spec states that pathnames beginning with two successive slashes 'may be interpreted in an implementation-defined manner'",
+    "Despite the different path representations, stat confirms / and // have the same inode number and are the same file"
+  ],
+  "money_quotes": [
+    "What is //tmp? What is happening? Why is cd ///tmp different from cd //tmp?",
+    "So! We can replace \"three or more leading / characters with a single slash\". That does not say anything about what to do when there are 2 / characters though.",
+    "So you can define //tmp to mean whatever you want? Like it could be different than /tmp? Why?",
+    "A pathname that begins with two successive slashes may be interpreted in an implementation-defined manner",
+    "They both have the same inode number (256) so they are the same file."
+  ],
+  "themes": [
+    "linux",
+    "terminals",
+    "learning"
+  ],
+  "tone": "curious",
+  "key_insight": "The POSIX specification deliberately treats paths with exactly two leading slashes as a special case with implementation-defined behavior, creating a surprising inconsistency where 'cd //' and 'cd ///' behave differently.",
+  "filename": "2017-02-08-weird-unix-things-cd"
+}

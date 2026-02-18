@@ -1,0 +1,25 @@
+{
+  "summary": "Julia describes debugging an unreliable VM launch process for her programming puzzles. The root cause was that SSH becoming available didn't mean cloud-init had finished running, so her setup scripts would sometimes fail due to missing dependencies. She fixed this by waiting for cloud-init's result.json file before proceeding. She also wrote a local testing script using qemu that made iteration much faster.",
+  "key_points": [
+    "SSH being available on a VM doesn't mean cloud-init has finished running, which was causing intermittent setup failures",
+    "cloud-init creates /var/lib/cloud/data/result.json when complete, providing a reliable readiness signal",
+    "Using ssh -o UserKnownHostsFile=/dev/null suppresses known_hosts warnings when testing with ephemeral VMs",
+    "Writing a local qemu testing script reduced the iteration cycle dramatically compared to testing in production",
+    "Bash is a good fit for scripts with simple logic that primarily orchestrate other processes"
+  ],
+  "money_quotes": [
+    "just because ssh is running, it doesn't mean that the cloud-init is done running!",
+    "I don't know why it took me so long to remember this, but \u2013 just because ssh is running, it doesn't mean that the cloud-init is done running!",
+    "I felt like this was a nice example of a good place for a bash script because: the logic is very simple, it needs to run a bunch of processes, and I'm the only person using it",
+    "It takes about a minute to boot a VM and it made it WAY WAY WAY faster to iterate on changes.",
+    "I've gotten a bit better at bash recently by writing the bash zine and I used some of my newfound bash knowledge here"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective",
+  "key_insight": "Intermittent infrastructure failures often come from assuming one service being ready means all initialization is complete, when in reality you need explicit completion signals.",
+  "filename": "2021-01-09-day-35--launching-my-vms-more-reliably"
+}

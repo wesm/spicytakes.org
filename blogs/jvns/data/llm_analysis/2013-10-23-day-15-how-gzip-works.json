@@ -1,0 +1,24 @@
+{
+  "summary": "Julia Evans documents the internal structure of gzip files after implementing gunzip in Julia. She walks through the DEFLATE algorithm's two passes\u2014LZ77 for replacing repeated sequences with pointers, and Huffman coding for efficient representation. The post details the file format layer by layer: headers, metadata, block structure, the recursive Huffman tree encoding scheme, and the actual decompression logic. She shares her Julia data structures and code, noting the surprising complexity of details like off-by-one constants and the non-obvious split between literal and distance trees.",
+  "key_points": [
+    "Gzip uses two passes: LZ77 to replace repeated sequences with back-references, then Huffman coding to compress the result efficiently",
+    "The format has a recursive structure where one Huffman tree is encoded using another Huffman tree, adding significant implementation complexity",
+    "Gzip files cannot be decompressed in parallel because block boundaries are only discoverable through full decompression",
+    "Small format details like 'minus four' and 'minus one' offsets in the header fields caused disproportionate debugging difficulty"
+  ],
+  "money_quotes": [
+    "The basic idea behind gzip (aka the DEFLATE algorithm) is that there are 2 passes.",
+    "There is a recursive thing going on where there is a Huffman tree encoded with another Huffman tree.",
+    "This minus four and minus one business basically drove me insane.",
+    "As far as I can tell it is impossible to decompress gzip files in parallel \u2013 there's no way to know when a block has ended without fully decompressing it.",
+    "You actually end up with two Huffman trees here \u2013 they're called literal_tree and distance_tree. This was really not obvious and took me forever to figure out.",
+    "It modifies decoded_text in place because it turns out that blocks can refer to text in previous blocks."
+  ],
+  "themes": [
+    "linux",
+    "learning"
+  ],
+  "tone": "exploratory",
+  "key_insight": "The gzip file format's apparent simplicity conceals recursive complexity\u2014Huffman trees encoded with other Huffman trees, off-by-one constants, and interdependent blocks\u2014that only becomes visible when you implement a decompressor from scratch.",
+  "filename": "2013-10-23-day-15-how-gzip-works"
+}

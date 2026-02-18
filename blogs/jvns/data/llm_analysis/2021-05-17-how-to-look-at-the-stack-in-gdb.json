@@ -1,0 +1,27 @@
+{
+  "summary": "This post walks through using gdb to inspect the stack of a simple C program, showing exactly how variables are laid out in memory. Evans demonstrates how to find variable addresses, examine raw bytes, and understand the difference between stack-allocated and heap-allocated strings. The walkthrough deliberately uses the unsafe `gets` function to demonstrate a buffer overflow, showing how writing past a buffer's bounds overwrites adjacent memory. The post also covers how stack smashing protection detects overflows using canary values, and how /proc/PID/maps reveals where the stack and heap live in memory. Evans argues that hands-on exploration with gdb makes abstract concepts like the stack, heap, and pointers much more concrete.",
+  "key_points": [
+    "You can use gdb's `x` command to examine raw memory and see exactly how variables like strings, integers, and pointers are laid out on the stack",
+    "Stack-allocated strings store their contents directly on the stack, while heap-allocated strings store a pointer on the stack that references data elsewhere in memory",
+    "Buffer overflows happen when you write past a buffer's declared size, overwriting adjacent memory\u2014demonstrated here by writing 13 bytes into a 10-byte array",
+    "The compiler's stack smashing protector uses canary values to detect when a buffer overflow has corrupted the stack",
+    "The stack and heap occupy different address ranges visible in /proc/PID/maps, making it easy to distinguish stack addresses (0x7fffff...) from heap addresses (0x5555...)"
+  ],
+  "money_quotes": [
+    "We learn more when things go wrong.",
+    "I really recommend playing around with gdb like this \u2013 even if you don't understand every single thing that you see in memory, I find that actually seeing the data in my program's memory like this makes these abstract concepts like 'the stack' and 'the heap' and 'pointers' a lot easier to understand.",
+    "This is a classic buffer overflow, and what's happening is that stack_string wrote over other data from the program.",
+    "It can crash your program or, worse, open you up to Very Bad Security Problems.",
+    "The weird thing about this is that stack_string was only supposed to be 10 bytes. But now suddenly we've put 13 bytes in it?",
+    "These bytes actually get read backwards because x86 is little-endian.",
+    "Playing about with gdb like this is really helpful."
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "technical, exploratory, encouraging",
+  "key_insight": "Actually examining raw memory with gdb transforms abstract concepts like the stack, heap, and buffer overflows into something concrete and understandable.",
+  "filename": "2021-05-17-how-to-look-at-the-stack-in-gdb"
+}

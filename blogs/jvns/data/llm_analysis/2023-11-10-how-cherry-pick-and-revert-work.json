@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans investigates how git cherry-pick actually works under the hood, discovering it's not simply applying a patch as she previously assumed. She demonstrates that naive patch application fails without merge conflict resolution, while cherry-pick uses a 3-way merge internally. The post explains 3-way merge by showing how two changed files plus their common ancestor allow git to intelligently combine changes. She maps this to cherry-pick (using the parent commit as base) and revert (same thing but with commits flipped), and coins the term '3-way patch' for this technique of specifying patches as before/after file pairs rather than diffs.",
+  "key_points": [
+    "Git cherry-pick is not applying a patch file \u2014 it performs a 3-way merge using the parent commit as the base, which enables proper merge conflict resolution",
+    "A 3-way merge works by comparing two versions against their common ancestor, letting git merge changes rather than files",
+    "Git revert is implemented identically to cherry-pick but with the base and target commits swapped to apply a reverse patch",
+    "The 'index' line in patch files contains blob IDs that enable git apply --3way to reconstruct the full 3-way merge context",
+    "This 3-way merge approach to patching predates git entirely, originating in the late 1970s"
+  ],
+  "money_quotes": [
+    "I thought that git cherry-pick was basically applying a patch, but when I tried to actually do it that way, it didn't work!",
+    "The way I think about the 3-way merge is \u2013 git merges changes, not files.",
+    "When we talk about git 'applying a patch' (as you do in a rebase or revert or cherry-pick), it's not actually creating a patch file and applying it. Instead, it's doing a 3-way merge.",
+    "Revert and cherry-pick are so closely related in git that they're actually implemented in the same file: revert.c.",
+    "The point is that the 3-way patch is a much better way to patch than a normal patch, because you have a lot more context for merging when you have both full files.",
+    "I was pretty surprised to learn that I didn't actually understand the core way that git applies patches internally \u2013 it was really cool to learn about!"
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "curious, exploratory, technical",
+  "key_insight": "Git cherry-pick, revert, and rebase all use 3-way merge rather than simple patch application, using the parent commit as a common ancestor to enable intelligent conflict resolution.",
+  "filename": "2023-11-10-how-cherry-pick-and-revert-work"
+}

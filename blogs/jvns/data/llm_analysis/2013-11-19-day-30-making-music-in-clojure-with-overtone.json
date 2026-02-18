@@ -1,0 +1,21 @@
+{
+  "summary": "Julia Evans documents her first day using Overtone, a Clojure library for generating music through code. She successfully made sounds by copying examples despite not knowing Clojure, music theory, or Supercollider. She encountered her first Clojure bug involving lazy evaluation, where map wouldn't execute side effects inside a recursive function. The fix was using doseq instead of map for side-effecty operations. She also shares her growing comfort with Emacs and paredit for Clojure development.",
+  "key_points": [
+    "Overtone lets you make music in Clojure, and you can get started by copying examples even without knowing the prerequisites",
+    "Clojure's lazy evaluation with map means side effects won't execute unless the result is consumed, which is a common stumbling block for beginners",
+    "doseq is the correct tool for executing side effects in sequence when you don't care about the return value",
+    "Learning by doing and hitting real bugs teaches language semantics more effectively than reading documentation"
+  ],
+  "money_quotes": [
+    "On the box it says that you need to be \"comfortable with\" Clojure, the basics of music theory, and the Supercollider audio synthesis environment. I do not know any of these things and I successfully made sounds by copying and changing examples.",
+    "And I was TOTALLY CONFUSED, because, it says (map side-effecty-thing) in it! It should make sounds!",
+    "But then Travis explained that map is lazy and not actually appropriate if you want the function you are running to happen right away.",
+    "I no longer know how to write if statements without looking it up! Very Exciting Times!"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic",
+  "key_insight": "You don't need to meet all the stated prerequisites to start making things \u2014 copying examples and hitting real bugs is a valid and effective way to learn.",
+  "filename": "2013-11-19-day-30-making-music-in-clojure-with-overtone"
+}

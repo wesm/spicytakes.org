@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans dissects an SSL/TLS certificate by downloading one from mail.google.com using openssl and walking through its components. She explains the key fields including domain names, expiry dates, public keys, and signatures, then covers how certificate signing chains work and why certificate authorities matter. The post also introduces certificate transparency as a mechanism to detect rogue certificates. She concludes by acknowledging that SSL configuration is complex but that tools like Let's Encrypt make it accessible.",
+  "key_points": [
+    "SSL certificates can be downloaded and parsed from the command line using openssl, making them less mysterious than they seem",
+    "Certificate signing creates a chain of trust from your computer's pre-installed root certificates down to the specific domain certificate",
+    "Certificate transparency is a public logging system designed to catch rogue or unauthorized certificates that CAs might issue",
+    "The 'common name' field in certificates is counterintuitively not the one you should trust \u2014 the Subject Alternative Name field is what matters",
+    "Certificate authorities are trusted by default on your computer, but that trust can be abused, which is why systems like certificate transparency exist"
+  ],
+  "money_quotes": [
+    "I want to make sure that I'm actually talking to mail.google.com and not some other random server on the internet owned by EVIL PEOPLE.",
+    "I am not a security person and I am not going to give you security advice for your website (want to know what TLS ciphers you should use? I have no idea!!!).",
+    "Basically anyone could make a certificate for mail.google.com. I could make one right now! But if I gave you that certificate, you would have no reason to believe that it is a real certificate.",
+    "I have /etc/ssl/certs/Staat_der_Nederlanden_EV_Root_CA.pem on my laptop. Some certificate from the Netherlands! Who knows!",
+    "If some random person across the street signed a certificate, my computer would be like 'I have no idea who you are', and reject the certificate.",
+    "There is all this stuff like OLD_TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 on that page (for real, that is a real thing.)."
+  ],
+  "themes": [
+    "networking",
+    "learning"
+  ],
+  "tone": "curious, approachable, enthusiastic",
+  "key_insight": "SSL certificates become far less mysterious when you download one, parse it with openssl, and understand the chain of trust from root CAs to the domain you're visiting.",
+  "filename": "2017-01-31-whats-tls"
+}

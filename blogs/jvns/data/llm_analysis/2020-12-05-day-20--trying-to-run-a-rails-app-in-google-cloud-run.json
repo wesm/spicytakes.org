@@ -1,0 +1,23 @@
+{
+  "summary": "Julia Evans documents her frustrating experience trying to understand Google Cloud IAM after years of working with AWS IAM. She discovers that GCP's IAM terminology maps confusingly to AWS concepts \u2014 a GCP 'IAM role' is like an AWS 'permission,' while a GCP 'service account' is like an AWS 'IAM role.' She finds that granting permissions in GCP requires different approaches depending on the resource type, unlike AWS's unified model. After hitting a wall trying to grant SQL database access at 11:30 PM, she resorts to granting overly broad editor permissions just to get things working.",
+  "key_points": [
+    "GCP IAM terminology is confusingly different from AWS \u2014 'IAM role' means completely different things in each platform",
+    "GCP lacks a single unified way to assign permissions; each resource type has its own method for granting access",
+    "The Terraform GCP provider has dozens of nearly identical IAM binding resources, generated via ERB-templated Go code",
+    "Some GCP resources don't follow the expected gcloud pattern for granting access, like SQL instances",
+    "The pragmatic fallback when stuck is granting broad project-level permissions and narrowing later"
+  ],
+  "money_quotes": [
+    "So \"IAM role\" in GCP and \"IAM role\" in AWS have completely different meanings. Cool, that's fine, we can work with that.",
+    "At this point it was like 11:30PM so I gave up and granted my service account very broad permissions on the project because I just wanted to get something to work.",
+    "I feel like there should be a way to define \"here are all the things this service account is allowed to do\" in a single place, but I haven't found it yet.",
+    "As promised in the section heading, it seems to be a bunch of Go code templated with ERB.",
+    "I still don't know the correct way to grant access to a SQL instance but that's a fight for another day."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "curious, frustrated, humorous",
+  "key_insight": "GCP IAM's resource-specific permission model is fundamentally different from AWS's unified approach, requiring different commands and Terraform resources for each type of resource you want to grant access to.",
+  "filename": "2020-12-05-day-20--trying-to-run-a-rails-app-in-google-cloud-run"
+}

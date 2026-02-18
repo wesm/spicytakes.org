@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans catalogs the most confusing terminology in git, drawing from responses to a Mastodon thread asking what git jargon people find bewildering. She works through dozens of terms including HEAD vs heads, detached HEAD state, ours/theirs during merges and rebases, the difference between .. and ..., and the overloaded meanings of 'track' and 'index/staged/cached'. The post reveals that virtually every core git concept has some terminological confusion associated with it, whether from overloaded words, inconsistent naming, or misleading implications. Evans acknowledges that after 15 years of using git, she had never noticed many of these ambiguities herself. She concludes by picking her top three most confusing terms and noting that writing the post gave her a better understanding of why people find git so bewildering.",
+  "key_points": [
+    "Git reuses the same words for different concepts (track, head, checkout) and different words for the same concept (index, staged, cached), creating widespread confusion",
+    "The ours/theirs terminology during rebase is the opposite of what you'd expect because rebase internally works by merging commits into a copy of the target branch",
+    "The 'up to date with origin/main' message is misleading because it only reflects the state as of your last fetch, not the actual current state of the remote",
+    "Git checkout was so confusingly overloaded (switching branches vs discarding changes) that git eventually split it into two commands: switch and restore",
+    "Even after 15 years of daily git use, Evans found she had blind spots about why terminology is confusing, illustrating how expertise makes you forget the learning curve"
+  ],
+  "money_quotes": [
+    "I think that \"a head is a branch, HEAD is the current branch\" is a good candidate for the weirdest terminology choice in git, but it's definitely too late for a clearer naming scheme so let's move on.",
+    "origin/main is not a branch. It's a \"remote-tracking branch\", which is not a kind of branch (I'm sorry).",
+    "What it actually means is \u2013 if you last ran git fetch or git pull 5 days ago, then your main branch is up to date with all the changes as of 5 days ago.",
+    "A \"branch that tracks a remote\" and a \"remote-tracking branch\" are different things in Git and the distinction is pretty important!",
+    "I was surprised that basically every other core feature of git was mentioned by at least one person as being confusing in some way.",
+    "One of my biggest problems is that after almost 15 years of using git, I've become very used to git's idiosyncracies and it's easy for me to forget what's confusing about it.",
+    "It seems impossible to me to remember the syntax for this (there are 3 different branch names involved, which for me is too many), but I heard about it from a bunch of people so I guess it must be useful."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "curious, empathetic, self-deprecating",
+  "key_insight": "Git's terminology is confusing not because individual terms are hard, but because the same words are reused for different concepts and different words are used for the same concept, creating a web of ambiguity that even experienced users stop noticing.",
+  "filename": "2023-11-01-confusing-git-terminology"
+}

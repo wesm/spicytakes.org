@@ -1,0 +1,28 @@
+{
+  "summary": "Julia Evans builds a toy remote login server (like a tiny SSH without security) to explain how pseudoterminals work in Linux. She walks through the server implementation in Go, showing how to create a pseudoterminal, connect it to bash, and ferry data between a TCP connection and the terminal. Along the way, she demonstrates why you can't just use a raw TCP socket as bash's stdin/stdout (Ctrl+C breaks, top doesn't work), and dives into Linux sessions and process groups to explain how the kernel routes signals like SIGINT. The post includes a working client implementation and a public demo running tetris.",
+  "key_points": [
+    "A pseudoterminal is needed because connecting bash directly to a TCP socket breaks terminal features like Ctrl+C signal handling and programs like top that expect a real terminal",
+    "Linux uses sessions, process groups, and foreground process group membership to determine which processes receive SIGINT when Ctrl+C is pressed",
+    "Creating a pseudoterminal on Linux involves opening /dev/ptmx, getting the slave device name via ioctl, unlocking it, and connecting it to a child process",
+    "The client side requires putting the terminal into raw mode so keystrokes are sent immediately rather than line-buffered",
+    "Nearly all terminal configuration in Linux happens through ioctl system calls"
+  ],
+  "money_quotes": [
+    "The biggest difference between this program and SSH is that there's literally no security (not even a password) \u2013 anyone who can make a TCP connection to the server can get a shell and run commands.",
+    "A pseudoterminal is a lot like a bidirectional pipe or a socket \u2013 you have two ends, and they can both send and receive information.",
+    "If the 'terminal' is just a TCP connection, this doesn't work, because when you send 0x04 to a TCP connection, Linux won't magically send SIGINT to any process.",
+    "When you press Ctrl+C in a terminal, SIGINT gets sent to all the processes in the foreground process group.",
+    "All of the communication with the Linux kernel about terminals seems to be through various ioctl system calls.",
+    "I had no idea processes had a session ID!",
+    "I figured out how to do this in Go by going to grep.app and typing in syscall.TCSETS to find some other Go code that was doing the same thing."
+  ],
+  "themes": [
+    "linux",
+    "networking",
+    "terminals",
+    "learning"
+  ],
+  "tone": "exploratory, hands-on, conversational",
+  "key_insight": "Building a toy remote login server reveals why pseudoterminals exist: the Linux kernel needs a real terminal device to handle signal routing, process groups, and terminal-aware programs, which raw TCP sockets simply cannot provide.",
+  "filename": "2022-07-28-toy-remote-login-server"
+}

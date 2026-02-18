@@ -1,0 +1,20 @@
+{
+  "summary": "Julia Evans recounts spending most of a day debugging a single off-by-one error in her gzip decompression implementation. The fix was changing 257 to 258 in a calculation, though she still doesn't fully understand why. Despite the frustration, she's nearly able to decompress gzipped files. The post captures the unglamorous reality of low-level programming work.",
+  "key_points": [
+    "A single off-by-one error (257 vs 258) consumed an entire day of debugging",
+    "Even after fixing the bug, the underlying reason wasn't fully clear",
+    "The gzip decompression project is making progress despite painful debugging"
+  ],
+  "money_quotes": [
+    "Today I spent most of the day figuring out that n_to_read = head.hlit + head.hdist + 257 should be n_to_read = head.hlit + head.hdist + 258",
+    "And I still don't know why, exactly.",
+    "I think the life lesson here is \"sometimes it takes forever to figure things out and it is no fun\" :)"
+  ],
+  "themes": [
+    "debugging",
+    "learning"
+  ],
+  "tone": "reflective",
+  "key_insight": "Sometimes debugging means spending an entire day finding a single off-by-one error, and that's just part of the process.",
+  "filename": "2013-10-21-day-13-off-by-one-errors"
+}

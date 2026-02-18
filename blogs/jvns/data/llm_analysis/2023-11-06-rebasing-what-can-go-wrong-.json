@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans investigates why many developers hate git rebase by crowdsourcing specific bad experiences from Mastodon. She catalogs fifteen distinct problems people encounter, from repeatedly fixing the same merge conflict to accidentally losing work through force pushes on shared branches. She distinguishes between two kinds of rebase\u2014rebasing on an ancestor (safer) and rebasing onto a diverged branch (riskier)\u2014and identifies three levels of 'commit discipline' that explain why people argue about rebase. She concludes that while she'll keep using rebase, the number of pitfalls makes her more cautious about recommending it to newcomers without proper safety guidelines.",
+  "key_points": [
+    "There are two fundamentally different kinds of rebase: squashing commits on an ancestor (low risk) vs rebasing onto a diverged branch (merge conflict risk), and conflating them causes confusion",
+    "Undoing a bad rebase is significantly harder than undoing a bad merge, and newcomers have permanently lost work because they didn't know recovery was possible",
+    "Force pushing to shared branches is the most dangerous rebase-related practice, and even --force-with-lease has a subtle gotcha if you fetch right before pushing",
+    "People's arguments about rebase are often really arguments about required commit discipline levels: anything goes, squash-on-merge, or atomic beautiful commits",
+    "A merge-based workflow using 'squash and merge' can achieve clean history without rebase's risks"
+  ],
+  "money_quotes": [
+    "I've found that if many people have a very strong opinion that's different from mine, usually it's because they have different experiences around that thing from me.",
+    "I heard from several people that when they were new to rebase, they messed up a rebase and permanently lost a week of work that they then had to redo.",
+    "The only worse thing than having to hunt through the reflog is multiple different people having to hunt through the reflog.",
+    "I went into this really feeling like 'rebase is fine, what could go wrong?' But many of these problems actually have happened to me in the past, it's just that over the years I've learned how to avoid or fix all of them.",
+    "I've been wondering if when people argue about whether people 'should' use rebase or not, they're really arguing about which minimum level of commit discipline should be required.",
+    "I've never really seen anyone share best practices for rebase, other than 'never force push to a shared branch'. All of these honestly make me a lot more reluctant to recommend using rebase."
+  ],
+  "themes": [
+    "git",
+    "learning"
+  ],
+  "tone": "curious, balanced, empathetic",
+  "key_insight": "The widespread frustration with git rebase stems not from rebase being inherently bad, but from the accumulated hidden knowledge needed to use it safely\u2014knowledge that experienced users have internalized but rarely share with newcomers.",
+  "filename": "2023-11-06-rebasing-what-can-go-wrong-"
+}

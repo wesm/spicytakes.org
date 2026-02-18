@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans explains how overlay filesystems (overlayfs) work as a key building block of container technology. She demonstrates that containers use overlays instead of copying entire images to save disk space and time, with a read-only lower directory and a writable upper directory. Through hands-on terminal examples, she shows how reads, writes, and deletes work in an overlay, including the surprising character device trick used to represent deleted files. She also explains how Docker layers map to multiple lower directories and briefly covers alternative storage drivers like btrfs snapshots.",
+  "key_points": [
+    "Container images can be huge (up to 1.5GB), so Docker uses overlay filesystems instead of copying images for each container, saving disk space and startup time",
+    "Overlayfs combines a read-only lower directory with a writable upper directory \u2014 reads check upper first then fall back to lower, while writes always go to upper",
+    "Deleting a file in an overlay creates a special character device file in the upper directory as a 'whiteout' marker, rather than actually removing the lower file",
+    "Docker's multi-layer images work by mounting multiple lower directories in overlayfs, with each layer unpacked into its own directory",
+    "Docker's storage driver depends on the underlying filesystem \u2014 ext4 uses overlayfs, btrfs uses copy-on-write snapshots, each with different tradeoffs"
+  ],
+  "money_quotes": [
+    "Every container you start with an image starts out with the same blank slate, as if it made a copy of the image just for that container to use. But for big container images, like that 800MB Anaconda image, making a copy would be both a waste of disk space and pretty slow.",
+    "There's was an extremely annoying error message I kept getting while doing this, that said 'mount: special device overlay does not exist.' This message is a lie, and actually just means that one of the directories I specified was missing.",
+    "But what happened in upper is a little strange: there's a file called upper/in_both.txt, but it's a\u2026 character device? I guess this is how the overlayfs driver represents a file being deleted.",
+    "I think containers often seem like they're doing 'complicated' things and I think it's fun to break them down like this.",
+    "You can just run one mount incantation without actually doing anything else related to containers at all and see how overlays work!"
+  ],
+  "themes": [
+    "linux",
+    "debugging",
+    "learning"
+  ],
+  "tone": "enthusiastic, exploratory, hands-on",
+  "key_insight": "Overlay filesystems are a surprisingly simple mechanism at the heart of containers \u2014 you can understand them completely by running a single mount command and experimenting with reads, writes, and deletes.",
+  "filename": "2019-11-18-how-containers-work--overlayfs"
+}

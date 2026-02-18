@@ -1,0 +1,25 @@
+{
+  "summary": "Julia Evans describes her experience using Tailwind CSS to build a website for her zines, despite having self-described mediocre CSS skills. She contrasts the old CSS Zen Garden philosophy of semantic HTML with Tailwind's utility-class approach, where you add many small CSS classes directly to HTML elements instead of writing custom CSS. She finds Tailwind's approach to media queries particularly useful, as prefixes like 'md:' make responsive design trivially easy. The post argues that this utility-first approach works well because HTML templates reduce duplication, and the constrained set of options actually helps non-experts make better design decisions.",
+  "key_points": [
+    "The CSS Zen Garden ideal of semantic HTML styled by separate CSS doesn't work well for people who only write CSS occasionally",
+    "Tailwind's utility classes differ from inline styles because they provide media query prefixes and a constrained set of design options",
+    "Having limited choices (30 width options, a fixed color palette) paradoxically makes it easier to produce good-looking results",
+    "Modern HTML generation via templates reduces the duplication concern, since absurd class strings only need to be written once",
+    "The approach is utility-first, not utility-only \u2014 Tailwind doesn't require you to never write CSS"
+  ],
+  "money_quotes": [
+    "I've been writing mediocre HTML/CSS for probably like 12 years now, and since I don't do it at all in my job and am making no efforts to improve, the chances of my mediocre CSS skills magically improving are\u2026 not good.",
+    "In practice I always end up with some media query problem sadly googling 'how do I center div' for the 500th time.",
+    "It's basically the opposite of the CSS zen garden \u2013 you have a single CSS file that you don't change, and then you use 10 billion classes in your HTML to style your site.",
+    "It feels incredibly freeing to not have to give any of my divs styles or IDs at all and just focus on thinking about how they should look.",
+    "With normal CSS, I can make any element any width I want. For me, this is not a good thing!",
+    "No more 'width: 300px; /* i hope this looks okay i don't know help */'",
+    "I have no position on the One True Way to write (or not write) CSS. I'm not a frontend developer and you definitely should not take advice from me."
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, self-deprecating, exploratory",
+  "key_insight": "Constrained utility-class CSS frameworks like Tailwind can be more effective than traditional CSS for occasional web developers because limited options and inline-style composition eliminate the cognitive overhead of naming classes and managing stylesheets.",
+  "filename": "2018-11-01-tailwind--write-css-without-the-css"
+}

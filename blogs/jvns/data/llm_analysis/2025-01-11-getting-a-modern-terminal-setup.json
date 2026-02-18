@@ -1,0 +1,26 @@
+{
+  "summary": "Julia Evans explores what it actually takes to achieve a 'modern' terminal experience, cataloging the specific features she considers essential and which system components are responsible for each. She starts by thinking it's simple, then realizes the list of requirements keeps growing. The post identifies three main obstacles: shell configuration (bash/zsh defaults are inadequate), terminal text editor setup (vim/emacs require years of investment), and individual application quirks. She emphasizes that terminal configuration is an interconnected system where changing one thing can break others, and recommends making changes slowly over time. Her honest conclusion is that getting a modern terminal experience is genuinely hard, despite what experienced users might assume.",
+  "key_points": [
+    "A 'modern' terminal experience requires coordinating multiple components: shell, terminal emulator, text editor, and individual applications, each needing separate configuration",
+    "Neither bash nor zsh provide acceptable defaults out of the box \u2014 limited history, no git completions, no useful prompt \u2014 making fish or oh-my-zsh practically necessary",
+    "Terminal configuration is an interconnected system where seemingly small changes (like adding tmux) cascade into unexpected requirements elsewhere (like changing how colors are managed)",
+    "The text editor problem remains unsolved: vim/emacs require years of investment, nano is too limited, and newer options like micro/helix are still maturing",
+    "Experienced users underestimate the difficulty because their own setup evolved incrementally over 10-20 years"
+  ],
+  "money_quotes": [
+    "My immediate reaction was 'oh, getting a modern terminal experience isn't that hard, you just need to\u2026', but the more I thought about it, the longer the 'you just need to\u2026' list got.",
+    "Figuring out how to configure vim in a way that I was satisfied with really did take me like ten years, which is a long time!",
+    "'Using tmux means that I have to change how I manage my colours' sounds unlikely, but that really did happen to me.",
+    "Each of these 'not complicated' things really does add up and it's especially tough if you need to keep your config in sync across several systems.",
+    "I find that debugging application-specific issues like this is really not easy and often it doesn't feel 'worth it' \u2014 often I'll end up just dealing with various minor inconveniences because I don't want to spend hours investigating them.",
+    "Trying to explain how 'easy' it is to configure your terminal really just made me think that it's kind of hard and that I still sometimes get confused.",
+    "I've found that there's never one perfect way to configure things in the terminal that will be compatible with every single other thing."
+  ],
+  "themes": [
+    "terminals",
+    "learning"
+  ],
+  "tone": "reflective, practical, honest",
+  "key_insight": "Getting a 'modern' terminal experience is genuinely hard because it requires coordinating many interdependent components, each with its own configuration, and experienced users underestimate this because their own setup evolved incrementally over decades.",
+  "filename": "2025-01-11-getting-a-modern-terminal-setup"
+}
