@@ -1,0 +1,29 @@
+{
+  "summary": "Casey Muratori describes building 'Walk Monster,' a tool for testing and visualizing player movement code in The Witness. Starting from the need to bulletproof player collision so it never breaks immersion, he iterates through several spatial exploration algorithms \u2014 from Rapidly Exploring Random Trees to a custom flood fill to his final 'Localized Directional Sampling' approach \u2014 to map everywhere the player can go. Each algorithm reveals tradeoffs between sampling density, boundary accuracy, and computational efficiency. The tool immediately finds real bugs including walkable slopes that shouldn't be, phantom collision volumes, and one-way-traversible rocks. He concludes by outlining open questions about boundary probing, visualization, and plans to fix the movement code itself.",
+  "key_points": [
+    "Player movement code must be invisible to maintain immersion \u2014 any collision bug (getting stuck, falling through floors, walking through walls) breaks the experience and can strand players",
+    "Testing must exercise the actual code path, not just analyze data; Muratori builds both synthetic input emulation and a DriveTowardPoint function to test at different levels of fidelity",
+    "Rapidly Exploring Random Trees are designed for high-dimensional pathfinding, not exhaustive coverage of low-dimensional spaces \u2014 a mismatch he recognized only after implementation",
+    "His 'Localized Directional Sampling' algorithm uses directional awareness (not just proximity) to avoid boundary echo and efficiently flood-fill continuous 3D walkable space",
+    "Even a rudimentary version of Walk Monster immediately found real shipping-quality bugs: unwalkable slopes that were walkable, invisible collision volumes, and one-way-only rock passages"
+  ],
+  "money_quotes": [
+    "The last thing you ever want to happen is to have the player notice the fact that they're sitting at a computer asking it to move a virtual viewpoint around.",
+    "When you're trying to test a system, the most important thing to do is actually test the system. Even though that sounds like a straightforward rule, people writing tests often fail to observe it.",
+    "But this is testing the data, not the actual code. It's still easily possible to have bugs in the movement code that result in bad behavior even with sanitized data.",
+    "The entire goal of an algorithm like this is to concentrate the samples in the areas where they are most likely to yield productive results.",
+    "Because this is a continuous space and only an infinite number of samples can truly reveal its exact shape, your ratio of meaningful to meaningless samples is literally the measure of how effective your algorithm is at producing the walkable area.",
+    "What to name my first source file. This is always the most important part of any project. If you have the right name for your source file, it's smooth sailing from there.",
+    "The Witness is meant to be a contemplative game, but wondering why there seemed to be a rock where there was no rock was not meant to be one of its koans.",
+    "If you play games often, you've probably encountered one or more of these problems in shipping titles, and you know what I'm talking about."
+  ],
+  "themes": [
+    "game_dev",
+    "tools",
+    "software_engineering",
+    "performance"
+  ],
+  "tone": "technical, iterative, pragmatic",
+  "key_insight": "Effective testing requires exercising the actual system under test, not proxies for it, and algorithm selection must match the actual dimensionality and goals of your problem rather than the superficial shape of it.",
+  "filename": "2012-12-12-blog_0005"
+}

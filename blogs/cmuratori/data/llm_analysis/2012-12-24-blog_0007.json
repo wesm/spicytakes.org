@@ -1,0 +1,27 @@
+{
+  "summary": "Muratori recounts debugging a mysterious bug in The Witness's editor where a translation manipulator would fail to move objects along certain axes depending on camera angle. After methodically ruling out plane construction errors and axis-specific issues, he discovered the problem lay in the ray-versus-plane intersection function \u2014 specifically that it doesn't check whether the intersection occurs in front of or behind the camera. The post walks through the geometric reasoning behind translation manipulators, the debugging process, and ends as a cliffhanger challenge for readers to identify the bug themselves.",
+  "key_points": [
+    "Working in an unfamiliar codebase is like moving to a foreign country with the same alphabet but a different language \u2014 you gradually build fluency by starting with isolated features and expanding outward",
+    "Good translation manipulators use a plane containing the drag axis oriented toward the camera, then project the cursor ray intersection onto that axis, avoiding the sticky feel of ray-vs-line approaches",
+    "The bug was camera-angle-dependent because the ray-plane intersection function returns a point even when the intersection is behind the camera (negative t value), causing erratic behavior at certain viewing angles",
+    "Debug rendering was the key diagnostic tool \u2014 drawing intersection points revealed they were closer to the camera than expected and not on the intended plane, pointing to the root cause",
+    "Even basic 3D math operations composed together can produce subtle bugs that are hard to catch by code inspection alone"
+  ],
+  "money_quotes": [
+    "Working in someone else's codebase is much like moving to a foreign country that happens to use the same alphabet as you do, but not the same language: technically, you can read, but you don't really have any idea what most things mean.",
+    "Normally, I do not want large rocks to move around. If I'm in the game engine, and a giant rock starts moving, I know I'm in for some debugging work.",
+    "Since even simple 3D math like this can be difficult to verify by inspection alone, my first inclination was to add some debugging rendering to verify that I was picking the dragging plane properly.",
+    "It was at that moment that my math brain finally woke up. It had been sleeping for about a decade, which is how long it'd been since I'd done any real mathematical programming.",
+    "The problem was embarrassingly obvious when you consider the clues I'd been generously given and yet completely ignored.",
+    "At this point, every serious 3D programmer who hasn't been doing other work for ten years surely knows what the bug was."
+  ],
+  "themes": [
+    "game_dev",
+    "graphics",
+    "tools",
+    "software_engineering"
+  ],
+  "tone": "narrative, self-deprecating, technical",
+  "key_insight": "A ray-plane intersection that doesn't reject negative t values (intersections behind the camera) will produce erratic, camera-angle-dependent behavior that manifests as objects refusing to move along certain axes \u2014 a classic 3D math pitfall hidden inside the simplest possible geometric operations.",
+  "filename": "2012-12-24-blog_0007"
+}

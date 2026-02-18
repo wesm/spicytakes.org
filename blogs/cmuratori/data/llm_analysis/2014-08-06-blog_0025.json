@@ -1,0 +1,29 @@
+{
+  "summary": "Muratori dissects the Event Tracing for Windows API as a case study in catastrophically bad API design. He first demonstrates what a clean API for the same task would look like \u2014 a few straightforward function calls to receive context switch events \u2014 then walks through the actual Microsoft implementation step by agonizing step. The real API requires massive grab-bag structures with undocumented magic numbers, manual memory arithmetic for string packing, elevated administrator privileges, and \u2014 most absurdly \u2014 a dedicated thread that blocks forever just to receive events via callback. The core argument is that writing usage code first would have prevented all of these design failures, since the underlying problem is trivially simple: copying structured data from kernel to user space.",
+  "key_points": [
+    "Always write the usage code first when designing an API \u2014 this single practice reveals most design failures before they ship",
+    "The Event Tracing for Windows API turns what should be a glorified memcpy() into a gauntlet of memory arithmetic, string packing, magic numbers, redundant identifiers, elevated privileges, and a dedicated blocking thread",
+    "Microsoft's pattern of shared grab-bag parameter structures across function families destroys clarity about what goes into and comes out of each call",
+    "The API is internally inconsistent: StartTrace() and OpenTrace() handle errors, handles, and session names in completely different ways despite being part of the same system",
+    "Bad APIs impose compounding costs on hundreds of thousands of developers \u2014 API designers chronically underestimate this multiplier effect"
+  ],
+  "money_quotes": [
+    "I don't think people who make APIs really appreciate how important it is to get them right, and how much unnecessary work their mistakes can cause for hundreds, thousands, sometimes even millions of other programmers.",
+    "The API is simple because the problem it's solving is trivial. It's essentially the simplest API problem you can have in a system: how to move data from one place to another. It's a glorified memcpy().",
+    "But it is precisely the simplicity of the problem that allows the Event Tracing for Windows API to really shine. Even though all it has to do is move memory from one place to another, it manages to involve almost every kind of complexity you can see in an API.",
+    "Each time I figured out another step of the process I thought, 'Wait, seriously?' And each time Microsoft implicitly replied, 'Seriously.'",
+    "That's right \u2014 I am not exaggerating. If you simply want to receive a list of the context switches, even if only for your process, it must be running with full administrator privileges.",
+    "Here is the brown icing on the poopcake, that savory sauce that makes the Event Tracing for Windows API more grainy and aromatic than its contemporaries: ProcessTrace is defined to never return.",
+    "The only API I've ever used that requires both elevated privileges and a dedicated user thread just to copy a block of structures from the kernel to the user.",
+    "Without thinking about principles at all, or getting bogged down in details, just the simple exercise of writing down what the API should look like was all that was really necessary to see all the places the Microsoft version fell down."
+  ],
+  "themes": [
+    "api_design",
+    "software_engineering",
+    "performance",
+    "tools"
+  ],
+  "tone": "satirical, opinionated, technical",
+  "key_insight": "Writing usage code first \u2014 imagining the ideal API from the caller's perspective before considering implementation \u2014 is the single most effective practice for preventing bad API design, because it immediately exposes unnecessary complexity.",
+  "filename": "2014-08-06-blog_0025"
+}

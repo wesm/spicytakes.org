@@ -1,0 +1,27 @@
+{
+  "summary": "Muratori describes implementing special filters for The Witness's Lister Panel editor UI. He walks through the design process of creating a table-driven filtering system that handles three-state results (pass, fail, not applicable), then extends it with parametric filters using an integer parameter to avoid writing redundant per-flag filter functions. He further piggybacks editing capability onto the same filter functions, allowing users to both filter and modify entity properties through the same code path, culminating in bulk editing across all listed entities.",
+  "key_points": [
+    "Filter systems that operate on heterogeneous entity types need three-state logic (true, false, not applicable) rather than simple booleans, so inapplicable filters don't incorrectly exclude entities",
+    "Table-driven dispatch is preferred over switch statements when you need to attach metadata (like display names) to each case and iterate over entries from multiple callsites",
+    "A macro defining the function signature in one place keeps all filter functions and the typedef synchronized with zero maintenance cost",
+    "Adding a parameter to filter table entries enables generic filters (like flag testing) that avoid writing one function per flag value",
+    "Piggy-backing editing onto filter functions reuses existing type-checking and data access logic, keeping the code concise and avoiding duplication"
+  ],
+  "money_quotes": [
+    "The Lister Panel is a place that is all about intrusively looking at things and making decisions about them, and it is clear and understandable to put the code that does this determination all in one place.",
+    "If instead these tests are scattered throughout the entity classes as a suite of virtual functions, suddenly it becomes very complicated for someone reading the code to know, say, what constitutes a layer, or even how they would go about modifying what that meant if they needed to.",
+    "Switch statement vs. table is always a milquetoast decision, because the two are extremely similar and most of the time it's not clear that there's a right answer.",
+    "This is one of my favorite types of macros, because it saves a ton of typing while not really costing much in terms of legibility or debugging clarity.",
+    "It turned out to be very easy to piggy-back editing on top of filtering, just by passing more arguments to the filters. Since the filter code knows how to deal with whatever it is filtering, it is usually quite easy to add code for changing whatever it is filtering when necessary.",
+    "So, with very little code, I now had an entity list with configurable filters and configurable buttons for editing any of the filterable parameters where that made sense."
+  ],
+  "themes": [
+    "game_dev",
+    "api_design",
+    "software_engineering",
+    "tools"
+  ],
+  "tone": "technical, conversational, humorous",
+  "key_insight": "By designing filter functions that both query and modify entity properties through the same code path, you can build a flexible editor UI with filtering, per-entity editing, and bulk editing from very little code.",
+  "filename": "2014-06-25-blog_0019"
+}

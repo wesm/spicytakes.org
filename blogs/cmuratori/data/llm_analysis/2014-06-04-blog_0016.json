@@ -1,0 +1,28 @@
+{
+  "summary": "Muratori continues his series on compression-oriented programming by demonstrating how to progressively compress UI code from The Witness editor while maintaining 'continuous granularity' \u2014 ensuring that higher-level convenience functions never eliminate access to lower-level ones. He shows how naively modifying a push_button() function to handle toggle booleans would create a 'granularity discontinuity' that makes intermediate use cases awkward, and instead advocates adding a new bool_button() layer on top. He argues that programmers should resist the temptation to over-engineer solutions to language limitations, focusing on total cost rather than abstract notions of code cleanliness. He also clarifies that his critique of object-oriented programming targets the practice of orienting design around objects, not the incidental existence of object-like structures, and pushes back on claims that compression-oriented programming doesn't scale to teams.",
+  "key_points": [
+    "Continuous granularity means ensuring that as you build higher-level abstractions, lower-level access points remain available, avoiding 'holes' in the API where users are forced to drop down multiple levels to accomplish intermediate tasks.",
+    "When compressing code, adding a new higher-level function (bool_button) is preferable to modifying an existing mid-level function (push_button), because modification can destroy a useful intermediate abstraction layer.",
+    "Programmers should resist over-engineering workarounds for language limitations \u2014 accepting a slightly ugly but simple solution (like pre-specifying column count) beats introducing complex machinery that increases total cost.",
+    "The rule of thumb for good API design: never supply a higher-level function that can't be trivially replaced by a few lower-level functions doing the same thing.",
+    "Compression-oriented programming naturally produces continuous granularity because you build upward from low-level code, whereas object-oriented programming requires you to explicitly design granularity in advance."
+  ],
+  "money_quotes": [
+    "It's OK to accept a solution that's a little ugly if the alternatives are uglier.",
+    "You must always make sure that the primary thing you're evaluating in your head, when you make decisions in places where there are tradeoffs, is the total cost and only the total cost.",
+    "Never supply a higher-level function that can't be trivially replaced by a few lower-level functions that do the same thing.",
+    "Since compression-oriented programming means building the code by progressively bundling pieces of code into functions that operate at higher and higher levels, so as long as you just don't delete the smaller pieces as you build bigger ones, you automatically end up avoiding granularity discontinuities.",
+    "It is the practice of thinking that objects are important (or that they're even worth thinking about at all) that is wrong, and is best avoided.",
+    "Writing code for yourself to use is no different than writing code for someone else to use.",
+    "These are the kind of tradeoffs that are extremely annoying, and which exist only because the people who write the C++ spec have no idea what production programming is or how to do it properly.",
+    "If the total cost is going to be worse, it really doesn't matter what else you might say about the code philosophically. You still made the wrong decision."
+  ],
+  "themes": [
+    "api_design",
+    "software_engineering",
+    "game_dev"
+  ],
+  "tone": "opinionated, instructive, conversational",
+  "key_insight": "Good API design requires continuous granularity \u2014 building higher-level convenience functions as layers on top of lower-level ones rather than replacing them, so users are never forced to jump between extreme abstraction levels to accomplish intermediate tasks.",
+  "filename": "2014-06-04-blog_0016"
+}

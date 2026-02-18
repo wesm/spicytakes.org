@@ -1,0 +1,27 @@
+{
+  "summary": "Muratori recounts debugging a transform manipulator bug in The Witness that he initially misdiagnosed as a floating point precision issue. After implementing a fix that worked but didn't fully make sense to him, he spent his Christmas break obsessing over why. Upon returning and stepping through the code, he discovered the real culprit: the plane library's get_normal() function silently normalized the a,b,c values, making them inconsistent with the d value computed during plane construction. The bug was fundamentally about mismatched assumptions between two programmers' mental models of what a 'plane' object means.",
+  "key_points": [
+    "A bug fix that works but doesn't make theoretical sense is a red flag worth investigating \u2014 the 'precision improvement' fix succeeded only by accident, by avoiding the buggy code path entirely",
+    "The real bug was an API mismatch: plane_from_point_and_normal stored raw values while get_normal() silently normalized them, causing the normal and d value to be inconsistent",
+    "Different programmers carry different implicit assumptions about mathematical objects \u2014 one sees a plane as a geometric object with unit normals, another sees it as raw equation coefficients",
+    "Experienced programmers rely on consistent mental models to work at speed, and bugs are the inevitable cost when two different consistent models collide in the same codebase",
+    "Reconstructing a bug methodically \u2014 finding entity data, writing test programs, stepping through code \u2014 is more reliable than intuition alone"
+  ],
+  "money_quotes": [
+    "Sometimes, when there's a lot to do, you'll live with a bug fix because it works, rather than because it makes sense.",
+    "Clearly, the fix just plain shouldn't have worked. But it did.",
+    "To my complete surprise, it turned out to have absolutely nothing to do with precision.",
+    "If you are thinking of the plane as a geometric object, of course the normal is unit length, what else would it be?? But if you are thinking of it as some specific equation all the time, then it is natural to care about the a, b, c, you put in.",
+    "I honestly don't believe that this sort of thing is a case of us being presumptuous or sloppy; it's just the price you have to pay for being able to program complex things at a reasonable speed.",
+    "Ask yourself, if you had encountered this bug, and you had 'fixed' it as I had, would you have gone back and figured out what was really happening before moving on to something else?",
+    "The good news: congratulations to those of you who posted 'floating point precision' as a suggestion for the cause of the bug. You aren't any dumber than I am. The bad news: we're all dumber than we should be."
+  ],
+  "themes": [
+    "game_dev",
+    "software_engineering",
+    "api_design"
+  ],
+  "tone": "reflective, self-deprecating, instructive",
+  "key_insight": "A bug fix that works for the wrong reasons is a ticking time bomb \u2014 the real virtue of a programmer is the compulsion to understand why a fix works, not just that it does.",
+  "filename": "2013-01-20-blog_0008"
+}

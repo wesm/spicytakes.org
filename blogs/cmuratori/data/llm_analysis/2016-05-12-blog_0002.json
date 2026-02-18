@@ -1,0 +1,27 @@
+{
+  "summary": "Muratori recounts his 2001 investigation into quaternion interpolation methods for the Granny 3D animation engine. Through building a visualization tool comparing linear, spherical linear, and exponential map interpolation, he discovered that linear and spherical interpolation of quaternions produce nearly identical paths, contrary to conventional wisdom. The half-angle construction of quaternions makes their linear interpolation speeds much closer to spherical interpolation than expected. This insight led him to treat quaternions as simple 4D vectors for polynomial combination, enabling order-independent animation compositing that was both faster and more flexible. He also discovered a technique exploiting quaternion double-cover (distinguishing 360 vs 720 degree rotations) to improve joint behavior during animation blending.",
+  "key_points": [
+    "Linear and spherical interpolation of quaternions always trace the same path, and their speeds are far more similar than expected due to the half-angle construction",
+    "Quaternions can be treated as 4D vectors for polynomial combination, enabling order-independent animation compositing \u2014 contrary to what 'everyone knew' at the time",
+    "Exponential map interpolation diverges substantially from spherical interpolation at large rotations, while linear quaternion interpolation does not",
+    "Quaternion double-cover (distinguishing 360\u00b0 from 720\u00b0 rotations) can be exploited with preconditioning to produce more realistic joint behavior under animation compositing",
+    "Visualization-driven experimentation led to insights that the theoretical framing had obscured"
+  ],
+  "money_quotes": [
+    "As everyone 'knew' at the time, you could not treat them simply as 4D vectors that could be polynomially combined.",
+    "The more I played with it, the more I realized that I had been thinking about the problem all wrong.",
+    "Not only are linear and spherical interpolations of quaternions always exactly the same path, but because of the half-angle construction of quaternions, their speeds are much more similar than you would expect.",
+    "This visualization-driven realization informed the entire design of the 2.0 version Granny 3D animation engine.",
+    "Aided by a much better and more intuitive understanding of how quaternions really worked, I was able to develop a number of novel techniques that allowed the animation core to be much faster and more flexible.",
+    "Because quaternions differentiate between 360 and 720 degree rotations, with a little preconditioning you can make joints behave much more realistically."
+  ],
+  "themes": [
+    "graphics",
+    "game_dev",
+    "performance",
+    "software_engineering"
+  ],
+  "tone": "technical, reflective",
+  "key_insight": "Quaternion linear interpolation is far closer to spherical interpolation than conventionally believed, and this insight enables treating quaternions as simple 4D vectors for fast, order-independent animation compositing.",
+  "filename": "2016-05-12-blog_0002"
+}

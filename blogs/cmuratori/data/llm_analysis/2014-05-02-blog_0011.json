@@ -1,0 +1,28 @@
+{
+  "summary": "Muratori describes his quest to solve what he calls 'The Nebraska Problem' \u2014 visible linear gaps that appear in blue noise patterns used for grass placement in The Witness. After multiple failed attempts using modified blue noise, gap targeting, relaxation, and directional constraints, he realizes that randomness itself is the obstacle: no random scheme can produce optimal coverage. He ultimately solves the problem with a deterministic pattern based on staggered concentric circle intersections, which provides better visual coverage with fewer points than blue noise. The key insight is that when optimality is the goal, you may need to abandon randomness entirely in favor of ordered, geometric approaches.",
+  "key_points": [
+    "Blue noise patterns used for grass placement suffer from 'The Nebraska Problem' \u2014 accidental collinear alignments that create visible gaps from certain viewing angles, similar to corn rows seen from the road",
+    "Multiple randomness-based fixes failed (packing ratio changes, gap filling, line-of-sight planting, selective removal, relaxation, directional constraints) because the problem is inherent to random distributions, not a bug in any specific algorithm",
+    "The solution required two axes of curvature \u2014 intersecting concentric circles with staggered rings \u2014 a completely deterministic pattern that eliminates linear gaps while using fewer points than blue noise",
+    "Randomness is never optimal: for any specific set of criteria, a random approach will almost never find the optimal solution, and constraining randomness still won't get you there",
+    "The deeper lesson is recognizing when a problem is about optimization versus exploration, and being willing to abandon randomness when it becomes the limiting factor"
+  ],
+  "money_quotes": [
+    "If there's one thing I can say has been true throughout my entire programming career, it's that it has always paid to ask why I was doing things the way I was doing them.",
+    "There's nothing wrong with our practice, in this case. It's our theory that is apparently inadequate.",
+    "Randomness is never optimal. For any set of criteria, the chances that you will pick a set of optimal inputs in a randomized way, no matter how you constrain them, are extremely low.",
+    "I kept looking for schemes that would produce optimality out of randomness, but that's simply too unlikely. Because blue noise is a pretty good random pattern for my purposes, I was dancing around the breaking point of randomness, and every scheme I tried was destined for failure.",
+    "In order to make that leap, I had to switch from chaos to order, and drive at the optimum directly.",
+    "Even thoroughly entrenched ideas are often wrong, and questioning those ideas leads to surprising and important insights.",
+    "If I have an inkling that there is a 'better' lurking behind the 'good enough', I usually find it's worth it to push."
+  ],
+  "themes": [
+    "performance",
+    "game_dev",
+    "graphics",
+    "software_engineering"
+  ],
+  "tone": "reflective, narrative, technical, witty",
+  "key_insight": "When optimizing for a specific criterion, randomness is inherently limiting \u2014 sometimes you must abandon stochastic approaches entirely and drive at the optimum with deterministic, geometric solutions.",
+  "filename": "2014-05-02-blog_0011"
+}

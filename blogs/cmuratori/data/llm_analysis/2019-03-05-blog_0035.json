@@ -1,0 +1,28 @@
+{
+  "summary": "Muratori describes designing a 'stable' half-pixel filter for video compression that avoids the feedback artifacts produced by standard filters like those in h.264 and HEVC. Standard half-pel filters used in video codecs either blur the image (bilinear) or introduce sharpening artifacts that compound destructively when applied repeatedly across frames. He discovered that existing filters in major codecs create feedback loops where sharpening artifacts magnify with each application, eventually destroying the image. With no prior filter design experience, he found coefficients that sit on the boundary between sharpening and blurring, converging to a stable image that doesn't degrade further even after a million applications. He notes this 'stable filtering' concept appears absent from video compression literature despite seeming obviously important.",
+  "key_points": [
+    "Standard half-pel filters in h.264 and HEVC use negative weights for sharpening, which creates destructive feedback loops when applied repeatedly across video frames",
+    "Bilinear filtering avoids sharpening artifacts but introduces cumulative blur, while codec filters produce increasingly severe ringing artifacts with each application",
+    "Muratori's filter kernel sits at the boundary between sharpening and blurring, converging to a stable representation that stops degrading after roughly 100 applications",
+    "The practical motivation is reducing memory requirements in video codecs \u2014 stable filters avoid needing to store multiple reference frames to work around half-pel degradation",
+    "Despite the problem's practical importance, Muratori found no discussion of filter stability under repeated application in mainstream video compression literature"
+  ],
+  "money_quotes": [
+    "Where bilinear filtering reduces the sharpness in an image, these common filters enhance it. They are actually sharpening the image, just like the \"sharpen\" operation in your favorite photo editing package might do.",
+    "Because this sharpening is procedural and based on the differences between pixels, it creates a feedback loop that will continue to sharpen the same edge over and over and over until it destroys the image.",
+    "I had never looked at filters before at all \u2014 literally. I had no idea how people typically designed them. Strangely enough, this turned out to be a good thing, because it meant I looked at the problem without a lot of preconceived notions.",
+    "A filter is \"stable\" if it does not feed back on itself, so it can be applied over and over and not produce artifacts. A filter is \"unstable\" if it produces artifacts that magnify with successive applications, eventually destroying the image.",
+    "The concept of \"feedback\" is well established in audio, but it just doesn't seem to be a central concern in image processing, perhaps because filters are normally only meant to be applied once?",
+    "This kernel is on the edge between sharpening and blurring. Because sharpening will always feed back to bright, obvious artifacts, this filter kernel prefers slight blurring so that the image will just appear \"duller\".",
+    "After 300 frames, every filter other than mine is a joke.",
+    "Although some blurring is introduced in the first hundred or so applications, it appears to converge to a stable image representation that never degrades thereafter."
+  ],
+  "themes": [
+    "performance",
+    "graphics",
+    "software_engineering"
+  ],
+  "tone": "technical, opinionated, pedagogical",
+  "key_insight": "Standard video codec half-pel filters contain hidden sharpening that creates destructive feedback loops under repeated application, but a filter tuned to the boundary between sharpening and blurring can converge to a stable image that never degrades further.",
+  "filename": "2019-03-05-blog_0035"
+}

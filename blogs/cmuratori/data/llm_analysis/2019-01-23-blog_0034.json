@@ -1,0 +1,24 @@
+{
+  "summary": "Muratori documents the absurd workaround required to make clang++ on Windows find Microsoft's link.exe linker. Rather than providing a simple command-line switch to specify the linker path, clang has ~1500 lines of code dedicated to 'finding' the linker by detecting Visual Studio installations. The only reliable solution is to reverse-engineer that detection code and construct a fake Visual Studio install directory structure. Muratori provides the minimal steps: create a fake bin/HostX64/x64 directory, copy link.exe into it, set VCToolsInstallDir, and add the real linker path to PATH for DLL resolution. He wraps everything in a batch file with setlocal to avoid environment contamination.",
+  "key_points": [
+    "Clang on Windows has no command-line switch to specify the linker path directly, despite this being the obvious solution",
+    "Instead, clang has ~1500 lines of code that tries to auto-detect Visual Studio installations by matching specific directory structures",
+    "The workaround requires constructing a fake Visual Studio directory tree and setting VCToolsInstallDir to point clang at it",
+    "Muratori wraps the solution in a batch file using setlocal to keep environment variables isolated, allowing cl and clang++ to coexist without vcvarsall.bat"
+  ],
+  "money_quotes": [
+    "In a sane world, clang++ would have a command line switch that worked like this: clang++ --linkexe=\"w:/apps/msvc/x64/link.exe\" test.cpp",
+    "That is not the world we live in, and so instead there is no such switch, and clang has around 1500 lines of source code dedicated to 'finding' where the linker is.",
+    "The only way to point clang++ at a specific link.exe and guarantee that it will work is to reverse engineer the 1500 lines of code and then construct a fake Visual Studio install for it to 'find'.",
+    "The clang code for finding the linker is extremely janky.",
+    "I would not recommend allowing either of those paths to have spaces, or otherwise require quoting, because they may very well not work.",
+    "Similarly, I have a cl.bat which does exactly the same thing, it's just much simpler because it doesn't need the handholding to find link.exe."
+  ],
+  "themes": [
+    "tools",
+    "software_engineering"
+  ],
+  "tone": "critical, sardonic, practical",
+  "key_insight": "Clang's auto-detection of Visual Studio installations replaces a trivial command-line flag with 1500 lines of brittle heuristics, forcing users to reverse-engineer the detection logic and build fake directory structures just to specify a linker path.",
+  "filename": "2019-01-23-blog_0034"
+}

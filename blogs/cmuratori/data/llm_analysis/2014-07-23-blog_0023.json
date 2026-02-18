@@ -1,0 +1,29 @@
+{
+  "summary": "Casey Muratori answers reader questions about the source code of The Witness editor's Lister Panel, which he previously shared publicly. He explains implementation details like row templates, comment conventions, serialization macros, and the immediate-mode GUI system. Along the way, he shares strong opinions on C++ templates/STL, object-oriented programming, code duplication versus abstraction, and his preference for permissive code design over restrictive practices. He also discusses his development environment, cross-platform work, and the historical reasons behind his distinctive coding style.",
+  "key_points": [
+    "The STL and C++ templates represent one of the worst attempts at generic programming, causing ugly syntax, long compile times, hard-to-understand errors, and bloated symbol files",
+    "Object-oriented programming should basically never be used in C++, which lacks the features needed to make OOP beneficial \u2014 think in terms of algorithms first, not objects",
+    "He prefers permissive code design (macros over enums, minimal use of const/private) because the primary development cost lies in code interoperation, not debugging",
+    "Small code duplication is preferable to collapsed but harder-to-read logic \u2014 duplication becomes worth eliminating only when the shared code is intricate and likely to change",
+    "He uses differentiated comment keywords (NOTE, IMPORTANT, TODO, STUDY) to categorize comments by purpose rather than treating all comments the same"
+  ],
+  "money_quotes": [
+    "I think the STL is total poopsauce and I never use it in any of my projects either.",
+    "I have nothing positive to say about the STL and think it, combined with C++'s template specification, form one of the worst attempts at generic programming I've ever seen.",
+    "I usually prefer the option that supports the widest possible code use, whereas most C++ programmers seem to prefer the option that supports the narrowest.",
+    "I tend to find that the primary development cost in codebases to lie in working out the interoperation of large amounts of code, not in the debugging of that code.",
+    "I believe many modern programmers spend an inordinate amount of time using things like 'const' and 'private' to try to prevent possible misuses of a piece of code, all the while making the code less usable in a number of circumstances that would have worked just fine.",
+    "If you are programming in C++, you should basically never use object-oriented programming.",
+    "You should be thinking strictly in terms of the actual code and the algorithms that you are creating, and then you should build the backing data to fit those algorithms.",
+    "Sometimes I think they get together and have competitions to see who can make the shittier debugger, and QtCreator comes out on top, but its neck-and-neck right to the finish."
+  ],
+  "themes": [
+    "software_engineering",
+    "api_design",
+    "game_dev",
+    "tools"
+  ],
+  "tone": "opinionated, candid, technical",
+  "key_insight": "The primary cost in software development is working out code interoperation, not debugging, so programmers should favor permissive, flexible code over restrictive designs that save hypothetical debugging time at the expense of usability.",
+  "filename": "2014-07-23-blog_0023"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Muratori follows up on his previous article about staggered concentric intersection patterns for grass placement, responding to reader questions. He provides the actual code used to generate the pattern, addresses scalability concerns about extending the pattern to larger areas, and explores potential approaches for making it tile infinitely. He also demonstrates that the scalloping artifacts are nearly invisible when rendered against a realistic ground texture rather than a high-contrast white background, and investigates Fermat spirals as an alternative pattern. He concludes by clarifying that this is not a grass simulation but an area-coverage problem.",
+  "key_points": [
+    "The staggered concentric intersection pattern holds up surprisingly well at higher densities, with the staggering making it more robust than expected as point count increases",
+    "Three potential approaches for infinite tiling: regularizing a pleasing subset into something periodic, investigating non-circular curves like sine waves, or tiling the pattern with seam fixups",
+    "The scalloping artifacts that concerned readers are nearly imperceptible when rendered against a ground texture instead of a high-contrast white background, even from elevated viewpoints",
+    "Fermat spiral / sunflower patterns suffer from the same 'curved cornrow' artifacts as non-staggered concentric intersection, though a stagger fix might theoretically be possible",
+    "This is fundamentally an area-coverage problem, not a grass simulation \u2014 real grass growth patterns are irrelevant because the goal is hiding gaps in sparse coverage, not mimicking nature"
+  ],
+  "money_quotes": [
+    "Better yet, if one were a super duper programmer \u2014 like, we're talking healthcare.gov-level programmers here \u2014 you could even change the for loops to properly compute the starting and ending radii from the first intersection with the sample region.",
+    "The problem with circles is that they have a finite size, so they necessarily induce change on a scale related to their radii.",
+    "My guess is that this would be very difficult, because 'the problem with curvature is that it's always curving', for lack of a better way to say it.",
+    "I admit that these activities did not advance the state of the art in computer graphics as much as if I had actually sat down and done some work, but at the same time, these games aren't exactly going to play themselves, people!",
+    "I apologize for not remembering the other people who commented, but let's face it, it's really your responsibility to be a memorable person, and obviously you failed at that.",
+    "It's simply trying to figure out a way to best cover an area without you noticing the places that aren't covered.",
+    "I took my camera outside and took pictures of various grasses around town myself, and looked at the clumping and clustering."
+  ],
+  "themes": [
+    "graphics",
+    "game_dev",
+    "performance",
+    "software_engineering"
+  ],
+  "tone": "technical, humorous, conversational",
+  "key_insight": "The staggered concentric intersection pattern for grass placement is more robust than expected at high densities and its artifacts are nearly invisible against realistic ground textures, though extending it to infinite coverage remains an open problem requiring either periodic regularization, alternative curves, or tiling with seam fixups.",
+  "filename": "2014-05-07-blog_0012"
+}

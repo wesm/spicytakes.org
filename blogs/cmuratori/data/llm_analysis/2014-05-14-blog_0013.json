@@ -1,0 +1,29 @@
+{
+  "summary": "Muratori describes several technical features he built for The Witness's grass planting system, including variable-distance blue noise distribution, obstacle avoidance via raycasting, and edge-distance control using signed distance fields. He created a minimal test world called 'CaseyTown' to achieve fast iteration times, since the full game's asset streaming made startup slow. Despite building the system under deadline pressure for the PS4 announcement trailer, none of his grass improvements were actually needed for the trailer \u2014 though artists later adopted the features for production. The post illustrates how real production use exposed gaps in the initial feature set, particularly around controlling grass behavior at obstacle boundaries.",
+  "key_points": [
+    "Fast turnaround times are critical: Muratori built a minimal test world ('CaseyTown') specifically to avoid the full game's slow asset-loading startup, keeping the change-to-test cycle under ten seconds",
+    "Variable blue noise spacing works by giving each point a radius instead of using a global minimum distance \u2014 proximity checks use the sum of two radii, making the algorithm naturally extensible to spatially varying density",
+    "Obstacle boundary control required planting grass twice: a prepass with random samples builds an approximate signed distance field to boundaries, then the real planting pass queries that distance to adjust parameters near edges",
+    "Raycasting for enclosure testing is inherently unreliable with non-watertight meshes, which is acceptable for grass planting but would need more robust solutions for critical gameplay systems",
+    "The grass system built under PS4 trailer deadline pressure had zero impact on the trailer itself, but eventually proved valuable when artists adopted it months later for production use"
+  ],
+  "money_quotes": [
+    "In my mind, one of the most important things on any project is minimizing the amount of time it takes for a change to be testable. Ideally, it should take less than ten seconds for a programmer to go from a changed source file to a running executable.",
+    "Everyone knows that when you write programming articles, you are supposed to make yourself sound very smart and capable, carefully omitting all the stupid things you did and the mistakes you made so it sounds as if you just showed up, pulled some spectacular code out of your\u2026 pocket\u2026 and great celebration ensued.",
+    "The actual impact on the PS4 trailer from my upgraded grass system was quite literally non-existent.",
+    "No longer safe in the confines of CaseyTown, where the grasses grow freely and feed the spotted unicorns, the 'fancy' grass system found out that life on the full Witness island was more demanding.",
+    "The actual boundary of the planted grass isn't known until after the grass is already planted, so it's a bit difficult to factor that into the distribution.",
+    "Not seeing the potential for anything clever, I decided to fall back on a brutish solution: plant the grass twice.",
+    "Raycasting, as handy as it is, is not exact. Unless all your meshes are watertight, and your ray-triangle intersection code completely robust (which it rarely is in a game), it is entirely possible for you to raycast right through one side of a solid object without actually hitting anything."
+  ],
+  "themes": [
+    "game_dev",
+    "graphics",
+    "tools",
+    "performance",
+    "software_engineering"
+  ],
+  "tone": "humorous, self-deprecating, technical",
+  "key_insight": "Practical game development solutions are often pragmatic rather than elegant \u2014 planting grass twice to discover boundaries, accepting imperfect raycasts, and building features that miss their original deadline but prove valuable later.",
+  "filename": "2014-05-14-blog_0013"
+}

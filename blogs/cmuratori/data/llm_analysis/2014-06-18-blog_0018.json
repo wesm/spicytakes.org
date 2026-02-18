@@ -1,0 +1,28 @@
+{
+  "summary": "Casey Muratori walks through implementing the type filtering system for the Lister Panel in The Witness's editor tools. He starts with a simple update function that loops over all entities and checks them against a filter, then builds out the filter using a fixed-size boolean array indexed by entity type. He explains his decision to use a fixed array over a dynamic one due to unfamiliarity with The Witness codebase's utility classes, and demonstrates his practice of writing usage code before finalizing an API. The post illustrates compression-oriented programming by showing how a single set_all_types_to helper function composes with direct array access to cover every needed operation.",
+  "key_points": [
+    "When working in an unfamiliar codebase, prefer simple, foolproof constructs (fixed arrays) over flexible ones whose semantics you don't fully understand",
+    "Writing usage code before implementing an API forces you to think through what operations you actually need and reveals the right abstraction naturally",
+    "A single helper function (set_all_types_to) combined with direct array access composes to handle every plausible operation with minimal code",
+    "Editor code often benefits from 'banking' settings into a separate struct, enabling easy mode-switching and bulk state swaps",
+    "Adapting to a codebase's existing conventions (macros, naming, utilities) reduces maintenance burden for the team that owns the code"
+  ],
+  "money_quotes": [
+    "A lot of programmers \u2014 including myself, more times than I care to admit \u2014 end up plowing through these situations by just guessing at what the interface should be and then moving on.",
+    "The much smarter thing to do is to take the time to actually write usage code if you don't have it available. It's not as good as actually having a completely working system you can compress, but it's the next best thing, and much better than guessing.",
+    "Fixed arrays have the wonderful benefit that, as long as you know you never write off the end, they are totally foolproof and there are no surprises.",
+    "The right thing to do usually just pops right out at you once you take the time to do this.",
+    "Since I knew it was going to be necessary, I just saved myself some typing and put them in there to begin with.",
+    "In a foreign codebase, where I'm not so well versed, I don't always know what all the assumptions are.",
+    "Compression-oriented programming is always easy when you have a large set of compression options that you've mastered, and a bunch of code that does what you want. But often times during development, even if you have the former, you don't necessarily have the latter."
+  ],
+  "themes": [
+    "software_engineering",
+    "game_dev",
+    "api_design",
+    "tools"
+  ],
+  "tone": "humorous, pragmatic, instructive",
+  "key_insight": "Writing out concrete usage code before designing an API reveals the right abstraction naturally and prevents over-engineering, especially in unfamiliar codebases where simpler constructs reduce risk.",
+  "filename": "2014-06-18-blog_0018"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Muratori chronicles debugging a five-second UI stall in The Witness caused by a low-level keyboard hook (SetWindowsHookEx) that blocked input processing during game loading. The hook was Microsoft's own recommended workaround for disabling Windows logo keys in fullscreen games, but it conflicted with Raw Input, which the game needed for mouse movement. After hours of experimentation, the fix turned out to be a single undocumented flag (RIDEV_NOHOTKEYS) during Raw Input initialization. Muratori uses this experience to argue that poorly designed platform APIs waste enormous aggregate developer time across the industry, turning what should be simple operations into hours of archaeology through broken documentation and conflicting subsystems.",
+  "key_points": [
+    "Low-level keyboard hooks (WH_KEYBOARD_LL) require the registering thread to yield to Windows, causing input stalls when the thread is busy loading or halted by a debugger, with a default 5-second timeout before Windows silently removes the hook.",
+    "Microsoft's own recommended solution for disabling Windows logo keys (SetWindowsHookEx) was silently broken by the introduction of Raw Input, which processes keyboard events before the hook layer ever sees them.",
+    "The actual fix was the undocumented RIDEV_NOHOTKEYS flag, whose documentation falsely claims it only blocks application-level hotkeys, not system-level ones.",
+    "Muratori advocates a 'static discipline' for code: any modification should leave the code in equal or better stability than you found it, rather than just hammering until the new thing works.",
+    "Platform API quality has a massive leverage effect \u2014 every hour Microsoft spends on clear APIs saves thousands of hours across the industry, making it the opposite of a zero-sum game."
+  ],
+  "money_quotes": [
+    "The great thing about programming on Windows is that it is the only commercially viable platform where you can ship software to users without getting approval from a giant bureaucracy.",
+    "Five seconds wasted every breakpoint is bad news, and people often underestimate the effects of frustration that can build up over time due to flaky and unpleasant development environments.",
+    "It's always best to fully understand a problem before you fix it. If you just patch over its symptoms but never figure out what the problem really was, it will often come back to haunt you.",
+    "Never, ever trust the documentation. It's always either inaccurate or incomplete.",
+    "The cost of obtuse, easy to misuse APIs is multiplied across all these projects, turning the hundreds of hours we will spend on The Witness platform work into hundreds of thousands of hours when you consider that this same work has to be done by every other developer, too.",
+    "The hours I spent tracking down this bug were hours that won't get spent making parts of The Witness better, and there's nothing me or the team can do about that.",
+    "If Microsoft started realizing that software on Windows gets better if their APIs are clear, concise, and difficult to misuse, they might start changing their development processes to make API quality a priority.",
+    "It's really thousands of zero-sum games being played, all across the industry, and the end result is universally worse software because the underlying platforms take up too much effort."
+  ],
+  "themes": [
+    "api_design",
+    "game_dev",
+    "software_engineering",
+    "tools"
+  ],
+  "tone": "opinionated, methodical, frustrated",
+  "key_insight": "Poorly designed platform APIs impose a massive hidden tax on the entire software industry, as every team must independently spend hours debugging the same preventable problems that could be eliminated by investing in clear, well-designed interfaces.",
+  "filename": "2012-12-17-blog_0006"
+}

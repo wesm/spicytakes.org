@@ -1,0 +1,28 @@
+{
+  "summary": "Muratori describes his work fixing the grass planting system in The Witness ahead of the PS4 unveiling trailer. When artists complained about 'huge gaps' in scattered geometry, he first added debug visualization rather than diving into the algorithm code. This revealed that the fern meshes were off-center in their source art, causing gaps that had nothing to do with the distribution algorithm. After fixing the mesh centering, smaller gaps remained, leading him to investigate the actual scattering algorithm. The post illustrates how debug visualization tools can quickly expose the real cause of visual problems before any algorithmic work begins.",
+  "key_points": [
+    "When humans say they want 'random' distribution, they actually expect constant-density placement without clumps or gaps, which is a very specific non-random property",
+    "Adding debug visualization code early pays dividends across the entire debugging process, not just for the hardest bug",
+    "The 'huge gaps' problem turned out to be caused by off-center mesh geometry, not the distribution algorithm \u2014 a root cause nobody had identified despite extensive discussion",
+    "Geometry scattering tools are essential in game development because manually placing high-quantity elements like grass would be prohibitively expensive",
+    "Debugging in a simplified test area rather than the full game environment dramatically speeds iteration"
+  ],
+  "money_quotes": [
+    "When humans want something 'randomly' scattered, what they really expect to see is actually a very specific distribution that maintains a relatively constant density.",
+    "Unfortunately for the programmer, throwing your hands up and saying, 'but huge gaps can happen in truly random distributions!' is not generally looked upon as a reasonable response.",
+    "Instead of stepping through the code or even carefully reading it to see what it was doing, I did what I often do these days and added debug visualization code right away.",
+    "Why wait for the really hard bug before adding the debug code? It takes the same amount of time to write debug code earlier as it does later, but earlier means you can use it to speed debugging of all those not-as-hard bugs along the way.",
+    "Without enough visual information being displayed, people were free to ascribe problems to the most likely culprits.",
+    "Fixing this improved the problem they were observing with the 'huge gaps', without me ever even touching the algorithm. Chalk up another victory to early implementation of debug drawing code.",
+    "Humans are doing something very nonrandom when they place things this way, in fact: they are looking at and considering where each thing is relative to the other things they've already placed."
+  ],
+  "themes": [
+    "game_dev",
+    "graphics",
+    "tools",
+    "software_engineering"
+  ],
+  "tone": "narrative, instructive, practical",
+  "key_insight": "Debug visualization should be the first step in diagnosing visual problems, because making intermediate state visible often reveals that the real cause is entirely different from what everyone assumed.",
+  "filename": "2014-05-16-blog_0009"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Muratori describes implementing hierarchical group display in The Witness editor's Lister Panel, which previously only supported flat entity lists. He walks through the design decisions involved in recursive tree traversal, where to store expansion state, and how to implement filtering that preserves hierarchy. The post covers practical considerations like stack space in recursive functions, why UI state shouldn't live on domain objects, and an efficient algorithm for pulling parent groups into filtered views. Along the way, he shares a real war story about a recursive function that overflowed the stack in debug mode. The technical content is wrapped in an elaborate running joke about Chronicles of Narnia references.",
+  "key_points": [
+    "Recursive tree traversal is appropriate when you can verify the recursion depth is bounded, but local variables multiply stack usage per frame \u2014 seemingly small buffers can cascade into gigabytes of stack consumption",
+    "UI-specific state like tree expansion should be stored on the UI component (via a hash set), not on domain entities, to avoid bloating the entity class and coupling it to presentation concerns",
+    "API design involves tradeoffs between common and uncommon cases \u2014 he chose the expansion_button() API that was cleanest for the common boolean-storage case even though the hash-table case was slightly uglier",
+    "Hierarchical filtering requires a prepass that walks filtered entities up to their root ancestors, similar to a disjoint set forest, ensuring each entity is visited only once while pulling in all necessary parent groups"
+  ],
+  "money_quotes": [
+    "The problem with the internet is that everyone thinks they're an expert. That would be fine, if everyone actually was an expert, but the truth is that only I am an expert, so it's just frustrating.",
+    "Every time you call a function, all of its locals get pushed onto the program's stack. So a recursive call acts like a multiplier on the stack space required to execute the function.",
+    "Sometimes your code can end up being used in more extreme circumstances than what you consider appropriate.",
+    "Whether or not a group entity is expanded in the Lister Panel isn't really something that should be stored on the entity itself.",
+    "As a policy, it invites disaster by suggesting that everyone who ever needs to do anything with entities should just dump that data into the entity itself, which bloats the class and takes up a lot of space unnecessarily.",
+    "Filters are usually best written on non-groups even if you want to manipulate the groups themselves.",
+    "Present Me suspects that Past Me was writing this code in a hurry and either didn't realize the loops could fold together, or more probably, didn't want to spend the extra time to do so."
+  ],
+  "themes": [
+    "game_dev",
+    "software_engineering",
+    "tools",
+    "performance"
+  ],
+  "tone": "humorous, technical, self-deprecating",
+  "key_insight": "Practical UI programming requires careful decisions about where state lives and how traversal algorithms handle filtering \u2014 keeping UI state out of domain objects and using efficient ancestor-walking algorithms avoids both architectural bloat and performance pitfalls.",
+  "filename": "2014-07-02-blog_0020"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Casey Muratori shares the complete ~2000 line source code for the Lister Panel from The Witness's level editor, inviting readers to examine it and submit questions for a Q&A session. He notes the code is a mixture of his and Jon Blow's coding conventions, adopted for maintainability. The code implements a sophisticated entity filtering, listing, and visualization system for the game's editor. Muratori emphasizes this is editor-only code where implementation cost is prioritized over robustness, since it won't ship to end users. The post serves as a rare window into production game development tooling on a major indie title.",
+  "key_points": [
+    "The Lister Panel is a ~2000 line editor tool for The Witness that provides entity filtering, hierarchical listing, spatial queries, and debug visualization ('visors') for the level editor",
+    "Editor code deliberately prioritizes low implementation cost over robustness, since it's not user-facing \u2014 a pragmatic tradeoff that differs from shipping code standards",
+    "The code mixes two developers' conventions (Casey's and Jon Blow's) as a deliberate choice to ease maintenance for the project lead",
+    "The filtering system is extensible via a data-driven table of special filters with positive/negative/off tri-state modes, demonstrating practical game tool architecture",
+    "Debug visualization 'visors' provide spatial overlays (grass planting boundaries, light probe radii, entity positions) that are essential for content authoring in a 3D game"
+  ],
+  "money_quotes": [
+    "This is also editor-only code, which means it is not meant to be used in a released product, and thus the emphasis is entirely on keeping implementation costs low, and not on ancillary things like robustness that might be more of a priority in code meant for end users.",
+    "I adopted Jon's conventions in many places, just to make it easier for him to maintain.",
+    "Sometimes the answer will be, 'because I was in a hurry' :)",
+    "TODO (casey): WTF is this called toggle selection, when apparently it only clears the selection?",
+    "TODO (casey): WTF doesn't qsort pass a user parameter?",
+    "TODO (casey): Why can't I just _clear_ the hash table?"
+  ],
+  "themes": [
+    "game_dev",
+    "tools",
+    "software_engineering"
+  ],
+  "tone": "technical, pragmatic, candid",
+  "key_insight": "Editor and tooling code for games should prioritize low implementation cost and developer productivity over the robustness standards applied to shipping code, because the audience and failure consequences are fundamentally different.",
+  "filename": "2014-07-16-blog_0022"
+}

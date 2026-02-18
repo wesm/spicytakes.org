@@ -1,0 +1,28 @@
+{
+  "summary": "Casey Muratori explains the concept of colored noise (white, blue, red, green) and its practical importance in procedural content placement, specifically in The Witness's grass planting system. He traces his own education from a 2005 conversation with rendering researcher Don Mitchell, who introduced him to blue noise patterns. The post dissects how The Witness's grass planter used naive Poisson disk sampling, which suffers from catastrophic computational costs as valid placement regions shrink, leading to visible gaps. He then describes a wavefront-based directed sampling approach (similar to Bridson's algorithm) that dramatically improves efficiency by only searching neighborhoods of existing points rather than the entire space. The post promises a follow-up addressing a subtler theoretical problem with the algorithm.",
+  "key_points": [
+    "Blue noise patterns have high-frequency randomness but no low-frequency clumps or gaps, inspired by the arrangement of light-sensitive cells in human eyes, making them ideal for sampling and procedural placement.",
+    "Naive Poisson disk sampling (reject points too close to existing ones) has a catastrophic cost curve: as space fills up, the ratio of rejected to accepted samples explodes, making it computationally infeasible to fill the last gaps.",
+    "The fix is directed sampling via a wavefront approach: instead of picking random points across the entire space, only sample in the neighborhood (distance r to 2r) of existing frontier points, which is the same insight that solved Walk Monster's pathfinding problem.",
+    "In The Witness, the cost was even worse because each candidate point required a 3D raycast against world geometry before it could be evaluated, making rejected samples extremely expensive.",
+    "Learning about noise distributions fundamentally changed how Muratori approached all procedural placement code, not just rendering \u2014 recognizing that the type of random distribution matters as much as the randomness itself."
+  ],
+  "money_quotes": [
+    "Most programmers don't know much about randomness beyond how to call the random number generator in the standard library of their favorite programming language.",
+    "As counterintuitive as it may seem, the way you fix this is by using an irregular sampling pattern.",
+    "Although we normally think of noise as undesirable, in this case it's actually what we need to prevent the eye from being drawn to the regularly changing pattern produced by regular sampling.",
+    "Once I saw the blue noise patterns, I immediately realized that I had been doing a lousy job on all the procedural placement code I'd ever done.",
+    "The more time you spend sampling and resampling wide open regions, the less time you spend mapping the actual edges of that region, which is the information you actually wanted.",
+    "Your ratio of meaningful to meaningless samples is literally the measure of how effective your algorithm is at producing the walkable area.",
+    "We are picking random points across an entire space that we want to fill, but as the possible valid places in that space become smaller and smaller, we are not adjusting our sampling to account for it."
+  ],
+  "themes": [
+    "graphics",
+    "game_dev",
+    "performance",
+    "software_engineering"
+  ],
+  "tone": "educational, conversational, humorous",
+  "key_insight": "Naive random sampling becomes catastrophically inefficient as valid regions shrink; directing samples to the frontier of already-placed points transforms an intractable problem into a tractable one, a principle that applies far beyond graphics.",
+  "filename": "2014-05-23-blog_0010"
+}

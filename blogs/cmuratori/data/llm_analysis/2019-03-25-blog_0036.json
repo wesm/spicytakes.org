@@ -1,0 +1,27 @@
+{
+  "summary": "In this second part of a two-part series, Muratori refines his approach to finding 'infinitely stable' half-pixel filters \u2014 filters that can be applied repeatedly without degrading the image. He builds a proper test harness that corrects for pixel shift, enabling automated convergence testing, and confirms that standard codec filters (h.264, HEVC, Lanczos) all 'explode' while his original integer filter remains stable. He then relaxes the original constraint of small-integer-only coefficients and discovers superior floating-point filters \u2014 first a 6-tap version that's nearly indistinguishable from the original image, then a remarkable 8-tap version that converges faster and preserves even more detail. He closes by noting that eigenvalue analysis can explain why these filters work, pointing readers to Fabian Giesen's detailed mathematical treatment.",
+  "key_points": [
+    "A corrected test harness that shifts the image back after each pair of filter applications enables automated convergence testing and precise comparison against the original image.",
+    "All standard half-pel filters (bilinear, h.264, HEVC, Lanczos) eventually 'explode' under repeated application, while Muratori's integer filter converges to a stable image after 208 iterations.",
+    "The original integer filter was constrained to small integers over power-of-two divisors for hardware efficiency \u2014 relaxing this to arbitrary floating-point coefficients yields dramatically sharper stable filters.",
+    "An 8-tap floating-point filter found by searching between the stable integer filter and unstable Lanczos produces results nearly indistinguishable from the original image while remaining infinitely stable.",
+    "The stability properties can be analyzed through eigenvalue/eigenvector analysis of the filter, though the rounding to finite bit depth complicates the pure algebraic picture."
+  ],
+  "money_quotes": [
+    "Spoiler alert: the answer is \"probably not\" and \"definitely, here it is\".",
+    "We now know, at least for a wide range of relevant test images, that this filter is actually infinitely stable, meaning that it will never produce an artifact no matter how many times you apply it.",
+    "Because I was targeting simple 16-bit integer operations only, I looked exclusively at kernels that could be expressed with small integers over power-of-two divisors up to 64, and no more. This is a much more constrained set of filters than if I had been looking at any set of 6 floating point coefficients.",
+    "You can fit two 16-bit integers into the space of one 32-bit float, effectively doubling your operational throughput, so depending on the exact cycle counts of the operations you need in floating point vs. integer, floating point isn't necessarily the fastest option.",
+    "Intuitively we should be able to find the place in-between the two sets of coefficients where degradation starts.",
+    "As an infinitely-stable filter, it performs shockingly well. It converges after 202 iterations, and looks so much like the original that it can be hard to guess which one is which.",
+    "It turns out there is literally eigenvector and eigenvalue analysis for filters, it's just not quite done the same way."
+  ],
+  "themes": [
+    "graphics",
+    "performance",
+    "software_engineering"
+  ],
+  "tone": "technical, exploratory, conversational",
+  "key_insight": "By searching the space between a known-stable integer filter and sharper but unstable Lanczos filters, you can find floating-point filter coefficients that are both infinitely stable under repeated application and nearly indistinguishable from the original image.",
+  "filename": "2019-03-25-blog_0036"
+}

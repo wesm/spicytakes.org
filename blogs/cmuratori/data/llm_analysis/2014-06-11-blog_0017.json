@@ -1,0 +1,27 @@
+{
+  "summary": "Muratori examines the seemingly trivial decision of defining a C++ enum for a UI panel mode in The Witness editor, using it as a springboard to critique object-oriented class hierarchies. He argues that a simple enum with a count sentinel provides zero-initialization, easy iteration, trivial serialization, and flexible code organization \u2014 all of which a class hierarchy would make harder. He demonstrates that OOP's code segregation into separate files and virtual functions creates O(n) maintenance costs for common changes like adding parameters, while providing O(1) only for changes to individual object internals \u2014 which are actually the least frequent modifications. The post concludes that the sheer depth of reasoning behind even seven lines of code illustrates why programming well is genuinely hard.",
+  "key_points": [
+    "A count sentinel at the end of an enum enables trivial iteration and array sizing, while zero-default initialization eliminates entire classes of bugs without constructors",
+    "Class hierarchies often end up reimplementing the enum they were supposed to replace, since serialization and factory patterns require stable IDs anyway",
+    "OOP's code segregation turns O(1) function signature changes into O(n) changes across base and derived classes, while providing no reciprocal reduction in cost for adding new types",
+    "The real benefit people attribute to OOP \u2014 preventing misuse \u2014 is actually about opaque API boundaries, which can be achieved with forward-declared structs and don't require class hierarchies",
+    "Artificially separating code into objects where no natural boundaries exist actively harms maintainability and legibility"
+  ],
+  "money_quotes": [
+    "The sad truth is that most of the time, if you think you are going to replace something simple like an enum that's used to control a mode with a class hierarchy where you have one class per mode, you often end up implementing the enum scheme inside it anyway.",
+    "This kind of code segregation often goes by positive-sounding names, depending on the particulars, such as 'abstraction', 'encapsulation', 'division of responsibility', etc. But what it really should be called is 'obfuscation', because that's the one thing that it definitely always does.",
+    "What you get when you structure things in the virtual dispatch way is an O(n) instead of O(1) cost for changing functions. That might be interesting if you got something back, but you really don't.",
+    "It is not worth trying to 'prevent mistakes' if you are also preventing good, maintainable code! Preventing mistakes should only be a focus if you know you can do so without producing bad code as a result.",
+    "Much of the time, you actually want code to be miscible. Most parts of your program really do depend on each other, and it makes the code extremely difficult to manage if you try to artificially separate it into 'objects' where there are no natural lines of separation.",
+    "The fact that I can write so much about such a small piece of code is a good example of why it's hard to learn how to program well, and also why good programmers don't always write good programs.",
+    "I basically never use constructors for this purpose. Instead, I try very hard to ensure that all my code always uses 0 as the proper initial value for everything."
+  ],
+  "themes": [
+    "software_engineering",
+    "api_design",
+    "game_dev"
+  ],
+  "tone": "opinionated, pedagogical, methodical",
+  "key_insight": "Simple enums with zero-default conventions provide more flexibility, less typing, and better maintainability than class hierarchies, which impose O(n) costs on the most common code changes while optimizing for the least frequent ones.",
+  "filename": "2014-06-11-blog_0017"
+}

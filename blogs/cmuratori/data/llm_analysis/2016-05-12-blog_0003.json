@@ -1,0 +1,25 @@
+{
+  "summary": "Muratori recounts how he came to implement an optimized version of the GJK intersection testing algorithm after a lunch conversation with Valve physicist Jay Stelly in 2004. Stelly explained that GJK papers were needlessly obtuse and that the algorithm was intuitive when understood geometrically rather than algebraically. Muratori implemented a solver based on this geometric insight and discovered that the required tests were much simpler than those in academic papers. He dubbed the optimized formulation 'GJKSM' and later presented it in video form and at the 2016 Papers We Love conference.",
+  "key_points": [
+    "Academic GJK papers obfuscate a fundamentally simple algorithm by treating it purely algebraically rather than geometrically",
+    "A geometric understanding of GJK leads to significantly simpler and more optimal simplex tests than the standard algebraic formulation",
+    "The 2-simplex case can be reduced to zero checks, while the 4-simplex case remains an open optimization problem",
+    "Informal knowledge transfer between practitioners (a lunch conversation) produced better algorithmic insight than formal academic literature"
+  ],
+  "money_quotes": [
+    "He then proceeded to explain how both GJK and the expanding polytope algorithm for convex hulls were both very easy to understand when thought of geometrically.",
+    "Jay's explanation made perfect sense to me, and I found it intuitively obvious how to write a GJK solver from his explanation (unlike most GJK papers, which are violently obtuse).",
+    "I realized that the tests you needed to do for computing GJK, when considered geometrically, were much simpler than the ones advocated by the papers, which only considered the matter algebraically.",
+    "Although I generally don't like naming algorithms after their creators in lieu of a more properly descriptive name, if the original is already an absurd concatenation of names, why not continue the trend?",
+    "The 2-simplex case can be reduced to zero checks (like the 1-simplex case) because you already know the point is past the origin."
+  ],
+  "themes": [
+    "graphics",
+    "game_dev",
+    "performance",
+    "software_engineering"
+  ],
+  "tone": "reflective, opinionated, conversational",
+  "key_insight": "Thinking about algorithms geometrically rather than algebraically can reveal dramatically simpler implementations that academic papers miss by being trapped in their own formalism.",
+  "filename": "2016-05-12-blog_0003"
+}

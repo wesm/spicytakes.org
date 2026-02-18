@@ -1,0 +1,24 @@
+{
+  "summary": "Muratori wraps up his grass rendering series by introducing the mathematical concept of interpolation through an experimental video format rather than text. He found that text was inadequate for explaining the visual and diagrammatic nature of interpolation, so he recorded himself drawing on a notebook. The video covers linear blending, barycentric coordinates, and Bezier curves, though he ran out of time to cover bilinear interpolation and higher-degree Bezier constructions. He reflects positively on the video tutorial format and teases the next Witness Wednesdays topic: a case study on building a feature-rich editor panel with minimal code.",
+  "key_points": [
+    "Some programming concepts, especially visual/mathematical ones like interpolation, are better taught through video with diagrams than through text articles",
+    "Bilinear interpolation, Bezier curves, and barycentric coordinates all reduce to repeated applications of the same simple linear blending function b(t)",
+    "Higher-degree Bezier curves can be constructed by simply adding or removing rows from the pyramid method used for linear and cubic cases",
+    "The next series will be a case study in building a feature-rich editor panel quickly and with minimal code, emphasizing practical code structure"
+  ],
+  "money_quotes": [
+    "There's too much stuff to talk about, even if I leave a lot out, and it's too hard to emphasize the important parts when I can't easily point at parts of diagrams.",
+    "I was going to show how bilinear interpolation is just applying the b(t) function three times, and how it boils down to the same weighted sum equation as well.",
+    "I would have liked to have gone fast enough to get that in there so it could just reinforce the notion that this equation is everywhere.",
+    "I think it would make a good case study for how to put a lot of features into something quickly and without a lot of code.",
+    "I'll start walking through how I went about writing it, and show a lot of examples of how I structured the code so it could be built quickly without becoming excessively janky."
+  ],
+  "themes": [
+    "graphics",
+    "game_dev",
+    "software_engineering"
+  ],
+  "tone": "reflective",
+  "key_insight": "The core mathematical concept of linear blending (interpolation) is a single equation that appears everywhere in graphics \u2014 from Bezier curves to bilinear texture sampling to barycentric coordinates \u2014 and understanding this unifying pattern is more valuable than memorizing each application separately.",
+  "filename": "2014-05-21-blog_0014"
+}
