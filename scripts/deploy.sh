@@ -46,11 +46,12 @@ get_project_name() {
         charity) echo "spicy-takes-charity" ;;
         devault) echo "spicy-takes-devault" ;;
         cmuratori) echo "spicy-takes-cmuratori" ;;
+        zedshaw) echo "spicy-takes-zedshaw" ;;
         *)         echo "" ;;
     esac
 }
 
-ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh mathbabe nayafia joereis ssp paulg atwood unclebob hillel steveyegge martinfowler hannes mempko spolsky dhh fperez charity devault cmuratori"
+ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh mathbabe nayafia joereis ssp paulg atwood unclebob hillel steveyegge martinfowler hannes mempko spolsky dhh fperez charity devault cmuratori zedshaw"
 
 PROD_FLAG=""
 DEPLOY_ALL=false
