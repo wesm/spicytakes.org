@@ -34,6 +34,7 @@ import dhhConfig from '../../config/dhh.json';
 import fperezConfig from '../../config/fperez.json';
 import charityConfig from '../../config/charity.json';
 import devaultConfig from '../../config/devault.json';
+import cmuratorConfig from '../../config/cmuratori.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -66,6 +67,7 @@ const configs: Record<string, BlogConfig> = {
   fperez: fperezConfig as BlogConfig,
   charity: charityConfig as BlogConfig,
   devault: devaultConfig as BlogConfig,
+  cmuratori: cmuratorConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -213,6 +215,11 @@ export function buildSourceUrl(
   if (cfg.scraper.type === 'paulgraham') {
     const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     return `${cfg.sourceUrl}/${slug}.html`;
+  }
+  // For caseymuratori, URL is /blog_XXXX (slug is the full blog_XXXX identifier)
+  if (cfg.scraper.type === 'caseymuratori') {
+    const slug = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+    return `${cfg.sourceUrl}/${slug}`;
   }
   // For hey_world blogs (DHH), URL is /{slug} (slug from filename minus date prefix)
   if (cfg.scraper.type === 'hey_world') {
