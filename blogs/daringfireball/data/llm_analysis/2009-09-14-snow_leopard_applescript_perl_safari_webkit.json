@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber documents two compatibility issues he encountered when running his AppleScript-based browser-targeting scripts on Snow Leopard. The first involved an AppleScript boolean comparison syntax that worked on 10.5 but correctly threw an error on 10.6, revealing his original code was technically wrong all along. The second involved Perl's Mac::Carbon modules requiring 32-bit mode, which Snow Leopard no longer defaults to. He explains Apple's new versioning system that ships multiple versions of Perl and Python, and shows how the VERSIONER_PERL_PREFER_32_BIT environment variable fixes the issue while maintaining backward compatibility with 10.5.",
+  "key_points": [
+    "Snow Leopard's AppleScript correctly flags a boolean comparison error that 10.5 silently accepted, meaning the original syntax was always wrong",
+    "Snow Leopard ships multiple versions of Perl (5.10 and 5.8.9) and Python (2.6 and 2.5) with different 32/64-bit capabilities",
+    "Perl runs in 64-bit mode by default on Snow Leopard, breaking Mac::Carbon modules that only work in 32-bit mode",
+    "Apple's VERSIONER_PERL_PREFER_32_BIT environment variable provides a clean backward-compatible fix"
+  ],
+  "money_quotes": [
+    "The error produced on 10.6 is in fact correct.",
+    "It ends up that Apple has invoked some serious jiggery-pokery for Perl and Python on Snow Leopard such that they both run in 64-bit mode by default, while still offering full backwards compatibility with 32-bit binaries and with older versions of Perl and Python.",
+    "The defaults \u2014 what gets invoked by /usr/bin/perl and /usr/bin/python \u2014 are Perl 5.10 and Python 2.6, both in 64-bit mode.",
+    "The VERSIONER_PERL_PREFER_32_BIT environment variable has no effect on older versions of Mac OS X, so we now have a version of this routine that returns the name of the default web browser on both Mac OS X 10.6 and 10.5."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Snow Leopard's 64-bit transition broke scripting assumptions in subtle ways, but Apple's versioning system provided clean backward-compatible solutions for both Perl and Python.",
+  "filename": "2009-09-14-snow_leopard_applescript_perl_safari_webkit"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber examines Apple's secret internal web framework called PastryKit, discovered powering the iPhone User Guide web app. The post details how iPhone web apps have long suffered from inferior scrolling physics, lack of fixed-position elements, and other limitations compared to native Cocoa Touch apps. PastryKit solves these problems by completely reimplementing scrolling in JavaScript, hiding the Safari chrome, and providing fixed toolbars \u2014 making the User Guide nearly indistinguishable from a native app. Gruber argues that while talented Cocoa Touch developers still have an easier time building great iPhone apps than web developers do, PastryKit represents a potential breakthrough for web apps on the platform. He speculates that Apple may intend to ship PastryKit publicly, perhaps integrated with Dashcode, as an open alternative to the App Store.",
+  "key_points": [
+    "iPhone web apps suffer from high scrolling friction, no CSS fixed-position elements, and lack of native-feeling UI \u2014 problems that existing open-source frameworks like iUI and jQTouch cannot solve",
+    "Apple secretly built PastryKit, a JavaScript framework that reimplements scrolling with momentum, hides the Safari address bar, and provides fixed toolbars by disabling native scrolling entirely and managing its own view hierarchy",
+    "The Cocoa Touch framework gives native developers significant advantages over web developers \u2014 comparing the two without accounting for framework support is like saying running is easier than biking if you can't ride a bicycle",
+    "PastryKit-powered apps work offline via HTML5 local storage and are nearly indistinguishable from native apps, though they still have edge-case issues with gesture recognition and status bar taps",
+    "The framework's sophistication suggests Apple may intend to release it publicly, potentially making mobile WebKit a genuine open alternative to the App Store"
+  ],
+  "money_quotes": [
+    "iPhone web views feel like they have a lot of scrolling friction.",
+    "It's like saying it's easier to run than to bike if you don't know how to ride a bicycle.",
+    "What I'm saying is that talented Cocoa Touch developers have an easier job implementing the same iPhone app than talented web app developers do.",
+    "PastryKit accomplishes all three of the aforementioned things \u2014 hiding the MobileSafari address bar, providing fixed-position toolbars, and providing scrolling with momentum \u2014 by disabling regular scrolling and setting up its own view hierarchy and implementing its own scrolling.",
+    "After installing the User Guide app to your home screen and launching it from there, there's really very little to suggest that it isn't a native iPhone application.",
+    "From a user's perspective, an iPhone web app launched from the home screen is just another app. But technically, it's like a meta app \u2014 it's a JavaScript app running inside a native iPhone app that just presents a full-screen WebKit view and loads the web app.",
+    "Here's to hoping we haven't heard the last of PastryKit, and that Apple continues work on making mobile WebKit an open alternative to the App Store."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Apple secretly built a JavaScript framework called PastryKit that solves the fundamental limitations of iPhone web apps \u2014 scrolling friction, fixed positioning, and native-like chrome \u2014 by reimplementing the entire scrolling system in JavaScript, proving that web apps can approach native quality when the platform maker invests in the tooling.",
+  "filename": "2009-12-15-pastrykit"
+}

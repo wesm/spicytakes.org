@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber debunks a widely circulated story claiming that Apple maintains a remote blacklist to disable rogue iPhone apps. Security researcher Jonathan Zdziarski discovered a configuration file and interpreted it as a kill switch for App Store apps, a narrative that spread rapidly across blogs and news sites. Gruber points out that the file is located within the Core Location framework and the URL itself contains 'clbl' \u2014 standing for 'Core Location Blacklist.' An Apple source confirmed to Gruber that the list is specifically for preventing apps from accessing location data, not for disabling apps entirely. While Apple may have a separate kill switch capability, this particular discovery is not it.",
+  "key_points": [
+    "Jonathan Zdziarski's claim that he found Apple's remote app kill switch spread widely but was based on a misinterpretation of a Core Location configuration file",
+    "The URL of the blacklist file itself contained the clue 'clbl' pointing to its actual purpose: Core Location Blacklist",
+    "Apple confirmed to Gruber that the list prevents specific apps from accessing location APIs, not from running entirely",
+    "Apple does have a known ability to revoke apps via digital signing, but this particular file is unrelated to that capability",
+    "Core Location access is governed by strict privacy rules in the iPhone SDK, justifying a dedicated blacklist mechanism"
+  ],
+  "money_quotes": [
+    "But the story seems fishy.",
+    "So there may well be some sort of kill switch that Apple can deploy to remotely disable an app that's already installed. But this list is not it.",
+    "Apple has no reason to hide such a configuration in a sneaky place.",
+    "If it's 'tucked away in a configuration file deep inside' the Core Location framework, doesn't it seem more likely that this list has something to do with, say, Core Location?",
+    "It is not a blacklist for disabling apps completely, but rather specifically for preventing any listed apps from accessing Core Location \u2014 an API which, for obvious privacy reasons, is covered by very strict rules in the iPhone SDK guidelines."
+  ],
+  "themes": [
+    "apple"
+  ],
+  "tone": "investigative, corrective, matter-of-fact",
+  "key_insight": "A widely reported iPhone 'kill switch' discovery was actually a mundane Core Location privacy blacklist \u2014 a case where the technical context was right there in the file path, but the sensational interpretation spread faster than the obvious explanation.",
+  "filename": "2008-08-08-core_location_blacklist"
+}

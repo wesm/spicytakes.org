@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber defends his use of a Perl shell call within an AppleScript to determine the user's default web browser, after readers questioned why he didn't write it in pure AppleScript. He explains that the Perl routine runs in under 0.1 seconds and is only called once, making performance concerns irrelevant. He invokes Donald Knuth's famous axiom about premature optimization to argue that clarity and simplicity should take priority over micro-optimization. He concludes that `do shell script` is the best thing that ever happened to AppleScript, enabling pragmatic solutions.",
+  "key_points": [
+    "Calling out to a Perl script via `do shell script` takes less than 0.1 seconds and the memory is released when finished",
+    "Optimization would only matter if the routine were called repeatedly in a tight loop, not for a single invocation",
+    "Knuth's axiom about premature optimization applies directly: forget about small efficiencies 97% of the time",
+    "The ability to shell out to other scripting languages is the most valuable addition AppleScript ever received"
+  ],
+  "money_quotes": [
+    "The question, more or less, is why call out to the shell to use Perl rather than figuring out a way to do it in pure AppleScript? It costs memory and time to call out to the shell and launch an instance of the Perl interpreter.",
+    "My answer is that this Perl routine is plenty fast enough, and when the script is finished the memory used by the Perl interpreter is released.",
+    "If this were something that I were calling repeatedly, hundreds or thousands of times in a tight loop, sure, I'd consider writing the fastest possible version. But I only call this routine one time.",
+    "We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil.",
+    "There are a slew of cases where the easiest solution to doing something in AppleScript is to use do shell script to do it from a shell scripting language.",
+    "I think it's the best thing that ever happened to AppleScript."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical, pragmatic",
+  "key_insight": "Pragmatic programmers choose the simplest working solution over premature optimization \u2014 shelling out from AppleScript is a feature, not a hack.",
+  "filename": "2009-02-05-do_shell_script_premature_optimization"
+}

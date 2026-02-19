@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber details his frustrating attempt to use the HTML5 video element on Daring Fireball, discovering that while the markup is clean and works across Safari, Firefox, and Chrome, the element is practically unusable because Safari and Chrome ignore the autobuffer attribute and automatically download video content on page load. This wastes bandwidth for both publishers and users, especially on metered connections or pages visited repeatedly. He argues that click-to-load behavior is essential for most video embedding contexts, as demonstrated by YouTube and Vimeo. Unable to suppress auto-buffering with markup alone, he resorted to a JavaScript workaround that replaces an image with a video element on click \u2014 defeating the purpose of the simple, clean markup the video element was designed to provide. He calls for the HTML5 spec to mandate that browsers respect the autobuffer attribute rather than allowing them to ignore it.",
+  "key_points": [
+    "HTML5 video markup works across Safari, Firefox, and Chrome, but Safari and Chrome ignore the autobuffer attribute and download video content automatically on page load",
+    "Auto-buffering is harmful for users on slow or metered connections and expensive for publishers paying for bandwidth on videos that may never be watched",
+    "The only workaround is JavaScript DOM manipulation to replace an img element with a video element on click, negating the simplicity the video element was supposed to provide",
+    "The HTML5 spec explicitly allows browsers to ignore the autobuffer attribute, which Gruber argues should be changed to require compliance",
+    "Gruber refuses to use Flash fallbacks on principle, using ClickToFlash himself and wanting Flash to fade as the web video standard"
+  ],
+  "money_quotes": [
+    "I use and highly recommend ClickToFlash, which blocks all Flash content by default. Why would I publish content using a technology that I personally block by default?",
+    "A big part of the appeal of the video and audio elements is that they should be easier to use. As it stands today, though, these elements are unusable in popular contexts without resorting to JavaScript DOM manipulation to effectively turn auto-buffering off.",
+    "Users loading the page over a slow connection, or a pay-by-the-megabyte metered connection, should not be forced to download a potentially large video every time they load the page.",
+    "There goes the nice clean just-as-easy-to-include-a-video-as-an-image markup.",
+    "Auto-buffering is fine as an optional attribute, but for many (probably most) contexts, click-to-load is essential behavior.",
+    "I truly hope to see Flash fade as the de facto standard for embedded web video, and I'm willing to put my markup where my mouth is.",
+    "Web browsers should only buffer HTML5 media content when the autobuffer or autoplay attribute has been explicitly turned on in the markup."
+  ],
+  "themes": [
+    "web",
+    "apple",
+    "design"
+  ],
+  "tone": "technical, frustrated, opinionated",
+  "key_insight": "The HTML5 video element's promise of simple, clean markup is undermined by browsers that ignore the autobuffer attribute, forcing publishers back to JavaScript workarounds that are no better than the complexity the element was meant to replace.",
+  "filename": "2009-12-21-html5_video_unusable"
+}

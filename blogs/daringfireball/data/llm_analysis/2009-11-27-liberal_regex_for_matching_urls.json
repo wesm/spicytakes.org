@@ -1,0 +1,21 @@
+{
+  "summary": "Gruber presents a regex pattern he developed for matching URLs in unstructured text like emails and tweets. The pattern prioritizes practicality over strict specification compliance, handling edge cases like parentheses in Wikipedia URLs, trailing punctuation, and Unicode characters in IDN domain names. He provides an extensive set of test cases demonstrating the pattern's capabilities and invites community feedback for improvements.",
+  "key_points": [
+    "The regex pattern is designed for practical URL matching in unstructured text, not for parsing URLs according to official specifications",
+    "Special attention is paid to balanced parentheses handling, which commonly trips up other URL matchers due to Wikipedia-style URLs",
+    "The pattern supports Unicode characters in URLs, enabling IDN domain name matching",
+    "It works across multiple regex implementations including Perl, Ruby, and PCRE-based tools like PHP and BBEdit"
+  ],
+  "money_quotes": [
+    "A common programming problem: identify the URLs in an arbitrary string of text, where by \"arbitrary\" let's agree we mean something unstructured such as an email message or a tweet.",
+    "This pattern attempts to be practical. It makes no attempt to parse URLs according to any official specification.",
+    "It isn't limited to predefined URL protocols. It should be clever about things like parentheses and trailing punctuation.",
+    "It attempts to be particularly clever with regard to parentheses, which, in my experience, only ever seem to occur in the wild in Wikipedia URLs, and which many URL matching patterns seem to botch."
+  ],
+  "themes": [
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "A practical regex for URL matching should prioritize real-world edge cases like parentheses and Unicode over strict specification compliance.",
+  "filename": "2009-11-27-liberal_regex_for_matching_urls"
+}

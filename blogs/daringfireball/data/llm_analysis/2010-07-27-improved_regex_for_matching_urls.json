@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber presents an improved version of his regex pattern for matching URLs in arbitrary text like emails and tweets. The updated pattern fixes issues with the previous version, including better handling of parentheses in URLs (up to two nested levels), removal of the unsupported [:punct:] character class, and support for mailto: URLs and short URLs like bit.ly/foo. He provides both a general URL-matching pattern and a web-only variant, in both verbose and compact formats. A 2014 update directs readers to further-improved versions on GitHub Gist that avoid potential regex engine lock-ups with malformed input.",
+  "key_points": [
+    "The pattern prioritizes practicality over spec compliance, making no attempt to parse URLs according to any official specification",
+    "Balanced parentheses matching is hard-coded to two levels deep because recursive regex constructs are engine-specific and impractical for portability",
+    "The pattern is designed to work across Perl, PCRE, Oniguruma, and JavaScript regex engines",
+    "A 2014 retrospective admits the original clever pattern could cause regex engine lock-ups on certain input, favoring less clever but safer alternatives"
+  ],
+  "money_quotes": [
+    "The problem the pattern attempts to solve: identify the URLs in an arbitrary string of text, where by \"arbitrary\" let's agree we mean something unstructured such as an email message or a tweet.",
+    "Just like the pattern from November, it attempts to be practical, above all else. It makes no attempt to parse URLs according to any official specification.",
+    "It should be clever about things like parentheses and trailing punctuation.",
+    "Hard-coding the pattern to support two levels of nested parenthesis should work everywhere, and, practically speaking, I only received two reports of actual real-life URLs that had a second level of parentheses, and none with more than two.",
+    "The new ones are less clever, but in my testing just as effective in practice.",
+    "This pattern is free for anyone to use, no strings attached. Consider it public domain."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "A practical URL-matching regex should prioritize real-world correctness and cross-engine compatibility over specification compliance or clever tricks that risk edge-case failures.",
+  "filename": "2010-07-27-improved_regex_for_matching_urls"
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber describes updates to the bot that runs the @daringfireball Twitter account. He originally used a custom URL shortener (df4.us) for control and brevity, but Twitter's mandatory t.co wrapping made his short URLs pointless \u2014 actually adding an extra redirect hop. He switched to using Twitter's native URL shortening, gaining better analytics and eliminating the unnecessary redirect. He also fixed the bot's handling of long titles, trimming by whole words with an ellipsis instead of crudely cutting mid-word.",
+  "key_points": [
+    "Twitter's mandatory t.co wrapping turned Gruber's custom short URLs into a liability \u2014 adding an extra redirect without any brevity benefit",
+    "The original motivation for a custom shortener was control and maximum character efficiency, but Twitter's platform changes made both advantages moot",
+    "Modern Twitter clients display expanded URLs anyway, so short URLs provide no visual benefit to readers",
+    "He improved the posting bot to truncate long titles at word boundaries with an ellipsis instead of cutting mid-word"
+  ],
+  "money_quotes": [
+    "My short URLs should work for as long as Daring Fireball itself is online.",
+    "All t.co URLs are now 22 characters in length, which means that for my df4.us URLs, t.co was actually a URL lengthener, not a shortener.",
+    "It also means that when you clicked a link in the DF Twitter feed, it would first redirect from t.co to df4.us, and only then to daringfireball.net \u2014 a needless extra hop.",
+    "In short, since the entire reason I'm using short URLs at all is for Twitter, it makes sense to simply use Twitter's own shortener.",
+    "Originally, I was using a clever IDN domain name, but gave that up years ago because too many Twitter clients couldn't deal with unicode characters in a URL."
+  ],
+  "themes": [
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "When a platform subsumes your custom solution by mandating its own layer on top, pragmatism beats stubbornness \u2014 drop the redundant complexity.",
+  "filename": "2014-05-16-daringfireball_twitter_tweaks"
+}

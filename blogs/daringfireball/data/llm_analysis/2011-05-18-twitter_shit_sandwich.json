@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber criticizes Twitter's decision to require OAuth authentication for all third-party clients that access direct messages, replacing the simpler xAuth flow. While the stated goal of giving users finer-grained control over DM access sounds reasonable, Gruber argues the real effect is degrading the user experience of native third-party Twitter clients. OAuth's web-based authentication flow is natural for web services but jarring and cumbersome in native apps, especially when managing multiple accounts. He suspects Twitter's true motivation is steering users toward its own official clients, which won't be subject to the same OAuth requirement.",
+  "key_points": [
+    "xAuth provides a clean native experience by letting users enter credentials directly in the app, while OAuth forces a disruptive web browser redirect",
+    "OAuth is especially painful for multi-account setups in native clients because users must sign out of twitter.com before authenticating each additional account",
+    "Full Twitter clients obviously need DM access since users actively read and write DMs through them, making the security rationale hollow",
+    "Twitter's own official clients are exempt from the OAuth requirement, revealing the competitive motivation behind the policy",
+    "The change bundles a genuinely good feature (granular DM permissions) with a punitive restriction on third-party developers"
+  ],
+  "money_quotes": [
+    "But there's a big shit sandwich attached: Twitter is implementing this change by requiring all third-party clients that want or need access to direct messages to use the cumbersome OAuth login flow for authentication.",
+    "So long as you remain within the app, there's no security advantage for OAuth in an embedded web view over xAuth \u2014 but there's a huge decrease in usability, simplicity, and clarity to the user.",
+    "Full Twitter clients require access to DMs. Everyone using, say, Twitterrific and Tweetbot and TweetDeck, knows that these apps have access to their DMs because they're using these apps to read and write DMs.",
+    "The whole point of native Twitter clients is that some users want the sort of experience that only native apps can provide. OAuth cannot be made to feel like a native experience.",
+    "I can't think of any reason why Twitter would force native apps through OAuth other than to create a hurdle that steers users toward Twitter's own official native clients.",
+    "Because Twitter's official clients aren't going to force users to jump through OAuth to authenticate \u2014 they're still going to simply ask for your username and password in a simple native dialog box."
+  ],
+  "themes": [
+    "web",
+    "design",
+    "business"
+  ],
+  "tone": "critical",
+  "key_insight": "Twitter disguised an anti-competitive move against third-party native clients as a user-privacy improvement, bundling genuinely useful DM permission controls with an OAuth mandate that degrades the native app experience while exempting its own clients.",
+  "filename": "2011-05-18-twitter_shit_sandwich"
+}

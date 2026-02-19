@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber documents his search for a reliable way to create Ogg Theora video files on Mac OS X, needed for HTML5 video support in Firefox 3.5. He finds that HandBrake's Ogg support is broken and has been removed, and he's reluctant to install the Xiph QuickTime component. He settles on ffmpeg2theora as the best solution, noting its simplicity despite being command-line only. Along the way, he explains the codec fork in HTML5 video \u2014 Safari supports H.264 while Firefox and Opera support Ogg Theora \u2014 and shows how to use multiple source elements to serve both.",
+  "key_points": [
+    "HandBrake's Ogg Theora support is broken and has been officially removed with no plans to restore it",
+    "The HTML5 video codec split between Safari (H.264) and Firefox/Opera (Ogg Theora) doesn't prevent supporting all browsers \u2014 you just need two source elements",
+    "ffmpeg2theora is the simplest reliable tool for creating Ogg Theora files on Mac OS X, with sensible defaults and a clean Mac installer",
+    "Gruber is unwilling to install the Xiph QuickTime component, reflecting his general wariness of third-party QuickTime codecs"
+  ],
+  "money_quotes": [
+    "The fork in supported codecs for the <video> tag \u2014 Safari won't support Ogg Theora and Firefox and Opera won't support H.264 \u2014 doesn't mean you can't support all three browsers.",
+    "It just means that to support all three, you need to include at least two <source> elements within the <video> tag.",
+    "The only open-source QuickTime component I've ever had a good experience with is Perian.",
+    "ffmpeg2theora is the one tool I found that simply just works for transcoding to Ogg Theora.",
+    "It looked pretty good \u2014 way better than typical web video in a Flash player."
+  ],
+  "themes": [
+    "web",
+    "apple"
+  ],
+  "tone": "technical",
+  "key_insight": "The HTML5 video codec war between H.264 and Ogg Theora is a practical inconvenience rather than an insurmountable problem, solvable by encoding in both formats and using multiple source elements.",
+  "filename": "2009-07-02-ffmpeg2theora"
+}

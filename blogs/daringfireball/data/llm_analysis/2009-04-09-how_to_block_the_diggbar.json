@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber explains why Digg's new DiggBar feature is harmful to the web and how he blocked it from Daring Fireball. The DiggBar frames other websites' content under Digg-branded URLs instead of redirecting users, effectively hijacking URLs and breaking the fundamental architecture of the web. Gruber compares this to the widely condemned frameset practices of the mid-1990s. He shares his PHP-based solution that detects DiggBar referrer URLs and serves a special message instead of page content. He dismisses Digg's traffic as low-quality and argues there's no legitimate justification for this kind of URL hijacking.",
+  "key_points": [
+    "The DiggBar loads other sites inside a Digg-branded frame rather than redirecting, keeping the URL as digg.com instead of the actual destination",
+    "URL framing was broadly condemned in the mid-'90s when framesets first appeared, and the DiggBar is no different in principle",
+    "URLs are foundational to the web \u2014 they tell users where they are and provide something to bookmark and share",
+    "Gruber used PHP referrer checking with a regex to detect DiggBar URLs and block them by serving alternate content",
+    "Digg's traffic, while high-volume, is dismissed as low-quality and not worth accommodating"
+  ],
+  "money_quotes": [
+    "This, of course, is total bullshit.",
+    "URLs are the building block of the Web. They tell the user where they are. They give you something to bookmark to go back or to share with others.",
+    "The DiggBar breaks that, and I've seen no argument that makes it any more sense to support this than it does to support 1996-style frameset site embedding.",
+    "Digg sends a tremendous amount of traffic to sites that make it to the top of their front page, but it's the worst kind of traffic: mindless, borderline illiterates.",
+    "Good riddance, really."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "combative, technical, dismissive",
+  "key_insight": "Framing other sites' content under your own URL is a fundamental violation of how the web works, regardless of whether it's dressed up as a modern toolbar or a 1990s frameset.",
+  "filename": "2009-04-09-how_to_block_the_diggbar"
+}

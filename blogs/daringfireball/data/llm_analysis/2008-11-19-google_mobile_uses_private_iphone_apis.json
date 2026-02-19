@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber investigates how Google's newly updated Google Mobile iPhone app uses the proximity sensor to trigger voice search \u2014 a feature that requires undocumented, private Apple APIs. He demonstrates through technical analysis that Google Mobile implements the private `proximityStateChanged` method, which violates the iPhone SDK Guidelines. He explores three possible explanations for how this passed App Store review, concluding that regardless of the reason, the situation exposes a fundamental fairness problem: either Apple didn't catch it, knowingly gave Google preferential treatment, or the App Store review process is inconsistent. The broader issue is that many useful hardware features remain locked behind private APIs that only Apple's own apps can use.",
+  "key_points": [
+    "Google Mobile's voice search uses the proximity sensor via an undocumented private API (`proximityStateChanged`) that is not available to third-party developers",
+    "The public iPhone SDK only allows apps to toggle the proximity sensor on/off but provides no way to detect when it's actually triggered",
+    "Google may have strategically publicized the feature in the New York Times before App Store approval to pressure Apple into accepting it",
+    "If Apple knowingly allowed Google to use private APIs while forbidding other developers from doing so, the App Store is a rigged playing field",
+    "The situation highlights the broader problem that many useful iPhone hardware features are locked behind private APIs that only Apple's own apps can access"
+  ],
+  "money_quotes": [
+    "No way, that is, via the public APIs.",
+    "A developer that plays by the rules cannot do what Google is doing.",
+    "If regular developers are forced to play by the rules, but Google is allowed to use private APIs just because they're Google, the system is rigged.",
+    "The publicity from John Markoff's feature in The New York Times put pressure on Apple to accept the app.",
+    "The situation just highlights the problem that a lot of cool features are behind the iPhone's private APIs \u2014 private APIs which Apple's own apps make full use of.",
+    "I'm pretty sure that the App Store approval process is as much of a black box for Google as it is for everyone else.",
+    "Google started publicizing the voice search feature several days before it actually appeared in the App Store."
+  ],
+  "themes": [
+    "apple",
+    "google",
+    "business"
+  ],
+  "tone": "investigative",
+  "key_insight": "Google's use of private iPhone APIs for its voice search feature exposes a fundamental tension in the App Store: Apple locks useful hardware capabilities behind private APIs, then faces a fairness crisis when prominent partners appear to get special treatment.",
+  "filename": "2008-11-19-google_mobile_uses_private_iphone_apis"
+}

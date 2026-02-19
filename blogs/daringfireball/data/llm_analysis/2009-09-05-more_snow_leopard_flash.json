@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber continues his examination of the Snow Leopard/Flash vulnerability controversy, addressing critics who argue Apple should have issued a security advisory or delayed the release. He acknowledges the legitimate complaint that Snow Leopard's installer downgrades newer Flash versions users had manually installed, exploring the technical reasons (bom files, Essentials package logic) why this happens. He investigates the actual vulnerability status of Flash 10.0.23.1 shipped with Snow Leopard, finding that Adobe's security advisories only reference version 10.0.22.87 as vulnerable and never mention 10.0.23.1 specifically. However, an update reveals 10.0.23.1 dates from a June WWDC seed, making it almost certainly vulnerable to issues publicized in July.",
+  "key_points": [
+    "Apple's longstanding security policy is to not publicize vulnerabilities until they've been patched, which explains the lack of a security advisory about the Flash issue",
+    "The more legitimate complaint is that Snow Leopard's installer overwrites newer user-installed Flash versions with older ones, likely because Flash is in the 'Essentials' package which installs known versions regardless of what's on disk",
+    "Apple may have designed the installer this way deliberately \u2014 a newer third-party component might not work with the new OS, so installing known-good versions is a defensive choice",
+    "Flash 10.0.23.1 shipped with Snow Leopard is not mentioned in any Adobe security advisory, but it dates from the June WWDC seed and almost certainly lacks July security fixes",
+    "Adobe's own response was mild, simply recommending users update to the latest version without calling out specific vulnerabilities in 10.0.23.1"
+  ],
+  "money_quotes": [
+    "That's not how Apple rolls. Apple's policy regarding security issues is not to publicize them until after they've been addressed by software updates.",
+    "I have no sympathy for the argument that Apple should have included an eight-day-old version of Flash in the Snow Leopard installer, or that they should have delayed the release of Snow Leopard to include it.",
+    "I do have sympathy for the argument, like Ash's, that the installer ought not replace a newer version with an older one.",
+    "The installer logic for these 'essential' components may reasonably be that it's going to install its own known versions no matter what's already on the disk being upgraded.",
+    "What if the very latest version of Flash worked just fine on Leopard but did not work on Snow Leopard? That is apparently not the case, but, what if it were?",
+    "Is version 10.0.23.1 susceptible to the same 'critical vulnerabilities' as version 10.0.22.87? I can't find any version information about Flash 10.0.23.1 whatsoever."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "analytical",
+  "key_insight": "The Snow Leopard Flash controversy has a legitimate technical complaint \u2014 the installer shouldn't downgrade newer user-installed versions \u2014 but the broader security panic is muddied by the fact that nobody can confirm what vulnerabilities actually apply to the specific version Apple shipped.",
+  "filename": "2009-09-05-more_snow_leopard_flash"
+}

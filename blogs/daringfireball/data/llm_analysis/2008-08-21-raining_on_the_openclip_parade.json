@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber dissects the OpenClip project, a third-party attempt to bring copy-paste functionality to iPhone apps before Apple provided it natively. He explains that OpenClip works by exploiting a loophole in iPhone OS 2.0 where apps can read other apps' sandbox directories, even though Apple's documentation explicitly states no app should be able to access another's sandbox. He reveals that this loophole is already closed in the iPhone OS 2.1 beta, making OpenClip dead on arrival. While acknowledging the genuine demand for inter-app copy-paste, he warns developers against adopting a framework built on an unintended security gap.",
+  "key_points": [
+    "OpenClip exploits iPhone OS 2.0's failure to enforce read restrictions on other apps' sandbox directories, not a legitimate 'shared space' as its FAQ implies",
+    "Apple's documentation explicitly states that no application can 'access' another's sandbox \u2014 the read loophole is an enforcement gap, not a feature",
+    "iPhone OS 2.1 beta already closes this loophole, making OpenClip non-functional for inter-app paste before it even gained adoption",
+    "The iPhone sandboxing model trades flexibility for security and clean uninstallation, with each app getting its own UUID-named directory",
+    "The enthusiastic coverage of OpenClip demonstrates enormous pent-up demand for system-wide copy-paste on iPhone, but the solution must come from Apple"
+  ],
+  "money_quotes": [
+    "The OpenClip framework, by Zac White, is a very clever implementation of a fundamentally unwise idea.",
+    "It's more like 'slipping through a temporary loophole' than 'no foul'.",
+    "That this restriction is not yet enforced at a technical level does not mean it's permitted.",
+    "There is no 'shared space' for iPhone apps to exchange data. Wishing it were otherwise doesn't make it so.",
+    "Developers would be foolish to adopt a framework that only works today because of a loophole in iPhone OS 2.0 that is already closed in iPhone OS 2.1.",
+    "Not simply that no other application can write to, but which no other application can access.",
+    "One workaround I've seen bandied about is to use the system-wide Address Book database as a storage location for shared clipboard data. Needless to say, such an implementation would not qualify as an intended use of the AddressBook framework."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical, critical, methodical",
+  "key_insight": "A clever hack built on an unintended security loophole is not a viable platform feature, no matter how much demand exists for the functionality it provides.",
+  "filename": "2008-08-21-raining_on_the_openclip_parade"
+}

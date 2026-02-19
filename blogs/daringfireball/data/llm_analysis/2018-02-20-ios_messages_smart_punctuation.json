@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber investigates why iOS 11's smart punctuation feature stopped working in the Messages app. He traces the likely cause to SMS's antiquated character encoding limits: ASCII-only messages allow 160 characters, but a single curly quote forces 16-bit encoding, cutting the limit to 70. He questions why this SMS limitation was also applied to iMessage (blue bubble) conversations, which have no such constraints. The story ends well: iOS 11.3 beta restores smart punctuation for iMessages while correctly disabling it only for SMS messages.",
+  "key_points": [
+    "iOS 11 added smart punctuation (curly quotes, em-dashes) that macOS had for years, and Gruber notes the delay was hard to justify",
+    "SMS uses 7-bit GSM encoding allowing 160 characters, but any non-ASCII character forces 16-bit encoding, halving capacity to 70 characters",
+    "Smart punctuation was disabled in all Messages conversations, not just SMS, which Gruber identifies as an overcorrection",
+    "iOS 11.3 beta fixes the issue by applying smart punctuation to iMessages while disabling it only for green-bubble SMS",
+    "Gruber notes a remaining edge case: users who already write in languages requiring 16-bit encoding gain nothing from disabling smart punctuation in SMS"
+  ],
+  "money_quotes": [
+    "I say \"finally\" because MacOS has had the feature in the standard text editing system for many years, and I can't think of a good reason why it wasn't in iOS years ago.",
+    "I can say it's not a difficult programming job to solve because I've solved it in the more difficult context of smartening punctuation in prose without messing up the necessary dumb quotes inside HTML tags.",
+    "In short: if you stick to dumb quotes, you can put 160 characters in an SMS message. Include just one smart/curly quote, and you only get 70 characters.",
+    "But if I'm right about why, then why does it apply to iMessage messages \u2014 a.k.a. blue-bubble messages \u2014 too? iMessage messages aren't limited by the antiquated constraints of SMS in any other way, so why limit them typographically?",
+    "Smart."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Apple's fix for SMS character-encoding limits was an overcorrection that needlessly degraded typography in iMessage, and the proper solution was distinguishing between the two protocols.",
+  "filename": "2018-02-20-ios_messages_smart_punctuation"
+}

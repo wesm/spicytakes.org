@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber clarifies which iPhone apps actually run in the background versus which merely appear to. He explains that only the four dock apps \u2014 Phone, Mail, Safari, and iPod \u2014 truly run as background Cocoa Touch processes. Other Apple apps like Calendar, SMS, Clock, and App Store achieve background-like behavior through system-level OS services unavailable in the public SDK. He details why each dock app needs background execution and explains Safari's memory behavior when the system reclaims RAM.",
+  "key_points": [
+    "Only four iPhone apps (Phone, Mail, Safari, iPod) actually run in the background as Cocoa Touch applications",
+    "Other Apple apps that appear to run in the background actually use system-level OS services not available in the public SDK",
+    "The App Store badge likely uses the push notification system announced at WWDC but not yet in the public SDK",
+    "Safari stays running to preserve loaded web pages in tabs, but the system can force-quit it under memory pressure, causing page reloads",
+    "Apple's built-in apps have technical advantages over third-party apps due to access to private system services"
+  ],
+  "money_quotes": [
+    "The system does stuff in the background, and some of Apple's apps take advantage of these features in ways that aren't available in the SDK, but the only Cocoa Touch applications that run in the background are Phone, Mail, Safari, and iPod.",
+    "Even if Apple were to come to its senses and allow third-party developers to write competing email clients, the built-in Mail app would hold one significant technical advantage, which is that it runs in the background.",
+    "In fact, background processing is the one factor that unites the four dock apps.",
+    "These apps \u2014 the Cocoa Touch apps themselves \u2014 don't run in the background. They post and set notifications through other means, system-level OS services that aren't available through the iPhone SDK.",
+    "That's why sometimes when you relaunch Safari, it remembers the URLs, but has to reload the content for all of your open web pages \u2014 that's what happens when Safari is asked to quit while it's running in the background."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "The distinction between apps that truly run in the background and those that merely leverage private system services is crucial to understanding both the iPhone's architecture and the competitive advantage Apple's built-in apps hold over third-party developers.",
+  "filename": "2008-10-06-in_the_background"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber analyzes the New York Times report that Uber secretly fingerprinted iPhones to persist device identification even after app deletion or device wipes, violating Apple's privacy guidelines. He argues the reporting is sensationalized \u2014 Uber likely wasn't tracking phones after deletion, but rather re-identifying them when the app was reinstalled on stolen devices in China to combat driver fraud. The fingerprinting technique used private iOS APIs to pull device serial numbers, which Apple eventually blocked in iOS 10. Gruber raises pointed questions about what Apple knew, why they didn't require public disclosure, and whether the API loopholes are fully closed. He also highlights the separate revelation that Unroll.me was selling users' Lyft receipt data to Uber under the guise of a free inbox-cleaning service.",
+  "key_points": [
+    "Uber's iPhone fingerprinting was likely only active when the app was installed \u2014 not tracking devices after deletion, but re-identifying them upon reinstallation to combat fraud in China",
+    "The NYT initially used the word 'tracking' but revised it to 'identifying and tagging,' which significantly changes the technical implications",
+    "Uber used private iOS APIs (IOKit) to pull device serial numbers, a blatant App Store policy violation, and geofenced the code to avoid detection during App Store review in Cupertino",
+    "Apple should have required Uber to publicly disclose the fingerprinting as a condition for remaining in the App Store",
+    "Unroll.me's business model of selling users' email data to companies like Uber exemplifies the hidden cost of 'free' services"
+  ],
+  "money_quotes": [
+    "\"Secretly identifying and tagging iPhones even after its app had been deleted and the devices erased\" is a rather startling accusation, because it sounds like it should be technically impossible.",
+    "iOS APIs for things like the UDID and even the MAC address stopped reporting unique identifiers years ago, because they were being abused by privacy invasive ad trackers, analytics packages, and entitled shitbags like Uber.",
+    "iOS users should be able to feel confident that when they delete an app, all connections between their device and the developer of the app are disconnected, and that when they wipe a device, everything personally identifying has been removed from it.",
+    "Why didn't Apple require Uber to disclose what they'd done as a condition for remaining in the store? Shouldn't iPhone users who had Uber installed know about this?",
+    "It's \"free\" in the sense that you don't pay them money, but they're selling your personal information to companies like Uber.",
+    "Supposedly that information is anonymized, but wiped iPhones are supposed to be anonymized too, and Uber found at least one route around that."
+  ],
+  "themes": [
+    "apple",
+    "business"
+  ],
+  "tone": "analytical, investigative, critical",
+  "key_insight": "Uber's iPhone fingerprinting was likely less sensational than reported \u2014 a reinstallation-time fraud check rather than post-deletion tracking \u2014 but it still represents a blatant violation of Apple's privacy rules, and Apple's failure to require public disclosure is itself troubling.",
+  "filename": "2017-04-23-uber_identifying_and_tagging_iphones"
+}

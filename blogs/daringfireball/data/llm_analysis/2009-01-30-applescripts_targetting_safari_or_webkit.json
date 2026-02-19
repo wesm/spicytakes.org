@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber explains how to write AppleScripts that dynamically target either Safari or the WebKit nightly build app, which share identical scripting dictionaries but run as separate processes. The problem is that maintaining duplicate scripts for both apps is tedious and error-prone. His solution uses a runtime variable for the tell block target combined with a compile-time 'using terms from' block, allowing a single set of scripts to work with whichever app is active or set as the default browser. He walks through the two-step compile/run nature of AppleScript that makes this tricky and provides utility handlers for detecting the frontmost app and default browser.",
+  "key_points": [
+    "WebKit.app is essentially a phantom copy of Safari that uses nightly WebKit frameworks but shares Safari's preferences, bookmarks, and scripting dictionary",
+    "AppleScript's two-phase compile-then-run model requires knowing the target app's dictionary at compile time, which conflicts with dynamic targeting",
+    "The 'using terms from' block solves this by providing dictionary terms at compile time while letting the 'tell application' target be a runtime variable",
+    "The framework detects whether Safari or WebKit is frontmost, falling back to the default browser, enabling one script to serve both apps",
+    "By aliasing the Safari scripts folder as 'WebKit', both apps see the same scripts in the Script menu"
+  ],
+  "money_quotes": [
+    "It's more like a phantom copy of Safari than a separate application.",
+    "A big part of the entire point (and pain) of AppleScript is that each app provides its own unique dictionary.",
+    "There's a two-step processing to running AppleScript source code: first it compiles, then it can run.",
+    "AppleScript can't compile terms from a specific application dictionary without knowing exactly which application that is, and the whole point of this exercise is that we don't want to determine the target of the tell block until runtime.",
+    "We still have to hard-code the name of a specific application, but by putting it in the 'using terms from' block rather than the 'tell' block, it's just information for AppleScript to use at compile time."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "AppleScript's compile-time dictionary requirement can be decoupled from runtime targeting using 'using terms from', enabling a single script to dynamically address multiple apps that share a scripting dictionary.",
+  "filename": "2009-01-30-applescripts_targetting_safari_or_webkit"
+}

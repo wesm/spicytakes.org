@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber investigates the widely reported claim that Apple rejected Opera Mini from the App Store, finding that Opera never actually submitted it. He explains the technical distinction between Opera Mini (a thin client using proxy-rendered OBML images) and Opera Mobile (a full browser), noting that Opera Mini's Java ME codebase would need significant porting to comply with iPhone SDK rules. The version Opera developed likely runs only on jailbroken iPhones using a Java ME runtime bridge similar to their Android approach. Gruber concludes that while Opera could theoretically port Mini to native iPhone APIs and submit it, the reported 'rejection' never happened. He adds an addendum clarifying that SDK rule 3.3.2 may not forbid embedded interpreters, only downloaded executable code.",
+  "key_points": [
+    "Opera never submitted Opera Mini to the App Store \u2014 the 'rejection' story was based on a paraphrase, not a direct quote, from Opera's CEO",
+    "Opera Mini is not a traditional browser but a thin client that displays server-rendered pages as compressed binary images (OBML), making it technically distinct from Safari",
+    "Opera's iPhone version likely uses a Java ME runtime bridge (similar to their Android port), which would violate or at least complicate iPhone SDK compliance",
+    "SDK rule 3.3.2 forbids downloading and executing interpreted code, but may permit interpreters that only run code bundled within the app",
+    "The distinction between what the SDK technically forbids and what Apple will actually approve remains an open and unresolved question"
+  ],
+  "money_quotes": [
+    "My understanding, based on information from informed sources who do not wish to be identified because they were not authorized by their employers, is that Opera has developed an iPhone version of Opera Mini, but they haven't even submitted it to Apple, let alone had it be rejected.",
+    "Opera Mini is really only a thin client that knows how to display OBML. It doesn't even render HTML, let alone contain a full JavaScript interpreter.",
+    "OBML is more like PDF than HTML.",
+    "My somewhat informed hunch is that the iPhone version of Opera Mini that von Tetzchner alluded to in his interview with Hansell is running only on jailbroken iPhones.",
+    "What Opera would need to do to have a version of Opera Mini they could submit to the App Store would be to port the entire client software to the C and Objective-C APIs officially supported on the iPhone.",
+    "It could well be that even then, Apple would reject it from the App Store on anti-competitive grounds \u2014 but contrary to this week's speculation, that has not happened.",
+    "Just because an app doesn't violate the rules doesn't mean Apple will accept it."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "business"
+  ],
+  "tone": "investigative",
+  "key_insight": "The widely reported story that Apple rejected Opera Mini from the App Store was false \u2014 Opera never submitted it, and the real obstacle was their Java ME codebase's incompatibility with iPhone SDK requirements.",
+  "filename": "2008-11-01-opera_app_store"
+}

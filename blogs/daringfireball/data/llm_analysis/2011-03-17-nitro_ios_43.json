@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber explains why Apple's new Nitro JavaScript engine in iOS 4.3 is only available within Mobile Safari and not to home screen web apps or UIWebView-based App Store apps. He pushes back against cynical interpretations that Apple deliberately throttles web apps to protect App Store revenue, noting that App Store apps using UIWebView are equally excluded. The real reason is security: Nitro's JIT compilation requires marking memory pages as executable, which iOS normally prohibits as a security measure. Mobile Safari received a specific exception to this policy, but extending it system-wide requires additional security work. Gruber suggests Apple could eventually solve this by running JavaScript in a separate trusted process, similar to how Flash runs in its own process on Mac OS X. He notes that Nitro took years to arrive on iOS at all, indicating the complexity of the security tradeoffs involved.",
+  "key_points": [
+    "Nothing in iOS 4.3 is slower than 4.2 for web apps \u2014 Mobile Safari simply got faster while everything else stayed the same",
+    "JIT compilation requires marking memory pages as executable, which iOS prohibits as a core security policy to prevent unsigned code execution",
+    "The cynical 'Apple wants to kill web apps' theory fails because App Store apps using UIWebView are equally excluded from Nitro",
+    "Apple could eventually offer system-wide JIT by running JavaScript in a separate trusted process, similar to how Flash runs outside Safari on Mac OS X",
+    "Nitro was announced in 2008 but took until 2011 to appear on iOS at all, showing the difficulty of reconciling JIT with iOS security"
+  ],
+  "money_quotes": [
+    "The clear insinuation is that web apps running outside Mobile Safari have been made to run slower, but that's not true. What happened with iOS 4.3 is that web apps running inside Mobile Safari have been made significantly faster.",
+    "If you allow for pages of memory to be escalated from writable to executable, then you are enabling the execution of unsigned native code. It breaks the chain of trust.",
+    "Allowing remote code to execute locally turns every locally exploitable security flaw into a remotely exploitable one.",
+    "It is not an oversight or a bug, or the result of a single person at Apple wishing to hinder the performance of web apps.",
+    "In short, iOS was designed from the ground up to be more secure than Mac OS X. The price for this trade-off is performance.",
+    "That it took until now to show up at all on iOS is an indication of how complicated these security implications are."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "iOS 4.3's JavaScript performance gap between Mobile Safari and other apps isn't anti-competitive sabotage but a deliberate security tradeoff \u2014 JIT compilation requires executable memory pages that iOS prohibits as a core security policy.",
+  "filename": "2011-03-17-nitro_ios_43"
+}

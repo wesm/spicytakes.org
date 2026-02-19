@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber examines the controversy around private API usage on the iPhone platform, distinguishing between public APIs (documented, supported, promised to persist) and private APIs (undocumented, subject to change). He critiques Erica Sadun's theory that using unpublished methods in public frameworks is mere 'jaywalking' compared to linking private frameworks, calling the distinction nonsense. He demonstrates the real-world consequences through Safari Bookbag, which crashed after iPhone OS 2.2 removed a private Cover Flow method \u2014 the very method Sadun's book taught developers to use. The irony deepens: Sadun herself was the lead developer of Safari Bookbag. Meanwhile, developer Landon Fuller, who built his own Cover Flow from scratch to avoid private APIs, was initially rejected by Apple's reviewers who assumed he must be using the private framework.",
+  "key_points": [
+    "Public APIs are a promise of future compatibility; private APIs are explosive material that can break at any time, regardless of whether they live in public or private frameworks",
+    "Erica Sadun's distinction between linking private frameworks ('evil') and calling unpublished methods in public frameworks ('jaywalking') is a false dichotomy \u2014 both are equally undocumented and equally risky",
+    "Safari Bookbag crashed on iPhone OS 2.2 because it used the exact private Cover Flow method that Sadun's book recommended, proving the danger is real and immediate",
+    "Landon Fuller did the right thing by writing his own Cover Flow implementation, yet was initially rejected because Apple's reviewer assumed any Cover Flow must use the private framework",
+    "Widespread private API usage creates a platform where users resist OS updates because they 'break' apps \u2014 a toxic dynamic for the entire ecosystem"
+  ],
+  "money_quotes": [
+    "The public/private distinction is a social barrier, not a technical one.",
+    "Private APIs should be handled with extreme caution \u2014 they're the programming equivalent of explosive material.",
+    "This distinction was novel to me. And, upon further consideration, I deem it nonsense.",
+    "The last thing I would do is deliver time-bomb code to a paying customer.",
+    "The more widespread the use of private iPhone APIs becomes, the more likely it is that the iPhone will become the sort of platform where users resist installing OS updates.",
+    "But so while Erica Sadun's judgment regarding the use of private APIs may be suspect, she is no hypocrite \u2014 Sadun herself is credited as the lead developer of Safari Bookbag. Boom, indeed.",
+    "Why else publish such a piece if not to encourage the use of private APIs?"
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "business"
+  ],
+  "tone": "critical, methodical, sardonic",
+  "key_insight": "Private APIs are time bombs regardless of where they live in the framework hierarchy, and the real-world consequences \u2014 crashed apps, frustrated users, unfair rejections \u2014 prove that the only responsible approach is to treat them as off-limits.",
+  "filename": "2008-12-22-private"
+}

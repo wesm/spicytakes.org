@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber examines ScreenShield, a technology developed by the Confide messaging app that prevents iOS screenshots by blanking content before capture occurs. He notes that while detecting screenshots after the fact is easy via iOS APIs, ScreenShield works preemptively. With help from a knowledgeable friend, he hypothesizes the technology exploits Apple's FairPlay Streaming DRM \u2014 the same system that prevents screenshots of Netflix and HBO content \u2014 to protect text and images. He also notes Confide has filed a patent for detecting when users photograph their screen with another device.",
+  "key_points": [
+    "ScreenShield prevents iOS screenshots preemptively rather than just detecting them after the fact, producing blank captures across screenshots, screen recording, AirPlay mirroring, and Xcode",
+    "The likely mechanism exploits Apple's FairPlay Streaming DRM, the same technology that prevents screenshots of Netflix and HBO video content, repurposed to protect text and images",
+    "Confide combines screenshot prevention with Snapchat-style notifications and immediate message deletion when a capture attempt is detected",
+    "The technology is being offered as a third-party SDK (ScreenShieldKit) for other developers to integrate into their apps"
+  ],
+  "money_quotes": [
+    "It's an interesting puzzle trying to figure out how they're doing this.",
+    "Detecting that a screenshot has been taken is easy \u2014 iOS has an API that apps can use to get notified when the screen is recorded in any way. But ScreenShield is detecting it before the screenshot gets taken, so they can blank out the content in their text and image views.",
+    "Have you ever noticed how you can't take screenshots of streaming video content in apps like Netflix and HBO Go/Now? That's a feature in iOS (and MacOS \u2014 try taking a screenshot of Netflix video playing in Safari) for skittish video providers who don't want us to capture even a still frame of their precious content.",
+    "I think ScreenShieldKit is somehow using this to prevent screenshots or video captures of text or images.",
+    "Confide has also filed for a patent for a way to identify when you're using another device to take a photo of your screen."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "ScreenShield likely repurposes Apple's FairPlay Streaming DRM \u2014 designed to protect video content from screen capture \u2014 as a clever hack to prevent screenshots of arbitrary text and images in iOS apps.",
+  "filename": "2018-01-10-screenshield"
+}

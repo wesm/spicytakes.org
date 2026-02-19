@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber investigates whether the iPhone 2.0 update's improved JavaScript performance comes from WebKit's new SquirrelFish interpreter. By comparing Apple's open-source Darwin code for Mac OS X 10.5.4 and iPhone OS 2.0, he confirms the JavaScript engines are nearly identical and neither uses SquirrelFish. He devises a simple recursion-depth test that distinguishes pre- and post-SquirrelFish WebKit builds. The key finding is that iPhone 2.0's JavaScript gains came from improvements to the old interpreter, meaning SquirrelFish adoption will bring even more dramatic speed improvements to future iPhone software.",
+  "key_points": [
+    "WebKit's old JavaScript interpreter (v3.1) was already 2.7x faster than v3.0, even before SquirrelFish existed",
+    "Comparing Darwin source code for Mac OS X 10.5.4 and iPhone OS 2.0 reveals nearly identical JavaScriptCore implementations",
+    "A simple recursion-depth test reliably distinguishes SquirrelFish (43,687 deep) from pre-SquirrelFish WebKit (limit of 499)",
+    "Since iPhone 2.0 doesn't yet use SquirrelFish, further dramatic JavaScript performance improvements are coming"
+  ],
+  "money_quotes": [
+    "When in doubt, look at the source.",
+    "Running both source trees through BBEdit's Find Differences command shows that they're very similar \u2014 the JavaScript interpreter in iPhone OS 2.0 is nearly identical to the one in Safari 3.1.2.",
+    "It struck me as exceedingly unlikely that a project that new \u2014 having only been unveiled in June \u2014 would be included in the iPhone 2.0 OS.",
+    "MobileSafari in iPhone OS 2.0 has the same limit as Safari 3.1.2: 499.",
+    "And so since we now know that the iPhone isn't yet using SquirrelFish, it means further dramatic performance improvements are on the horizon."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "The iPhone 2.0's JavaScript speed gains came entirely from the old WebKit interpreter, meaning the forthcoming SquirrelFish switch will deliver another major leap in performance.",
+  "filename": "2008-07-24-not_yet_squirrelly"
+}

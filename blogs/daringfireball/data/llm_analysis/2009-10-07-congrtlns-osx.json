@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber argues that Snow Leopard's removal of creator code support from Launch Services is a significant regression, leaving Mac OS X with file-to-application binding equivalent to Windows 3.0. Creator codes allowed individual files of the same type to open in different applications by default \u2014 a common need for HTML files, text files, and other open formats. Snow Leopard now relies exclusively on file name extensions, with no supported API replacement. Gruber methodically debunks Daniel Eran Dilger's claim that Uniform Type Identifiers fix the problem, showing that UTIs address file types, not file-to-application bindings. He acknowledges creator codes are dated but insists Apple should have provided a bundle-identifier-based replacement before removing the old system.",
+  "key_points": [
+    "Snow Leopard's Launch Services now ignores HFS+ creator codes entirely, binding files to apps solely by file name extension",
+    "The only way to override default app bindings is through the Finder's Get Info window, which uses a private API unavailable to third-party developers",
+    "UTIs are unrelated to creator codes \u2014 they indicate file type, not which app should open a file, despite claims to the contrary",
+    "Modern computing with open file formats makes per-file app binding more important than ever, not less",
+    "Apple removed the old system without providing a replacement, when bundle identifiers could easily serve as a superior alternative"
+  ],
+  "money_quotes": [
+    "Snow Leopard, effectively, gives us the file-to-application binding policy of Windows 3.0.",
+    "People want to believe that Apple wouldn't take out a popular feature and replace it with nothing, but that's the plain truth.",
+    "The creator code long ago stopped meaning 'the app that created the file', and instead meant 'the app this file should open with by default'. What matters is that the feature is now gone.",
+    "There is nothing any developer can do, with UTIs or with any other supported technology, to restore the functionality of creator codes in Snow Leopard. It's just wrong.",
+    "Unless he meant that Apple has 'fixed' creator codes in the same sense that one 'fixes' a dog.",
+    "'Make it a preference' is often (if not usually) the wrong way to solve a problem, but a case like this is exactly the sort of situation that calls for a preference setting.",
+    "I could go on and rant about the inherent inelegance of storing two essential pieces of a file's metadata, name and type, in a single field \u2014 shackling what Apple proclaims to be 'the world's most advanced operating system' to a metadata limitation of MS-DOS from 1981."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "critical, technical, methodical",
+  "key_insight": "Apple removed creator code support in Snow Leopard without providing any replacement, reducing Mac OS X's file-to-application binding to the level of Windows 3.0 despite having had bundle identifiers available as a superior alternative since 2001.",
+  "filename": "2009-10-07-congrtlns-osx"
+}

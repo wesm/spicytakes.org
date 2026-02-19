@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber documents his process of creating a retina-caliber favicon for Daring Fireball, finding the task surprisingly difficult due to poor tooling. He explains that the proper approach is a single ICO file containing both 16\u00d716 and 32\u00d732 pixel resources, rather than simply scaling up. After testing multiple tools, he recommends Icon Slate ($5 Mac App Store) as the only reliable option. He catalogs the failures of alternatives including Apple's own Icon Composer, various converters, and a web app that mangled colors.",
+  "key_points": [
+    "A proper retina favicon requires a single ICO file with two icon resources (16px and 32px), not just a scaled-up 32px image",
+    "Icon Slate by Kodlian is the only tool Gruber found that reliably creates multi-resource ICO files with correct colors and transparency",
+    "Apple's own Icon Composer tool produces ICO files that don't render properly in Chrome or on Windows",
+    "The web-based X-Icon Editor corrupted colors in the output ICO files despite being widely recommended",
+    "Apple's own favicon is oddly constructed with four resources including redundant dimensions, likely for ancient IE compatibility"
+  ],
+  "money_quotes": [
+    "I found this trickier to accomplish than I anticipated, mainly due to a dearth of good ICO-savvy icon creation tools.",
+    "The lazy way to support retina is to replace your old 16 px favicon.ico file with a 32 px file, and allow non-retina browsers to scale the image.",
+    "It costs $5 in the Mac App Store and is worth every penny.",
+    "Apple has a free developer tool named Icon Composer that seemingly does what we want, but the resulting ICO files don't render in Chrome and apparently don't render properly on Windows.",
+    "Apple's, though, is a weird duck."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Even a seemingly simple task like creating a retina favicon reveals how poor the state of ICO-format tooling is, with most options failing at basic requirements like color accuracy, transparency, or multi-resource support.",
+  "filename": "2013-01-04-retina_favicons"
+}

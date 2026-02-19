@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber shares a Perl script he wrote for converting text to title case, which he uses to standardize Daring Fireball's Linked List headlines. The script goes beyond naive capitalize-every-word approaches by handling small words, preserving intentional capitalization like 'iTunes', skipping domain names, and dealing with edge cases like 'AT&T'. He acknowledges the code is ugly but functional, having grown organically over years of use. He finally publishes it despite its convoluted appearance, reasoning that working code trumps pretty code.",
+  "key_points": [
+    "Naive title-casing (capitalizing every word) fails because small words like 'if', 'in', 'of' should remain lowercase",
+    "The script preserves intentionally capitalized words like 'iTunes' and skips words containing dots like domain names",
+    "Edge cases like 'AT&T' and 'Q&A' required hard-coded hacks because they contain small words that would normally be lowercased",
+    "The first and last words are always capitalized, and small words after colons get capitalized",
+    "The code grew ugly over time as edge cases accumulated, which delayed its publication for years"
+  ],
+  "money_quotes": [
+    "It's pretty easy to write a non-clever title-casing function. The simplest way is to just capitalize the first letter of every word. That's not right, though.",
+    "The script assumes that words with capitalized letters other than the first character are already correctly capitalized. This means it will leave a word like \"iTunes\" alone, rather than mangling it into \"ITunes\" or, worse, \"Itunes\".",
+    "It's one of those pieces of code that started small and simple, and grew ugly over time as edge cases were worked around one at a time.",
+    "I've been using this script for years, but have put off publishing it on the grounds that it looks like the sort of punctuation-riddled code that gives Perl phobics the heebie-jeebies.",
+    "But it works, so screw it, here it is."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "casual, self-deprecating, practical",
+  "key_insight": "Proper title casing is deceptively complex, requiring accumulated edge-case handling that makes elegant code impossible \u2014 but working ugly code beats unpublished perfect code.",
+  "filename": "2008-05-20-title_case"
+}
