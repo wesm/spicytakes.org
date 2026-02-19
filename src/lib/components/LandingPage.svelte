@@ -36,6 +36,9 @@
     <p class="mt-4 text-stone-500 max-w-xl mx-auto">
       {landing.description}
     </p>
+    <p class="mt-2 text-sm text-stone-400">
+      {blogs.length} blogs and counting
+    </p>
     <a
       href="{base}/analytics"
       class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-red-500 text-white font-medium rounded-xl hover:bg-red-600 transition-colors shadow-sm"
