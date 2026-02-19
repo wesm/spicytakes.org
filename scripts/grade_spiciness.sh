@@ -48,6 +48,7 @@ echo ""
 python3 <<'PYEOF'
 import json
 import os
+import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -93,6 +94,30 @@ if OUTPUT_FILE.exists():
             key = q['quote'] + q['filename']
             existing[key] = q.get('spiciness', 0)
     print(f"Found {len(existing)} already graded")
+
+
+def first_nonempty_line(text: str) -> str:
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped:
+            return stripped
+    return ""
+
+
+def is_rate_limited_response(text: str) -> bool:
+    line = first_nonempty_line(text)
+    if not line:
+        return False
+    return bool(re.match(r"^(you.?ve hit your limit|rate[ -]?limit|too many requests|429\b)", line, re.I))
+
+
+def save_incomplete_progress(quotes):
+    if not quotes:
+        return
+    output = {'total': len(quotes), 'quotes': quotes, 'incomplete': True}
+    with open(OUTPUT_FILE, 'w') as f:
+        json.dump(output, f, indent=2)
+    print(f"  Saved {len(quotes)} quotes before failure")
 
 # Process in batches of 10 (smaller for better context)
 BATCH_SIZE = 10
@@ -154,7 +179,6 @@ Example for {len(batch)} quotes: {json.dumps(list(range(5, 5 + len(batch))))}
 JSON array of scores:"""
 
     # Call LLM via llm_call.sh helper (with retries)
-    import re
     import time as _time
 
     MAX_RETRIES = 3
@@ -170,6 +194,12 @@ JSON array of scores:"""
 
             with open(result_file) as f:
                 result_text = f.read().strip()
+
+            if is_rate_limited_response(result_text):
+                line = first_nonempty_line(result_text)
+                print(f"  FATAL: LLM rate limit hit on batch {batch_num}: {line}")
+                save_incomplete_progress(graded_quotes)
+                exit(1)
 
             # Parse scores
             match = re.search(r'\[[\d,\s]+\]', result_text)
@@ -203,11 +233,7 @@ JSON array of scores:"""
     if not batch_success:
         print(f"  FATAL: batch {batch_num} failed after {MAX_RETRIES} attempts")
         # Save progress before exiting
-        if graded_quotes:
-            output = {'total': len(graded_quotes), 'quotes': graded_quotes, 'incomplete': True}
-            with open(OUTPUT_FILE, 'w') as f:
-                json.dump(output, f, indent=2)
-            print(f"  Saved {len(graded_quotes)} quotes before failure")
+        save_incomplete_progress(graded_quotes)
         exit(1)
 
     # Save progress every 10 batches
