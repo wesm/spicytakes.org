@@ -36,6 +36,8 @@ if [[ ! -f "$CONFIG_FILE" ]]; then
 fi
 
 mkdir -p "$OUTPUT_DIR"
+ABORT_FILE="$OUTPUT_DIR/.analysis_aborted"
+rm -f "$ABORT_FILE"
 
 # Read config values using Python
 read_config() {
@@ -112,10 +114,74 @@ PROMPT
     fi
 }
 
+first_nonempty_line() {
+    local file="$1"
+
+    [[ -f "$file" ]] || return 0
+    grep -m1 -v '^[[:space:]]*$' "$file" 2>/dev/null | tr -d '\r' || true
+}
+
+is_rate_limited_response() {
+    local file="$1"
+    local line
+
+    line=$(first_nonempty_line "$file")
+    [[ -n "$line" ]] || return 1
+
+    # Normal successful responses should start with JSON.
+    if [[ "$line" =~ ^[[:space:]]*[\{\[] ]]; then
+        return 1
+    fi
+
+    [[ "$line" =~ ^[[:space:]]*([Yy]ou.?ve[[:space:]]+hit[[:space:]]+your[[:space:]]+limit|[Rr]ate[[:space:]-]*limit|[Tt]oo[[:space:]]+many[[:space:]]+requests|429) ]]
+}
+
+json_has_rate_limit_error() {
+    local file="$1"
+    python3 - "$file" <<'PY'
+import json
+import re
+import sys
+
+try:
+    with open(sys.argv[1]) as f:
+        data = json.load(f)
+except Exception:
+    raise SystemExit(1)
+
+if not isinstance(data, dict):
+    raise SystemExit(1)
+
+if data.get("error") not in {"no_json", "parse_failed"}:
+    raise SystemExit(1)
+
+raw = (data.get("raw") or "").strip()
+if re.match(r"^(you.?ve hit your limit|rate[ -]?limit|too many requests|429\b)", raw, re.I):
+    raise SystemExit(0)
+
+raise SystemExit(1)
+PY
+}
+
+abort_analysis() {
+    local reason="$1"
+
+    if [[ ! -f "$ABORT_FILE" ]]; then
+        printf "%s\n" "$reason" > "$ABORT_FILE"
+    fi
+    echo "Error: $reason" >&2
+}
+
 analyze_post() {
     local post_file="$1"
     local filename=$(basename "$post_file" .md)
     local output_file="$OUTPUT_DIR/${filename}.json"
+    local first_line=""
+
+    # Another worker already hit a hard-stop condition.
+    if [[ -f "$ABORT_FILE" ]]; then
+        return 255
+    fi
 
     # Skip if already analyzed (unless FORCE=1)
     # Always retry posts that had errors
@@ -136,6 +202,13 @@ analyze_post() {
 
     # Use llm_call.sh for backend abstraction (codex or claude)
     echo "$prompt" | "$SCRIPT_DIR/llm_call.sh" "$tmpfile" || true
+    first_line=$(first_nonempty_line "$tmpfile")
+
+    if is_rate_limited_response "$tmpfile"; then
+        abort_analysis "LLM rate limit hit while analyzing $filename: ${first_line:-no details}"
+        rm -f "$tmpfile"
+        return 255
+    fi
 
     if [[ -f "$tmpfile" && -s "$tmpfile" ]]; then
         # Extract JSON from the response using robust parsing
@@ -199,6 +272,12 @@ else:
     print(json.dumps({'filename': '$filename', 'error': 'no_json', 'raw': content[:500]}))
 " > "$output_file" 2>/dev/null || echo "{\"filename\": \"$filename\", \"error\": \"processing_failed\"}" > "$output_file"
 
+        if json_has_rate_limit_error "$output_file"; then
+            rm -f "$output_file" "$tmpfile"
+            abort_analysis "LLM rate limit hit while analyzing $filename: ${first_line:-no details}"
+            return 255
+        fi
+
         # Show output if single post mode
         if [[ -n "$POST_FILE" ]]; then
             echo ""
@@ -217,7 +296,12 @@ else:
 
 export -f analyze_post
 export -f build_prompt
+export -f first_nonempty_line
+export -f is_rate_limited_response
+export -f json_has_rate_limit_error
+export -f abort_analysis
 export OUTPUT_DIR
+export ABORT_FILE
 export CONTEXT_PROMPT
 export THEMES_LIST
 export SUMMARY_LENGTH
@@ -258,11 +342,18 @@ if [[ -z "$POST_FILE" ]]; then
     # Process in parallel
     if command -v parallel &> /dev/null; then
         echo "Using GNU parallel..."
-        ls "$POSTS_DIR"/*.md | parallel -j "$PARALLEL_JOBS" analyze_post {}
+        ls "$POSTS_DIR"/*.md | parallel --halt now,fail=1 -j "$PARALLEL_JOBS" analyze_post {}
     else
         echo "Using xargs (install GNU parallel for better progress)..."
         ls "$POSTS_DIR"/*.md | xargs -P "$PARALLEL_JOBS" -I {} bash -c 'analyze_post "$@"' _ {}
     fi
+fi
+
+if [[ -f "$ABORT_FILE" ]]; then
+    echo ""
+    echo "Error: analysis aborted." >&2
+    cat "$ABORT_FILE" >&2
+    exit 1
 fi
 
 echo ""
