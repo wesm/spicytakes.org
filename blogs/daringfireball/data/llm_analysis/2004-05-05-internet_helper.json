@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber documents a frustrating troubleshooting journey where his default FTP client preference became corrupted and couldn't be reset to Interarchy. After systematically eliminating the application itself, its preferences, and the Internet Config plist as suspects, he discovered the problem lay in corrupted Launch Services cache files. The fix involved deleting the Launch Services cache from /Library/Caches/ and restarting. Along the way, he provides a detailed history of Internet Config on the Mac, from its third-party origins through Apple's adoption and eventual deprecation of the UI in Panther.",
+  "key_points": [
+    "Internet Config, originally created by Quinn 'The Eskimo!' and Peter N Lewis, was adopted by Apple but had its System Preferences UI removed in Panther, fragmenting helper app settings across individual applications",
+    "Systematic troubleshooting eliminated the app, its preferences, and the Internet Config plist before identifying corrupted Launch Services cache files as the culprit",
+    "Launch Services and Internet Config are deeply connected \u2014 on Mac OS X, Internet Config calls through to Launch Services under the hood",
+    "Apple's removal of the Internet preferences panel created a messy situation where users must open Safari to set Firefox as their default browser"
+  ],
+  "money_quotes": [
+    "It is a bit weird to have to open Safari to tell the system that you'd rather use FireFox.",
+    "You know you're in deep shit when Google doesn't have the answer to a troubleshooting issue.",
+    "Internet Config wasn't invented by Apple. It was designed, implemented, and released for free by Quinn \"The Eskimo!\" and Peter N Lewis. It was useful, popular, and widely supported by the developers of Internet client software for the Mac. Thus, Apple adopted it and rolled into the system.",
+    "IE not only provides a UI to modify these system-wide Internet Config settings, but it also stores its own IE-specific private preferences inside the Internet Config preferences. This always struck me as a very odd decision on the part of IE's engineers.",
+    "Now that the Internet System Prefs panel is gone, it's up to individual applications to provide a way to set default protocol handlers."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "When Mac OS X helper app preferences become inexplicably corrupted, the problem often lies not in the visible preference files but in the underlying Launch Services cache that Internet Config calls through to.",
+  "filename": "2004-05-05-internet_helper"
+}

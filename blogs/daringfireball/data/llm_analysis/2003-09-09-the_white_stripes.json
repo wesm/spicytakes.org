@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber describes a rendering discrepancy in Safari that causes a two-pixel white stripe at the bottom of his Google AdSense ads. The issue stems from Google specifying a table height of 250 pixels using a non-standard HTML attribute, which Safari renders two pixels short. He notes that Google's markup is embarrassingly non-compliant with web standards, using a junk attribute first supported by ancient Netscape versions. While he filed a bug report with Apple, he acknowledges Safari shouldn't be blamed for imperfect rendering of invalid HTML. He also suggests Google could fix the issue on their end by setting the background color on the body tag rather than just the table.",
+  "key_points": [
+    "Safari renders a Google AdSense table two pixels shorter than specified, creating a visible white stripe that other browsers don't show",
+    "The root cause is Google using the non-standard 'height' attribute on a table tag \u2014 markup that has no correct rendering behavior",
+    "Google could easily fix the issue by applying the background color to the page body instead of just the table element",
+    "Safari's attempt to render non-standard HTML like legacy browsers is heroic but can never achieve 100% compatibility with invalid markup"
+  ],
+  "money_quotes": [
+    "There is no \"correct\" rendering for non-standard markup.",
+    "It's rather incongruous to see a company as clever as Google writing such embarrassingly bad markup.",
+    "Safari makes a heroic and largely successful attempt to render non-standard HTML markup just like crummy old versions of Netscape and IE do, but it's impossible to achieve 100 percent compatibility.",
+    "It's a junk attribute first supported by some ancient version of Netscape.",
+    "Their markup for Google.com is similarly utterly non-standards-compliant."
+  ],
+  "themes": [
+    "web",
+    "apple",
+    "design",
+    "google"
+  ],
+  "tone": "technical",
+  "key_insight": "When browsers try to faithfully render non-standard HTML, there is no objectively correct behavior to aim for \u2014 the real fix is writing valid markup in the first place.",
+  "filename": "2003-09-09-the_white_stripes"
+}

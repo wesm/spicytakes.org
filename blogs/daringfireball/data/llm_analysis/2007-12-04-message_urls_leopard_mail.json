@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber documents an undocumented feature in Leopard Mail: support for 'message:' URLs that allow linking to individual email messages from other applications. He explains the URL structure based on RFC 2822 Message-ID headers, tests which formats work best across Cocoa apps, and finds that the double-slash format is superior because Cocoa's URL parser recognizes it in text fields. He demonstrates drag-and-drop integration with apps like Yojimbo, VoodooPad, and DragThing, and provides an AppleScript to copy message URLs to the clipboard. The feature, while undocumented by Apple, represents a meaningful step toward making email messages addressable resources within the Mac ecosystem.",
+  "key_points": [
+    "Leopard Mail registers as handler for 'message:' URLs using RFC 2822 Message-ID headers, but Apple hasn't documented this feature anywhere",
+    "The double-slash format (message://) is superior because Cocoa's NSTextView URL parser recognizes it for Control-click actions, while the slash-less format is not recognized",
+    "Drag-and-drop from Mail works with Yojimbo, VoodooPad, DragThing, TextEdit, and iCal, but only one message at a time",
+    "Only spam messages tend to lack valid Message-ID headers, making the feature reliable for legitimate email",
+    "Gruber provides a practical AppleScript that copies message URLs for selected messages to the clipboard"
+  ],
+  "money_quotes": [
+    "That Mail now supports these URLs does not seem to be documented by Apple anywhere, but it's fairly simple, and very useful. It's one of my favorite new features in Leopard Mail.",
+    "Every message-id should be universally unique, and every message should have a message-id. In my testing, the only messages I could find that didn't have Message-ID headers were spam.",
+    "What's essential to note about this is that you don't have to select the entire URL first \u2014 you can just Control-click anywhere in the text of the \"message:\" URL and the entire URL will be selected for you.",
+    "In short, it seems to me that Cocoa's URL guessing parser assumes that URLs contain slashes after the colon.",
+    "It may sound trivial, but it's one of the things I most missed about Mailsmith when I switched to Mail on Tiger back in June."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Leopard Mail's undocumented 'message:' URL scheme turns individual emails into addressable, linkable resources across Mac applications, and the double-slash format works best because it plays nicely with Cocoa's built-in URL recognition.",
+  "filename": "2007-12-04-message_urls_leopard_mail"
+}

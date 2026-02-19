@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber updates his Movable Type smart quotes script, fixing a bug caused by using Perl's q() operator with parenthesis delimiters that broke on unbalanced parens (like smileys), and improving edge case handling for quotes around HTML tags. He takes advantage of new integration between Brad Choate's MTPerlScript and MTMacro plugins to create cleaner template syntax. He acknowledges a remaining limitation with leading contractions and abbreviated decades, noting that even major word processors fail at this. He also critiques Matthew Mullenweg's alternative regex-based approach for failing on valid HTML markup and single-character quoted strings.",
+  "key_points": [
+    "Fixed a bug where Perl's q() delimiter broke on unbalanced parentheses, commonly triggered by smileys like :-)",
+    "Improved the quote education algorithm to handle edge cases with HTML tags like <em> inside quoted text",
+    "New plugin integration allows cleaner pseudo-tag syntax in MT templates instead of inline Perl calls",
+    "Leading contractions ('80s, 'Twas) remain unsolved, but major word processors fail at this too",
+    "Mullenweg's regex-only approach fails on valid HTML with spaces around attribute equals signs and on single-character quoted strings"
+  ],
+  "money_quotes": [
+    "If you tried to publish a post containing unbalanced parens \u2014 most frequently because of smileys: :-) \u2014 MT would fail to publish the article, and you'd see cryptic errors (which probably looked like downright gibberish if you don't speak Perl).",
+    "I figure if BBEdit, Word, and QuarkXPress aren't smart enough to get this right, I don't care if my script is either.",
+    "I don't believe it's possible to correctly educate quotes in HTML markup only using regular expressions.",
+    "I'm uncomfortable failing against valid markup, especially in this case, when it will prevent the tag from working at all.",
+    "Mullenweg comes close, but his implementation will do bad things with perfectly valid markup."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Properly converting straight quotes to curly quotes in HTML is a deceptively hard problem that requires parsing beyond regular expressions, and the right approach prioritizes never breaking valid markup over handling every edge case.",
+  "filename": "2002-10-05-movable_type_smart_quotes_now_with_retsin"
+}

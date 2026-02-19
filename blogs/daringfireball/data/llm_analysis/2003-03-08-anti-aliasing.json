@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber argues that Safari incorrectly applies anti-aliasing to small monospaced fonts like Monaco 9 and 10, which were designed as pixel-perfect bitmap fonts for displaying source code. He explains that while anti-aliasing improves the on-screen appearance of proportional typefaces by capturing more of their high-resolution character, it actively harms readability for monospaced fonts where distinguishing individual characters is critical. He demonstrates through browser comparisons that Camino correctly leaves these fonts un-aliased while Safari smudges them, making punctuation like backticks, dollar signs, and tildes harder to distinguish. He notes this is puzzling since other Cocoa apps like TextEdit already handle this correctly, and hopes it's a bug rather than a deliberate choice.",
+  "key_points": [
+    "Monospaced fonts serve a critical modern purpose: displaying source code where precise character recognition of punctuation is essential, and anti-aliasing undermines this by blurring distinctions between similar characters.",
+    "Anti-aliasing works well for prose because reading relies on whole-word recognition, but source code demands individual character recognition, making the tradeoffs fundamentally different.",
+    "Monaco 9 is a surviving masterpiece of the original Mac's hand-tuned bitmap fonts, and Monaco 10 is a worthy OS X successor \u2014 neither was designed to be anti-aliased.",
+    "Safari's behavior is puzzling because other Cocoa applications correctly avoid anti-aliasing small Monaco, suggesting this may be a bug rather than a design decision.",
+    "Older Mac bitmap fonts like Geneva 9 also look worse when anti-aliased, appearing thin and wispy rather than crisp, and Camino is clever enough to avoid this."
+  ],
+  "money_quotes": [
+    "It's downright silly that an apostrophe should consume the same space as an m.",
+    "Monospaced typefaces serve one great purpose in the modern age: they are ideal for displaying markup and programming language source code.",
+    "When you read normal prose, your brain doesn't recognize individual characters \u2014 it recognizes entire words.",
+    "The real Helvetica is what you see on the printed page.",
+    "The ability to discern individual characters is more important than creating on-screen characters that more accurately reflect the style of high-resolution output.",
+    "9-point Monaco is the last surviving masterpiece of the original Macintosh's painstakingly hand-tuned set of pixel-perfect bitmap fonts, and deservedly so.",
+    "The anti-aliased version of Monaco just isn't an attractive typeface; it looks smudged, not smooth."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical, opinionated",
+  "key_insight": "Anti-aliasing is the right default for prose typography but the wrong choice for monospaced code fonts, where precise character discrimination matters more than faithfulness to high-resolution output.",
+  "filename": "2003-03-08-anti-aliasing"
+}

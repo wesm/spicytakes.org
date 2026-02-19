@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber recounts his experience with Microtech's Zio USB CompactFlash card reader, whose Mac OS X kernel extension driver causes reproducible kernel panics when waking from sleep. He explains how Mac OS X's memory protection prevents applications from crashing the system, but kernel extensions like device drivers operate outside that sandbox and can still cause system-wide crashes. The insidious nature of the bug is that the crash occurs during wake-from-sleep, making it difficult for average users to connect it to the Zio driver. Gruber then details the surprisingly difficult process of uninstalling the driver, which required using command-line tools to find the obscurely named kernel extension and root permissions to delete it.",
+  "key_points": [
+    "Mac OS X's memory protection prevents apps from crashing the system, but kernel extensions (device drivers) bypass this protection and can cause kernel panics",
+    "The Zio driver bug is insidious because the kernel panic occurs on wake-from-sleep, not during direct use of the device, making the cause hard to identify",
+    "Mac OS X's Installer creates receipts with bills of materials (.bom files) that can be parsed with the lsbom command-line tool to find what files were installed",
+    "Uninstalling kernel extensions requires root access, putting it beyond the ability of most Mac users, meaning buggy drivers tend to persist indefinitely",
+    "The driver was installed as 'USBATCF.kext' \u2014 an opaque name that makes manual discovery nearly impossible"
+  ],
+  "money_quotes": [
+    "\"Kernel panic\" is a fancy term, but the end result is just as disastrous as an old-fashioned system-wide crash \u2014 your only option is to reboot, and hope that you didn't have anything important open with unsaved changes.",
+    "The problem is that while applications can't bring down the system on Mac OS X, other kinds of software can. Such as, say, device drivers implemented as kernel extensions.",
+    "What's insidious about it is that it's not necessarily obvious the Zio driver is causing the kernel panic.",
+    "I suspected the Zio immediately, because I know that only certain kinds of software can cause kernel panics, and the Zio driver was the only such software I'd installed recently.",
+    "I want Microtech's crummy software off my machine, on general principle.",
+    "\"USBATCF.kext\"? That's so obvious! How did I miss it?",
+    "For those who aren't sufficiently savvy regarding root permissions \u2014 which describes the vast majority of Mac users \u2014 something like Microtech's crummy Zio driver is likely to sit there stinking up the Extensions folder forever."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, sardonic, instructive",
+  "key_insight": "Mac OS X's robust memory protection for applications doesn't extend to kernel extensions, and the difficulty of identifying and removing buggy drivers exposes a significant usability gap for ordinary users.",
+  "filename": "2003-08-07-microtechs_crashtacular_zio_driver"
+}

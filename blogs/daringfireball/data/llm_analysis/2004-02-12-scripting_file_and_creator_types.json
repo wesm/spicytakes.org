@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber explores the practical tradeoffs of using different scripting languages on Mac OS X to change HFS file and creator type metadata. He compares AppleScript, tcsh shell scripting, and Perl implementations of the same task, triggered via Brent Simmons's Big Cat Scripts contextual menu plug-in. While he prefers Perl's syntax, he concludes that AppleScript is superior for this use case because it works on stock Mac OS X installations and, crucially, causes the Finder to immediately update its file views. Shell and Perl scripts modify metadata at the Unix level, leaving the Finder's display out of sync until it notices the change on its own.",
+  "key_points": [
+    "Mac OS X uniquely bridges AppleScript and Unix scripting worlds, with system support for both via the Script Menu and tools like Big Cat Scripts",
+    "The same file metadata task (setting HFS file and creator types) can be accomplished in AppleScript, tcsh, or Perl, each with different dependency requirements",
+    "AppleScript is the only option that works on a stock Mac OS X install without developer tools or CPAN modules",
+    "AppleScript's killer advantage is that the Finder immediately reflects metadata changes because it's the Finder itself making the modification",
+    "Practical convenience sometimes trumps language preference \u2014 Gruber chooses AppleScript over his preferred Perl when the Finder needs to stay in sync"
+  ],
+  "money_quotes": [
+    "Mac OS X brings together two worlds of scripting \u2014 traditional Mac OS AppleScript, and traditional Unix scripting.",
+    "Purely in terms of language syntax, I prefer the Perl version. (So shoot me.)",
+    "The AppleScript version is the only one that will work on a stock Mac OS X installation.",
+    "It's highly unsatisfying to run a script that says \"make this a BBEdit text file\", and but not have the file's icon changed immediately to reflect that the script actually worked as intended.",
+    "The Finder obviously notices that the file's metadata has changed, because it's the Finder itself that changes the file's creator and file type info.",
+    "Even in cases where I feel like it would take less time for me to write a script using Perl, I'll use AppleScript instead if I plan to invoke the script from Big Cat's contextual menu."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "When scripting file operations on Mac OS X, AppleScript's integration with the Finder \u2014 ensuring immediate visual feedback \u2014 makes it the pragmatic choice over syntactically preferred languages like Perl.",
+  "filename": "2004-02-12-scripting_file_and_creator_types"
+}

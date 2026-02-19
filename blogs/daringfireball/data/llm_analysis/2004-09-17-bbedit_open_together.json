@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber shares an AppleScript he wrote to solve a specific workflow problem with BBEdit 8's new multi-document text windows. He wants documents to open individually by default, but also wants the ability to open a group of related files together in a single new window from the Finder. The script uses Brent Simmons's Big Cat Scripts contextual menu plug-in to achieve this. He walks through the script's logic in detail, explaining the workaround needed because BBEdit can't create empty text windows. Chris Nandor later ported the script to Perl for command-line use.",
+  "key_points": [
+    "BBEdit 8's multi-document windows offer all-or-nothing defaults, but Gruber wants selective grouping of related files",
+    "The script exploits BBEdit's 'open...opening in' syntax to batch-open files into a specific window, which is more efficient than looping",
+    "A key workaround involves tracking the auto-created untitled document's unique ID so it can be closed after the real files are loaded",
+    "The script integrates with the Finder via Big Cat Scripts contextual menu or can be adapted as a drag-and-drop application"
+  ],
+  "money_quotes": [
+    "But what I want is something in-between. By default, I want documents to open using the traditional individual-window model. But I also want to be able to open a group of related files all at once, together in a single new window \u2014 in a single action from the Finder.",
+    "There is no way to create an 'empty' text window containing no documents; when you close the last document in a window, the window goes away.",
+    "There's no need to loop through the list and open them one at a time \u2014 in fact, for a long list of files, it's considerably more efficient to tell BBEdit to open the list in one statement.",
+    "We couldn't close this document before opening the files in file_list because it was the only document in w at the time, and so the entire window would have gone away when the document was closed.",
+    "The in w is all it takes to open these files in the new text window we just created."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "When software defaults don't match your workflow, a small script can bridge the gap between all-or-nothing settings and the nuanced behavior you actually want.",
+  "filename": "2004-09-17-bbedit_open_together"
+}

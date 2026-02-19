@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber analyzes Apple's Security Update 2004-05-24, which fixed the Help Viewer 'help:runscript' URI vulnerability by preventing script execution from external applications. He walks through how the exploit chain works \u2014 remote servers mounting disk images via 'disk' URIs, registering custom URI schemes, and launching malicious applications \u2014 and explains that disabling dangerous URI protocols via RCDefaultApp is sufficient protection. He argues against using Unsanity's Paranoid Android haxie, which injects code into every running application to intercept URI calls, contending that every vulnerability it addresses can be closed through supported configuration changes. He directly challenges Unsanity's claim that 'only Paranoid Android provides protection,' demonstrating that disabling 'disk', 'disks', and 'afp' protocols and reassigning 'ftp' away from the Finder closes all known attack vectors.",
+  "key_points": [
+    "Apple's security update surgically fixed Help Viewer to block 'help:runscript' URIs from external apps while preserving safe 'help:search' functionality",
+    "The generalized vulnerability chain involves remotely mounting volumes, having the Finder register custom URI schemes from malicious apps, then launching those apps via the newly-registered schemes",
+    "Disabling 'disk', 'disks', and 'afp' URI protocols and reassigning 'ftp' away from the Finder closes all known exploit vectors without third-party software",
+    "Unsanity's claim that 'only Paranoid Android provides protection' is factually incorrect \u2014 supported configuration changes accomplish the same thing",
+    "Paranoid Android works by injecting code into every running application via unsupported mechanisms, creating potential for conflicts that simple Launch Services configuration changes avoid"
+  ],
+  "money_quotes": [
+    "Apple has prevented precisely what was dangerous, and nothing else.",
+    "It is simply not true that 'only Paranoid Android provides protection from it.'",
+    "Why run a haxie if you can close these vulnerabilities without one?",
+    "RCDefaultApp merely modifies your Launch Services settings, and should therefore conflict with nothing. Paranoid Android uses completely unsupported mechanisms to inject code into every running application, and therefore has the potential to conflict with anything.",
+    "If there is a demonstrable exploit that cannot be disabled by supported means, I'd like to see it.",
+    "At this point, the user's goose is potentially cooked \u2014 once the application is launched, it has free reign.",
+    "The key to prevention is to nip it at step #1, and prevent remote servers from automatically mounting volumes in your file system."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical, opinionated",
+  "key_insight": "Surgical, supported configuration changes that disable dangerous URI protocols are preferable to injecting unsupported code into every application, because the simplest fix that closes the vulnerability is always the right one.",
+  "filename": "2004-05-23-help_viewer_security_update"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber reports that Apple's QuickTime 6.0.2 installer for Mac OS X contains a Perl script using deprecated uppercase comparison operators (EQ/NE) that fail on Perl 5.8. While the installer works on stock Jaguar with Perl 5.6, users who upgraded to Perl 5.8 following Apple's own instructions are affected. Gruber argues the bug is inexcusable because using the standard '-w' switch would have flagged the deprecated syntax immediately. He connects this to Apple's pattern of shipping poorly-written installer scripts, referencing the iTunes installer that erased drives the previous year.",
+  "key_points": [
+    "Apple's QuickTime installer uses deprecated Perl operators (EQ/NE) that break on Perl 5.8, which Apple itself tells users how to install",
+    "The bug would have been caught trivially by using Perl's standard '-w' warning switch, a basic best practice taught in every beginner tutorial",
+    "Apple has a pattern of shipping careless installer scripts, previously causing the iTunes installer to erase user drives",
+    "The contradiction of Apple publishing a how-to for upgrading Perl while shipping code incompatible with that upgrade shows internal disconnect"
+  ],
+  "money_quotes": [
+    "The mistake is inexcusable, for several reasons.",
+    "One of the first lessons in every Perl beginners tutorial is that you should always start your scripts with the \"-w\" switch.",
+    "I simply can't emphasize strongly enough just how boneheaded it is not to use \"-w\" \u2014 for *any* script, let alone one which is going to be executed by *hundreds of thousands* of your customers.",
+    "The script probably ought to be running under the \"use strict\" pragma as well, but \"-w\" is all they needed to flag this mistake.",
+    "You'd think after last year's iTunes installer fiasco, which was caused by a poorly-written shell script, Apple would have learned something."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "critical",
+  "key_insight": "Apple's failure to use basic Perl best practices in a widely-distributed installer script reveals a troubling carelessness with code quality, especially given their history of installer bugs.",
+  "filename": "2002-10-29-perl_for_dummies_and_apple_installer_engineers"
+}

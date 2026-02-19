@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber weighs in on a debate about whether the Mac OS X Finder should allow replacing a folder with a same-named file (or vice versa), a behavior the classic Finder deliberately prevented. He agrees with Rentzsch that such replacements are almost always mistakes with catastrophic consequences, but also agrees with Bumgarner that treating all same-named replacements consistently makes sense. His proposed solution: instead of irrevocably deleting the replaced item, the Finder should move it to the Trash, preserving the convenience of one-step replacement while making the action reversible. He notes the only historical reason this wasn't done was scarce disk space on early Macs, a constraint that no longer applies.",
+  "key_points": [
+    "The classic Finder deliberately prevented replacing files with folders (or vice versa) as a design decision, not a technical limitation",
+    "The OS X Finder's replacement behavior is catastrophically destructive: replaced items are irrevocably deleted, not moved to the Trash, and Undo cannot restore them",
+    "Gruber proposes that the Finder should move replaced items to the Trash instead of deleting them, making all replacements non-destructive and fully undoable",
+    "The original Trash concept solved accidental deletion but was never applied to file replacement, likely because early Macs lacked sufficient disk space",
+    "Alias resolution would need minor updates to handle replaced items sitting in the Trash"
+  ],
+  "money_quotes": [
+    "No matter how much aggregate time you might save over the course of a lifetime by the current OS X Finder's permission of such folder-for-file-or-vice-versa replacements, it will never add up to the time you will lose if you get screwed by inadvertently allowing it just once.",
+    "The Trash was one of the biggest and best ideas in the original Macintosh. The concept of the Trash is simple, powerful, and obvious.",
+    "Nearly 20 years later, all computers now ship with a Trash-like interface for file deletion. Why? Because the time lost by having to first move files to the Trash and then invoke a separate 'Empty Trash' command is insignificant compared to how much time you will lose if you delete something important accidentally.",
+    "The Macintosh Trash almost completely solved the problem of people accidentally erasing files, a problem which, if you're old enough to remember, was rampant on systems that lacked a Trash metaphor.",
+    "But the Finder doesn't use the Trash when you replace a file, and never has. After permitting the replacement in the confirmation dialog, the original item is gone, deleted, nuked.",
+    "I think we can use some of this disk space to make file replacement non-destructive.",
+    "It could also be argued that it's an indication the OS X Finder engineers didn't thoroughly consider the ramification of allowing a file to be replaced by a folder."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "analytical",
+  "key_insight": "The Finder's file replacement behavior is a glaring inconsistency: the Mac pioneered the Trash to prevent accidental deletion, yet replacing a same-named item bypasses it entirely, irrevocably destroying the original.",
+  "filename": "2003-03-02-i_love_it_because_its_trash"
+}

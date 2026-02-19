@@ -1,0 +1,20 @@
+{
+  "summary": "Gruber describes his discovery of a hidden RTF-to-plain-text conversion tool buried inside Apple's FileMerge application package. After failing to find a suitable Perl module on CPAN for converting RTF files to plain text, he stumbled upon the convertRichTextToAscii utility while exploring FileMerge's preferences. He explains how to use it from the command line and integrate it as a BBEdit shell filter, noting that despite its name, it actually outputs UTF-8 rather than ASCII.",
+  "key_points": [
+    "CPAN surprisingly lacks a simple Perl module for converting RTF to plain text, despite having many RTF-related modules",
+    "Apple's FileMerge app contains a hidden convertRichTextToAscii utility buried in its application package resources",
+    "The tool works well with RTF files from both Word and TextEdit and can be integrated into BBEdit as a Unix filter",
+    "Despite its name, the tool converts to UTF-8 rather than ASCII, which is actually preferable"
+  ],
+  "money_quotes": [
+    "Most surprisingly, there don't seem to be any Perl modules on CPAN that can do this; there are a bunch that have something to do with RTF (e.g. creating RTF files from scratch), but none that will simply take an RTF file as input and spit out a plain text translation.",
+    "The convertRichTextToAscii tool doesn't actually convert RTF to ASCII \u2014 it converts to UTF-8. This is a good thing, since technically, the ASCII character set only includes 128 characters."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Useful developer utilities are sometimes hidden inside Apple's application packages, waiting to be discovered by anyone curious enough to poke around inside them.",
+  "filename": "2003-04-29-rtf_to_plain_text_translator"
+}

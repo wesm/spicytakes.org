@@ -1,0 +1,21 @@
+{
+  "summary": "Gruber follows up on his earlier suggestion that the Finder should move replaced items to the Trash instead of permanently deleting them. He had anticipated a problem with the Mac OS Alias Manager, which traditionally tracked aliases by file ID first, meaning aliases would follow the old file into the Trash. However, he discovered that Apple changed the Alias Manager in Jaguar (10.2) to resolve aliases by path first, file ID second. This means aliases now automatically point to a new replacement file at the same path rather than following the original to the Trash. Gruber sees this as both an improvement in its own right and as removing a technical obstacle to his proposed Finder behavior change.",
+  "key_points": [
+    "The Mac OS Alias Manager changed in Jaguar to resolve aliases by path first, file ID second \u2014 reversing the previous priority order",
+    "This behavioral change means aliases now point to replacement files at the same location rather than following the original file to the Trash",
+    "The change removes a key technical obstacle to Gruber's proposal that the Finder should move replaced items to the Trash instead of permanently deleting them",
+    "Gruber provides a step-by-step reproducible test to verify the new alias resolution behavior"
+  ],
+  "money_quotes": [
+    "Unlike previous versions of Mac OS, aliases are now resolved by path first, file ID second.",
+    "This new behavior is different, but I think it's a decided improvement, in that \"the right thing\" will happen more often than before when you have aliases pointing to an item that you replace.",
+    "It also means that it should be a little bit easier than I thought for Apple to change the Finder to move replaced items to the Trash instead of deleting them."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Apple's quiet change to alias resolution priority in Jaguar \u2014 path-first instead of file-ID-first \u2014 both improves everyday behavior and removes a technical barrier to making the Finder's file replacement safer by moving replaced items to the Trash.",
+  "filename": "2003-03-07-aliasing"
+}

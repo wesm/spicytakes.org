@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber shares an AppleScript he wrote to automate inbox management in Apple Mail. The script sweeps all read, unflagged messages from each IMAP account's inbox into a corresponding 'Archive' mailbox. He explains his simple mailbox structure and the motivation: keeping inboxes clear of everything except unread and flagged messages. The post includes detailed notes on the script's efficiency, particularly its use of AppleScript's 'whose' clause to filter and move messages en masse rather than one at a time.",
+  "key_points": [
+    "Gruber uses a simple mailbox structure with an 'Archive' mailbox for each IMAP account, sweeping read unflagged messages daily",
+    "The AppleScript uses a 'whose' clause to filter messages by criteria and move them in bulk, avoiding slow per-message loops",
+    "The script was updated in 2011 to work around a bug in Apple Mail on OS X 10.7.0",
+    "The post provides practical guidance on adapting the script for local mailboxes instead of IMAP server-side archives"
+  ],
+  "money_quotes": [
+    "The point is to make it as easy as possible to keep my inboxes clear of everything other than unread and flagged messages.",
+    "This is a nice example of using a whose clause to create a filtered reference to a list of items that meet certain criteria.",
+    "Mail's scripting support also allows us to move the entire list of messages en masse.",
+    "We don't need to loop through each message in the inboxes one at a time to find the read unflagged ones, and we don't need to move them one at a time to the Archive mailboxes.",
+    "It might take a few seconds for Mail to finish moving the messages out of your inboxes."
+  ],
+  "themes": [
+    "apple"
+  ],
+  "tone": "technical",
+  "key_insight": "A well-crafted AppleScript using filtered references can efficiently automate inbox management in Apple Mail, moving bulk messages without slow per-message iteration.",
+  "filename": "2007-07-16-simple_inbox_sweeper"
+}

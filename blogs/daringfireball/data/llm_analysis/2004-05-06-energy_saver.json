@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber documents his methodical debugging of a bizarre Mac OS X bug where the Energy Saver preferences panel refused to load, accompanied by system freezes and wake-from-sleep failures on his iBook. Through a process of elimination involving user account isolation, preference file bisection, and finally discovering hidden dot files that the Finder couldn't show him, he traced the problem to a corrupted .GlobalPreferences.plist file. After the problem recurred, he dug deeper and isolated the specific culprit: a custom time format setting in the International preferences panel that omitted the 'M' from AM/PM. The bug is fully reproducible \u2014 any custom time format using just 'A' or 'P' instead of 'AM' or 'PM' prevents Energy Saver from loading. He publishes the fix primarily so Google indexes it for others with the same problem.",
+  "key_points": [
+    "A custom time format removing the 'M' from AM/PM in International preferences caused Energy Saver to fail to load \u2014 a completely unrelated subsystem",
+    "The Finder's inability to show hidden dot files led Gruber astray during his binary search through preference files, until he switched to Terminal",
+    "Gruber's debugging methodology was systematic: isolate to user account, then preference folder, then individual files",
+    "The post doubles as a deliberate SEO strategy \u2014 publishing the fix so Google can serve it as a troubleshooting resource"
+  ],
+  "money_quotes": [
+    "Googling not only didn't turn up an answer, it didn't even turn up other instances of the problem.",
+    "That's obviously just placeholder text, which is supposed to be set to the actual status.",
+    "Silly me, trying to do this from the Finder.",
+    "An invocation of 'ls -AF' turned up a handful of hidden dot files. I.e. files with names that start with a dot, the Unix man's way of turning files 'invisible'.",
+    "Yes, yes \u2014 I'll file a proper report with Apple about this. But first things first \u2014 blog it so it gets into Google, the world's best troubleshooting database."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "A custom time format in Mac OS X's International preferences that drops the 'M' from AM/PM inexplicably prevents the Energy Saver panel from loading \u2014 a perfect example of how seemingly unrelated system preferences can interact in catastrophic and opaque ways.",
+  "filename": "2004-05-06-energy_saver"
+}

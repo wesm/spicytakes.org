@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber dissects the deeply flawed implementation of Panther's (Mac OS X 10.3) custom keyboard shortcuts feature in System Preferences. He catalogs its major deficiencies: requiring users to type exact menu item names instead of selecting from a list, arbitrary restrictions on allowed key combinations, no conflict detection with existing shortcuts, and no ability to remove default shortcuts. He traces these problems to an architectural decision where Apple layered user customizations on top of the old system rather than replacing it, meaning the preferences panel has no way to query applications for their menu items or existing shortcuts. He concludes that Apple needs a proper system-wide mechanism for applications to register all their shortcuts, even if it means only explicitly supporting apps would benefit.",
+  "key_points": [
+    "Panther's custom keyboard shortcuts require typing exact menu item names (including distinguishing ellipses from three periods), which is fundamentally un-Mac-like",
+    "The feature allows nonsensical shortcuts (Option-key only) while blocking useful ones (Cmd-letter), and provides no conflict detection or ability to remove existing shortcuts",
+    "The root cause is architectural: Apple layered customization on top of the old system rather than replacing it, so the prefs panel cannot query apps for their menus or detect conflicts",
+    "Third-party apps like BBEdit and Mailsmith already do keyboard shortcut customization correctly \u2014 with lists, immediate application, and conflict prevention",
+    "A half-assed feature is worse than no feature at all; Apple needs a proper system-wide mechanism for apps to register all their shortcuts"
+  ],
+  "money_quotes": [
+    "What could be less Mac-like than needing to type the exact name of something to use it?",
+    "When the human interface starts following the lead of the command-line interface, we might as well pack up our bags and move to Redmond.",
+    "Which means when I type a bullet in the Finder, the front window is sent into the Dock. Nice.",
+    "A half-assed feature usually is worse than none at all, and half-assed might be a generous description in this case.",
+    "What Apple has done is implement a new user-customizable architecture for storing and determining menu key shortcuts, but instead of replacing the old architecture, the new way is just sitting on top of the old one.",
+    "It not only doesn't know the app's built-in shortcuts, it can't know.",
+    "If that's not possible given the current underlying implementation, it's not an argument for forcing users to tolerate these limitations \u2014 it's an argument that we need a new underlying implementation."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "critical, technical, exasperated",
+  "key_insight": "Apple's Panther keyboard shortcut customization is fundamentally broken because it was layered on top of the old architecture rather than replacing it, making proper menu discovery and conflict detection architecturally impossible.",
+  "filename": "2003-12-14-losers_weepers"
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber shares an AppleScript he wrote for BBEdit 8 that enables renaming an open document in a single step, a feature he notes no application offers natively. The script presents a dialog box with the current filename and lets users type a new name. It handles both saved files (by telling the Finder to rename) and unsaved documents (by changing BBEdit's internal name property). He walks through the technical implementation, explaining how BBEdit's scripting objects and AppleScript's dialog commands work together.",
+  "key_points": [
+    "No application Gruber knows of offers in-place document renaming, requiring a tedious multi-step process through the Finder instead",
+    "The script handles two cases elegantly: renaming files on disk via the Finder, and renaming unsaved documents by changing BBEdit's name property",
+    "The script works with BBEdit 8's multi-document windows, renaming only the active document",
+    "Gruber provides a detailed technical walkthrough of the AppleScript implementation"
+  ],
+  "money_quotes": [
+    "A feature I've always wanted, but which no application I'm aware of offers, is the ability to rename an open document.",
+    "\"Save As\" is not the same thing \u2014 because while it allows you to save a document with a new name, it leaves behind the previously-saved copy of the file with the old name.",
+    "This has always struck me as something that ought to be doable in a single step.",
+    "I use this for temporary scratch documents which I don't need to keep, but for which I'd like to have more descriptive names than something like \"untitled text 5\"."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Renaming an open document should be a single-step operation, and the gap between what users expect and what applications provide can often be bridged with scripting.",
+  "filename": "2004-10-02-rename_active_document"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber defends HFS+ against years of disrespect from Unix purists who dismissed it in favor of UFS, arguing that Apple's file system was always better-suited to Mac OS X. He reveals that Dominic Giampaolo, hired from Be Inc., wasn't building an HFS+ replacement but rather Spotlight \u2014 a metadata search system built on top of HFS+. The post details Spotlight's architecture from a WWDC attendee's report, explaining its file-centric design, importer-based indexing, and real-time metadata updates. Gruber notes that Tiger will actually expand HFS+ support rather than deprecate it, vindicating those who stuck with it.",
+  "key_points": [
+    "Unix enthusiasts who reformatted their Mac OS X drives as UFS were making an ideological rather than technical choice, and all eventually switched back to HFS+",
+    "Dominic Giampaolo wasn't hired to replace HFS+ but to build Spotlight's metadata layer on top of it, adding capabilities rather than starting over",
+    "Spotlight is file-centric at its core \u2014 its email search only works because Tiger Mail switched to one-message-per-file storage, potentially leaving third-party mail clients unsearchable",
+    "Spotlight uses three data sources: its own metadata store, HFS+ catalog calls, and SearchKit's full-text index, with importers firing automatically on every file change",
+    "Tiger 10.4 will ship with updated Unix tools that properly support HFS+ resource forks and metadata, fixing a long-standing gap"
+  ],
+  "money_quotes": [
+    "The gist of it boiled down to I'm a Unix tough guy; I have no need for that deprecated Mac OS baby stuff.",
+    "For typical desktop use, there were never any actual technical reasons for using UFS in lieu of HFS+; it just sounded like a nerdy thing to do.",
+    "The only negative thing that can be said about this is that it's about fucking time.",
+    "Updating the tools to support HFS features is a much better solution than trying to ram the less-featured UFS down everyone's throat as a sop to the limitations of 30-year-old command-line tools.",
+    "Ah-hah, exclaimed the peanut gallery, Apple hired Dominic Giampaolo to write a brand-new file system to replace HFS+!",
+    "Spotlight's ability to show results from Apple Mail archives on Jobs' machine was tantamount to a sham.",
+    "Spotlight is going to kick a great deal of ass."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "opinionated, vindicated, technical",
+  "key_insight": "Apple's strategy with Spotlight was to build a powerful new metadata layer on top of HFS+ rather than replace it, vindicating the file system's design and proving the Unix purists wrong.",
+  "filename": "2004-07-12-spotlight_on_spotlight"
+}

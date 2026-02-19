@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber debunks a Register article claiming Apple's Security Update 2004-06-07 failed to block URI-based exploits. He explains that the update works exactly as intended \u2014 it only prompts for confirmation when Launch Services encounters never-before-launched applications. The Register's test failed because they had previously run the exploit apps, which were already trusted by Launch Services. Gruber verified this by deleting Launch Services cache files and restarting, after which the exploits were properly blocked. He also corrects the article's characterization of Paranoid Android and notes that even Unsanity considers their tool obsoleted by the update.",
+  "key_points": [
+    "The Register's Tony Smith incorrectly reported that Apple's security update failed to block known exploits, without investigating why his test produced that result",
+    "Launch Services tracks previously-launched applications and implicitly trusts them \u2014 the security update only prompts for never-before-launched apps",
+    "Security Update 2004-06-07 makes a surgically precise change to Launch Services, unlike Paranoid Android's sweeping approach of blocking all non-standard URI protocols",
+    "Even Unsanity, the creators of Paranoid Android, acknowledged that Apple's update properly addresses the vulnerability their tool was designed to fix",
+    "The Register's recommendation to keep Paranoid Android alongside the update contradicts Unsanity's own guidance"
+  ],
+  "money_quotes": [
+    "Never one to let actual research or reporting get in the way of a good story, The Register's Tony Smith published an article about yesterday's security update.",
+    "To be clear: Security Update 2004-06-07 blocks these example exploits in exactly the way it is supposed to.",
+    "Security Update 2004-06-07, on the other hand, makes a surgically precise modification to the previous (vulnerable) behavior of Launch Services: it only kicks in when Launch Services has been asked to automatically launch a never-before-launched application.",
+    "Sorry for all the wavering vagueness here in this parenthetical; suffice it to say that Launch Services is more or less a black box.",
+    "Of course, Unsanity doesn't tell you how to uninstall Paranoid Android.",
+    "But you shouldn't have to worry about that, because you didn't install Paranoid Android."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "media"
+  ],
+  "tone": "critical, technical, sardonic",
+  "key_insight": "The Register's flawed testing methodology \u2014 running exploit apps before installing the update \u2014 led to an incorrect report that Apple's security fix was broken, when in fact it worked exactly as designed by only flagging never-before-launched applications.",
+  "filename": "2004-06-08-misregistered"
+}

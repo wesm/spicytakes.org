@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber investigates what Google Desktop for Mac installs on a user's system, since Google's custom installer (Google Updater) lacks any transparency about what files it places where. He methodically catalogs every file installed by comparing before-and-after snapshots of a test machine. The findings reveal several concerning practices: an input manager hack injected into every Cocoa app, files installed in the /System/Library hierarchy (a major no-no for third-party software), a dynamically loaded kernel extension, and about 45 MB of background processes. While the uninstaller works cleanly, the lack of upfront disclosure about these deep system modifications is the core issue.",
+  "key_points": [
+    "Google Desktop uses a custom installer (Google Updater) that provides no way to see what files will be installed or where, unlike Apple's standard installer",
+    "Google Desktop installs an input manager hack in the local Library that injects code into every Cocoa application for all users on the machine",
+    "Files are installed into /System/Library, which is considered off-limits for third-party software, and a kernel extension is loaded dynamically from a non-standard location",
+    "The software runs five background processes consuming about 45 MB of real memory",
+    "The uninstaller works properly, removing all significant software including the input manager hacks"
+  ],
+  "money_quotes": [
+    "I won't install software like this on my main machine without knowing everything that's going to be installed.",
+    "Google Desktop installs an input manager hack in the local domain Library folder. That means it is installed for all users on the machine, and injects code into every Cocoa application you launch.",
+    "Google Updater does not give you the option to install such files in your per-user Library folder.",
+    "My understanding is that it's a major no-no for third-party software to install anything in the /System/Library/ hierarchy other than kernel extensions.",
+    "It's a slick, easy-to-use piece of software, but alas, it lacks anything like the aforementioned Show Files feature of Apple's installer. There's no way to tell what files it's going to install, or where.",
+    "Mac software is usually distributed in a way that encourages simple drag-and-drop installation."
+  ],
+  "themes": [
+    "apple",
+    "google",
+    "design"
+  ],
+  "tone": "investigative, technical, skeptical",
+  "key_insight": "Google Desktop's slick installer conceals deeply invasive system modifications \u2014 input manager hacks, kernel extensions, and files in /System/Library \u2014 that users deserve to know about before installation.",
+  "filename": "2007-04-04-google_desktop_installer"
+}

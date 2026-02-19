@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber explains how to remove HFS file and creator type metadata from files via scripts, complementing his earlier post on setting them. He describes Mac OS X's hierarchy for determining file-app bindings: per-file Finder bindings first, then HFS creator types, then filename extensions. The core technical problem is that HFS types are four-byte OSType values, not strings, so you can't set them to empty strings. The solution, provided by Jim Correia, is to set them to four null bytes (ASCII character 0 repeated four times). Gruber provides working solutions in both AppleScript and Perl, and explains his personal workflow of using creator types for files he edits and extensions for files he only reads.",
+  "key_points": [
+    "Mac OS X uses a three-tier hierarchy for file-app binding: per-file Finder assignments (stored in resource forks), HFS creator types, then filename extensions",
+    "HFS file and creator types are not stored in resource forks but are metadata fields defined by the file system itself, contrary to widespread misconception",
+    "OSType values are always exactly four bytes, so you cannot coerce a zero-length or arbitrary-length string into one \u2014 the 'empty' value is four null bytes",
+    "The practical workflow distinction: use creator types for files you actively edit (so they open in your editor) and let extensions control files you only read",
+    "Historical workarounds like '????' or four spaces function but are not genuine solutions compared to four null bytes"
+  ],
+  "money_quotes": [
+    "Supporting file type and creator metadata isn't mutually exclusive with supporting Launch Services-style filename extension app assignment.",
+    "If it's an HTML file I'm editing, I want it to open in BBEdit; if it's an HTML file I just want to read, however, then I want it to open in my default web browser.",
+    "Contrary to widespread misconception, HFS file and creator types are not stored in the resource fork, they're simply metadata fields defined by the file system itself, just like the filename and date fields.",
+    "The trick is to think like a C/C++ programmer, not a scripter.",
+    "What looks like an 'empty' OSType is actually four bytes, each byte with a value of zero."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "HFS file types are four-byte OSType values, not strings, so clearing them requires setting four null bytes rather than an empty string \u2014 a solution that requires thinking at the byte level rather than the scripting level.",
+  "filename": "2004-02-13-setting_empty_file_and_creator_types"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber announces his new project: CSS syntax checking scripts for BBEdit and TextWrangler that integrate with the W3C's CSS Validation Service. The scripts combine Perl and AppleScript to send CSS content to the W3C validator and display errors in BBEdit's results browser. He explains that he delayed building this for years due to his aversion to screen-scraping, which was necessary because the W3C validator lacks a proper web services API. Despite the fragility of parsing HTML output, the tool works well enough to ship.",
+  "key_points": [
+    "The scripts provide W3C CSS validation integrated directly into BBEdit/TextWrangler's results browser interface",
+    "The implementation relies on screen-scraping because the W3C CSS Validation Service has no proper API",
+    "Screen-scraping is fragile \u2014 the W3C's output HTML isn't always well-formed, and format changes could break the parser",
+    "Gruber delayed the project for years specifically because of his distaste for screen-scraping as a technique"
+  ],
+  "money_quotes": [
+    "I've had the idea for this for a couple of years, but I put off hacking it together because I have a strong aversion to screen-scraping.",
+    "The W3C CSS Validation Service is a wonderful tool, but, alas, it has no proper API for calling it as a web service.",
+    "The problems with screen-scraping are obvious: if the W3C changes the HTML format of the validator's output, my parser may break.",
+    "Believe it or not, their output isn't always well-formed HTML.",
+    "A real web-services API for the validator would be welcome.",
+    "That said, it seems to work pretty well."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Even useful developer tools sometimes require ugly compromises like screen-scraping when proper APIs don't exist, and the irony of the W3C's own validator producing malformed HTML is not lost on a detail-oriented developer.",
+  "filename": "2005-09-06-bbedit_css_checker"
+}

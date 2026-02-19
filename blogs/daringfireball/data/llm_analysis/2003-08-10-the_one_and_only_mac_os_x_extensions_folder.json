@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber explains why third-party kernel extensions on Mac OS X must be installed in /System/Library/Extensions/, despite that folder belonging to the System domain which is normally reserved for Apple-only files. He walks through Mac OS X's four file-system domains (User, Local, Network, System) and their corresponding Library folders, clarifying that the System domain under /System/ is meant to be controlled exclusively by Apple. The exception exists because the boot process only checks one location for kernel extensions, a deliberate engineering decision to keep the system simple and reduce boot-time risk. He cites Apple engineer Dean Reece's mailing list post explaining the tradeoff. Non-boot kernel extensions can technically live anywhere, though /Library/Extensions/ has no special Apple-sanctioned status.",
+  "key_points": [
+    "Mac OS X uses four file-system domains (User, Local, Network, System) to control access, with /System/ reserved exclusively for Apple's own components",
+    "/System/Library/Extensions/ is the sole exception to the rule that nothing third-party belongs in /System/, because the boot process only checks this one location for kernel extensions",
+    "Apple deliberately chose a single extensions location over supporting /Library/Extensions/ to minimize boot complexity and reduce risk of filesystem corruption making the system unbootable",
+    "Non-boot kernel extensions loaded at runtime by applications can reside anywhere, but /Library/Extensions/ has no special Apple-sanctioned properties"
+  ],
+  "money_quotes": [
+    "The rule of thumb: Everything in /System/ is from Apple, and is considered an essential component of Mac OS X.",
+    "This is the only folder that Mac OS X checks for kernel extensions that need to load during the boot process.",
+    "The reasons we don't support [/Library/Extensions/] now are not really technical showstoppers, but adding another place for both BootX and the kext tools to look, plus managing two separate caches, adds some complexity with little real (end-user) benefit.",
+    "It also adds some (small) risk to the bootability of the system, since the more paths the booter has to traverse, the more chances that a corrupt root filesystem will be unbootable.",
+    "We decided that both the risk and the benefit were small, so we decided on the simpler solution (one location)."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "The single kernel extensions folder in /System/ is a deliberate engineering tradeoff where Apple chose simplicity and boot reliability over architectural purity in domain separation.",
+  "filename": "2003-08-10-the_one_and_only_mac_os_x_extensions_folder"
+}

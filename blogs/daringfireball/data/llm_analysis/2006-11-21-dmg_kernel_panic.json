@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber warns about a serious Mac OS X security vulnerability where a malicious .dmg disk image file can cause a kernel panic on any up-to-date Mac running 10.4.8. The exploit is especially dangerous because Safari's default 'Open safe files after downloading' preference means most users are vulnerable to attack simply by visiting a malicious website. Gruber has repeatedly warned about this preference and argues it should be removed or at least disabled by default. He directly challenges Apple to act on this recurring security issue.",
+  "key_points": [
+    "A malicious .dmg file from the 'Month of Kernel Bugs' project can cause kernel panics on fully patched Mac OS X 10.4.8 systems",
+    "Safari's 'Open safe files after downloading' preference, enabled by default, makes users vulnerable to drive-by kernel panics just from visiting a website",
+    "Gruber has repeatedly flagged this Safari preference as a security liability, and this exploit validates his warnings",
+    "The preference compounds a kernel-level bug into a remotely exploitable attack vector requiring zero user interaction"
+  ],
+  "money_quotes": [
+    "You should be safe, of course, because you read Daring Fireball, and so you know that you should turn off Safari's incredibly foolish \"Open 'safe' files after downloading\" preference.",
+    "But given that this preference, which in my opinion shouldn't even exist, is on by default, most Mac users are vulnerable to attack via this exploit.",
+    "If you have the preference turned on, you'll get a kernel panic just by downloading the file \u2014 and any web site you visit can initiate a file download automatically.",
+    "Question for Apple: How many times must this Safari preference be exploited before you remove it from Safari, or at least turn it off by default?"
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "critical",
+  "key_insight": "Safari's default preference to automatically open downloaded files transforms every kernel-level file-handling bug into a remotely exploitable zero-click attack, and Apple's refusal to change this default is indefensible.",
+  "filename": "2006-11-21-dmg_kernel_panic"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber follows up on his previous article about detecting running applications, sharing reader feedback and improvements. He explores why System Events lacks bundle identifier support, presents a clever endianness workaround for the Mac::Processes Perl module on Intel Macs, and dives deep into why the seemingly simple ps-and-grep approach is trickier than most people think. The bulk of the post demonstrates how naive grep patterns fail (matching iTunesHelper when looking for iTunes, or matching 'Contents' folders in app paths), then arrives at an elegant solution using ps -xc -o command for clean output. He concludes with benchmarking showing the ps-and-egrep method is fastest for real-world single invocations, despite misleading microbenchmark results.",
+  "key_points": [
+    "System Events inexplicably supports querying processes by name and creator type but not by bundle identifier, which is the canonical Mac OS X way to identify apps",
+    "Nearly everyone who suggested using ps and grep got it wrong \u2014 naive patterns match substrings like iTunesHelper or Contents folder paths",
+    "The key insight is using ps -xc -o command to output only process names, enabling simple and robust exact-match grep patterns",
+    "Microbenchmarks with 1,000 iterations were misleading due to caching effects; real-world single invocations showed ps-and-egrep was 3-5x faster than AppleScript methods",
+    "The problem with regular expressions is that it's easy to write one that usually works but hard to write one that always works"
+  ],
+  "money_quotes": [
+    "The problem with regular expressions is that it's often easy to write one that usually works, but hard to write one that always works.",
+    "Instead of just trying to match the part of the line that you're looking for, you should try to match the entire line, including both the part you're looking for and the parts you aren't otherwise interested in.",
+    "Lord knows I loves me the regular expressions, but avoiding crafting a pattern like the above is what led me to skip this technique originally.",
+    "That's both clever and robust.",
+    "Nearly everyone who emailed to suggest it, for example, got it wrong.",
+    "I suspect that what's happening is that there are some serious caching and 'everything is already loaded in memory' benefits to the repeated calls."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "The seemingly simple task of checking if an app is running via ps and grep is deceptively error-prone, but using ps -xc -o command to isolate process names makes exact matching both simple and robust.",
+  "filename": "2006-10-13-processing_processes"
+}

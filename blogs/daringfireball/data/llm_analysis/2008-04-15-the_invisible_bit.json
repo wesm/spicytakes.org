@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber explains the HFS+ invisible bit on Mac OS X, prompted by helping a friend whose Desktop folder had mysteriously become invisible. He describes the two supported methods for making files invisible (Unix dot-file convention and the HFS+ invisible bit), explains how invisibility metadata works and why it isn't inherited by folder contents, and walks through command-line tools for inspecting and toggling the bit. He also recommends Bare Bones Software's Super Get Info as a GUI alternative and notes that Leopard introduced the simpler chflags command.",
+  "key_points": [
+    "There are two supported ways to make files invisible on Mac: the Unix dot-file convention and the HFS+ invisible bit, each honored in different contexts",
+    "The HFS+ invisible bit is metadata that hides files from the Finder and dialogs but is not honored by the Terminal's ls command",
+    "Invisibility is not inherited by folder contents, explaining why files on the Desktop were visible even though the Desktop folder itself was hidden",
+    "Apple ships no default GUI tool to view or set the invisible bit, requiring developer tools (GetFileInfo/SetFile) or third-party utilities like Super Get Info",
+    "Leopard added the chflags hidden/nohidden command as a simpler alternative to the developer-tools-only SetFile utility"
+  ],
+  "money_quotes": [
+    "Files marked invisible are still readable and writable, they just don't show up in the Finder or in Open and Save dialogs.",
+    "Invisibility is not inherited by the contents of an invisible folder, which explains why my friend could see the files on his desktop, but couldn't see the \"Desktop\" folder itself in his home folder.",
+    "One place where the HFS+ invisible bit is not honored is the terminal \u2014 the ls command lists files and folders regardless of the state of their invisible bits.",
+    "I'm not aware of any software that ships by default with Mac OS X that lets you see or set the HFS+ invisible bit.",
+    "Invisible items pose an obvious problem, of course, in that if you can't see them, you can't drag them.",
+    "Note that toggling the invisible bit does not change the folder's modified date."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "The HFS+ invisible bit is a poorly surfaced piece of Mac metadata that can cause baffling problems precisely because Apple provides no default tool to see or change it.",
+  "filename": "2008-04-15-the_invisible_bit"
+}

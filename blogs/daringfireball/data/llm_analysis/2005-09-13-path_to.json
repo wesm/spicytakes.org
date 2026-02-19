@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber documents a subtle but maddening bug in AppleScript where the 'path to' command returns incorrect results when placed inside a 'tell application \"System Events\"' block. The command ignores the 'from user domain' parameter and always returns the Local domain folder instead. This is particularly problematic because System Events is the recommended way to script file operations, yet placing 'path to' inside its tell block silently produces wrong results without any error. The workaround is to call 'path to' outside the tell block and pass the result in. Gruber notes that the Finder does not have this bug, and files a Radar report.",
+  "key_points": [
+    "The 'path to' command inside a System Events tell block silently ignores the 'from user domain' parameter, always returning the Local domain path instead",
+    "System Events is the recommended alternative to Finder for scripting file operations, making this bug especially problematic since it affects the canonical approach",
+    "The bug produces no compilation or runtime error \u2014 it silently returns the wrong folder, making it extremely difficult to diagnose",
+    "A simple code cleanup like moving a statement into a tell block can introduce this bug without any visible indication that behavior has changed"
+  ],
+  "money_quotes": [
+    "This is particularly insidious because inside a 'tell application \"System Events\"' block is exactly where you're likely to want to get the path to a folder.",
+    "This sort of bug is precisely why so many people despise AppleScript.",
+    "Not only does it make no sense, but something like this can be maddeningly difficult to track down.",
+    "Now your script is broken \u2014 but you may not notice immediately, because it doesn't break with a compilation or runtime error.",
+    "Instead, just by moving the 'path to' statement inside the System Events tell block, it silently starts returning a different (and wrong) 'Application Support' folder.",
+    "I have to assume this is a bug in System Events. If this isn't a bug, but instead expected behavior, I'd love the explanation."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, frustrated, methodical",
+  "key_insight": "AppleScript's worst bugs are the silent ones \u2014 where syntactically valid code produces wrong results without any error, and where following best practices (using System Events over Finder) is exactly what triggers the failure.",
+  "filename": "2005-09-13-path_to"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber shares a simple but practical AppleScript for use with Jesper's ThisService utility, which lets users create system-wide Mac OS X services from scripts without Xcode. The script counts words in any selected text and displays the result in an alert dialog. He walks through the code, explaining why the alert must be displayed in the frontmost app's context rather than taking a shortcut. He acknowledges AppleScript's word-counting limitations with HTML and punctuation but notes it's a good enough approximation that works across most apps including browser form fields.",
+  "key_points": [
+    "ThisService lets anyone create system-wide Mac OS X services from AppleScript or Unix scripts without needing Xcode or Cocoa knowledge",
+    "The display alert command must run in the context of the frontmost visible application, otherwise the alert is invisible to the user",
+    "AppleScript's word counting is imprecise \u2014 it treats HTML tags as words and punctuation as delimiters, making URLs count as multiple words",
+    "Keyboard shortcuts for services are limited to Command-Shift combinations, a Mac OS X limitation rather than a ThisService one"
+  ],
+  "money_quotes": [
+    "You give ThisService a script \u2014 either AppleScript or any Unix scripting language such as Perl, Python, or Ruby \u2014 and it generates a system-wide service based on that script, right there in the Services menu, available in any app.",
+    "No Xcode or Cocoa required. You just write the script.",
+    "That's the entire script.",
+    "But that won't work, because the `display alert` command needs to appear in the context of some visible application, otherwise it runs in the context of the service itself, and you'll never see it.",
+    "I chose Command-Shift-K (K for kount; Command-Shift-C is the standard shortcut for the Show Colors command)."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "ThisService democratizes Mac OS X service creation by letting anyone turn a simple script into a system-wide tool, no developer tools required.",
+  "filename": "2007-01-24-word_count_script_for_thisservice"
+}

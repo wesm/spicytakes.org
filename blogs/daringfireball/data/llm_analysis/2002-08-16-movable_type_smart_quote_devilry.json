@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber presents a detailed technical solution for automatically converting straight quotes into typographically correct 'smart quotes' in Movable Type blog posts. He builds on Mark Pilgrim's earlier work, arguing that proper typography should be automated rather than requiring manual preflight scripts. The solution uses Brad Choate's MTPerlScript and MTMacro plug-ins to educate quotes at the template level, keeping raw dumb quotes in the database. Gruber walks through the Perl regex algorithm, which must carefully avoid converting quotes inside HTML tags. This post is an early predecessor to his SmartyPants plug-in, which later obsoleted the approach described here.",
+  "key_points": [
+    "Mac users have expected automatic smart quotes in word processors for 15+ years, but HTML has lagged behind because curly quotes require ugly entities",
+    "The ideal workflow stores plain dumb quotes in the database and converts them to smart quotes only at template render time",
+    "The regex algorithm must distinguish between quotes in content text and quotes inside HTML tags, requiring lookaheads and loops rather than simple substitutions",
+    "The logic for opening vs. closing quotes is simple: if the preceding character is non-whitespace, it's a closing quote; remaining quotes are opening",
+    "This hack eventually evolved into Gruber's standalone SmartyPants plug-in for Movable Type"
+  ],
+  "money_quotes": [
+    "In HTML markup, however, smart quotes have been a royal pain in the ass.",
+    "But the whole point of modern blogging tools is that they make posting articles easy.",
+    "Normal, non-obsessive people will only tolerate steps 1 and 3: write, then post. And they're right \u2014 educating quotes is not a difficult problem to solve, and your software should be able to do it for you.",
+    "The way it ought to work is to write using plain old easy-to-type dumb quotes, store the article in Movable Type's database with the dumb quotes, and have the quote education take place at the template level, when the article gets published.",
+    "We're eating our own dog food here at Daring Fireball, so we're using this very script ourselves.",
+    "The whole thing gives off a tad whiff of being a hack."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Typography in web publishing should be handled automatically by software at render time, not manually by authors \u2014 good tools eliminate the trade-off between typographic quality and ease of use.",
+  "filename": "2002-08-16-movable_type_smart_quote_devilry"
+}

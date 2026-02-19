@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber describes a recurring problem where his muscle memory for Cmd-E (Enter Search String in BBEdit) causes him to accidentally send unfinished emails in Mailsmith, where Cmd-E means Send Now. Rather than reassigning either shortcut \u2014 both of which are well-established conventions \u2014 he devises an AppleScript menu script that detects when text is selected (indicating he likely intended to search, not send) and presents a confirmation dialog. The solution elegantly resolves a rare but embarrassing problem he'd suffered for nearly six years. He also discusses why both shortcuts are correctly assigned, defending Mailsmith's choice of Cmd-E for Send as the closest thing to a standard for Mac email clients.",
+  "key_points": [
+    "Cmd-E is a long-established standard for Enter Search String in Mac text editors, while also being Eudora's established shortcut for Send in email clients \u2014 both assignments are reasonable",
+    "The real problem isn't bad shortcut design but conflicting muscle memory between two apps built on the same editing engine",
+    "The solution uses AppleScript to detect context: if text is selected when Send Now is invoked, it's likely a mistaken search intent, so a confirmation dialog appears",
+    "Deeply ingrained shortcuts like Cmd-S and Cmd-P should never be repurposed, even if an app doesn't save or print anything",
+    "Mailsmith and BBEdit's shared editing DNA is both Mailsmith's greatest charm and the source of this specific hazard"
+  ],
+  "money_quotes": [
+    "I'm writing in Mailsmith; I select a word; I hit Cmd-E with the intention of entering a search string \u2014 but fuck, by hitting Cmd-E, I just sent the message before it was finished.",
+    "Even if your app doesn't actually save or print anything, you should never reappropriate deeply ingrained shortcuts like Cmd-S or Cmd-P.",
+    "The problem isn't the shortcuts themselves \u2014 it's the fact that I have muscle memory for both of them.",
+    "What I want to defend against is that one time in a thousand when I hit Cmd-E in Mailsmith with the intention of invoking Enter Search String.",
+    "Cmd-E is certainly a better shortcut for sending a message than Apple Mail's contorted Shift-Cmd-D.",
+    "It has completely solved a rare but highly annoying problem I've suffered for over five years."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "When two well-designed conventions conflict through muscle memory, the best fix isn't reassigning shortcuts but adding context-aware safeguards that detect likely user intent.",
+  "filename": "2004-02-26-send_now_defense"
+}

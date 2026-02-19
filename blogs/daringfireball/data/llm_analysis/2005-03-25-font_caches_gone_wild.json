@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber follows up on his earlier piece about Mac OS X login delays caused by damaged font caches, synthesizing reader reports to identify the root cause. The bug was introduced in ATS.framework version 1.8.5, shipped with Mac OS X 10.3.6 in October 2004, which causes fontTablesAnnex cache files to grow without bound. The bug disproportionately affects designers and others with PostScript fonts installed, with one reader reporting 1 GB of cache files and another suffering 14-minute login times. Gruber presents a reader's thorough investigation confirming ATS now scans every font in all font folders regardless of activation status. He advises waiting for Apple's fix in the expected 10.3.9 release rather than replacing system framework files, and recommends manually clearing font caches in the interim. An update confirms 10.3.9 shipped with the fix.",
+  "key_points": [
+    "The font cache bug was introduced in ATS.framework 1.8.5, shipped with Mac OS X 10.3.6, as a side effect of other font-related fixes",
+    "The bug causes fontTablesAnnex files to grow without bound but does so slowly, making the adverse effects sneak up on users over weeks or months",
+    "The bug appears to only affect users with PostScript fonts installed, hitting designers disproportionately hard since they almost invariably use PostScript fonts",
+    "One reader confirmed via fs_usage that ATSServer was scanning every single font regardless of activation status, and successfully worked around it by reverting to the older ATS.framework",
+    "Gruber advises against replacing system components and recommends waiting for Apple's 10.3.9 fix while manually managing font caches"
+  ],
+  "money_quotes": [
+    "These font caches grow endlessly, but they tend to grow slowly, and so the adverse effects tend to sneak up on you.",
+    "Designers are the hardest-hit demographic simply because they almost invariably have numerous PostScript fonts installed.",
+    "This is not to say there's anything wrong with PostScript fonts. Or, if you've been hit, that there's anything damaged or corrupt with your PostScript fonts. This is a bug in Mac OS X, plain and simple.",
+    "That it worked for him is proof that it's a bug in version 1.8.5 that is causing these problems; that doesn't mean replacing OS components with versions from previous OS updates is a wise idea.",
+    "Feel free to substitute 'issue' for 'bug' if you prefer the euphemistic parlance of Apple's release notes.",
+    "One reader reported finding over 1 gigabyte of 'fontTablesAnnex' files; and in terms of login delays, designer Cameron Moll reported that his login time had grown to 14 minutes."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "A single framework update in Mac OS X 10.3.6 introduced an unbounded font cache growth bug that silently degraded performance over months, disproportionately punishing the design community that Apple most depends on as advocates.",
+  "filename": "2005-03-25-font_caches_gone_wild"
+}

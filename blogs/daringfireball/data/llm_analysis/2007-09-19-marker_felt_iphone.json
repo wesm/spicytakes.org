@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber provides instructions for replacing the despised Marker Felt font in the iPhone's Notes app by deleting the font files via SSH access to the jailbroken iPhone's file system. When Marker Felt is removed, the Notes app substitutes Arial, since the text views appear to be WebKit-based and handle missing fonts gracefully. He expresses a preference for Helvetica over Arial but explains why simply renaming Helvetica font files to replace Marker Felt doesn't work, since font names are embedded within the files themselves. The post includes appropriate caveats about backing up and the risks of modifying system files.",
+  "key_points": [
+    "Deleting MarkerFeltThin.ttf from the iPhone's system fonts causes Notes to fall back to Arial as a substitute",
+    "iPhone text editing views are likely customized WebKit views, which gracefully handle missing fonts rather than crashing",
+    "Font names are embedded within font files themselves, not determined by filenames, so renaming Helvetica files to Marker Felt names doesn't actually change what font renders",
+    "The iPhone's arialuni.ttf is a massive 22.2 MB Unicode font, making it risky to delete as a fallback"
+  ],
+  "money_quotes": [
+    "Let's say you're like me, at least insofar as (a) you have an iPhone; (b) you despise the Marker Felt font used by the iPhone's Notes app; and (c) you've installed the BSD subsystem, which allows you to access the iPhone's underlying file system via SSH or SFTP.",
+    "If that's the case, I have a suggestion for how to use (c) to solve problem (b).",
+    "I'm fairly certain that Notes's text view is really a customized WebKit view \u2014 in fact, I believe that to be the case for all text editing views on mobile OS X.",
+    "Font names are embedded within the font files themselves, not just in the file names of the font files.",
+    "I suspect the readers who claim it does work are simply confusing Arial and Helvetica."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "The iPhone's Marker Felt font can be removed from a jailbroken device to improve the Notes app's appearance, revealing that iPhone text views are WebKit-based and handle missing fonts through substitution rather than failure.",
+  "filename": "2007-09-19-marker_felt_iphone"
+}

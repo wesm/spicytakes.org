@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber explains his approach to implementing footnotes on Daring Fireball, addressing the unique challenges of footnotes in web content versus print. In print, readers can glance to the bottom of a page and back, but web articles scroll continuously, making footnote navigation disorienting. His solution uses clickable superscript references that jump to notes at the bottom, with a Unicode leftwards arrow with hook (\u21a9) at the end of each note to jump back. He considered dynamic HTML approaches like tooltips or inline expansion but preferred the traditional bottom placement because it feels right and works in RSS readers without requiring CSS or JavaScript.",
+  "key_points": [
+    "Web footnotes face a fundamental UX problem that print footnotes don't: there are no discrete pages, so readers lose their position when scrolling to notes",
+    "The back-link solution using Unicode \u21a9 is elegant because it adds no visual noise while solving the navigation problem",
+    "Gruber deliberately chose the simplest implementation (relative anchors only) over dynamic HTML techniques to ensure compatibility with RSS feed readers",
+    "The design philosophy prioritizes quiet, standards-based solutions over clever JavaScript tricks"
+  ],
+  "money_quotes": [
+    "A weblog post \u2014 especially longish ones like those here at Daring Fireball \u2014 is very different from a printed page in a book.",
+    "By placing the notes at the bottom of the article, they're in some way more like endnotes than footnotes.",
+    "Rather than add needless noise to the page, instead of using a textual link, I'm simply using a bit of Unicode typography.",
+    "This works pretty well and looks pretty good, and it solves the 'how do you get back to the text from the footnote' problem concisely and quietly.",
+    "I like the traditional placement at the bottom. It just feels right to me.",
+    "This design has the added benefit of requiring no CSS or JavaScript whatsoever, just relative anchors.",
+    "Some users of pre-XP versions of Windows may just see a box instead of a hooked arrow. My heart bleeds."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical, reflective",
+  "key_insight": "The best web design solutions often involve adapting print conventions with minimal, standards-based mechanisms rather than reaching for complex dynamic techniques.",
+  "filename": "2005-07-20-footnotes"
+}

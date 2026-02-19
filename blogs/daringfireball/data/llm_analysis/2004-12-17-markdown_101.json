@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber announces the release of Markdown 1.0.1, a maintenance update focused on bug fixes and resolving ambiguities in Markdown's formatting syntax. The most significant change treats code blocks and spans as literal content, no longer processing backslash escapes within them. The release also tightens rules around link definitions and indentation, fixes numerous edge cases with lists, HTML comments, and horizontal rules, and corrects invalid HTML nesting. Several changes are explicitly noted as breaking from previous Markdown behavior.",
+  "key_points": [
+    "Code blocks and spans are now treated literally with no backslash escape processing, a breaking change from all previous versions",
+    "Link definitions must now occur within three spaces of the left margin, with four-space indentation making them code blocks instead",
+    "A tricky bug where hard-wrapped paragraphs could accidentally trigger list creation is partially fixed but acknowledged as potentially unfixable for sub-lists",
+    "The release fixes invalid HTML output like improperly nested strong/em tags and spurious paragraph tags around HTML comments and nested lists",
+    "A subtle boolean evaluation bug where the string '0' was treated as empty input demonstrates the perils of Perl's truthiness semantics"
+  ],
+  "money_quotes": [
+    "This release was primarily focused on fixing bugs and eliminating certain ambiguities and confusing edge cases in Markdown's formatting syntax.",
+    "Code blocks and spans are now treated literally, with no special rules to worry about regarding backslashes.",
+    "This was never officially supported, but neither was it explicitly disallowed.",
+    "Given Markdown's list-creation rules, I'm not sure this can be fixed.",
+    "if the input to any function was the single-character string \"0\", it would also evaluate as false and return immediately. How silly. Now fixed."
+  ],
+  "themes": [
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Markdown 1.0.1 prioritizes predictability and correctness over backward compatibility, simplifying code block handling and tightening syntax rules even at the cost of breaking existing content.",
+  "filename": "2004-12-17-markdown_101"
+}

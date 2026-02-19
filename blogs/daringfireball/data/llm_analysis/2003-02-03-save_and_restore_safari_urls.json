@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber presents a practical set of AppleScript solutions for saving, restoring, and clearing open Safari URLs \u2014 a feature browsers didn't natively offer at the time. He walks through three scripts that store open URLs to a preferences file and reopen them on demand, explaining AppleScript concepts like text item delimiters and file I/O along the way. The post argues that scriptability is the whole point of good application software, because it lets users add features developers didn't anticipate. The tutorial doubles as an advocacy piece for AppleScript's utility and Safari's scriptable architecture.",
+  "key_points": [
+    "Scriptable applications empower users to add features on their own, saving developers from having to anticipate every need",
+    "Web browsers at the time lacked session restore, making users reluctant to quit with multiple tabs open",
+    "Bookmarking temporary URLs is overkill \u2014 the scripts solve the problem of remembering URLs you want to read once and discard",
+    "AppleScript's global text item delimiters require careful save-and-restore discipline to avoid side effects",
+    "The three-script approach (save, restore, clear) provides a complete workflow with proper error handling and user confirmation"
+  ],
+  "money_quotes": [
+    "The whole point of scriptable application software is that it allows us, the users, to add and tweak features.",
+    "By spending the time up-front to make an application scriptable, developers save time down the line, by allowing users to add new features on their own, using (relatively) simple scripts.",
+    "Having all these windows open makes me reluctant to quit my browser.",
+    "I don't want to bookmark them \u2014 that would be overkill. These are URLs I want to read once, then close.",
+    "Because text item delimiters is a global AppleScript property shared by all AppleScripts on your computer, the right thing to do is to save the current value, change text item delimiters to what we want, then restore the previous value when we're finished.",
+    "Clearly named buttons help keep things, well, clear."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Application scriptability is a force multiplier \u2014 it lets users solve their own workflow problems without waiting for developers to ship features.",
+  "filename": "2003-02-03-save_and_restore_safari_urls"
+}

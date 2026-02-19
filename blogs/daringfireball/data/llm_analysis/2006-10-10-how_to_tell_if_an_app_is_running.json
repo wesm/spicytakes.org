@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber explains multiple techniques for determining if a Mac application is currently running, a problem he encountered while building his BBColors tool. He walks through AppleScript approaches using creator type, name, and displayed name properties, noting the pitfalls of each. He then demonstrates how to call AppleScript from Perl using osascript, the MacPerl module, and Mac::Processes, detailing escaping bugs and endian-related issues on Intel Macs. The post concludes that identifying apps by name is the most portable approach due to Intel compatibility bugs in Mac::Carbon's creator type handling.",
+  "key_points": [
+    "AppleScript's System Events can identify running processes by creator type, name, or displayed name, but displayed name is unreliable because it changes based on Finder preferences",
+    "Calling AppleScript from Perl requires careful escaping of quotes and backslashes at both the Perl and shell levels",
+    "Mac::Carbon's Mac::Processes module avoids mixing AppleScript into Perl but has endian bugs on Intel Macs that reverse creator type byte order",
+    "The safest cross-platform approach is identifying apps by name rather than creator type, since name works correctly on all Macs running 10.4"
+  ],
+  "money_quotes": [
+    "So in a nut: the creator type and name properties are good bets; the displayed name property is not, because it changes depending on the user's Finder preference for displaying file extensions.",
+    "Except this code has a few subtle bugs: it won't work if it's passed a creator type string containing either a literal double-quote or a backslash character. I'm not aware of any creator type codes that use these characters, but they're legal.",
+    "We need one level of backslashing for Perl, and another level for the shell when we call the osascript tool.",
+    "Creator types aren't really four-character strings; they're four-byte integers, and treating each of the bytes as a MacRoman-encoded character is just a shortcut that makes them more readable and memorable.",
+    "Instead of \"R*ch\" for BBEdit, you get \"hc*R\"; instead of \"MACS\" for the Finder, you get \"SCAM\"."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "When bridging AppleScript and Perl on Mac OS X, identifying running applications by name is the most robust approach, avoiding both escaping complexity and Intel endian bugs that plague creator type lookups.",
+  "filename": "2006-10-10-how_to_tell_if_an_app_is_running"
+}

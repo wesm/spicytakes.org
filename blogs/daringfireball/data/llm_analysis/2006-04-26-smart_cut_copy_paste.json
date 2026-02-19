@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber critiques Apple's 'smart' Cut/Copy/Paste behavior in Cocoa's NSTextView, which automatically adds or removes spaces around words depending on how the selection was made. He demonstrates how double-clicking to select a word triggers different paste behavior than click-and-drag selection, producing unwanted spaces when editing HTML. The core argument is that this 'smart' feature violates the elegant simplicity of traditional C/C/P by introducing an undocumented, mode-dependent behavior that appears random to most users. He draws a parallel to Microsoft Word's notorious over-helpful features and argues that software which guesses at user intent must be right nearly every time, because wrong guesses are far more annoying than right guesses are convenient.",
+  "key_points": [
+    "Cocoa's NSTextView treats word-wise selection (double-click) differently from manual selection, triggering 'smart' space manipulation during cut and paste operations",
+    "The same Cut/Copy/Paste commands produce different results depending on how text was selected, violating users' expectations of consistent behavior",
+    "Features that appear to activate randomly are bad features, because most users don't understand the hidden word-selection mode distinction",
+    "Apple traded the elegant simplicity of traditional C/C/P for marginal convenience, echoing Microsoft Word's pattern of over-helpful defaults",
+    "Software that guesses user intent must be correct nearly every time, because wrong guesses are disproportionately more annoying than right guesses are helpful"
+  ],
+  "money_quotes": [
+    "Features that seem to kick in at random are bad features.",
+    "Once software starts down this path of guessing what it is the user is trying to do, and then doing something special based on that guess, it must guess correctly nearly every time, because the times when it guesses wrong are so annoying that they far outweigh the extra convenience of the times when it guesses right.",
+    "Software that eschews the clever for the obvious \u2014 in this case, using good old-fashioned 'what you see selected is what you get' C/C/P behavior \u2014 will always do exactly what the user expects. That's what people mean when they talk about intuitive software design.",
+    "Apple has taken a very simple, completely obvious feature \u2014 a feature that almost every user completely understood \u2014 and turned it into something governed by a complicated and undocumented set of rules that most users don't even know exist.",
+    "They've exchanged the elegant simplicity of traditional C/C/P for the very marginal benefit of sometimes having word-bordering spaces taken care of for you automatically.",
+    "The worst part is that unless you understand that word-wise selection puts you into a special mode, the 'smart' C/C/P behavior seems to kick in at random."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "critical, technical, opinionated",
+  "key_insight": "Smart software features that produce inconsistent behavior based on hidden modes are worse than simple features that always do exactly what the user expects.",
+  "filename": "2006-04-26-smart_cut_copy_paste"
+}

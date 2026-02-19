@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber discusses the fundamental difference between how Mac OS X's Finder and Windows handle folder replacement: the Finder deletes the old folder entirely, while Windows merges the two folders' contents. He notes this difference frequently catches platform switchers off guard, citing Matt Mullenweg's loss of a photo folder as a recent example. Gruber reiterates his earlier proposal that the Finder should move replaced items to the Trash rather than permanently deleting them, which would prevent catastrophic data loss and enable undo. He also criticizes Windows for inconsistently using 'replace' to mean 'merge' for folders but 'overwrite' for files.",
+  "key_points": [
+    "Mac's Finder deletes the old folder when replacing, while Windows merges folder contents \u2014 a difference that surprises platform switchers in both directions",
+    "Matt Mullenweg lost a folder of photos because he assumed Mac's Finder would merge folders like Windows does",
+    "Gruber proposes that Finder replacements should move old items to the Trash instead of permanently deleting them, enabling both safety and undo",
+    "Windows' behavior is internally inconsistent: 'replace' means merge for folders but overwrite for files, which Gruber considers a terrible design"
+  ],
+  "money_quotes": [
+    "In the Finder, when you replace one folder with another, the old folder is deleted. On Windows, the two folders are merged.",
+    "For reasons I've never seen anyone even attempt to explain, Windows calls this action 'replacing.'",
+    "When the Finder replaces a folder or file, it should move the replaced items to the Trash instead of instantly nuking them.",
+    "Not only would this eliminate catastrophic mistakes, but it would also allow replacements to be undoable.",
+    "It's a terrible idea for 'replacing' to mean two entirely different things, depending solely on what it is you're replacing."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "microsoft"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Folder replacement should move old items to the Trash rather than permanently deleting them, making the operation both safe and undoable.",
+  "filename": "2005-04-07-replace"
+}

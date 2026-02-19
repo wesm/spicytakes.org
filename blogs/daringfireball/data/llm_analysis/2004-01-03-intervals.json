@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber discovered that several IP addresses were hitting his RSS feed over 100 times per day, and every single abusive poller was using Shrook, a Mac OS X news aggregator. The culprit turned out to be a feature, not a bug: Shrook allowed users to set checking intervals as low as every minute. While Shrook respects HTTP 304 codes so bandwidth isn't wasted, Gruber argues the behavior is still rude and unnecessary. He notes that Shrook's default Distributed Checking mode is actually well-designed, coordinating updates centrally so individual clients rarely need to poll. He encourages Shrook users to either use the default distributed mode or set intervals of 30 minutes or more.",
+  "key_points": [
+    "Every abusive RSS poller in Gruber's logs was using Shrook, which allowed checking intervals as frequent as every minute",
+    "Even though HTTP 304 responses prevent bandwidth waste, excessively frequent polling is still inconsiderate server behavior",
+    "Shrook's default Distributed Checking feature is actually a smart solution that provides near-real-time updates without hammering individual servers",
+    "NetNewsWire caps its minimum polling interval at 30 minutes, which Gruber considers a more responsible design choice"
+  ],
+  "money_quotes": [
+    "That's not to say every Shrook user is polling at an abusive clip, but that every one of my subscribers who is abusive, is using Shrook. Every one.",
+    "So, I think, there must be a bug in Shrook. Ends up, it's a feature.",
+    "These Shrook users are behaving like annoying little kids in the back seat of the car, except instead of ceaselessly asking \"Are we there yet? Are we there yet?\", they're asking \"Has the feed changed yet? Has the feed changed yet?\"",
+    "304 or no 304, however, it simply rubs me the wrong way to see people checking for updates this frequently.",
+    "You get the same results as with frequent polling, without abusing the server."
+  ],
+  "themes": [
+    "web",
+    "design",
+    "apple"
+  ],
+  "tone": "opinionated",
+  "key_insight": "Allowing users to set aggressively frequent polling intervals is a design failure, even when bandwidth-efficient protocols mitigate the worst technical consequences.",
+  "filename": "2004-01-03-intervals"
+}

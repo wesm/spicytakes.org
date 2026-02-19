@@ -1,0 +1,28 @@
+{
+  "summary": "Gruber investigates why Adobe's new Soundbooth audio editor is Intel-only on Mac, when Apple's universal binary toolchain makes supporting both architectures straightforward for new applications. He systematically dismantles Adobe's official explanations \u2014 that it would take 'nearly double' the development and testing time \u2014 by pointing to counterexamples like Adobe's own Lightroom and tiny shops like Rogue Amoeba that managed universal binaries with far fewer resources. He concludes the real reason is likely extensive SSE-optimized code inherited from Adobe's Windows-only Audition app, but argues this is ultimately a marketing decision Adobe is trying to dress up in technical justifications. The piece makes the case that abandoning PowerPC users \u2014 especially G5 owners who bought high-end machines partly to run Adobe software \u2014 is premature and costs Adobe both goodwill and money.",
+  "key_points": [
+    "For new Mac applications built with Xcode, creating universal binaries adds minimal overhead \u2014 the 'nearly double' claim doesn't hold for most developers",
+    "Soundbooth likely inherited Intel-specific SSE vector code from Adobe's Windows-only Audition, making the PowerPC port genuinely non-trivial",
+    "Adobe's own Lightroom disproves the company's argument that Intel-only is the obvious choice for new cross-platform media applications",
+    "Adobe bears special responsibility toward PowerPC users since its delayed Intel migration was a key reason creative professionals bought late-model G5 Power Macs",
+    "The decision is fundamentally a business/marketing call that Adobe is unconvincingly framing as a technical necessity"
+  ],
+  "money_quotes": [
+    "Easier cross-platform development is certainly of interest to Adobe, but it's not something most Mac users care about. This translates to 'we're too lazy'.",
+    "Perhaps Nack should ask the Lightroom team?",
+    "You either see the value in developing Mac software or you don't, but Mac users aren't going to thank you just for developing Mac software at all.",
+    "Adobe, more than any other software developer, is responsible for creative professionals buying late-model high-end PowerPC hardware.",
+    "I'm not saying there isn't hard work involved. Isn't that Adobe's job? Or, rather, isn't that the job of Adobe's engineers? To write difficult code?",
+    "Rogue Amoeba has six people, and we managed to port from one platform to another. Adobe has almost 6,000 people and they can't pull it off?",
+    "What galls is that this is a marketing decision, but the explanations from Nack and Shafer are attempts to cast it in technical terms.",
+    "If there aren't enough G5 users to make it worthwhile for Adobe to add PowerPC support to Soundbooth, why are so many people complaining about it?"
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "business"
+  ],
+  "tone": "critical, analytical, methodical",
+  "key_insight": "Adobe's claim that Intel-only development was a technical necessity is undermined by every counterexample \u2014 including Adobe's own Lightroom \u2014 revealing it as a business decision the company lacks the honesty to own.",
+  "filename": "2006-11-02-soundbooth_intel"
+}

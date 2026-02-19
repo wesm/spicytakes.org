@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber responds to Jeffrey Zeldman's complaint that modern Mac browsers like Safari and Chimera no longer let users view page source in an external editor like BBEdit. He examines Russell Harlan's AppleScripts that solve this problem and offers improvements, showing that Safari's document object has a native 'source' property that eliminates the need for curl. He walks through a refined AppleScript that fetches source directly from Safari and opens it in BBEdit with proper line break handling and HTML syntax highlighting.",
+  "key_points": [
+    "Modern Mac OS X browsers removed the ability to view source in an external editor, a regression from earlier versions",
+    "Safari's AppleScript dictionary includes a 'source' property on documents, making curl unnecessary for fetching page source",
+    "Using curl has the advantage of including HTTP headers, but for source code alone, Safari's native property is simpler",
+    "Safari returns Unix-style line breaks that need conversion to Mac-style for BBEdit, easily handled with a grep replace"
+  ],
+  "money_quotes": [
+    "This isn't necessary, however, because Safari's document object has a source property.",
+    "If that info is interesting to you, then by all means, use curl. But if you just want the source, you can ask Safari for it.",
+    "It seldom hurts to be explicit."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Safari's AppleScript support is more capable than early adopters realized, with a native source property that makes viewing page source in BBEdit straightforward without command-line workarounds.",
+  "filename": "2003-01-21-safari_source_in_bbedit"
+}

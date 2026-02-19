@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber presents a practical developer tool he built: a Perl script that converts readable JavaScript source code into bookmarklet-ready URLs. The post explains the core problem \u2014 that bookmarklets require JavaScript to be crammed into URL-encoded single-line format, making development painful. His solution preserves the readable source code while generating the encoded bookmarklet as a comment at the top of the file and copying it to the clipboard. The script handles stripping comments, collapsing whitespace, and escaping special characters. It's designed to work as a BBEdit text filter but is editor-agnostic.",
+  "key_points": [
+    "Bookmarklet development is irritating because JavaScript must be URL-encoded into a single line, making the code unreadable and hard to edit",
+    "The Perl script solves this by maintaining readable source code while generating the bookmarklet URL as a first-line comment, replaceable on each run",
+    "The script strips comments, collapses whitespace, removes newlines, and escapes special characters and unicode into a valid javascript: URL",
+    "The generated bookmarklet is also copied to the clipboard via pbcopy for immediate pasting into a browser's bookmark editor",
+    "Gruber deliberately keeps URL escaping minimal for readability, only escaping what's practically necessary rather than being maximally conservative"
+  ],
+  "money_quotes": [
+    "Developing or modifying bookmarklets can be irritating, to say the least, because of this requirement that the JavaScript code be in the form of a URL.",
+    "So the problem developing bookmarklets is this: You want to write and edit normal JavaScript code, but you need to publish hard-to-read URLs.",
+    "Personally, I prefer to keep the bookmarklet URL itself as readable as possible.",
+    "If it eats your source code, Undo is your friend."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "A simple build tool that converts readable JavaScript into bookmarklet URLs solves the fundamental tension between writing maintainable code and publishing browser-compatible bookmarklets.",
+  "filename": "2007-03-19-javascript_bookmarklet_builder"
+}

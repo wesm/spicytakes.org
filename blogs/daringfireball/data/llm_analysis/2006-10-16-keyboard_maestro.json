@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber documents a workaround for a conflict between Mac OS X 10.4.8's new Zoom With Scroll Wheel feature and BBEdit's Hard Wrap keyboard shortcut (Command-Option-Backslash). The system claims the shortcut at a low level, preventing BBEdit from receiving it. He uses Keyboard Maestro, a $20 macro utility, to intercept the shortcut and redirect it to BBEdit's Hard Wrap command. After testing multiple approaches, he settles on reassigning the BBEdit shortcut to Command-Option-Return while using Keyboard Maestro as a bridge during the transition. The post reflects his philosophy of running minimal system modifications and eventually weaning off workarounds.",
+  "key_points": [
+    "Mac OS X 10.4.8's Zoom With Scroll Wheel feature claims Command-Option-Backslash system-wide, breaking BBEdit's Hard Wrap shortcut with no way to reconfigure it in System Preferences",
+    "Keyboard Maestro can intercept keyboard shortcuts that the system has claimed, unlike regular applications, without using any haxie or input manager tricks",
+    "Two macro approaches were tested: 'Select Menu Item' (works but activates all app windows) and 'Simulate Keypress' (unreliable due to timing conflicts between real and simulated key events)",
+    "Gruber's philosophy favors minimal system modifications and breaking old habits rather than permanently relying on workarounds"
+  ],
+  "money_quotes": [
+    "I've got about 10 years of muscle memory using this command with this shortcut every single day, it's a problem for me.",
+    "No haxie or input manager trickery involved. The engine is lean and mean: it consumes only 696 kilobytes of private memory here on my PowerBook.",
+    "When the Zoom With Scroll Wheel feature is turned on, regular apps like BBEdit no longer 'see' that key sequence \u2014 the system consumes it at a lower level and doesn't pass it along. Keyboard Maestro, however, still sees it.",
+    "Ideally, I try to run with as few system modifications as possible, and when I'm using one simply to enable a habit, I try to break that habit.",
+    "I ran Unsanity's WindowShade X for at least a year back in the 10.1 era before my window-shading habit faded away.",
+    "My goal is to wean myself away from the old shortcut to the new one; but until the new muscle memory kicks in, the old shortcut will still work."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "When the OS usurps a keyboard shortcut you depend on, macro utilities like Keyboard Maestro can intercept at a level between the system and applications, serving as a bridge while you retrain muscle memory.",
+  "filename": "2006-10-16-keyboard_maestro"
+}

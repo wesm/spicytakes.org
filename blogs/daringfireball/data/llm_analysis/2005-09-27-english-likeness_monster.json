@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber dissects an AppleScript bug where System Events returns the wrong folder for a `path to` command, revealing it as a scripting dictionary terminology conflict between StandardAdditions and System Events, both of which define `user domain` with the same Apple Event code. He walks through several workarounds of increasing complexity, ultimately requiring knowledge of raw four-character Carbon folder codes. The bulk of the essay is a sustained critique of AppleScript's English-like syntax, arguing that its resemblance to natural language creates more confusion than it resolves by obscuring the actual computational semantics. He contrasts AppleScript unfavorably with Python and JavaScript, whose more abstract syntaxes make the underlying mechanics clearer and thus are actually easier to use.",
+  "key_points": [
+    "The bug is a terminology conflict: System Events and StandardAdditions both define `user domain` with the same Apple Event code but different semantics, and System Events' definition takes precedence inside its tell block.",
+    "AppleScript's English-like syntax makes two fundamentally different operations \u2014 a global command with parameters vs. accessing a property chain \u2014 look nearly identical to human readers.",
+    "Python and JavaScript are actually easier than AppleScript despite being less English-like, because their more abstract syntaxes make the underlying mechanics obvious rather than obscured.",
+    "Scripting additions pollute the global namespace, creating a minefield of potential terminology conflicts that produce no compile-time or runtime errors.",
+    "The complete workaround requires both knowledge of the terminology conflict and looking up raw four-character Carbon codes in developer documentation \u2014 a far cry from AppleScript's promise of approachability."
+  ],
+  "money_quotes": [
+    "It was a grand and noble idea to create an English-like programming language, one that would seem approachable and unintimidating to the common user. But in this regard, AppleScript has proven to be a miserable and utter failure.",
+    "The language syntax is optimized for English-likeness, rather than being optimized for making it clear just what the fuck is actually going on.",
+    "This is why Python and JavaScript, two other scripting language of roughly the same vintage as AppleScript, are not only better languages than AppleScript, but are easier than AppleScript, even though neither is very English-like at all.",
+    "AppleScript's slavish devotion to English-likeness gives us two very different syntax constructs that read, to humans, as though they're semantically similar.",
+    "So you've got `to path to`, and one of the `to`'s is a language keyword, and the other is an application keyword.",
+    "The way AppleScript lets you throw in superfluous `the`'s and `a`'s makes it seems as though AppleScript just doesn't care about 'little words', which is true in a handful of cases, but completely untrue in others.",
+    "AppleScript is actually a tiny language, with extraordinarily few keywords, but the standard scripting additions turn it into a bigger language, ripe for terminology conflicts."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical, critical, exasperated",
+  "key_insight": "AppleScript's English-like syntax, designed to make programming approachable, instead obscures the underlying computational semantics so thoroughly that it makes the language harder to use than more abstract alternatives like Python and JavaScript.",
+  "filename": "2005-09-27-english-likeness_monster"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber announces that Daring Fireball's members-only RSS feeds are switching from URL-based membership keys to HTTP authentication. The previous system embedded access tokens in the feed URL, which made it trivial for non-members to find and use other people's keys through public aggregators like Bloglines. After consulting with Bloglines, Gruber learned that HTTP authentication was the only way to mark feeds as truly private. He provides detailed instructions for subscribers using various RSS readers, and closes with a measured appeal to freeloaders, noting that $19/year membership isn't much but matters in aggregate.",
+  "key_points": [
+    "URL-based access tokens were inherently insecure because public aggregators like Bloglines exposed the full subscription URLs to anyone who searched",
+    "HTTP authentication was initially avoided because many RSS readers didn't support it well, but by early 2005 most major Mac aggregators had caught up",
+    "Gruber provides a pragmatic workaround for older aggregators by embedding credentials directly in the URL using the http://user:pass@host format",
+    "The members-only feeds don't contain exclusive content \u2014 they're a convenience offering full-text and linklog access via RSS as a thank-you to paying members",
+    "Gruber addresses bootleggers directly with a tone that's firm but not hostile, framing the issue as one of scale rather than principle"
+  ],
+  "money_quotes": [
+    "The downside to this scheme, however, is that all of the information needed to access the feeds was available in the URL itself.",
+    "Currently the only way that a feed is marked private is if it contains a username/password used for HTTP authentication.",
+    "There is no members-only content at Daring Fireball; these feeds are merely a members-only means of accessing the same content that everyone can access for free via the web site.",
+    "They're a convenience I offer to members as a token of my thanks for supporting Daring Fireball.",
+    "If you're determined to keep using these feeds for free, I'm sure you'll find a way, and I won't stop you.",
+    "That works out to less than $1.60 a month \u2014 which isn't much to you, but, in the aggregate, means a lot to me."
+  ],
+  "themes": [
+    "web",
+    "business"
+  ],
+  "tone": "practical, candid, measured",
+  "key_insight": "Security through obscurity in URLs fails when public aggregators index those URLs, making proper HTTP authentication necessary even at the cost of user convenience.",
+  "filename": "2005-02-11-feed_authentication"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber documents his troubleshooting of a 90-second login delay on his iBook running Mac OS X 10.3, caused by a corrupted font cache. After ruling out login items and corrupt preferences, he used ssh from a second Mac to run top during login and identified ATSServer (Apple Type Services) consuming excessive CPU. Deleting the bloated 64MB fontTablesAnnex cache file restored normal login times, though the file kept growing back suspiciously. He notes this kind of Unix-level debugging is beyond most Mac users' abilities, and readers suggested fast user switching as an alternative to needing a second computer.",
+  "key_points": [
+    "A corrupted or bloated fontTablesAnnex cache file (64MB vs normal 1MB) caused ATSServer to consume excessive CPU during login, producing a 90-second SPOD delay",
+    "Standard troubleshooting steps (disabling login items, deleting preferences) failed \u2014 only Unix tools like ssh and top revealed the real culprit",
+    "The fix may be temporary: the cache file grew from 1MB back to 32MB within two days, suggesting an underlying font issue rather than simple cache corruption",
+    "Fast user switching provides a single-machine alternative to ssh for monitoring login processes with top",
+    "The episode highlights the gap between Mac OS X's friendly surface and the Unix internals sometimes needed to diagnose problems"
+  ],
+  "money_quotes": [
+    "Under ordinary use, it's convenient and natural to think of Mac OS X as \"the system\". But on the inside, in terms of how things really work, there's no such thing.",
+    "As a Unix-y operating system, the Mac OS X \"system\" is really a bunch of small processes that work together, each of them doing their own little thing.",
+    "This strikes me as a troubleshooting session that most Mac users never could have managed.",
+    "Most have never even heard of top or ssh, let alone would have known how to use them to see what was going on while the SPOD was displayed.",
+    "Those of you who religiously delete font caches every time you install a system or security update, feel free to smirk smugly."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Mac OS X's user-friendly surface sometimes conceals problems that can only be diagnosed by diving into its Unix underpinnings, exposing a gap between the Mac experience and the expertise required to fix it.",
+  "filename": "2005-03-21-font_caches"
+}

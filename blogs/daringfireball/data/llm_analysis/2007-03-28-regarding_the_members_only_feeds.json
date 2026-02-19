@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber provides a status update on Daring Fireball's members-only XML feed system, addressing a MySQL outage that morning, explaining how the tiered feed system works, noting Google Reader's incompatibility with HTTP authentication, and describing the in-feed expiration reminder system. He explains why he switched from URL-based secret keys to real HTTP authentication after non-members were accessing feeds via leaked URLs. The post serves as both a FAQ for confused new readers and a transparent look at the mechanics of running an independent subscription-based site.",
+  "key_points": [
+    "80-85 percent of active Daring Fireball members subscribe to at least one members-only feed, making it the site's most popular feature",
+    "The free feed contains only article headlines and excerpts, while members get full articles, Linked List items, or a combination feed with everything",
+    "Google Reader's lack of HTTP authentication support is the biggest limitation of the feed system, with no workaround available",
+    "Gruber switched from URL-based secret keys to real HTTP authentication because web-based readers were making feed URLs public, letting non-members outnumber members",
+    "Expiration reminders are delivered directly in the feed itself rather than via email, which Gruber considers clever but acknowledges startles some readers"
+  ],
+  "money_quotes": [
+    "When I look at your web site, I see a bunch of new links, but your RSS feed hasn't updated in days.",
+    "There were more non-members accessing these feeds via \"found\" URLs than there were members, so I switched to using real authentication.",
+    "Many web-based feed readers default to making the feed URLs you're subscribed to public.",
+    "You would never want to do this with a feed that contained genuinely private or sensitive information, but it was just fine for Daring Fireball, where all the content is freely available for everyone on the web site.",
+    "I think this is pretty clever, if I do say so \u2014 and far less intrusive than sending reminders via email.",
+    "My apologies for any skipped heartbeats."
+  ],
+  "themes": [
+    "web",
+    "business"
+  ],
+  "tone": "conversational, transparent, self-deprecating",
+  "key_insight": "Running an independent subscription site requires constant pragmatic tradeoffs between user convenience and protecting the value of membership, as Gruber discovered when the openness of URL-based feed keys was exploited by non-members.",
+  "filename": "2007-03-28-regarding_the_members_only_feeds"
+}

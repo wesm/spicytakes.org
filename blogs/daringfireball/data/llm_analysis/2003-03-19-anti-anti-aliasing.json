@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber follows up his earlier anti-aliasing critique of Safari with a deeper technical explanation of why the browser renders small monospaced fonts poorly. The core issue isn't anti-aliasing itself but that Safari uses outline font versions instead of bitmap fonts, which other Mac OS X applications correctly prefer for small monospaced sizes like Monaco 9 and 10. He walks through the history of bitmap versus outline fonts on the Mac, from the original Macintosh through PostScript and TrueType, to explain why bitmap versions exist and when they're superior. Safari engineer Dave Hyatt responds that the issue stems from using lower-level Core Graphics APIs for performance, and proposes CSS3 font-smooth as a solution. Gruber argues this misses the point: the fix isn't toggling anti-aliasing but using the correct font version. He frames his critique not as subjective preference but as Safari violating an established Mac OS X convention that other applications follow.",
+  "key_points": [
+    "Safari's poor rendering of small monospaced fonts is caused by preferring outline fonts over bitmap fonts, not by anti-aliasing itself \u2014 the anti-aliasing is an effect, not the cause",
+    "Bitmap fonts were hand-tuned pixel-by-pixel for specific sizes and look perfect at those sizes without anti-aliasing, while outline fonts use mathematical curves that look poor at low screen resolutions",
+    "CSS3 font-smooth wouldn't solve the problem because turning off anti-aliasing on an outline font looks even worse than anti-aliasing it \u2014 you need the actual bitmap version",
+    "The bug was likely unintentional, caused by Safari using lower-level Core Graphics APIs for performance that don't respect the OS font smoothing settings",
+    "Gruber distinguishes his subjective preference from his objective critique: Safari violates an established Mac OS X convention, regardless of whether one likes anti-aliased text"
+  ],
+  "money_quotes": [
+    "My gripe from last week is that Safari anti-aliases small monospaced fonts such 9- and 10-point Monaco. This is true, but somewhat misguided. The anti-aliasing is an effect of the problem, not the cause.",
+    "In critical thinking, separating cause from effect is, well, critical.",
+    "If Safari simply turned off anti-aliasing for Monaco, but still used the outline version of the font, the results would be awful.",
+    "When all you're programming is a style system, does every bug start looking like a missing CSS feature?",
+    "But when I say Safari is wrong to use anti-aliasing for Monaco 9 and 10, I say so not because I don't like it (even though I don't), but because it's treating these fonts differently than do all other well-written applications on Mac OS X.",
+    "It's just that bitmap Geneva is beautiful, a classic for the ages, but outline Geneva is simply a dreadful Helvetica rip-off.",
+    "On any issue of subjectivity, it is all too easy to dismiss criticism from someone on the other side of the fence. But not all criticism on subjective issues is itself subjective."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical, opinionated, meticulous",
+  "key_insight": "Safari's font rendering problem isn't about anti-aliasing preferences but about using the wrong font version entirely \u2014 outline instead of bitmap \u2014 which violates established Mac OS X conventions that every other application follows.",
+  "filename": "2003-03-19-anti-anti-aliasing"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber follows up on his earlier piece about Microtech's problematic Zio driver with a detailed exploration of Mac OS X's filesystem hierarchy, installer etiquette, and kernel panic logging. He explains the distinction between /System/Library/ and /Library/, noting that while third-party software installing in /System/ feels wrong, Apple's own documentation actually recommends it for kernel extensions. He advocates for better installer practices, including full disclosure of what gets installed where and built-in uninstall capabilities. The post also covers the evolution of kernel panic reporting from OS X 10.1's raw console dump to Jaguar's friendlier screen, and notes the ironic limitation that large panic logs fail to get written to disk.",
+  "key_points": [
+    "The /System/Library/ folder is owned by the OS and shouldn't normally be modified by users, while /Library/ is configurable by admins \u2014 but Apple's own docs recommend kernel extensions go in /System/Library/Extensions/",
+    "Good installer etiquette requires listing everything that will be installed and where, with explanations for privileged locations, plus ideally an uninstall option",
+    "Drag-and-drop installation is preferable but not feasible for components requiring privileged filesystem locations",
+    "Mac OS X's kernel panic logging has a ~2KB size limit, meaning the most catastrophic panics with the most diagnostic information may fail to log anything at all"
+  ],
+  "money_quotes": [
+    "Once granted admin privileges, an installer can stick things pretty much anywhere it wants.",
+    "Good installer etiquette calls for a complete listing of what will be installed and where, displayed in the readme information before anything actually gets installed.",
+    "Sure, most users will ignore it \u2014 but higher-functioning users tend to care very much about such things.",
+    "And so while Microtech's Zio driver is damnable for numerous reasons, installing itself within /System/ isn't one of them \u2014 no matter how hard it is to get it out of there once installed.",
+    "Since you cannot take a screen shot in this situation, type the information on another computer or write it out by hand. If you have the ability to photograph the computer screen without a flash, this may be preferred.",
+    "The likely reason my Zio panics weren't logged is that the panic generated a large amount of info."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Mac OS X's filesystem hierarchy enforces a clear separation between system-owned and user-configurable components, but the practical reality of kernel extensions and installer behavior creates tensions that only good etiquette and transparency can resolve.",
+  "filename": "2003-08-09-panic_room"
+}

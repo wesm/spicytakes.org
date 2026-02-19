@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber documents a serious security vulnerability in Mac OS X's default handling of 'telnet://' URIs, where the system passes URI content directly as arguments to the telnet shell command. By exploiting telnet's '-n' switch (which specifies a log file), an attacker can craft URIs that create or overwrite arbitrary files in a user's home folder. Using URL-encoded directory separators, the exploit can reach files outside the home folder's root level, including critical preference files. Gruber recommends disabling the telnet protocol handler using RCDefaultApp and notes that the ssh protocol does not share this vulnerability due to different command-line switches.",
+  "key_points": [
+    "Mac OS X's telnet URI handler passes URI content directly as shell command arguments, including option switches like '-n' for specifying log files",
+    "The exploit can overwrite any file the user has write privileges to, which includes nearly everything in the home folder",
+    "URL-encoding directory separators allows the attack to target files outside the home folder root, such as Finder preferences",
+    "The ssh protocol is not vulnerable to an analogous attack because its command-line switches differ entirely from telnet's",
+    "Gruber recommends using RCDefaultApp to disable the telnet protocol handler entirely"
+  ],
+  "money_quotes": [
+    "The problem with Mac OS X's default handling for 'telnet://' URIs is that it treats whatever follows the slashes as an argument to the telnet shell command.",
+    "This file is empty, and it isn't executed, but the fact that it will overwrite an existing file with the same name is some serious shit.",
+    "It will not overwrite folders, and it will not overwrite files to which you don't have write privileges, thus it can't be used to overwrite essential system components.",
+    "But it can be used to overwrite any file on your computer to which you do have write privileges, which includes pretty much any file within your home folder.",
+    "Now we get nasty; this one will overwrite your Finder preferences file."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Mac OS X's naive passing of URI content as shell command arguments turns the telnet protocol handler into a file-overwriting exploit that can destroy any user-writable file on the system.",
+  "filename": "2004-05-21-telnet_protocol"
+}

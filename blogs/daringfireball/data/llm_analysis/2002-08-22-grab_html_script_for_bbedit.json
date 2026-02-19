@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber shares an AppleScript he wrote for BBEdit that replicates the functionality of Dan Crevier's 1996 HTML Grabber plug-in, which fetches web page source code via HTTP and displays it in a text window. The original plug-in only worked in Mac OS 9, so Gruber's script leverages Mac OS X's 'do shell script' command to call the curl utility instead. He walks through the script's implementation details, explaining how AppleScript properties, dialog boxes, and BBEdit's language detection work together. The post serves as both a practical tool and a demonstration of how Mac OS X elegantly bridges GUI scripting with Unix command-line power.",
+  "key_points": [
+    "The AppleScript/curl hybrid replaces a Classic Mac OS plug-in with a native OS X solution that's trivially simple to write",
+    "Mac OS X's 'do shell script' command puts the entire Unix toolset at the disposal of AppleScript, combining GUI convenience with command-line power",
+    "The script preserves the last-used URL between invocations by using an AppleScript property",
+    "BBEdit 6.5's automatic language detection only works when window contents are set as a property during creation, not when set afterward \u2014 a subtle implementation detail that matters for usability"
+  ],
+  "money_quotes": [
+    "This sort of AppleScript/shell hybrid shows Mac OS X at its best.",
+    "While a command line by itself does not make for a good user interface, it can be an amazingly easy-to-use programming interface.",
+    "The do shell script command puts the whole Unix command-line toolset at your fingertips.",
+    "Sort of like the View Source command in a web browser, except much more convenient if you're already working in BBEdit."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Mac OS X's marriage of AppleScript's GUI scripting with Unix command-line tools via 'do shell script' represents the platform at its best \u2014 combining user-facing convenience with programmer-facing power in just a few lines of code.",
+  "filename": "2002-08-22-grab_html_script_for_bbedit"
+}

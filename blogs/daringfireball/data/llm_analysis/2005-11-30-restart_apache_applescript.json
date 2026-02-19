@@ -1,0 +1,21 @@
+{
+  "summary": "Gruber shares a simple AppleScript tip for web developers who need to restart Apache on their Mac after changing configuration files. He notes that while Apple provides a System Preferences method and the terminal offers apachectl, both require context-switching. His solution is a one-line AppleScript that invokes the shell command with admin privileges, saved to the system-wide Scripts menu for instant access from anywhere.",
+  "key_points": [
+    "Changes to Apache's httpd.conf require a restart to take effect, commonly needed when setting up virtual hosting",
+    "Both the System Preferences method and terminal command are inconvenient unless those apps are already open",
+    "A one-line AppleScript using 'do shell script' with administrator privileges solves the workflow friction",
+    "Saving the script to the system-wide Scripts menu makes it accessible from any context"
+  ],
+  "money_quotes": [
+    "So because I'm really lazy, I made an AppleScript that does this. It's just one single line.",
+    "From the terminal, you can restart Apache using the `apachectl graceful` command, which requires administrator privileges, which means you'd typically invoke it as `sudo apachectl graceful`.",
+    "So it's as simple as this: when I need to restart Apache, I choose \"Restart Apache\" from my system-wide Scripts menu, the script prompts me to authenticate with admin credentials, and that's it."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "A one-line AppleScript bridging shell commands to the system Scripts menu can eliminate small but repeated workflow friction for web developers on the Mac.",
+  "filename": "2005-11-30-restart_apache_applescript"
+}

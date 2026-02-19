@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber follows up on his previous AppleScript for converting curly quotes to ASCII in BBEdit, revealing that a reader pointed out BBEdit's built-in Convert to ASCII plug-in is scriptable, reducing his 14-line script to just three lines. He explains the advantages of the simpler approach: it's faster, doesn't pollute the undo stack, and converts far more characters. He then extends the discussion to BBEdit's Translate command for converting non-ASCII characters to HTML entities, sharing a custom AppleScript he uses regularly when writing HTML content. The post is a practical tutorial on leveraging BBEdit's scripting capabilities for text processing workflows.",
+  "key_points": [
+    "BBEdit's Convert to ASCII plug-in is scriptable, replacing a manual 14-line search-and-replace script with just three lines",
+    "The plug-in approach is superior: faster execution, atomic undo behavior, and broader character conversion coverage",
+    "BBEdit's Translate command (Command-Option-T) converts between non-ASCII characters and HTML entities bidirectionally",
+    "Since BBEdit's Translate command isn't recordable, you need to write AppleScript manually to automate it with custom settings",
+    "Gruber's workflow involves typing real characters (like \u00a9) and then running a script to convert them to HTML entities, avoiding manual entity typing"
+  ],
+  "money_quotes": [
+    "The answer: because I forgot that the Convert to ASCII plug-in is scriptable.",
+    "The Convert to ASCII plug-in works nearly instantaneously.",
+    "The Convert to ASCII command is atomic, so you can just hit Undo once.",
+    "The Translate command is so useful, and so convenient, that it's easy for an old BBEdit user like yours truly to forget that many people might not know about it.",
+    "Instead of dealing with entities manually, I just type real characters, then run my script."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "The best text-processing workflows come from deeply understanding your tools' scriptable capabilities, often replacing verbose custom solutions with elegant built-in features.",
+  "filename": "2003-02-23-larry_moe_curly"
+}

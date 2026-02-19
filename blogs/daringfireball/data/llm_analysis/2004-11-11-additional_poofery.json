@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber continues his examination of Mac OS X's 'poof' animation, cataloging additional inconsistencies across Safari, Menu Extras, Disk Utility, and the Finder's Find dialog. He finds that Safari dangerously breaks the unwritten rule that poofing should be non-destructive by actually deleting bookmarks rather than just removing references. Menu Extras support poofing for removal but lack drag-and-drop for installation. Disk Utility uses poofing as the only removal method but restricts where you can drop, while the Finder's Find dialog fails to support poofing at all, instead moving actual folders when you drag items from the list. The piece argues that these inconsistencies undermine user trust in a gesture that should have reliable, predictable behavior.",
+  "key_points": [
+    "Safari's Bookmarks Bar violates the core poof principle by deleting actual data (bookmarks/bookmarklets) rather than just removing a reference",
+    "Menu Extras support poof removal via Command-drag but have wildly inconsistent methods for being added in the first place",
+    "Disk Utility's sidebar uses poofing as the sole removal mechanism but restricts the drop zone to within the app window, breaking the standard behavior",
+    "The Finder's Find dialog is the most dangerous case: dragging from the search places list moves the actual folder rather than removing the reference, potentially causing data loss",
+    "OmniWeb correctly refuses to poof bookmarks, demonstrating that third-party developers sometimes get Apple's conventions more right than Apple does"
+  ],
+  "money_quotes": [
+    "When you poof a Safari bookmark, you are deleting the actual bookmark itself. In every other instance of poofing, you're only removing a reference to something, not deleting actual data.",
+    "It's a bad idea because it breaks the unwritten rule that poofing is non-destructive, removing only a reference to a thing, not the thing itself.",
+    "OmniWeb 5, on the other hand, gets this right.",
+    "Poofing is the only way to remove a disk image file from the Disk Utility sidebar. Judging from my email, this is utterly non-intuitive.",
+    "Dragging a folder out of the list moves the original folder to wherever you drop it. This includes dropping items on the Trash \u2014 a gesture one might reasonably assume would simply remove the folder reference from the list.",
+    "This list of specific search places is exactly the sort of list-of-references where Apple typically uses poofing to remove items. That you're instead dragging a reference to the original folder is both unexpected and dangerous."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, critical, meticulous",
+  "key_insight": "Even small interaction patterns like the poof animation need rigorous consistency across the OS, because when the same gesture sometimes removes a reference and sometimes deletes data or moves files, users can no longer trust any instance of it.",
+  "filename": "2004-11-11-additional_poofery"
+}

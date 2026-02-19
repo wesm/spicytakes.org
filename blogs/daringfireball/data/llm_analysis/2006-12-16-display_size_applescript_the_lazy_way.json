@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber describes his quest to write an AppleScript that resizes and arranges browser windows to a consistent layout across different displays. He needed to programmatically determine screen dimensions, which AppleScript doesn't natively expose. Craig Hockenberry suggested querying the Finder for the desktop window bounds, which works perfectly for single-display setups. However, Gruber demonstrates that with multiple displays, the technique returns a single bounding rectangle encompassing all screens, making it unreliable for multi-monitor configurations. He documents the coordinate behavior across different display arrangements and notes that a proper solution for multiple displays requires a different approach.",
+  "key_points": [
+    "AppleScript has no built-in way to query display dimensions, but asking the Finder for 'bounds of window of desktop' provides a workable workaround for single displays",
+    "The desktop coordinate system uses the top-left corner of the main display (with the menu bar) as the origin, so secondary displays can have negative coordinates",
+    "With multiple displays, the Finder returns one bounding rectangle spanning all screens, making it impossible to determine individual display sizes",
+    "Gruber uses leading underscores in AppleScript variable names to distinguish them from scripting dictionary terms, analogous to Perl's sigils"
+  ],
+  "money_quotes": [
+    "The main reason I wanted to write the script in the first place is that I switch between my 20-inch Cinema Display and the built-in display of my 15-inch PowerBook, which (the switching) can leave browser windows in weird sizes.",
+    "The leading underscores are something I've started using in my AppleScript variable names to make them easily distinguishable from terms in scripting dictionaries; think of them sort of like Perl's sigils.",
+    "The first number is negative because the origin (0, 0) of the coordinate system is the top left corner of the main display \u2014 the one with the menu bar.",
+    "So, in short, asking the Finder for the bounds of window of desktop works great if there's just one display."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "AppleScript's lack of native display-dimension queries can be worked around by asking the Finder for the desktop bounds, but this hack breaks down with multiple displays because it returns a single rectangle spanning all screens.",
+  "filename": "2006-12-16-display_size_applescript_the_lazy_way"
+}

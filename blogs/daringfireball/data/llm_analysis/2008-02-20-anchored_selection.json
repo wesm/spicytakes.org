@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber follows up on his 2006 essay about keyboard-based multiple item selection in Mac OS X, noting that Apple changed Cocoa's NSTableView in Leopard to use the anchored selection model he advocated for. The anchored model lets users correct selection mistakes by shrinking the selection in the opposite direction, while the unanchored model only ever grows. Because the change was made at the framework level, all Cocoa apps automatically inherited the improved behavior. However, Carbon apps like Finder and iTunes still use the inferior unanchored model. Gruber notes the inconsistency is unfortunate but considers the NSTableView change exactly what he hoped for. He closes by thanking whoever at Apple pushed for the change.",
+  "key_points": [
+    "Anchored selection lets users correct mistakes with the keyboard by shrinking the selection range, while unanchored selection only grows in both directions",
+    "Apple changed NSTableView's default in Leopard from unanchored to anchored, and all Cocoa apps picked up the improvement automatically",
+    "Carbon apps like Finder and iTunes still use the old unanchored model, creating an inconsistency most users can't explain",
+    "Gruber's 2006 prediction that apps using framework defaults would get improvements 'for free' proved exactly correct"
+  ],
+  "money_quotes": [
+    "My argument was that anchored is better, because it allows you to correct for mistakes without switching to the mouse.",
+    "Key word there being 'was'.",
+    "That's exactly what happened \u2014 all apps that use Cocoa's NSTableView, not just Apple's, picked up the new anchored selection model for free on Leopard.",
+    "The overwhelming majority of Mac users have no idea what Cocoa and Carbon are, so the different behavior in the Finder and iTunes is, to them, seemingly arbitrary.",
+    "But if there's one single thing I hoped to see Apple do regarding this issue in Leopard, it's exactly what they did: change it in NSTableView.",
+    "I have no idea who pushed for this change at Apple, nor whether my essay was influential in the decision. But whoever you are, I thank you."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, satisfied",
+  "key_insight": "Apple's Leopard change to anchored selection in NSTableView vindicated both the usability argument and the wisdom of building on framework defaults rather than custom implementations.",
+  "filename": "2008-02-20-anchored_selection"
+}

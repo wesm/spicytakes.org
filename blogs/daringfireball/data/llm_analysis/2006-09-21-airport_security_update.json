@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber dissects Apple's AirPort security update in the context of the earlier 'MacBook Wi-Fi Hack' controversy involving researchers David Maynor and Jon Ellch. Apple patched buffer overflow vulnerabilities in AirPort wireless drivers for both Broadcom and Atheros chipsets, but explicitly stated that no known exploits exist and that the fixes were not based on anything provided by Maynor, Ellch, or SecureWorks. Gruber methodically shows that while the researchers were broadly correct that AirPort drivers needed better frame validation, their original claims of having a working exploit against Apple's built-in drivers remain unproven. He lays out three logical possibilities: the researchers lied, they found an exploit but never showed Apple, or Apple is lying \u2014 and argues the last option is least credible. He concludes that the researchers' credibility is essentially spent unless they can produce proof.",
+  "key_points": [
+    "Apple's AirPort update patched separate buffer overflow vulnerabilities in Broadcom (PowerPC) and Atheros (Intel) wireless chipsets, plus a third-party API flaw, all involving malformed Wi-Fi frame handling",
+    "Apple went on the offensive, explicitly stating that Maynor and Ellch never provided information identifying a specific vulnerability and that the fixes came from Apple's own internal audit",
+    "The distinction between finding potential vulnerabilities and demonstrating actual exploits is critical \u2014 Apple says no known exploit exists, which undercuts the researchers' dramatic Black Hat claims",
+    "Gruber identifies three mutually exclusive possibilities and argues that Apple lying would be an enormous risk for a public company, making the researchers' position untenable",
+    "Brian Krebs's conclusion that the drivers were 'indeed vulnerable to exploitation' overstates what the evidence actually shows \u2014 potential vulnerability is not the same as proven exploitability"
+  ],
+  "money_quotes": [
+    "\"No known exploit\" does not just mean that there aren't any attacks in the wild; it means no one has demonstrated to Apple a way to take advantage of these frame validation issues.",
+    "They fixed them to eliminate potential exploits, not to address actual, known exploits.",
+    "My translation of \"we are open to hearing from security researchers on how to improve the security\" is \"We're not in the business of besmirching the reputations of security researchers who report problems in Mac OS X, but we are not going to sit back and take it when someone grossly exaggerates or lies about a threat.\"",
+    "Maynor and Ellch's demonstration video was the equivalent of an intruder entering the building, walking into the executive suite, and taking a dump on the CEO's desk. But according to Apple, Maynor and Ellch never demonstrated that they could get through the front door.",
+    "Apple's AirPort code is now performing additional validation to guard against such an attack, but there remains no proof that such an attack exists.",
+    "The only way Maynor and Ellch have any credibility remaining is if Apple is flat-out lying. And if that's the case Maynor and Ellch can simply step forward and prove it.",
+    "It is a simple yes or no question: Have Maynor and Ellch found a vulnerability that affects MacBooks using Apple's built-in cards and drivers? That Maynor and Ellch haven't answered it speaks volumes."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "media"
+  ],
+  "tone": "analytical, prosecutorial",
+  "key_insight": "Patching potential vulnerabilities is not the same as validating claims of working exploits, and Apple's security update actually undermines rather than supports the researchers' unproven assertions.",
+  "filename": "2006-09-21-airport_security_update"
+}

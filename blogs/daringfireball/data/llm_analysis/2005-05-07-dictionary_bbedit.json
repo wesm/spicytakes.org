@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber details his quest to integrate Mac OS X 10.4's new Dictionary app with BBEdit, Mailsmith, and TextWrangler, since Dictionary's built-in lookup features only work in Cocoa text fields. He catalogs the limitations: no contextual menu in Carbon apps, no useful AppleScript dictionary, and broken dict:// URL support. He presents two workarounds \u2014 assigning a keyboard shortcut to the Dictionary Services menu item, and a more sophisticated AppleScript that uses GUI Scripting to automate lookups from the current word at the insertion point. He also recommends PreFab UI Browser as essential for writing GUI scripts.",
+  "key_points": [
+    "Dictionary.app's lookup features (contextual menu, keyboard shortcut) only work in Cocoa NSTextView fields, excluding popular Carbon-based editors like BBEdit",
+    "The Services menu workaround is simple but requires manual text selection; GUI Scripting enables automatic current-word detection without selection",
+    "Dictionary lacks a proper AppleScript dictionary for lookups, and its dict:// URL scheme is unreliable \u2014 a clear oversight by Apple",
+    "PreFab UI Browser is practically essential for GUI scripting work, far surpassing Apple's own UI Element Inspector",
+    "BBEdit 8.2.1 later added native support for the Command-Control-D Dictionary shortcut, making Bare Bones the first third-party developer to do so"
+  ],
+  "money_quotes": [
+    "Dictionary's primary advantage over online dictionaries \u2014 including Sherlock's \u2014 is that its database is stored on your computer, and thus is always available; online dictionaries are useless to an offline laptop.",
+    "To be truly useful as a writing aid, you need to be able to invoke your dictionary easily from the app in which you're writing.",
+    "I'm so lazy that I don't even want to have to select a word before doing a look-up on it.",
+    "Trying to accomplish something with GUI scripting without using UI Browser is like trying to walk around blindfolded.",
+    "It's a completely valid gripe that Dictionary ought to provide a proper AppleScript command for performing look-ups, and I hope this gets addressed in a future update.",
+    "But in the meantime, GUI scripting gets the job done today."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "When Apple's tools fall short of proper integration, resourceful scripting workarounds can bridge the gap \u2014 but the need for such workarounds reveals real shortcomings in Apple's developer story.",
+  "filename": "2005-05-07-dictionary_bbedit"
+}

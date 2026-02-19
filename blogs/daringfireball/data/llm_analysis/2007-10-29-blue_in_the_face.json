@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber investigates the widespread reports of 'blue screen' failures during Leopard upgrades and traces them to a single cause: old versions of Unsanity's Application Enhancer (APE) left on users' systems. The most insidious vector is Logitech Control Center, which silently installs APE as a dependency without users' knowledge. Gruber argues that APE's installation of software into Apple's explicitly off-limits /System/Library/ hierarchy is a textbook violation of developer guidelines, and that the upgrade failures are not Apple's fault but the predictable consequence of unsupported system modifications. He notes that Apple is unfairly absorbing the bad press and support burden for a problem created entirely by third-party developers who ignored clear rules.",
+  "key_points": [
+    "Every known instance of the Leopard 'blue screen' upgrade failure traces back to old versions of Unsanity's Application Enhancer (APE)",
+    "Logitech Control Center silently installed APE as a dependency, meaning most affected users had no idea APE was on their system",
+    "APE installs a bundle into /System/Library/, a directory Apple explicitly declares off-limits to third-party developers",
+    "The upgrade isn't failing \u2014 it's doing exactly what it should, moving existing software forward, including the incompatible APE",
+    "Apple bears the reputational damage and support costs for a problem entirely caused by Unsanity and Logitech violating developer guidelines"
+  ],
+  "money_quotes": [
+    "To reiterate, the evidence as of this writing indicates that every single instance of a 'blue screened' botched Leopard upgrade is attributable to the presence of APE.",
+    "It's utterly absurd and completely irresponsible for Logitech to base their mouse software on a completely and utterly unsupported-by-Apple system software modification.",
+    "You can't argue that users who don't even realize they have APE installed should have known to check for an updated version of APE before upgrading to Leopard.",
+    "This is pretty much the worst case scenario of what can go wrong with an unsupported system modification like APE.",
+    "The blue-screened upgrades aren't failing, they're doing exactly what they're supposed to do: moving the existing software from the old system to the new Leopard system software.",
+    "It's hard to see what more Apple could do to discourage the installation of software in /System/.",
+    "Unsanity and Logitech are responsible for these APE installations that render Leopard upgrades unbootable, but it's Apple that's getting the bad press and the 'I'm stuck at a blue screen' support calls."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "investigative, indignant, technical",
+  "key_insight": "When third-party developers ignore platform rules and install software into explicitly forbidden system directories, it's the platform vendor \u2014 not the rule-breakers \u2014 who pays the reputational price when things inevitably break.",
+  "filename": "2007-10-29-blue_in_the_face"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber presents a detailed technical argument that Mac OS X's default keyboard-based list selection model (unanchored, where Shift-arrow always extends the selection) is inferior to the anchored model (where reversing direction shrinks the selection). He documents that nearly all Mac software uses the unanchored model because it's the default in Cocoa's NSTableView and Carbon's Data Browser controls, yet he received zero emails from anyone who actually prefers it. The core problem is that unanchored selection makes it impossible to recover from overshooting without starting over or reaching for the mouse. He argues for consistency with text selection (which is anchored) and mouse-only selection (also anchored), and calls on Apple to update the HIG and default controls accordingly. In a postscript, he notes Apple did exactly this in Leopard.",
+  "key_points": [
+    "Unanchored selection (the Mac OS X default for lists) makes it impossible to correct overshooting with the keyboard alone \u2014 you must start over or use the mouse",
+    "Keyboard-only text selection and mouse-only list selection are both anchored, making the unanchored default for keyboard list selection an inconsistency within Apple's own frameworks",
+    "The theoretical justifications for unanchored selection (no ambiguity about anchor point, ability to extend both ends) are contrived scenarios that rarely arise in practice",
+    "The ease of recovering from mistakes is a fundamental barometer for software usability, and unanchored selection fails this test",
+    "Apple eventually validated Gruber's argument by switching NSTableView to anchored selection in Mac OS X 10.5 Leopard"
+  ],
+  "money_quotes": [
+    "The ease with which you can recover from mistakes is a good barometer for the overall usability of software.",
+    "I received not a single email from anyone who claims to prefer this behavior. Not one.",
+    "If you're willing to break with the default visual appearance for something that looks better, I don't see why you wouldn't be willing to break with the default behavior for something that works better.",
+    "It's not controversial; it's just baffling.",
+    "Think of the rubber-band selection mode in the Finder's icon view: it grows and shrinks as you drag back and forth. It would be goofy if it only grew and never shrank \u2014 but yet that's exactly how the unanchored keyboard-only selection shortcuts behave.",
+    "You suffer a large penalty (when you overshoot your intended range) in exchange for a small benefit (being able to grow both ends of the selection range).",
+    "AppKit is not the HIG."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, opinionated, methodical",
+  "key_insight": "Software defaults that make it hard to recover from small mistakes represent a fundamental usability failure, even when those defaults are sanctioned by the platform vendor.",
+  "filename": "2006-08-04-highly_selective"
+}

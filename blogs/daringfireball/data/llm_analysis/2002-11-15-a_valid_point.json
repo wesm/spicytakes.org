@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber defends BBEdit 7's HTML syntax checker against Dori Smith's complaints that it produces erroneous results compared to the W3C validator. He demonstrates that BBEdit and the W3C validator find different classes of errors \u2014 BBEdit parses attribute values while the W3C validator does reference counting \u2014 and that both tools have blind spots. Smith's blog actually contains real markup errors (unencoded slashes in URL query strings) that BBEdit correctly flags but the W3C validator misses. Gruber argues the two tools complement each other, and that when either reports an error, the correct response is to fix it rather than blame the tool.",
+  "key_points": [
+    "BBEdit's syntax checker and the W3C HTML validator work fundamentally differently, catching different classes of errors rather than disagreeing with each other",
+    "The W3C validator does not parse attribute values, meaning nonsensical values like width='foobar' pass validation without complaint",
+    "BBEdit does not perform reference counting, so structural errors like duplicate <body> tags go undetected",
+    "Smith's blog contained real URI encoding errors \u2014 unencoded slashes in query strings \u2014 that BBEdit correctly identified per RFC 2396",
+    "Passing a validator does not mean your markup is error-free; it only means it passed that particular validator's checks"
+  ],
+  "money_quotes": [
+    "Only in the mind of Dori Smith could new support for two additional web programming languages serve as evidence that Bare Bones is not listening to web developers.",
+    "She may do a lot of HTML validation, but she doesn't do it well.",
+    "Just what does it mean when your web pages pass through an HTML validator without error? Only that they've passed through a validator.",
+    "Browsers support all sorts of crappy markup.",
+    "But why leave it to chance when encoding the / in the search part will remove the ambiguity?",
+    "The shortcomings in both tools are that they both miss certain kinds of errors, not that they report bogus errors.",
+    "Rather than competing, they complement each other rather nicely, which is why I use both."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical, combative, authoritative",
+  "key_insight": "Passing one HTML validator doesn't mean your markup is correct \u2014 different validation tools catch different classes of errors, and the proper response to a reported error is to fix it, not blame the tool.",
+  "filename": "2002-11-15-a_valid_point"
+}

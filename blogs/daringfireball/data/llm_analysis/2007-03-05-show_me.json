@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber revisits the ongoing MacBook Wi-Fi security exploit controversy involving researchers David Maynor and Jon Ellch, who demonstrated a purported wireless hijacking at Black Hat in August 2006. More than six months later, Maynor broke his silence but only demonstrated a denial-of-service crash against Mac OS X 10.4.6, not the full remote code execution hijack shown in the original video. Gruber methodically catalogs the still-unanswered questions: the unnamed third-party Wi-Fi card, the suspicious MAC address evidence, and why the exploit targets an OS version predating the original announcement. He argues that a kernel panic is far removed from the claimed machine hijacking and that Apple's boilerplate 'may cause arbitrary code execution' language proves nothing. Gruber concludes that while Maynor likely did discover a legitimate DoS vulnerability, there remains no evidence it can be expanded into a reliable hijack exploit.",
+  "key_points": [
+    "Maynor's new demonstration only showed a kernel panic (DoS) on Mac OS X 10.4.6, not the root-privilege hijacking from the original Black Hat video",
+    "Jim Thompson's analysis of the video revealed the exploited network interface had an Apple MAC address, suggesting the unnamed third-party USB card may have been a distraction",
+    "The exploit was demonstrated against 10.4.6 despite 10.4.7 being released a month before the original announcement, raising questions about whether Apple's September patches were even related",
+    "Apple's 'may cause arbitrary code execution' language is boilerplate used for virtually all buffer overflow advisories and doesn't confirm a working hijack exists",
+    "Maynor's former employer SecureWorks apparently prevented him from presenting evidence to defend his claims, muddying the entire saga"
+  ],
+  "money_quotes": [
+    "Most of the time, when I report about something, the job is organizing, ordering, and explaining the facts. With the Maynor/Ellch/SecureWorks MacBook Wi-Fi security saga, however, it's always been about missing facts.",
+    "Many people remain under the impression that the controversy is about whether they used a third-party card or not, a fact which was never actually in dispute.",
+    "There is a real controversy that is converse of the false one \u2014 that their video purports to show an exploit against some still-unnamed third-party card but in fact shows a MacBook that is connected to the network using its built-in AirPort card.",
+    "That's bad, but it's far removed from the 'take over the machine' hijacking shown in their video.",
+    "Apple uses this language for just about any buffer overflow bug, however.",
+    "I say: Show me.",
+    "But I don't think this exploit can necessarily be expanded into a reliable hijack. We'll know more if and when Maynor releases code for his exploit, which he's promised to do."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "investigative, skeptical, methodical",
+  "key_insight": "A demonstrated kernel panic is a legitimate but far lesser finding than the sensational machine-hijacking claim, and without released exploit code or reproducible evidence, extraordinary security claims remain unproven.",
+  "filename": "2007-03-05-show_me"
+}

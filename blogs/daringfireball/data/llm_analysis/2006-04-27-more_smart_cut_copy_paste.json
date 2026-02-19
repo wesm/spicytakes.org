@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber follows up on his critique of NSTextView's 'smart' Cut/Copy/Paste behavior, clarifying that he wasn't questioning whether the general concept was new \u2014 Apple's HIG has prescribed intelligent cut and paste since at least 1992. His core complaint is that NSTextView's implementation contradicts Apple's own Human Interface Guidelines by making the smart behavior depend on how you made your selection (double-click vs. click-and-drag), not just what is selected. This violates a fundamental GUI principle: what you see should determine what you get. He argues that old-fashioned non-smart C/C/P is actually more predictable because users internalize the consistent manual spacing, whereas NSTextView's inconsistent 'sometimes smart, sometimes not' behavior forces users to think about something the feature was designed to eliminate.",
+  "key_points": [
+    "Apple's HIG has prescribed 'Intelligent Copy and Paste' behavior since at least 1992, and the HIG rules are sensible for prose editing",
+    "NSTextView's implementation contradicts Apple's own HIG by making smart behavior depend on how a selection was made, not what is selected",
+    "The fundamental GUI principle of 'what you see is what you get' is violated when identical-looking selections produce different cut/paste results",
+    "Old-fashioned non-smart C/C/P is arguably better in practice because its consistent behavior becomes automatic and predictable",
+    "The inconsistency of NSTextView's smart C/C/P defeats its own purpose by forcing users to think about the very thing it was supposed to handle automatically"
+  ],
+  "money_quotes": [
+    "There's nothing in the HIG regarding how you make your selection \u2014 a selected word is a selected word, no matter whether you selected it by double-clicking or by clicking and dragging.",
+    "Instead of 'what you see is what you get', it's 'what you did is what you get', and the whole point of a GUI is about what you see.",
+    "The point of 'smart' C/C/P is, ostensibly, to free you from thinking about word-bordering spaces before and after C/C/P.",
+    "With old-fashioned 'non-smart' C/C/P, sure, you have to deal with word-bordering spaces manually, but I think in practice, you get used to doing so without even thinking about it, because you know you have to do it every time.",
+    "With NSTextView's implementation, however, you do have to think about it \u2014 or at least most users do \u2014 because sometimes you get the 'smart' behavior, and other times you don't."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, critical, opinionated",
+  "key_insight": "A 'smart' feature that behaves inconsistently based on invisible state is worse than a dumb feature that behaves predictably every time, because it violates the GUI principle that what you see should determine what you get.",
+  "filename": "2006-04-27-more_smart_cut_copy_paste"
+}

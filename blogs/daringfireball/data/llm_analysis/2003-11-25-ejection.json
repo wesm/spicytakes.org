@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber documents a specific click-through bug in the Panther Finder's sidebar eject buttons. When the Finder is the active app, eject buttons in background windows visually highlight on hover (suggesting click-through support) but don't actually eject when clicked. Conversely, when the Finder is not the active app, the buttons don't highlight (suggesting no click-through) but clicking them actually ejects the volume. This contradictory behavior is almost certainly a bug, as the Finder otherwise handles click-through well. Gruber also praises the sidebar eject buttons as a conceptual improvement over the confusing drag-to-Trash unmount gesture.",
+  "key_points": [
+    "The Panther Finder's sidebar eject buttons exhibit contradictory click-through behavior depending on whether the Finder is the active application",
+    "The sidebar eject buttons are a genuine improvement over the classic Mac gesture of dragging volumes to the Trash to unmount them",
+    "Click-through is most dangerous for controls that perform irreversible actions, and accidental ejection wastes time that can't be undone",
+    "The hard-coded blue gradient selection style in the Finder sidebar matches iTunes and iCal but not the user's system preference, adding to the inconsistency across Apple's own apps",
+    "The bug only manifests when the window is in icon view and the volume is already selected in the sidebar"
+  ],
+  "money_quotes": [
+    "It's a Daring Fireball Thanksgiving-week tradition: griping about the OS X Finder.",
+    "If you drag files and folders to the Trash to delete them, it seems natural to drag a volume to the Trash to *erase* it.",
+    "The trash-as-unmounter gesture is a bit less scary on Mac OS X than it was on Mac OS 9, because once you initiate such a drag, the Trash icon in the Dock turns into an eject button. But even that's somewhat awkward, because the eject icon doesn't appear until after you've started dragging the disk icon.",
+    "When the Finder is the active app, the eject buttons in background windows look like they support click-through, but they don't; when the Finder is not the active app, the eject buttons look like they don't support click-through, but they do.",
+    "This is so bizarre that it's got to be a bug.",
+    "The least suitable controls for click-through are the ones which are the most dangerous.",
+    "Click carefully."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, satirical, meticulous",
+  "key_insight": "The Panther Finder's eject buttons exhibit perfectly inverted click-through behavior \u2014 lighting up when they won't work and silently working when they don't light up \u2014 a bug so precisely backwards it reveals how easily complex UI state interactions can produce dangerous contradictions.",
+  "filename": "2003-11-25-ejection"
+}

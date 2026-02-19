@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber follows up on his earlier critique of Unsanity's Smart Crash Reports with several addenda. He addresses reader concerns about InputManagers being a security hole, arguing that while the situation isn't great, it's just one of many ways a malicious app could cause harm once launched. He notes an inconsistency in how macOS handles invisible input managers. He reports that Unsanity has responded to his criticism by adding a permission dialog in the next release, though he argues the description still isn't transparent enough about what's actually being installed. He also highlights Apple's own recommended approach and a third-party alternative called BugReporter.",
+  "key_points": [
+    "InputManagers aren't uniquely dangerous \u2014 any running app can already modify Library subfolders, so the real defense is not launching untrusted software",
+    "macOS inconsistently blocks dot-prefixed invisible input managers but loads ones with the HFS invisible bit set, which Gruber calls an oversight or bug",
+    "Unsanity responded to criticism by adding a permission dialog in Smart Crash Reports 1.1b1, addressing Gruber's core argument about silent installation",
+    "Apple's own technical note recommends apps check their own crash logs on launch rather than using input manager hacks",
+    "Self-contained crash reporting solutions like BugReporter exist as alternatives that don't require system-wide extensions"
+  ],
+  "money_quotes": [
+    "Once you launch an application, it can pretty much do anything it wants within the confines of your home folder.",
+    "The expected behavior of any application that wants to install any system-wide extension is that it should ask permission first; apps that behave otherwise should be shunned.",
+    "There are so many bad things a malicious app can do once it's running that it'd be nearly impossible to defend against them all, individually; the best and only defense is not to launch software you don't trust.",
+    "This seems like an oversight, if not a bug. If it's a good idea to suppress some 'invisible' input managers, the system should suppress them all.",
+    "I can't think of a single legitimate reason why anyone would want invisible input managers to load.",
+    "System-wide extensions should never be installed without the user's permission."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, measured, principled",
+  "key_insight": "The real security boundary on macOS isn't folder permissions but the decision to launch an application in the first place, which is why system-wide extensions must always require explicit user consent.",
+  "filename": "2006-02-13-scr_addenda"
+}

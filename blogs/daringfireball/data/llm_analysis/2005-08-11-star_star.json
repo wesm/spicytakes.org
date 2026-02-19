@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber documents a rendering inconsistency in Safari where Unicode black star characters (&#9733;) used as permalink markers on Daring Fireball's Linked List displayed differently depending on which fonts were installed on the system. The culprit was the Armenian font Mshtakan, which contained an ugly, differently-shaped star glyph that Safari would use as a fallback instead of the better glyph from Hiragino Kaku Gothic Pro. Firefox and Camino handled this correctly by always choosing the same star glyph regardless of available fonts. Gruber's workaround was to specify preferred font families in CSS for the permalink class. He also notes that Safari's ATSU rendering option fixes the issue but introduces poor kerning elsewhere.",
+  "key_points": [
+    "Unicode fallback font selection in Safari/WebKit varied by system depending on which fonts were installed, producing inconsistent rendering of the same character",
+    "The Mshtakan Armenian font contained the worst black star glyph of all available fonts, yet the system preferentially selected it over better alternatives like Hiragino Kaku Gothic Pro",
+    "Gecko-based browsers (Firefox, Camino) handled this more gracefully by always selecting the same glyph regardless of installed fonts",
+    "The fix was a targeted CSS font-family declaration to guide WebKit toward better font choices before it could fall back to Mshtakan",
+    "The underlying issue was likely in Mac OS X's font fallback system rather than WebKit specifically, as TextEdit exhibited the same behavior"
+  ],
+  "money_quotes": [
+    "It's a less angular, more childish star.",
+    "What sucks about this is that of all the fonts that contain a glyph for this character, Mshtakan is the only font that could be considered a poor choice.",
+    "Only in Mshtakan is it significantly smaller, and only in Mshtakan is it a differently-shaped star.",
+    "I consider this more desirable than Web Kit's 'I'll show you different stars depending on which fonts you have available' behavior.",
+    "I can't recommend turning Safari's ATSU rendering option on, however, as it results in generally unsightly kerning."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Even a single misguided font fallback choice in the operating system's Unicode rendering can undermine visual consistency across browsers, revealing how much typographic detail matters in web design.",
+  "filename": "2005-08-11-star_star"
+}

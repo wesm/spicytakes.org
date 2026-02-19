@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber explains the .htaccess configuration he uses to standardize Daring Fireball's URLs, covering two specific cases: redirecting 'www.daringfireball.net' to the prefix-less 'daringfireball.net', and redirecting 'daringfireball.com' to 'daringfireball.net'. He walks through the Apache mod_rewrite and mod_alias syntax in detail, explaining RewriteCond, RewriteRule, and RedirectMatch directives. The post is a practical tutorial but filtered through Gruber's characteristic opinions about web conventions, including his dislike of the 'www' prefix and '.com' TLD.",
+  "key_points": [
+    "The 'www' prefix is a goofy, vestigial convention from when people briefly called it the 'World Wide Web' before settling on just 'the Web'",
+    "Apache mod_rewrite with permanent (301) redirects is the proper way to canonicalize domain names and eliminate www prefixes",
+    "RedirectMatch (mod_alias) and RewriteRule (mod_rewrite) achieve similar results but differ in how they handle the leading slash in request strings",
+    "Registering alternate domain variants defensively prevents domain squatters from exploiting common user typos",
+    "Permanent 301 redirects are preferable to temporary 302s because intelligent clients will remember and skip the redirect on subsequent requests"
+  ],
+  "money_quotes": [
+    "I've always rather disliked the \"www\" prefix for web servers. It has become so common that everyone is accustomed to both seeing and saying it, and so it's sort of invisible now, but it really is a goofy convention.",
+    "But why be lazy?",
+    "I can't quite explain why I decided to use \"daringfireball.net\" instead of \"daringfireball.com\" as the canonical domain for Daring Fireball. Suffice it to say I have some sort of irrational dislike for \".com\".",
+    "The last thing I wanted was for some asshole domain squatter to register \"daringfireball.com\", so I registered the \".com\" version too.",
+    "People only called it the \"World Wide Web\" for about a month or so back in 1994 before we all agreed to just call it the \"Web\", but yet we're stuck with the lame \"www\" prefix for the rest of our lives.",
+    "I'd never use a web host who didn't enable mod_rewrite."
+  ],
+  "themes": [
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Canonical URL standardization through permanent redirects is both a matter of web hygiene and an expression of taste in how you present your domain to the world.",
+  "filename": "2006-05-05-htaccess_redirection"
+}

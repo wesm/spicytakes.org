@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber publishes corrections and follow-ups to his earlier Anti-Anti-Aliasing article about font rendering on Mac OS X. Dave Hyatt from the Safari team confirms that Safari was indeed using the wrong fonts for screen rendering, validating Gruber's observations. Gruber corrects his claim about ImageWriter resolution (144 DPI, not 72), acknowledges that his description of TrueType hinting was oversimplified, and fixes a 2-bit vs 1-bit error. The post serves as both a technical errata and a demonstration that well-hinted fonts look better even when anti-aliased.",
+  "key_points": [
+    "Safari's Dave Hyatt confirmed the browser was using wrong fonts for screen rendering due to missing a font substitution step in lower-level APIs",
+    "The ImageWriter had 144 DPI resolution at 'Best' quality, not 72 DPI as Gruber originally claimed, using 2x screen fonts",
+    "TrueType hinting is far more sophisticated than simply embedding bitmaps \u2014 it gives designers precise pixel-level control over letterform rendering",
+    "Well-hinted fonts like ProFont look better than unhinted fonts even when anti-aliased, suggesting hinting quality matters regardless of rendering method"
+  ],
+  "money_quotes": [
+    "Safari *is* using the wrong fonts for rendering to the screen.",
+    "I can't believe Hyatt has already responded to my article.",
+    "It is hinting that allows Microsoft fonts like Verdana and Georgia to looks so good on-screen without anti-aliasing.",
+    "Well-hinted fonts seem to look better than unhinted fonts, even when anti-aliased.",
+    "If Monaco looked that good in Safari, I probably wouldn't have bothered writing about this in the first place.",
+    "A black-and-white display is just 1-bit. Two colors, but just one bit."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Font hinting quality matters for screen rendering regardless of whether anti-aliasing is applied, and Safari's early font rendering issues were confirmed as genuine bugs rather than design choices.",
+  "filename": "2003-03-23-bitmap_like_its_1989"
+}

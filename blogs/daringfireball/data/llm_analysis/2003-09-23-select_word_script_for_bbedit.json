@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber walks through building a 'Select Word' AppleScript command for BBEdit, starting from a simple two-line script and iteratively refining it for performance. The key optimization involves narrowing the search scope from the entire document to the current display line, preventing AppleScript from building enormous temporary word lists. He uses a robot-and-restaurant analogy to explain why unscoped queries don't scale. The final script includes error handling for edge cases like empty lines. The post doubles as a tutorial on AppleScript whose clauses and BBEdit's scripting model, while also critiquing AppleScript's inability to optimize obviously bounded queries.",
+  "key_points": [
+    "A naive AppleScript whose clause that searches every word in a document becomes painfully slow in large files, even though it works fine in small ones",
+    "The fix is to narrow the scope from the entire document to the current display_line, which bounds the search to what's visible on screen",
+    "BBEdit's distinction between hard lines (separated by returns) and display_lines (soft-wrapped) matters for scripting performance",
+    "AppleScript lacks the optimization intelligence to short-circuit a 'last word whose...' query, forcing it to evaluate every element before returning the last match",
+    "The iterative refinement process \u2014 working script, then performant script, then robust script \u2014 is a model for practical scripting"
+  ],
+  "money_quotes": [
+    "I use both these commands frequently; editing in an application that doesn't support them drives me nuts.",
+    "You don't want to see that script; it's junk.",
+    "The command, as given, doesn't scale.",
+    "Find the closest restaurant that serves fresh-cut fries, within five miles of home.",
+    "Through the power of the whose clause, we, as scripters, do not need to allocate a temporary list variable to hold every word of the window, nor do we need to test each word to see if its offset meets our criterion. But this work still must be done \u2014 it's performed behind the scenes, by AppleScript.",
+    "Even without any sort of 'common sense' AI, given that we asked for the closest restaurant that serves fresh-cut fries, once the robot finds a single such restaurant, it could in theory be smart enough not to venture any further from home.",
+    "That's not how AppleScript works, and so neither does our hypothetical robot."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Elegant scripting requires not just correct logic but deliberate scope constraints, because abstractions that hide complexity don't eliminate it \u2014 they just move it out of sight where it can silently kill performance.",
+  "filename": "2003-09-23-select_word_script_for_bbedit"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber alerts readers to a serious Mac OS X security vulnerability involving custom URI protocol handlers that could allow malicious websites to mount disk images and execute scripts on users' systems. He recommends downloading RCDefaultApp, a free System Preferences panel, to disable the dangerous 'help', 'disk', and 'disks' protocols. He explains why RCDefaultApp is superior to alternatives like MisFox and More Internet, noting that it shows all protocol handlers registered through Launch Services, not just those visible via the legacy Internet Config system. The post serves as both a practical security guide and a technical explanation of the underlying architecture.",
+  "key_points": [
+    "A real exploit chain exists where malicious web pages can mount disk images via 'disk' protocol and then execute scripts via 'help' protocol in Help Viewer",
+    "RCDefaultApp is the recommended fix because it exposes all URI protocols registered through Launch Services, while alternatives only show legacy Internet Config registrations",
+    "The 'disk' and 'disks' protocols are invisible in MisFox and More Internet because they're registered directly in Launch Services, not through Internet Config",
+    "Safari's 'Open safe files after downloading' setting should be disabled as an additional protective measure",
+    "The Help Viewer script execution feature was designed for interactive help books, but Gruber is unaware of any help books that actually use it"
+  ],
+  "money_quotes": [
+    "This is for real, and potentially nasty.",
+    "I have yet to see any reports of the exploit actually being used maliciously, but it's worth protecting against.",
+    "Disabling the 'help' URI protocol's connection to Help Viewer will not affect your normal use of the Help Viewer application.",
+    "RCDefaultApp shows all the protocol handlers registered on your system; MisFox and More Internet only display the protocols that are registered through Internet Config.",
+    "This is a more elegant solution than assigning these protocols to dummy applications, such as Mac OS X's Chess game."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Mac OS X's layered URI protocol architecture created a security blind spot where dangerous handlers registered directly in Launch Services were invisible to most management tools, making RCDefaultApp uniquely capable of closing the vulnerability.",
+  "filename": "2004-05-20-unsafe_uri_handlers"
+}

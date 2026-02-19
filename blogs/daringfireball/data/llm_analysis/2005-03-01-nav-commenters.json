@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber documents an irritating quirk in Movable Type 3.0 where the blogging software automatically creates a tiny image file called 'nav-commenters.gif' at the root level of every weblog during rebuilds, regardless of whether the site uses TypeKey authentication or even displays comments. The file persists even when manually deleted, as MT recreates it on every rebuild. Gruber traces the root cause to a design shortcoming: MT had no built-in way to reference images in its static folder from published weblogs, so developers took a shortcut by copying the file into every weblog's public directory. He wrote a plug-in to suppress this behavior, preferring the plug-in approach over directly modifying MT's source code for maintainability. Six Apart later addressed the issue in MT 3.16 with a built-in configuration option.",
+  "key_points": [
+    "Movable Type 3.0+ created nav-commenters.gif at the root of every weblog on every rebuild, even when TypeKey and comments were disabled",
+    "The root cause was an architectural gap: MT had no mechanism to link published weblogs to its static images directory, so developers copied the file as a shortcut",
+    "Gruber's plug-in works by deleting the file after MT creates it and rewriting the template tag to reference the static images folder instead",
+    "Plug-ins are strongly preferred over source code patches because they survive upgrades and can be cleanly uninstalled",
+    "The file's ubiquity made it a reliable fingerprint for detecting sites running Movable Type 3.0+"
+  ],
+  "money_quotes": [
+    "In the grand scheme of things, this is, obviously, not a big deal. But to me, it was maddening, like a sliver of popcorn caught in my teeth.",
+    "The presence of 'nav-commenters.gif' is in fact a half-decent way to tell whether a given site is powered by Movable Type 3.0 or later.",
+    "MT litters your web space with no other such images. Just 'nav-commenters.gif'.",
+    "Ever since MT 1.x, I've been wary of any advice that instructs one to modify MT's source code.",
+    "Using plug-ins is a much cleaner way to hack MT's internals. This way, instead of modifying MT's source code, you're simply modifying MT's behavior."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Small software design shortcuts \u2014 like copying a file everywhere instead of building a proper reference mechanism \u2014 create disproportionate irritation, and the right fix respects the architecture rather than working around it.",
+  "filename": "2005-03-01-nav-commenters"
+}

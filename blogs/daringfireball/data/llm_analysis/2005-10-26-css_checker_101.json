@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber announces a 1.0.1 update to his CSS Syntax Checker for BBEdit and TextWrangler, primarily adding Mac OS X 10.3 compatibility. The update required replacing the HTML::Entities Perl module with CGI.pm's unescapeHTML() since the former wasn't installed by default on 10.3. The AppleScript component needed workarounds for the path to me command and display alert command, both of which behave differently on Tiger versus earlier OS versions. Gruber details the version-checking approach using AppleScript's binary-coded decimal version system.",
+  "key_points": [
+    "The CSS Checker update adds backward compatibility with Mac OS X 10.3 by working around Tiger-specific features",
+    "AppleScript's path to me command behaves differently on 10.3 vs 10.4, returning the application path rather than the script path on older systems",
+    "Version checking uses AppleScript's binary-coded decimal version number rather than the OS version directly",
+    "The display alert command introduced in Tiger produces nicer dialogs but requires fallback to display dialog on older systems"
+  ],
+  "money_quotes": [
+    "Asking people to learn to use CPAN just so they can syntax-check their CSS files is a bit much to ask.",
+    "It's better practice to define a constant with a sensible name than to compare against a seemingly arbitrary value like \"17826208\" repeatedly.",
+    "I say \"sort of\" because that's actually a screenshot of the display dialog command taken on 10.4, because I'm just too lazy to bother getting a screenshot from the old iMac I have that's still running 10.3.",
+    "Even the output from display dialog looks better on 10.4 than it did before, so the dialog will look even crustier when actually running on 10.3.",
+    "Once compiled, the script works just fine on 10.3, but to compile it under 10.3, you need to use the raw Apple event syntax for the display alert command."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Backward compatibility with older OS versions requires careful version-checking workarounds, particularly when AppleScript commands behave differently across Mac OS X releases.",
+  "filename": "2005-10-26-css_checker_101"
+}

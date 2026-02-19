@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber tracked down a bug in Apple Mail that removed the blank line between reply attribution and quoted text. Through community sleuthing on Twitter, he identified that the bug was introduced by the Safari 3.1 update, since Mail uses an editable WebKit control for message composition. The bug only affected users who set their message format to plain text rather than rich text. He published an AppleScript workaround that programmatically re-inserts the missing blank line when composing replies, building on his earlier anti-top-posting scripts.",
+  "key_points": [
+    "A Safari 3.1 WebKit update introduced a formatting bug in Apple Mail's plain text reply quoting, removing the blank line between attribution and quoted text",
+    "The root cause was non-obvious: Mail uses an editable WebKit control for composing messages, so a browser update broke email formatting",
+    "The bug only manifested for users with Mail set to plain text format, which is why many users never noticed it",
+    "Gruber provided an AppleScript workaround that simulates keystrokes to fix the formatting, extending his earlier anti-top-posting script"
+  ],
+  "money_quotes": [
+    "Longtime readers are perhaps aware that I'm somewhat particular about the formatting of the email I send.",
+    "Many of you might be thinking that this is crazy \u2014 how could a new version of WebKit introduce a bug into Mail? Easy: Mail's message editing view is an editable WebKit control.",
+    "Most people aren't even affected by this bug because Apple Mail defaults to the rich text message format.",
+    "Among those who prefer to send plain text, most people will ignore the bug.",
+    "For those few who, like me, prefer plain text and cannot ignore the bug, I have a solution.",
+    "I published this AppleScript to change the format of replies to one that doesn't presume you'll be engaging in the uncouth, illiterate practice of top-posting."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Apple's architectural decision to use WebKit as Mail's editing engine means browser updates can introduce unexpected bugs in email composition \u2014 a cautionary example of shared component dependencies.",
+  "filename": "2008-03-26-mail_quoting_bug"
+}

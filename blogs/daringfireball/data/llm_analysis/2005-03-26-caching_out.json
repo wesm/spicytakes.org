@@ -1,0 +1,21 @@
+{
+  "summary": "Gruber provides follow-up notes on a Mac OS X 10.3 font cache bug he previously reported. He clarifies that PostScript fonts aren't the sole cause of bloated cache files, as some readers experience the issue without them. He discusses third-party utilities like Font Finagler and OnyX that can clear font caches, while noting he prefers manual deletion. The key technical insight is that ATSServer opens every font in system font folders on login, which triggers the bug, meaning third-party font managers that store fonts outside system folders effectively sidestep the issue.",
+  "key_points": [
+    "PostScript fonts exacerbate the font cache bloating bug but aren't the only cause, contrary to initial assumptions",
+    "ATSServer opening every font in system font folders on login is the root mechanism behind the cache bloating",
+    "Third-party font managers like Suitcase avoid the bug by storing fonts outside the system's font folders",
+    "Apple's Font Book stores even disabled fonts in system font folders, so it doesn't protect against the bug"
+  ],
+  "money_quotes": [
+    "I personally can't see spending $10 to delete a few files which are easily removed by hand (and, frankly, I feel more comfortable trashing them manually anyway).",
+    "The cache bloating is somehow related to the fact that on login, ATSServer opens every font located in the system's font folders.",
+    "Apple's Font Book does not itself cause this problem (at least I don't think it does), but it doesn't avoid it, either, because when you use Font Book, it stores all of your fonts, including your disabled fonts, in the system's font folders.",
+    "The point here is not that you should buy Suitcase just to avoid this bug, but rather to explain why, if you're already using Suitcase or a similar utility, you probably haven't been affected by this bug."
+  ],
+  "themes": [
+    "apple"
+  ],
+  "tone": "technical",
+  "key_insight": "The Mac OS X font cache bug stems from ATSServer loading every font in system folders at login, which means third-party font managers that store fonts elsewhere are inadvertently immune.",
+  "filename": "2005-03-26-caching_out"
+}

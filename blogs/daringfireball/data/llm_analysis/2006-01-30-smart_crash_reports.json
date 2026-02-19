@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber delivers a thorough argument against the silent, automatic installation of Unsanity's Smart Crash Reports by third-party Mac applications. While acknowledging that crash logs are invaluable to developers and that SCR itself appears well-engineered, he argues that no application should ever install a system-wide extension that modifies other applications without explicit user permission. He traces how apps like Sandvox, Path Finder, and Chat Transcript Manager silently installed the SCR input manager \u2014 which loads into every Cocoa app \u2014 without informing users, violating the implicit trust of Mac OS X's drag-and-drop installation model. He proposes superior alternatives where apps simply check their own crash logs on launch and ask permission to send reports, as Path Finder 4.0.2 ultimately implemented.",
+  "key_points": [
+    "Smart Crash Reports is an input manager that loads into every Cocoa application to redirect crash logs to third-party developers, not just Apple \u2014 but some apps silently auto-installed it without user knowledge or consent.",
+    "The silent installation violates Mac OS X's fundamental drag-and-drop contract: users expect that trashing an app removes all its active effects, but SCR persists and keeps loading into every application.",
+    "The quality or safety of SCR is irrelevant to the argument \u2014 the principle is that no app should silently install system-wide hacks, period, regardless of how well-engineered they are.",
+    "Developers can implement their own crash reporting by simply reading their app's crash log file on launch and asking permission to send it \u2014 a solution that requires no system modifications whatsoever.",
+    "If an accurate description of what you're installing would turn users off, the answer isn't to hide it \u2014 it's to not do it."
+  ],
+  "money_quotes": [
+    "To a seasoned Mac developer, a stack trace is like a fingerprint-covered weapon left at the scene of a crime.",
+    "This behavior \u2014 the silent installation of a system extension that modifies all applications \u2014 is both wrong and dangerous.",
+    "An application, in and of itself, should never install an extension that modifies the system or otherwise diddles the runtime environment of other applications, without the express permission of the user. There are no exceptions to this rule.",
+    "If you think your users would be turned off by an accurate description of something, that doesn't mean you should do it without telling them. It means you shouldn't be doing whatever it is you don't want to tell them about.",
+    "You might be almost certain that Smart Crash Reports won't cause any problems, but I'm completely certain that if it isn't installed at all, it definitely won't.",
+    "The argument against the auto-installation of Smart Crash Reports isn't that SCR causes any particular known harm; the argument is that no app should silently install system-wide hacks, period.",
+    "The point being: users should have zero worries about trying out an app via a drag-and-drop installation. The only way for users not to be worried about things being installed behind their backs is for nothing to be installed behind their backs."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "opinionated, methodical, principled",
+  "key_insight": "The quality or harmlessness of silently installed software is irrelevant \u2014 the principle that applications must never modify the system without explicit user consent is absolute, because trust in the drag-and-drop installation model is foundational to the Mac experience.",
+  "filename": "2006-01-30-smart_crash_reports"
+}

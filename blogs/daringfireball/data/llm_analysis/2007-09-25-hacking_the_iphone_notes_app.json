@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber follows up on his earlier post about replacing the Marker Felt font in the iPhone Notes app, exploring progressively more sophisticated hacking approaches. After dismissing simple file renaming (which doesn't work because font names are internal metadata) and font editing software (overkill), he discovers that the Notes app's CSS rules are hard-coded in the application binary. He walks through a hex-editing hack to replace 'Marker Felt' with 'Helvetica' in the binary, while cautioning that Apple's imminent software update will likely overwrite the change and close jailbreaking methods entirely.",
+  "key_points": [
+    "Font names come from internal file metadata, not filenames, so simply renaming Helvetica to Marker Felt doesn't work",
+    "The iPhone Notes app has CSS style rules hard-coded directly in its compiled binary, making it hackable with a hex editor",
+    "The hack requires maintaining exact byte length when replacing the font name, using extra spaces to pad 'Helvetica' to match 'Marker Felt'",
+    "Gruber predicts the imminent iPhone software update will close existing jailbreak methods, noting the iPod Touch is already locked down",
+    "Arial is dismissed as an inferior knock-off of Helvetica, making the default fallback font unacceptable"
+  ],
+  "money_quotes": [
+    "Everyone knows Arial is an inferior knock-off of Helvetica.",
+    "Font names are metadata contained within the files themselves; they don't come from the file names.",
+    "Rather than hacking the fonts, why not hack the Notes app?",
+    "Binary files are fragile; make a mistake while editing and it's likely, very likely, the application will no longer work properly.",
+    "If you have the urge to hack around on your iPhone, you might as well do so now.",
+    "If your favorite hex editor isn't Hex Fiend, there might be something wrong with you.",
+    "And if you don't know how to transfer a copy of the binary to your Mac, you shouldn't be attempting this hack in the first place."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, playful, opinionated",
+  "key_insight": "A typographic obsession with replacing Marker Felt leads to the discovery that iPhone app styling is CSS hard-coded in binaries, hackable with a hex editor and careful byte counting.",
+  "filename": "2007-09-25-hacking_the_iphone_notes_app"
+}

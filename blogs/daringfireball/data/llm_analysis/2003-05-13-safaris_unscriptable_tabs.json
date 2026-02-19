@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber evaluates Safari's tabbed browsing implementation, praising its custom UI controls as superior to Camino's standard Aqua tabs, but identifies a critical flaw: tabs are completely unscriptable via AppleScript. Safari's scripting dictionary treats each window as containing only one document, making it impossible to access, create, or even count tabs programmatically. This breaks his previously published Safari scripts for URL management. He proposes a hierarchical object model where browser windows contain lists of documents corresponding to tabs. A brief postscript notes that Safari's WebCore engine fixed monospaced font anti-aliasing bugs he had previously reported.",
+  "key_points": [
+    "Safari's custom tab controls are superior to Camino's standard Aqua tabs because they're left-justified, open in intuitive order, and have close boxes",
+    "Safari's tab close boxes should resemble standard Aqua close buttons rather than branching out with a custom design, since widgets that act similarly should look similar",
+    "Safari's AppleScript dictionary is completely unaware of tabs \u2014 'every document' only returns the frontmost tab per window, making all other tabbed pages unreachable",
+    "Gruber proposes a hierarchical scripting model with browser window objects each containing a list of documents for each tab"
+  ],
+  "money_quotes": [
+    "There's nothing wrong with custom widgets, if the widgets are meant to provide features not provided by any standard controls.",
+    "Widgets that act similarly should look similar.",
+    "Those are reasons for Apple to improve the standard close buttons, not for Safari to branch out on its own.",
+    "There's a huge problem with Safari's tabbed browsing, and it has nothing to do with how they look. It's that they're utterly unscriptable.",
+    "Needless to say, this sucks.",
+    "The other 18 documents are unreachable and unknowable via AppleScript."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical, opinionated",
+  "key_insight": "A well-designed UI feature is fundamentally incomplete if it lacks corresponding scriptability, because power users depend on automation to extend the browser beyond its built-in capabilities.",
+  "filename": "2003-05-13-safaris_unscriptable_tabs"
+}

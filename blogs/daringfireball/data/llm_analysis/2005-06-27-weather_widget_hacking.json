@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber documents his hack of Apple's Dashboard Weather widget to display the time of its last data update. His frustration stemmed from not knowing whether the displayed temperature was current or stale, since the widget only syncs periodically while visible. The hack rearranges the layout to combine high/low temperatures on one line and adds a timestamp showing when data was last fetched. He provides detailed step-by-step instructions for modifying the widget's HTML, CSS, and JavaScript files, while emphasizing the importance of working on a copy of the original. The post doubles as a mini-tutorial on DOM scripting and widget architecture.",
+  "key_points": [
+    "The Weather widget only updates while displayed, meaning users often see stale data for several seconds after invoking Dashboard",
+    "The hack repurposes existing HTML elements to show high/low temps on one line and adds a last-updated timestamp below the city name",
+    "Gruber emphasizes keeping variable and ID names accurately descriptive even in short hacks, treating it as a best practice against confusion",
+    "Dashboard widgets are architected as empty HTML frameworks filled dynamically by JavaScript via DOM scripting",
+    "The data object already contained the update time internally but Apple's original widget never displayed it to the user"
+  ],
+  "money_quotes": [
+    "My frustration was that I wanted to know at a glance whether I needed to wait for updated data. So I hacked it.",
+    "I can't emphasize this strongly enough: Make a copy, then hack the copy.",
+    "Even in a short hack such as this one, it's a good idea to keep your variable / ID names accurately descriptive; it's a recipe for confusion to have a div named \"lo\" which contains a time, not a temperature.",
+    "This is pretty much how most widgets are architected: the HTML is an empty framework, and the contents are filled in by JavaScript that modifies the HTML document dynamically via DOM scripting.",
+    "The original widget never displays this time, but it uses the time to decide whether the current data is old and needs to be refreshed."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Apple's Weather widget already tracked when its data was last refreshed but inexplicably hid this from the user, a small UX oversight that a simple three-file hack could fix.",
+  "filename": "2005-06-27-weather_widget_hacking"
+}

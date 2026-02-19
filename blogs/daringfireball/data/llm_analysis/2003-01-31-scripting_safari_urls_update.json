@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber provides two updates to his earlier article on scripting Safari URLs via AppleScript. The first addresses Safari's lack of standard browser AppleScript commands for opening URLs, with Jim Correia providing the elegant solution of using 'open location' from Standard Additions instead of a clunky workaround. The second update credits Bill Hoffman for simplifying the URL list-building code from a verbose repeat loop to a single-line 'URL of every document' call. Both updates demonstrate the iterative, community-driven nature of finding better solutions.",
+  "key_points": [
+    "Safari lacked standard AppleScript dictionary entries for opening URLs, but the Standard Additions OSAX 'open location' command works as a clean alternative",
+    "The original workaround of creating a new document then setting its URL was unnecessarily complex compared to the 'open location' solution",
+    "AppleScript's 'URL of every document' is a more direct and idiomatic way to build a list than manually iterating with a repeat loop",
+    "Reader contributions from Jim Correia and Bill Hoffman drove both improvements, showing the value of community feedback"
+  ],
+  "money_quotes": [
+    "Although Safari doesn't have an entry in its dictionary for the standard GetURL Apple event, it is defined in the Standard Additions OSAX as open location.",
+    "Those are Apple events, and there's no way those applications are sending complicated Apple events to Safari \u2014 they're sending an open URL event.",
+    "Much nicer, no?",
+    "No reason, except that I didn't think of it. Hoffman's code is shorter and more direct."
+  ],
+  "themes": [
+    "apple",
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Safari's undocumented support for the 'open location' Standard Additions command provides a clean, simple way to script URL opening that its own AppleScript dictionary fails to advertise.",
+  "filename": "2003-01-31-scripting_safari_urls_update"
+}

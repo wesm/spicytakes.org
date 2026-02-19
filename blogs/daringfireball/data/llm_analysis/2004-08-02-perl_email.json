@@ -1,0 +1,22 @@
+{
+  "summary": "Gruber discusses the Perl Email Project, a new set of CPAN modules under the Email:: hierarchy that replace the older, over-engineered Mail:: modules for parsing email files. He argues that despite Perl's natural fit for text processing and the plain-text nature of mbox email storage, the existing Mail:: modules were needlessly complicated and slow. The new Email:: modules by Simon Cozens deliver dramatically better performance and simpler APIs. Gruber demonstrates with a concrete code comparison showing how a multi-step body extraction became a single method call, and reports a 10x speed improvement in his own scripts.",
+  "key_points": [
+    "Perl should be ideal for mbox email parsing given its text processing strengths and Unix heritage, but the existing Mail:: CPAN modules were over-engineered",
+    "The new Email:: module hierarchy created by the Perl Email Project offers simpler APIs and dramatically faster performance \u2014 over 10x in Gruber's testing",
+    "The concrete code comparison illustrates Larry Wall's principle that 'easy things should be easy' \u2014 reducing two lines of unintuitive code to one clean call",
+    "Gruber recommends Simon Cozens' Perl.com article as an introduction to the new modules"
+  ],
+  "money_quotes": [
+    "They reek of over-engineering \u2014 complicated APIs and slow performance.",
+    "One of Larry Wall's guiding precepts for Perl is, \"Easy things should be easy, and hard things should be possible.\"",
+    "The modules in the Mail:: hierarchy fail the \"easy things should be easy\" test.",
+    "I replaced Mail::MboxParser with Email::Folder in a script I wrote to process mbox files full of T-shirt orders, and it ran over 10 times faster.",
+    "Even better, I found the syntax more intuitive \u2014 more, well, Perlish."
+  ],
+  "themes": [
+    "web"
+  ],
+  "tone": "technical",
+  "key_insight": "Good library design should follow Larry Wall's principle that easy things should be easy \u2014 over-engineering common tasks is a failure of API design, not a sign of sophistication.",
+  "filename": "2004-08-02-perl_email"
+}

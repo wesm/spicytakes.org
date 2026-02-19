@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber responds to Tim Bray's criticism of iCal after Bray lost his calendar data to file corruption following a system lockup. While agreeing the data loss is unacceptable, Gruber methodically investigates Bray's specific technical claims and finds some of them off-base \u2014 iCal's use of UUIDs for folder names is defensible, and its file-saving behavior already appears to use atomic writes rather than in-place updates. However, Gruber agrees with Bray's core argument: iCal should keep backup revisions of calendar data so that corruption doesn't mean total loss. The real failure isn't the corruption itself but iCal's lack of recovery capabilities.",
+  "key_points": [
+    "iCal's use of UUIDs for calendar folder names is a reasonable design choice that prevents name collisions and survives renames, not the design flaw Bray suggests",
+    "Investigation using hfsdebug shows iCal already uses atomic saves (writing to new files rather than updating in-place), contrary to Bray's assumption",
+    "The real problem is iCal's failure to keep backup revisions of calendar data files, which would make corruption recoverable",
+    "Calendar data is high-value and small \u2014 there's no excuse for not maintaining at least one backup revision for disaster recovery",
+    "Most users wouldn't know where to find calendar data files or how to recover them, making iCal's lack of built-in recovery especially harmful"
+  ],
+  "money_quotes": [
+    "Bray's basic criticism as to why this shouldn't be possible is sound. But I don't think he has it quite right.",
+    "These iCal data file folders aren't meant to be end-user-serviceable files; you're meant to interact with them solely through iCal, not the Finder.",
+    "Bray's fourth point is the crux of the matter, however. There's no reason iCal couldn't keep the previous file around.",
+    "Losing an entire calendar is potentially devastating; losing the changes from your current iCal session would be, in most cases, merely annoying.",
+    "Disk space is cheap, calendar files are small, and calendar data is, in many cases, very important.",
+    "The problem is its meager data corruption recovery capabilities.",
+    "Wise users take this into their own hands, and back up all of their important data on their own, every day. But most people don't back up regularly."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "The real failure in iCal's design isn't that data corruption can happen, but that it offers no recovery path when it does \u2014 keeping backup revisions of small, high-value calendar files is an obvious safeguard that's inexcusably absent.",
+  "filename": "2006-05-12-tim_bray_on_ical"
+}

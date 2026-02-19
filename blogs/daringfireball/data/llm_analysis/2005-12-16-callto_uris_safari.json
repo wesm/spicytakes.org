@@ -1,0 +1,21 @@
+{
+  "summary": "Gruber documents a Safari compatibility issue with Skype's 'callto:' URI scheme, where including double slashes after the scheme breaks phone number links but not username links. He provides the fix (omit the slashes) and notes that the no-slash format is likely canonical, consistent with how 'mailto:' URIs work. Firefox handles both formats fine, but Safari is picky. The post serves as practical developer guidance for anyone building Skype integration into web pages.",
+  "key_points": [
+    "Safari fails silently on 'callto://' URIs containing phone numbers, though username-based URIs work fine with slashes",
+    "The correct format omits slashes after the scheme ('callto:+15558675309'), consistent with 'mailto:' URI conventions",
+    "Firefox handles both formats gracefully while Safari does not",
+    "MSDN documentation confirms the no-slash format as canonical"
+  ],
+  "money_quotes": [
+    "You click them and nothing happens.",
+    "I have no idea which format is \"correct\", but given that \"mailto:\" URIs have never used slashes, my money is on the no-slash format being canonical.",
+    "Or, as we call it in the Web 2.0 world, a \"Skype mash-up\"."
+  ],
+  "themes": [
+    "web",
+    "apple"
+  ],
+  "tone": "technical",
+  "key_insight": "When implementing 'callto:' URIs for Skype integration, omit the double slashes after the scheme to ensure Safari compatibility, following the same convention as 'mailto:' links.",
+  "filename": "2005-12-16-callto_uris_safari"
+}

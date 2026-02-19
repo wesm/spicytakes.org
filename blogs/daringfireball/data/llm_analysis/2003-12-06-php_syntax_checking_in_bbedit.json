@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber provides a detailed tutorial on adding PHP syntax checking to BBEdit using PHP's command-line tool and AppleScript. He explains how PHP's -l flag performs rudimentary parse-error detection, then walks through building an AppleScript that handles unsaved files via temporary copies, displays errors in alerts with line-number navigation, and integrates with BBEdit's existing HTML syntax checker through menu script attachability. The script uses dual handlers so it works both as a standalone Scripts menu item and as a supplement to BBEdit's built-in Check Document Syntax command.",
+  "key_points": [
+    "PHP's -l flag only catches parse errors and stops at the first one found, making it rudimentary but still useful",
+    "The script handles edge cases like unsaved changes, untitled documents, and non-Unix line endings by writing temporary files",
+    "BBEdit's menu script attachability allows combining PHP syntax checking with the built-in HTML checker through a single script with dual handlers",
+    "The script extracts line numbers from PHP error messages to select the offending line in the editor"
+  ],
+  "money_quotes": [
+    "I say \"rudimentary\" because, as far as I can tell, PHP's syntax checker only detects parse errors \u2014 errors so egregious they cause PHP to be unable to parse the code.",
+    "Still, it's better than no checker at all.",
+    "However, step 1, as stated above, is a bit lazy. What if the front BBEdit window has unsaved changes?",
+    "We could have the script save the file automatically if it has unsaved changes. But that's still lazy \u2014 we should be able to syntax-check a file with unsaved changes.",
+    "Thus, if BBEdit displays its \"No errors were found\" dialog, we know that the file passed through both syntax checkers without complaint."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "BBEdit's extensibility through AppleScript and menu script attachability enables developers to build sophisticated tool integrations that handle real-world edge cases like unsaved files and combined syntax checking.",
+  "filename": "2003-12-06-php_syntax_checking_in_bbedit"
+}
