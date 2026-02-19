@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber examines why Apple created BrowserEngineKit as a complex, restricted framework for EU DMA compliance rather than simply opening up iOS to third-party browser engines. He uses Apple's own decision to disable WebKit's JIT compiler in Lockdown Mode as evidence that JIT compilation poses genuine security risks, not just a pretext for anti-competitive behavior. He outlines three possible approaches Apple could have taken and argues that the middle path\u2014a controlled framework with special entitlements\u2014was the only reasonable choice. The post frames iOS gatekeeping as a legitimate security feature rather than mere anti-competitive behavior.",
+  "key_points": [
+    "Apple disables its own WebKit JIT in Lockdown Mode, demonstrating it takes JIT security risks seriously enough to sacrifice performance for its most security-conscious users",
+    "Benchmarks show roughly a two-thirds reduction in JavaScript performance when JIT is disabled, making a no-JIT mandate for third-party browsers clearly unworkable",
+    "Apple faced three choices for DMA compliance: ban third-party JITs (hostile), allow unrestricted JITs (insecure), or create a controlled framework (BrowserEngineKit)",
+    "BrowserEngineKit requires a special entitlement and ongoing security commitments from developers, reflecting that browser engines are among the most common attack vectors",
+    "Gruber distinguishes iOS from macOS, arguing that gatekeeping is fundamental to Apple's brand promise on iOS rather than mere anti-competitive behavior"
+  ],
+  "money_quotes": [
+    "One take on Apple's longstanding prohibition against third-party rendering engines is that they're protecting their own interests with Safari. More or less that they're just being dicks about it. But there really is a security angle to it.",
+    "JavaScript engines run much faster with JIT compilation, but JITs inherently pose security challenges.",
+    "Disallowing third-party rendering engines from using JITs wasn't going to fly, and allowing them to run willy-nilly would be insecure.",
+    "BrowserEngineKit isn't easy, but I genuinely don't think any good solution would be.",
+    "Browsers don't need a special entitlement or complex framework to run on MacOS, true, but iOS is not MacOS.",
+    "Gatekeeping is a fundamental aspect of Apple's brand promise with iOS."
+  ],
+  "themes": [
+    "apple",
+    "web",
+    "business"
+  ],
+  "tone": "analytical",
+  "key_insight": "Apple's decision to disable its own WebKit JIT in Lockdown Mode proves that JIT security concerns are genuine, not just a pretext, and justifies the complexity of BrowserEngineKit as the only reasonable path for allowing third-party browser engines on iOS.",
+  "filename": "2024-06-24-apple_disables_webkits_jit_in_lockdown_mode"
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber examines the state of bootable Mac startup drive backups following a macOS 15.2 bug that broke SuperDuper's cloning ability, which Apple fixed in 15.3. He contrasts SuperDuper developer Dave Nanian's patience waiting for the fix with Carbon Copy Cloner developer Mike Bombich's suggestion that bootable backups were effectively deprecated. Gruber walks through the technical details of how modern Mac backup and recovery works with APFS, Apple Silicon, and macOS Recovery. He ultimately concludes that while he personally no longer needs bootable backups \u2014 his own backup drive was running macOS 12.6 on a machine running 15.3 \u2014 they remain essential for professionals in high-pressure production environments. The piece is both a practical guide to SuperDuper's backup options and a reflection on how Mac backup needs have evolved over two decades.",
+  "key_points": [
+    "Apple fixed the macOS 15.2 bug that broke bootable backups in 15.3, vindicating SuperDuper's Dave Nanian over Carbon Copy Cloner's Mike Bombich who suggested bootable backups were intentionally deprecated",
+    "APFS is more reliable than HFS+ but when it fails catastrophically, no third-party tools can fix it \u2014 unlike the HFS+ era when DiskWarrior could perform miracles",
+    "macOS Recovery plus Migration Assistant has largely eliminated the practical need for bootable backup drives for most users",
+    "Booting from a backup drive with an old macOS version while the data is from a newer version could actually corrupt files, undermining the backup's purpose",
+    "Bootable backups remain essential for professionals in high-pressure production environments where any downtime is unacceptable"
+  ],
+  "money_quotes": [
+    "That feels like some shade thrown toward Nanian and Shirt Pocket, but here we are with MacOS 15.3, and bootable startup drive clones are back, so I have to question who needs to don sunglasses here.",
+    "One of the ways that APFS is very 'modern Apple' is that it's largely a black box.",
+    "For as much as Apple Silicon Macs have become iOS-like devices in many ways, they're still Macs at heart: workstations. There remain people inside Apple who know that, too.",
+    "Booting from an old version of MacOS on an external backup drive containing data from the current version of MacOS sounds like a good way to corrupt some of the files on that disk \u2014 subverting the entire purpose of a backup.",
+    "Having my SuperDuper-cloned backup drive be bootable is nice to have, but I really can't say I need it any more.",
+    "It's terrifying in hindsight just how much of my data existed only as a single copy on a single disk back in my youth. It's surprising that any of it survived.",
+    "I still have feelings about my data that are rooted in the distant past."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "reflective, technical, opinionated",
+  "key_insight": "Modern Mac recovery infrastructure has made bootable backup drives unnecessary for most users, but they remain vital for production environments \u2014 and Apple, by fixing the 15.2 bug, showed they still recognize the Mac as a workstation.",
+  "filename": "2025-02-06-bootable_mac_startup_drive_backups_and_another_ode_to_superduper"
+}

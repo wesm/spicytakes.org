@@ -1,0 +1,28 @@
+{
+  "summary": "Gruber examines the typographic ambiguity created by Apple's 'S' suffix on iPhone model names (3GS, 4S, 5S, 6S, XS), particularly when styled with small caps in HTML. He discovered that Apple Newsroom used a lowercase 's' inside a small-caps span for 'iPhone Xs', which renders identically to an uppercase 'S' in small caps but produces a lowercase 's' when copy-pasted \u2014 making it look like a plural 'iPhone X' rather than the model name 'iPhone XS'. He proposes Apple should use uppercase 'S' in the HTML source so copy-pasting yields the unambiguous 'iPhone XS'. He concludes by noting relief that Apple has moved away from S-suffixed model names.",
+  "key_points": [
+    "Apple's small-caps styling of 'XS' in 'iPhone XS' creates ambiguity because uppercase and lowercase S differ only in size, not shape",
+    "The HTML source on Apple Newsroom uses a lowercase 's' inside the small-caps span, meaning copy-pasted text reads as 'iPhone Xs' rather than 'iPhone XS'",
+    "Apple's internal style never pluralizes product names by adding 's', but casual readers can't be expected to know this",
+    "The fix is simple: use uppercase 'S' in the HTML markup inside the small-caps span, since both render identically but uppercase survives copy-paste",
+    "All-caps headline styles (like Daring Fireball's) compound the problem, as 'iPhone 3Gs' becomes indistinguishable from 'iPhone 3GS'"
+  ],
+  "money_quotes": [
+    "Is that the iPhone XS, styled with a lowercase s? Or are they referring to 2017's iPhone X, and pluralizing it with the lowercase s?",
+    "The letter S has a second ambiguity problem, in addition to pluralization: its upper and lowercase letterforms are distinguished only by size, not shape, in most roman fonts.",
+    "If you try to distinguish it via the use of small caps, it's to no avail, because a small caps uppercase S looks nearly (if not completely) identical to a lowercase s.",
+    "Whether the original HTML markup uses an uppercase S or lowercase s inside the all-small-caps span, the rendered output users see in their web browser will be a small caps S. But what the user gets when copying and pasting will fall back to the actual case of the S in the HTML code.",
+    "It's inevitably going to fall back to simple upper or lowercase after copying and pasting, and in that situation, it's clearly better to fall back on uppercase, giving copy-and-pasters the unambiguous 'iPhone XS'.",
+    "Anyway, I'm glad Apple has seemingly abandoned these S-suffixed iPhone names.",
+    "It's a mistake, and a suggestion of low literacy, to erroneously use the apostrophe-s sequence to pluralize words or names where the proper way to spell the plural is to just add s.",
+    "For chrissake you're reading a footnote in a persnickety post regarding best practices in HTML markup for disambiguating product names in uncommon edge cases."
+  ],
+  "themes": [
+    "apple",
+    "design",
+    "web"
+  ],
+  "tone": "technical, persnickety, playfully pedantic",
+  "key_insight": "Apple's use of lowercase 's' in small-caps HTML spans for iPhone model names like 'XS' creates unnecessary ambiguity that could be trivially fixed by using uppercase 'S' in the source markup, since small caps renders both identically but only uppercase survives copy-paste.",
+  "filename": "2024-11-12-disambiguating_iphone_model_names_that_have_the_s_suffix"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber explores why Russia blocks FaceTime but not iMessage, discovering that iMessage's reliance on Apple Push Notification service (APNs) makes it nearly impossible to block without also blocking all iOS push notifications. He cites Apple's security documentation and a Mastodon thread explaining the technical architecture, along with enterprise network documentation confirming the issue. Gruber speculates Apple may have deliberately designed iMessage this way to prevent cellular carriers from blocking it when it launched in 2011, since carriers had incentive to protect SMS revenue. This same architecture inadvertently makes iMessage resistant to censorship in authoritarian countries, possibly explaining why even China hasn't blocked it. He closes with a pointed observation equating carriers and enterprise network admins with authoritarian governments.",
+  "key_points": [
+    "iMessage messages are delivered through Apple Push Notification service (APNs), meaning blocking iMessage requires blocking all iOS push notifications",
+    "This explains why airplane Wi-Fi 'free messaging' also delivers all push notifications \u2014 and why iMessage images don't work on restricted networks while text does",
+    "Apple may have intentionally designed this architecture to prevent carriers from blocking iMessage to protect their SMS revenue when it launched in 2011",
+    "The same technical design that thwarted carrier interference also makes iMessage resistant to government censorship in authoritarian countries",
+    "Enterprise network appliance documentation from GFI Software independently confirms that blocking iMessage disrupts all push notifications"
+  ],
+  "money_quotes": [
+    "A network (or entire nation) seeking to block iMessage could only do so by blocking all push notifications for iOS.",
+    "Apple might have architected iMessage this way to make iMessage veto-proof with cellular carriers.",
+    "The carriers might have been tempted to block iMessage over cell networks to keep people using SMS, but they couldn't without blocking all push notifications, which wouldn't be tenable.",
+    "This architecture also makes iMessage hard to block in authoritarian countries where iPhones are even vaguely popular.",
+    "Draw your own conclusions about cellular carriers and enterprise network administrators being similar to authoritarian governments."
+  ],
+  "themes": [
+    "apple",
+    "politics",
+    "business"
+  ],
+  "tone": "technical, wry",
+  "key_insight": "Apple's decision to route iMessage through the same channel as all iOS push notifications \u2014 whether by design or happy accident \u2014 created a technical architecture that makes iMessage effectively unblockable by carriers, enterprises, and even authoritarian governments.",
+  "filename": "2025-12-09-imessage_push_notifications_hard_to_block"
+}

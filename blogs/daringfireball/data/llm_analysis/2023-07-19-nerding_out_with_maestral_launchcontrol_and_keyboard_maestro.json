@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber details his switch from Dropbox's bloated official Mac client to Maestral, a lightweight open-source alternative that provides simple folder syncing with minimal UI. After 11 months of satisfaction, he encountered a bug where Maestral crashes silently during sleep. He walks through two workarounds: using LaunchControl to create a launchd job that automatically relaunches Maestral, and using Keyboard Maestro with AppleScript to monitor and relaunch while logging crash frequency. The post is a classic Mac power-user tutorial, complete with an AppleScript compilation quirk explanation.",
+  "key_points": [
+    "Dropbox remains a great service but its official Mac client has become bloated and confusing, while Maestral offers what Dropbox's client once was: a simple syncing folder with a menu bar interface",
+    "Dropbox's transition to Apple's File Provider APIs forces cloud-only storage in ~/Library/CloudStorage/, which Maestral avoids by letting users place their Dropbox folder anywhere",
+    "LaunchControl provides a simple GUI for creating launchd jobs that can keep any app alive automatically after crashes",
+    "An AppleScript quirk means you can't use 'tell application' blocks to check if an app is running, because compilation itself launches the targeted app, defeating the check"
+  ],
+  "money_quotes": [
+    "Dropbox remains an excellent service, seemingly utterly reliable, with fair pricing.",
+    "Dropbox's official Mac client has been a confusing, ugly, resource-heavy mess for years, and is only getting worse.",
+    "It provides exactly what I want in a Mac Dropbox client, and what the official Dropbox app once was, long ago: a folder that syncs, with a minimal user interface that lives in a menu bar app.",
+    "The whole point of Dropbox is that it just works in the background, automatically.",
+    "The obvious band-aid solution is to manually relaunch Maestral each time I wake my Mac, but that's annoying and easy to forget.",
+    "Which, to be a HIG pedant, ought to be title-cased: 'For Current User'."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "When a lightweight tool solves a problem better than the official bloated alternative, it's worth the trade-off of occasionally needing to work around rough edges with other power-user tools.",
+  "filename": "2023-07-19-nerding_out_with_maestral_launchcontrol_and_keyboard_maestro"
+}
