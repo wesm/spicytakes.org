@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber describes his frustration with Safari's default behavior of opening new tabs at the far right end of the tab bar instead of next to the current tab. He found a solution via Jeff Johnson's AppleScript that creates new tabs adjacent to the current one, and assigned it to \u2318T using FastScripts. After two months of use, he considers it indispensable and finds default Safari behavior feels broken without it. He also notes that Apple's JavaScript for Automation (JXA) alternative to AppleScript appears to be an unsupported dead end.",
+  "key_points": [
+    "Safari's default \u2318T opens new tabs at the rightmost position, while \u2318-clicking a link opens tabs next to the current one \u2014 an inconsistency that bothers heavy tab users",
+    "AppleScript can solve this with unintuitive syntax ('make new tab at after _old_tab'), but Safari's tab index property is read-only, making the solution non-obvious",
+    "FastScripts or Keyboard Maestro can intercept \u2318T before Safari sees it, enabling the script to replace default behavior seamlessly",
+    "Apple's JavaScript for Automation (JXA), introduced in OS X 10.10, appears to be an unsupported alternative that can't replicate even simple AppleScript tasks"
+  ],
+  "money_quotes": [
+    "If I have, say, 10 tabs open in a window and I'm currently using, say, tab 2, when I type \u2318T to open a new tab it feels like the rightmost end of the row of tabs is \"way over there\", but what I want is the new tab to open \"right next to where I am\".",
+    "AppleScript's English-Likeness Monster rears its head.",
+    "I've been using this for two months, and at this point it feels indispensable.",
+    "I was using a different Mac the other day where I hadn't yet set this up, and it felt like Safari was broken.",
+    "If you don't use either FastScripts or Keyboard Maestro, I don't know what to tell you other than that you're missing out.",
+    "I'll be damned if I could get it to work. Maybe the problem is me being a JavaScript dummy, but I sort of think this might not be possible in JXA because JXA might be an unsupported hot mess."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "A small AppleScript hack that opens new Safari tabs next to the current tab instead of at the end reveals both the power of Mac automation and the persistent awkwardness of AppleScript's syntax.",
+  "filename": "2018-12-11-safari_new_tab_next_to_current_tab"
+}

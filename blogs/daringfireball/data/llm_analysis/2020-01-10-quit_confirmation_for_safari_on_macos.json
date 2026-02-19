@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber shares an AppleScript he wrote to add a quit confirmation dialog to Safari on macOS, solving the common problem of accidentally quitting the browser when trying to close a tab with \u2318W. He explains how Chrome's press-and-hold \u2318Q solution works but criticizes it as unidiomatic for the Mac. His script counts open windows and tabs, presents a standard macOS confirmation alert, and is triggered via FastScripts which intercepts the \u2318Q shortcut before Safari sees it. He also notes the simpler option of remapping \u2318Q in System Preferences but explains why a confirmation dialog better serves his needs.",
+  "key_points": [
+    "Accidentally quitting a browser by pressing \u2318Q instead of \u2318W is a common annoyance, even with session restoration, because tabs can lose state",
+    "Chrome's press-and-hold \u2318Q solution works but is unidiomatic on macOS \u2014 confirmation dialogs are the traditional Mac approach to preventing data loss",
+    "A simple AppleScript combined with FastScripts can intercept \u2318Q and show a proper quit confirmation alert",
+    "System Preferences allows remapping any menu shortcut in any app, which Gruber calls one of the best power-user tips, but it doesn't provide the confirmation behavior he wants"
+  ],
+  "money_quotes": [
+    "Quitting Safari and closing tabs are completely discrete, and it's clear to me that's the correct design.",
+    "Press-and-hold to invoke a menu key shortcut just isn't a thing on the Mac. It's weird.",
+    "That's not even a good description for the setting. You don't get warned before quitting when it's enabled \u2014 you're instead required to press-and-hold the \u2318Q shortcut.",
+    "But a confirmation warning is exactly what you should get. This is how the Mac has protected against quitting when you might lose data or state since the dawn of time.",
+    "Now I can wildly stab at \u2318W to close tabs without a care in the world.",
+    "This ability to fully customize every menu key shortcut in every single app on the system is one of the best power-user tips I know of."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, practical",
+  "key_insight": "Chrome's press-and-hold quit mechanism violates Mac conventions; the proper macOS solution is a confirmation dialog, which can be implemented with a simple AppleScript.",
+  "filename": "2020-01-10-quit_confirmation_for_safari_on_macos"
+}

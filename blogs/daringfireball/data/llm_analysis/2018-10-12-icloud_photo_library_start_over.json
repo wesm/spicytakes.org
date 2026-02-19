@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber documents a frustrating iCloud Photo Library syncing issue triggered by signing out of and back into iCloud to fix an unrelated Instant Hotspot problem. After re-enabling iCloud, his iPhone tried to re-verify over 28,000 photos against iCloud's library, processing at an agonizingly slow rate of about 15 items per hour. He discovered that the re-sync algorithm is painfully inefficient compared to iCloud Photo Library's normally excellent performance. His solution was to delete all photos from the iPhone and let iCloud Photo Library re-download them from scratch, which completed in about 20 minutes. He shares the step-by-step process as a practical workaround for others facing the same problem.",
+  "key_points": [
+    "Signing out of iCloud and back in resets the photo library sync state, forcing a slow one-by-one verification of every photo against iCloud's copy",
+    "The re-verification algorithm is extraordinarily slow (15 items per hour) despite iCloud Photo Library normally syncing photos across devices in seconds",
+    "Deleting all photos from the iPhone and re-enabling iCloud Photo Library is far faster than letting the verification process complete \u2014 20 minutes versus potentially weeks",
+    "Basic iOS operations like 'select all photos' remain painfully tedious compared to the Mac, requiring workarounds like Image Capture or Shortcuts",
+    "iCloud's Continuity features are tightly coupled, so problems in one area (Instant Hotspot) can cascade into others (photo syncing) when troubleshooting"
+  ],
+  "money_quotes": [
+    "Whatever algorithm it's using for this is slow as molasses.",
+    "iCloud Photo Library has gotten amazingly good in the last few years. It's not just very reliable, but very fast.",
+    "There are a lot of tasks like this that are easy on the Mac thanks to Edit \u2192 Select All that are painfully tedious on iOS.",
+    "Image Capture crashed three times during this process.",
+    "About 20 minutes later, everything was back to normal.",
+    "So if you temporarily turn off iCloud Photo Library and turn it back on, it might be easier to just delete all your photos from your iPhone first, and let them all sync back from iCloud."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "When iCloud Photo Library's re-sync gets stuck after signing out and back into iCloud, it's faster to delete all local photos and re-download from scratch than to wait for the glacially slow verification process.",
+  "filename": "2018-10-12-icloud_photo_library_start_over"
+}

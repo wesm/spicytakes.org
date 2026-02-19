@@ -1,0 +1,23 @@
+{
+  "summary": "Gruber discovered that four episodes of his podcast were missing from the Mac Podcasts app in Catalina, a bug that didn't appear in any other podcast client. After determining it was a caching problem, he found Kirk McElhearn's guide to Catalina media file locations, which revealed that Podcasts stores its data in an obscure, ugly path under ~/Library/Group Containers/. Trashing that folder fixed the problem. Gruber uses this experience to criticize the trend of Apple caring less about the elegance of its underlying file system organization, invoking the famous Steve Jobs quote about caring what the back of the cabinet looks like.",
+  "key_points": [
+    "The Mac Podcasts app in Catalina had a caching bug that caused four episodes to disappear from listings, unfixable through normal app interactions",
+    "Unlike Music and Movies which store files in traditional ~/Music and ~/Movies locations, Podcasts uses an opaque path with a seemingly-random identifier in ~/Library/Group Containers/",
+    "The ugly folder prefix '243LU875E5' is not per-user generated but is the same for everyone, making it even more puzzling as a design choice",
+    "Apple's increasingly messy file system internals represent a declining attention to craftsmanship in areas users aren't supposed to see"
+  ],
+  "money_quotes": [
+    "My first thought was that something must be corrupt in my RSS feed for the show. My second thought, a split-second later, was, nah, it's probably a bug in the Mac Podcasts app. My second thought was right.",
+    "This reeked of a caching problem \u2014 but how to delete the cache?",
+    "The Catalina Music and Movies apps continue to store their media files in the traditional, obvious places. That's because they're traditional Mac apps derived from the old iTunes app.",
+    "Why in the world all the folders in ~/Library/Group Containers/ are prefixed with these ugly seemingly-random identifiers, I have no idea, but it strikes me as one more step along the path of Apple now caring less and less about what the back of the cabinet looks like.",
+    "When I saw McElhearn's folder name, my first thought was that he had overlooked that the '243LU875E5' part must be generated per-user, and wouldn't be the same for everyone. It certainly looks random, right? But it's not."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "critical",
+  "key_insight": "Apple's Catalina Podcasts app exemplifies a growing carelessness about internal software craftsmanship, with opaque file paths and caching bugs that betray a company that once prided itself on the quality of what users couldn't see.",
+  "filename": "2020-02-24-catalina_media_file_locations"
+}

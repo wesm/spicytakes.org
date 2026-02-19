@@ -1,0 +1,25 @@
+{
+  "summary": "Gruber explains why the automated Twitter posting bot for Daring Fireball broke during a server migration in November 2019 and how he finally fixed it three months later. The original script used a Berkeley DB database for tracking which posts had been tweeted, which broke due to Perl version incompatibilities on the new server. He rewrote it to use a simple text file instead, noting that a database was premature optimization all along. He also explains why he maintains his own custom script rather than using third-party services: he wants precise control over tweet formatting, including elegant truncation of long headlines.",
+  "key_points": [
+    "A server migration broke the DF Tootbot because the Berkeley DB file format changed across Perl major versions, making the history log unreadable",
+    "Gruber replaced the database with a plain text file after testing showed that scanning a 1-million-line text file takes a fraction of a second on modern hardware",
+    "He cites Knuth's 'premature optimization is the root of all evil' as the lesson learned from over-engineering the original solution",
+    "He maintains a custom tweeting script rather than using third-party services because he wants exact control over tweet text formatting, including elegant headline truncation",
+    "The rewrite also switched from RSS to JSON Feed as the data source and added support for Twitter's 280-character limit"
+  ],
+  "money_quotes": [
+    "It bothered me because the database wasn't something I could just open in BBEdit and inspect and edit by hand. I'm a text file guy, as you may know.",
+    "Reading a simple text file log with tens of thousands of lines is really really fast on a modern computer. It would have been more than fast enough 10 years ago, and it's much faster today.",
+    "I hope to write Daring Fireball for a long time to come, but I really doubt I have a million posts in me.",
+    "A database was overkill.",
+    "Manually doing anything that should be automated is a bad idea for anyone, but it's a particularly bad idea for someone with a strong tendency to think about only one thing at a time and pretty much forget everything else.",
+    "I like having control over such things. Shocker, I know."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "reflective",
+  "key_insight": "Premature optimization \u2014 choosing a database over a plain text file for a simple log \u2014 created a fragile dependency that broke years later, when a text file would have been simpler, faster to debug, and more than performant enough.",
+  "filename": "2020-02-06-df_tootbot_is_fully_operational"
+}

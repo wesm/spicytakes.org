@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber highlights a Finder bug in macOS Catalina where folder sizes temporarily display as 'Zero KB' and available disk space doesn't update after emptying the Trash. He argues that the Finder's visual representation of the file system should be treated with nearly the same importance as the actual file system integrity. Using a bank account analogy, he explains how displaying incorrect information \u2014 even temporarily \u2014 erodes user trust. He notes that while APFS maintains excellent actual data integrity, the UI layer is failing to uphold the same standard. He traces this as a regression, noting the classic Mac OS Finder never showed incorrect information, preferring spinners or dashes over wrong numbers.",
+  "key_points": [
+    "The Finder on Catalina displays demonstrably wrong file sizes (Zero KB for large folders) and fails to update available space after emptying Trash",
+    "If the system needs time to calculate, it should show a spinner or placeholder \u2014 never an incorrect value, because a spinner is still 'correct'",
+    "The visual representation of the file system deserves nearly the same attention as actual file system integrity because it's how users perceive their data",
+    "This is a regression: the classic Mac OS Finder never showed incorrect sizes, always using spinners or dashes while calculating",
+    "These bugs reflect a category of macOS quality problems that aren't getting enough attention within Apple"
+  ],
+  "money_quotes": [
+    "The Finder should never show inaccurate information regarding the state of the file system. Never.",
+    "Everything the Finder displays should be correct all the time.",
+    "A spinner, if the system needs time to calculate the size, is still correct \u2014 it's correctly showing you that you need to wait.",
+    "The visual representation of the file system in the user interface should be treated with almost the same amount of attention.",
+    "Showing 'Zero KB' for a folder full of large files is profoundly wrong. It creates mistrust in an aspect of the system that the user should, ideally, trust completely.",
+    "The Finder should treat every bit of information it displays as though it's as important as your bank account balance.",
+    "If you log into your account and it shows a balance of 'Zero dollars' for 30 seconds before updating to show your actual balance \u2014 well, you're probably going to start looking for a new bank.",
+    "Something went awry in this regard in recent years."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "critical",
+  "key_insight": "Displaying incorrect information in the Finder \u2014 even temporarily \u2014 is a fundamental UI failure because the visual representation of the file system is how users establish trust in their data, and showing wrong values where a spinner would suffice represents an unacceptable regression in macOS quality.",
+  "filename": "2020-02-25-what_you_see_in_the_finder_should_be_correct"
+}

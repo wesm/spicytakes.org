@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber documents an AppleScript bug introduced in macOS Big Sur where telling an app to 'activate' only brings its frontmost window forward, rather than all open windows as expected. This breaks behavior that was consistent from Mac OS X 10.0 through Catalina. He discovered the bug while trying to do the opposite \u2014 activate a specific single window \u2014 and found that window-specific activate commands are effectively ignored, always bringing only the frontmost window forward regardless of which window index you specify. The bug has persisted across two major macOS releases, leaving it unclear whether it's intentional. He filed a Feedback report and solicited help from Twitter, receiving mostly jokes in return.",
+  "key_points": [
+    "The AppleScript 'activate' command stopped bringing all app windows forward starting in macOS Big Sur, breaking decades of consistent behavior",
+    "Window-specific activate commands are silently ignored \u2014 you can specify any window index, even nonexistent ones, and it compiles and runs without error",
+    "The bug affects all scriptable Mac apps, not just specific ones like TextEdit or Safari",
+    "Two major macOS releases with this behavior makes it ambiguous whether it's a bug or an intentional change"
+  ],
+  "money_quotes": [
+    "Nothing like a good AppleScript mystery to get the weekend off to a celebratory start.",
+    "This seems like it must be a bug, but it's now been around for two major releases of MacOS, so maybe it's a bizarre change in intended behavior?",
+    "It turns out you can put any integer you want after window, even if it doesn't refer to a valid index number for a window, and it will compile and run.",
+    "Effectively, it's just telling the app to activate, even inside a tell block for a window, even if the window doesn't exist.",
+    "All ball bearings nowadays, indeed.",
+    "Yes, of course I filed a radar, or a 'feedback', or whatever we're calling them nowadays."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical, wry, investigative",
+  "key_insight": "A subtle AppleScript regression in macOS Big Sur broke decades of consistent window activation behavior, and Apple's silence across two major releases leaves developers uncertain whether it's a bug or a deliberate change.",
+  "filename": "2022-05-27-wonder_twin_powers"
+}

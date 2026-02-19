@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber dissects Apple's newly published 'Secure Intent' documentation, which describes how certain Apple devices use a direct physical link between a hardware button and the Secure Enclave to confirm user intent in ways that software \u2014 even with root access \u2014 cannot spoof. He categorizes Apple devices into five authentication tiers and explores why Touch ID home button devices are mostly excluded from the secure intent list. The piece examines the design tension between convenience and security, particularly how the home button's dual role (exit app vs. confirm purchase) created a vulnerability exploited by scam apps. Gruber speculates about the challenges Face ID would pose on Macs, since secure intent requires a physical button connection that Bluetooth and USB cannot provide. He concludes that Apple's biometric future will likely be multi-sensor, combining Face ID for low-security authentication with physical button confirmation for secure intent.",
+  "key_points": [
+    "Secure intent requires a direct physical connection between a hardware button and the Secure Enclave that cannot be spoofed by software, even with root or kernel access",
+    "Touch ID home button devices are mostly excluded from secure intent, possibly because the home button's dual purpose (navigation and authentication) creates a design vulnerability exploited by scam apps",
+    "Face ID alone is insufficient for high-security confirmations because you're already looking at the screen \u2014 the double-click of the side button provides the unspoofable physical confirmation",
+    "Face ID on desktop Macs poses a unique challenge: the confirmation button needs a direct Secure Enclave connection, but keyboards connect via Bluetooth or USB which both go through the OS",
+    "Apple's biometric authentication future will likely be multi-sensor, combining Face ID for convenience with Touch ID or hardware buttons for secure intent"
+  ],
+  "money_quotes": [
+    "Users can confirm their intent to complete an operation in a way designed such that even software running with root privileges or in the kernel can't spoof.",
+    "If all software were trustworthy, Touch ID on the home button would be ideal. With the potential for untrustworthy software, it's not an ideal design to use the same button for 'get me out of here with a press' and for 'just touch this to confirm.'",
+    "Anything on screen is only as secure as iOS or MacOS itself.",
+    "The software running on your device cannot spoof a double-click of the side button, and the side button has a direct physical connection to the Secure Enclave that doesn't go through the OS.",
+    "Apple has recalibrated the balance between convenience and security to be a little more secure but a little less convenient.",
+    "Bluetooth and USB are out \u2014 they both go through the OS, so they're not secure enough.",
+    "In short, I suspect Apple's biometric authentication future will be multi-sensor."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "technical",
+  "key_insight": "Apple's secure intent system reveals a fundamental design constraint: true security confirmation requires a physical hardware connection to the Secure Enclave that bypasses all software, which creates interesting challenges as Apple considers bringing Face ID to Macs.",
+  "filename": "2021-06-02-secure_intent_on_apple_devices"
+}

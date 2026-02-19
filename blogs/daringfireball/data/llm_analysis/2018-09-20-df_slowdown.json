@@ -1,0 +1,24 @@
+{
+  "summary": "Gruber explains two technical issues that caused Daring Fireball to load slowly for some readers during a critical content week. The first was a routing problem where initial requests took 30-60 seconds to reach his server, unrelated to traffic from his iPhone XS and Apple Watch reviews. The second was an SSL certificate warning triggered by Safari's tightened security when users accessed the site with a 'www' prefix over HTTPS. Both problems were solved by enabling Cloudflare's HTTP/S proxy, and Gruber uses the post to praise Cloudflare's free service and apologize to affected readers.",
+  "key_points": [
+    "The slowdown was a routing/proxy issue, not a server capacity problem \u2014 DF's server responded quickly once requests actually reached it",
+    "Safari's tightened SSL security exposed a longstanding gap in Gruber's certificate coverage for the 'www' subdomain he never wanted but had to support",
+    "Both problems were fixed with a single Cloudflare configuration change, demonstrating the value of CDN proxying even for simple sites",
+    "Gruber takes personal pride in DF's performance and treats site speed as a reflection of craft and respect for readers"
+  ],
+  "money_quotes": [
+    "I pride myself on Daring Fireball being a fast-loading website, and because this was a pretty big week content-wise.",
+    "Long story short, it was taking that long for the initial request to even get to my server; once it did, everything after that was as fast as usual.",
+    "I've never made use of a \"www\" prefix at Daring Fireball \u2014 I hate that prefix. But you have to support it, because so many people type it out of habit.",
+    "DNS can seem like voodoo (at least to me) but Cloudflare makes it easy.",
+    "This is not a sponsorship or ad \u2014 I just had to thank them for their wonderful service.",
+    "Anyway, I want to apologize to any of you affected by either of these issues."
+  ],
+  "themes": [
+    "web",
+    "design"
+  ],
+  "tone": "technical, candid, apologetic",
+  "key_insight": "Even for a site that prides itself on simplicity and speed, the web's infrastructure layers \u2014 DNS, SSL, routing \u2014 can introduce invisible failures that only a proxy service like Cloudflare can cleanly resolve.",
+  "filename": "2018-09-20-df_slowdown"
+}
