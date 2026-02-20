@@ -1,0 +1,25 @@
+{
+  "summary": "McKenzie demonstrates how Ruby metaprogramming can eliminate boilerplate code when storing object preferences, using his Bingo Card Creator's PrintJob class as a real-world example. Rather than adding database columns for each new property (requiring migrations) or using ugly has_many associations, he serializes options to a JSON hash and uses metaprogramming to auto-generate getter/setter methods. This approach saved roughly 200 lines of code, required zero controller or schema changes when adding new features, and still works with Rails validations and form helpers. He argues this pattern is widely applicable to any one-to-many relationship where the 'many' side is only accessed through its parent.",
+  "key_points": [
+    "Three approaches to storing object properties in Rails: separate columns (requires migrations), has_many associations (ugly syntax, join overhead), or serialized JSON hash with metaprogrammed accessors (cleanest)",
+    "Metaprogramming saved ~200 lines of boilerplate and made the controller extraordinarily robust against change \u2014 adding five new properties required zero changes to controllers or schema",
+    "Rails doesn't care how methods come to exist on a model \u2014 metaprogrammed accessors work identically with validations, form helpers, and other Rails magic",
+    "The tradeoff is losing SQL queryability on those fields, which is acceptable when the data is only accessed per-user and per-id",
+    "Programmatically creating methods from user-controlled input is extremely dangerous and must only be done from trusted, developer-defined constants"
+  ],
+  "money_quotes": [
+    "200 lines of negacode (code that you don't have to write) means 200 lines of code that you don't have to read, test, maintain, or debug.",
+    "The less boilerplate code you have to write, understand, read, test, debug, and maintain, the more time you can spend creating new features for your customers, doing marketing, or doing other things of value for your business.",
+    "Toy problems are great, but foos and bars don't get me home from the day job quicker or convince my customers to pay me money.",
+    "This controller is extraordinarily robust against change. When I added five extra options to the print jobs to accommodate my new features, I didn't change one single line of the associated controllers.",
+    "Programmatically instantiating methods is extraordinarily dangerous if you don't know what you're doing.",
+    "It takes about 5 seconds to count: 217,264 cards printed to date. Thanks users!"
+  ],
+  "themes": [
+    "engineering",
+    "business"
+  ],
+  "tone": "technical",
+  "key_insight": "Metaprogramming's real value isn't cleverness \u2014 it's eliminating boilerplate so that adding new features requires changing only the parts that actually differ, leaving controllers, schemas, and tests untouched.",
+  "filename": "2009-11-17-practical-metaprogramming-with-ruby-storing-preferences"
+}

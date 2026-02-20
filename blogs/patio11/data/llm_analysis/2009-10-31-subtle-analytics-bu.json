@@ -1,0 +1,25 @@
+{
+  "summary": "McKenzie describes tracking down a subtle bug where his analytics and A/B testing data was corrupted for months because a deterministic srand() call in his bingo card printing code was polluting the random seed used to generate unique visitor IDs. Trial users printing cards would reset the random seed to a fixed value, causing subsequent visitors to receive identical 'random' IDs, which Mixpanel then treated as duplicate events. The bug caused roughly 60% of analytics data to be silently discarded. He discovered it only when a massive discrepancy between his signup logs and Mixpanel's reported numbers became impossible to ignore during a Halloween promotion analysis.",
+  "key_points": [
+    "A deterministic srand() call in one part of the codebase silently corrupted random number generation in completely unrelated code sharing the same process",
+    "The bug went undetected for months because analytics showed plausible-looking numbers rather than obvious zeros, making it easy to dismiss nagging doubts",
+    "A/B test significance measurements remained valid despite the data corruption because the errors were evenly distributed across test alternatives",
+    "Process-level shared state (like random seeds in Mongrel/Ruby) creates hidden coupling between unrelated features that can produce extraordinarily subtle bugs",
+    "The debugging process followed a logical chain: check API calls, check ID uniqueness, inspect distribution patterns, recognize exponential decay as srand signature"
+  ],
+  "money_quotes": [
+    "I have a confession to make: I often trust code that I thinks works.",
+    "I knew my conversion code worked and it wasn't displaying zeroes, so I mentally pushed it out of mind.",
+    "Given that my user login code was correct (or there would be much, much more serious problems than analytics failing \u2014 people would be seeing my admin screens, bingo cards would bleed across accounts, cats and dogs would be friends, etc)",
+    "Two months of my analytics and A/B test data is corrupted.",
+    "A/B test results are shockingly robust against programming errors like this: as long as the source of error doesn't correlate with your A/B choices, the errors will be evenly distributed across both alternatives, so it just washes out.",
+    "Don't use srand(constant) anywhere in your production code, even if it is the easiest way to get what you want, because sooner or later you will use rand() in some unrelated code called by the same process and now you have extraordinarily subtle bugs caused by reuse of random numbers."
+  ],
+  "themes": [
+    "engineering",
+    "marketing"
+  ],
+  "tone": "technical",
+  "key_insight": "Shared mutable process-level state like random seeds creates invisible coupling between unrelated features, and the most dangerous bugs are the ones that produce plausible-looking wrong data rather than obvious failures.",
+  "filename": "2009-10-31-subtle-analytics-bu"
+}

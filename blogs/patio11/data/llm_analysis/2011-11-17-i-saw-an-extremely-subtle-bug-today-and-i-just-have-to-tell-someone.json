@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie walks through debugging an extremely subtle bug in Bingo Card Creator where a Rails security upgrade silently changed CSRF protection behavior from throwing exceptions to quietly resetting sessions. This interacted with his A/B testing library's humanity-check AJAX POST, creating a race condition that sporadically logged users out and wiped referrer tracking data. The bug manifested differently in development vs. production due to timing differences in JavaScript execution, making it nearly impossible to reproduce consistently. He traces his debugging journey from noticing anomalous Halloween sales stats to spelunking through Rails source code across version changes, ultimately finding a one-line fix. The post serves as a meditation on how modern web applications sit atop layers of complexity that are usually invisible until they break in unexpected ways.",
+  "key_points": [
+    "Rails 2.3.11 silently changed CSRF protection from raising exceptions to quietly resetting sessions, a behavioral change buried in a security patch that had far-reaching consequences",
+    "The bug was a race condition between JavaScript execution timing and user interaction speed, manifesting only in production where network latency to external scripts altered execution order",
+    "The first signs were anomalous analytics data \u2014 Halloween referral stats showed ~100 trials instead of thousands \u2014 but since revenue wasn't obviously affected, investigation was delayed",
+    "Race conditions in web applications can emerge from the interaction of concurrent browser processes even without explicit threading, making them extremely hard to reproduce and diagnose",
+    "Taking ownership of the bug entirely despite it originating from a framework change, emphasizing that reading patch notes thoroughly and investigating anomalies early would have prevented months of silent damage"
+  ],
+  "money_quotes": [
+    "If you're not technically inclined, you think 'Hmm, ghosts in the Googles. Oh well, here is my username and password again.'",
+    "Bingo Card Creator has been doing this pervasively to a fraction of my users for the last few months. I never noticed it, and no one ever complained.",
+    "Rails 2.3.11 changed the behavior of CSRF protection: instead of throwing exceptions, it would silently just clear the session and re-run the request.",
+    "Race conditions are why sane programmers don't program with threads or, if they do, they use shared-nothing architecture and pass all communication between the threads through a message queue written by someone who knows what they are doing (if you have to ask, it isn't you).",
+    "If my users are inconvenienced, it is my fault, always.",
+    "That's the optimistic way to say it. The pessimistic way is to say that this bug negatively affected the better part of a thousand people, and probably cost me sales from some of them.",
+    "Bingo Card Creator is not terribly complicated software when compared to most applications, but it sits on top of other pieces of code which collectively are orders of magnitude more complicated than any physical artifact ever created by the human race.",
+    "Most of the time that complexity is abstracted away from both the user and the developer, both as blissfully ignorant of the layers below as an ant walking on an aircraft carrier is ignorant of the depth of the ocean."
+  ],
+  "themes": [
+    "engineering",
+    "business"
+  ],
+  "tone": "technical",
+  "key_insight": "Silent behavioral changes in framework security patches can create race conditions that are nearly impossible to reproduce in development, causing subtle but widespread damage that only surfaces through anomalous analytics data.",
+  "filename": "2011-11-17-i-saw-an-extremely-subtle-bug-today-and-i-just-have-to-tell-someone"
+}

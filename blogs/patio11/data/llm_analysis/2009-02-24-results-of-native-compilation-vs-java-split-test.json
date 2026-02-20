@@ -1,0 +1,25 @@
+{
+  "summary": "McKenzie reports the results of a month-long A/B test comparing a natively compiled version of Bingo Card Creator (using Excelsior JET) against the standard Java version. Of 75 trackable purchases, 44 came from the JET-compiled version versus 31 from Java, which is statistically significant at the 8% level using a binomial probability test. He walks through the tracking methodology using properties files, Google Analytics cookies, and query string parameters. Despite a Vista compatibility bug with the JET version, he concludes the native compilation helps sales enough to make it the default for all Windows users.",
+  "key_points": [
+    "Native compilation via Excelsior JET produced 59% of trackable sales versus 41% for the Java version in a 75-purchase sample",
+    "The split test was implemented by repurposing the application's properties file strings and tracking via Google Analytics cookies on purchase pages",
+    "Statistical analysis using binomial distribution shows only 8% probability the result is due to chance, sufficient to conclude JET helps sales",
+    "A Vista compatibility bug with the JET version prevented saving to Program Files, yet the JET version still outperformed",
+    "The result was strong enough to make native compilation the default despite the incomplete data (only 75 of 116 conversions were trackable)"
+  ],
+  "money_quotes": [
+    "In the last 30 days I have had 118 sales of Bingo Card Creator. (Wow, that number shocks me.)",
+    "If we assume hypothetically that it doesn't matter which version you were using, we would expect that 50% of the total number of conversions would turn out each way.",
+    "In only 8% of all samples of 75 sales would we find 44 or more sales for JET. Accordingly, we conclude that JET is helping sales.",
+    "Vista prevents programs from writing to subdirectories of Program Files to prevent bad behavior. However, it emulates writing to Program Files to avoid breaking legacy software, and that emulation is sufficient for BCC Java but apparently not good enough for BCC JET.",
+    "Ah, we live and we learn."
+  ],
+  "themes": [
+    "business",
+    "engineering",
+    "marketing"
+  ],
+  "tone": "technical",
+  "key_insight": "Native compilation of a Java desktop application measurably increased sales conversion rates, demonstrating that perceived software quality and installation experience directly affect purchasing decisions.",
+  "filename": "2009-02-24-results-of-native-compilation-vs-java-split-test"
+}

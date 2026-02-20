@@ -1,0 +1,23 @@
+{
+  "summary": "McKenzie discloses a significant one-character bug in his open-source A/B testing framework A/Bingo that affected z-score calculations. The bug could potentially change whether test results were reported as statistically significant. He fixed it remotely from a Japanese cafe while stuck in Nagoya and pushed the fix to the repository. After re-running confidence tests on all his historical data, no experimental results actually changed. He commits to writing unit tests for the statistics code to prevent similar issues.",
+  "key_points": [
+    "A one-character bug in A/Bingo's z-score calculation could affect statistical significance reporting",
+    "The bug fortuitously overstated significance of already-significant tests and understated insignificant ones, limiting real-world damage",
+    "No historical experimental results changed after recalculation with the corrected code",
+    "The incident highlights the importance of unit testing statistical code, which McKenzie commits to adding"
+  ],
+  "money_quotes": [
+    "The bug is all of one character long.",
+    "I have fixed the bug (via the Slicehost console, on a Japanese cafe Internet PC, because I am stuck in Nagoya today again).",
+    "While the numerical calculation of the z-score was borked, it was borked in a subtle enough fashion that most statistically significant tests will retain their statistical significance under the borked calculation.",
+    "My quick eyeball suggests that it causes BCC to overstate the significance of tests which are very significant and understate the significance of tests which are insignificant, which is a very fortuitous set of properties for a random bug to have in an A/B testing framework.",
+    "I have re-run statistical confidence tests for everything I've ever done for BCC that I still have data for, and no experimental results changed as a result of the error."
+  ],
+  "themes": [
+    "engineering",
+    "marketing"
+  ],
+  "tone": "candid",
+  "key_insight": "A one-character bug in statistical code can potentially invalidate A/B test results, underscoring why statistical calculations need unit tests even when the rest of your framework works correctly.",
+  "filename": "2010-03-15-stats-bug-in-abingo-v1-0-0-and-earlier"
+}

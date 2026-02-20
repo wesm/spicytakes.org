@@ -1,0 +1,25 @@
+---
+title: "You Can Probably Stand To Charge More"
+date: 2006-08-14
+url: https://www.kalzumeus.com/2006/08/14/you-can-probably-stand-to-charge-more/
+slug: you-can-probably-stand-to-charge-more
+word_count: 867
+---
+
+
+Scott Meade, who by my calculations will be starting his crazy coding week any minute now (good luck!), recently wrote about the [difficulties of convincing a customer to pay for something done in a week](http://railsweek.com/blog/articles/2006/08/10/time-to-complete-value). As this is a subject near and dear to my heart, I thought I would give my thoughts.
+
+
+First off, your customers can only hold the fact that your product was built in a week against you if they know it was built in a week. I would suggest, well, not advertising this. *Conception To Launch In Seven Days — Get Yours Now!* does not strike me as a winning formula for AdWords anyway. I’m all for openness with the customer in most things, and if they asked me I might even tell them — but there is no reason to volunteer the information. Your heart surgeon doesn’t tell you he’s billing you $50,000 for three hours’ labor to implant 32 cents worth of plastic and a $5 chip made in Taiwan. And you’re not likely to ask after he’s just saved your life.
+
+
+Are you worried that your customers are going to implement your product in a week themselves? That is, perhaps, a realistic worry if your customers are primarily developers. If you have a 200 line shell script and want to sell it to a bunch of Linux mavens for $15, well, God be with you. Sometimes developers spend time on things which they really should just buy off the shelves, too — I’m as guilty as that as anybody. But the rest of the world doesn’t want to program your program. If they had the skills or desire to reinvent your wheel, they’d be programmers, but they’re not. They’re teachers or real-estate brokers or heart surgeons. Everything that happens inside of the computer is black magic to them and you are the shaman they rely on for magical amulets to keep the evil spirits at bay. So long as your amulets work, you can pretty much charge what you like for them.
+
+
+One of the lovely things about producing software as a product, as opposed to consulting or otherwise turning one hour of your labor into one hour of revenue, is that the marginal costs of making an additional sale are, to a first approximation, nothing. High school microecon 101 says that when this is the case, you can pretty much pick your price point at any point on the demand curve (in the absence of competition, at any rate). The demand curve doesn’t magically shift up or shift down just because you spent 10 years or $3 million on the development effort — the demand curve is external to you. Its not totally beyond your power to affect, but it certainly isn’t reading your time cards to decide whether to slope or slide. Speaking of being a product company, since you’re operating under the assumption that you’re going to sell this same product dozens or hundreds or thousands of times, the price you’re charging any one customer is such a ridiculously small fraction of what it would take to re-implement that most people with an ounce of sense will buy to save themselves the trouble (assuming you meet their needs).
+
+
+Let’s talk about that heart surgeon again. Do you think he paid $5.32 for that doohickey he just planted in you? No possible way. He probably paid $500 or $1000 for it. And, if it ever occurred to him to argue with the sales rep from HeartTech (“Technology with a Heart”), the conversation probably went something like this: “Thats an interesting perspective. I suppose you could try making it yourself for $5.32… or, alternately, you could make $49,500 tomorrow installing one and be on the golf course by 3:00.” And then the good doctor’s eyes lit up and the deal got closed. Thats essentially what your conversation with the customer should be: regardless of what it took to make my product, my price is a “fair” one because you’ll get oh so much more out of it. And, seen in that light, most of your customers will agree.
+
+
+Speaking of which: I think a lot of uISVs, myself included when I was starting, undervalue their own software. Sometimes severely (I know of at least one product out there which would probably see **higher** sales if it were priced at *triple* what it is right now, but thats a post for another day). Part of this is from being involved with the software day by day and seeing all the warts, the imperfections, the bug reports, and the compromises. You started with such high hopes for the software and those got pared down by schedule presure and implementation concerns, and you value the software as compared to the image you had when you started. **Stop**. There is no competitor who released your ImaginationWare into the market — you’re competing only with what actually exists, not with what could exist, and when your customers find out that their needs get met if they only part with a trifling sum of money they’ll happily part with it no matter how the project looked from your perspective. *Don’t fall for coder’s remorse*.

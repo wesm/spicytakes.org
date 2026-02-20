@@ -1,0 +1,21 @@
+{
+  "summary": "McKenzie explains how to use CrazyEgg's heatmap tracking on pages that require authentication, which normally blocks CrazyEgg's screenshot bot. The solution involves detecting CrazyEgg's user-agent string and bypassing the login procedure for their bot. He created a dedicated trial account for CrazyEgg's bot to authenticate as, enabling heatmap data collection on logged-in application pages. He acknowledges this approach has security implications but argues it's proportionate to his threat model.",
+  "key_points": [
+    "CrazyEgg's heatmap tracking doesn't work behind login screens by default because the screenshot bot can't authenticate",
+    "You can detect CrazyEgg's bot via its user-agent string and bypass authentication for it",
+    "For security-sensitive applications, CrazyEgg provides IP addresses to whitelist instead of user-agent detection",
+    "The pragmatic solution is to create a dedicated trial account and auto-authenticate the bot as that user"
+  ],
+  "money_quotes": [
+    "They're seriously my favorite $19 to pay every month, even when I don't actually use them, because some day I know I'll get the itch again and then bam actionable insights into what my customers are doing.",
+    "I sell bingo cards to 60 year old women.",
+    "In Rails, doing something on the basis of the user agent is easy but, and I know this might come as a surprise, not covered in the documentation."
+  ],
+  "themes": [
+    "marketing",
+    "engineering"
+  ],
+  "tone": "casual",
+  "key_insight": "You can extend analytics tools like CrazyEgg behind login screens by detecting their bot's user-agent and auto-authenticating it as a dedicated account, calibrating security tradeoffs to your actual threat model.",
+  "filename": "2010-02-10-using-crazyegg-on-pages-requiring-a-login"
+}

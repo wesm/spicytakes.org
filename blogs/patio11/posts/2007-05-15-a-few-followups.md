@@ -1,0 +1,19 @@
+---
+title: "A Few Followups"
+date: 2007-05-15
+url: https://www.kalzumeus.com/2007/05/16/a-few-followups/
+slug: a-few-followups
+word_count: 551
+---
+
+
+[Increase Your Software Sales](http://microisvjournal.wordpress.com/2007/05/14/increase-your-software-sales/) proved to be fairly popular. I hope that it covered the basics of “Phase Two” of the uISV development process well enough to give struggling beginners some ideas. In particular, take note of what I said about SEO and blogging. In that article I predicted I would be on the front page of Google for the string “increase software sales” within a week. It actually took about 48 hours and I’m [number two](http://www.google.com/search?source=ig&hl=en&q=increase+software+sales&btnG=Google+Search). That is a fairly competitive (30 million results) search which has obvious economic possibilities for at least some people (payment processors, etc). Your niche *also* has competitive search words which a decently popular blog article could crack fairly quickly. (Why so high so fast on Google? WordPress makes the URL and title tag reflect the keywords, which were repeated in the body text. I also got linked by two high pagerank WordPress pages which automatically collect the highest traffic blogs and posts of the day. Luckily WordPress has recently changed their site design so that those posts are now static. The traffic which got me onto those was about fifty-fifty from a link I placed on [joel.reddit.com](http://joel.reddit.com) and from other sources.) I anticipate the post will probably fall to somewhere lower on the front page as it ages.
+
+
+I redesigned the icons on my website again after [I was informed](http://microisvjournal.wordpress.com/2007/05/12/still-more-button-redesigns/#comment-36902) they violated Microsoft’s and Apple’s guidelines for trademark usage. Its my personal opinion that their guidelines are poorly considered and substantially broader than the rights the law actually gives them, but I’m following them as a professional courtesy. You can see the new icons on [Bingo Card Creator](http://www.bingocardcreator.com/purchasing.htm)‘s purchasing page. It wasn’t a total loss — the new buttons seem to be a little less busy than before.
+
+
+[e-junkie](http://www.e-junkie.com)‘s Fat-Free Cart is currently incompatible with [CrazyEgg](http://www.crazyegg.com) on Firefox, which is unfortunate. CrazyEgg’s script causes all the links on the page to lock up if you dismiss the cart. As the incompatibility was potentially costing me money I disabled CrazyEgg and sent them an email. They got me a response within 48 hours and are looking into it, yay. Separately, e-junkie has applied a fix for the [usability issue I noted earlier](http://microisvjournal.wordpress.com/2007/05/12/minor-usability-errors-in-checkout-funnel-you-lose-lots-of-money/).
+
+
+A personal note: I had a job interview yesterday with a smallish Japanese software company (250 employees) and it went extraordinarily well (the 3 decisionmakers called my boss to chitchat about me immediately after the interview was over, and the call included the line “He’ll be a great fit here”). Not only did I have a strong base in the skills their current divisions need (primarily Java, experience in both Windows/Unix environments, and being bilingual), they also have dreams of Web 2.0ifying a few of their properties and were extraordinarily pleased to hear that my “extracurricular interests” had me learning Javascript, Rails, and MVC frameworks. I will hear the results and if applicable get a written offer on Tuesday. It is easily the most attractive of my current day job employment options for August, which has taken a load off my mind. The last interview, which I thought had gone well, ended up in “You’re a very good candidate but we don’t have a position for you. Best of luck”. I have a half-dozen other applications wending their way through various employment bureaucracies.

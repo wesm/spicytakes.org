@@ -49,11 +49,12 @@ get_project_name() {
         zedshaw) echo "spicy-takes-zedshaw" ;;
         jvns) echo "spicy-takes-jvns" ;;
         daringfireball) echo "spicy-takes-daringfireball" ;;
+        patio11) echo "spicy-takes-patio11" ;;
         *)         echo "" ;;
     esac
 }
 
-ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh mathbabe nayafia joereis ssp paulg atwood unclebob hillel steveyegge martinfowler hannes mempko spolsky dhh fperez charity devault cmuratori zedshaw jvns daringfireball"
+ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin criccomini skamille mitchellh mathbabe nayafia joereis ssp paulg atwood unclebob hillel steveyegge martinfowler hannes mempko spolsky dhh fperez charity devault cmuratori zedshaw jvns daringfireball patio11"
 
 PROD_FLAG=""
 DEPLOY_ALL=false

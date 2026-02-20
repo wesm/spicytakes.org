@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie describes implementing a Dropbox-style two-sided referral incentive for Bingo Card Creator, where both the inviter and invitee receive bonus bingo cards. He explains why the double-sided incentive is psychologically superior to simple 'tell a friend' schemes, details the surprisingly complex implementation including Facebook sharing integration, and candidly shares a production bug where a database migration accidentally triggered 30,000 MailChimp API calls. The post balances optimism about the approach with honest uncertainty about whether it will work for his non-technical user base.",
+  "key_points": [
+    "Two-sided referral incentives work because they make the invitation feel like a gift rather than spam, leveraging social reciprocity",
+    "The marginal cost of the referral reward (extra bingo cards) is essentially zero, making the customer acquisition cost trivial",
+    "Facebook sharing removes the technical barrier of knowing friends' email addresses, requiring only two clicks from users",
+    "A poorly considered ActiveRecord callback caused a mass database update to trigger 30,000 queued MailChimp API calls, demonstrating how side effects in callbacks create hidden coupling",
+    "The feature was deliberately designed with anti-abuse caps: 5 invites per user, 1 invitation per recipient, and 500 system-wide per day"
+  ],
+  "money_quotes": [
+    "The person who signs up for Dropbox through your referral link gets a better deal than they would have gotten from the homepage, and you also get a free bonus yourself. That is marvelous, marvelous psychology there.",
+    "Social relations being what they are, the person receiving the gift feels a wee bit obligated to accept it.",
+    "The cost of allowing users to print extra bingo cards is, of course, too low to measure.",
+    "One bragged to me that she found out how to make a link to the website on her desktop and then bring it to her sister on a floppy, and if they're getting over barriers to conversion that high, you know there must be something going on.",
+    "We've all got that one aunt who has not figured out netiquette for Farmville and sends 14 lost kittens a day: I do not want to be her enabler.",
+    "Facebook sharing: not just for blog posts.",
+    "I had a funny idea for a minimum viable tell-a-friend page: just ask for the friend's email address and then have it ping me when someone submits anything. I'd send the emails and credit both users manually."
+  ],
+  "themes": [
+    "marketing",
+    "engineering",
+    "business"
+  ],
+  "tone": "practical",
+  "key_insight": "Two-sided referral incentives transform spam-like 'tell a friend' schemes into genuine gift-giving by rewarding both parties, and the best implementations use rewards with near-zero marginal cost.",
+  "filename": "2010-04-28-dropbox-style-two-sided-sharing-incentives"
+}

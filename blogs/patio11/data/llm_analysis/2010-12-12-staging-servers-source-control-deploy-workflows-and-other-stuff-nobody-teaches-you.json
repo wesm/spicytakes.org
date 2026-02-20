@@ -1,0 +1,26 @@
+{
+  "summary": "McKenzie argues that essential engineering practices like staging servers, version control workflows, and automated deployments are rarely taught but dramatically improve software quality. Drawing from his experience at a Japanese megacorporation, he provides practical guidance for small teams to implement staging environments that mirror production, git branching strategies that decouple development from deployment, and deploy scripts that include sanity checks and rollback capabilities. He emphasizes that these practices should be documented, scripted, and reproducible rather than cobbled together manually. The post advocates for incremental improvement rather than perfection, noting that every step along the path yields clear benefits.",
+  "key_points": [
+    "A staging server should be production minus users \u2014 as identical to production as possible, so failures happen there first instead of in front of customers",
+    "If setting up a staging server isn't easy, you already have an infrastructure problem: your production environment was cobbled together manually without documentation",
+    "Server configuration should live in source control via provisioning scripts, not splayed across fifteen config files on the server",
+    "Version control workflows must be documented, taught, and enforced \u2014 the specific workflow matters less than consistency across the team",
+    "Production emergencies represent systemic process failures, not one-off bugs, and deserve root cause investigation via five-whys analysis"
+  ],
+  "money_quotes": [
+    "Prior to doing so, my workflow generally involved a whole lot of bubble gum, duct tape, and praying.",
+    "Setting up a staging server should be easy. If it is not easy, you already have a problem in your infrastructure, you just don't know it yet.",
+    "Confidence is important since you'll probably be terrified and rushed when you need to do this, and rushed terrified people make unnecessary mistakes.",
+    "That sounded a little paranoid until that day when I accidentally created an infinite loop and rang every number in the database a hundred times.",
+    "Emergencies are not supposed to happen \u2014 anything that lets an issue get that far isn't just a one-off failure of whatever broke, it is a series of failures of the systems/processes designed to prevent failures from getting that far.",
+    "The sleep you save may be your own.",
+    "Best practices do not have to be passed from master to apprentice as oral lore."
+  ],
+  "themes": [
+    "engineering",
+    "business"
+  ],
+  "tone": "practical",
+  "key_insight": "Professional engineering practices like staging servers, version control workflows, and automated deployments aren't luxuries for big companies \u2014 they're essential infrastructure that small teams can and should implement incrementally, with each step yielding immediate benefits.",
+  "filename": "2010-12-12-staging-servers-source-control-deploy-workflows-and-other-stuff-nobody-teaches-you"
+}

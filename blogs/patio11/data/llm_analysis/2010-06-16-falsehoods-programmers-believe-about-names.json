@@ -1,0 +1,27 @@
+{
+  "summary": "Patrick McKenzie catalogs 40 false assumptions that programmers routinely make when designing systems that handle personal names. Drawing on his experience living in Japan and working with global enterprise systems, he argues that no computer system he has ever encountered handles names correctly. The post systematically demolishes assumptions ranging from names being ASCII-compatible to people even having names at all. McKenzie frames proper name handling as both a technical challenge and a matter of identity and respect. The piece became one of the most widely referenced posts in software engineering, spawning an entire genre of 'falsehoods programmers believe' articles.",
+  "key_points": [
+    "Every assumption programmers make about names\u2014from character encoding to structure to uniqueness\u2014is wrong in some real-world case",
+    "Names are central to identity, and systems that reject valid names are causing real harm to real people",
+    "McKenzie's own experience with six different valid 'full names' across Japanese and Western systems illustrates how even well-designed global systems fail",
+    "The common database pattern of first_name/last_name columns encodes dozens of false cultural assumptions",
+    "The list builds from reasonable-sounding assumptions to absurd ones, revealing that even the most cautious programmer will get names wrong"
+  ],
+  "money_quotes": [
+    "Anything someone tells you is their name is \u2014 by definition \u2014 an appropriate identifier for them.",
+    "I have never seen a computer system which handles names properly and doubt one exists, anywhere.",
+    "I have lived in Japan for several years, programming in a professional capacity, and I have broken many systems by the simple expedient of being introduced into them.",
+    "People have exactly N names, for any value of N.",
+    "People's names sometimes have prefixes or suffixes, but you can safely ignore those.",
+    "People whose names break my system are weird outliers. They should have had solid, acceptable names, like \u7530\u4e2d\u592a\u90ce.",
+    "People have names.",
+    "Refer people to this post the next time they suggest a genius idea like a database table with a first_name and last_name column."
+  ],
+  "themes": [
+    "engineering",
+    "japan"
+  ],
+  "tone": "satirical",
+  "key_insight": "Names are so culturally diverse and personally fluid that virtually every structural assumption a programmer might encode into a system will be wrong for some real person, and getting names wrong means getting identity wrong.",
+  "filename": "2010-06-16-falsehoods-programmers-believe-about-names"
+}

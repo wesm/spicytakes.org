@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie documents a production outage where his Delayed::Job workers died during an Ubuntu server upgrade, leaving 60 users unable to print bingo cards for over 12 hours. He walks through his incident response: personally apologizing to affected paying customers, building a targeted in-app messaging system to notify trial users without spamming everyone, and conducting a Toyota Five Whys root cause analysis. The investigation reveals cascading failures in his processes \u2014 skipping checklist steps due to fatigue, incomplete monitoring, commented-out process management, and poor documentation. He credits his Japanese engineering day job for teaching him the discipline of written deploy procedures, checklists, and post-incident analysis.",
+  "key_points": [
+    "Targeted incident communication is superior to broadcasting outage notices to all users \u2014 only the 60 affected users needed to know",
+    "Toyota's Five Whys methodology reveals that outages rarely have a single cause but rather a chain of process failures compounding each other",
+    "Monitoring that doesn't test every critical subsystem creates false confidence \u2014 his checks tested nginx and the database but not background job workers",
+    "The discipline of written checklists, deploy procedures, and documentation is a net time-savings over emergency incident response",
+    "Fatigue and shortcuts (skipping checklist steps, commenting out configs with vague notes) create technical debt that eventually causes outages"
+  ],
+  "money_quotes": [
+    "A quick check of the server showed that this was indeed the case. Six thousand. Oof.",
+    "It allows me to apologize directly to affected users, makes minimal demands on their attention while still almost certainly reaching them, and does not cause any issue for the other 25,000 users.",
+    "God sees every sparrow, but god only knows about the processes you tell it to manage, and my god_config.rb file has the Delayed::Job bits commented out with the notation 'This is buggy.'",
+    "I don't remember why it was buggy and my notes in SVN are similarly unhelpful.",
+    "All of the writing, test suites, automated test processes, and monitoring takes some time to set up and much of it generates additional overhead on all your tasks. However, in the last three years, I've come to recognize that it is a net time-savings over writing apology letters and doing emergency incident response.",
+    "Quit day job and, regardless of how tired you are, follow the freaking checklist.",
+    "Unbeknownst to me, my use of memcached fails totally silently: if Rails can't find the data in the cache it just regenerates it."
+  ],
+  "themes": [
+    "engineering",
+    "business",
+    "japan"
+  ],
+  "tone": "reflective",
+  "key_insight": "Rigorous operational discipline \u2014 checklists, monitoring, documentation, and structured post-incident analysis \u2014 is not bureaucratic overhead but a net time-savings over the emergency response and customer apologies that inevitably follow its absence.",
+  "filename": "2010-02-20-i-had-downtime-today-heres-what-im-doing-about-it"
+}

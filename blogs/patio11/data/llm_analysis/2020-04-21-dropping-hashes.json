@@ -1,0 +1,24 @@
+{
+  "summary": "McKenzie explains the practice of 'dropping a hash' \u2014 publishing a cryptographic hash of a document to prove you possessed it at a specific time without revealing its contents. He walks through the properties of cryptographically secure hashing algorithms like SHA-512, explains why they are considered unbreakable by modern science, and shows how security researchers use this technique to claim credit for discovering vulnerabilities while allowing companies time to fix them. The post is explicitly written as a canonical reference for non-specialists, filling a gap he noticed in available explanations.",
+  "key_points": [
+    "Cryptographically secure hashes produce a short, unique fingerprint of any data, and altering even one character of the input radically changes the output",
+    "Security researchers use hash-dropping to timestamp their discoveries without disclosing dangerous information prematurely",
+    "The guarantees of cryptographic hashing are not ritual or social convention \u2014 they are reproducible technology backed by mathematics that the global economy already depends on",
+    "The technique solves a professional incentive problem: researchers can prove priority of discovery while still practicing responsible disclosure"
+  ],
+  "money_quotes": [
+    "The definition of 'cryptographically secure' rounds to 'Even with hundreds of millions of dollars of computer time and the smartest mathematicians on the planet, it is impossible to produce two documents with the same hash, or to go from a hash to the document which produced it.'",
+    "It is not magic. It is not simply a shibboleth or ritual unique to the security community. It is a reproducible technology, available to anyone, that makes guarantees backed by the present limits of human understanding of the world we live in and the math which governs it.",
+    "If anyone had proof to the contrary, the global economy would be in substantial jeopardy, because much secure communication over the Internet relies upon this property.",
+    "This is not optimal from a professional incentive standpoint, because it is a very professionally significant event to have discovered how to break into Google.",
+    "All people professionally relevant to you will understand that they are certain, to far beyond the threshold they would need to bet their life savings on the matter, that you had the document as of the publication of the hash.",
+    "It is secure enough to stake a material portion of the economy on, and factually a material portion of the economy is staked on it this very second."
+  ],
+  "themes": [
+    "engineering",
+    "policy"
+  ],
+  "tone": "technical",
+  "key_insight": "Dropping a hash lets anyone prove they possessed a document at a specific time without revealing its contents, using the same mathematical guarantees that secure the global economy.",
+  "filename": "2020-04-21-dropping-hashes"
+}

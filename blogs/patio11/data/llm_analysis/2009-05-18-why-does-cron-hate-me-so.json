@@ -1,0 +1,19 @@
+{
+  "summary": "McKenzie describes a frustrating cron job failure on his Rails server after upgrading to Ubuntu Hardy. Cached files for seasonal content (Mother's Day, Cinco de Mayo) weren't being deleted despite logs showing the commands ran successfully. He could manually delete them but the automated process silently failed. It's a brief venting post about the maddening nature of server administration.",
+  "key_points": [
+    "Cron jobs can silently fail even when logs suggest successful execution, creating a false sense of reliability",
+    "Seasonal content caching requires timely cleanup \u2014 stale holiday pages lingering weeks later is a real business problem",
+    "System upgrades (Ubuntu Hardy) introduced subtle breakage in previously working automation"
+  ],
+  "money_quotes": [
+    "Once again, cron decided that it would stop deleting my Rails cached files after I upgraded to Hardy.",
+    "The logs say that the rf -rm happened at the scheduled times for the last two weeks, and I was able to successfully do it by sudoing into the appropriate user, but the files were still on disk.",
+    "Argh, I hate computers some days\u2026"
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "frustrated",
+  "key_insight": "Server automation that appears to work according to logs can still silently fail, and OS upgrades are a common culprit for breaking previously reliable cron jobs.",
+  "filename": "2009-05-18-why-does-cron-hate-me-so"
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Patrick McKenzie documents his painful experience implementing SSL encryption for his Rails application, prompted by the release of FireSheep, a Firefox addon that trivially compromises web session cookies on shared wireless networks. He walks through the technical steps: configuring Nginx for dual HTTP/HTTPS, scrubbing absolute URLs, using Rails plugins for SSL requirements, and dealing with IE-specific download bugs. The process caused significant downtime and he admits he should have used a staging environment first. He urges other Rails developers to test FireSheep against their own admin sessions and implement SSL immediately.",
+  "key_points": [
+    "FireSheep demonstrated that any wireless user could trivially hijack web sessions, making SSL encryption urgent even for seemingly low-risk applications",
+    "Implementing SSL in Rails required coordinating Nginx configuration, URL scrubbing, Rails plugins, and browser-specific workarounds \u2014 far more painful than expected",
+    "Mixed content (HTTP resources on HTTPS pages) triggers browser security warnings, and each browser has different rules about which resource types require HTTPS",
+    "IE has unique architectural issues with downloadable files over SSL that require specific header workarounds",
+    "Even tamper-proof CookieStore sessions are vulnerable if the session cookie is ever transmitted over unencrypted HTTP"
+  ],
+  "money_quotes": [
+    "Implementing SSL in Rails was very painful and resulted in my site being down or unusable for a large portion of my customers for much of the day.",
+    "My theory was that my customer's didn't store anything security critical in their elementary school bingo card games, but the increasing amount of information available to the admin plus a customer support story from this morning convinced me that compromise would be a Very Bad Thing.",
+    "If I were doing it again, I would have paid the extra few bucks to set up a staging environment with its own certificate and verified everything worked on that prior to trying to fight my way through the process.",
+    "Do you think you're going to remember that? Yeah, me neither.",
+    "Note there is a subtlety here: if you let Rails share a session cookie over both HTTP and HTTPS, then if it is ever used over HTTP, byebye cookie security.",
+    "This option will probably break your site, possibly subtly, the first time you switch it on.",
+    "I suggest you download FireSheep and see how quickly any idiot with wireless can compromise your admin session. Then, fix this as soon as possible."
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "practical",
+  "key_insight": "SSL implementation is far more complex than flipping a switch \u2014 it requires coordinating server configuration, asset hosting, session security, and browser-specific workarounds, but the alternative is leaving every user session open to trivial hijacking.",
+  "filename": "2010-10-25-how-to-use-ssl-to-secure-your-rails-app-against-firesheep-and-other-evils"
+}

@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie explains how browser download queues were causing his sidebar conversion buttons to load last, hurting conversions. He discovered that browsers maintain a FIFO queue per hostname and only download two assets at a time per queue, meaning large screenshots were blocking his important button images. His solution was to set up multiple subdomains (asset hosts) via Nginx to parallelize downloads, then hand-optimize which images loaded on which domain to prioritize conversion-critical assets. The post demonstrates his characteristic obsession with optimizing every element of the conversion funnel, down to browser rendering order.",
+  "key_points": [
+    "Browsers maintain a per-hostname FIFO download queue with only two concurrent downloads, meaning asset order in HTML directly affects perceived load time",
+    "Placing sidebar content last in HTML (for SEO reasons) inadvertently pushed conversion-critical button images to the back of the download queue",
+    "Setting up multiple subdomains pointing to the same server tricks browsers into downloading assets in parallel across separate queues",
+    "Hand-optimizing asset host assignment beats random distribution because you can prioritize conversion-critical images",
+    "CrazyEgg data revealed users were clicking text links instead of buttons because the button images loaded too slowly"
+  ],
+  "money_quotes": [
+    "My front page can potentially take 4 seconds to load (longer than a significant portion of visitors stay!) I didn't want that.",
+    "This is to push up the main content area in the document, because search engines treat stuff near the top as more important and I want pages to rank for their own content not the content of pages they happen to link to on the sidebar.",
+    "The browser then, following HTTP specifications, starts downloading two at a time per queue.",
+    "One of the screenshots isn't even visible when you open the page (it is far below the fold, most people won't even see it!)",
+    "I set up 4 domains this way and used that to do a bit of manual queue optimization to ensure that the images with the highest payoff (big beautiful buttons!) load fastest.",
+    "They were waiting so long they had already found a text link before engaging the image.",
+    "Randomizing access to domains results in good average case load orders but if you can hand-optimize things you blow it out of the water.",
+    "There is about a 40% chance that the large image would block one of my conversion buttons with random host names."
+  ],
+  "themes": [
+    "engineering",
+    "marketing"
+  ],
+  "tone": "technical",
+  "key_insight": "Page load performance is a conversion optimization problem \u2014 understanding browser download mechanics and prioritizing which assets load first can directly impact whether visitors click your conversion buttons.",
+  "filename": "2008-03-25-speeding-up-web-page-rendering"
+}

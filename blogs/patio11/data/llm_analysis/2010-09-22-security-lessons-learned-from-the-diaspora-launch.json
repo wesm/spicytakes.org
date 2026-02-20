@@ -1,0 +1,26 @@
+{
+  "summary": "Patrick McKenzie dissects critical security vulnerabilities he discovered in Diaspora's source code upon its pre-alpha release, detailing three classes of flaws: missing authorization checks, mass assignment vulnerabilities, and NoSQL injection. He demonstrates how each flaw could be trivially exploited to gain full control of any user's account, overwrite encryption keys, or extract private data from the database. McKenzie argues that releasing the code publicly was irresponsible because real users inevitably signed up to public nodes despite alpha disclaimers. He concludes that the Diaspora team lacks the security expertise to ship safely and that their codebase remains vulnerable even after patches.",
+  "key_points": [
+    "Diaspora confused authentication (verifying identity) with authorization (verifying permission), allowing any logged-in user to perform any action on any other user's data",
+    "Rails mass assignment allowed attackers to overwrite arbitrary fields including encryption keys and account ownership, effectively enabling silent account takeover in two minutes with only Firebug",
+    "MongoDB string interpolation created a NoSQL injection vulnerability that could extract private encryption keys through binary search in roughly 1,024 requests",
+    "The 'pre-alpha' label provided no real protection because public nodes went live within hours and technically unsophisticated users signed up trusting their friends' endorsements",
+    "Crypto is not soy sauce for security \u2014 encryption systems in practice are defeated not by breaking the algorithm but by exploiting weaknesses in the surrounding application code"
+  ],
+  "money_quotes": [
+    "The bottom line is currently there is nothing that you cannot do to someone's Diaspora account, absolutely nothing.",
+    "This is what kills most encryption systems in real life. You don't have to beat encryption to beat the system, you just have to beat the weakest link in the chain around it.",
+    "Crypto is not soy sauce for security.",
+    "It literally took longer to get Diaspora running than it took to create a script weaponizing this.",
+    "You might also believe in magic code-fixing fairies. Personally, I'd be praying for the fairies because if Diaspora is dependent on the OSS community their users are screwed.",
+    "Don't interpolate strings in queries sent to your database! Use the MongoDB equivalent of prepared statements. If MongoDB doesn't have prepared statements, don't use it for your security-critical projects until it does, because you will be exploited.",
+    "Nobody should be making errors like these. It hurts us as developers, it hurts our ecosystem, and it endangers our users in spite of the trust they have put in us."
+  ],
+  "themes": [
+    "engineering",
+    "policy"
+  ],
+  "tone": "critical",
+  "key_insight": "Security is not a feature you sprinkle on top \u2014 authentication without authorization, mass assignment defaults, and string interpolation in database queries are fundamental architectural failures that no amount of encryption can compensate for.",
+  "filename": "2010-09-22-security-lessons-learned-from-the-diaspora-launch"
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "McKenzie describes a JavaScript technique for streamlining the software download funnel by eliminating a separate download page. The approach uses a setTimeout redirect to send users to a confirmation page after their download initiates, avoiding browser security warnings. He also implements server-side user-agent detection in Rails to serve the correct installer for Mac vs PC users. The post includes practical warnings about Rails send_file blocking and bot crawling issues.",
+  "key_points": [
+    "Eliminating unnecessary steps in a conversion funnel can recover a large portion of the ~20% of users who bounce at the download page",
+    "A setTimeout-based redirect avoids browser security warnings that HTTP Refresh or immediate JavaScript redirects trigger",
+    "Server-side user-agent detection provides a platform-agnostic download URL that serves the correct installer automatically",
+    "Rails send_file can block the entire Mongrel process during file transfer, requiring architectural awareness of your server setup"
+  ],
+  "money_quotes": [
+    "One less step in the conversion funnel, and instantaneous recovery of a large portion of the 20% of folks who bounce out of the funnel at the download page.",
+    "If I do an HTTP Refresh or Javascript redirect, many browsers pop a security warning.",
+    "Obviously since 92% of my downloads are PC users I want to err on the side of caution.",
+    "send_file will cause your Rails process to block while that IO transfer takes place under certain older versions of Rails.",
+    "You don't want bots hitting that action, so its time for a good-old robots.txt exclusion of it."
+  ],
+  "themes": [
+    "engineering",
+    "marketing"
+  ],
+  "tone": "technical",
+  "key_insight": "Removing unnecessary intermediate pages from your download funnel and using clever JavaScript timing can recover a significant fraction of users who would otherwise abandon the process.",
+  "filename": "2008-03-12-brilliant-bit-of-javascript-for-redirecting-downloaders"
+}

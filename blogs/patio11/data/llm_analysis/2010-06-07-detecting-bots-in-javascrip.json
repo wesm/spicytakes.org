@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie discovers that his earlier intuition about bots not affecting A/B test results was mathematically wrong. Through algebraic analysis, he shows that bot traffic artificially depresses z-scores, potentially turning statistically significant results into null results. He implements a JavaScript-based bot detection system for his open source A/B testing library A/Bingo, requiring clients to perform arithmetic via AJAX POST requests \u2014 something resource-intensive for bots but trivial for browsers. The system retroactively scores participation when a visitor first proves human, integrating cleanly with existing test tracking.",
+  "key_points": [
+    "Bot traffic doesn't cancel out in A/B tests as intuition suggests \u2014 the math shows bots artificially depress z-scores by pushing conversion rates toward zero, making significant results appear insignificant",
+    "User-Agent filtering catches barely half of bots, making it inadequate as a detection mechanism",
+    "Requiring JavaScript execution via AJAX POST is an effective low-friction bot filter because executing JS at web scale is resource-intensive for bot operators",
+    "The implementation defers scoring participation until humanness is proven, then retroactively applies results to previously seen tests",
+    "The same technique has broader applications: interaction-free CAPTCHAs for comments, load-shedding non-human traffic under peak load, and blocking destructive bot actions"
+  ],
+  "money_quotes": [
+    "I love when the market gives me exactly what I want.",
+    "Bots do bork statistical significance testing, by artificially depressing z scores and thus turning statistically significant results into null results at the margin.",
+    "It is a very bad idea to force all users to prove that they are human just so that you can A/B test them.",
+    "This isn't to keep a dedicated adversary out, it is to distinguish the overwhelming majority of bots from humans. This isn't a security feature.",
+    "While it is not specifically designed that Richard Stallman and folks running NoScript can't influence my future development directions, I am not overwrought with grief at that coincidence.",
+    "I am a big believer in not spending time creating features until you know customers actually need them.",
+    "I gave him my stock answer for folks who disagree with me on OSS design directions: it is MIT licensed, so you can fork it and code the feature yourself. If you are too busy to code it, that is fine, I am available for consulting."
+  ],
+  "themes": [
+    "engineering",
+    "marketing",
+    "business"
+  ],
+  "tone": "technical",
+  "key_insight": "Bot traffic doesn't harmlessly wash out of A/B tests \u2014 it mathematically depresses z-scores, and JavaScript execution challenges are an effective, low-friction way to filter bots without burdening real users.",
+  "filename": "2010-06-07-detecting-bots-in-javascrip"
+}

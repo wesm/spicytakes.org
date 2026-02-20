@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie describes discovering that a caching bug had been silently killing his content-driven SEO strategy for months. A cron job running under the wrong Unix user failed to clear cached pages, making his dynamic bingo card site appear static and dead to Google. The bug was masked by his development deploys, which incidentally cleared the cache. After fixing the five-minute bug, Google reopened the 'long-tail floodgates' and his traffic more than doubled. The post is a cautionary tale about testing infrastructure with the same rigor as application code.",
+  "key_points": [
+    "A trivial Unix permissions error in a cron job caused cached pages to never refresh, making a dynamic site appear dead to search engines for months",
+    "The bug was invisible during development because deploys had the side effect of clearing the cache, so McKenzie only ever saw fresh content",
+    "Google demonstrably values fresh content \u2014 when the site went stale, traffic cratered; when it came back to life, traffic more than doubled",
+    "No user reported the problem, but many noticed when it was fixed, illustrating that users silently abandon broken experiences rather than complaining",
+    "The biggest impact on his business wasn't a feature, redesign, or ad spend increase \u2014 it was fixing one infrastructure bug"
+  ],
+  "money_quotes": [
+    "Caching is a wonderful tool. You can use it to solve just about any performance problem. It solves it by replacing the problem with a cache expiration problem.",
+    "No performance problem? Oh, you get to deal with cache expiration anyway, don't worry.",
+    "And they all pale in comparison to squashing one stupid little bug.",
+    "Test your website with the same diligence you test your application.",
+    "Pay attention to your website. Even the boring bits. Especially the boring bits that make you money.",
+    "Never send a committed Windows programmer to do a Unix sysadmin's job.",
+    "No user thought this was important enough to email about \u2014 and would you email if a favorite website went dead for a while during the summer? \u2014 many sure thought it important enough when it was fixed to take notice."
+  ],
+  "themes": [
+    "engineering",
+    "marketing",
+    "business"
+  ],
+  "tone": "reflective",
+  "key_insight": "The infrastructure that silently delivers your content to search engines deserves the same testing rigor as your application code, because a trivial ops bug can dwarf the impact of any feature or marketing initiative.",
+  "filename": "2008-11-17-do-you-debug-your-website"
+}

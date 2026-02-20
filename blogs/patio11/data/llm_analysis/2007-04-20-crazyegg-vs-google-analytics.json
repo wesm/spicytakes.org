@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie compares CrazyEgg's heatmap tracking with Google Analytics' site overlay for understanding user behavior on his Bingo Card Creator website. He discovers that Analytics' per-URL click tracking was giving him fundamentally misleading data, while CrazyEgg's per-coordinate tracking revealed that his screenshot image was getting clicked by 33% of visitors\u2014a catastrophic bounce risk\u2014and that a text link he thought was performing well had zero clicks. Based on these insights, he installed Lightbox to prevent screenshot bounces, planned to rewrite his page copy, and concluded that CrazyEgg's $9/month price was trivially justified by the conversion improvements it enabled.",
+  "key_points": [
+    "Google Analytics' per-URL click tracking can produce misleading overlay data by combining clicks from different page elements that link to the same URL",
+    "CrazyEgg's coordinate-based heatmap revealed that 33% of visitors clicked the screenshot image, which was bouncing them off the page\u2014a problem invisible in Analytics",
+    "A text link McKenzie thought was performing moderately well actually received zero clicks out of two thousand visitors, masked by Analytics combining it with a nearby button linking to the same URL",
+    "Small, cheap tools that provide genuinely different data perspectives can justify themselves quickly through even marginal conversion improvements",
+    "Understanding the technical implementation differences between analytics tools (per-URL vs per-coordinate tracking) is essential to correctly interpreting their output"
+  ],
+  "money_quotes": [
+    "The test has showed me several places where my website was broken where I thought it was working perfectly.",
+    "The download a free trial link in the first paragraph went totally ignored \u2014 not one click out of two thousand visitors!",
+    "The screenshot in the middle performs extraordinarily well \u2014 almost 33% of visitors to the page will at least click it to see what it looks like! This was catastrophically bad news for me when I heard it.",
+    "Clicking a screenshot is the quickest way to bounce a prospect, since so many of my visitors have limited web-navigation-fu.",
+    "Take a look at how many people are banging on the New button in my screenshot. Yeah. Believe it or not, I've gotten emails about that before \u2014 'The New button doesn't work.'",
+    "Analytics treats that blue button and the first paragraph 'download the free trial' link as the same place, so it munges their stats together when displaying them, which makes it not-obvious that the Big Blue Button is an awesome success and that the first paragraph text link is a crushing failure.",
+    "All I would need to do is decrease my bounce rates anywhere in the funnel by about 1-5% and it would pay for itself."
+  ],
+  "themes": [
+    "marketing",
+    "business",
+    "engineering"
+  ],
+  "tone": "analytical",
+  "key_insight": "Different analytics tools can tell fundamentally different stories about user behavior due to their underlying tracking mechanisms, and choosing the wrong one\u2014or not understanding how it works\u2014can leave you optimizing based on faulty data.",
+  "filename": "2007-04-20-crazyegg-vs-google-analytics"
+}

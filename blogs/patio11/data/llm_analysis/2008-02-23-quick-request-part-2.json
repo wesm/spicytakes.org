@@ -1,0 +1,19 @@
+{
+  "summary": "McKenzie asks readers to help beta test his Bingo Card Creator software after discovering a Java compatibility bug. He had been compiling with Eclipse set to Java 1.3 compatibility, but switching to an Ant build script silently changed the compilation target to Java 1.6. Since he only had Java 1.6 on his own machine, he never noticed the breaking change for users running older Java versions.",
+  "key_points": [
+    "Build tool defaults can silently override your intended configuration, causing compatibility breaks",
+    "Testing only on your own development machine masks compatibility issues that affect real users",
+    "McKenzie leveraged his blog audience as a free QA resource for quick compatibility checks"
+  ],
+  "money_quotes": [
+    "I had assumed, having set the compiler to use version 1.3 in Eclipse, that I was getting Java 1.3 class files.",
+    "I made an ant script and, boom, it stopped working the first time I ran the clear target and Ant used the (defaults to 1.6) javac target to make the new build.",
+    "Of course, having 1.6 on this machine, I never noticed the change."
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "casual",
+  "key_insight": "Build tool defaults can silently break backward compatibility when you switch toolchains, and you won't catch it if you only test on your own machine.",
+  "filename": "2008-02-23-quick-request-part-2"
+}

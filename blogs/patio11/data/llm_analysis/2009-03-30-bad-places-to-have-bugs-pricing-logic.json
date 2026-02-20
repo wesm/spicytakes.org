@@ -1,0 +1,24 @@
+{
+  "summary": "McKenzie describes a cascading bug in his shopping cart pricing logic where a quick fix for multi-unit purchases introduced a worse problem: customers being charged $20 instead of $29.95. After multiple failed attempts to patch the issue involving interactions between e-junkie, Google Checkout, and his own code, he reverted to the original system that worked correctly for 99.9% of customers. The experience cost him roughly $120 in lost revenue plus potential scared-off customers.",
+  "key_points": [
+    "A fix for a rare edge case (1 order/year) introduced a far more damaging bug affecting many daily transactions",
+    "Complex interactions between multiple payment systems (e-junkie, Google Checkout, PayPal) create hard-to-predict failure modes",
+    "Sometimes reverting to a known-good state that handles 99.9% of cases correctly is better than chasing a perfect fix",
+    "Quick midnight changes to pricing logic are disproportionately risky compared to other code changes"
+  ],
+  "money_quotes": [
+    "About a week ago I noticed a deficiency in my understanding of how my shopping cart actually worked for purchases of 2+ units.",
+    "Not quite sure why. So I fixed it, by making the default item be a single copy at $29.95 and only having the pricing logic apply when buying through my cart.",
+    "Then it hit me \u2014 it wasn't actually that edge case, it was a different edge case \u2014 involving an ugly mess of Google Checkout, e-junkie, and my code.",
+    "I reverted to the cart which charges 1,499 customers a year correctly and causes 1 guy to wait a bit.",
+    "I lost about $120 that I know about in arbitrary discounts, plus more if anyone was scared off by the weird inconsistency between my site's pricing and the pricing at Paypal/Google Checkout.",
+    "Memo to self: self, you've said it before, but avoid doing 5 minute changes at midnight."
+  ],
+  "themes": [
+    "business",
+    "engineering"
+  ],
+  "tone": "self-deprecating, candid",
+  "key_insight": "Fixing a rare edge case in pricing logic can easily introduce worse bugs, and when money is on the line, reverting to a known-good state beats iterating on broken fixes.",
+  "filename": "2009-03-30-bad-places-to-have-bugs-pricing-logic"
+}

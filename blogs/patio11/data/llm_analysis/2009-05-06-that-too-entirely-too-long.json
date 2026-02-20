@@ -1,0 +1,23 @@
+{
+  "summary": "Patrick McKenzie reports on a productive but frustrating three-day programming sprint working on Bingo Card Creator 3.0. The update adds cloud-based word list storage and server-side PDF generation, but he spent significant time fighting Java's limitations and Linux permissions issues. He's integrating Delayed Job to handle heavy PDF generation asynchronously rather than blocking web requests. The web version of the software still needs to be built, and he's looking for beta testers.",
+  "key_points": [
+    "Bingo Card Creator 3.0 adds cloud word list storage and server-side PDF generation, though Java's standard library gaps made development painful",
+    "Delayed Job integration prevents heavy PDF generation from tying up Mongrel web servers, moving work out of the request/response cycle",
+    "Linux file permissions created a frustrating blocker where the job execution user couldn't write to its own directory",
+    "Moving from a Windows-based rendering pipeline (printer + Adobe Acrobat + Paint screenscraping) to Prawn + ImageMagick yielded a 50x speed improvement"
+  ],
+  "money_quotes": [
+    "It can interact with the server to save user's word lists in the cloooooooooooud. Which is apparently the $10 buzzword for a client-server application these days.",
+    "Did you know that there is no way in Java's standard library to copy a file from point A to point B?",
+    "If somebody tries to generate a thousand bingo cards on Prawn, that essentially takes one of my Mongrels and ties it up for a minute.",
+    "I have tried everything I can think of to fix this, with no dice, so its time to walk away and come back fresh later.",
+    "Prawn + Imagemagick is literally fifty times faster than rendering through the Windows printer and then screenscraping Adobe Acrobat reader then pasting into Paint \u2014 automated, naturally \u2014 for cropping out a GIF screenshot."
+  ],
+  "themes": [
+    "engineering",
+    "business"
+  ],
+  "tone": "candid",
+  "key_insight": "Real product development is mostly fighting unglamorous technical problems \u2014 Java standard library gaps, Linux permissions, and request queue bottlenecks \u2014 rather than building the features themselves.",
+  "filename": "2009-05-06-that-too-entirely-too-long"
+}

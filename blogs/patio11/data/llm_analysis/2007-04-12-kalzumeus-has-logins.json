@@ -1,0 +1,24 @@
+{
+  "summary": "McKenzie reports progress on his side project Kalzumeus, having built user authentication, account creation, and login functionality in Ruby on Rails during a sick half-day off work. He discusses the tradeoffs of rolling your own authentication versus using plugins, touches on web security concerns like XSS and SQL injection, and reflects on his struggle to adopt test-driven development. The post also highlights his appreciation for Rails scaffolding as a development tool and ends with a cultural aside about Japanese adoption of English gaming terminology.",
+  "key_points": [
+    "Building authentication from scratch felt easier than evaluating and adapting existing Rails plugins, even though it violates the principle of not writing code others have already written",
+    "Web security requires active vigilance \u2014 SMTP is inherently insecure for transmitting credentials, and XSS/SQL injection vulnerabilities need systematic testing on every form",
+    "Rails scaffolding serves as an effective admin interface during development, preferable to console-based data inspection",
+    "Test-driven development is a habit he recognizes as valuable but struggles to adopt, having relied on manual run-and-fix cycles",
+    "Side projects can serve dual purposes: building a business while developing skills applicable to day job advancement"
+  ],
+  "money_quotes": [
+    "One would think that since essentially every webapp needs this functionality there would be an easy, non-repetitive way to do it in Ruby but since the precise specifics differ for every application I think its probably easiest to roll your own.",
+    "Web application developers who allow that or its close cousin an email with your user name and password written in it need to have 'SMTP is not secure' carved onto their eyeballs so that they will not forget.",
+    "As for cross-site scripting and SQL injection attacks, well, put it this way: I'm afraid, very afraid, and will be creating a test script whose only purpose is to try both on every form and see what pops out.",
+    "Testing for me has always been 'Run, see what breaks, fix, repeat'. This is one of the bad habits I hope to fix by doing this project.",
+    "No reason you can't SkillUp for your day job while working for your uISV."
+  ],
+  "themes": [
+    "engineering",
+    "japan"
+  ],
+  "tone": "conversational",
+  "key_insight": "Even experienced developers face the recurring tension between building authentication from scratch versus using existing solutions, because the specifics of every application make generic solutions harder to adapt than to rebuild.",
+  "filename": "2007-04-12-kalzumeus-has-logins"
+}

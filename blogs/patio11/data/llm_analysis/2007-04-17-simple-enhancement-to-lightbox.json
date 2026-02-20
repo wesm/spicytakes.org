@@ -1,0 +1,20 @@
+{
+  "summary": "McKenzie shares a small JavaScript enhancement to the Lightbox library that allows users to dismiss images by pressing the escape key. He encountered browser compatibility issues between Firefox and IE when implementing this feature and shares the fix publicly. The post documents specific JavaScript quirks around keyboard event handling across browsers. It's a brief, practical technical note aimed at other developers using Lightbox on their sites.",
+  "key_points": [
+    "Added escape key dismissal to the Lightbox image preview library",
+    "IE and Firefox handle keyboard events differently: IE uses integer keyCodes while Firefox requires DOM constants like event.DOM_VK_ESCAPE",
+    "IE captures non-printing keys in keypressed events while Firefox only captures them in keydown events",
+    "McKenzie shares the fix publicly to save other developers the debugging time"
+  ],
+  "money_quotes": [
+    "Doing that required working around some compatibility quirks in Firefox versus IE, so to save anyone else the trouble of doing it you can just grab it from my site.",
+    "IE will let you test a keyCode against an integer, including a non-printing ASCII code such as 27 (the escape key). Firefox requires you to test against a constant.",
+    "IE captures non-printing keyboard keys (other than F1-F12, apparently) in the keypressed event, but Firefox only captures them in the keydown event."
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Cross-browser JavaScript compatibility issues, even for simple features like keyboard event handling, require careful attention to each browser's distinct event model.",
+  "filename": "2007-04-17-simple-enhancement-to-lightbox"
+}

@@ -1,0 +1,24 @@
+{
+  "summary": "McKenzie documents how he reduced the download size of his Bingo Card Creator native executable by 4.5 MB through a combination of Excelsior JET optimizations and Inno Setup packaging. He was running a split test comparing a self-contained native executable against a Java-dependent version, trading download size for eliminating the Java installation requirement. The process involved removing unused Java packages, using a specialized JAR compression tool, and carefully testing that detached packages weren't needed at runtime. He shares his complete Inno Setup script and notes his philosophy of minimizing installer decision screens for non-technical users.",
+  "key_points": [
+    "Reducing download size matters for conversion rates \u2014 every MB of friction can cause potential customers to abandon the process",
+    "Excelsior JET's detached package option lets you strip unused Java libraries (sound, RMI, XML) from native executables, with green/red light indicators for safety",
+    "A specialized compression tool for JET's runtime JAR file achieved far better compression than standard ZIP, saving 4 MB with negligible install time impact",
+    "Installer UX should minimize decisions for non-technical users \u2014 no install location prompts, no shortcut options, just install and go"
+  ],
+  "money_quotes": [
+    "The idea is to see whether the tradeoff of vastly increased download size of the native version makes up for eliminating the Java dependency.",
+    "Launch4j will prompt people to download Java if they don't have a sufficient version installed, but that is one of those decision points where people might stop using the app.",
+    "Slimming the download 4 MB is easily worth it.",
+    "It is optimized largely to remove as many screens from the installer as I possibly can \u2014 no asking where to install, no asking whether to deposit shortcuts or not.",
+    "I have non-technical users and don't want to fatigue them with decisions that they're largely not qualified to make anyway."
+  ],
+  "themes": [
+    "engineering",
+    "marketing",
+    "business"
+  ],
+  "tone": "technical",
+  "key_insight": "Every friction point in the download-to-install funnel \u2014 including download size and installer prompts \u2014 is a potential conversion killer, so obsessively optimizing these details pays off for small software businesses.",
+  "filename": "2009-01-23-inno-setup-excelsior-jet-slice-mbs-off-download"
+}

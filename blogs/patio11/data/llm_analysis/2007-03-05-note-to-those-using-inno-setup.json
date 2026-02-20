@@ -1,0 +1,18 @@
+{
+  "summary": "McKenzie shares a technical gotcha with Inno Setup installer software where shortcuts don't automatically set the working directory to the program directory. This caused quirky behavior for some users because Java's facility for locating the working directory was returning unexpected paths on certain systems. The issue was masked during testing because Inno Setup sets a sensible default when launching directly from the installer. He announces a patch release (1.052) to fix the problem.",
+  "key_points": [
+    "Inno Setup shortcuts don't automatically default the working directory to the program directory on all systems",
+    "Cross-platform compatibility fixes (Mac port) introduced an unintended regression on Windows",
+    "The bug was hard to catch because the installer itself masked the problem by setting the correct working directory"
+  ],
+  "money_quotes": [
+    "I had assumed Windows would automatically default to the program directory. This is apparently not the case on some systems.",
+    "I hadn't noticed this problem because Inno Setup actually does set a sensible default working directory when you execute the program directly from the installer."
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "frustrated",
+  "key_insight": "Cross-platform compatibility fixes can introduce subtle regressions that are invisible during testing but affect real users, especially when the testing environment masks the problem.",
+  "filename": "2007-03-05-note-to-those-using-inno-setup"
+}

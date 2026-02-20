@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie describes the custom dashboard he built for his Bingo Card Creator business, explaining how it consolidates customer support, sales tracking, A/B test results, and system health monitoring into a single view. The dashboard's design philosophy centers on minimizing repetitive work and surfacing actionable information rather than vanity metrics. He details specific features like the Omnibox for customer lookup, ghost login for debugging customer issues, and a daemon that automatically detects known bugs in print jobs. He argues that aggregate conversion rate is misleading because it conflates traffic mix changes with product changes, and that metrics only matter if they drive decisions.",
+  "key_points": [
+    "A dashboard should minimize time on repetitive tasks, show business health at a glance, and provide easy drill-down into important details",
+    "The Omnibox universal search eliminates 80% of the manual work in finding customer records, illustrating the principle of 'do less work, get more done'",
+    "Aggregate conversion rate is misleading because it is dominated by traffic mix shifts rather than product changes \u2014 per-channel conversion rates are what matter",
+    "Critical payment processing exceptions override the entire dashboard with a blaze orange stacktrace until acknowledged, ensuring they cannot be ignored",
+    "A background daemon continuously checks recent print jobs against known bug signatures, turning bug detection from manual inspection into automated monitoring"
+  ],
+  "money_quotes": [
+    "If your metrics aren't giving you actionable insights to make decisions that matter to your business, well, you might as well go play WoW for all the good you're doing.",
+    "Ten keystrokes saved doesn't sound like a lot until you've done it 200 times.",
+    "Do less work, get more done.",
+    "Conversion rate for a channel or a creative or a landing page is a very important number. Conversion rate for all of your visitors, on the other hand, is very, very sensitive to traffic mix.",
+    "An exception happening in the callback for successful payments is a bug. A very critical bug, because it often means that a customer loses access to the software they paid for.",
+    "Regular exceptions get written to my log files. That is, candidly speaking, where data goes to die.",
+    "At all of ~200 lines of code, though, you can knock one for yourself out in an afternoon."
+  ],
+  "themes": [
+    "business",
+    "engineering",
+    "marketing"
+  ],
+  "tone": "technical",
+  "key_insight": "A well-designed business dashboard should ruthlessly prioritize actionable information and workflow shortcuts over comprehensive metrics, because time spent admiring numbers without acting on them is time wasted.",
+  "filename": "2010-02-09-dashboard-design-for-metrics-savvy-software-companies"
+}

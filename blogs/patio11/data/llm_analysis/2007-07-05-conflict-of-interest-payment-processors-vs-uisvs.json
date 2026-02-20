@@ -1,0 +1,27 @@
+{
+  "summary": "SWREG, a payment processor used by micro-ISVs, introduced a deceptive upsell that silently signed customers up for a $9/month 'Reservation Rewards' subscription through manipulative UI design. McKenzie argues this fundamentally betrays the trust relationship between software developers and their customers, since SWREG is exploiting trust that the uISV earned. He dissects exactly how the dark pattern works \u2014 large call-to-action buttons paired with tiny disclosure text \u2014 and explains why checkout flow context makes users especially vulnerable. The post includes devastating customer testimonials showing real harm, including a soldier serving in Iraq. McKenzie concludes that payment processors have an inherent conflict of interest with the businesses they serve, and urges developers to evaluate whether their processor would ever sacrifice customer trust for revenue.",
+  "key_points": [
+    "Payment processors face a structural conflict: they can't raise their cut without losing vendors, so they seek revenue by exploiting the vendor's customers through cross-sells and scams",
+    "The deceptive UI leveraged a well-known principle: users in mid-transaction scan rather than read, clicking through pages reflexively, making post-checkout upsells especially dangerous",
+    "The trust being exploited belongs to the uISV developer, not SWREG \u2014 customers don't distinguish between the processor and the software company, so the developer bears the reputational damage",
+    "Credit card entry serves as a critical trust signal and safety valve in e-commerce; piggybacking on an existing transaction deliberately circumvents this protection",
+    "Even Google Checkout attempted a milder version with carbon offset cross-selling, suggesting this conflict of interest is inherent to the payment processor business model"
+  ],
+  "money_quotes": [
+    "WebScamInc could never get 'millions of satisfied customers' to authorize the $9 for nothing purchase with their lack of service, so they piggyback on the trust the customer has in you.",
+    "A large block of small text font on a web page, placed against a blue button with a strong call to action, isn't asking to be read. Its asking to be missed.",
+    "If that button had said, in 48 point font, 'Click here to format C:\\' I still could have gotten 5% conversion with it!",
+    "Our industry has trained them for decades that nothing they are about to see is important.",
+    "They can't increase their cut of the transaction size, or you will flee to one of their competitors. So they are constantly on the lookout for new revenue streams, and both aggressive cross-selling to your customers and selling them down the river to scumbuckets.com are apparently options on the table.",
+    "Give your e-commerce provider a jaundiced look and a quick assessment of whether they would ever stab your customers in the back.",
+    "Those are the words of a man you can trust. That is the tone that we strive to strike as little honest fish in a stormy ocean filled with unscrupulous sharks trying to take a bite off of anyone doing business on the Internet."
+  ],
+  "themes": [
+    "business",
+    "payments",
+    "engineering"
+  ],
+  "tone": "outraged, analytical, protective",
+  "key_insight": "Payment processors have an inherent conflict of interest with the businesses they serve because they can monetize the trust that developers painstakingly built with their customers, and developers must vigilantly guard against this betrayal.",
+  "filename": "2007-07-05-conflict-of-interest-payment-processors-vs-uisvs"
+}

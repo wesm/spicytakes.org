@@ -1,0 +1,26 @@
+{
+  "summary": "McKenzie provides a comprehensive guide for small companies to build reliable web services without dedicated ops teams. He argues that most downtime comes from predictable, preventable causes\u2014especially operator error\u2014rather than black swan events. Drawing from Toyota's manufacturing philosophy, he emphasizes that systems fail at their 'moving parts': dynamic components, databases, and human interventions. The post covers risk identification, failure mitigation through decoupling and automation, monitoring and notification systems, and root cause analysis using Five Whys. His core message is that reliability is achievable for small operators through checklists, automation, decoupling external dependencies, and disciplined post-failure analysis.",
+  "key_points": [
+    "Operator error is the single greatest risk to small company systems\u2014you are the least reliable component, and novel manual operations are the most dangerous moving parts",
+    "Decouple external API calls from HTTP request/response cycles so third-party downtime doesn't become your downtime",
+    "Automate recovery (e.g., process managers that restart failing services) and repetitive operations; use checklists for everything else, including bare-metal restore drills every quarter",
+    "Simple monitoring (Pingdom + custom status pages + phone alerts) provides sufficient coverage for small operations without enterprise budgets",
+    "Apply Five Whys root cause analysis after every failure\u2014no failure has a single cause, and process failures enabled the surface-level problem"
+  ],
+  "money_quotes": [
+    "Software systems are also, overwhelmingly, killed by their moving parts.",
+    "You are your own worst enemy, and you'll take steps to mitigate the threat you pose.",
+    "Serious engineers treat hard drives as a component that by grace of God has not died yet.",
+    "Don't be suckered into thinking that downtime is generally caused by unpredictable black swan events.",
+    "If you think checklists are a nuisance, that is fine: you can feel free to skip checklists for systems where catastrophic failure is no big deal.",
+    "Novel operations are moving parts and vastly more likely to fail than known-good operations that your system crunches millions of times per day.",
+    "I would rather tell the user a white lie than show them a red error message."
+  ],
+  "themes": [
+    "engineering",
+    "business"
+  ],
+  "tone": "practical",
+  "key_insight": "Reliability for small companies isn't about preventing every possible failure\u2014it's about identifying your predictable moving parts (especially yourself), decoupling and automating what you can, and building the discipline to learn from every failure that gets through.",
+  "filename": "2010-04-20-building-highly-reliable-websites-for-small-companies"
+}

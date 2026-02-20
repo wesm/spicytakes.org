@@ -1,0 +1,26 @@
+{
+  "summary": "McKenzie discovered that a critical feature of Bingo Card Creator had been silently broken for two weeks due to a single-character error in his installer script. The bug caused new downloads to lack the Wizards menu, which pre-loads word lists and eliminates the 'empty screen problem' that kills conversions. His sales dropped to 20-30% of normal despite record traffic, essentially running an involuntary A/B test proving the feature's importance. The bug went undetected because his testing always ran on machines that retained the old correct file structure. The experience taught him hard lessons about version-controlling build scripts, testing on clean environments, and listening to customers.",
+  "key_points": [
+    "A single misplaced character in an installer script silently disabled a key feature for all new users for two weeks, cutting sales by 70-80%",
+    "The bug was invisible in testing because existing installations retained the correct directory structure, masking the problem",
+    "The 'empty screen problem' is a conversion killer: users who can't immediately see output from software won't invest time to learn it",
+    "Build and deployment scripts deserve the same version control discipline as application source code",
+    "Customer communication channels are essential safety nets that catch bugs your testing infrastructure misses"
+  ],
+  "money_quotes": [
+    "I was performing an involuntary A-B test: A with the feature, and B without, based on what day you had first downloaded the software. A wins by a longshot.",
+    "I essentially can't sell to someone who hasn't seen a card printed out, and if you have to type in 25 words before you can print a card then you're much less likely to invest the time.",
+    "If no files are found at all, the Wizard menu doesn't show, because nothing ticks people off like non-functional programs, right?",
+    "I accidentally introduced a single extra character into my Inno Setup script. Since my setup script is not in my Subversion I never even noticed that I had made the change.",
+    "Then new people downloaded the installer and, boom, no Wizards for two weeks.",
+    "Keep the lines of communication open with customers. They can save you from yourself."
+  ],
+  "themes": [
+    "business",
+    "engineering",
+    "marketing"
+  ],
+  "tone": "self-deprecating, candid, instructive",
+  "key_insight": "Build artifacts and deployment scripts need the same version control and testing rigor as source code, because a single untracked change can silently destroy your conversion funnel.",
+  "filename": "2007-02-22-laugh-to-keep-from-crying"
+}

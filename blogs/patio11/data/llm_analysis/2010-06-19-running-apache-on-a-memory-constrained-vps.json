@@ -1,0 +1,25 @@
+{
+  "summary": "After Patrick's viral 'Falsehoods Programmers Believe About Names' post brought 100,000 visitors and crashed his server, he diagnosed the root cause as Apache's KeepAlive setting. With KeepAlive enabled at 3 seconds, each of his 20 worker processes spent most of its time idle waiting for follow-up requests, reducing effective throughput from 60,000 to roughly 380 requests per minute. Turning KeepAlive off immediately fixed the problem. He documents the debugging journey and shares specific Apache configuration recommendations for memory-constrained VPS environments.",
+  "key_points": [
+    "Apache's KeepAlive setting, while sensible for normal traffic, becomes catastrophic under traffic spikes on memory-constrained servers by holding worker processes idle",
+    "With KeepAlive on at 3 seconds, each 250ms of actual work was followed by 3 seconds of waiting, reducing throughput by roughly 99%",
+    "The default settings effectively created a self-inflicted denial of service attack as new visitors queued faster than connections timed out",
+    "Caching alone wasn't sufficient \u2014 the bottleneck was connection management, not content generation",
+    "Nginx proved essentially unkillable for serving static assets, contrasting sharply with Apache's fragility under load"
+  ],
+  "money_quotes": [
+    "The site dies nearly every time I get Reddited \u2014 with only about 10,000 visitors each time, which shouldn't be a big number on the Internet.",
+    "If you're running a memory constrained VPS and get hit by a huge wave of traffic, KeepAlive will kill you.",
+    "For every 250ms of a worker streaming cached content to a client, it spent 3 seconds sucking its thumb waiting for that client to come back and ask for something else.",
+    "Other clients were stacking up like planes over O'Hare.",
+    "It was essentially a denial of service attack caused by the default settings.",
+    "The throughput of the server went from about 60k requests per second to about 380 requests per second. 380 is, well, not quite enough.",
+    "There seems to be no power on Earth or under it that can take Nginx down."
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Apache's KeepAlive setting, a sensible default for normal traffic, can reduce server throughput by 99% during traffic spikes on memory-constrained VPS instances by holding worker processes idle waiting for follow-up requests that never come.",
+  "filename": "2010-06-19-running-apache-on-a-memory-constrained-vps"
+}

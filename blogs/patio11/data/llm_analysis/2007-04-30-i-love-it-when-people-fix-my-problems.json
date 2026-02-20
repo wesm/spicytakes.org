@@ -1,0 +1,24 @@
+{
+  "summary": "Patrick discovers Postful, a service that converts emails into physical postal mail, solving a key feature requirement for his Kalzumeus webapp. He had been planning to use Japan Post's NetPost API for automated letter sending, a feature his customers need for legal compliance and would find highly valuable. Postful's simpler interface (send an email, they mail a letter) at a lower cost ($0.99 vs $2.25) eliminates the need to integrate another complex API. The simplicity means the feature can ship in the 1.0 release rather than being deferred to 1.1.",
+  "key_points": [
+    "Automated physical mail sending has legal significance for some customers and obvious value for all of them",
+    "Building vs. buying: doing it yourself transforms a highly-paid developer into a low-paid postal clerk",
+    "API complexity is a real cost \u2014 each new integration is another failure point with potentially severe consequences",
+    "Simpler integrations (email-based vs. full API) can accelerate feature delivery from future releases into the current one",
+    "The per-unit cost of enabling a feature is often dwarfed by the sales it generates"
+  ],
+  "money_quotes": [
+    "Obviously, doing it myself would transform me from a highly-paid software developer to a low-paid postal clerk, which is frankly stupid when there are plenty of businesses out there which offer ways to do it without ever having to lick a stamp.",
+    "I really hate having to learn another API. It is one more thing that can go wrong with my application, and the consequences of a letter not being sent when my app reports it sent are rather severe.",
+    "$2.25 is dwarfed by the number of sales this will get me, and I can probably charge extra for it for customers who use it on a regular basis.",
+    "All of my customers would see the ability and go 'Oooh, that would save me so much hassle'.",
+    "Composing an email to my requirements is trivial, since I already have the exact same functionality elsewhere in the program to deliver this notification via email."
+  ],
+  "themes": [
+    "business",
+    "engineering"
+  ],
+  "tone": "practical",
+  "key_insight": "The best technical solution isn't always the most powerful API \u2014 a simpler integration that reuses existing code can ship faster, cost less, and reduce failure modes.",
+  "filename": "2007-04-30-i-love-it-when-people-fix-my-problems"
+}

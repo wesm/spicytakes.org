@@ -1,0 +1,23 @@
+{
+  "summary": "McKenzie walks through the technical process of running a WordPress blog as a subdirectory of a Rails application using Nginx as a reverse proxy. He argues that despite Rails being the main app framework, WordPress is the superior blogging platform and worth integrating. The key architectural decision is placing the blog on a subdirectory rather than a subdomain for SEO benefits. The setup involves creating a WordPress theme from the Rails app's design, installing WordPress on a private URL, and configuring Nginx to proxy requests.",
+  "key_points": [
+    "Blogs should live on subdirectories rather than subdomains for SEO reasons, even when the main app runs on a different stack",
+    "WordPress is vastly superior to Rails blogging platforms, making cross-stack integration worthwhile",
+    "ThemesPress can generate a WordPress theme from existing HTML/CSS for $10, saving significant development time",
+    "Nginx reverse proxy lets WordPress appear to be part of the Rails app while running independently on a private server"
+  ],
+  "money_quotes": [
+    "Since Bingo Card Creator is powered by Rails, ideally I'd be using a Rails blog platform, but frankly, they're all vastly inferior to WordPress.",
+    "I could have slapped up a WordPress blog on a subdomain and called it a day, but I always advise people to put blogs on subdirectories for SEO reasons, so I thought I'd do it properly.",
+    "If you're not a PHP-speaking web designer, this step can take a lot of time. Or, alternatively, you can just pay $10 and use ThemesPress.",
+    "This is well worth your time.",
+    "It is easy to bork this setup if you don't understand WordPress and Nginx configuration files."
+  ],
+  "themes": [
+    "engineering",
+    "marketing"
+  ],
+  "tone": "technical",
+  "key_insight": "Pragmatic integration of the best tool for each job \u2014 WordPress for blogging, Rails for the app \u2014 beats ideological purity about using a single stack, especially when SEO demands subdirectory placement.",
+  "filename": "2009-08-21-using-wordpress-and-rails-on-the-same-domain"
+}

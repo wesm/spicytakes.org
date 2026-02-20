@@ -1,0 +1,20 @@
+{
+  "summary": "McKenzie documents a specific customer support optimization in his sales system. He discovered that some customers were entering their Registration Key into the 'Lookup My Registration Key' form, which searches by order number and email, causing it to fail and unnecessarily directing them to email support. His fix detects when input resembles a Registration Key and either redirects the customer to visual instructions for using their key, or tells them to email if the key doesn't exist.",
+  "key_points": [
+    "Observing actual user behavior reveals mismatches between how you designed a system and how customers use it",
+    "Small programmatic fixes to anticipated support requests can eliminate entire categories of support emails",
+    "Good error handling means detecting what the user actually intended, not just what you expected them to do"
+  ],
+  "money_quotes": [
+    "Some customers put Registration Key into Lookup My Registration Key form. This looks up transactions by order number and email address, thus failing to find any matching records, then informs customer to email me to find their Registration Key. This is suboptimal.",
+    "If input into LMRK form resembles a Registration Key, search for a line item which had that Registration Key assigned.",
+    "If one exists, then it was actually issued to a customer \u2014 redirect them to explanatory text with pictures on how to enter a Registration Key into the application, not the website."
+  ],
+  "themes": [
+    "business",
+    "engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "The best customer support improvements come from observing how users actually misuse your systems and engineering the confusion away rather than answering the same emails repeatedly.",
+  "filename": "2009-02-14-improving-support-one-changelog-at-a-time"
+}

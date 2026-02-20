@@ -1,0 +1,23 @@
+{
+  "summary": "McKenzie discovers a critical bug in Bingo Card Creator at 1:30 AM where printing crashes silently when a card has exactly as many words as spaces. The bug makes the application effectively useless since printing is its core function. Despite extensive testing, the edge case was missed because his test methodology rarely produced the exact condition. He rolls back to a previous version using Capistrano and plans to send replacement CDs and apology emails to affected users.",
+  "key_points": [
+    "A silent crash bug in printing code was triggered by an exact-match edge case between word count and card spaces",
+    "Testing blind spots emerge when test methodology doesn't mirror actual user behavior patterns",
+    "Automated deployment rollback tools like Capistrano are essential for damage control during production incidents",
+    "Taking responsibility for bugs means proactive outreach to affected customers, not waiting for complaints"
+  ],
+  "money_quotes": [
+    "This is about the worst thing that could happen to me at 1:30 in the morning, short of a crash bug. Without the capability to print, the application is useless.",
+    "Printing is always the thing I spend the most time testing, but I typically test by loading up Wizards and when picking randomly. I rarely get one that has exactly twenty-four words in it.",
+    "Unfortunately, that behavior (filling the card exactly) is really common in actual use.",
+    "Thank God for Capistrano. The whole shebang of my website, including the executables, can be rolled back to a known good version at the touch of a button.",
+    "Memo to self: need to start using JUnit before I touch anything in the bowels of the printing code ever again."
+  ],
+  "themes": [
+    "engineering",
+    "business"
+  ],
+  "tone": "candid, frustrated, self-critical",
+  "key_insight": "The most dangerous bugs hide in the gap between how developers test and how customers actually use software.",
+  "filename": "2009-01-20-ugh-a-bu"
+}

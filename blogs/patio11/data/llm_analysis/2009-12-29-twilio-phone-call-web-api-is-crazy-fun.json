@@ -1,0 +1,25 @@
+{
+  "summary": "McKenzie describes his experience discovering Twilio's phone call API as a solution to his problem of having family in Chicago call him in Japan. His previous forwarding service was unreliable, and he had no way to handle calls arriving at inappropriate hours. Using Twilio, he built a smart call routing system that checks the time in Japan and either forwards calls, routes to his cell, or warns callers it's the middle of the night. The entire solution required minimal code \u2014 five lines of XML for v1.0 and about 30 lines of Sinatra for the full version. He closes by noting Twilio is cheaper and more capable than his previous solution, and hints at wanting to use it for a future application.",
+  "key_points": [
+    "Twilio's API made it trivially easy to build a smart international call forwarding system that would have been impossible with traditional telecom services",
+    "The solution required only 5 lines of hard-coded XML for v1.0 and ~30 lines of Sinatra code for the full time-aware routing version",
+    "Programmable telephony enables entirely new behaviors like time-of-day routing with emergency override that no off-the-shelf service offered",
+    "McKenzie's instinct is already to look for ways to productize Twilio in his next application, showing his constant product-opportunity radar"
+  ],
+  "money_quotes": [
+    "Aside from the dropped calls, poor call quality, times when they call and I am connected to an irate Chinese man wondering what happened to his wife, and service interruptions, they pretty much do what they say on the tin.",
+    "If I am likely to be asleep, then the website says 'Tell them it is 3:47 AM Japan time and ask them to call back tomorrow or, if it is an emergency, hit 1 to have Patrick woken up by Ride of the Valkyries.'",
+    "This took really disgustingly little code to accomplish.",
+    "My v1.0 of the 'app', which just redirected between two phone numbers with a message, was a hard-coded XML file that I whipped up in vi. It was five lines long.",
+    "This would have been a bit easier if I had just deployed another Rails app to the same server as BCC but that would be gratuitous overkill.",
+    "Anyhow, Twilio appears to be cheaper than my existing solution for my usage levels, have features more in line with my needs, and hopefully will not disrupt anyone's marriage."
+  ],
+  "themes": [
+    "engineering",
+    "business",
+    "japan"
+  ],
+  "tone": "enthusiastic, humorous, practical",
+  "key_insight": "When powerful APIs make previously complex infrastructure trivially programmable, individual developers can build custom solutions in minutes that no existing product on the market actually provides.",
+  "filename": "2009-12-29-twilio-phone-call-web-api-is-crazy-fun"
+}

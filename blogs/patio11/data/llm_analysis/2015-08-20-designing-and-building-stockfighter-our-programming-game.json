@@ -1,0 +1,28 @@
+{
+  "summary": "McKenzie details the design and engineering behind Stockfighter, a programming game built by his company Starfighter to improve engineering hiring. The game casts players as Wall Street traders who must write code to interact with a realistic stock exchange simulation via REST APIs. He explains why they chose a finance setting (it naturally encompasses diverse engineering challenges), how they built a high-performance stock exchange in Go capable of processing orders in 100-200 nanoseconds, and how simple trading bots produce surprisingly complex emergent market behavior. The piece covers their tech stack decisions (Go for performance-critical exchange code, Ruby for game logic, React for the trading UI, NSQ for messaging), level design philosophy emphasizing specified goals with unspecified solutions, and their commitment to browser-based accessibility to avoid gatekeeping.",
+  "key_points": [
+    "The stock exchange processes orders in 100-200 nanoseconds using Go, with the order book held in memory as a red-black tree \u2014 a real engineering workout compared to typical CRUD applications",
+    "Simple, non-colluding bots with diverse strategies produce emergent market behavior sophisticated enough to model phenomena like market panics, making level design far cheaper than expected",
+    "The finance setting was chosen not for domain specificity but because Wall Street naturally encompasses networking, APIs, databases, distributed systems, concurrency, and virtually any other engineering challenge",
+    "Starfighter deliberately avoids gaming-specific cultural signifiers like fantasy settings, rejecting the idea that tech should be gated by enthusiasm for geek culture",
+    "The game requires browser-based playability because requiring toolchain setup would create heavy dropoff, especially for less experienced engineers who find installing a Rails toolchain to be a hard, frustrating experience"
+  ],
+  "money_quotes": [
+    "Starfighter doesn't ever intend to build gates (gates close; that's what they are for). We dynamite gates.",
+    "Business has less dragons and better loot.",
+    "Markets are distributed systems. The exchange's view of reality and your trading system's view of reality are, by necessity, separated by the great firewall known as 'physics.'",
+    "What if players reverse engineer your world simulation? Then I pin a freaking medal on that player (and ask whether they're happy in their current career).",
+    "Retail investors should not trade actively. If someone thinks Stockfighter has given them the confidence to try actively trading for real, I will bang my head into the wall several times.",
+    "If you have never worried about the speed of light between your systems, you're not doing HFT.",
+    "It was particularly wild when I realized that our cute little toy hosted on a t2.micro was a $X0 million or $Y00 million engineering project back in living memory.",
+    "Every project which ships ships with one decision that you feel the need to say 'Look, I know, I know, but it actually worked.'"
+  ],
+  "themes": [
+    "engineering",
+    "career",
+    "business"
+  ],
+  "tone": "enthusiastic, technical, irreverent",
+  "key_insight": "A realistic stock exchange simulation built with simple components produces emergent complexity that naturally tests the full spectrum of engineering skills \u2014 from systems programming and distributed systems reasoning to algorithm design and data analysis \u2014 without artificially constraining solutions.",
+  "filename": "2015-08-20-designing-and-building-stockfighter-our-programming-game"
+}

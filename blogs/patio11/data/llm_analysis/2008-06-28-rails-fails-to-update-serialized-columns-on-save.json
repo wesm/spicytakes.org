@@ -1,0 +1,22 @@
+{
+  "summary": "McKenzie documents a frustrating 2.5-hour debugging session caused by Rails 2.1's new partial updates feature silently breaking serialized column saves. When modifying a hash stored in a serialized column, Rails didn't detect the change as 'dirty,' causing database writes to skip the updated data. He presents both a hacky workaround (cloning and reassigning the hash to trigger the dirty bit) and a cleaner solution (disabling partial updates on the model). The post critiques Rails' 'opinionated software' philosophy for introducing breaking changes that are on by default.",
+  "key_points": [
+    "Rails 2.1's partial updates feature only saves 'dirty' attributes, but modifying the contents of a serialized hash doesn't trigger the dirty flag",
+    "The workaround involves either cloning/reassigning the hash to force the dirty bit, or disabling partial updates entirely on the model",
+    "Upgrading frameworks on a whim\u2014even when you think there's little code to break\u2014can introduce subtle bugs against your mental model",
+    "Rails' 'opinionated software' defaults can be hostile when breaking changes ship without obvious warnings to upgrading developers"
+  ],
+  "money_quotes": [
+    "I stupidly upgraded to 2.1 on a whim, thinking that I hadn't written any significant code yet so incompatibilities wouldn't bother me \u2014 true enough, the only incompatibility was with my mental model of how ActiveRecord worked.",
+    "The fact that this is on by default appears to be one of those opinionated software practices where 'opinionated' means 'it is our opinion that you should be as familiar with the change log as the core team before you install a new production release'.",
+    "Inconsistent out-of-date data. Failure.",
+    "I was absolutely clueless how this was happening, but I successfully diagnosed the why \u2014 a dirty bit wasn't getting set for the serialized object.",
+    "No problem, the same thing happens at the day job with our Java system \u2014 which means I can use the same hacky solution to the problem."
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "frustrated, technical, self-deprecating",
+  "key_insight": "Framework upgrades can silently break your mental model of how things work, and 'opinionated' defaults that change behavior without obvious signals create insidious bugs that waste hours of debugging.",
+  "filename": "2008-06-28-rails-fails-to-update-serialized-columns-on-save"
+}

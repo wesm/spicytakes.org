@@ -1,0 +1,22 @@
+{
+  "summary": "McKenzie describes his experience setting up Google's Website Optimizer to split test his Bingo Card Creator purchasing page with new PayPal icons. He explains that Google's newer, simpler redirect-based approach is much easier than the old markup-heavy method. However, he identifies a critical SEO risk: having two nearly identical pages could trigger Google's duplicate content penalty. He solves this by blocking the alternate page in robots.txt and plans to use a 302 redirect after the test concludes.",
+  "key_points": [
+    "Google Website Optimizer's new redirect-based split testing is much simpler than the old approach of marking up page sections",
+    "Having two near-identical pages for A/B testing creates a duplicate content penalty risk that could outweigh any conversion gains",
+    "A simple robots.txt disallow rule prevents search engines from indexing the alternate test page",
+    "After testing, a 302 redirect preserves any bookmarks or links to the alternate page without maintaining a stale duplicate"
+  ],
+  "money_quotes": [
+    "A split test is when you randomly send half of all prospects to one version of a page and half to another to determine, in a rigorously scientific and statistical manner, which of two alternatives is better.",
+    "Having two pages on your site with 95% similar HTML is an excellent way to get smacked down by the duplicate content penalty, and that would hurt me oh-so-much more than getting a modest bump in conversions from rigorous testing.",
+    "They recommend that you leave the second page up indefinitely, because folks could conceivably link or bookmark it. I first thought that was good advice. Then I realized DANGER WILL ROBINSON.",
+    "After I'm done with the test, I'm going to use .htaccess to 302 redirect the alternate page to the main page rather than leaving the alternate up forever."
+  ],
+  "themes": [
+    "marketing",
+    "engineering"
+  ],
+  "tone": "practical",
+  "key_insight": "A/B testing tools can inadvertently create duplicate content that harms SEO, so always block test pages from search engine indexing.",
+  "filename": "2007-09-07-using-google-website-optimizer-safely"
+}
