@@ -4,7 +4,6 @@
 # Usage:
 #   ./scripts/update_all.sh                    # Update all blogs
 #   ./scripts/update_all.sh benn armin mempko  # Update specific blogs only
-#   NO_BUILD=1 ./scripts/update_all.sh         # Skip the build step (faster)
 
 set -euo pipefail
 
@@ -37,7 +36,7 @@ for blog in $BLOGS; do
     echo "Updating: $blog"
     echo "========================================"
 
-    if BLOG_ID="$blog" NO_BUILD="${NO_BUILD:-}" bash scripts/update.sh; then
+    if BLOG_ID="$blog" bash scripts/update.sh; then
         echo ""
     else
         echo "WARNING: update.sh failed for $blog"
