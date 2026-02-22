@@ -36,6 +36,7 @@ class MartinFowlerScraper(BaseScraper):
         self.start_year = self.config["scraper"].get("startYear", 2003)
         self.end_year = self.config["scraper"].get("endYear", 2026)
         self.urls_file = self.data_dir / "post_urls.json"
+        self.skipped_file = self.data_dir / "skipped_posts.json"
 
     def fetch_page(self, url: str) -> BeautifulSoup | None:
         """Fetch a page and return BeautifulSoup object."""
@@ -173,6 +174,21 @@ class MartinFowlerScraper(BaseScraper):
         with open(self.urls_file) as f:
             data = json.load(f)
         return data.get("posts", [])
+
+    def load_skipped(self) -> dict[str, str]:
+        """Load skipped posts map: {url: reason}."""
+        if not self.skipped_file.exists():
+            return {}
+        with open(self.skipped_file) as f:
+            return json.load(f)
+
+    def mark_skipped(self, url: str, reason: str):
+        """Mark a post as permanently skipped."""
+        skipped = self.load_skipped()
+        skipped[url] = reason
+        with open(self.skipped_file, "w") as f:
+            json.dump(skipped, f, indent=2)
+            f.write("\n")
 
     def parse_date(self, date_str: str | None, year: int | None = None) -> datetime | None:
         """Parse date string into datetime."""
@@ -323,11 +339,16 @@ class MartinFowlerScraper(BaseScraper):
 
         # Get existing slugs to skip already-scraped posts
         existing_filenames = self.get_existing_filenames()
+        skipped = self.load_skipped()
 
-        # Filter to posts that haven't been scraped
+        # Filter to posts that haven't been scraped or skipped
         to_scrape = []
         for post_info in post_infos:
-            slug = post_info["url"].rstrip("/").split("/")[-1]
+            url = post_info["url"]
+            if url in skipped:
+                continue
+
+            slug = url.rstrip("/").split("/")[-1]
             if slug.endswith(".html"):
                 slug = slug[:-5]
 
@@ -376,6 +397,10 @@ class MartinFowlerScraper(BaseScraper):
                 if (i + 1) % 10 == 0:
                     self.save_index(posts)
                     print(f"  Index saved ({len(posts)} posts)")
+            else:
+                url = post_info["url"]
+                self.mark_skipped(url, "fetch failed")
+                print(f"  Skipped permanently: {url}")
 
             # Rate limiting
             time.sleep(REQUEST_DELAY)
