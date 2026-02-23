@@ -1,236 +1,136 @@
 # Spicy Takes
 
-A multi-blog archive platform that uses LLM-powered analysis to generate summaries, extract memorable quotes, and score "spiciness" of blog posts.
+Spicy Takes is a multi-blog archive and analysis platform.
 
-## Supported Blogs
+It pulls posts from selected authors, stores normalized markdown, and runs an LLM pipeline to produce:
+- summaries
+- key quotes
+- theme tags
+- a "spiciness" score for memorable takes
 
-| Blog | Author | Topics | Posts |
-|------|--------|--------|-------|
-| [benn.spicytakes.org](https://benn.spicytakes.org) | Benn Stancil | Data, analytics, startups | 240 |
-| [mitsuhiko.spicytakes.org](https://mitsuhiko.spicytakes.org) | Armin Ronacher | Rust, Python, developer tools | 200 |
-| [wesm.spicytakes.org](https://wesm.spicytakes.org) | Wes McKinney | Data infrastructure, Apache Arrow | 81 |
-| [danluu.spicytakes.org](https://danluu.spicytakes.org) | Dan Luu | Performance, systems, industry myths | 111 |
-| [bcantrill.spicytakes.org](https://bcantrill.spicytakes.org) | Bryan Cantrill | Systems software, startups | 174 |
-| [jessfraz.spicytakes.org](https://jessfraz.spicytakes.org) | Jess Frazelle | Containers, security, hardware | 75 |
-| [geohot.spicytakes.org](https://geohot.spicytakes.org) | George Hotz | AI, tinygrad, contrarian takes | 98 |
-| [mrocklin.spicytakes.org](https://mrocklin.spicytakes.org) | Matt Rocklin | Dask, open source, startups | 199 |
-| [criccomini.spicytakes.org](https://criccomini.spicytakes.org) | Chris Riccomini | Data infrastructure, Kafka, distributed systems | 63 |
-| [skamille.spicytakes.org](https://skamille.spicytakes.org) | Camille Fournier | Engineering management, leadership | 111 |
-| [mitchellh.spicytakes.org](https://mitchellh.spicytakes.org) | Mitchell Hashimoto | Ghostty, Zig, developer tools | 45 |
-| [ssp.spicytakes.org](https://ssp.spicytakes.org) | Simon Späti | Data engineering, data platforms | 81 |
+Live site: `https://spicytakes.org`
 
-## Project Structure
+## What This Repo Contains
 
-```
-spicytakes.org/
-├── config/
-│   ├── <blog_id>.json      # Blog-specific config (themes, prompts, scraper settings)
-│   └── landing.json        # Landing page configuration
-├── blogs/
-│   └── <blog_id>/
-│       ├── posts/          # Markdown posts with YAML frontmatter
-│       └── data/
-│           ├── llm_quotes.json    # Combined LLM analysis
-│           ├── spicy_quotes.json  # Spiciness scores
-│           └── llm_analysis/      # Per-post analysis files
-├── scripts/
-│   ├── scrapers/           # Blog scrapers (Python)
-│   ├── llm_analyze.sh      # LLM analysis pipeline
-│   ├── grade_spiciness.sh  # Spiciness grading
-│   ├── update.sh           # Full pipeline orchestrator
-│   └── deploy.sh           # Vercel deployment script
-├── src/                    # SvelteKit website
-└── static/                 # Static assets (photos, etc.)
-```
+- A SvelteKit frontend for landing pages and per-author sites
+- Config-driven scrapers for many blog platforms (RSS, Substack, Hugo, Quarto, static HTML, and more)
+- A CLI-driven content pipeline for scrape -> analyze -> score -> deploy
+- Generated datasets under `blogs/<blog_id>/data`
 
-## Development
+## Quick Start
 
 ### Prerequisites
 
-- Node.js 20+
-- Python 3.10+
-- Vercel CLI (for deployment)
+- Node.js `24.x` (see `package.json` engines)
+- Python `3.10+`
+- `pip` and `venv`
 
-### Setup
+### Install
 
 ```bash
 npm install
-pip install requests beautifulsoup4
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r scripts/requirements.txt
 ```
 
-### Local Development
+### Run Locally
 
 ```bash
-# Run dev server for a specific blog
-npm run dev:benn
-npm run dev:geohot
-npm run dev:mrocklin
+# Landing site
 npm run dev:landing
 
-# Or use the env variable directly
-VITE_BLOG_ID=geohot npm run dev
+# Any specific blog site
+npm run dev:benn
+npm run dev:wesm
+
+# Generic form
+VITE_BLOG_ID=benn npm run dev
 ```
 
 ## Content Pipeline
 
-### 1. Scraping Posts
-
-Each blog has a scraper configured in `config/<blog_id>.json`. Run with:
+### One-command update for a blog
 
 ```bash
-# Scrape a specific blog
-BLOG_ID=geohot python scripts/scrapers/jekyll_feed.py
-BLOG_ID=benn python scripts/scrapers/substack.py
-BLOG_ID=mrocklin python scripts/scrapers/jekyll_feed.py
-
-# Available scraper types:
-# - substack.py         Substack blogs
-# - github_markdown.py  GitHub-hosted markdown blogs
-# - quarto_blog.py      Quarto blogs with transcripts
-# - static_html.py      Static HTML blogs (danluu)
-# - hugo_rss.py         Hugo blogs with RSS
-# - hugo_homepage.py    Hugo blogs scraped from homepage
-# - jekyll_feed.py      Jekyll/Atom feed blogs (geohot, mrocklin)
-# - rss_generic.py      Generic RSS feed blogs (ssp)
+BLOG_ID=benn ./scripts/update.sh
 ```
 
-### 2. LLM Analysis
+This runs:
+1. scrape new posts
+2. LLM analysis
+3. spiciness grading
+4. landing-page stats update
 
-Generate summaries and extract quotes:
+### Orchestration CLI
 
 ```bash
-BLOG_ID=geohot ./scripts/llm_analyze.sh
+# Show status for all configured blogs
+./scripts/spicy status
 
-# Single post (for testing)
-BLOG_ID=geohot POST_FILE=blogs/geohot/posts/2025-12-29-five-years-of-tinygrad.md ./scripts/llm_analyze.sh
+# Update one blog
+./scripts/spicy update benn
+
+# Update all blogs
+./scripts/spicy update --all
+
+# Rebuild landing stats from stored data
+./scripts/spicy sync-stats
 ```
 
-### 3. Spiciness Grading
+### LLM backend requirements
 
-Score quotes for "spiciness":
+The LLM steps use `scripts/llm_call.sh`, which supports:
+- `LLM_BACKEND=claude` (default, requires `claude` CLI)
+- `LLM_BACKEND=codex` (requires `codex` CLI)
 
-```bash
-BLOG_ID=geohot ./scripts/grade_spiciness.sh
-```
-
-### 4. Full Pipeline
-
-Run scrape + analyze + grade:
+Example:
 
 ```bash
-BLOG_ID=geohot ./scripts/update.sh
+LLM_BACKEND=codex BLOG_ID=benn ./scripts/llm_analyze.sh
+LLM_BACKEND=codex BLOG_ID=benn ./scripts/grade_spiciness.sh
 ```
 
 ## Deployment
 
-The site is deployed to Vercel with separate projects for each subdomain.
-
-### Setup (One-time)
-
-1. Install Vercel CLI:
-   ```bash
-   npm i -g vercel
-   vercel login
-   ```
-
-2. Disable automatic Git deployments in Vercel dashboard for each project:
-   - Go to Project → Settings → Git → Ignored Build Step
-   - Enter: `exit 0`
-   - Save
-
-3. Set environment variables in each Vercel project:
-   - Go to Project → Settings → Environment Variables
-   - Add: `VITE_BLOG_ID` = `<blog_id>` (e.g., `geohot`, `landing`)
-
-### Deploy
+Deployments are handled with `scripts/deploy.sh` (Vercel-targeted).
 
 ```bash
-# Deploy a single site to production
-./scripts/deploy.sh landing --prod
-./scripts/deploy.sh geohot --prod
-./scripts/deploy.sh mrocklin --prod
-
-# Preview deploy (not production)
-./scripts/deploy.sh geohot
-
-# Deploy all sites
-./scripts/deploy.sh --all --prod
-
-# List available blogs
+# List configured deploy targets
 ./scripts/deploy.sh --list
+
+# Deploy one site
+./scripts/deploy.sh benn --prod
+
+# Deploy everything
+./scripts/deploy.sh --all --prod
 ```
 
-### Vercel Project Names
+## Repository Layout
 
-| Blog ID | Vercel Project |
-|---------|----------------|
-| landing | spicytakes.org |
-| benn | spicy-takes-benn |
-| armin | spicy-takes-armin |
-| wesm | spicy-takes-wesm |
-| danluu | spicy-takes-danluu |
-| bcantrill | spicy-takes-bcantrill |
-| jessfraz | spicy-takes-jessfraz |
-| geohot | spicy-takes-geohot |
-| mrocklin | spicy-takes-mrocklin |
-| criccomini | spicy-takes-criccomini |
-| skamille | spicy-takes-skamille |
-| mitchellh | spicy-takes-mitchellh |
-| ssp | spicy-takes-ssp |
+```text
+config/                    Blog configs + landing config
+blogs/<blog_id>/posts/     Normalized post markdown
+blogs/<blog_id>/data/      Derived analysis + indexes + quote datasets
+scripts/scrapers/          Source-specific scrapers
+scripts/*.sh               Analysis/grading/update/deploy scripts
+src/                       SvelteKit app
+static/                    Static assets
+```
 
-## Adding a New Blog
+## Content Ownership and Attribution
 
-1. Create config file: `config/<blog_id>.json`
-   ```json
-   {
-     "id": "newblog",
-     "name": "Author Name",
-     "tagline": "Short description",
-     "description": "Longer description",
-     "sourceUrl": "https://example.com/blog",
-     "sourceLabel": "example.com/blog",
-     "scraper": {
-       "type": "jekyll_feed",
-       "baseUrl": "https://example.com",
-       "feedUrl": "https://example.com/feed.xml"
-     },
-     "themes": { ... },
-     "llmAnalysis": { ... },
-     "spiciness": { ... }
-   }
-   ```
+Important: source content ownership is retained by original authors/publishers.
 
-2. Add to `src/lib/config.ts`:
-   ```typescript
-   import newblogConfig from '../../config/newblog.json';
-   // ...
-   const configs = {
-     // ...
-     newblog: newblogConfig as BlogConfig,
-   };
-   ```
+- All scraped posts, transcribed text, and quoted source content committed under `blogs/<blog_id>/` belong to the original author or rights holder for that blog.
+- This repository does not claim ownership of third-party source material.
+- Generated metadata in this repo (summaries, scores, indexes, tags) is supplemental analysis and does not replace the original source.
+- Every blog entry should preserve clear attribution and source links.
 
-3. Add to `config/landing.json` (with `"hidden": true` initially)
+If you are a rights holder and want content corrected or removed, open an issue with the relevant paths.
 
-4. Add npm scripts to `package.json`:
-   ```json
-   "dev:newblog": "VITE_BLOG_ID=newblog vite dev",
-   "build:newblog": "VITE_BLOG_ID=newblog vite build"
-   ```
+## Code License
 
-5. Add to `scripts/deploy.sh` in `get_project_name()` and `ALL_BLOGS`
+The code in this repository is licensed under the MIT License. See [LICENSE](LICENSE).
 
-6. Run the pipeline:
-   ```bash
-   BLOG_ID=newblog python scripts/scrapers/<scraper>.py
-   BLOG_ID=newblog ./scripts/llm_analyze.sh
-   BLOG_ID=newblog ./scripts/grade_spiciness.sh
-   ```
-
-7. Create Vercel project, set `VITE_BLOG_ID` env var, deploy
-
-8. Remove `"hidden": true` from landing.json when ready
-
-## License
-
-Content is archived for personal research purposes. All quotes link back to original posts.
+For clarity, third-party source content under `blogs/<blog_id>/` (including scraped posts and transcribed text) is not re-licensed by MIT and remains owned by the original author or rights holder.
