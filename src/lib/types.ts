@@ -40,7 +40,29 @@ export interface ThemeConfig {
 }
 
 export interface ScraperConfig {
-  type: 'substack' | 'github_markdown' | 'quarto_blog' | 'static_html' | 'hugo_rss' | 'hugo_homepage' | 'jekyll_feed' | 'wordpress' | 'jekyll_static' | 'rss_generic' | 'paulgraham' | 'blogger' | 'rss_nextjs' | 'hey_world' | 'transcript_only' | 'martinfowler' | 'medium';
+  type:
+    | 'blogger'
+    | 'caseymuratori'
+    | 'daringfireball'
+    | 'github_markdown'
+    | 'hey_world'
+    | 'hugo_homepage'
+    | 'hugo_rss'
+    | 'jekyll_feed'
+    | 'jekyll_static'
+    | 'jvns'
+    | 'kalzumeus'
+    | 'martinfowler'
+    | 'medium'
+    | 'paulgraham'
+    | 'quarto_blog'
+    | 'rss_generic'
+    | 'rss_nextjs'
+    | 'static_html'
+    | 'substack'
+    | 'transcript_only'
+    | 'wordpress'
+    | 'zedshaw';
   substackUrl?: string;
   baseUrl?: string;
   indexUrl?: string;
