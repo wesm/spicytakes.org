@@ -5,8 +5,11 @@
 
   let { data }: { data: PageData } = $props();
 
+  const PAGE_SIZE = 100;
+
   let selectedBlog = $state<string>('all');
   let minSpiciness = $state(1);
+  let currentPage = $state(1);
 
   let filtered = $derived.by(() => {
     let result = data.posts;
@@ -21,12 +24,21 @@
     return result;
   });
 
-  let grouped = $derived.by(() => {
-    const groups: { label: string; posts: typeof filtered }[] = [];
-    let currentLabel = '';
-    let currentGroup: typeof filtered = [];
+  let totalPages = $derived(Math.max(1, Math.ceil(filtered.length / PAGE_SIZE)));
 
-    for (const post of filtered) {
+  // Clamp page when filters reduce results
+  let safePage = $derived(Math.min(currentPage, totalPages));
+
+  let paged = $derived(
+    filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE)
+  );
+
+  let grouped = $derived.by(() => {
+    const groups: { label: string; posts: typeof paged }[] = [];
+    let currentLabel = '';
+    let currentGroup: typeof paged = [];
+
+    for (const post of paged) {
       if (!post.dateStr) continue;
       const d = new Date(post.dateStr);
       const label = d.toLocaleDateString('en-US', {
@@ -48,6 +60,11 @@
     }
     return groups;
   });
+
+  function goToPage(page: number) {
+    currentPage = page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   function formatFeedDate(dateStr: string | null): string {
     if (!dateStr) return '';
@@ -101,7 +118,7 @@
       <div class="filter-group">
         <label for="blog-filter" class="filter-label">Author</label>
         <div class="select-wrap">
-          <select id="blog-filter" bind:value={selectedBlog} class="filter-select">
+          <select id="blog-filter" bind:value={selectedBlog} onchange={() => { currentPage = 1; }} class="filter-select">
             <option value="all">All</option>
             {#each data.authors as author}
               <option value={author.id}>{author.name}</option>
@@ -123,6 +140,7 @@
             max="10"
             step="1"
             bind:value={minSpiciness}
+            oninput={() => { currentPage = 1; }}
             class="filter-range"
             style="--range-pct: {((minSpiciness - 1) / 9) * 100}%"
           />
@@ -131,7 +149,11 @@
       </div>
 
       <span class="filter-count">
-        {filtered.length}
+        {#if totalPages > 1}
+          {(safePage - 1) * PAGE_SIZE + 1}–{Math.min(safePage * PAGE_SIZE, filtered.length)} of {filtered.length}
+        {:else}
+          {filtered.length}
+        {/if}
       </span>
     </div>
   </div>
@@ -224,6 +246,45 @@
           </div>
         </section>
       {/each}
+    {/if}
+
+    <!-- Pagination -->
+    {#if totalPages > 1}
+      <nav class="pagination" aria-label="Feed pages">
+        <button
+          class="page-btn"
+          disabled={safePage <= 1}
+          onclick={() => goToPage(safePage - 1)}
+          aria-label="Previous page"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        {#each Array.from({ length: totalPages }, (_, i) => i + 1) as page}
+          {#if page === 1 || page === totalPages || (page >= safePage - 1 && page <= safePage + 1)}
+            <button
+              class="page-btn"
+              class:active={page === safePage}
+              onclick={() => goToPage(page)}
+              aria-label="Page {page}"
+              aria-current={page === safePage ? 'page' : undefined}
+            >
+              {page}
+            </button>
+          {:else if page === safePage - 2 || page === safePage + 2}
+            <span class="page-ellipsis">...</span>
+          {/if}
+        {/each}
+
+        <button
+          class="page-btn"
+          disabled={safePage >= totalPages}
+          onclick={() => goToPage(safePage + 1)}
+          aria-label="Next page"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </nav>
     {/if}
   </main>
 
@@ -680,6 +741,55 @@
   }
   .action-secondary:hover {
     color: #57534e;
+  }
+
+  /* ── Pagination ─────────────────────────────────── */
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e7e5e4;
+  }
+
+  .page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #57534e;
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-variant-numeric: tabular-nums;
+  }
+  .page-btn:hover:not(:disabled):not(.active) {
+    border-color: #d6d3d1;
+    background: #f5f5f4;
+  }
+  .page-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  .page-btn.active {
+    background: #1c1917;
+    color: #fff;
+    border-color: #1c1917;
+  }
+
+  .page-ellipsis {
+    font-size: 0.8rem;
+    color: #a8a29e;
+    padding: 0 0.15rem;
+    user-select: none;
   }
 
   /* ── Footer ────────────────────────────────────── */

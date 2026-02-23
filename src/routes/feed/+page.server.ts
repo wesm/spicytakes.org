@@ -129,9 +129,9 @@ export const load: PageServerLoad = async () => {
     }
   }
 
-  // Sort by date descending, take top 200
+  // Sort by date descending, take top 1000
   feedPosts.sort((a, b) => b.dateStr!.localeCompare(a.dateStr!));
-  const posts = feedPosts.slice(0, 200);
+  const posts = feedPosts.slice(0, 1000);
 
   // Collect unique blog authors for filter options
   const authorSet = new Set(posts.map(p => p.blogId));
