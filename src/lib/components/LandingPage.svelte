@@ -2,6 +2,12 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { landing } from '$lib/config';
+  import type { BlogCard } from '$lib/types';
+
+  let { blogSpiciness }: { blogSpiciness: Record<string, number | null> } = $props();
+
+  type SortKey = 'name' | 'posts' | 'quotes' | 'spiciness';
+  type SortDir = 'asc' | 'desc';
 
   function shuffle<T>(array: T[]): T[] {
     const shuffled = [...array];
@@ -13,13 +19,64 @@
   }
 
   const blogs = landing.blogs.filter(b => !b.hidden);
-  let visibleBlogs = $state(blogs);
+
+  // Random order stored once on mount
+  let randomOrder: BlogCard[] = $state(blogs);
   let ready = $state(false);
 
+  let sortKey = $state<SortKey | null>(null);
+  let sortDir = $state<SortDir>('desc');
+
   onMount(() => {
-    visibleBlogs = shuffle(blogs);
+    randomOrder = shuffle(blogs);
     ready = true;
   });
+
+  function toggleSort(key: SortKey) {
+    if (sortKey === key) {
+      if (sortDir === 'desc') {
+        sortDir = 'asc';
+      } else {
+        // Already asc, go back to random
+        sortKey = null;
+      }
+    } else {
+      sortKey = key;
+      sortDir = key === 'name' ? 'asc' : 'desc';
+    }
+  }
+
+  function spicyVal(blog: BlogCard): number {
+    return blogSpiciness[blog.id] ?? 0;
+  }
+
+  let visibleBlogs = $derived.by(() => {
+    if (sortKey === null) return randomOrder;
+    const sorted = [...randomOrder];
+    const dir = sortDir === 'asc' ? 1 : -1;
+    switch (sortKey) {
+      case 'name':
+        sorted.sort((a, b) => dir * a.name.localeCompare(b.name));
+        break;
+      case 'posts':
+        sorted.sort((a, b) => dir * (a.stats.posts - b.stats.posts));
+        break;
+      case 'quotes':
+        sorted.sort((a, b) => dir * (a.stats.quotes - b.stats.quotes));
+        break;
+      case 'spiciness':
+        sorted.sort((a, b) => dir * (spicyVal(a) - spicyVal(b)));
+        break;
+    }
+    return sorted;
+  });
+
+  function heatColor(spiciness: number): string {
+    if (spiciness >= 7) return '#dc2626';
+    if (spiciness >= 6) return '#ea580c';
+    if (spiciness >= 5) return '#d97706';
+    return '#78716c';
+  }
 
   const totalPosts = blogs.reduce((s, b) => s + b.stats.posts, 0);
   const totalQuotes = blogs.reduce((s, b) => s + b.stats.quotes, 0);
@@ -60,16 +117,37 @@
   <!-- Blog list -->
   <section class="blog-list-section">
     <div class="blog-list-inner">
-      <div class="list-header">
-        <span class="list-col-name">Author</span>
-        <span class="list-col-tagline">Focus</span>
-        <span class="list-col-posts">Posts</span>
-        <span class="list-col-quotes">Quotes</span>
-        <span class="list-col-arrow"></span>
+      <div class="list-header" role="row">
+        <button class="col-header col-name" class:active={sortKey === 'name'} onclick={() => toggleSort('name')}>
+          Author
+          <span class="sort-icon" class:asc={sortKey === 'name' && sortDir === 'asc'} class:desc={sortKey === 'name' && sortDir === 'desc'}>
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <span class="col-header col-tagline">Focus</span>
+        <button class="col-header col-posts" class:active={sortKey === 'posts'} onclick={() => toggleSort('posts')}>
+          Posts
+          <span class="sort-icon" class:asc={sortKey === 'posts' && sortDir === 'asc'} class:desc={sortKey === 'posts' && sortDir === 'desc'}>
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <button class="col-header col-quotes" class:active={sortKey === 'quotes'} onclick={() => toggleSort('quotes')}>
+          Quotes
+          <span class="sort-icon" class:asc={sortKey === 'quotes' && sortDir === 'asc'} class:desc={sortKey === 'quotes' && sortDir === 'desc'}>
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <button class="col-header col-spicy" class:active={sortKey === 'spiciness'} onclick={() => toggleSort('spiciness')}>
+          Avg
+          <span class="sort-icon" class:asc={sortKey === 'spiciness' && sortDir === 'asc'} class:desc={sortKey === 'spiciness' && sortDir === 'desc'}>
+            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <span class="col-header col-arrow"></span>
       </div>
 
       <div class="blog-list" class:revealed={ready}>
-        {#each visibleBlogs as blog, i}
+        {#each visibleBlogs as blog, i (blog.id)}
           <a
             href="https://{blog.subdomain}"
             class="blog-row"
@@ -90,6 +168,13 @@
             <span class="row-col-tagline">{blog.tagline}</span>
             <span class="row-col-posts">{blog.stats.posts.toLocaleString()}</span>
             <span class="row-col-quotes">{blog.stats.quotes.toLocaleString()}</span>
+            <span class="row-col-spicy">
+              {#if blogSpiciness[blog.id] != null}
+                <span class="spicy-val" style="color: {heatColor(blogSpiciness[blog.id]!)}">{blogSpiciness[blog.id]}</span>
+              {:else}
+                <span class="spicy-val" style="color: #d6d3d1">—</span>
+              {/if}
+            </span>
             <span class="row-col-arrow">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </span>
@@ -255,31 +340,80 @@
     margin: 0 auto;
   }
 
-  .list-header {
+  /* ── Column grid ───────────────────────────────── */
+  .list-header,
+  .blog-row {
     display: grid;
-    grid-template-columns: 1fr 12rem 3.5rem 3.5rem 1.5rem;
+    grid-template-columns: 1fr 12rem 3.5rem 3.5rem 3rem 1.5rem;
     align-items: center;
     gap: 1rem;
+  }
+
+  .list-header {
     padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #e7e5e4;
+  }
+
+  /* ── Column headers (sortable) ─────────────────── */
+  .col-header {
     font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #a8a29e;
-    border-bottom: 1px solid #e7e5e4;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
-  .list-col-posts,
-  .list-col-quotes {
+  button.col-header {
+    cursor: pointer;
+    transition: color 0.12s;
+    user-select: none;
+  }
+  button.col-header:hover {
+    color: #57534e;
+  }
+  button.col-header.active {
+    color: #1c1917;
+  }
+
+  .col-posts,
+  .col-quotes,
+  .col-spicy {
     text-align: right;
+    justify-content: flex-end;
   }
 
+  /* ── Sort indicator ────────────────────────────── */
+  .sort-icon {
+    opacity: 0;
+    transition: opacity 0.12s, transform 0.12s;
+    display: inline-flex;
+  }
+  button.col-header:hover .sort-icon {
+    opacity: 0.3;
+  }
+  button.col-header.active .sort-icon {
+    opacity: 1;
+  }
+  .sort-icon.desc {
+    transform: rotate(180deg);
+  }
+  .sort-icon.asc {
+    transform: rotate(0deg);
+  }
+
+  /* ── Blog list rows ────────────────────────────── */
   .blog-list {
     display: flex;
     flex-direction: column;
   }
 
-  /* Staggered reveal on mount */
   .blog-list .blog-row {
     opacity: 0;
     transform: translateY(4px);
@@ -297,10 +431,6 @@
   }
 
   .blog-row {
-    display: grid;
-    grid-template-columns: 1fr 12rem 3.5rem 3.5rem 1.5rem;
-    align-items: center;
-    gap: 1rem;
     padding: 0.65rem 0.75rem;
     text-decoration: none;
     border-bottom: 1px solid #f5f5f4;
@@ -366,6 +496,16 @@
     font-weight: 500;
     color: #57534e;
     text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .row-col-spicy {
+    text-align: right;
+  }
+
+  .spicy-val {
+    font-size: 0.78rem;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
   }
 
@@ -450,15 +590,11 @@
       font-size: 0.95rem;
     }
 
-    /* Hide tagline column on tablet/mobile */
-    .list-header {
-      grid-template-columns: 1fr 3.5rem 3.5rem 1.5rem;
-    }
-    .list-col-tagline { display: none; }
-
+    .list-header,
     .blog-row {
-      grid-template-columns: 1fr 3.5rem 3.5rem 1.5rem;
+      grid-template-columns: 1fr 3.5rem 3.5rem 3rem 1.5rem;
     }
+    .col-tagline,
     .row-col-tagline { display: none; }
 
     .how-grid {
@@ -476,17 +612,13 @@
       padding: 0 1rem 2.5rem;
     }
 
-    /* Hide quotes column on small screens */
-    .list-header {
-      grid-template-columns: 1fr 3rem 1.5rem;
-    }
-    .list-col-tagline,
-    .list-col-quotes { display: none; }
-
+    .list-header,
     .blog-row {
-      grid-template-columns: 1fr 3rem 1.5rem;
+      grid-template-columns: 1fr 3rem 3rem 1.5rem;
     }
+    .col-tagline,
     .row-col-tagline,
+    .col-quotes,
     .row-col-quotes { display: none; }
 
     .row-avatar {

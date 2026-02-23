@@ -5,6 +5,9 @@
   import TimelineView from '$lib/components/TimelineView.svelte';
   import QuotesView from '$lib/components/QuotesView.svelte';
   import ThemesView from '$lib/components/ThemesView.svelte';
+  import type { PageData } from './$types';
+
+  let { data }: { data: PageData } = $props();
 
   function setView(view: 'timeline' | 'quotes' | 'themes') {
     activeView.set(view);
@@ -12,7 +15,7 @@
 </script>
 
 {#if isLandingMode}
-  <LandingPage />
+  <LandingPage blogSpiciness={data.blogSpiciness} />
 {:else}
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- View toggle and stats -->
