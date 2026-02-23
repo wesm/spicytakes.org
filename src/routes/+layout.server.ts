@@ -1,84 +1,27 @@
 import type { LayoutServerLoad } from './$types';
+import {
+  type RawPost,
+  type SpicyQuote,
+  type PostIndexEntry,
+  llmQuotesModules,
+  spicyQuotesModules,
+  postsIndexModules,
+  getBlogData,
+  parseDate,
+  formatTitle,
+} from '$lib/server/blog-data';
 
 const blogId = import.meta.env.VITE_BLOG_ID || 'benn';
 const isLandingMode = blogId === 'landing';
-
-interface RawPost {
-  filename: string;
-  summary: string;
-  money_quotes: string[];
-  themes: string[];
-  tone: string;
-  key_insight: string;
-  video_url?: string;
-  content_type?: string;
-  error?: boolean;
-}
-
-interface PostIndexEntry {
-  filename: string;
-  title: string;
-  subtitle?: string;
-  url?: string;
-  video_url?: string;
-  content_type?: string;
-  tags?: string[];
-}
-
-interface SpicyQuote {
-  quote: string;
-  filename: string;
-  spiciness: number;
-}
-
-// Import all blog data files at build time using Vite's glob import
-// This bundles the data into the serverless function
-const llmQuotesModules = import.meta.glob<{ posts: RawPost[] }>('/blogs/*/data/llm_quotes.json', { eager: true });
-const spicyQuotesModules = import.meta.glob<{ quotes: SpicyQuote[] }>('/blogs/*/data/spicy_quotes.json', { eager: true });
-const postsIndexModules = import.meta.glob<{ posts: PostIndexEntry[] }>('/blogs/*/data/posts_index.json', { eager: true });
-
-function getBlogData<T>(modules: Record<string, T>, blogId: string, defaultValue: T): T {
-  for (const [path, module] of Object.entries(modules)) {
-    if (path.includes(`/blogs/${blogId}/`)) {
-      return module;
-    }
-  }
-  return defaultValue;
-}
-
-function parseDate(filename: string): string | null {
-  const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if (match) {
-    // Use noon UTC to avoid timezone issues (midnight UTC shows as previous day in US timezones)
-    return `${match[1]}-${match[2]}-${match[3]}T12:00:00Z`;
-  }
-  // Return null for undated posts
-  return null;
-}
-
-function formatTitle(filename: string): string {
-  const titlePart = filename.replace(/^\d{4}-\d{2}-\d{2}-/, '');
-  const acronyms = ['bi', 'sql', 'ai', 'yc', 'vc', 'llm', 'llms', 'mds', 'obp', 'svb', 'tam', 'mvp'];
-
-  return titlePart
-    .split('-')
-    .map(word => {
-      const lowerWord = word.toLowerCase();
-      if (acronyms.includes(lowerWord)) return lowerWord.toUpperCase();
-      if (lowerWord === 'dbt') return 'dbt';
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    })
-    .join(' ');
-}
 
 export const load: LayoutServerLoad = async () => {
   if (isLandingMode) {
     return { blogData: null };
   }
 
-  const rawData = getBlogData(llmQuotesModules, blogId, { posts: [] });
-  const spicyData = getBlogData(spicyQuotesModules, blogId, { quotes: [] });
-  const postsIndex = getBlogData(postsIndexModules, blogId, { posts: [] });
+  const rawData = getBlogData(llmQuotesModules, blogId, { posts: [] as RawPost[] });
+  const spicyData = getBlogData(spicyQuotesModules, blogId, { quotes: [] as SpicyQuote[] });
+  const postsIndex = getBlogData(postsIndexModules, blogId, { posts: [] as PostIndexEntry[] });
 
   // Build lookups from posts_index.json
   // Index by filename (with/without .md) and by slug for compatibility

@@ -42,7 +42,7 @@ import patio11Config from '../../config/patio11.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
-const configs: Record<string, BlogConfig> = {
+export const configs: Record<string, BlogConfig> = {
   benn: bennConfig as BlogConfig,
   armin: arminConfig as BlogConfig,
   wesm: wesmConfig as BlogConfig,

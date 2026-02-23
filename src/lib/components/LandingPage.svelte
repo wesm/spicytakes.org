@@ -39,15 +39,26 @@
     <p class="mt-2 text-sm text-stone-400">
       {blogs.length} blogs and counting
     </p>
-    <a
-      href="{base}/analytics"
-      class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-red-500 text-white font-medium rounded-xl hover:bg-red-600 transition-colors shadow-sm"
-    >
-      📊 Spicy Analytics Dashboard
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </a>
+    <div class="flex flex-wrap justify-center gap-3 mt-6">
+      <a
+        href="{base}/feed"
+        class="inline-flex items-center gap-2 px-5 py-2.5 bg-red-500 text-white font-medium rounded-xl hover:bg-red-600 transition-colors shadow-sm"
+      >
+        🌶️ Latest Spicy Takes
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      <a
+        href="{base}/analytics"
+        class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-700 font-medium rounded-xl hover:bg-stone-50 transition-colors shadow-sm border border-stone-300"
+      >
+        📊 Analytics Dashboard
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
   </header>
 
   <!-- Blog Cards Grid -->

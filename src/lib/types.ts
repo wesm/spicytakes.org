@@ -93,6 +93,22 @@ export interface LandingConfig {
   blogs: BlogCard[];
 }
 
+export interface FeedPost {
+  filename: string;
+  title: string;
+  dateStr: string | null;
+  blogId: string;
+  authorName: string;
+  authorPhoto: string;
+  subdomain: string;
+  summary: string;
+  key_insight: string;
+  topQuotes: { quote: string; spiciness: number }[];
+  spiciness: number | null;
+  sourceUrl: string;
+  spicytakesUrl: string;
+}
+
 export function getSpicyLabel(spiciness: number): string {
   if (spiciness <= 3) return 'Mild';
   if (spiciness <= 5) return 'Moderate';
