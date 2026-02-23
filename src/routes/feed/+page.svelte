@@ -1,15 +1,13 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import type { PageData } from './$types';
-  import { getSpicyColor, getSpicyLabel } from '$lib/types';
+  import { getSpicyColor } from '$lib/types';
 
   let { data }: { data: PageData } = $props();
 
-  // Filter state
   let selectedBlog = $state<string>('all');
   let minSpiciness = $state(1);
 
-  // Filtered posts
   let filtered = $derived.by(() => {
     let result = data.posts;
     if (selectedBlog !== 'all') {
@@ -23,7 +21,6 @@
     return result;
   });
 
-  // Group by month/year
   let grouped = $derived.by(() => {
     const groups: { label: string; posts: typeof filtered }[] = [];
     let currentLabel = '';
@@ -58,14 +55,22 @@
     return d.toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
-      year: 'numeric',
     });
   }
 
   function truncate(text: string, max: number): string {
     if (!text || text.length <= max) return text || '';
-    return text.slice(0, max) + '...';
+    return text.slice(0, max) + '\u2026';
   }
+
+  function heatColor(spiciness: number): string {
+    if (spiciness >= 9) return '#dc2626';
+    if (spiciness >= 7) return '#ea580c';
+    if (spiciness >= 5) return '#d97706';
+    if (spiciness >= 3) return '#65a30d';
+    return '#16a34a';
+  }
+
 </script>
 
 <svelte:head>
@@ -73,179 +78,651 @@
   <meta name="description" content="The latest spicy takes from {data.authors.length} tech blogs, sorted by date" />
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+<div class="feed-page">
   <!-- Header -->
-  <header class="pt-8 pb-6 px-6 text-center border-b border-stone-200">
-    <div class="max-w-4xl mx-auto">
-      <a href="{base}/" class="inline-block mb-3 text-stone-500 hover:text-stone-700 text-sm">
-        ← Back to Spicy Takes
+  <header class="feed-header">
+    <div class="feed-header-inner">
+      <a href="{base}/" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Spicy Takes
       </a>
-      <h1 class="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
-        Latest Spicy Takes
-      </h1>
-      <p class="text-stone-600">
-        {data.posts.length} recent posts from {data.authors.length} blogs
-      </p>
+      <div class="header-title-block">
+        <h1 class="feed-title">The Feed</h1>
+        <p class="feed-subtitle">
+          {data.posts.length} recent posts across {data.authors.length} voices
+        </p>
+      </div>
     </div>
   </header>
 
-  <!-- Filter bar -->
-  <div class="sticky top-0 z-10 bg-white/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
-    <div class="max-w-4xl mx-auto px-6 py-3 flex flex-wrap items-center gap-4">
-      <!-- Blog filter -->
-      <div class="flex items-center gap-2">
-        <label for="blog-filter" class="text-sm font-medium text-stone-600">Author</label>
-        <select
-          id="blog-filter"
-          bind:value={selectedBlog}
-          class="text-sm border border-stone-300 rounded-lg px-3 py-1.5 bg-white text-stone-800 focus:outline-none focus:ring-2 focus:ring-red-300"
-        >
-          <option value="all">All blogs</option>
-          {#each data.authors as author}
-            <option value={author.id}>{author.name}</option>
-          {/each}
-        </select>
+  <!-- Sticky filter bar -->
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+      <div class="filter-group">
+        <label for="blog-filter" class="filter-label">Author</label>
+        <div class="select-wrap">
+          <select id="blog-filter" bind:value={selectedBlog} class="filter-select">
+            <option value="all">All</option>
+            {#each data.authors as author}
+              <option value={author.id}>{author.name}</option>
+            {/each}
+          </select>
+          <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
       </div>
 
-      <!-- Spiciness filter -->
-      <div class="flex items-center gap-2">
-        <label for="spiciness-filter" class="text-sm font-medium text-stone-600">Min spiciness</label>
-        <input
-          id="spiciness-filter"
-          type="range"
-          min="1"
-          max="10"
-          step="1"
-          bind:value={minSpiciness}
-          class="w-24 accent-red-500"
-        />
-        <span class="text-sm font-mono text-stone-700 w-5 text-right">{minSpiciness}</span>
+      <div class="filter-divider"></div>
+
+      <div class="filter-group">
+        <label for="spiciness-filter" class="filter-label">Heat</label>
+        <div class="range-wrap">
+          <input
+            id="spiciness-filter"
+            type="range"
+            min="1"
+            max="10"
+            step="1"
+            bind:value={minSpiciness}
+            class="filter-range"
+            style="--range-pct: {((minSpiciness - 1) / 9) * 100}%"
+          />
+          <span class="range-value" style="color: {heatColor(minSpiciness)}">{minSpiciness}+</span>
+        </div>
       </div>
 
-      <!-- Results count -->
-      <span class="text-sm text-stone-400 ml-auto">
-        {filtered.length} posts
+      <span class="filter-count">
+        {filtered.length}
       </span>
     </div>
   </div>
 
-  <!-- Feed -->
-  <main class="max-w-4xl mx-auto px-6 py-8">
+  <!-- Feed content -->
+  <main class="feed-main">
     {#if filtered.length === 0}
-      <div class="text-center py-16">
-        <p class="text-stone-500">No posts match your filters.</p>
-        <button
-          onclick={() => { selectedBlog = 'all'; minSpiciness = 1; }}
-          class="mt-3 text-sm text-red-500 hover:text-red-600 underline"
-        >
+      <div class="empty-state">
+        <p>No posts match your filters.</p>
+        <button onclick={() => { selectedBlog = 'all'; minSpiciness = 1; }}>
           Reset filters
         </button>
       </div>
     {:else}
-      {#each grouped as group}
-        <!-- Month header -->
-        <div class="sticky top-[57px] z-[5] bg-stone-50/95 backdrop-blur-sm -mx-6 px-6 py-2 mb-4 mt-8 first:mt-0 border-b border-stone-200">
-          <h2 class="text-sm font-semibold text-stone-500 uppercase tracking-wide">{group.label}</h2>
-        </div>
+      {#each grouped as group, gi}
+        <section class="month-group" style="--stagger: {gi}">
+          <div class="month-header">
+            <span class="month-label">{group.label}</span>
+            <span class="month-count">{group.posts.length}</span>
+          </div>
 
-        <div class="space-y-5">
-          {#each group.posts as post}
-            <article class="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-              <div class="p-5">
-                <!-- Author row -->
-                <div class="flex items-center gap-3 mb-3">
-                  <img
-                    src={post.authorPhoto}
-                    alt={post.authorName}
-                    class="w-9 h-9 rounded-full object-cover ring-1 ring-stone-200"
-                    onerror={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                  />
-                  <div class="flex-1 min-w-0">
-                    <span class="text-sm font-semibold text-stone-800">{post.authorName}</span>
-                    <span class="text-stone-300 mx-1.5">·</span>
-                    <span class="text-sm text-stone-500">{formatFeedDate(post.dateStr)}</span>
+          <div class="posts-list">
+            {#each group.posts as post, pi}
+              <article
+                class="post-card"
+                style="--delay: {pi * 30}ms; --heat: {heatColor(post.spiciness ?? 5)}"
+              >
+                <!-- Heat strip -->
+                <div class="heat-strip" aria-hidden="true"></div>
+
+                <div class="post-body">
+                  <!-- Author + date row -->
+                  <div class="post-meta">
+                    <img
+                      src={post.authorPhoto}
+                      alt=""
+                      class="author-avatar"
+                      onerror={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                    />
+                    <span class="author-name">{post.authorName}</span>
+                    <span class="meta-dot"></span>
+                    <time class="post-date">{formatFeedDate(post.dateStr)}</time>
+                    {#if post.spiciness !== null}
+                      <span class="spicy-badge {getSpicyColor(post.spiciness)}">
+                        {post.spiciness}
+                      </span>
+                    {/if}
                   </div>
-                  {#if post.spiciness !== null}
-                    <span class="flex-shrink-0 px-2.5 py-1 rounded-full text-xs font-bold {getSpicyColor(post.spiciness)}">
-                      {getSpicyLabel(post.spiciness)} {post.spiciness}
-                    </span>
-                  {/if}
-                </div>
 
-                <!-- Title -->
-                <h3 class="text-lg font-bold text-stone-900 mb-2 leading-snug">
-                  <a
-                    href={post.spicytakesUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:text-red-600 transition-colors"
-                  >
-                    {post.title}
-                  </a>
-                </h3>
-
-                <!-- Summary -->
-                {#if post.summary}
-                  <p class="text-stone-600 text-sm leading-relaxed mb-3">
-                    {truncate(post.summary, 280)}
-                  </p>
-                {/if}
-
-                <!-- Top quotes -->
-                {#if post.topQuotes.length > 0}
-                  <div class="space-y-2 mb-3">
-                    {#each post.topQuotes as q}
-                      <div class="flex items-start gap-2">
-                        <span class="flex-shrink-0 mt-0.5 text-xs font-bold px-1.5 py-0.5 rounded {getSpicyColor(q.spiciness)}">
-                          {q.spiciness}
-                        </span>
-                        <p class="text-stone-700 text-sm italic leading-relaxed">
-                          "{truncate(q.quote, 200)}"
-                        </p>
-                      </div>
-                    {/each}
-                  </div>
-                {/if}
-
-                <!-- Links -->
-                <div class="flex items-center gap-4 pt-2 border-t border-stone-100 text-sm">
-                  <a
-                    href={post.spicytakesUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-red-500 hover:text-red-600 font-medium flex items-center gap-1"
-                  >
-                    Full analysis
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                  {#if post.sourceUrl}
-                    <a
-                      href={post.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-stone-500 hover:text-stone-700 flex items-center gap-1"
-                    >
-                      Read original
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
+                  <!-- Title -->
+                  <h3 class="post-title">
+                    <a href={post.spicytakesUrl} target="_blank" rel="noopener noreferrer">
+                      {post.title}
                     </a>
+                  </h3>
+
+                  <!-- Summary -->
+                  {#if post.summary}
+                    <p class="post-summary">{truncate(post.summary, 240)}</p>
                   {/if}
+
+                  <!-- Quotes -->
+                  {#if post.topQuotes.length > 0}
+                    <div class="quotes-section">
+                      {#each post.topQuotes as q}
+                        <blockquote class="feed-quote">
+                          <span class="quote-score" style="color: {heatColor(q.spiciness)}">{q.spiciness}</span>
+                          <p>{truncate(q.quote, 180)}</p>
+                        </blockquote>
+                      {/each}
+                    </div>
+                  {/if}
+
+                  <!-- Action links -->
+                  <div class="post-actions">
+                    <a href={post.spicytakesUrl} target="_blank" rel="noopener noreferrer" class="action-primary">
+                      Full analysis
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                    </a>
+                    {#if post.sourceUrl}
+                      <a href={post.sourceUrl} target="_blank" rel="noopener noreferrer" class="action-secondary">
+                        Original
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                    {/if}
+                  </div>
                 </div>
-              </div>
-            </article>
-          {/each}
-        </div>
+              </article>
+            {/each}
+          </div>
+        </section>
       {/each}
     {/if}
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-stone-200 py-6 text-center text-sm text-stone-500">
+  <footer class="feed-footer">
     <p>
-      Made with <span class="text-red-500">❤️</span> by <a href="https://wesmckinney.com" target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-red-500 transition-colors">Wes McKinney</a>
+      Made with <span class="heart">&#10084;&#65039;</span> by
+      <a href="https://wesmckinney.com" target="_blank" rel="noopener noreferrer">Wes McKinney</a>
     </p>
   </footer>
 </div>
+
+<style>
+  /* ── Page shell ────────────────────────────────── */
+  .feed-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fafaf9 0%, #fff 40%);
+  }
+
+  /* ── Header ────────────────────────────────────── */
+  .feed-header {
+    padding: 2.5rem 1.5rem 1.75rem;
+    border-bottom: 1px solid #e7e5e4;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -20%, rgba(239, 68, 68, 0.04), transparent),
+      #fafaf9;
+  }
+
+  .feed-header-inner {
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: #44403c; }
+  .back-link svg { opacity: 0.6; }
+
+  .header-title-block {
+    margin-top: 0.75rem;
+  }
+
+  .feed-title {
+    font-family: var(--font-family-serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1c1917;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .feed-subtitle {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: #78716c;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Filter bar ────────────────────────────────── */
+  .filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e7e5e4;
+    box-shadow: 0 1px 3px rgba(28, 25, 23, 0.04);
+  }
+
+  .filter-bar-inner {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .filter-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a8a29e;
+  }
+
+  .select-wrap {
+    position: relative;
+  }
+
+  .filter-select {
+    appearance: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #44403c;
+    background: #f5f5f4;
+    border: 1px solid #d6d3d1;
+    border-radius: 0.5rem;
+    padding: 0.35rem 1.75rem 0.35rem 0.65rem;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .filter-select:focus {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+  }
+
+  .select-chevron {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a8a29e;
+    pointer-events: none;
+  }
+
+  .filter-divider {
+    width: 1px;
+    height: 1.25rem;
+    background: #d6d3d1;
+  }
+
+  .range-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .filter-range {
+    width: 5.5rem;
+    height: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: linear-gradient(
+      to right,
+      #ef4444 0%,
+      #ef4444 var(--range-pct),
+      #d6d3d1 var(--range-pct),
+      #d6d3d1 100%
+    );
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+  }
+  .filter-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ef4444;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  .filter-range::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .filter-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ef4444;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    cursor: pointer;
+  }
+
+  .range-value {
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 1.5rem;
+    text-align: center;
+  }
+
+  .filter-count {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #a8a29e;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Main feed ─────────────────────────────────── */
+  .feed-main {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* ── Empty state ───────────────────────────────── */
+  .empty-state {
+    text-align: center;
+    padding: 5rem 0;
+    color: #78716c;
+    font-size: 0.9rem;
+  }
+  .empty-state button {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #ef4444;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ── Month groups ──────────────────────────────── */
+  .month-group {
+    margin-top: 2.5rem;
+  }
+  .month-group:first-child {
+    margin-top: 1.5rem;
+  }
+
+  .month-header {
+    position: sticky;
+    top: 49px; /* filter bar height */
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    margin-bottom: 0.75rem;
+    background: rgba(250, 250, 249, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .month-label {
+    font-family: var(--font-family-serif);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #57534e;
+    letter-spacing: 0.01em;
+  }
+
+  .month-count {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #a8a29e;
+    background: #f5f5f4;
+    border-radius: 9999px;
+    padding: 0.1rem 0.45rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Post cards ────────────────────────────────── */
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .post-card {
+    display: flex;
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    animation: card-in 0.35s ease-out both;
+    animation-delay: var(--delay);
+  }
+  .post-card:hover {
+    border-color: #d6d3d1;
+    box-shadow:
+      0 4px 12px rgba(28, 25, 23, 0.06),
+      0 1px 3px rgba(28, 25, 23, 0.04);
+  }
+
+  @keyframes card-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .heat-strip {
+    width: 3px;
+    flex-shrink: 0;
+    background: var(--heat);
+    border-radius: 3px 0 0 3px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .post-card:hover .heat-strip {
+    opacity: 1;
+  }
+
+  .post-body {
+    flex: 1;
+    min-width: 0;
+    padding: 1rem 1.25rem;
+  }
+
+  /* ── Post meta ─────────────────────────────────── */
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .author-avatar {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e7e5e4;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #44403c;
+  }
+
+  .meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #d6d3d1;
+    flex-shrink: 0;
+  }
+
+  .post-date {
+    font-size: 0.75rem;
+    color: #a8a29e;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .spicy-badge {
+    margin-left: auto;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 9999px;
+    flex-shrink: 0;
+  }
+
+  /* ── Title ─────────────────────────────────────── */
+  .post-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #1c1917;
+    margin-bottom: 0.35rem;
+  }
+  .post-title a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.15s;
+  }
+  .post-title a:hover {
+    color: #dc2626;
+  }
+
+  /* ── Summary ───────────────────────────────────── */
+  .post-summary {
+    font-size: 0.835rem;
+    line-height: 1.6;
+    color: #57534e;
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── Quotes ────────────────────────────────────── */
+  .quotes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+    padding-left: 0.25rem;
+    border-left: 2px solid #f5f5f4;
+  }
+
+  .feed-quote {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0.2rem 0;
+  }
+
+  .quote-score {
+    font-size: 0.65rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.85;
+  }
+
+  .feed-quote p {
+    font-family: var(--font-family-serif);
+    font-size: 0.82rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: #44403c;
+    margin: 0;
+  }
+
+  /* ── Actions ───────────────────────────────────── */
+  .post-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #f5f5f4;
+  }
+
+  .action-primary,
+  .action-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .action-primary {
+    color: #dc2626;
+  }
+  .action-primary:hover {
+    color: #b91c1c;
+  }
+
+  .action-secondary {
+    color: #a8a29e;
+  }
+  .action-secondary:hover {
+    color: #57534e;
+  }
+
+  /* ── Footer ────────────────────────────────────── */
+  .feed-footer {
+    border-top: 1px solid #e7e5e4;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #a8a29e;
+  }
+  .feed-footer a {
+    color: #78716c;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .feed-footer a:hover { color: #dc2626; }
+  .feed-footer .heart { color: #ef4444; }
+
+  /* ── Responsive ────────────────────────────────── */
+  @media (max-width: 640px) {
+    .feed-title {
+      font-size: 1.75rem;
+    }
+
+    .filter-bar-inner {
+      gap: 0.6rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .filter-range {
+      width: 4rem;
+    }
+
+    .post-body {
+      padding: 0.75rem 1rem;
+    }
+
+    .post-title {
+      font-size: 0.95rem;
+    }
+
+    .feed-quote p {
+      font-size: 0.78rem;
+    }
+  }
+</style>
