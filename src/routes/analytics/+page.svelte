@@ -120,6 +120,11 @@
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];
 
+  const chartAutosize = {
+    type: 'fit' as const,
+    contains: 'padding' as const
+  };
+
   async function refreshChartData() {
     try {
       const authorId = selectedAuthor?.id;
@@ -237,7 +242,7 @@
         params: [hoverParam],
         width: 'container',
         height: Math.max(400, monthlyData.length * 16),
-        autosize: { type: 'fit', contains: 'padding' },
+        autosize: chartAutosize,
         mark: {
           type: 'bar',
           cornerRadiusBottomRight: 3,
@@ -284,7 +289,7 @@
         params: [hoverParam],
         width: 'container',
         height: 180,
-        autosize: { type: 'fit', contains: 'padding' },
+        autosize: chartAutosize,
         mark: {
           type: 'bar',
           cornerRadiusTopLeft: 3,
@@ -353,7 +358,7 @@
         height: Math.max(
           400, displayedYearlyStats.length * 20
         ),
-        autosize: { type: 'fit', contains: 'padding' },
+        autosize: chartAutosize,
         mark: {
           type: 'bar',
           cornerRadiusBottomRight: 3,
@@ -395,7 +400,7 @@
         params: [hoverParam],
         width: 'container',
         height: 180,
-        autosize: { type: 'fit', contains: 'padding' },
+        autosize: chartAutosize,
         mark: {
           type: 'bar',
           cornerRadiusTopLeft: 3,
@@ -777,7 +782,7 @@
                   {/if}
                 </div>
 
-                <span class="quote-score" style="color: {heatColor(quote.spiciness)}">{quote.spiciness}</span>
+                <span class="quote-score" style="color: {heatColor(quote.spiciness)}" role="img" aria-label="Spiciness: {quote.spiciness} out of 10">{quote.spiciness}</span>
 
                 <div class="quote-content">
                   <p class="quote-text">"{quote.quote_text.length > 250 ? quote.quote_text.slice(0, 250) + '...' : quote.quote_text}"</p>

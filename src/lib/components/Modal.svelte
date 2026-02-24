@@ -131,7 +131,7 @@
                       onclick={close}
                       class="quote-item"
                     >
-                      <span class="quote-score" style="color: {heatColor(score)}">{score}</span>
+                      <span class="quote-score" style="color: {heatColor(score)}" role="img" aria-label="Spiciness: {score} out of 10">{score}</span>
                       <p class="quote-text">{quote}</p>
                     </a>
                   </li>

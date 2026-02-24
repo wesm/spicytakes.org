@@ -20,7 +20,7 @@ export class AnalyticsPage extends BasePage {
     this.authorLeaderboard = page.locator('.leaderboard-panel');
     this.quotesTable = page.locator('.quotes-panel');
     this.resetFilterButton = page.locator('button.reset-btn');
-    this.yearFilter = page.locator('span.filter-badge');
+    this.yearFilter = page.locator('span.filter-badge.time');
   }
 
   async goto() {

@@ -11,6 +11,15 @@ export function stripFrontmatter(content: string): string {
 
 const SAFE_PROTOCOLS = /^(https?|mailto):/i;
 
+/** Escape characters that are special inside HTML attributes. */
+function escapeAttr(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 /** Override link/image rendering to block dangerous protocols. */
 const safeRenderer: Partial<marked.Renderer> = {
   link({ href, title, tokens }: Tokens.Link) {
@@ -19,26 +28,29 @@ const safeRenderer: Partial<marked.Renderer> = {
       return text;
     }
     const titleAttr = title
-      ? ` title="${title.replace(/"/g, '&quot;')}"` : '';
-    return `<a href="${href}"${titleAttr}>${text}</a>`;
+      ? ` title="${escapeAttr(title)}"` : '';
+    return `<a href="${escapeAttr(href)}"${titleAttr}>${text}</a>`;
   },
   image({ href, title, text }: Tokens.Image) {
     if (href && !SAFE_PROTOCOLS.test(href)) {
       return text;
     }
     const titleAttr = title
-      ? ` title="${title.replace(/"/g, '&quot;')}"` : '';
-    const alt = text ? ` alt="${text.replace(/"/g, '&quot;')}"` : '';
-    return `<img src="${href}"${alt}${titleAttr} />`;
+      ? ` title="${escapeAttr(title)}"` : '';
+    const alt = text
+      ? ` alt="${escapeAttr(text)}"` : '';
+    return `<img src="${escapeAttr(href)}"${alt}${titleAttr} />`;
   },
 };
 
-/** Strip dangerous HTML tags from rendered output. */
+/** Strip dangerous HTML tags and event handler attributes. */
 function sanitizeHtml(html: string): string {
-  return html.replace(
-    /<\/?(script|style|iframe|object|embed|form|input|textarea|button|select|meta|link|base)\b[^>]*>/gi,
-    ''
-  );
+  return html
+    .replace(
+      /<\/?(script|style|iframe|object|embed|form|input|textarea|button|select|meta|link|base)\b[^>]*>/gi,
+      ''
+    )
+    .replace(/\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]*)/gi, '');
 }
 
 /** Strip frontmatter, parse markdown, and sanitize output. */

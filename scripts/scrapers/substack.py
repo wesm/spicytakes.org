@@ -66,6 +66,16 @@ class SubstackScraper(BaseScraper):
         """Check whether a slug is excluded from ingestion."""
         return slug.lower() in self.excluded_slugs
 
+    def persist_excluded_slug(self, slug: str):
+        """Append a slug to the exclusion file so it is skipped on future runs."""
+        slug = slug.lower()
+        if slug in self.excluded_slugs:
+            return
+        self.excluded_slugs.add(slug)
+        with open(self.exclude_slugs_file, "a") as f:
+            f.write(f"{slug}\n")
+        print(f"  Added '{slug}' to {self.exclude_slugs_file}")
+
     def discover_post_urls(self) -> list[str]:
         """Discover all post URLs from the Substack archive API."""
         all_urls = []
@@ -364,7 +374,9 @@ class SubstackScraper(BaseScraper):
 
             post = self.fetch_post(url)
             if post and self.min_words > 0 and post["word_count"] < self.min_words:
+                slug = self.extract_slug_from_url(url)
                 print(f"  Skipping (only {post['word_count']} words, min {self.min_words}): {post['title']}")
+                self.persist_excluded_slug(slug)
                 post = None
             if post:
                 # Create filename from date and slug

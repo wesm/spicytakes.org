@@ -126,6 +126,6 @@ export class BlogPage extends BasePage {
   async isThemeActive(name: string): Promise<boolean> {
     const pill = this.getThemePill(name);
     const classes = await pill.getAttribute('class');
-    return classes?.includes('active') ?? false;
+    return classes?.split(/\s+/).includes('active') ?? false;
   }
 }

@@ -171,7 +171,7 @@
                     class="quote-item"
                     class:highlighted={highlightedQuote === i}
                   >
-                    <span class="quote-score" style="color: {heatColor(score)}">{score}</span>
+                    <span class="quote-score" style="color: {heatColor(score)}" role="img" aria-label="Spiciness: {score} out of 10">{score}</span>
                     <p class="quote-text">{quote}</p>
                     <button
                       onclick={(e) => copyQuoteLink(i, e)}
