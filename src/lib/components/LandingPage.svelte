@@ -22,32 +22,27 @@
 
   // Random order stored once on mount
   let randomOrder: BlogCard[] = $state(blogs);
-  let ready = $state(false);
 
   let sortKey = $state<SortKey | null>(null);
   let sortDir = $state<SortDir>('desc');
 
   onMount(() => {
     randomOrder = shuffle(blogs);
-    ready = true;
   });
 
   function toggleSort(key: SortKey) {
+    const defaultDir: SortDir = key === 'name' ? 'asc' : 'desc';
+    const reverseDir: SortDir = defaultDir === 'asc' ? 'desc' : 'asc';
     if (sortKey === key) {
-      if (sortDir === 'desc') {
-        sortDir = 'asc';
+      if (sortDir === defaultDir) {
+        sortDir = reverseDir;
       } else {
-        // Already asc, go back to random
         sortKey = null;
       }
     } else {
       sortKey = key;
-      sortDir = key === 'name' ? 'asc' : 'desc';
+      sortDir = defaultDir;
     }
-  }
-
-  function spicyVal(blog: BlogCard): number {
-    return blogSpiciness[blog.id] ?? 0;
   }
 
   let visibleBlogs = $derived.by(() => {
@@ -65,7 +60,14 @@
         sorted.sort((a, b) => dir * (a.stats.quotes - b.stats.quotes));
         break;
       case 'spiciness':
-        sorted.sort((a, b) => dir * (spicyVal(a) - spicyVal(b)));
+        sorted.sort((a, b) => {
+          const av = blogSpiciness[a.id];
+          const bv = blogSpiciness[b.id];
+          if (av == null && bv == null) return 0;
+          if (av == null) return 1;
+          if (bv == null) return -1;
+          return dir * (av - bv);
+        });
         break;
     }
     return sorted;
@@ -146,12 +148,11 @@
         <span class="col-header col-arrow"></span>
       </div>
 
-      <div class="blog-list" class:revealed={ready}>
+      <div class="blog-list">
         {#each visibleBlogs as blog, i (blog.id)}
           <a
             href="https://{blog.subdomain}"
             class="blog-row"
-            style="--i: {i}"
           >
             <div class="row-col-name">
               <img
@@ -412,22 +413,6 @@
   .blog-list {
     display: flex;
     flex-direction: column;
-  }
-
-  .blog-list .blog-row {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  .blog-list.revealed .blog-row {
-    animation: row-in 0.3s ease-out forwards;
-    animation-delay: calc(var(--i) * 25ms);
-  }
-
-  @keyframes row-in {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .blog-row {

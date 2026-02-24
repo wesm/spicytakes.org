@@ -44,6 +44,7 @@ export interface ScraperConfig {
     | 'blogger'
     | 'caseymuratori'
     | 'daringfireball'
+    | 'ghost'
     | 'github_markdown'
     | 'hey_world'
     | 'hugo_homepage'

@@ -9,8 +9,13 @@ export function stripFrontmatter(content: string): string {
   return content;
 }
 
-/** Strip frontmatter and convert markdown body to HTML. */
+/** Strip raw HTML tags from markdown source to prevent XSS. */
+function stripHtmlTags(md: string): string {
+  return md.replace(/<\/?[a-zA-Z][^>]*>/g, '');
+}
+
+/** Strip frontmatter, sanitize, and convert markdown body to HTML. */
 export function renderMarkdown(rawContent: string): string {
-  const body = stripFrontmatter(rawContent);
+  const body = stripHtmlTags(stripFrontmatter(rawContent));
   return marked.parse(body, { async: false }) as string;
 }

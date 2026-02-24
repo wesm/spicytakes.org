@@ -58,7 +58,7 @@ export const load: PageServerLoad = async () => {
     const spicyLookup: Record<string, number> = {};
     for (const q of spicyData.quotes || []) {
       const key = JSON.stringify([q.quote, q.filename]);
-      spicyLookup[key] = q.spiciness || 5;
+      spicyLookup[key] = q.spiciness ?? 5;
     }
 
     for (const post of rawData.posts) {
@@ -93,7 +93,7 @@ export const load: PageServerLoad = async () => {
           quote: q,
           spiciness: spicyLookup[
             JSON.stringify([q, post.filename])
-          ] || 5,
+          ] ?? 5,
         })
       );
       const topQuotes = [...quotesWithSpiciness]

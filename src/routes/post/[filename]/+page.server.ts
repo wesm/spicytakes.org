@@ -48,8 +48,8 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     try {
       const raw = await readFile(mdPath, 'utf-8');
       transcriptHtml = renderMarkdown(raw);
-    } catch {
-      // File not found — leave transcriptHtml as null
+    } catch (err) {
+      if ((err as NodeJS.ErrnoException).code !== 'ENOENT') throw err;
     }
   }
 

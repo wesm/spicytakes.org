@@ -261,7 +261,7 @@
         </button>
 
         {#each Array.from({ length: totalPages }, (_, i) => i + 1) as page}
-          {#if page === 1 || page === totalPages || (page >= safePage - 1 && page <= safePage + 1)}
+          {#if totalPages <= 7 || page === 1 || page === totalPages || (page >= safePage - 1 && page <= safePage + 1)}
             <button
               class="page-btn"
               class:active={page === safePage}
@@ -299,6 +299,7 @@
 <style>
   /* ── Page shell ────────────────────────────────── */
   .feed-page {
+    --filter-bar-height: 49px;
     min-height: 100vh;
     background: linear-gradient(180deg, #fafaf9 0%, #fff 40%);
   }
@@ -520,7 +521,7 @@
 
   .month-header {
     position: sticky;
-    top: 49px; /* filter bar height */
+    top: var(--filter-bar-height);
     z-index: 10;
     display: flex;
     align-items: center;
@@ -817,6 +818,15 @@
     .filter-bar-inner {
       gap: 0.6rem;
       padding: 0.5rem 1rem;
+    }
+
+    .filter-bar-inner {
+      flex-wrap: wrap;
+    }
+
+    .filter-select {
+      max-width: 8rem;
+      text-overflow: ellipsis;
     }
 
     .filter-range {
