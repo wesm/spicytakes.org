@@ -205,7 +205,7 @@
 
                   <!-- Key Insight -->
                   {#if post.key_insight}
-                    <p class="post-insight"><strong>{post.key_insight}</strong></p>
+                    <p class="post-insight"><strong>Key Insight:</strong> {post.key_insight}</p>
                   {/if}
 
                   <!-- Summary -->
