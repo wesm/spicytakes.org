@@ -1,4 +1,4 @@
-import { marked } from 'marked';
+import { marked, type Tokens } from 'marked';
 
 /** Strip YAML frontmatter delimited by --- from raw markdown. */
 export function stripFrontmatter(content: string): string {
@@ -9,13 +9,44 @@ export function stripFrontmatter(content: string): string {
   return content;
 }
 
-/** Strip raw HTML tags from markdown source to prevent XSS. */
-function stripHtmlTags(md: string): string {
-  return md.replace(/<\/?[a-zA-Z][^>]*>/g, '');
+const SAFE_PROTOCOLS = /^(https?|mailto):/i;
+
+/** Override link/image rendering to block dangerous protocols. */
+const safeRenderer: Partial<marked.Renderer> = {
+  link({ href, title, tokens }: Tokens.Link) {
+    const text = this.parser.parseInline(tokens);
+    if (href && !SAFE_PROTOCOLS.test(href)) {
+      return text;
+    }
+    const titleAttr = title
+      ? ` title="${title.replace(/"/g, '&quot;')}"` : '';
+    return `<a href="${href}"${titleAttr}>${text}</a>`;
+  },
+  image({ href, title, text }: Tokens.Image) {
+    if (href && !SAFE_PROTOCOLS.test(href)) {
+      return text;
+    }
+    const titleAttr = title
+      ? ` title="${title.replace(/"/g, '&quot;')}"` : '';
+    const alt = text ? ` alt="${text.replace(/"/g, '&quot;')}"` : '';
+    return `<img src="${href}"${alt}${titleAttr} />`;
+  },
+};
+
+/** Strip dangerous HTML tags from rendered output. */
+function sanitizeHtml(html: string): string {
+  return html.replace(
+    /<\/?(script|style|iframe|object|embed|form|input|textarea|button|select|meta|link|base)\b[^>]*>/gi,
+    ''
+  );
 }
 
-/** Strip frontmatter, sanitize, and convert markdown body to HTML. */
+/** Strip frontmatter, parse markdown, and sanitize output. */
 export function renderMarkdown(rawContent: string): string {
-  const body = stripHtmlTags(stripFrontmatter(rawContent));
-  return marked.parse(body, { async: false }) as string;
+  const body = stripFrontmatter(rawContent);
+  const html = marked.parse(body, {
+    async: false,
+    renderer: safeRenderer as marked.Renderer,
+  }) as string;
+  return sanitizeHtml(html);
 }

@@ -132,6 +132,23 @@ export interface FeedPost {
   spicytakesUrl: string;
 }
 
+/** Heat color for individual post/quote spiciness (1-10 scale). */
+export function heatColor(spiciness: number): string {
+  if (spiciness >= 9) return '#dc2626';
+  if (spiciness >= 7) return '#ea580c';
+  if (spiciness >= 5) return '#d97706';
+  if (spiciness >= 3) return '#65a30d';
+  return '#16a34a';
+}
+
+/** Heat color for average spiciness (narrower range, no green). */
+export function heatColorCompact(spiciness: number): string {
+  if (spiciness >= 7) return '#dc2626';
+  if (spiciness >= 6) return '#ea580c';
+  if (spiciness >= 5) return '#d97706';
+  return '#78716c';
+}
+
 export function getSpicyLabel(spiciness: number): string {
   if (spiciness <= 3) return 'Mild';
   if (spiciness <= 5) return 'Moderate';

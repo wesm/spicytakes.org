@@ -154,7 +154,7 @@ test.describe('Filtering and Search', () => {
       const filteredCount = await blog.postCards.count();
 
       // Then reset to All Years
-      await blog.selectYear('All Years');
+      await blog.selectYear('All');
       await blog.page.waitForTimeout(100);
       const allCount = await blog.postCards.count();
 
@@ -188,7 +188,7 @@ test.describe('Filtering and Search', () => {
       const firstPill = blog.themePills.first();
 
       await firstPill.click();
-      await expect(firstPill).toHaveClass(/theme-pill-active/);
+      await expect(firstPill).toHaveClass(/\bactive\b/);
     });
 
     test('theme filter reduces results', async () => {
@@ -207,8 +207,8 @@ test.describe('Filtering and Search', () => {
         await pills.nth(0).click();
         await pills.nth(1).click();
 
-        await expect(pills.nth(0)).toHaveClass(/theme-pill-active/);
-        await expect(pills.nth(1)).toHaveClass(/theme-pill-active/);
+        await expect(pills.nth(0)).toHaveClass(/\bactive\b/);
+        await expect(pills.nth(1)).toHaveClass(/\bactive\b/);
       }
     });
 
@@ -232,7 +232,7 @@ test.describe('Filtering and Search', () => {
       await blog.page.waitForTimeout(100);
 
       // Theme should be deselected
-      await expect(blog.themePills.first()).not.toHaveClass(/theme-pill-active/);
+      await expect(blog.themePills.first()).not.toHaveClass(/\bactive\b/);
     });
   });
 
@@ -241,8 +241,8 @@ test.describe('Filtering and Search', () => {
       await blog.selectSort('Spiciest First');
       await blog.page.waitForTimeout(100);
 
-      // Check that year sections show "Top 5 Spiciest"
-      await expect(blog.page.locator('text="Top 5 Spiciest"').first()).toBeVisible();
+      // Check that year sections show "Top 5"
+      await expect(blog.page.locator('text="Top 5"').first()).toBeVisible();
     });
 
     test('can switch back to Chronological sorting', async () => {
@@ -261,7 +261,7 @@ test.describe('Filtering and Search', () => {
 
       await blog.selectSort('Spiciest First');
       await blog.page.waitForTimeout(100);
-      await expect(blog.page.locator('text="Top 5 Spiciest"').first()).toBeVisible();
+      await expect(blog.page.locator('text="Top 5"').first()).toBeVisible();
     });
   });
 
@@ -286,7 +286,7 @@ test.describe('Filtering and Search', () => {
 
       // Get a year dynamically from the dropdown
       const yearOptions = await blog.yearSelect.locator('option').allTextContents();
-      const specificYear = yearOptions.find(y => y !== 'All Years' && /^\d{4}$/.test(y));
+      const specificYear = yearOptions.find(y => y !== 'All' && /^\d{4}$/.test(y));
       expect(specificYear).toBeDefined();
 
       await blog.selectYear(specificYear!);

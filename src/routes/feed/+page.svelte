@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import type { PageData } from './$types';
-  import { getSpicyColor } from '$lib/types';
+  import { getSpicyColor, heatColor } from '$lib/types';
 
   let { data }: { data: PageData } = $props();
 
@@ -80,13 +80,6 @@
     return text.slice(0, max) + '\u2026';
   }
 
-  function heatColor(spiciness: number): string {
-    if (spiciness >= 9) return '#dc2626';
-    if (spiciness >= 7) return '#ea580c';
-    if (spiciness >= 5) return '#d97706';
-    if (spiciness >= 3) return '#65a30d';
-    return '#16a34a';
-  }
 
 </script>
 
@@ -822,6 +815,10 @@
 
     .filter-bar-inner {
       flex-wrap: wrap;
+    }
+
+    .feed-page {
+      --filter-bar-height: 85px;
     }
 
     .filter-select {

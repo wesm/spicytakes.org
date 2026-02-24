@@ -1,6 +1,6 @@
 <script lang="ts">
   import { activeThemes, activeView, themesStore } from '$lib/stores';
-  import type { ThemeData } from '$lib/types';
+  import { heatColorCompact, type ThemeData } from '$lib/types';
 
   function selectTheme(themeName: string) {
     activeThemes.set(new Set([themeName]));
@@ -19,12 +19,6 @@
     return Math.round(total / theme.quotes.length * 10) / 10;
   }
 
-  function heatColor(spiciness: number): string {
-    if (spiciness >= 7) return '#dc2626';
-    if (spiciness >= 6) return '#ea580c';
-    if (spiciness >= 5) return '#d97706';
-    return '#78716c';
-  }
 </script>
 
 <div class="themes-view">
@@ -45,7 +39,7 @@
           </div>
           <div class="card-avg">
             <span class="avg-label">Avg</span>
-            <span class="avg-value" style="color: {heatColor(avgSpice)}">{avgSpice}</span>
+            <span class="avg-value" style="color: {heatColorCompact(avgSpice)}">{avgSpice}</span>
           </div>
         </div>
 
@@ -53,7 +47,7 @@
           <span class="quotes-label">Top Spicy Takes</span>
           {#each topSpicy as q}
             <div class="mini-quote">
-              <span class="mini-score" style="color: {heatColor(q.spiciness)}">{q.spiciness}</span>
+              <span class="mini-score" style="color: {heatColorCompact(q.spiciness)}">{q.spiciness}</span>
               <p class="mini-text">{q.quote}</p>
             </div>
           {/each}

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { selectedPost } from '$lib/stores';
+  import { heatColor } from '$lib/types';
   import { THEME_LABELS, getSourceUrl, getSourceLabel, config, formatDate } from '$lib/config';
 
   function close() {
@@ -8,14 +9,6 @@
 
   function handleKeydown(e: KeyboardEvent) {
     if (e.key === 'Escape') close();
-  }
-
-  function heatColor(spiciness: number): string {
-    if (spiciness >= 9) return '#dc2626';
-    if (spiciness >= 7) return '#ea580c';
-    if (spiciness >= 5) return '#d97706';
-    if (spiciness >= 3) return '#65a30d';
-    return '#16a34a';
   }
 </script>
 
@@ -71,7 +64,7 @@
               {/if}
             </div>
             {#if $selectedPost.spiciness != null}
-              <span class="spiciness-badge" style="color: {heatColor($selectedPost.spiciness)}">
+              <span class="spiciness-badge" style="color: {heatColor($selectedPost.spiciness)}" role="img" aria-label="Spiciness: {$selectedPost.spiciness} out of 10">
                 {$selectedPost.spiciness}
               </span>
             {/if}

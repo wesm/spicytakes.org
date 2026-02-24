@@ -39,9 +39,9 @@ export class BlogPage extends BasePage {
     this.themePills = page.locator('button.theme-pill');
     this.clearFiltersButton = page.locator('button:has-text("Clear filters")');
 
-    // View tabs - locate by emoji + text
+    // View tabs
     this.postsTab = page.locator('nav button:has-text("Posts")');
-    this.quotesTab = page.locator('nav button:has-text("Spicy Quotes")');
+    this.quotesTab = page.locator('nav button:has-text("Quotes")');
     this.themesTab = page.locator('nav button:has-text("Themes")');
 
     // Stats in the stats bar
@@ -50,9 +50,9 @@ export class BlogPage extends BasePage {
 
     // View controls (shared between Posts and Quotes views)
     this.sortSelect = page.locator('select').filter({ has: page.locator('option:has-text("Chronological")') });
-    this.yearSelect = page.locator('select').filter({ has: page.locator('option:has-text("All Years")') });
+    this.yearSelect = page.locator('select').filter({ has: page.locator('option[value="all"]') });
     this.spicySlider = page.locator('input[type="range"]');
-    this.displayCount = page.locator('.ml-auto.text-sm.text-stone-500');
+    this.displayCount = page.locator('.control-count');
 
     // Content cards
     this.postCards = page.locator('button:has(h4)');
@@ -126,6 +126,6 @@ export class BlogPage extends BasePage {
   async isThemeActive(name: string): Promise<boolean> {
     const pill = this.getThemePill(name);
     const classes = await pill.getAttribute('class');
-    return classes?.includes('theme-pill-active') ?? false;
+    return classes?.includes('active') ?? false;
   }
 }

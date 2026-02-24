@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { landing } from '$lib/config';
-  import type { BlogCard } from '$lib/types';
+  import { heatColorCompact, type BlogCard } from '$lib/types';
 
   let { blogSpiciness }: { blogSpiciness: Record<string, number | null> } = $props();
 
@@ -73,12 +73,6 @@
     return sorted;
   });
 
-  function heatColor(spiciness: number): string {
-    if (spiciness >= 7) return '#dc2626';
-    if (spiciness >= 6) return '#ea580c';
-    if (spiciness >= 5) return '#d97706';
-    return '#78716c';
-  }
 
   const totalPosts = blogs.reduce((s, b) => s + b.stats.posts, 0);
   const totalQuotes = blogs.reduce((s, b) => s + b.stats.quotes, 0);
@@ -171,7 +165,7 @@
             <span class="row-col-quotes">{blog.stats.quotes.toLocaleString()}</span>
             <span class="row-col-spicy">
               {#if blogSpiciness[blog.id] != null}
-                <span class="spicy-val" style="color: {heatColor(blogSpiciness[blog.id]!)}">{blogSpiciness[blog.id]}</span>
+                <span class="spicy-val" style="color: {heatColorCompact(blogSpiciness[blog.id]!)}">{blogSpiciness[blog.id]}</span>
               {:else}
                 <span class="spicy-val" style="color: #d6d3d1">—</span>
               {/if}

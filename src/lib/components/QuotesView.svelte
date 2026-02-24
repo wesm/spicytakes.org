@@ -2,7 +2,7 @@
   import { filteredQuotes, selectedPost, yearsStore } from '$lib/stores';
   import { filterQuotes } from '$lib/filter';
   import { formatDate } from '$lib/config';
-  import type { Quote } from '$lib/types';
+  import { heatColor, type Quote } from '$lib/types';
 
   let sortBy = $state<'date' | 'spiciness'>('date');
   let selectedYear = $state<number | null | 'all'>('all');
@@ -38,13 +38,7 @@
     return result;
   });
 
-  function heatColor(spiciness: number): string {
-    if (spiciness >= 9) return '#dc2626';
-    if (spiciness >= 7) return '#ea580c';
-    if (spiciness >= 5) return '#d97706';
-    if (spiciness >= 3) return '#65a30d';
-    return '#16a34a';
-  }
+
 </script>
 
 <div class="quotes-view">
@@ -100,7 +94,7 @@
       {#if yearSpicy && yearSpicy.length > 0}
         <section class="year-section">
           <div class="year-header">
-            <span class="year-label">{year === null ? 'Undated' : year}</span>
+            <h3 class="year-label">{year === null ? 'Undated' : year}</h3>
             <span class="year-badge">Top 5</span>
           </div>
           <div class="quote-list">
