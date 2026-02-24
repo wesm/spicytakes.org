@@ -33,6 +33,7 @@ class SubstackScraper(BaseScraper):
 
         self.substack_url = self.config["scraper"]["substackUrl"]
         self.urls_file = self.data_dir / "post_urls.json"
+        self.min_words = self.config["scraper"].get("minWords", 0)
         exclude_file = self.config["scraper"].get("excludeSlugsFile", "data/excluded_slugs.txt")
         if Path(exclude_file).is_absolute():
             self.exclude_slugs_file = Path(exclude_file)
@@ -362,6 +363,9 @@ class SubstackScraper(BaseScraper):
             print(f"[{i+1}/{len(urls_to_scrape)}] {url}")
 
             post = self.fetch_post(url)
+            if post and self.min_words > 0 and post["word_count"] < self.min_words:
+                print(f"  Skipping (only {post['word_count']} words, min {self.min_words}): {post['title']}")
+                post = None
             if post:
                 # Create filename from date and slug
                 if post["date"]:
