@@ -17,11 +17,10 @@ export class AnalyticsPage extends BasePage {
     this.loadingIndicator = page.locator('text=Loading');
     this.errorMessage = page.locator('text=/Error:/');
     this.vegaChart = page.locator('svg.marks');
-    // Use the parent container of the h2 for these sections
-    this.authorLeaderboard = page.locator('.bg-white.rounded-xl:has(h2:has-text("Leaderboard"))');
-    this.quotesTable = page.locator('.bg-white.rounded-xl:has(h2:has-text("Spiciest Quotes"))');
-    this.resetFilterButton = page.locator('button:has-text("Reset")');
-    this.yearFilter = page.locator('span.bg-red-100');
+    this.authorLeaderboard = page.locator('.leaderboard-panel');
+    this.quotesTable = page.locator('.quotes-panel');
+    this.resetFilterButton = page.locator('button.reset-btn');
+    this.yearFilter = page.locator('span.filter-badge');
   }
 
   async goto() {
@@ -38,7 +37,7 @@ export class AnalyticsPage extends BasePage {
   }
 
   async getQuoteCount(): Promise<number> {
-    return await this.quotesTable.locator('div.rounded-full:has-text("🌶️")').count();
+    return await this.quotesTable.locator('.quote-row').count();
   }
 
   async hasResetButton(): Promise<boolean> {

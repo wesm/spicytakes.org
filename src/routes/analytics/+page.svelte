@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
+  import { heatColor } from '$lib/types';
   import {
     initDuckDB,
     getYearlyStats,
@@ -8,7 +9,6 @@
     getTopQuotes,
     getAuthorStats,
     getOverallStats,
-    getQuotesForYear,
     getFilteredQuotes
   } from '$lib/duckdb';
   import embed from 'vega-embed';
@@ -72,8 +72,12 @@
 
   // Filter state
   let selectedYear = $state<number | null>(null);
-  let selectedMonth = $state<{ year: number; month: number } | null>(null);
-  let selectedAuthor = $state<{ id: string; name: string } | null>(null);
+  let selectedMonth = $state<{
+    year: number; month: number
+  } | null>(null);
+  let selectedAuthor = $state<{
+    id: string; name: string
+  } | null>(null);
   let loadingData = $state(false);
 
   // Chart mode toggle
@@ -90,68 +94,71 @@
   let isMobile = $state(false);
   let resizeObserver: ResizeObserver | null = null;
 
-  // Debounced resize handler
   let resizeTimeout: ReturnType<typeof setTimeout> | null = null;
   function handleResize() {
     if (resizeTimeout) clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
       const wasMobile = isMobile;
       isMobile = window.innerWidth < 768;
-      // Force re-render even within same breakpoint for width changes
-      const data = chartMode === 'monthly' ? displayedMonthlyStats : displayedYearlyStats;
-      if (wasMobile === isMobile && data.length > 0 && chartContainer) {
+      const data = chartMode === 'monthly'
+        ? displayedMonthlyStats : displayedYearlyStats;
+      if (wasMobile === isMobile
+        && data.length > 0 && chartContainer) {
         renderChart(isMobile);
       }
     }, 100);
   }
 
-  // Build permalink to author's spicytakes site
   function getPermalink(quote: Quote): string {
-    const filename = quote.post_filename?.replace('.md', '') || '';
+    const filename =
+      quote.post_filename?.replace('.md', '') || '';
     return `https://${quote.author_id}.spicytakes.org/post/${filename}`;
   }
 
-  // Month name helper
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const monthNames = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ];
 
-  // Refresh chart data based on current mode and author filter
   async function refreshChartData() {
     try {
       const authorId = selectedAuthor?.id;
       if (chartMode === 'monthly') {
-        displayedMonthlyStats = await getMonthlyStats(authorId);
+        displayedMonthlyStats =
+          await getMonthlyStats(authorId);
       } else {
-        displayedYearlyStats = authorId ? await getYearlyStats(authorId) : yearlyStats;
+        displayedYearlyStats = authorId
+          ? await getYearlyStats(authorId) : yearlyStats;
       }
     } catch (e) {
       console.error('Failed to refresh chart data:', e);
     }
   }
 
-  // Render Vega-Lite chart when data is ready
   async function renderChart(mobile: boolean = false) {
     if (!chartContainer) return;
 
     const isMonthly = chartMode === 'monthly';
-    const sourceData = isMonthly ? displayedMonthlyStats : displayedYearlyStats;
+    const sourceData = isMonthly
+      ? displayedMonthlyStats : displayedYearlyStats;
     if (sourceData.length === 0) return;
 
-    // Increment render token to track this render
     const thisRender = ++renderToken;
 
-    // Finalize previous view to prevent memory leaks and stacked handlers
     if (currentView) {
       currentView.finalize();
       currentView = null;
     }
 
-    // Hover highlight parameter
     const hoverParam = {
       name: 'hover',
-      select: { type: 'point', on: 'pointerover', clear: 'pointerout' }
+      select: {
+        type: 'point',
+        on: 'pointerover',
+        clear: 'pointerout'
+      }
     };
 
-    // Common encoding properties
     const colorEncoding = {
       condition: {
         test: 'datum.isSelected',
@@ -159,7 +166,7 @@
         type: 'quantitative',
         scale: {
           domain: [3, 5, 7, 10],
-          range: ['#22c55e', '#eab308', '#f97316', '#ef4444']
+          range: ['#16a34a', '#d97706', '#ea580c', '#dc2626']
         },
         legend: null
       },
@@ -175,19 +182,22 @@
     };
 
     const strokeWidthEncoding = {
-      condition: { param: 'hover', empty: false, value: 1.5 },
+      condition: {
+        param: 'hover', empty: false, value: 1.5
+      },
       value: 0
     };
 
     const strokeEncoding = {
-      condition: { param: 'hover', empty: false, value: '#78716c' },
+      condition: {
+        param: 'hover', empty: false, value: '#78716c'
+      },
       value: null
     };
 
     let spec: any;
 
     if (isMonthly) {
-      // Monthly view — selection is by individual month
       const selectedSortKey = selectedMonth
         ? selectedMonth.year * 100 + selectedMonth.month
         : null;
@@ -198,21 +208,31 @@
           ...d,
           label: `${monthNames[d.month - 1]} ${d.year}`,
           sortKey,
-          isSelected: selectedSortKey === null || sortKey === selectedSortKey
+          isSelected:
+            selectedSortKey === null
+            || sortKey === selectedSortKey
         };
       });
 
       const tooltipEncoding = [
         { field: 'label', title: 'Month' },
-        { field: 'avg_spiciness', title: 'Avg Spiciness', format: '.1f' },
-        { field: 'quote_count', title: 'Quotes', format: ',' }
+        {
+          field: 'avg_spiciness',
+          title: 'Avg Spiciness', format: '.1f'
+        },
+        {
+          field: 'quote_count',
+          title: 'Quotes', format: ','
+        }
       ];
 
-      // Only show year label at January entries to avoid crowding
-      const yearBoundaryLabelExpr = "slice(datum.value, 0, 3) === 'Jan' ? slice(datum.value, 4) : ''";
+      const yearBoundaryLabelExpr =
+        "slice(datum.value, 0, 3) === 'Jan'"
+        + " ? slice(datum.value, 4) : ''";
 
       spec = mobile ? {
-        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        $schema:
+          'https://vega.github.io/schema/vega-lite/v5.json',
         data: { values: monthlyData },
         params: [hoverParam],
         width: 'container',
@@ -225,12 +245,12 @@
         },
         encoding: {
           y: {
-            field: 'label',
-            type: 'ordinal',
-            sort: { field: 'sortKey', order: 'descending' },
+            field: 'label', type: 'ordinal',
+            sort: {
+              field: 'sortKey', order: 'descending'
+            },
             axis: {
-              title: null,
-              labelFontSize: 10,
+              title: null, labelFontSize: 10,
               labelExpr: yearBoundaryLabelExpr
             }
           },
@@ -238,7 +258,9 @@
             field: 'avg_spiciness',
             type: 'quantitative',
             scale: { domain: [0, 10] },
-            axis: { title: null, grid: true, gridDash: [2, 2] }
+            axis: {
+              title: null, grid: true, gridDash: [2, 2]
+            }
           },
           color: colorEncoding,
           opacity: opacityEncoding,
@@ -248,11 +270,15 @@
         },
         config: {
           view: { stroke: null },
-          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          axis: {
+            domainColor: '#d6d3d1',
+            tickColor: '#d6d3d1'
+          },
           background: 'transparent'
         }
       } : {
-        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        $schema:
+          'https://vega.github.io/schema/vega-lite/v5.json',
         data: { values: monthlyData },
         params: [hoverParam],
         width: 'container',
@@ -265,12 +291,10 @@
         },
         encoding: {
           x: {
-            field: 'label',
-            type: 'ordinal',
+            field: 'label', type: 'ordinal',
             sort: { field: 'sortKey' },
             axis: {
-              title: null,
-              labelAngle: 0,
+              title: null, labelAngle: 0,
               labelFontSize: 10,
               labelExpr: yearBoundaryLabelExpr
             }
@@ -279,7 +303,9 @@
             field: 'avg_spiciness',
             type: 'quantitative',
             scale: { domain: [0, 10] },
-            axis: { title: null, grid: true, gridDash: [2, 2] }
+            axis: {
+              title: null, grid: true, gridDash: [2, 2]
+            }
           },
           color: colorEncoding,
           opacity: opacityEncoding,
@@ -289,29 +315,42 @@
         },
         config: {
           view: { stroke: null },
-          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          axis: {
+            domainColor: '#d6d3d1',
+            tickColor: '#d6d3d1'
+          },
           background: 'transparent'
         }
       };
     } else {
-      // Yearly view
-      const dataWithSelection = displayedYearlyStats.map(d => ({
-        ...d,
-        isSelected: selectedYear === null || d.year === selectedYear
-      }));
+      const dataWithSelection =
+        displayedYearlyStats.map(d => ({
+          ...d,
+          isSelected:
+            selectedYear === null || d.year === selectedYear
+        }));
 
       const tooltipEncoding = [
         { field: 'year', title: 'Year' },
-        { field: 'avg_spiciness', title: 'Avg Spiciness', format: '.1f' },
-        { field: 'quote_count', title: 'Quotes', format: ',' }
+        {
+          field: 'avg_spiciness',
+          title: 'Avg Spiciness', format: '.1f'
+        },
+        {
+          field: 'quote_count',
+          title: 'Quotes', format: ','
+        }
       ];
 
       spec = mobile ? {
-        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        $schema:
+          'https://vega.github.io/schema/vega-lite/v5.json',
         data: { values: dataWithSelection },
         params: [hoverParam],
         width: 'container',
-        height: Math.max(400, displayedYearlyStats.length * 20),
+        height: Math.max(
+          400, displayedYearlyStats.length * 20
+        ),
         mark: {
           type: 'bar',
           cornerRadiusBottomRight: 3,
@@ -320,8 +359,7 @@
         },
         encoding: {
           y: {
-            field: 'year',
-            type: 'ordinal',
+            field: 'year', type: 'ordinal',
             sort: 'descending',
             axis: { title: null, labelFontSize: 11 }
           },
@@ -329,7 +367,9 @@
             field: 'avg_spiciness',
             type: 'quantitative',
             scale: { domain: [0, 10] },
-            axis: { title: null, grid: true, gridDash: [2, 2] }
+            axis: {
+              title: null, grid: true, gridDash: [2, 2]
+            }
           },
           color: colorEncoding,
           opacity: opacityEncoding,
@@ -339,11 +379,15 @@
         },
         config: {
           view: { stroke: null },
-          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          axis: {
+            domainColor: '#d6d3d1',
+            tickColor: '#d6d3d1'
+          },
           background: 'transparent'
         }
       } : {
-        $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+        $schema:
+          'https://vega.github.io/schema/vega-lite/v5.json',
         data: { values: dataWithSelection },
         params: [hoverParam],
         width: 'container',
@@ -356,15 +400,19 @@
         },
         encoding: {
           x: {
-            field: 'year',
-            type: 'ordinal',
-            axis: { title: null, labelAngle: -45, labelFontSize: 10 }
+            field: 'year', type: 'ordinal',
+            axis: {
+              title: null, labelAngle: -45,
+              labelFontSize: 10
+            }
           },
           y: {
             field: 'avg_spiciness',
             type: 'quantitative',
             scale: { domain: [0, 10] },
-            axis: { title: null, grid: true, gridDash: [2, 2] }
+            axis: {
+              title: null, grid: true, gridDash: [2, 2]
+            }
           },
           color: colorEncoding,
           opacity: opacityEncoding,
@@ -374,18 +422,20 @@
         },
         config: {
           view: { stroke: null },
-          axis: { domainColor: '#d6d3d1', tickColor: '#d6d3d1' },
+          axis: {
+            domainColor: '#d6d3d1',
+            tickColor: '#d6d3d1'
+          },
           background: 'transparent'
         }
       };
     }
 
-    const result = await embed(chartContainer, spec as any, {
-      actions: false,
-      renderer: 'svg'
-    });
+    const result = await embed(
+      chartContainer, spec as any,
+      { actions: false, renderer: 'svg' }
+    );
 
-    // Check if this render is still current (prevents race conditions)
     if (thisRender !== renderToken) {
       result.view.finalize();
       return;
@@ -393,21 +443,22 @@
 
     currentView = result.view;
 
-    // Handle click events — dispatch to month or year handler
-    result.view.addEventListener('click', (_event: any, item: any) => {
-      if (!item?.datum) return;
-      if (isMonthly && item.datum.year && item.datum.month) {
-        handleMonthClick(item.datum.year, item.datum.month);
-      } else if (item.datum.year) {
-        handleYearClick(item.datum.year);
+    result.view.addEventListener(
+      'click', (_event: any, item: any) => {
+        if (!item?.datum) return;
+        if (isMonthly
+          && item.datum.year && item.datum.month) {
+          handleMonthClick(
+            item.datum.year, item.datum.month
+          );
+        } else if (item.datum.year) {
+          handleYearClick(item.datum.year);
+        }
       }
-    });
+    );
   }
 
-  // Re-render chart when data, selection, or screen size changes
   $effect(() => {
-    // Svelte 5 runes require reading reactive state to establish dependencies.
-    // These variables appear unused but are necessary - removing them breaks reactivity.
     const _yearly = displayedYearlyStats;
     const _monthly = displayedMonthlyStats;
     const _mode = chartMode;
@@ -415,35 +466,31 @@
     const _month = selectedMonth;
     const _mobile = isMobile;
 
-    const data = _mode === 'monthly' ? _monthly : _yearly;
+    const data = _mode === 'monthly'
+      ? _monthly : _yearly;
     if (chartContainer && data.length > 0) {
       renderChart(_mobile);
     }
   });
 
-  // Load data on mount
   onMount(async () => {
-    // Set up responsive detection
     isMobile = window.innerWidth < 768;
     window.addEventListener('resize', handleResize);
 
-    // Set up ResizeObserver on chart container for width-based re-renders
     resizeObserver = new ResizeObserver(() => {
-      if (yearlyStats.length > 0) {
-        handleResize();
-      }
+      if (yearlyStats.length > 0) handleResize();
     });
 
     try {
       await initDuckDB();
 
-      // Load all data in parallel
-      const [yearly, quotes, authors, overall] = await Promise.all([
-        getYearlyStats(),
-        getTopQuotes(100),
-        getAuthorStats(),
-        getOverallStats()
-      ]);
+      const [yearly, quotes, authors, overall] =
+        await Promise.all([
+          getYearlyStats(),
+          getTopQuotes(100),
+          getAuthorStats(),
+          getOverallStats()
+        ]);
 
       yearlyStats = yearly;
       displayedYearlyStats = yearly;
@@ -454,12 +501,12 @@
       overallStats = overall;
       loading = false;
 
-      // Start observing chart container after data loads
       if (chartContainer) {
         resizeObserver?.observe(chartContainer);
       }
     } catch (e) {
-      error = e instanceof Error ? e.message : 'Failed to load analytics';
+      error = e instanceof Error
+        ? e.message : 'Failed to load analytics';
       loading = false;
     }
 
@@ -467,24 +514,21 @@
       window.removeEventListener('resize', handleResize);
       if (resizeTimeout) clearTimeout(resizeTimeout);
       resizeObserver?.disconnect();
-      if (currentView) {
-        currentView.finalize();
-      }
+      if (currentView) currentView.finalize();
     };
   });
 
-  // Refresh displayed quotes based on current filters
   async function refreshQuotes() {
     loadingData = true;
     try {
-      if (!selectedYear && !selectedMonth && !selectedAuthor) {
-        // No filters - use cached all-time data
+      if (!selectedYear
+        && !selectedMonth && !selectedAuthor) {
         displayedQuotes = allTimeQuotes;
       } else {
-        // Apply filters
         displayedQuotes = await getFilteredQuotes({
           authorId: selectedAuthor?.id,
-          year: selectedMonth?.year ?? selectedYear ?? undefined,
+          year: selectedMonth?.year
+            ?? selectedYear ?? undefined,
           month: selectedMonth?.month,
           limit: 100
         });
@@ -495,7 +539,6 @@
     loadingData = false;
   }
 
-  // Handle year click (yearly chart mode)
   async function handleYearClick(year: number) {
     if (selectedYear === year) {
       selectedYear = null;
@@ -506,7 +549,8 @@
 
     loadingData = true;
     try {
-      displayedAuthorStats = await getAuthorStats(selectedYear ?? undefined);
+      displayedAuthorStats =
+        await getAuthorStats(selectedYear ?? undefined);
       await refreshQuotes();
     } catch (e) {
       console.error('Failed to load year data:', e);
@@ -514,9 +558,11 @@
     loadingData = false;
   }
 
-  // Handle month click (monthly chart mode)
-  async function handleMonthClick(year: number, month: number) {
-    if (selectedMonth?.year === year && selectedMonth?.month === month) {
+  async function handleMonthClick(
+    year: number, month: number
+  ) {
+    if (selectedMonth?.year === year
+      && selectedMonth?.month === month) {
       selectedMonth = null;
       selectedYear = null;
     } else {
@@ -526,7 +572,8 @@
 
     loadingData = true;
     try {
-      displayedAuthorStats = await getAuthorStats(selectedYear ?? undefined);
+      displayedAuthorStats =
+        await getAuthorStats(selectedYear ?? undefined);
       await refreshQuotes();
     } catch (e) {
       console.error('Failed to load month data:', e);
@@ -534,19 +581,19 @@
     loadingData = false;
   }
 
-  // Handle author click for filtering
-  async function handleAuthorClick(authorId: string, authorName: string) {
+  async function handleAuthorClick(
+    authorId: string, authorName: string
+  ) {
     if (selectedAuthor?.id === authorId) {
-      // Toggle off - remove just author filter
       selectedAuthor = null;
     } else {
       selectedAuthor = { id: authorId, name: authorName };
     }
-
-    await Promise.all([refreshChartData(), refreshQuotes()]);
+    await Promise.all([
+      refreshChartData(), refreshQuotes()
+    ]);
   }
 
-  // Reset filter to show all time
   async function resetFilter() {
     selectedYear = null;
     selectedMonth = null;
@@ -556,146 +603,126 @@
     displayedAuthorStats = allTimeAuthorStats;
     if (chartMode === 'monthly') {
       try {
-        displayedMonthlyStats = await getMonthlyStats();
+        displayedMonthlyStats =
+          await getMonthlyStats();
       } catch (e) {
-        console.error('Failed to refresh monthly stats:', e);
-        // Clear stale stats on failure so the UI shows an empty state
+        console.error(
+          'Failed to refresh monthly stats:', e
+        );
         displayedMonthlyStats = [];
       }
     }
   }
-
-  // Spiciness badge color (light background, dark text) - matches sub-site
-  function getSpicyBadgeColor(spiciness: number): string {
-    if (spiciness >= 10) return 'bg-red-200 text-red-800';
-    if (spiciness >= 8) return 'bg-red-100 text-red-700';
-    if (spiciness >= 6) return 'bg-orange-100 text-orange-700';
-    if (spiciness >= 4) return 'bg-yellow-100 text-yellow-700';
-    return 'bg-green-100 text-green-700';
-  }
-
-  function getSpicyTextColor(spiciness: number): string {
-    if (spiciness >= 8) return 'text-red-600';
-    if (spiciness >= 6) return 'text-orange-600';
-    if (spiciness >= 4) return 'text-yellow-600';
-    return 'text-green-600';
-  }
 </script>
 
 <svelte:head>
-  <title>Spicy Takes Analytics</title>
+  <title>Spicy Analytics</title>
   <meta name="description" content="Analytics dashboard for spicy takes across tech blogs" />
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+<div class="analytics-page">
   <!-- Header -->
-  <header class="pt-8 pb-6 px-6 text-center border-b border-stone-200">
-    <div class="max-w-5xl mx-auto">
-      <a href="{base}/" class="inline-block mb-3 text-stone-500 hover:text-stone-700 text-sm">
-        ← Back to Spicy Takes
+  <header class="page-header">
+    <div class="header-inner">
+      <a href="{base}/" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+        Back to Spicy Takes
       </a>
-      <h1 class="text-3xl md:text-4xl font-bold text-stone-900 mb-2">
-        🌶️ Spicy Analytics
-      </h1>
-      <p class="text-stone-600">
+      <h1 class="page-title">Spicy Analytics</h1>
+      <p class="page-subtitle">
         {overallStats?.total_quotes?.toLocaleString() ?? '...'} quotes across {overallStats?.total_authors ?? '...'} authors
       </p>
     </div>
   </header>
 
   {#if loading}
-    <div class="flex items-center justify-center py-32">
-      <p class="text-stone-500">Loading...</p>
+    <div class="loading-state">
+      <p>Loading analytics...</p>
     </div>
   {:else if error}
-    <div class="max-w-2xl mx-auto px-6 py-16 text-center">
-      <p class="text-red-600 font-medium">Error: {error}</p>
+    <div class="error-state">
+      <p>Error: {error}</p>
     </div>
   {:else}
-    <main class="max-w-6xl mx-auto px-6 py-8">
+    <main class="page-main">
 
-      <!-- Top row: Bar chart + Leaderboard side by side -->
-      <div class="grid lg:grid-cols-3 gap-6 mb-8">
-        <!-- Bar Chart (2/3 width) -->
-        <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-stone-200 p-4">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-2">
-              <h2 class="text-lg font-semibold text-stone-900">Spiciness</h2>
+      <!-- Top row: Chart + Leaderboard -->
+      <div class="top-row">
+        <!-- Bar Chart -->
+        <div class="chart-panel">
+          <div class="panel-header">
+            <div class="panel-title-row">
+              <h2 class="panel-title">Spiciness</h2>
               {#if selectedAuthor}
-                <span class="px-2 py-0.5 bg-orange-100 text-orange-700 text-sm font-medium rounded-lg flex items-center gap-1">
+                <span class="filter-badge author">
                   {selectedAuthor.name}
                   <button
                     onclick={() => handleAuthorClick(selectedAuthor!.id, selectedAuthor!.name)}
-                    class="ml-0.5 hover:text-orange-900"
+                    class="badge-dismiss"
                     title="Remove author filter"
-                  >×</button>
+                  >x</button>
                 </span>
               {/if}
             </div>
-            <div class="flex items-center rounded-lg border border-stone-200 text-sm overflow-hidden">
+            <div class="mode-toggle">
               <button
                 onclick={async () => { chartMode = 'yearly'; selectedMonth = null; await refreshChartData(); }}
-                class="px-3 py-1 transition-colors {chartMode === 'yearly' ? 'bg-stone-800 text-white' : 'text-stone-500 hover:bg-stone-100'}"
-              >
-                Yearly
-              </button>
+                class="mode-btn"
+                class:active={chartMode === 'yearly'}
+              >Yearly</button>
               <button
                 onclick={async () => { chartMode = 'monthly'; selectedYear = null; selectedMonth = null; await refreshChartData(); }}
-                class="px-3 py-1 transition-colors {chartMode === 'monthly' ? 'bg-stone-800 text-white' : 'text-stone-500 hover:bg-stone-100'}"
-              >
-                Monthly
-              </button>
+                class="mode-btn"
+                class:active={chartMode === 'monthly'}
+              >Monthly</button>
             </div>
           </div>
-          <div bind:this={chartContainer} class="w-full"></div>
-          <p class="text-xs text-stone-400 mt-2">Click a bar to filter quotes</p>
+          <div bind:this={chartContainer} class="chart-container"></div>
+          <p class="chart-hint">Click a bar to filter quotes</p>
         </div>
 
-        <!-- Author Leaderboard (1/3 width) -->
-        <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
-          <div class="px-4 py-3 border-b border-stone-100 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <h2 class="text-lg font-semibold text-stone-900">👑 Leaderboard</h2>
-              <span class="text-xs text-stone-400">(Click to filter)</span>
+        <!-- Author Leaderboard -->
+        <div class="leaderboard-panel">
+          <div class="panel-header leaderboard-header">
+            <div class="panel-title-row">
+              <h2 class="panel-title">Leaderboard</h2>
+              <span class="panel-hint">Click to filter</span>
             </div>
             {#if selectedYear}
-              <span class="text-xs text-stone-400">{selectedYear}</span>
+              <span class="year-indicator">{selectedYear}</span>
             {/if}
           </div>
-          <div class="max-h-64 overflow-y-auto">
-            <table class="w-full text-sm">
-              <thead class="bg-stone-50 border-b border-stone-100 sticky top-0">
-                <tr class="text-xs text-stone-500">
-                  <th class="px-2 py-1.5 text-left w-8"></th>
-                  <th class="py-1.5 text-left">Author</th>
-                  <th class="px-2 py-1.5 text-right">Avg</th>
-                  <th class="px-2 py-1.5 text-right">#</th>
+          <div class="leaderboard-scroll">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th class="col-rank"></th>
+                  <th class="col-name">Author</th>
+                  <th class="col-avg">Avg</th>
+                  <th class="col-count">#</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-stone-100">
+              <tbody>
                 {#each displayedAuthorStats as author, i}
                   <tr
-                    class="cursor-pointer transition-colors {selectedAuthor?.id === author.author_id ? 'bg-red-50' : 'hover:bg-stone-50'}"
+                    class="author-row"
+                    class:selected={selectedAuthor?.id === author.author_id}
                     onclick={() => handleAuthorClick(author.author_id, author.author_name)}
                   >
-                    <td class="px-2 py-1.5 w-8">
+                    <td class="col-rank">
                       {#if i < 3}
-                        <span class="text-sm">{['🥇', '🥈', '🥉'][i]}</span>
+                        <span class="rank-medal">{i + 1}</span>
                       {:else}
-                        <span class="text-stone-400 text-xs">{i + 1}</span>
+                        <span class="rank-num">{i + 1}</span>
                       {/if}
                     </td>
-                    <td class="py-1.5">
-                      <span class="text-stone-800 font-medium text-sm {selectedAuthor?.id === author.author_id ? 'text-red-700' : 'hover:text-red-600'}">
-                        {author.author_name}
-                      </span>
+                    <td class="col-name">
+                      <span class="author-name">{author.author_name}</span>
                     </td>
-                    <td class="px-2 py-1.5 text-right">
-                      <span class="font-semibold {getSpicyTextColor(author.avg_spiciness)}">{author.avg_spiciness}</span>
+                    <td class="col-avg">
+                      <span class="avg-score" style="color: {heatColor(author.avg_spiciness)}">{author.avg_spiciness}</span>
                     </td>
-                    <td class="px-2 py-1.5 text-right text-stone-400 text-xs">
-                      {author.quote_count}
-                    </td>
+                    <td class="col-count">{author.quote_count}</td>
                   </tr>
                 {/each}
               </tbody>
@@ -705,83 +732,64 @@
       </div>
 
       <!-- Quotes Table -->
-      <div class="bg-white rounded-xl shadow-sm border border-stone-200">
-        <!-- Header with filter status -->
-        <div class="px-4 py-3 border-b border-stone-200 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <h2 class="text-lg font-semibold text-stone-900">
-              🔥 Spiciest Quotes
-            </h2>
+      <div class="quotes-panel">
+        <div class="panel-header quotes-header">
+          <div class="panel-title-row">
+            <h2 class="panel-title">Spiciest Quotes</h2>
             {#if selectedMonth}
-              <span class="px-2 py-1 bg-red-100 text-red-700 text-sm font-medium rounded-lg">
+              <span class="filter-badge time">
                 {monthNames[selectedMonth.month - 1]} {selectedMonth.year}
               </span>
             {:else if selectedYear}
-              <span class="px-2 py-1 bg-red-100 text-red-700 text-sm font-medium rounded-lg">
-                {selectedYear}
-              </span>
+              <span class="filter-badge time">{selectedYear}</span>
             {/if}
             {#if selectedAuthor}
-              <span class="px-2 py-1 bg-orange-100 text-orange-700 text-sm font-medium rounded-lg">
-                {selectedAuthor.name}
-              </span>
+              <span class="filter-badge author">{selectedAuthor.name}</span>
             {/if}
             {#if selectedYear || selectedMonth || selectedAuthor}
-              <button
-                onclick={resetFilter}
-                class="text-sm text-stone-500 hover:text-stone-700 underline"
-              >
-                Reset
-              </button>
+              <button onclick={resetFilter} class="reset-btn">Reset</button>
             {:else}
-              <span class="text-sm text-stone-500">All Time</span>
+              <span class="all-time-label">All Time</span>
             {/if}
           </div>
-          <span class="text-sm text-stone-400">{displayedQuotes.length} quotes</span>
+          <span class="quote-total">{displayedQuotes.length} quotes</span>
         </div>
 
-        <!-- Quotes list -->
         {#if loadingData}
-          <div class="p-8 text-center text-stone-500">Loading...</div>
+          <div class="loading-inline">Loading...</div>
         {:else}
-          <div class="divide-y divide-stone-100 max-h-[600px] overflow-y-auto">
+          <div class="quotes-scroll">
             {#each displayedQuotes as quote, i}
-              <div class="flex items-start gap-3 px-4 py-3 hover:bg-stone-50">
-                <!-- Rank -->
-                <div class="w-8 text-center flex-shrink-0">
+              <div class="quote-row">
+                <div class="quote-rank">
                   {#if i < 3 && !selectedYear}
-                    <span class="text-lg">{['🥇', '🥈', '🥉'][i]}</span>
+                    <span class="rank-medal">{i + 1}</span>
                   {:else}
-                    <span class="text-stone-400 text-sm">{i + 1}</span>
+                    <span class="rank-num">{i + 1}</span>
                   {/if}
                 </div>
 
-                <!-- Spiciness badge -->
-                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyBadgeColor(quote.spiciness)} font-bold text-xs">
-                  🌶️{quote.spiciness}
-                </div>
+                <span class="quote-score" style="color: {heatColor(quote.spiciness)}">{quote.spiciness}</span>
 
-                <!-- Quote content -->
-                <div class="flex-1 min-w-0">
-                  <p class="text-stone-800 text-sm leading-relaxed">"{quote.quote_text.length > 250 ? quote.quote_text.slice(0, 250) + '...' : quote.quote_text}"</p>
-                  <div class="mt-1.5 flex flex-wrap items-center gap-2 text-xs text-stone-500">
-                    <span class="font-medium text-stone-700">{quote.author_name}</span>
-                    <span class="text-stone-300">•</span>
+                <div class="quote-content">
+                  <p class="quote-text">"{quote.quote_text.length > 250 ? quote.quote_text.slice(0, 250) + '...' : quote.quote_text}"</p>
+                  <div class="quote-meta">
+                    <span class="quote-author">{quote.author_name}</span>
+                    <span class="meta-dot"></span>
                     <span>{quote.post_year}</span>
-                    <span class="text-stone-300">•</span>
-                    <span class="truncate max-w-48">{quote.post_title}</span>
+                    <span class="meta-dot"></span>
+                    <span class="quote-post-title">{quote.post_title}</span>
                   </div>
                 </div>
 
-                <!-- Permalink -->
                 <a
                   href={getPermalink(quote)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-shrink-0 p-2 text-stone-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                  class="quote-link"
                   title="View on {quote.author_name}'s Spicy Takes"
                 >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
@@ -794,10 +802,472 @@
     </main>
   {/if}
 
-  <!-- Footer -->
-  <footer class="border-t border-stone-200 py-6 text-center text-sm text-stone-500">
+  <footer class="page-footer">
     <p>
-      Powered by <a href="https://duckdb.org/docs/api/wasm/overview" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">DuckDB-WASM</a> 🦆
+      Powered by <a href="https://duckdb.org/docs/api/wasm/overview" target="_blank" rel="noopener noreferrer">DuckDB-WASM</a>
     </p>
   </footer>
 </div>
+
+<style>
+  /* ── Page shell ────────────────────────────────── */
+  .analytics-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fafaf9 0%, #fff 40%);
+  }
+
+  /* ── Header ────────────────────────────────────── */
+  .page-header {
+    padding: 2rem 1.5rem 1.5rem;
+    border-bottom: 1px solid #e7e5e4;
+    text-align: center;
+  }
+
+  .header-inner {
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: color 0.12s;
+  }
+  .back-link:hover {
+    color: #dc2626;
+  }
+
+  .page-title {
+    font-family: var(--font-family-serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1c1917;
+    margin-bottom: 0.25rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.82rem;
+    color: #78716c;
+  }
+
+  /* ── Loading / Error ───────────────────────────── */
+  .loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 0;
+    font-size: 0.85rem;
+    color: #78716c;
+  }
+
+  .error-state {
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #dc2626;
+    font-weight: 500;
+  }
+
+  .loading-inline {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: #78716c;
+  }
+
+  /* ── Main ──────────────────────────────────────── */
+  .page-main {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* ── Panels (shared) ───────────────────────────── */
+  .chart-panel,
+  .leaderboard-panel,
+  .quotes-panel {
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.6rem;
+    overflow: hidden;
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f5f5f4;
+  }
+
+  .panel-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .panel-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1c1917;
+  }
+
+  .panel-hint {
+    font-size: 0.65rem;
+    color: #a8a29e;
+  }
+
+  /* ── Top row grid ──────────────────────────────── */
+  .top-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+
+  /* ── Chart ─────────────────────────────────────── */
+  .chart-container {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .chart-hint {
+    font-size: 0.65rem;
+    color: #a8a29e;
+    padding: 0.35rem 1rem 0.75rem;
+  }
+
+  .mode-toggle {
+    display: flex;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.35rem;
+    overflow: hidden;
+  }
+
+  .mode-btn {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #78716c;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+  }
+  .mode-btn:hover {
+    background: #f5f5f4;
+  }
+  .mode-btn.active {
+    background: #1c1917;
+    color: #fff;
+  }
+
+  /* ── Filter badges ─────────────────────────────── */
+  .filter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+  .filter-badge.time {
+    background: rgba(220, 38, 38, 0.06);
+    color: #dc2626;
+  }
+  .filter-badge.author {
+    background: rgba(234, 88, 12, 0.06);
+    color: #ea580c;
+  }
+
+  .badge-dismiss {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.72rem;
+    color: inherit;
+    opacity: 0.6;
+    padding: 0;
+    line-height: 1;
+  }
+  .badge-dismiss:hover {
+    opacity: 1;
+  }
+
+  .reset-btn {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #78716c;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.12s;
+  }
+  .reset-btn:hover {
+    color: #dc2626;
+  }
+
+  .all-time-label {
+    font-size: 0.72rem;
+    color: #a8a29e;
+  }
+
+  .year-indicator {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #a8a29e;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Leaderboard ───────────────────────────────── */
+  .leaderboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .leaderboard-header .panel-title-row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .leaderboard-scroll {
+    max-height: 16rem;
+    overflow-y: auto;
+  }
+
+  .leaderboard-table {
+    width: 100%;
+    font-size: 0.78rem;
+    border-collapse: collapse;
+  }
+
+  .leaderboard-table thead {
+    position: sticky;
+    top: 0;
+    background: #fafaf9;
+    z-index: 1;
+  }
+
+  .leaderboard-table th {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a8a29e;
+    padding: 0.4rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #f5f5f4;
+  }
+
+  .col-rank { width: 2rem; text-align: center; }
+  .col-avg { text-align: right; }
+  .col-count { text-align: right; }
+
+  .leaderboard-table th.col-avg,
+  .leaderboard-table th.col-count {
+    text-align: right;
+  }
+
+  .author-row {
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .author-row:hover {
+    background: #fafaf9;
+  }
+  .author-row.selected {
+    background: rgba(220, 38, 38, 0.04);
+  }
+
+  .author-row td {
+    padding: 0.35rem 0.5rem;
+    border-bottom: 1px solid #f5f5f4;
+  }
+
+  .rank-medal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: #fff;
+    background: #dc2626;
+    border-radius: 50%;
+  }
+
+  .rank-num {
+    font-size: 0.68rem;
+    color: #a8a29e;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: #1c1917;
+    transition: color 0.12s;
+  }
+  .author-row:hover .author-name {
+    color: #dc2626;
+  }
+  .author-row.selected .author-name {
+    color: #dc2626;
+  }
+
+  .avg-score {
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .author-row td.col-count {
+    font-size: 0.68rem;
+    color: #a8a29e;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Quotes panel ──────────────────────────────── */
+  .quotes-header {
+    gap: 0.75rem;
+  }
+
+  .quote-total {
+    font-size: 0.68rem;
+    color: #a8a29e;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  .quotes-scroll {
+    max-height: 37.5rem;
+    overflow-y: auto;
+  }
+
+  .quote-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #f5f5f4;
+    transition: background 0.1s;
+  }
+  .quote-row:hover {
+    background: #fafaf9;
+  }
+
+  .quote-rank {
+    width: 1.5rem;
+    flex-shrink: 0;
+    text-align: center;
+    padding-top: 0.1rem;
+  }
+
+  .quote-score {
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.1rem;
+  }
+
+  .quote-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .quote-text {
+    font-family: var(--font-family-serif);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: #1c1917;
+  }
+
+  .quote-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+    font-size: 0.68rem;
+    color: #a8a29e;
+  }
+
+  .quote-author {
+    font-weight: 600;
+    color: #57534e;
+  }
+
+  .meta-dot {
+    width: 2.5px;
+    height: 2.5px;
+    border-radius: 50%;
+    background: #d6d3d1;
+    flex-shrink: 0;
+  }
+
+  .quote-post-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 12rem;
+  }
+
+  .quote-link {
+    flex-shrink: 0;
+    padding: 0.35rem;
+    color: #a8a29e;
+    border-radius: 0.25rem;
+    transition: color 0.12s, background 0.12s;
+  }
+  .quote-link:hover {
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.06);
+  }
+
+  /* ── Footer ────────────────────────────────────── */
+  .page-footer {
+    border-top: 1px solid #e7e5e4;
+    padding: 1.25rem;
+    text-align: center;
+    font-size: 0.72rem;
+    color: #a8a29e;
+  }
+  .page-footer a {
+    color: #dc2626;
+    text-decoration: none;
+    transition: color 0.12s;
+  }
+  .page-footer a:hover {
+    color: #b91c1c;
+  }
+
+  /* ── Responsive ────────────────────────────────── */
+  @media (max-width: 768px) {
+    .top-row {
+      grid-template-columns: 1fr;
+    }
+    .page-title {
+      font-size: 1.35rem;
+    }
+    .page-main {
+      padding: 1rem;
+    }
+    .quote-post-title {
+      max-width: 8rem;
+    }
+  }
+</style>
