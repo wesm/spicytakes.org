@@ -1,6 +1,5 @@
 <script lang="ts">
   import { filteredQuotes, selectedPost, yearsStore } from '$lib/stores';
-  import { getSpicyColor } from '$lib/types';
   import { filterQuotes } from '$lib/filter';
   import { formatDate } from '$lib/config';
   import type { Quote } from '$lib/types';
@@ -13,157 +12,412 @@
     selectedPost.set(quote.post);
   }
 
-  // Filter and sort quotes
   let displayQuotes = $derived.by(() => {
     let result = filterQuotes($filteredQuotes, minSpiciness, selectedYear);
 
     if (sortBy === 'spiciness') {
       result = [...result].sort((a, b) => b.spiciness - a.spiciness);
     } else {
-      result = [...result].sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+      result = [...result].sort(
+        (a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0)
+      );
     }
 
     return result;
   });
 
-  // Get spiciest per year (respects minSpiciness filter, including undated)
   let spiciestByYear = $derived.by(() => {
     const result: Record<string, Quote[]> = {};
     for (const year of $yearsStore) {
       const yearKey = year === null ? 'undated' : String(year);
       const yearQuotes = filterQuotes($filteredQuotes, minSpiciness, year);
-      result[yearKey] = [...yearQuotes].sort((a, b) => b.spiciness - a.spiciness).slice(0, 5);
+      result[yearKey] = [...yearQuotes]
+        .sort((a, b) => b.spiciness - a.spiciness)
+        .slice(0, 5);
     }
     return result;
   });
+
+  function heatColor(spiciness: number): string {
+    if (spiciness >= 9) return '#dc2626';
+    if (spiciness >= 7) return '#ea580c';
+    if (spiciness >= 5) return '#d97706';
+    if (spiciness >= 3) return '#65a30d';
+    return '#16a34a';
+  }
 </script>
 
-<div class="space-y-6">
+<div class="quotes-view">
   <!-- Controls -->
-  <div class="flex flex-wrap items-center gap-4 p-4 bg-white rounded-xl border border-stone-200">
-    <div class="flex items-center gap-2">
-      <label for="sort-select" class="text-sm font-medium text-stone-600">Sort:</label>
-      <select
-        id="sort-select"
-        bind:value={sortBy}
-        class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
-      >
-        <option value="date">Chronological</option>
-        <option value="spiciness">Spiciest First</option>
-      </select>
+  <div class="controls">
+    <div class="control-group">
+      <label for="sort-select" class="control-label">Sort</label>
+      <div class="select-wrap">
+        <select id="sort-select" bind:value={sortBy} class="control-select">
+          <option value="date">Chronological</option>
+          <option value="spiciness">Spiciest First</option>
+        </select>
+        <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
     </div>
 
-    <div class="flex items-center gap-2">
-      <label for="year-select" class="text-sm font-medium text-stone-600">Year:</label>
-      <select
-        id="year-select"
-        bind:value={selectedYear}
-        class="text-sm border border-stone-200 rounded-lg px-3 py-1.5 bg-white focus:ring-2 focus:ring-blue-500"
-      >
-        <option value={'all'}>All Years</option>
-        {#each $yearsStore as year}
-          <option value={year}>{year === null ? 'Undated' : year}</option>
-        {/each}
-      </select>
+    <div class="control-group">
+      <label for="year-select" class="control-label">Year</label>
+      <div class="select-wrap">
+        <select id="year-select" bind:value={selectedYear} class="control-select">
+          <option value={'all'}>All</option>
+          {#each $yearsStore as year}
+            <option value={year}>{year === null ? 'Undated' : year}</option>
+          {/each}
+        </select>
+        <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
     </div>
 
-    <div class="flex items-center gap-2">
-      <label for="spice-range" class="text-sm font-medium text-stone-600">Min Spice:</label>
-      <input
-        id="spice-range"
-        type="range"
-        min="1"
-        max="10"
-        bind:value={minSpiciness}
-        class="w-24"
-      />
-      <span class="text-sm font-medium text-stone-700 w-4">{minSpiciness}</span>
+    <div class="control-group">
+      <label for="spice-range" class="control-label">Heat</label>
+      <div class="range-wrap">
+        <input
+          id="spice-range"
+          type="range"
+          min="1" max="10" step="1"
+          bind:value={minSpiciness}
+          class="control-range"
+          style="--range-pct: {((minSpiciness - 1) / 9) * 100}%"
+        />
+        <span class="range-value" style="color: {heatColor(minSpiciness)}">{minSpiciness}+</span>
+      </div>
     </div>
 
-    <div class="ml-auto text-sm text-stone-500">
-      {displayQuotes.length} quotes
-    </div>
+    <span class="control-count">{displayQuotes.length}</span>
   </div>
 
-  <!-- Year-by-Year Spiciest (when no year selected) -->
   {#if selectedYear === 'all' && sortBy === 'spiciness'}
-    <div class="space-y-8">
-      {#each $yearsStore as year}
-        {@const yearKey = year === null ? 'undated' : String(year)}
-        {@const yearSpicy = spiciestByYear[yearKey]}
-        {#if yearSpicy && yearSpicy.length > 0}
-          <section>
-            <h3 class="text-xl font-bold text-stone-900 mb-4 pb-2 border-b-2 border-stone-900">
-              {year === null ? 'Undated' : year}
-              <span class="text-sm font-normal text-stone-500 ml-2">Top 5 Spiciest</span>
-            </h3>
-            <div class="space-y-3">
-              {#each yearSpicy as quote, i}
-                <button
-                  onclick={() => openPost(quote)}
-                  class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
-                >
-                  <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold text-sm" role="img" aria-label="Spiciness score: {quote.spiciness} out of 10" title="Spiciness: {quote.spiciness}/10 (how provocative or contrarian)">
-                      <span aria-hidden="true">🌶️{quote.spiciness}</span>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <blockquote class="font-serif text-lg text-stone-800 leading-relaxed mb-3">
-                        "{quote.quote}"
-                      </blockquote>
-                      <div class="flex items-center gap-3 text-sm">
-                        <span class="font-medium text-stone-700">{quote.post.title}</span>
-                        <span class="text-stone-400">{formatDate(quote.date, 'short')}</span>
-                      </div>
-                    </div>
+    <!-- Spiciest per year -->
+    {#each $yearsStore as year}
+      {@const yearKey = year === null ? 'undated' : String(year)}
+      {@const yearSpicy = spiciestByYear[yearKey]}
+      {#if yearSpicy && yearSpicy.length > 0}
+        <section class="year-section">
+          <div class="year-header">
+            <span class="year-label">{year === null ? 'Undated' : year}</span>
+            <span class="year-badge">Top 5</span>
+          </div>
+          <div class="quote-list">
+            {#each yearSpicy as quote}
+              <button onclick={() => openPost(quote)} class="quote-card" style="--heat: {heatColor(quote.spiciness)}">
+                <div class="card-heat" aria-hidden="true"></div>
+                <div class="card-body">
+                  <div class="card-top">
+                    <blockquote class="card-quote">{quote.quote}</blockquote>
+                    <span class="card-score" style="color: {heatColor(quote.spiciness)}">{quote.spiciness}</span>
                   </div>
-                </button>
-              {/each}
-            </div>
-          </section>
-        {/if}
-      {/each}
+                  <div class="card-meta">
+                    <span class="card-source">{quote.post.title}</span>
+                    <time class="card-date">{formatDate(quote.date, 'short')}</time>
+                  </div>
+                </div>
+              </button>
+            {/each}
+          </div>
+        </section>
+      {/if}
+    {/each}
+  {:else if displayQuotes.length === 0}
+    <div class="empty-state">
+      <p class="empty-title">No quotes found</p>
+      <p class="empty-hint">Try adjusting your filters</p>
     </div>
   {:else}
-    <!-- Regular chronological list -->
-    {#if displayQuotes.length === 0}
-      <div class="text-center py-16">
-        <p class="text-stone-500 text-lg">No quotes found</p>
-        <p class="text-stone-400 mt-1">Try adjusting your filters</p>
-      </div>
-    {:else}
-      <div class="space-y-3">
-        {#each displayQuotes as quote, i (quote.quote + quote.post.filename + i)}
-          <button
-            onclick={() => openPost(quote)}
-            class="w-full text-left bg-white border border-stone-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-lg transition-all duration-200"
-          >
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full {getSpicyColor(quote.spiciness)} font-bold" role="img" aria-label="Spiciness score: {quote.spiciness} out of 10" title="Spiciness: {quote.spiciness}/10 (how provocative or contrarian)">
-                <span aria-hidden="true">🌶️{quote.spiciness}</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <blockquote class="font-serif text-lg text-stone-800 leading-relaxed mb-3">
-                  "{quote.quote}"
-                </blockquote>
-                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-                  <span class="font-medium text-stone-700">{quote.post.title}</span>
-                  <span class="text-stone-400">{formatDate(quote.date, 'short')}</span>
-                  {#if quote.themes.length > 0}
-                    <div class="flex gap-1">
-                      {#each quote.themes.slice(0, 2) as theme}
-                        <span class="text-xs px-2 py-0.5 bg-stone-100 text-stone-500 rounded">
-                          {theme.replace(/_/g, ' ')}
-                        </span>
-                      {/each}
-                    </div>
-                  {/if}
-                </div>
-              </div>
+    <div class="quote-list">
+      {#each displayQuotes as quote, i (quote.quote + quote.post.filename + i)}
+        <button onclick={() => openPost(quote)} class="quote-card" style="--heat: {heatColor(quote.spiciness)}">
+          <div class="card-heat" aria-hidden="true"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <blockquote class="card-quote">{quote.quote}</blockquote>
+              <span class="card-score" style="color: {heatColor(quote.spiciness)}">{quote.spiciness}</span>
             </div>
-          </button>
-        {/each}
-      </div>
-    {/if}
+            <div class="card-meta">
+              <span class="card-source">{quote.post.title}</span>
+              <time class="card-date">{formatDate(quote.date, 'short')}</time>
+              {#if quote.themes.length > 0}
+                {#each quote.themes.slice(0, 2) as theme}
+                  <span class="card-theme">{theme.replace(/_/g, ' ')}</span>
+                {/each}
+              {/if}
+            </div>
+          </div>
+        </button>
+      {/each}
+    </div>
   {/if}
 </div>
+
+<style>
+  .quotes-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* ── Controls (same as TimelineView) ─────────── */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0.75rem;
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.6rem;
+  }
+
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .control-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a8a29e;
+  }
+
+  .select-wrap { position: relative; }
+
+  .control-select {
+    appearance: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #44403c;
+    background: #f5f5f4;
+    border: 1px solid #d6d3d1;
+    border-radius: 0.4rem;
+    padding: 0.3rem 1.5rem 0.3rem 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .control-select:focus {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+  }
+
+  .select-chevron {
+    position: absolute;
+    right: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a8a29e;
+    pointer-events: none;
+  }
+
+  .range-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .control-range {
+    width: 4.5rem;
+    height: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: linear-gradient(
+      to right,
+      #ef4444 0%, #ef4444 var(--range-pct),
+      #d6d3d1 var(--range-pct), #d6d3d1 100%
+    );
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+  }
+  .control-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ef4444;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    cursor: pointer;
+  }
+  .control-range::-moz-range-thumb {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ef4444;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    cursor: pointer;
+  }
+
+  .range-value {
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 1.5rem;
+    text-align: center;
+  }
+
+  .control-count {
+    margin-left: auto;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #a8a29e;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Year sections ───────────────────────────── */
+  .year-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .year-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid #1c1917;
+  }
+
+  .year-label {
+    font-family: var(--font-family-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1c1917;
+  }
+
+  .year-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #dc2626;
+    background: rgba(239, 68, 68, 0.06);
+    border-radius: 9999px;
+    padding: 0.1rem 0.45rem;
+  }
+
+  /* ── Quote cards ─────────────────────────────── */
+  .quote-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .quote-card {
+    display: flex;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .quote-card:hover {
+    border-color: #d6d3d1;
+    box-shadow: 0 2px 8px rgba(28, 25, 23, 0.06);
+  }
+
+  .card-heat {
+    width: 3px;
+    flex-shrink: 0;
+    background: var(--heat);
+    border-radius: 3px 0 0 3px;
+    opacity: 0.6;
+    transition: opacity 0.15s;
+  }
+  .quote-card:hover .card-heat {
+    opacity: 1;
+  }
+
+  .card-body {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-quote {
+    font-family: var(--font-family-serif);
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: #44403c;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .card-score {
+    font-size: 0.85rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .card-source {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #57534e;
+    transition: color 0.12s;
+  }
+  .quote-card:hover .card-source {
+    color: #dc2626;
+  }
+
+  .card-date {
+    font-size: 0.72rem;
+    color: #a8a29e;
+  }
+
+  .card-theme {
+    font-size: 0.65rem;
+    font-weight: 500;
+    padding: 0.1rem 0.4rem;
+    background: #f5f5f4;
+    color: #78716c;
+    border-radius: 0.25rem;
+  }
+
+  /* ── Empty state ─────────────────────────────── */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .empty-title {
+    font-size: 0.95rem;
+    color: #78716c;
+  }
+
+  .empty-hint {
+    font-size: 0.82rem;
+    color: #a8a29e;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .controls {
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .control-range { width: 3.5rem; }
+  }
+</style>

@@ -32,28 +32,80 @@
 </svelte:head>
 
 {#if isLandingMode}
-  <div class="min-h-screen flex flex-col">
-    <main class="flex-1">
+  <div class="layout">
+    <main class="layout-main">
       {@render children()}
     </main>
-    <footer class="border-t border-stone-200 py-8 text-center text-sm text-stone-500">
-      <p class="text-stone-400">Curated archives with LLM-powered analysis</p>
-      <p class="mt-2 text-stone-300 text-xs">{gitHash}</p>
+    <footer class="layout-footer">
+      <p class="footer-note">Curated archives with LLM-powered analysis</p>
+      <p class="footer-hash">{gitHash}</p>
     </footer>
   </div>
 {:else}
-  <div class="min-h-screen flex flex-col">
+  <div class="layout">
     <Header />
-    <main class="flex-1">
+    <main class="layout-main">
       {@render children()}
     </main>
-    <footer class="border-t border-stone-200 py-8 text-center text-sm text-stone-500">
-      <p>Exploring {$statsStore.totalPosts} posts from <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">{config?.sourceLabel}</a></p>
-      <p class="mt-2 text-stone-400">
-        Made with <span class="text-red-500">❤️</span> by <a href="https://wesmckinney.com" target="_blank" rel="noopener noreferrer" class="text-stone-500 hover:text-red-500 transition-colors">Wes McKinney</a>
+    <footer class="layout-footer">
+      <p>Exploring {$statsStore.totalPosts} posts from <a href={config?.sourceUrl} target="_blank" rel="noopener noreferrer" class="footer-link">{config?.sourceLabel}</a></p>
+      <p class="footer-credit">
+        Made with <span class="heart">&#10084;&#65039;</span> by <a href="https://wesmckinney.com" target="_blank" rel="noopener noreferrer">Wes McKinney</a>
       </p>
-      <p class="mt-2 text-stone-300 text-xs">{gitHash}</p>
+      <p class="footer-hash">{gitHash}</p>
     </footer>
   </div>
   <Modal />
 {/if}
+
+<style>
+  .layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .layout-main {
+    flex: 1;
+  }
+
+  .layout-footer {
+    border-top: 1px solid #e7e5e4;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #a8a29e;
+  }
+
+  .layout-footer a {
+    color: #78716c;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .layout-footer a:hover {
+    color: #dc2626;
+  }
+
+  .footer-link {
+    font-weight: 500;
+  }
+
+  .footer-note {
+    color: #a8a29e;
+  }
+
+  .footer-credit {
+    margin-top: 0.5rem;
+    color: #a8a29e;
+  }
+
+  .footer-hash {
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    color: #d6d3d1;
+  }
+
+  .heart {
+    color: #ef4444;
+  }
+</style>
