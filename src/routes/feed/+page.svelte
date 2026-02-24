@@ -84,7 +84,7 @@
 </script>
 
 <svelte:head>
-  <title>Latest Spicy Takes</title>
+  <title>The Spicy Feed</title>
   <meta name="description" content="The latest spicy takes from {data.authors.length} tech blogs, sorted by date" />
 </svelte:head>
 
@@ -97,7 +97,7 @@
         Spicy Takes
       </a>
       <div class="header-title-block">
-        <h1 class="feed-title">The Feed</h1>
+        <h1 class="feed-title">The Spicy Feed</h1>
         <p class="feed-subtitle">
           {data.posts.length} recent posts across {data.authors.length} voices
         </p>
@@ -697,7 +697,7 @@
   .feed-quote p {
     font-family: var(--font-family-serif);
     font-size: 0.82rem;
-    font-style: italic;
+
     line-height: 1.55;
     color: #44403c;
     margin: 0;

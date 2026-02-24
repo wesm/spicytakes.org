@@ -401,7 +401,7 @@
     border-left: 3px solid #dc2626;
     font-family: var(--font-family-serif);
     font-size: 1.05rem;
-    font-style: italic;
+
     line-height: 1.55;
     color: #57534e;
     margin: 0;
@@ -454,7 +454,7 @@
   .quote-text {
     font-family: var(--font-family-serif);
     font-size: 1.05rem;
-    font-style: italic;
+
     line-height: 1.55;
     color: #1c1917;
     margin: 0;
@@ -549,7 +549,7 @@
     border-left: 3px solid #d6d3d1;
     padding-left: 1rem;
     color: #78716c;
-    font-style: italic;
+
   }
   .prose :global(code) {
     font-size: 0.85em;

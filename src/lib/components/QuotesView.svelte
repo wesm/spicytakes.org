@@ -344,7 +344,7 @@
   .card-quote {
     font-family: var(--font-family-serif);
     font-size: 0.9rem;
-    font-style: italic;
+
     line-height: 1.55;
     color: #44403c;
     flex: 1;

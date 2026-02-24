@@ -181,7 +181,7 @@
   .mini-text {
     font-family: var(--font-family-serif);
     font-size: 0.78rem;
-    font-style: italic;
+
     line-height: 1.45;
     color: #78716c;
     display: -webkit-box;

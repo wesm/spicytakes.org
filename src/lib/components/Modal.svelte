@@ -365,7 +365,7 @@
     border-left: 3px solid #dc2626;
     font-family: var(--font-family-serif);
     font-size: 1rem;
-    font-style: italic;
+
     line-height: 1.55;
     color: #57534e;
     margin: 0;
@@ -412,7 +412,7 @@
   .quote-text {
     font-family: var(--font-family-serif);
     font-size: 1rem;
-    font-style: italic;
+
     line-height: 1.55;
     color: #1c1917;
     margin: 0;
