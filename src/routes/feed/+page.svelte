@@ -203,6 +203,11 @@
                     </a>
                   </h3>
 
+                  <!-- Key Insight -->
+                  {#if post.key_insight}
+                    <p class="post-insight"><strong>{post.key_insight}</strong></p>
+                  {/if}
+
                   <!-- Summary -->
                   {#if post.summary}
                     <p class="post-summary">{truncate(post.summary, 240)}</p>
@@ -661,6 +666,13 @@
   }
 
   /* ── Summary ───────────────────────────────────── */
+  .post-insight {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: #1c1917;
+    margin-bottom: 0.5rem;
+  }
+
   .post-summary {
     font-size: 0.835rem;
     line-height: 1.6;
