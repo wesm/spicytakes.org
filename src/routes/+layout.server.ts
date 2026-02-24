@@ -89,14 +89,15 @@ export const load: LayoutServerLoad = async () => {
       return a.title.localeCompare(b.title); // Sort undated alphabetically
     });
 
-  // Compute post-level spiciness
+  // Compute post-level and per-quote spiciness
   posts.forEach(post => {
-    const postQuotes = (post.money_quotes || []).map(quote => {
+    const scores = (post.money_quotes || []).map(quote => {
       const key = JSON.stringify([quote, post.filename]);
-      return spicyLookup[key] || 5;
+      return spicyLookup[key] ?? 5;
     });
-    if (postQuotes.length > 0) {
-      const avg = postQuotes.reduce((sum, s) => sum + s, 0) / postQuotes.length;
+    (post as any).quote_spiciness = scores;
+    if (scores.length > 0) {
+      const avg = scores.reduce((sum, s) => sum + s, 0) / scores.length;
       (post as any).spiciness = Math.round(avg * 10) / 10;
     }
   });

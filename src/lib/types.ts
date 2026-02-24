@@ -15,6 +15,7 @@ export interface Post {
   title?: string;
   year?: number | null;
   spiciness?: number | null;
+  quote_spiciness?: number[];
 }
 
 export interface Quote {

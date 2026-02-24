@@ -124,13 +124,14 @@
               </h3>
               <ul class="quote-list">
                 {#each $selectedPost.money_quotes as quote, i}
+                  {@const score = $selectedPost.quote_spiciness?.[i] ?? 5}
                   <li>
                     <a
                       href="/post/{$selectedPost.filename}#quote-{i}"
                       onclick={close}
                       class="quote-item"
                     >
-                      <span class="quote-mark">"</span>
+                      <span class="quote-score" style="color: {heatColor(score)}">{score}</span>
                       <p class="quote-text">{quote}</p>
                     </a>
                   </li>
@@ -382,9 +383,10 @@
   }
 
   .quote-item {
-    display: block;
-    position: relative;
-    padding: 0.75rem 1rem 0.75rem 1.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
     background: #fafaf9;
     border: 1px solid #f5f5f4;
     border-radius: 0.5rem;
@@ -399,14 +401,11 @@
     box-shadow: 0 2px 6px rgba(28, 25, 23, 0.04);
   }
 
-  .quote-mark {
-    position: absolute;
-    left: 0.5rem;
-    top: 0.35rem;
-    font-family: var(--font-family-serif);
-    font-size: 1.5rem;
-    color: #d6d3d1;
-    line-height: 1;
+  .quote-score {
+    font-size: 0.78rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
   }
 
   .quote-text {

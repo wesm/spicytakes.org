@@ -160,6 +160,7 @@
             </h2>
             <ul class="quote-list">
               {#each post.money_quotes as quote, i}
+                {@const score = post.quote_spiciness?.[i] ?? 5}
                 <li>
                   <div
                     id="quote-{i}"
@@ -170,7 +171,7 @@
                     class="quote-item"
                     class:highlighted={highlightedQuote === i}
                   >
-                    <span class="quote-mark" class:highlighted={highlightedQuote === i}>"</span>
+                    <span class="quote-score" style="color: {heatColor(score)}">{score}</span>
                     <p class="quote-text">{quote}</p>
                     <button
                       onclick={(e) => copyQuoteLink(i, e)}
@@ -418,8 +419,11 @@
   }
 
   .quote-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
     position: relative;
-    padding: 0.75rem 2.5rem 0.75rem 1.75rem;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
     background: #fafaf9;
     border: 1px solid #f5f5f4;
     border-radius: 0.5rem;
@@ -438,17 +442,11 @@
     box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.12);
   }
 
-  .quote-mark {
-    position: absolute;
-    left: 0.5rem;
-    top: 0.35rem;
-    font-family: var(--font-family-serif);
-    font-size: 1.5rem;
-    color: #d6d3d1;
-    line-height: 1;
-  }
-  .quote-mark.highlighted {
-    color: #ea580c;
+  .quote-score {
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
   }
 
   .quote-text {
