@@ -237,6 +237,7 @@
         params: [hoverParam],
         width: 'container',
         height: Math.max(400, monthlyData.length * 16),
+        autosize: { type: 'fit', contains: 'padding' },
         mark: {
           type: 'bar',
           cornerRadiusBottomRight: 3,
@@ -283,6 +284,7 @@
         params: [hoverParam],
         width: 'container',
         height: 180,
+        autosize: { type: 'fit', contains: 'padding' },
         mark: {
           type: 'bar',
           cornerRadiusTopLeft: 3,
@@ -351,6 +353,7 @@
         height: Math.max(
           400, displayedYearlyStats.length * 20
         ),
+        autosize: { type: 'fit', contains: 'padding' },
         mark: {
           type: 'bar',
           cornerRadiusBottomRight: 3,
@@ -392,6 +395,7 @@
         params: [hoverParam],
         width: 'container',
         height: 180,
+        autosize: { type: 'fit', contains: 'padding' },
         mark: {
           type: 'bar',
           cornerRadiusTopLeft: 3,
@@ -433,7 +437,11 @@
 
     const result = await embed(
       chartContainer, spec as any,
-      { actions: false, renderer: 'svg' }
+      {
+        actions: false,
+        renderer: 'svg',
+        padding: { left: 5, right: 5, top: 5, bottom: 5 }
+      }
     );
 
     if (thisRender !== renderToken) {
@@ -711,7 +719,7 @@
                   >
                     <td class="col-rank">
                       {#if i < 3}
-                        <span class="rank-medal">{i + 1}</span>
+                        <span class="rank-medal rank-{i + 1}">{i + 1}</span>
                       {:else}
                         <span class="rank-num">{i + 1}</span>
                       {/if}
@@ -763,7 +771,7 @@
               <div class="quote-row">
                 <div class="quote-rank">
                   {#if i < 3 && !selectedYear}
-                    <span class="rank-medal">{i + 1}</span>
+                    <span class="rank-medal rank-{i + 1}">{i + 1}</span>
                   {:else}
                     <span class="rank-num">{i + 1}</span>
                   {/if}
@@ -901,6 +909,7 @@
     border: 1px solid #e7e5e4;
     border-radius: 0.6rem;
     overflow: hidden;
+    min-width: 0;
   }
 
   .panel-header {
@@ -932,7 +941,7 @@
   /* ── Top row grid ──────────────────────────────── */
   .top-row {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     gap: 1rem;
   }
 
@@ -940,6 +949,10 @@
   .chart-container {
     width: 100%;
     padding: 0 0.5rem;
+    overflow-x: auto;
+  }
+  .chart-container :global(.vega-embed) {
+    width: 100% !important;
   }
 
   .chart-hint {
@@ -1107,9 +1120,11 @@
     font-size: 0.6rem;
     font-weight: 800;
     color: #fff;
-    background: #dc2626;
     border-radius: 50%;
   }
+  .rank-medal.rank-1 { background: #ca8a04; }
+  .rank-medal.rank-2 { background: #9ca3af; }
+  .rank-medal.rank-3 { background: #b45309; }
 
   .rank-num {
     font-size: 0.68rem;
@@ -1191,7 +1206,7 @@
 
   .quote-text {
     font-family: var(--font-family-serif);
-    font-size: 0.82rem;
+    font-size: 1rem;
     line-height: 1.55;
     color: #1c1917;
   }
