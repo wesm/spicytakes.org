@@ -43,6 +43,13 @@ const safeRenderer: Partial<marked.Renderer> = {
   },
 };
 
+/** Strip on* event handler attributes from inside an HTML tag. */
+function stripEventHandlers(tag: string): string {
+  return tag.replace(
+    /\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]*)/gi, ''
+  );
+}
+
 /** Strip dangerous HTML tags and event handler attributes. */
 function sanitizeHtml(html: string): string {
   return html
@@ -50,7 +57,7 @@ function sanitizeHtml(html: string): string {
       /<\/?(script|style|iframe|object|embed|form|input|textarea|button|select|meta|link|base)\b[^>]*>/gi,
       ''
     )
-    .replace(/\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]*)/gi, '');
+    .replace(/<[a-z][^>]*\s+on\w+\s*=[^>]*>/gi, stripEventHandlers);
 }
 
 /** Strip frontmatter, parse markdown, and sanitize output. */

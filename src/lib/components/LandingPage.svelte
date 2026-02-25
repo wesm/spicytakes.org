@@ -113,66 +113,63 @@
   <!-- Blog list -->
   <section class="blog-list-section">
     <div class="blog-list-inner">
-      <div class="list-header" role="row">
-        <button class="col-header col-name" class:active={sortKey === 'name'} onclick={() => toggleSort('name')}>
-          Author
-          <span class="sort-icon" class:asc={sortKey === 'name' && sortDir === 'asc'} class:desc={sortKey === 'name' && sortDir === 'desc'}>
-            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
-          </span>
-        </button>
-        <span class="col-header col-tagline">Focus</span>
-        <button class="col-header col-posts" class:active={sortKey === 'posts'} onclick={() => toggleSort('posts')}>
-          Posts
-          <span class="sort-icon" class:asc={sortKey === 'posts' && sortDir === 'asc'} class:desc={sortKey === 'posts' && sortDir === 'desc'}>
-            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
-          </span>
-        </button>
-        <button class="col-header col-quotes" class:active={sortKey === 'quotes'} onclick={() => toggleSort('quotes')}>
-          Quotes
-          <span class="sort-icon" class:asc={sortKey === 'quotes' && sortDir === 'asc'} class:desc={sortKey === 'quotes' && sortDir === 'desc'}>
-            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
-          </span>
-        </button>
-        <button class="col-header col-spicy" class:active={sortKey === 'spiciness'} onclick={() => toggleSort('spiciness')}>
-          Avg
-          <span class="sort-icon" class:asc={sortKey === 'spiciness' && sortDir === 'asc'} class:desc={sortKey === 'spiciness' && sortDir === 'desc'}>
-            <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
-          </span>
-        </button>
-        <span class="col-header col-arrow"></span>
+      <!-- Sort bar -->
+      <div class="sort-bar">
+        <span class="sort-label">Sort by</span>
+        {#each [
+          { key: 'name', label: 'Name' },
+          { key: 'posts', label: 'Posts' },
+          { key: 'quotes', label: 'Quotes' },
+          { key: 'spiciness', label: 'Spiciness' },
+        ] as item (item.key)}
+          <button
+            class="sort-btn"
+            class:active={sortKey === item.key}
+            onclick={() => toggleSort(item.key as SortKey)}
+          >
+            {item.label}
+            {#if sortKey === item.key}
+              <span class="sort-icon" class:desc={sortDir === 'desc'}>
+                <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2L8 6H2Z" fill="currentColor"/></svg>
+              </span>
+            {/if}
+          </button>
+        {/each}
       </div>
 
-      <div class="blog-list">
-        {#each visibleBlogs as blog, i (blog.id)}
-          <a
-            href="https://{blog.subdomain}"
-            class="blog-row"
-          >
-            <div class="row-col-name">
+      <!-- Card grid -->
+      <div class="blog-grid">
+        {#each visibleBlogs as blog (blog.id)}
+          <a href="https://{blog.subdomain}" class="blog-card">
+            <div class="card-top">
               <img
                 src={blog.photo}
                 alt=""
-                class="row-avatar"
+                class="card-avatar"
                 onerror={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
               />
-              <div class="row-name-block">
-                <span class="row-name">{blog.name}</span>
-                <span class="row-description">{blog.description}</span>
+              <div class="card-identity">
+                <span class="card-name">{blog.name}</span>
+                <span class="card-tagline">{blog.tagline}</span>
               </div>
-            </div>
-            <span class="row-col-tagline">{blog.tagline}</span>
-            <span class="row-col-posts">{blog.stats.posts.toLocaleString()}</span>
-            <span class="row-col-quotes">{blog.stats.quotes.toLocaleString()}</span>
-            <span class="row-col-spicy">
               {#if blogSpiciness[blog.id] != null}
-                <span class="spicy-val" style="color: {heatColorCompact(blogSpiciness[blog.id]!)}">{blogSpiciness[blog.id]}</span>
-              {:else}
-                <span class="spicy-val" style="color: #d6d3d1">—</span>
+                <span
+                  class="card-spicy"
+                  style="color: {heatColorCompact(blogSpiciness[blog.id]!)}"
+                  role="img"
+                  aria-label="Average spiciness: {blogSpiciness[blog.id]}"
+                >{blogSpiciness[blog.id]}</span>
               {/if}
-            </span>
-            <span class="row-col-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            </div>
+            <p class="card-description">{blog.description}</p>
+            <div class="card-footer">
+              <span class="card-stat">{blog.stats.posts.toLocaleString()} posts</span>
+              <span class="card-stat-dot"></span>
+              <span class="card-stat">{blog.stats.quotes.toLocaleString()} quotes</span>
+              <span class="card-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </a>
         {/each}
       </div>
@@ -228,7 +225,7 @@
   }
 
   .hero-inner {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
   }
 
@@ -331,171 +328,169 @@
   }
 
   .blog-list-inner {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
   }
 
-  /* ── Column grid ───────────────────────────────── */
-  .list-header,
-  .blog-row {
-    display: grid;
-    grid-template-columns: 1fr 12rem 3.5rem 3.5rem 3rem 1.5rem;
+  /* ── Sort bar ───────────────────────────────────── */
+  .sort-bar {
+    display: flex;
     align-items: center;
-    gap: 1rem;
-  }
-
-  .list-header {
-    padding: 0.5rem 0.75rem;
+    gap: 0.35rem;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
     border-bottom: 1px solid #e7e5e4;
   }
 
-  /* ── Column headers (sortable) ─────────────────── */
-  .col-header {
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  .sort-label {
+    font-size: 0.68rem;
+    font-weight: 500;
     color: #a8a29e;
+    margin-right: 0.25rem;
+  }
+
+  .sort-btn {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #78716c;
     background: none;
-    border: none;
-    padding: 0;
-    cursor: default;
+    border: 1px solid transparent;
+    padding: 0.2rem 0.55rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 0.12s;
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-  }
-
-  button.col-header {
-    cursor: pointer;
-    transition: color 0.12s;
+    gap: 0.2rem;
     user-select: none;
   }
-  button.col-header:hover {
-    color: #57534e;
-  }
-  button.col-header.active {
+  .sort-btn:hover {
     color: #1c1917;
+    background: #f5f5f4;
+  }
+  .sort-btn.active {
+    color: #1c1917;
+    font-weight: 600;
+    background: #f5f5f4;
+    border-color: #e7e5e4;
   }
 
-  .col-posts,
-  .col-quotes,
-  .col-spicy {
-    text-align: right;
-    justify-content: flex-end;
-  }
-
-  /* ── Sort indicator ────────────────────────────── */
   .sort-icon {
-    opacity: 0;
-    transition: opacity 0.12s, transform 0.12s;
     display: inline-flex;
-  }
-  button.col-header:hover .sort-icon {
-    opacity: 0.3;
-  }
-  button.col-header.active .sort-icon {
-    opacity: 1;
+    transition: transform 0.12s;
   }
   .sort-icon.desc {
     transform: rotate(180deg);
   }
-  .sort-icon.asc {
-    transform: rotate(0deg);
+
+  /* ── Blog card grid ─────────────────────────────── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
-  /* ── Blog list rows ────────────────────────────── */
-  .blog-list {
+  .blog-card {
     display: flex;
     flex-direction: column;
-  }
-
-  .blog-row {
-    padding: 0.65rem 0.75rem;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.6rem;
     text-decoration: none;
-    border-bottom: 1px solid #f5f5f4;
-    transition: background 0.12s;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
-  .blog-row:hover {
-    background: #fafaf9;
+  .blog-card:hover {
+    border-color: #d6d3d1;
+    box-shadow: 0 2px 8px rgba(28, 25, 23, 0.06);
   }
 
-  .row-col-name {
+  .card-top {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    min-width: 0;
+    gap: 0.65rem;
+    margin-bottom: 0.75rem;
   }
 
-  .row-avatar {
-    width: 2rem;
-    height: 2rem;
+  .card-avatar {
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
     border: 1px solid #e7e5e4;
   }
 
-  .row-name-block {
-    display: flex;
-    flex-direction: column;
+  .card-identity {
+    flex: 1;
     min-width: 0;
   }
 
-  .row-name {
-    font-size: 0.85rem;
+  .card-name {
+    display: block;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #1c1917;
-    transition: color 0.12s;
     line-height: 1.3;
+    transition: color 0.12s;
   }
-  .blog-row:hover .row-name {
+  .blog-card:hover .card-name {
     color: #dc2626;
   }
 
-  .row-description {
-    font-size: 0.72rem;
-    color: #a8a29e;
-    line-height: 1.4;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .row-col-tagline {
+  .card-tagline {
+    display: block;
     font-size: 0.75rem;
     color: #78716c;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.3;
   }
 
-  .row-col-posts,
-  .row-col-quotes {
-    font-size: 0.78rem;
-    font-weight: 500;
+  .card-spicy {
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+
+  .card-description {
+    font-size: 0.82rem;
     color: #57534e;
-    text-align: right;
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid #f5f5f4;
+  }
+
+  .card-stat {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #a8a29e;
     font-variant-numeric: tabular-nums;
   }
 
-  .row-col-spicy {
-    text-align: right;
+  .card-stat-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #d6d3d1;
   }
 
-  .spicy-val {
-    font-size: 0.78rem;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .row-col-arrow {
+  .card-arrow {
+    margin-left: auto;
     color: #d6d3d1;
     display: flex;
     align-items: center;
-    justify-content: center;
     transition: all 0.15s;
   }
-  .blog-row:hover .row-col-arrow {
+  .blog-card:hover .card-arrow {
     color: #dc2626;
     transform: translateX(2px);
   }
@@ -507,7 +502,7 @@
   }
 
   .how-inner {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
   }
 
@@ -569,12 +564,9 @@
       font-size: 0.95rem;
     }
 
-    .list-header,
-    .blog-row {
-      grid-template-columns: 1fr 3.5rem 3.5rem 3rem 1.5rem;
+    .blog-grid {
+      grid-template-columns: 1fr;
     }
-    .col-tagline,
-    .row-col-tagline { display: none; }
 
     .how-grid {
       grid-template-columns: 1fr;
@@ -591,26 +583,9 @@
       padding: 0 1rem 2.5rem;
     }
 
-    .list-header,
-    .blog-row {
-      grid-template-columns: 1fr 3rem 3rem 1.5rem;
-    }
-    .col-tagline,
-    .row-col-tagline,
-    .col-quotes,
-    .row-col-quotes { display: none; }
-
-    .row-avatar {
-      width: 1.75rem;
-      height: 1.75rem;
-    }
-
-    .row-name {
-      font-size: 0.82rem;
-    }
-
-    .row-description {
-      display: none;
+    .card-avatar {
+      width: 2.25rem;
+      height: 2.25rem;
     }
   }
 </style>
