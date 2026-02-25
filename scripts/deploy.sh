@@ -18,7 +18,7 @@ get_project_name() {
     case "$1" in
         landing)   echo "spicytakes.org" ;;
         benn)      echo "spicy-takes-benn" ;;
-        armin)     echo "spicy-takes-armin" ;;
+        armin)     echo "spicy-takes-mitsuhiko" ;;
         wesm)      echo "spicy-takes-wesm" ;;
         danluu)    echo "spicy-takes-danluu" ;;
         bcantrill) echo "spicy-takes-bcantrill" ;;
