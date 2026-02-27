@@ -248,7 +248,7 @@
 
 <style>
   .post-page {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
     padding: 1.5rem 1.5rem 3rem;
   }

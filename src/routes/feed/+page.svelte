@@ -312,7 +312,7 @@
   }
 
   .feed-header-inner {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
   }
 
@@ -363,7 +363,7 @@
   }
 
   .filter-bar-inner {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
     padding: 0.6rem 1.5rem;
     display: flex;
@@ -486,7 +486,7 @@
 
   /* ── Main feed ─────────────────────────────────── */
   .feed-main {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
     padding: 0 1.5rem 4rem;
   }

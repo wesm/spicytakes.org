@@ -64,7 +64,7 @@
 
 <style>
   .page-shell {
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
     padding: 1.25rem 1.5rem 3rem;
   }
