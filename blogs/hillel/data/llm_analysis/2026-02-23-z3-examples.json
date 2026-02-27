@@ -1,0 +1,28 @@
+{
+  "summary": "Hillel Wayne shares a collection of Z3 SMT solver examples that were cut from his book Logic for Programmers. He walks through increasingly complex uses: solving systems of equations, proving no four distinct positive integers share both sum and product, optimizing financial contributions, reverse engineering RNG parameters, proving mathematical theorems, and modeling stock trading with Z3 arrays. He explains why most examples didn't make the book's final cut\u2014they either weren't practical enough, required too much background explanation, or weren't the right tool for the job\u2014and describes the three examples he ultimately chose.",
+  "key_points": [
+    "Z3 is an SMT solver that can handle constraints involving integers, reals, arrays, regexes, and quantified expressions, making it far more versatile than simple equation solvers",
+    "SMT arrays are actually infinite key-value maps without inherent bounds, which can cause surprising behavior if you forget to constrain index ranges",
+    "You can prove theorems by asking Z3 to find counterexamples to the negation\u2014if it returns unsat, the theorem holds (though you must also handle the 'unknown' case)",
+    "Good pedagogical examples must be understandable to newcomers, look like practical problems, and demonstrate that SMT solvers are the right tool\u2014most toy examples fail at least one criterion",
+    "Z3's optimization is dramatically slower than dedicated constraint solvers or even hand-written Python binary search, limiting its practical use for optimization problems"
+  ],
+  "money_quotes": [
+    "You're supposed to learn how to do solve this as a system of equations, but if you want to cheat yourself out of an education you can have Z3 solve this for you.",
+    "An SMT (\"Satisfiability Modulo Theories\") solver is a constraint solver that understands math and basic programming concepts.",
+    "SMT operations must be total for all possible inputs, meaning Select(A, i) must return a value no matter what i is.",
+    "This means Z3 can find functions that satisfy constraints!",
+    "Z3's core engine is in C++, and yet a hand-written Python binary search finds the optimal c about a 1000x faster!",
+    "They should be understandable to someone who is new to logic, they should look like a practical problem some readers might see in their jobs, and SMT solvers should be the right tool for solving them.",
+    "If you can convert a programming function to a set of Z3 equations you can prove that the function has expected properties."
+  ],
+  "themes": [
+    "formal_methods",
+    "programming_languages",
+    "tutorials",
+    "software_engineering"
+  ],
+  "tone": "playful, pedagogical, self-deprecating",
+  "key_insight": "Z3 is a remarkably versatile tool that can solve equations, prove theorems, and reverse engineer algorithms, but choosing good pedagogical examples requires balancing accessibility, practicality, and tool-appropriateness.",
+  "filename": "2026-02-23-z3-examples"
+}

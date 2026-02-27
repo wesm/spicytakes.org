@@ -1,0 +1,23 @@
+{
+  "summary": "McKenzie documents his frustrating experience implementing printing functionality in Java for his desktop application. He spent four hours wrestling with Java's printing API, trying multiple approaches including HTML rendering, EditorPane, and finally building a custom printing object. The post highlights how Java's printing capabilities are surprisingly limited once you move beyond plain text on a default printer. He frames this technical difficulty as a competitive advantage, noting it creates a barrier to entry that explains why most competitors use web apps instead.",
+  "key_points": [
+    "Java printing beyond plain text is surprisingly difficult, with a 'dead zone' in the API around printer discovery and configuration",
+    "Technical difficulty serves as a barrier to entry \u2014 most competitors avoid the problem by building web apps that delegate printing to the browser",
+    "After trying three different approaches (HTML printing, EditorPane rendering, custom printing object), the simplest custom approach with hard-won knowledge cut 80% of the code",
+    "EditorPane renders HTML differently than browsers and can't handle basic elements like table cell dimensions correctly"
+  ],
+  "money_quotes": [
+    "Four hours was spent writing printing code, which is suprisingly difficult in Java (as soon as you're not printing plain text on the default printer God help you).",
+    "Writing mountains of boring code is one barrier to entry.",
+    "Their program, on Download.com, lists as one of its limitations (paraphrased) 'sometimes introduces random output into printed documents'. Thats hopefully something I can avoid.",
+    "Applying painful experience that I got along the way, stripped out 80% of my code and had it done in about 2 hours.",
+    "There is a dead zone in the Java API as far as printing services are concerned: Java will format the output and get it to the printer for you but you have to accomplish things like, e.g., printer discovery, etc more or less on your own."
+  ],
+  "themes": [
+    "engineering",
+    "business"
+  ],
+  "tone": "candid, pragmatic, self-deprecating",
+  "key_insight": "Tedious technical problems like Java printing serve as natural barriers to entry that protect products built by developers willing to push through the pain.",
+  "filename": "2006-06-27-the-sorrows-of-java-printing"
+}

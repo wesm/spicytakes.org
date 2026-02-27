@@ -1,1 +1,27 @@
-{"filename": "2001-10-29-working-on-citydesk-part-four", "error": "no_json", "raw": "\n"}
+{
+  "summary": "Spolsky recounts a frustrating weekend debugging FTP functionality in CityDesk, where he needed passive-mode FTP but Microsoft's free library didn't support it. He switched to WININET.DLL, Microsoft's own Internet Explorer file transfer library, only to encounter impenetrable ATL/COM+ complexity, contradictory documentation, and a crashing bug that Microsoft's own team had worked around in IE rather than fixing. The ordeal leads him to reflect on how software development has fundamentally changed: programmers no longer just write algorithms, they spend most of their time navigating massive, buggy third-party libraries and searching the internet for workarounds. He concludes that modern programming skill is less about algorithmic thinking and more about the ability to tap into collective knowledge online to work around other people's broken code.",
+  "key_points": [
+    "Microsoft's own WININET.DLL had a crashing bug that Microsoft knew about and worked around in Internet Explorer rather than fixing, forcing third-party developers to discover and work around it independently.",
+    "Modern software development has shifted from writing algorithms with a small set of reliable functions to calling APIs across thousands of buggy library functions written by others.",
+    "ATL and COM+ are examples of development environments so complex that essentially no human can fully understand them, yet programmers are too macho to admit this.",
+    "Using widely-adopted languages and libraries provides a decisive advantage because more people have already encountered and documented the same bugs and workarounds.",
+    "Defensive coding against other people's bugs has become a core part of the modern programmer's job."
+  ],
+  "money_quotes": [
+    "We used to write algorithms. Now we call APIs.",
+    "Yes, Virginia, it is possible to create a software development environment which is so difficult to use that no human being can do it.",
+    "This proves that Microsoft's programmers knew about this bug in WinInet and worked around it, instead of just fixing the code in the first place. Stupid stupid stupid.",
+    "What are you supposed to do if you're the chef at Les Halles and your fishmonger is giving you smelly fish?",
+    "ATL is the most complicated programming environment in the world, requiring a brain the size of Colorado and 10 years of solid experience to understand what's going on.",
+    "Nowadays a good programmer spends a lot of time doing defensive coding, working around other people's bugs.",
+    "Welcome to a world where the programmer who knows how to tap into other people's brains and experience using the Internet has a decisive advantage.",
+    "Most programmers are too macho to admit this."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "sardonic",
+  "key_insight": "Modern programming has shifted from writing algorithms to navigating vast, buggy third-party libraries, making the ability to find and leverage collective knowledge online more valuable than raw coding skill.",
+  "filename": "2001-10-29-working-on-citydesk-part-four"
+}

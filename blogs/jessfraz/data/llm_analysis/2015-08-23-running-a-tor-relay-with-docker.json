@@ -1,1 +1,24 @@
-{"filename": "2015-08-23-running-a-tor-relay-with-docker", "error": "no_json", "raw": "\n"}
+{
+  "summary": "This tutorial walks through how to set up three types of Tor relays (bridge, middle, and exit) using Docker containers built on Alpine Linux. The post explains the differences between relay types, with bridge relays being unlisted for censorship resistance, middle relays forwarding traffic, and exit relays being the publicly visible endpoint. It provides complete Dockerfiles and torrc configurations for each type, including a reduced exit policy that limits which ports accept traffic to minimize abuse complaints.",
+  "key_points": [
+    "Three types of Tor relays serve different roles: bridge (unlisted, helps bypass censorship), middle (forwards traffic), and exit (publicly visible endpoint that receives takedown notices)",
+    "Docker and Alpine Linux make running a Tor relay lightweight \u2014 the entire image is only 11.52MB",
+    "Exit relays should use a reduced exit policy to limit which ports route traffic, minimizing potential abuse and takedown notices",
+    "Running a relay is a way to give back to the Tor community \u2014 if you use Tor, you should consider hosting one"
+  ],
+  "money_quotes": [
+    "I figured it was important, if you are going to be a tor user, to document how you can help the Tor community by hosting a Tor relay.",
+    "Exit relays tend to be the ones recieving take down notices because the IP is the one the public sees traffic from Tor as.",
+    "If you don't want to host an exit node, host a middle relay instead! And if you want your relay not publically listed in the network then host a bridge.",
+    "The more people who run relays, the faster the Tor network will be."
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "infrastructure",
+    "open_source"
+  ],
+  "tone": "instructional",
+  "key_insight": "Docker's lightweight containerization makes it trivially easy to contribute to the Tor network by running a relay, lowering the barrier for privacy infrastructure participation.",
+  "filename": "2015-08-23-running-a-tor-relay-with-docker"
+}

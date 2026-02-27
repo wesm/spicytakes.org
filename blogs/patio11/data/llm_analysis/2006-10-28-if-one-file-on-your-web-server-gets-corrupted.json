@@ -1,0 +1,21 @@
+{
+  "summary": "McKenzie discovers that his trial executable was silently corrupted on his web server \u2014 a single byte changed \u2014 causing installation failures for potential customers. He only found out because a user wrote in after downloading it three times. A hex diff confirmed the corruption, and the NSIS installer's checksum caught the bad byte. He reflects on Murphy's Law and the importance of knowing about problems rather than letting them silently cost you customers.",
+  "key_points": [
+    "A single byte of disk corruption on a web server silently broke his trial installer for up to a week before anyone reported it",
+    "He only discovered the issue because a particularly persistent user downloaded three times and then emailed about it",
+    "The NSIS installer's checksum verification caught the corruption and refused to install, which is the correct behavior",
+    "Most users who encountered the broken download likely just left without saying anything"
+  ],
+  "money_quotes": [
+    "If one file on your web server gets corrupted, it WILL be your trial executable, without fail.",
+    "One freaking byte on disk got corrupted at some point within the last week and I just found out about it today.",
+    "Well, better to know about it and be able to fix it than to not know about it, right?"
+  ],
+  "themes": [
+    "business",
+    "engineering"
+  ],
+  "tone": "exasperated",
+  "key_insight": "Silent failures in your sales funnel \u2014 like a corrupted download \u2014 can cost you customers for days before anyone bothers to tell you, because most people just leave.",
+  "filename": "2006-10-28-if-one-file-on-your-web-server-gets-corrupted"
+}

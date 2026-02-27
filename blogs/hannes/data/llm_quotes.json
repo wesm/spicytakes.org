@@ -1,37 +1,7 @@
 {
-  "total_posts": 71,
-  "successful": 71,
+  "total_posts": 38,
+  "successful": 38,
   "posts": [
-    {
-      "summary": "Hannes M\u00fchleisen introduces DuckDB at FOSDEM 2020 as an embeddable analytical database designed to bring proper data management to the messy world of data analytics. He argues that the current state of data analysis\u2014CSV files, crude query engines like Pandas, and hand-rolled binary formats\u2014represents solved problems being poorly reinvented. DuckDB follows the SQLite model of being a zero-dependency, single-file, in-process database library, but optimized for analytical workloads rather than transactions. The core technical innovation is vectorized processing, which operates on chunks of data that fit in CPU cache, achieving roughly 40x speedups over traditional row-at-a-time engines. He emphasizes rigorous quality assurance including millions of test queries, stolen test cases from other databases, and continuous benchmarking.",
-      "key_points": [
-        "Data analytics tooling is a mess of CSV files, crude query engines, and hand-rolled binary formats\u2014all solving problems that databases solved 50 years ago",
-        "DuckDB follows SQLite's model (zero dependencies, single file, in-process) but targets analytical workloads instead of transactions",
-        "Vectorized processing operates on chunks that fit in CPU cache, achieving ~40x speedup over row-at-a-time engines and handling data larger than memory",
-        "Quality assurance includes millions of SQL test queries, stolen test cases from other databases including scraping SQL Server's website, and query fuzzing",
-        "DuckDB deliberately avoids holding data hostage\u2014fast data transfer to host languages means users aren't punished for pulling data out"
-      ],
-      "money_quotes": [
-        "It is common to start these kind of talks with a description of how terrible the state of this world is. This is no exception.",
-        "Once people decide that CSV files are too slow, they start inventing their own crude hand-rolled binary formats that are on disk, maybe, and start processing those.",
-        "These things are solved problems. We have data management systems that have been around for 50 years or so.",
-        "We have zero external dependencies. This is really something that took a lot of work, but it is something that we believe is actually quite necessary for a library to be successful.",
-        "One of the limitations of things like Pandas is that once your data becomes bigger than memory, you're screwed.",
-        "We went around and steal everyone's test cases. So with SQL engines you can do this because they all have the same sort of query language.",
-        "We don't punish you for pulling a large chunk out of a system. We don't hold the data hostage."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "embedded_databases",
-        "data_architecture",
-        "open_source",
-        "industry_observations"
-      ],
-      "tone": "technical, candid, evangelistic",
-      "key_insight": "Data analytics suffers from constant reinvention of solved database problems, and DuckDB applies the SQLite embedding model with vectorized analytical processing to bring proper data management into analysts' existing workflows.",
-      "filename": "2020-02-02-2020-02-02-fosdem"
-    },
     {
       "summary": "Hannes M\u00fchleisen introduces DuckDB at FOSDEM 2020, positioning it as an embeddable analytical database analogous to what SQLite is for transactional workloads. He argues that the current state of data analytics\u2014with CSV files, crude query engines like Pandas, and hand-rolled binary formats\u2014is a mess that database technology solved decades ago. DuckDB brings proper data management to analytics by running as an in-process library with zero external dependencies, a single-file storage format, and a vectorized execution engine that keeps data in CPU caches. He demonstrates simple integration with Python, R, and C++, and highlights rigorous quality assurance including millions of test queries and continuous benchmarking.",
       "key_points": [
@@ -61,39 +31,6 @@
       "tone": "technical, candid, pragmatic",
       "key_insight": "The data analytics ecosystem reinvents data management poorly; DuckDB applies the SQLite embedding model to analytical workloads, bringing decades of database engineering to where data scientists actually work.",
       "filename": "2020-02-02-fosdem"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen explains DuckDB's design as an in-process analytical SQL engine, contrasting it with client-server architectures like Spark and traditional data warehouses. Born from conversations with statisticians who needed serious data processing without infrastructure complexity, DuckDB uses vectorized query processing to deliver high-performance OLAP in an embeddable library. He describes the SQLite-like deployment model applied to analytics, zero-copy integration with Python/R/Arrow ecosystems, and the WebAssembly version running entirely in the browser. The conversation covers DuckDB's single-file storage with checksummed blocks, the open governance model through the DuckDB Foundation, and the project's focus on out-of-core execution to complete queries regardless of memory constraints.",
-      "key_points": [
-        "DuckDB fills a gap as the first in-process OLAP engine, enabling analytical SQL wherever the application runs without server setup or data movement",
-        "A single DuckDB node matched or beat a 32-node Spark cluster on taxi benchmark queries, exposing massive overuse of distributed infrastructure for small-to-medium data",
-        "Zero-copy integration with pandas, R data frames, and Arrow allows DuckDB to query existing in-memory structures without materialization, creating novel memory management challenges",
-        "The vectorized query processing design was chosen over JIT compilation to keep the binary small (~10MB) and the codebase approachable for contributors",
-        "DuckDB's governance separates the non-profit DuckDB Foundation (holds IP, MIT license, cannot be changed) from DuckDB Labs (commercial support), protecting the project from corporate interests"
-      ],
-      "money_quotes": [
-        "If you're going to be installed on everyone's laptop out there, you're going to have thousands of broken machines that you're running on.",
-        "Too often big data is just the same fairly small data copied a million times because people have no other choice than to replicate everything.",
-        "It's as if you drive a dump truck around as your daily driver. While Spark has its place, I also think it's complete overkill in like 99% of the use cases it's used for.",
-        "We are kind of data communists in that sense that we treat all data sources equally.",
-        "Your assumption of how they should hold it is wrong. So you have to basically make the handle like pink so they kind of see it and hold it correctly.",
-        "I think there is no good reason to have these mini clusters around because you're getting all the pain of running clusters and basically all the compute is eaten up by the coordination.",
-        "We call this the Galaxy Quest principle, never give up, never surrender, because we want to be able to complete queries if at all possible.",
-        "The most unexpected thing is that people cared about this thing in the first place."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "query_optimization",
-        "data_architecture",
-        "open_source",
-        "embedded_databases",
-        "industry_observations",
-        "academic_research"
-      ],
-      "tone": "conversational, opinionated, technically grounded, self-deprecating humor",
-      "key_insight": "Moving the analytical database engine into the application process eliminates infrastructure complexity and unlocks orders of magnitude of untapped single-node performance that most organizations waste on distributed systems they don't need.",
-      "filename": "2022-03-05-2022-03-05-data-engineering-podcast"
     },
     {
       "summary": "Hannes M\u00fchleisen discusses DuckDB, an in-process SQL analytical database engine he co-created at CWI in Amsterdam. Born from conversations with statisticians who needed powerful analytics without server setup complexity, DuckDB fills the gap between SQLite (transactional) and heavy distributed systems like Spark. He explains its vectorized query processing architecture, zero-copy integration with Python/R/Arrow, and the philosophy that most 'big data' workloads can run on a single machine. The project is governed by a non-profit foundation with MIT licensing, while DuckDB Labs provides commercial support.",
@@ -128,38 +65,6 @@
       "filename": "2022-03-05-data-engineering-podcast"
     },
     {
-      "summary": "Hannes M\u00fchleisen explains DuckDB's design as the first in-process OLAP database, inspired by SQLite's embedded architecture but built for analytical workloads. He describes how DuckDB's vectorized execution engine processes data in chunks of 1,024 values to amortize interpretation overhead while keeping intermediates in CPU cache. He argues that single-node performance has been badly neglected in favor of distributed systems, demonstrating that DuckDB on a laptop can outperform large Spark clusters. He also discusses DuckDB's WebAssembly compilation for browser-based analytics, the 'never give up, never surrender' memory management project, and DuckDB Labs' bootstrapped business model of customer contracts rather than VC funding.",
-      "key_points": [
-        "DuckDB invented the 'in-process OLAP' category \u2014 an embedded analytical database that runs as a library within your application, enabling zero-copy data interchange",
-        "The vectorized execution engine processes 1,024-value chunks to amortize interpretation overhead, keeping intermediates in CPU cache for better performance",
-        "Single-node execution has been neglected for 20 years in favor of distributed systems, even though most datasets easily fit on a laptop \u2014 a single DuckDB node matched 32 Spark nodes on the taxi dataset",
-        "DuckDB cross-compiles to WebAssembly with only ~30% performance loss, enabling browser-based OLAP that traditional heavyweight engines cannot achieve",
-        "DuckDB Labs is bootstrapped without VC money, monetizing through customer contracts for custom work and prioritization rather than giving away software while burning cash"
-      ],
-      "money_quotes": [
-        "DuckDB is a database as a library. We call it the in-process OLAP. And it's the first one because we kind of invented this as a class of systems, the in-process OLAP that just didn't exist before.",
-        "People for the last 20 or so years have been working really hard on building distributed execution engines. And in my opinion, people have been neglecting the single node execution performance a lot. As a matter of fact, they've been neglecting it so much that single node execution has actually become slower.",
-        "We ran a query on this taxi dataset, used DuckDB. And then we looked how big does the Spark cluster have to be to match this performance. And I think the answer was 32 or something like that. And that's a 32X increase in cost.",
-        "There's this misconception that everybody is sitting on these petabytes, but studies show that the majority of data sets people actually look at easily fits on something like a laptop.",
-        "We want to make sure that even if you're running out of memory, we still are able to complete the query successfully. So this is where we actively work on what we call the 'never give up, never surrender' project.",
-        "We haven't taken VC money. So we're not sitting on a giant pile of cash that we're slowly shoveling into a big fire.",
-        "We ran DuckDB on a Raspberry Pi and we ran SQLite on a $5,000 server running the same benchmark and DuckDB ended up being faster on the Raspberry Pi.",
-        "Traditional engines are far too heavyweight to be considered for cross-compilation games. You have hundreds of dependencies including like three compilers or something like that. And that's just not going to happen. You're not going to put that in the browser."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "query_optimization",
-        "data_architecture",
-        "embedded_databases",
-        "open_source",
-        "industry_observations"
-      ],
-      "tone": "technical, opinionated, conversational",
-      "key_insight": "The in-process OLAP architecture eliminates the coordination overhead and data transfer bottlenecks of distributed systems, unlocking performance on single nodes that most people don't realize is possible.",
-      "filename": "2022-03-18-2022-03-18-software-engineering-daily"
-    },
-    {
       "summary": "Hannes M\u00fchleisen explains DuckDB as the first in-process OLAP database, designed to bring analytical SQL processing directly into applications like Python without a client-server architecture. He describes how DuckDB's vectorized execution engine processes data in chunks of 1,024 values to optimize CPU cache usage and amortize interpretation overhead. He contrasts DuckDB's single-node efficiency against distributed systems like Spark, arguing that most datasets fit on a laptop and distributed coordination often dominates execution time. He also discusses DuckDB's WebAssembly compilation for browser-based analytics, the 'never give up, never surrender' out-of-memory project, and the bootstrapped business model of DuckDB Labs.",
       "key_points": [
         "DuckDB invented the in-process OLAP category, running as a library inside applications to eliminate client-server overhead and enable zero-copy data interchange",
@@ -191,38 +96,6 @@
       "tone": "technical, candid, opinionated",
       "key_insight": "The database industry's obsession with distributed systems has caused it to neglect single-node performance so badly that an in-process analytical engine on a laptop can outperform clusters costing 32 times as much.",
       "filename": "2022-03-18-software-engineering-daily"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen and Mark Raasveldt present the State of the Duck at DuckCon #2, reviewing DuckDB's progress over the past ten months across three major releases (0.4, 0.5, 0.6). The talk covers significant improvements in storage compression, out-of-core query processing, parallelism, and new SQL features. Hannes discusses DuckDB Labs growing to 15 staff in an Amsterdam office, DuckDB reaching one million Python installs per month, and the governance structure with the non-profit DuckDB Foundation ensuring the MIT license. The roadmap focuses on storage format finalization for V1.0, remaining out-of-core operators, partition awareness, and Lakehouse format support.",
-      "key_points": [
-        "DuckDB's storage format has been dramatically improved with lightweight specialized compression algorithms that approach Parquet file sizes while being faster to read, avoiding the performance cost of general-purpose compression like Zstandard",
-        "Out-of-core processing now covers sorting, hash joins, and window operators so queries gracefully spill to disk instead of failing with out-of-memory errors, with aggregation as the last remaining operator",
-        "DuckDB Labs is a self-funded bootstrapped company of ~15 staff, deliberately co-located in Amsterdam for faster collaboration, while the DuckDB Foundation as a non-profit ensures the project remains MIT-licensed independent of commercial interests",
-        "Adoption has grown dramatically: Python installs went from 150K to 1M per month, Java JDBC downloads jumped from 6K to 600K (indicating enterprise adoption), and DuckDB has no telemetry by design",
-        "Multi-database support and pluggable catalogs are coming, allowing DuckDB to attach and write to multiple databases including SQLite, making DuckDB's own storage format a first-class citizen alongside Parquet"
-      ],
-      "money_quotes": [
-        "One of our goals is to basically be able to squeeze as much out of a single machine, out of the laptop as possible. So that you can always get your queries running without having to resort to any sort of like distributed system setup that's very complex to set up, very complex to run.",
-        "It's probably going to happen that you will not see changes for a long time, and at some point we'll just miraculously declare it stable because we haven't changed it in so long that we're comfortable.",
-        "We literally do not know who is using DuckDB. And there are some frontends like the WebAssembly one... we see one download and there might be thousands of people using that one thing.",
-        "We actually are together in our office and I think it's part of the reason why we're able to move so quickly, because we can just yell at each other over coffee if we have a disagreement instead of writing passive aggressive emails.",
-        "It is in the statutes of the foundation that DuckDB has to remain under the MIT license. That is one of the things that we wanted to make absolutely sure that no matter what happens, this is insured.",
-        "Now is the time where I can complain that I really don't like the term Lakehouse. But I think the data formats that the Lakehouse people have generated, they're here to stay.",
-        "The entire database lives in that JDBC driver, so you don't actually connect to something, you run DuckDB inside your JVM, which is wild.",
-        "It doesn't have to bow to our commercial goals. So it's really an important thing especially in the context of this very common conflict in open source projects run by people working in a company."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "query_optimization",
-        "open_source",
-        "embedded_databases",
-        "industry_observations",
-        "data_architecture"
-      ],
-      "tone": "enthusiastic, technical, candid",
-      "key_insight": "DuckDB's strategy of maximizing single-machine performance through lightweight compression, out-of-core processing, and pervasive parallelism aims to eliminate the need for complex distributed systems, while its non-profit foundation governance ensures the open-source project remains independent of commercial pressures.",
-      "filename": "2023-02-03-2023-02-03-duckcon2"
     },
     {
       "summary": "Hannes M\u00fchleisen and Mark Raasveldt present the State of the Duck at DuckCon #2, covering DuckDB's progress over the past year. Major achievements include persistent indexes, parallel data loading, advanced lightweight compression algorithms, out-of-core query execution for joins and sorting, and significant storage format improvements. DuckDB Labs has grown to 15 staff in Amsterdam, with adoption reaching one million Python installs per month. The talk outlines upcoming features including multi-database support, JSON reading, Hive partitioned writes, and plans for storage format finalization and V1.0.",
@@ -289,37 +162,6 @@
       "filename": "2023-03-15-2023-03-quack-chat"
     },
     {
-      "summary": "In this podcast interview, Hannes M\u00fchleisen and Jordan Tigani discuss the origin of DuckDB and how MotherDuck was formed to commercialize it. Hannes explains how DuckDB emerged from academic research at CWI when he and Mark Raasveldt noticed state-of-the-art database ideas weren't reaching practitioners, largely due to deployment friction and dependency management. Jordan describes discovering DuckDB through benchmarks and recognizing that most data workloads don't require distributed systems. The conversation covers their rapid partnership formation, the scale-up vs scale-out debate, and the deliberate choice to keep DuckDB open while building a complementary commercial cloud product.",
-      "key_points": [
-        "DuckDB's zero-dependency design was born from Hannes's frustration with restrictive academic IT environments where installing software was nearly impossible",
-        "VCs wanted DuckDB to become a Snowflake-style company, but the team chose to be technology providers instead, keeping the project open and flexible",
-        "Jordan's validation of the scale-up approach was pivotal \u2014 someone with BigQuery and SingleStore credentials taking a single-node system seriously countered years of ridicule from distributed systems advocates",
-        "The insight that most data isn't actually big was initially just a feeling for the DuckDB team until Google published data showing 95th percentile ML job sizes were around 100 gigabytes",
-        "DuckDB's competitive advantage comes from focusing on the complete end-to-end experience rather than just query execution speed"
-      ],
-      "money_quotes": [
-        "We noticed great ideas existed but weren't having real-world impact. People weren't using state-of-the-art solutions.",
-        "It seemed insane\u2014two people writing a database management system when these typically require hundreds of people over ten years. But I tend to leap without looking sometimes.",
-        "I developed an uncanny ability to run things without Docker and a deep hatred for dependencies. That conviction shaped DuckDB's design: it can't have dependencies.",
-        "VCs wanted us to become a Snowflake, but we didn't want that. We wanted to be technology providers, staying open and flexible.",
-        "We'd been ridiculed for not taking distributed systems seriously, yet someone with his credentials validated our approach. That was shocking.",
-        "This transformation from scale-out to scale-up was surprising because our scale-up idea was based on feeling. We disliked systems like Spark based on intuition. We lacked data.",
-        "It is really shocking to see what is possible on laptops. It's something that we have kind of forgotten about.",
-        "There's also a big difference between what the cycle costs and what you are paying for the cycle."
-      ],
-      "themes": [
-        "duckdb",
-        "embedded_databases",
-        "open_source",
-        "data_architecture",
-        "industry_observations",
-        "academic_research"
-      ],
-      "tone": "reflective, candid, conversational",
-      "key_insight": "DuckDB's success came from rejecting the distributed systems orthodoxy, eliminating deployment friction through zero dependencies, and focusing on the complete end-to-end user experience rather than raw query performance.",
-      "filename": "2023-04-20-2023-04-20-founded-funded-motherduck"
-    },
-    {
       "summary": "Hannes M\u00fchleisen describes how DuckDB was created at CWI in Amsterdam as an in-process analytical database, born from frustration that academic database research wasn't having real-world impact. He explains how talking to practitioners revealed that end-to-end experience mattered more than raw algorithm speed, and how restrictive IT environments shaped DuckDB's zero-dependency design. The conversation covers how Jordan Tigani discovered DuckDB and founded MotherDuck to commercialize it, with Hannes noting that Jordan's credibility from BigQuery validated the scale-up approach they'd been ridiculed for. Hannes reflects on the transition from academic researcher to running DuckDB Labs.",
       "key_points": [
         "DuckDB was born from the observation that great academic database ideas weren't having real-world impact because practitioners cared most about the end-to-end data management experience",
@@ -348,37 +190,6 @@
       "tone": "reflective, candid, conversational",
       "key_insight": "DuckDB succeeded by focusing on the end-to-end data experience rather than raw query speed, and its scale-up philosophy \u2014 initially dismissed by the industry \u2014 was validated when practitioners with big-data credentials confirmed that most real-world data isn't actually big.",
       "filename": "2023-04-20-founded-funded-motherduck"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen presents the State of the Duck at DuckCon #3, covering DuckDB's progress over the past four months across versions 0.7 and 0.8. Key additions include multi-database attach support with pluggable storage backends (including SQLite), parallel JSON reading with auto-detection, hive-partition write support, pivot/unpivot operations, and as-of joins. He previews version 0.9 features including out-of-core hash aggregation with graceful degradation, compressed materialization to reduce memory footprint, Apache Iceberg read support, and improved cloud platform integration. Adoption metrics show 1.3 million Python installations per month and the project recently hit 10K GitHub stars.",
-      "key_points": [
-        "DuckDB's pluggable database architecture allows attaching multiple storage backends including SQLite, enabling full read/write transactional access to SQLite databases using DuckDB's SQL dialect",
-        "Out-of-core hash aggregation in v0.9 uses radix-partitioned hash tables to enable graceful degradation when memory is exceeded, spilling to disk incrementally rather than failing",
-        "Compressed materialization reduces memory footprint during processing by applying frame-of-reference compression and converting small strings to integers, at essentially no runtime cost",
-        "DuckDB deliberately maintains row order unlike standard SQL, enabling features like positional joins that are useful for data frame-style workloads and ML pipelines",
-        "Iceberg support is positioned as complementary to DuckDB's native storage rather than a replacement, since Iceberg's cloud-native overhead is unnecessary for local compute"
-      ],
-      "money_quotes": [
-        "Something that we always try to do is try to make things easy to use so that while you don't bother us, you don't ask any questions to us.",
-        "Because people are wrangling quite large datasets with DuckDB on often very small machines, I mean, that's also what we tell you to do. So that's not your fault, of course.",
-        "You get this super graceful degradation so that even if your hash table, if it's, say, 80% of the hash table fits in memory, you won't end up with a big performance penalty.",
-        "Instead of having these pointers to the strings that end up consuming around 16 bytes per string, you can compress them and actually turn strings into integers, which is kind of cool.",
-        "Iceberg is super cool, of course, but we're not switching away from the DuckDB storage to Iceberg. If you are running on your local computer, Iceberg introduces a lot of overheads that you may not really want to deal with.",
-        "SQL doesn't have a concept of order of rows, but DuckDB does try quite hard to maintain the order as specified by the user.",
-        "Something that's actually kind of funny that we discovered later is this GDAL library also allows you to read Excel files. So through the spatial extension, you can now read Excel files. That was not intentional."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "query_optimization",
-        "data_architecture",
-        "open_source",
-        "lakehouse",
-        "embedded_databases"
-      ],
-      "tone": "technical, enthusiastic, candid",
-      "key_insight": "DuckDB's architecture enables graceful handling of datasets exceeding memory through radix-partitioned hash tables and compressed materialization, allowing powerful analytics on small machines without catastrophic failure.",
-      "filename": "2023-06-29-2023-06-29-duckcon3"
     },
     {
       "summary": "Hannes M\u00fchleisen presents the State of the Duck at DuckCon #3, covering DuckDB releases 0.7 and 0.8 from the preceding four months. Key features include multi-database attach support with pluggable storage backends, parallel JSON reading, hive-partition writes, pivot/unpivot operations, and as-of joins. He previews version 0.9 plans including out-of-core hash aggregation, compressed materialization, Apache Iceberg support, and better cloud platform integration. Adoption metrics show 1.3 million Python installs per month and 10K GitHub stars.",
@@ -444,36 +255,6 @@
       "filename": "2023-07-19-2023-europython"
     },
     {
-      "summary": "Hannes M\u00fchleisen presents the origin story and core philosophy behind DuckDB at the Data + AI Summit 2023. He explains how he and Mark Raasveldt noticed that people were using massive distributed systems to solve relatively small data problems, leading to poor ergonomics. The separation of storage and compute, combined with efficient formats like Parquet, means compute can scale down dramatically\u2014often to a single laptop. DuckDB was built as an in-process analytical database that breaks the unquestioned client-server paradigm dating back to 1984, offering zero-dependency deployment, MIT licensing, and state-of-the-art vectorized query processing. He demonstrates querying a billion rows in 160ms and 90GB of taxi data in under 10 seconds on a MacBook.",
-      "key_points": [
-        "People were using big iron systems like Hadoop to solve fairly small data problems, creating terrible ergonomics\u2014a sledgehammer to crack a nut",
-        "The disconnect between storage and compute means compute can scale down far more than people expect, often to a laptop",
-        "The database community focused too much on query engine internals (the patty) while ignoring the end-to-end user experience (the whole hamburger)",
-        "DuckDB's in-process architecture breaks the client-server paradigm that went unquestioned since 1984, enabling direct memory access and zero-latency data transfer",
-        "DuckDB fits into ML workflows by handling data preparation in-process, with near-instantaneous transfer to frameworks like PyTorch"
-      ],
-      "money_quotes": [
-        "What was happening is that there were people using very big iron systems like Hadoop to solve fairly small data problems.",
-        "One of the consequences that these things are disconnected is that we can scale down compute to the appropriate size that's sufficient for the problem. And you would be really, really, really surprised how small you can scale down data problems.",
-        "The community was spending a lot of time thinking about the meat of the hamburger, the patty. But the problem is you're not looking at the whole hamburger, right? You're ignoring the end-to-end user experience.",
-        "All data systems under the sun are client-server. That has been unquestioned since 1984. But DuckDB is in process.",
-        "DuckDB is free. It's free as in free beer. It's MIT licensed. Do whatever you want. Build a company on top of it.",
-        "Because DuckDB runs in process, we are already in the same environment that the ML library is also going to run in, which means the transfer is near instantaneous.",
-        "In fact, the laptop in front of you is more powerful than you think."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "embedded_databases",
-        "academic_research",
-        "industry_observations",
-        "open_source"
-      ],
-      "tone": "enthusiastic, accessible, opinionated",
-      "key_insight": "The separation of storage and compute combined with efficient data formats means most analytical workloads can scale down to a laptop, making the decades-old client-server database paradigm unnecessary for the majority of data problems.",
-      "filename": "2023-07-29-2023-07-29-data-ai-summit-keynote"
-    },
-    {
       "summary": "Hannes M\u00fchleisen presents DuckDB at the Data + AI Summit 2023, explaining how he and Mark Raasveldt identified a fundamental mismatch in the data world: people were using massive distributed systems to solve relatively small data problems. He argues that the separation of storage and compute, combined with efficient formats like Parquet, means compute can scale down dramatically\u2014often to a single laptop. DuckDB was built as an in-process analytical database with no dependencies, a 20MB footprint, and MIT licensing. He demonstrates querying a billion-row dataset in 160ms and 90GB of Parquet data in under 10 seconds on a MacBook, making the case that client-server architecture has been unquestioned since 1984 but is unnecessary for most analytical workloads.",
       "key_points": [
         "People were using big distributed systems like Hadoop for data problems that didn't require that scale, leading to poor ergonomics",
@@ -502,38 +283,6 @@
       "tone": "evangelistic, accessible, opinionated",
       "key_insight": "Most analytical data problems are far smaller than the infrastructure people use to solve them, and an in-process database on a laptop can replace cluster-scale systems for the majority of exploration and analysis work.",
       "filename": "2023-07-29-data-ai-summit-keynote"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen presents the rationale behind DuckDB at PyData Amsterdam 2023, explaining how it emerged from frustration with traditional database systems at CWI (where Python was also invented). He argues that databases were frustrating because of installation, maintenance, and data transfer overhead, but had valuable features like query optimization and persistence. DuckDB solves this by being an in-process database that runs within your existing Python, R, or Java process, eliminating the server setup entirely. He demonstrates DuckDB's ability to directly read Pandas DataFrames and Arrow tables without data copying, and previews DuckSpark, a compatibility layer that lets existing PySpark code run on DuckDB.",
-      "key_points": [
-        "DuckDB was born from Hadley Wickham's critique that databases are 'slower and more frustrating' than in-memory tools \u2014 the founders chose to fix the frustration rather than dismiss the criticism",
-        "The key insight was that the database community had been hyper-focused on engine performance while ignoring the end-to-end user experience of installation, maintenance, and data transfer",
-        "In-process architecture eliminates data transfer overhead entirely \u2014 DuckDB reads Pandas DataFrames and Arrow tables by directly interpreting their memory layout with zero copying",
-        "DuckDB has zero dependencies, is ~20MB, and achieves 1.5 million monthly PyPI downloads by prioritizing simplicity without sacrificing features",
-        "DuckSpark is a new compatibility layer allowing existing PySpark scripts to run on DuckDB's engine with minimal code changes"
-      ],
-      "money_quotes": [
-        "If your data fits in memory, there is no advantage of putting it into database. It will only be slower and more frustrating. And that really hurt our feelings.",
-        "Nobody had looked at sort of the end to end user experience of data systems. Everybody had been sort of hyper focused on the engine.",
-        "If you're sitting in the same address space, the same process as the thing you're kind of working with, then you have a very efficient data transfer because there is no transfer.",
-        "Simple doesn't mean dumb. Simple means can also be fast.",
-        "It's the culmination of decades of research in data management systems. There's like tons of PhD theses whose results have gone into the concepts that make DuckDB fast.",
-        "We have no dependencies. You just do pip install DuckDB and it's not like downloading War and Peace from PyPI.",
-        "We taught our query execution engine how to interpret the bits in memory that make a Pandas data frame and we just look at it and read it directly into queries.",
-        "It makes your laptop hot. It's a downside, I have to say."
-      ],
-      "themes": [
-        "duckdb",
-        "embedded_databases",
-        "data_architecture",
-        "academic_research",
-        "open_source",
-        "query_optimization",
-        "industry_observations"
-      ],
-      "tone": "enthusiastic, conversational, technically grounded",
-      "key_insight": "The database industry's obsession with engine performance blinded it to the end-to-end user experience \u2014 DuckDB's in-process architecture eliminates the installation, maintenance, and data transfer friction that made databases frustrating, while preserving decades of research in query optimization and efficiency.",
-      "filename": "2023-09-14-2023-09-14-pydata-amsterdam"
     },
     {
       "summary": "Hannes M\u00fchleisen presents DuckDB's origin story and rationale at PyData Amsterdam 2023. He explains how a provocative quote from Hadley Wickham about databases being 'slower and more frustrating' motivated him and co-founder Mark Raasveldt to rethink the database user experience. DuckDB was designed as an in-process analytical database (like SQLite but for analytics) that eliminates installation friction, server management, and data transfer overhead. He demonstrates zero-copy querying of Pandas DataFrames and previews DuckSpark, a compatibility layer that runs PySpark scripts on DuckDB.",
@@ -565,38 +314,6 @@
       "tone": "enthusiastic, conversational, opinionated",
       "key_insight": "The key innovation of DuckDB was recognizing that database frustration stems not from the engine itself but from the end-to-end user experience \u2014 and that in-process architecture eliminates most of that friction while preserving performance.",
       "filename": "2023-09-14-pydata-amsterdam"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen presents DuckDB as the answer to the longstanding frustration that databases are slow and difficult to use for data analysis. He demonstrates how traditional databases like Postgres create painful workflows for simple CSV ingestion, while DuckDB offers zero-setup, in-process analytics with automatic type inference and blazing performance. He argues that single-node computing power is growing faster than data volumes, making distributed systems like Spark unnecessary for 99% of use cases. He showcases DuckDB's integration with R (duckplyr) and Python (IBIS), its atomic file format with views and macros, and the upcoming community extensions ecosystem.",
-      "key_points": [
-        "Traditional databases like Postgres prioritize enterprise sales over user experience, creating painful workflows for analysts who just want to explore data",
-        "DuckDB's in-process architecture eliminates setup friction and enables direct interoperability with R data frames, pandas, and Arrow without serialization",
-        "Single-node compute capabilities are growing faster than useful data volumes, approaching a 'data singularity' where 99% of datasets fit comfortably on a laptop",
-        "DuckDB files can store tables, views, macros, and transactions atomically in a single portable file, solving the 'ungodly mess of files' problem",
-        "Even with 1,024 cores, distributed Spark cannot beat single-node DuckDB on standard benchmarks due to coordination overhead and poor per-core efficiency"
-      ],
-      "money_quotes": [
-        "Record-keeping predates literature by about 1,000 years. So we've been making tables 1,000 years before we have the first text.",
-        "The data management community in the past has really just never cared about CSV reading, but also about people, really.",
-        "How do you sell Oracle to somebody? Well, it's very easy. You meet the other CEO on the golf court. You don't have to talk to the people that actually have to use Oracle.",
-        "People have focused too long on this little middle thing of the burger there, the DBMS engine, the join algorithms. And nobody had really thought about the end-to-end user experience.",
-        "The maximum sort of output in usable data of the entire Netherlands working population would easily fit on these two hard disks.",
-        "Even if we use 1,024 cores, it will still be slower than the single node DuckDB instance.",
-        "We really think that in order to make an impact in how people think about data, we have to really make this work for everyone.",
-        "I think the kickbacks from your Oracle rep will be less."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "data_architecture",
-        "open_source",
-        "embedded_databases",
-        "industry_observations",
-        "query_optimization"
-      ],
-      "tone": "opinionated, humorous, evangelistic",
-      "key_insight": "Single-node compute is growing faster than useful data volumes, making frustrating distributed systems unnecessary \u2014 what analysts need is a database that prioritizes user experience over enterprise sales.",
-      "filename": "2023-09-20-2023-09-20-posit-conf-2023-data-wrangling"
     },
     {
       "summary": "Hannes M\u00fchleisen presents DuckDB as the answer to the long-standing frustration that databases are slow and difficult to use. He demonstrates how traditional databases like Postgres require painful setup and CSV ingestion compared to data science tools, then shows how DuckDB eliminates this friction as an in-process analytical database. He argues that single-node computing is increasingly sufficient for virtually all datasets, backing this with a thought experiment about data creation rates versus hardware improvements, and demonstrates DuckDB outperforming a 1,024-core Spark cluster on a single machine.",
@@ -632,37 +349,6 @@
       "filename": "2023-09-20-posit-conf-2023-data-wrangling"
     },
     {
-      "summary": "Hannes M\u00fchleisen discusses the origins of DuckDB, which started from observing that big data tools were overkill for most practitioners who work with modest datasets. He explains DuckDB's key architectural decisions: single-node processing and in-process execution, which were considered heretical in 2018 but have proven correct. Hannes emphasizes that DuckDB's success comes from obsessive focus on developer experience rather than just query performance, including investing a PhD-level effort into building the best CSV parser. He describes the unique two-company partnership between DuckDB Labs (open source database) and MotherDuck (managed service), which preserves DuckDB's independence from commercial pressures.",
-      "key_points": [
-        "DuckDB was born from observing that practitioners' real problems involved hundreds of megabytes of CSV files, not petabyte datasets, yet no good tools existed for that scale",
-        "The single-node, in-process architecture was a deliberate departure from prevailing distributed systems wisdom, enabling faster development and simpler operation",
-        "DuckDB's performance gains are a side effect of doing things correctly, not from targeting specific benchmarks",
-        "The two-company model (DuckDB Labs for open source, MotherDuck for managed service) elegantly avoids the common conflict where VC pressure forces open source projects to restrict features",
-        "Starting at a research institute allowed DuckDB to invest in doing things right without startup funding pressure, like spending a year on proper CSV parsing"
-      ],
-      "money_quotes": [
-        "We were kind of building our system that was really, like, proudly single node and proudly in process.",
-        "Maybe these petabyte sort of data sets are actually quite rare. And the people's real problems are like some couple of hundred megabytes of CSV files. And there's absolutely nothing out there in terms of software that can support that.",
-        "You ask yourself, is this really the best it can be? And is it like, can we change this to be better?",
-        "If people can't get their data into your system, it doesn't matter how good your join operator is. It's absolutely irrelevant.",
-        "In a big departure from being German, we have actually looked at making the user experience good.",
-        "We could say, okay, this has got to take us a year longer to do it like this, but it's the right thing to do. Which you could never do in a startup.",
-        "It's really hurting my feelings to see things like Oracle being incredibly hard to use, being incredibly clunky, being like the mummies of the seventies are looking at you when you stare into their command line interface.",
-        "DuckDB is an incredible traditional system. It has a SQL interface. It deals with tables. It doesn't do graph or stream or whatever. It's bulk processing."
-      ],
-      "themes": [
-        "duckdb",
-        "embedded_databases",
-        "data_architecture",
-        "open_source",
-        "industry_observations",
-        "academic_research"
-      ],
-      "tone": "candid, passionate, opinionated",
-      "key_insight": "DuckDB's success stems from recognizing that most data problems are small-scale and that obsessing over developer experience\u2014from installation to CSV parsing\u2014matters more than raw query performance.",
-      "filename": "2024-01-09-2024-01-09-mlops-community"
-    },
-    {
       "summary": "Hannes M\u00fchleisen discusses the origins of DuckDB, which started from observing that big data tools were overkill for most users' actual needs. He explains DuckDB's key architectural decisions: single-node execution and in-process design, which were controversial in 2018 but proved correct. He emphasizes that developer experience is paramount, describing how the team invested heavily in things like CSV parsing rather than just query optimization. He also discusses the partnership model with MotherDuck as separate companies, allowing DuckDB Labs to focus purely on building the best database without commercial pressures.",
       "key_points": [
         "DuckDB was born from observing that most practitioners work with hundreds of megabytes, not petabytes, yet had no good tooling for that scale",
@@ -694,36 +380,6 @@
       "filename": "2024-01-09-mlops-community"
     },
     {
-      "summary": "Hannes M\u00fchleisen and Mark Raasveldt present the State of the Duck at DuckCon #4, covering DuckDB's explosive growth (5 million extension installs per month, 2TB/day of downloads, half a million unique web visitors) and the roadmap toward version 1.0. The release strategy involves a 'Snow Duck' approach inspired by Apple's Snow Leopard\u2014no new features, just stability and robustness. A major milestone is the introduction of backwards-compatible database file format, positioning DuckDB as a potential de facto format for storing tabular data. New features in v0.10 include multi-database attach for Postgres/MySQL, a 3x faster CSV reader, fixed-length arrays, unified memory manager, secret manager, and ALP floating point compression. The talk also covers the team's lean operational philosophy, noting they lack VC funding and maintain a tiny DevRel team.",
-      "key_points": [
-        "DuckDB adoption is surging with 5 million extension installs/month, 2TB/day of extension downloads, and 500K unique monthly web visitors",
-        "The 'Snow Duck' strategy toward 1.0 focuses entirely on stability and robustness with no new features, inspired by Apple's Snow Leopard release",
-        "Backwards compatibility of the database file format starting in v0.10 aims to make DuckDB files live forever, positioning it as a de facto tabular data format",
-        "v0.10 introduces multi-database attach (Postgres, MySQL), 3x faster CSV reading, fixed-length arrays, unified memory manager, and ALP floating point compression",
-        "DuckDB Labs operates lean without VC funding, forcing prioritization of support efforts toward the most impactful use cases"
-      ],
-      "money_quotes": [
-        "We are just very grateful to Cloudflare to not charge us for the traffic.",
-        "We are not VC-funded, which means we don't have 50 million sitting in a bank account that we can spend on a 50-people DevRel team.",
-        "I want to say that there may be some of our so-called competitors that spend more time on their websites than we do, because we spend more time on making the system good, as opposed to the website.",
-        "We just want to make sure that this is a DuckDB release you can deploy on a satellite and fly to Venus without having to worry about patching your DuckDB instance halfway through.",
-        "We think we have a pretty interesting shot at becoming a new sort of de facto format to store tabular data in a somewhat efficient way, with updates, multiple tables, the whole spiel.",
-        "It's always better to not do work than to do work, right?"
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "open_source",
-        "data_architecture",
-        "embedded_databases",
-        "industry_observations",
-        "query_optimization"
-      ],
-      "tone": "optimistic, candid, technical",
-      "key_insight": "DuckDB's path to 1.0 prioritizes stability and backwards-compatible file format over new features, betting that a trustworthy, forever-readable data format is more valuable than feature velocity.",
-      "filename": "2024-02-02-2024-02-02-duckcon4"
-    },
-    {
       "summary": "Hannes M\u00fchleisen opens DuckCon #4 by sharing DuckDB's explosive adoption metrics, including 5 million monthly extension installs, half a million unique website visitors, and a rise to #45 on the DB-Engines ranking. He announces the upcoming 0.10 release and outlines the path to 1.0, which will follow a 'Snow Duck' philosophy inspired by Apple's Snow Leopard\u2014focusing entirely on stability with no new features. The centerpiece of the 1.0 vision is backwards-compatible database file format, which Hannes positions as a potential new de facto standard for storing tabular data. Mark Raasveldt then details 0.10's features including multi-database attach for Postgres/MySQL, a 3x faster CSV reader, fixed-length arrays, unified memory manager, ALP floating point compression, and storage format improvements.",
       "key_points": [
         "DuckDB has reached 5 million monthly extension installs, generating 2TB/day of download traffic, with half a million unique website visitors",
@@ -753,38 +409,6 @@
       "tone": "celebratory, candid, humorous",
       "key_insight": "DuckDB's path to 1.0 prioritizes stability and backwards-compatible file format permanence over new features, aiming to become the de facto standard for storing tabular data.",
       "filename": "2024-02-02-duckcon4"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen explains the technical foundations of DuckDB in this Developer Voices podcast, focusing on two key innovations: vectorized query execution and morsel-driven parallelism. He describes how DuckDB processes data in chunks of 2,048 rows to keep computations in CPU cache, achieving roughly 100x speedups over naive approaches. He contrasts this with exchange-based parallelism used by systems like Spark, which suffers from skew and inflexibility. M\u00fchleisen also discusses DuckDB's origins as an academic project at CWI Amsterdam that prioritized usability and practical impact over theoretical novelty, arguing that most real-world data problems fit on a single machine and don't need distributed systems.",
-      "key_points": [
-        "Vectorized query execution processes 2,048-row column chunks to maximize CPU cache utilization and branch prediction accuracy, achieving ~100x speedup over memory-bound approaches",
-        "Morsel-driven parallelism replaces exchange-based parallelism by making operators parallelism-aware, solving skew (the 'Justin Bieber problem') and enabling dynamic resource allocation between concurrent queries",
-        "DuckDB's in-process architecture (like SQLite) was chosen to maximize usability but required rethinking fundamental database assumptions around crash handling, resource sharing, and hardware reliability",
-        "Hardware scales faster than datasets because human data production is bounded, making distributed systems unnecessary for 99% of data problems",
-        "Academic database research should focus on practical problems affecting real users (people stuck on Pandas) rather than solving 'whale problems' for Google and Facebook"
-      ],
-      "money_quotes": [
-        "We really designed this thing to be useful. So that was our academic angle.",
-        "It's absolutely idiotic to start throwing distributed systems at like 99% of data problems.",
-        "Hardware scales faster than data sets because the humans scale slower than hardware.",
-        "The amount of meaningful, valuable data we can produce is just limited by the amount of people that we have. We have 8 billion, seems like a lot. It's not going to be 20 billion next year, but the MacBook is going to be twice as fast next year.",
-        "We were sick and tired of the quality of research prototypes.",
-        "If you want industry people to take you seriously, you have to show that this can work in the marketplace.",
-        "People later told me, we're not here to solve problems. We're here to talk about problems.",
-        "As an academic, it's actually quite criminal to try to solve the whales' problems because the whales don't care. They have clever people."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "query_optimization",
-        "embedded_databases",
-        "academic_research",
-        "industry_observations",
-        "data_architecture"
-      ],
-      "tone": "technical, opinionated, candid",
-      "key_insight": "By combining state-of-the-art query processing techniques (vectorized execution and morsel-driven parallelism) with a relentless focus on usability, DuckDB proves that academic rigor and practical impact are not opposing forces but complementary ones.",
-      "filename": "2024-02-07-2024-02-07-developer-voices"
     },
     {
       "summary": "Hannes M\u00fchleisen explains the technical foundations of DuckDB, an in-process analytical database built on vectorized query execution and morsel-driven parallelism. He describes how DuckDB originated from academic research at CWI Amsterdam, driven by the observation that no one had designed a data management system prioritizing usability and ease of data import/export. The conversation covers how vectorized execution processes data in 2,048-row column-oriented chunks to stay in CPU cache, and how morsel-driven parallelism improves on older exchange-based approaches by making operators parallelism-aware and reactive. Hannes argues that most data problems don't need distributed systems since hardware scales faster than human-generated data, and criticizes academia for solving 'whale problems' instead of helping the 99% of practitioners stuck on tools like Pandas.",
@@ -819,37 +443,6 @@
       "filename": "2024-02-07-developer-voices"
     },
     {
-      "summary": "Hannes M\u00fchleisen shares the story of DuckDB's creation at the CWI research institute in the Netherlands, drawing parallels to Python's origin at the same institution. He explains DuckDB's core philosophy of simplicity and in-process architecture, inspired by SQLite's success, and details how it bridges the gap between academic database research and practical usability. He candidly discusses the tensions of building production software in academia \u2014 the safe space for prototyping versus the career risks of not publishing papers \u2014 and how the team eventually had to leave CWI to form DuckDB Labs. He advocates for bootstrapping over venture capital funding, arguing that VC money inevitably leads to license changes or project bastardization, and explains how DuckDB Labs has been profitable from day one through support contracts.",
-      "key_points": [
-        "DuckDB was born from recognizing that database research focused too narrowly on internals (the 'meat') while ignoring the end-to-end user experience (the 'burger') \u2014 installation, data transfer, and ease of use",
-        "The in-process architecture eliminates the data transfer bottleneck and management overhead of traditional client-server databases, enabling zero-copy integration with pandas and Arrow",
-        "Academia provides a safe space for early software prototyping but becomes a trap as projects gain traction \u2014 funding rules, salary tables, and IP ownership make it impossible to scale a team",
-        "The team only started DuckDB when Hannes had tenure and Mark finished his PhD papers, acknowledging the career gamble of spending years on software instead of publishing",
-        "DuckDB Labs chose bootstrapping over VC funding to maintain project control, arguing there is no ideologically pure way to get money into a company but that VC inevitably forces license changes or project compromise"
-      ],
-      "money_quotes": [
-        "In a shocking departure from normal researcher behavior, we actually went out to talk to people in data analysis, and we found out that they hated databases.",
-        "Nobody really cared about the end-to-end user experience. Like what is this actually like to use a database system?",
-        "We only started working on DuckDB when we knew they couldn't fire us anymore, essentially, for this.",
-        "There is, in my opinion, no ideologically pure way to get money into a company.",
-        "At some point there's going to be a board that says either we fire you or you change the licence, and there's just not a lot you can do about it.",
-        "Bootstrapping is this weird idea where you work for money. It's like, you provide a service, and people give you money. It's totally mind-blowing.",
-        "You need to be in the cost-of-running-business cost centre so they can't just get rid of you.",
-        "We did an experiment \u2014 how big does the Spark cluster have to be to beat DuckDB on single node, and the answer was like 60-something."
-      ],
-      "themes": [
-        "duckdb",
-        "embedded_databases",
-        "open_source",
-        "academic_research",
-        "data_architecture",
-        "industry_observations"
-      ],
-      "tone": "candid, humorous, reflective, opinionated",
-      "key_insight": "Academia is an ideal incubator for early-stage software projects, but sustaining and scaling them requires escaping to a self-funded business model that preserves project independence from both institutional constraints and venture capital pressure.",
-      "filename": "2024-04-23-2024-04-23-pyconde-keynote"
-    },
-    {
       "summary": "Hannes M\u00fchleisen traces DuckDB's origin from CWI, the Dutch National Research Lab where Python was also invented, explaining how academic environments can be both safe spaces and traps for software development. He describes DuckDB's core philosophy: an in-process, zero-dependency analytical database that prioritizes the full user experience over just the query engine internals. He draws parallels to Python's origin story at CWI, including similar institutional tensions when research software gains real-world traction. The talk concludes with hard-won lessons about funding open-source companies, arguing for bootstrapping over venture capital to maintain project integrity.",
       "key_points": [
         "DuckDB's design philosophy focuses on the 'whole burger' \u2014 end-to-end user experience including installation, data transfer, and simplicity \u2014 not just query engine performance",
@@ -879,37 +472,6 @@
       "tone": "candid, humorous, reflective, opinionated",
       "key_insight": "Building serious software in academia requires gambling your career on impact over papers, and sustaining it requires escaping institutional constraints through bootstrapping rather than surrendering control to venture capital.",
       "filename": "2024-04-23-pyconde-keynote"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen traces data management from 5,000-year-old Sumerian clay tablets to modern cloud databases, arguing that tables, SQL, and ACID transactions form an eternal 'holy trifecta' that keeps winning despite repeated attempts to replace them. He walks through the NoSQL era where Google abandoned SQL for MapReduce due to hardware constraints, only to see SQL return within four years via Hive. MongoDB added schema validation in 2017, Cassandra added ACID in 2023, and Databricks brought back integrated storage. He predicts relational systems will absorb key-value stores, document databases, time series, vector databases, and graph databases since all can be trivially represented as tables. Finally, he argues 'big data is dead' because modern single-node hardware is so powerful that distributing computation often makes things slower, demonstrating DuckDB on one machine beating Spark on 32 distributed nodes.",
-      "key_points": [
-        "Tables, SQL, and ACID form a 'holy trifecta' that has survived every attempt to replace them \u2014 NoSQL systems like MongoDB, Cassandra, and Databricks all eventually re-adopted the principles they abandoned",
-        "Every NoSQL innovation shifted complexity onto application developers (schema management, eventual consistency, storage management), which consistently proved to be a terrible idea",
-        "Relational systems will eat key-value stores, document databases, time series, vector databases, and graph databases because all can be represented as trivial tables \u2014 only array-shaped data like images and video truly resists",
-        "Modern single-node hardware (400 GB/s RAM throughput, 5.5 GB/s SSDs) has made distribution unnecessary for most workloads \u2014 DuckDB on one machine beats Spark on 32 nodes with 1,000+ CPU cores",
-        "Data management systems never die once entrenched \u2014 DB2, Oracle, and Postgres persist because civilizations build on top of them"
-      ],
-      "money_quotes": [
-        "Tables were there before our civilization, and they will be there after our civilization.",
-        "There's this holy trifecta: Tables, SQL, ACID. The alternative is to have app developers do this themselves. And having app developers do this themselves is really not a great idea.",
-        "The first tables that we have are about 1,000 years older than the first texts that we have. Record-keeping actually predates literature by about 1,000 years.",
-        "If the idea is to say, let's have a separate database because embeddings are so fundamentally different, I need 200 million in VC money to start a new database company... Well, it's just a table that has a list of fixed size as its value. And that's all there is to it.",
-        "If I were working at a vector database company, I would be a bit worried at this point.",
-        "Once you start distributing a problem, it becomes just so much harder that you're very often better off with a single computer.",
-        "Even if we add 32 computers to this problem, and over 1,000 CPU cores versus the 32 we started with, Spark will still be slower than DuckDB on a single machine.",
-        "Every year there's a new hype. There's 50 new data systems appear. They get absorbed into Oracle after five years. It's great for VCs, it's great for the founders, but it's not particularly interesting."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "data_architecture",
-        "industry_observations",
-        "embedded_databases",
-        "academic_research"
-      ],
-      "tone": "opinionated, humorous, historically grounded",
-      "key_insight": "The relational model's holy trifecta of tables, SQL, and ACID transactions has outlasted every attempt to replace it, and modern single-node hardware has eliminated the primary justification for distributed systems that drove the NoSQL movement.",
-      "filename": "2024-06-11-2024-06-11-goto-amsterdam"
     },
     {
       "summary": "Hannes M\u00fchleisen traces data management from 5,000-year-old Sumerian clay tablets to modern cloud databases, arguing that tables, SQL, and ACID transactions form an unbreakable 'holy trifecta.' He recounts how the NoSQL era saw companies abandon SQL for MapReduce due to hardware constraints, only to bring it back within years\u2014MongoDB added schemas, Cassandra added ACID, and Databricks restored integrated storage. He predicts relational systems will absorb key-value stores, document databases, time series, vector databases, and graph databases, since all reduce to trivial table representations. Finally, he argues 'big data is dead' because modern single-node hardware is so powerful that distributing computation often makes things slower.",
@@ -942,35 +504,6 @@
       "filename": "2024-06-11-goto-amsterdam"
     },
     {
-      "summary": "Hannes M\u00fchleisen announces official DuckDB support for Delta Lake and the Unity Catalog at the Data + AI Summit 2024, shortly after the milestone DuckDB 1.0 release. He positions DuckDB as filling the gap between Excel and Spark for last-mile data analysis. The Delta Lake integration leverages the delta kernel built by Databricks and the community, avoiding the need to build from scratch. He also announces DuckDB community extensions, allowing anyone to publish and distribute DuckDB extensions easily.",
-      "key_points": [
-        "DuckDB 1.0 was released after six years of R&D, establishing a stable SQL dialect, APIs, and backwards-compatible storage format",
-        "DuckDB fills the gap between Excel and Spark for last-mile data analysis on datasets too large for spreadsheets but too small for distributed computing",
-        "The Delta Lake integration uses the delta kernel from Databricks, delegating file-reading complexity rather than building from scratch",
-        "A Unity Catalog extension enables DuckDB to discover and query Delta Lake tables as if they were local tables",
-        "DuckDB community extensions launch allows anyone to publish extensions that users can install with a simple command"
-      ],
-      "money_quotes": [
-        "It was the culmination of six years of R&D in data management systems.",
-        "There's a lot of data sets that are not going to work in Excel, but they are maybe a bit too small to actually throw Spark at them.",
-        "DuckDB is really perfect for this last mile of data analysis, where you may not need a whole data center to compute something.",
-        "So how are we going to do that? Obviously, we're going to use the best tool for the job available, right? CSV files. Maybe not.",
-        "One thing that's really special about the Delta Lake integration is that we use this delta kernel that Databricks is building with the community.",
-        "We're really excited about Tabular and Databricks bringing Delta Lake and Iceberg closer together because for us, it means we don't have to maintain two different things for essentially the same problem.",
-        "From now on, actually, we are launching community extensions, which means that everyone can make DuckDB extensions and basically publish them."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "lakehouse",
-        "open_source",
-        "embedded_databases"
-      ],
-      "tone": "optimistic",
-      "key_insight": "DuckDB bridges the gap between spreadsheets and distributed computing for last-mile analysis, and its new Delta Lake integration via the shared delta kernel demonstrates how open ecosystem collaboration reduces duplicated effort for everyone.",
-      "filename": "2024-06-13-2024-06-13-data-ai-summit-delta"
-    },
-    {
       "summary": "Hannes M\u00fchleisen announces official DuckDB support for Delta Lake and the Unity Catalog at the Data + AI Summit 2024. He positions DuckDB as filling the gap between Excel and Spark for last-mile data analysis. The Delta Lake integration leverages Databricks' delta kernel rather than building from scratch. He also announces DuckDB community extensions, allowing anyone to publish and share extensions easily.",
       "key_points": [
         "DuckDB 1.0 released after six years of R&D, with stable SQL dialect, APIs, and backwards-compatible storage format",
@@ -996,38 +529,6 @@
       "tone": "optimistic, conversational, pragmatic",
       "key_insight": "DuckDB's Delta Lake integration via the shared delta kernel exemplifies how open ecosystem collaboration reduces duplicated effort and benefits everyone, especially small teams building in-process analytics tools.",
       "filename": "2024-06-13-data-ai-summit-delta"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen discusses DuckDB's origins, design philosophy, and technical architecture on Software Engineering Daily. He explains how DuckDB drew inspiration from SQLite's ease of use while swapping in an analytical query engine designed for columnar workloads. The conversation covers why C++11 was chosen over C or newer languages, DuckDB's three main use cases (prototyping, local data analysis, enterprise pipeline components), and its ability to query directly on external file formats like Parquet and CSV without ingestion. Hannes describes the 'tail scale' philosophy of solving data problems for the 99% rather than the 1%, and explains DuckDB Labs' bootstrapped business model funded by consulting and support rather than VC money.",
-      "key_points": [
-        "DuckDB takes SQLite's in-process simplicity and replaces the engine with a columnar analytical query processor, enabling queries on billions of rows locally",
-        "DuckDB queries external file formats (Parquet, CSV, Arrow) directly without ingestion, using statistics and column pruning for performance optimization",
-        "The 'tail scale' philosophy targets the 99% of data problems that fit on single machines, rather than the distributed computing problems that dominate academic research",
-        "DuckDB Labs is entirely bootstrapped through consulting and support contracts, with no VC funding, while the project itself is owned by a non-profit foundation under MIT license",
-        "A novel MVCC scheme was designed specifically for bulk columnar updates and large transactions, handling operations like ingesting two terabytes or adding computed columns without full table rewrites"
-      ],
-      "money_quotes": [
-        "We set out to solve the data problems for the 99% of us, because it's so common to sort of solve the problems of the one percenters.",
-        "People love solving Google's data problems in their research, in their work and systems because yeah, if it doesn't scale, it's useless. But we completely forget that 99% of data problems doesn't actually need any of that.",
-        "It's almost like one of these tank engines that can take any kind of fuel. We don't have to ingest data into our own storage from it before we can run queries.",
-        "Nothing teaches you SQL as much as writing your own data system, because you have to write the engine that interprets other people's crazy SQL queries.",
-        "I'm one of these people that kind of leaps and then starts looking. It's probably good that it's like this because I would have never done it otherwise. I have underestimated the effort to make a database management system greatly.",
-        "We have the world's best CSV reader because it's the first thing you do with your data system. And if that doesn't work, you're immediately frustrated.",
-        "I don't think there's a use case too small. And I think that's also what sets DuckDB apart from the competition.",
-        "We accidentally have built this execution engine for Turing complete language, which is terrifying."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "data_architecture",
-        "open_source",
-        "academic_research",
-        "embedded_databases",
-        "industry_observations"
-      ],
-      "tone": "conversational, enthusiastic, opinionated",
-      "key_insight": "By applying SQLite's in-process simplicity to analytical workloads and enabling direct queries on external file formats, DuckDB solves the data problems of the 99% who don't need distributed computing.",
-      "filename": "2024-08-08-2024-08-08-software-engineering-daily"
     },
     {
       "summary": "Hannes M\u00fchleisen discusses DuckDB's design philosophy, inspired by SQLite's ease of use but built for analytical workloads. He explains why DuckDB was written in C++, how it can query data directly from CSV and Parquet files without ingestion, and its three main use cases: prototyping, local data analysis, and enterprise data pipelines. He describes the technical challenges of building a database from scratch over six years, including transactions for columnar bulk updates, graceful memory degradation, and storage format backwards compatibility. He also discusses DuckDB Labs' unusual self-funded business model and the future vision of DuckDB as an extensible platform.",
@@ -1062,37 +563,6 @@
       "filename": "2024-08-08-software-engineering-daily"
     },
     {
-      "summary": "Hannes M\u00fchleisen opens DuckCon #5 with a state-of-the-duck overview, describing DuckDB's mission to replace fear of data with confidence through simple, dependency-free tooling. He outlines three emerging use cases: interactive analysis, pipeline components, and creative architectures (mobile, browser, Lambda, satellites). Adoption metrics are staggering\u20146 million Python downloads/month (up from 2M in January), 17 million extension installs/month, and 600K unique web visitors. Mark Raasveldt then previews DuckDB 1.1, highlighting community extensions, dynamic SQL improvements, parallel streaming queries, and dynamic filter pushdown from joins. The team emphasizes that DuckDB Labs funds development through commercial support contracts rather than VC funding, and that post-1.0 focus is shifting toward extensions and the ecosystem edge rather than core bloat.",
-      "key_points": [
-        "DuckDB's core mission is transforming data from something feared into something approachable\u2014like opening a movie file in VLC rather than wrestling with hostile tooling",
-        "Three distinct use cases have emerged: interactive analysis (the original target), pipeline components (embedding DuckDB as a step in enterprise data pipelines), and creative architectures (mobile, browser, Lambda, satellites)",
-        "Adoption has tripled in months: 6M Python downloads/month, 17M extension installs/month, 200TB/month served via Cloudflare",
-        "Community extensions launch with a simple PR-based workflow, cross-platform CI/CD handled by the team, and Rust support coming soon via a stable C API",
-        "Post-1.0 development is deliberately shifting toward extensions and ecosystem edges to keep the core system lean and unbloated"
-      ],
-      "money_quotes": [
-        "People generally fear data. Data sets can be unruly. You're gonna have that wrong comma in line 400,000 or something like that.",
-        "The tools people generally are using to look at data, they tended to be, I think, hostile is the right word. Hard to use, hard to install, hard to set up, hard to make happy.",
-        "Data sets should just be harmless. It should be just like a movie file. You just throw it in a VLC and it's gonna be fine. Nobody's afraid of movie files anymore.",
-        "It's really the first custom-built in-process analytical data management system, which is kind of an accident. We didn't really set out to make a new category, but there we are.",
-        "You can't just install Postgres on an iPhone. You can't run Spark on an iPhone either. You can put DuckDB in a Lambda function. You can run DuckDB in a browser. You can run DuckDB on a satellite in space.",
-        "In the past you couldn't just stick a Spark cluster into a pipeline. That doesn't work. But with DuckDB you can just spin up an instance and run some minor transformation. That's perfectly fine.",
-        "DuckDB is not VC funded. The company that employs the core contributors funds the whole show by offering commercial support contracts and consulting contracts.",
-        "When we were pushing out 1.0, you have this anxiety\u2014five minutes later somebody will be like, oh by the way, the joins are broken. Didn't happen."
-      ],
-      "themes": [
-        "duckdb",
-        "embedded_databases",
-        "data_architecture",
-        "open_source",
-        "industry_observations",
-        "query_optimization"
-      ],
-      "tone": "enthusiastic, candid, community-oriented",
-      "key_insight": "DuckDB's explosive adoption stems from replacing hostile, complex data tooling with an embeddable system so simple that data becomes as approachable as opening a movie file.",
-      "filename": "2024-08-15-2024-08-15-duckcon5"
-    },
-    {
       "summary": "Hannes M\u00fchleisen opens DuckCon #5 by reflecting on DuckDB's mission and extraordinary growth. He frames DuckDB's core purpose as replacing fear of data with confidence, comparing the goal to how VLC made video files approachable. He outlines three main use cases: interactive analysis, pipeline components, and creative architectures like mobile devices and satellites. Adoption metrics are staggering \u2014 6 million Python downloads per month, 17 million extension installs, and 600K unique web visitors. He emphasizes DuckDB is not VC-funded, sustained instead by commercial support contracts through DuckDB Labs.",
       "key_points": [
         "DuckDB's mission is transforming data from something feared into something approachable, like opening a movie file in VLC",
@@ -1121,36 +591,6 @@
       "tone": "optimistic, candid, conversational",
       "key_insight": "DuckDB's core mission is replacing the fear and hostility people experience with data tools by making data as approachable as opening a movie file in VLC.",
       "filename": "2024-08-15-duckcon5"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen presents DuckDB's potential to disrupt traditional two-tier and three-tier data architectures by embedding the query engine at every layer of the stack. He argues that DuckDB's in-process architecture eliminates the need for centralized database servers, enabling deployment in operational servers, app servers, Lambdas, browsers, and mobile devices. He demonstrates how companies like Fivetran, Oktar, and Hugging Face are already using DuckDB to replace heavyweight infrastructure like Spark clusters. The core thesis is that unshackling a state-of-the-art query engine from fixed servers represents a massive paradigm shift in data architecture.",
-      "key_points": [
-        "DuckDB's in-process architecture was chosen deliberately for ease of use\u2014no servers, no Docker, no DBAs\u2014just a pip install",
-        "Building a production-quality query engine is prohibitively expensive even for the richest organizations, so DuckDB gives state-of-the-art processing for free under MIT license",
-        "DuckDB can replace Spark clusters in data pipelines by running in Lambdas with millisecond startup time, dramatically reducing cost and complexity",
-        "The in-process model enables zero-copy data exchange with Pandas and Arrow data frames\u2014no sockets, no serialization, just reading memory directly",
-        "Embedding DuckDB in browsers via WebAssembly delivers video-game latency for dashboards, eliminating multi-second round trips to backend servers"
-      ],
-      "money_quotes": [
-        "People generally fear data. It's my observation, like, especially when it stops fitting in Excel.",
-        "We have built a system to write papers maybe, or to look good in benchmarks, but we have not necessarily built systems to spark joy.",
-        "Building this kind of technology, like a query engine is actually not possible for even the richest organization.",
-        "DuckDB can be everywhere in your stack, same SQL, same storage format, same capabilities. It's a state of the art processing engine that's now kind of unshackled from DB service.",
-        "It's actually a massive paradigm shift. I don't think people have fully gotten this yet. And I also don't think I have fully gotten this yet.",
-        "Instead of the database living on a centralized server or cluster, it can now live everywhere. It's only your creativity limits where you can put it.",
-        "You don't have to wait for VMs to go up or a cluster to be of the right size. You just run a Lambda.",
-        "We typically outperform Spark like a factor 10 or so on a single node. And Spark takes a lot of parallel cluster nodes to catch up."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "embedded_databases",
-        "open_source",
-        "industry_observations"
-      ],
-      "tone": "enthusiastic, evangelical, technical",
-      "key_insight": "The paradigm shift from centralized database servers to an embeddable, state-of-the-art query engine that can run anywhere\u2014browsers, Lambdas, mobile apps, operational servers\u2014fundamentally changes how data architectures should be designed.",
-      "filename": "2024-09-12-2024-09-12-mlops-de4ai"
     },
     {
       "summary": "Hannes M\u00fchleisen presents how DuckDB can be deployed at every tier of a data architecture, replacing the traditional centralized database server model. He argues that DuckDB's in-process, embeddable design allows it to run inside operational servers (via PG-DuckDB), in serverless Lambdas replacing Spark clusters, within app servers eliminating database protocol overhead, and even in browsers via WebAssembly. He frames this as a paradigm shift: state-of-the-art query processing is no longer bound to a fixed server or cluster but can live anywhere creativity allows.",
@@ -1184,36 +624,6 @@
       "filename": "2024-09-12-mlops-de4ai"
     },
     {
-      "summary": "Hannes M\u00fchleisen presents how DuckDB has evolved beyond its original interactive analysis use case into unexpected deployment scenarios. He explains DuckDB's core design philosophy of eliminating data anxiety through an in-process, batteries-included approach that prioritizes end-to-end user experience over narrow engine optimization. The talk catalogs three emerging deployment patterns: DuckDB as a pipeline component (e.g., in ETL between operational databases and data lakes), as a Lambda function replacement for Spark clusters, and as a client-side engine in browsers, desktop apps, and mobile devices. M\u00fchleisen argues this represents a fundamental shift where data engines can now live anywhere rather than being trapped in centralized server architectures.",
-      "key_points": [
-        "DuckDB's fundamental mission is transforming data terror into data confidence by handling the full end-to-end user experience, not just optimizing engine internals",
-        "Three unexpected deployment patterns have emerged: pipeline component (headless ETL), Lambda function data transformation, and client-side processing in browsers and mobile apps",
-        "The in-process architecture eliminates the double-scaling problem of traditional client-server setups by letting data processing scale naturally with application server load",
-        "DuckDB's website has 1.3 million unique monthly visitors, making it accidentally one of the bigger websites in the Netherlands",
-        "The shift from centralized database servers to embedded-everywhere engines represents a fundamental change in data architecture possibilities"
-      ],
-      "money_quotes": [
-        "What fundamentally DuckDB is about is to make people stop worrying about data.",
-        "What sort of horrifying encoding choices were made like 20 years ago by the statistics agency in British Columbia, like you don't even want to know.",
-        "This is a kind of a departure from traditional work on data management engines, where it was kind of tradition to focus on the 47th join algorithm.",
-        "Instead of the data warehouse, we have the data swamp, and then we have something called Apache Spark to deal with the swamp. Here in the Netherlands we have experience with dealing with swamps. You drain them. But that's not what they do, they make it worse.",
-        "When we started building DuckDB, we were a public servancy in the Netherlands and making it freely available is a way for us to give back to you, the taxpayer.",
-        "We accidentally made one of the bigger websites of the Netherlands. It's bigger than the Lidl.",
-        "The data engine can be anywhere. And I think this is like the new sort of exciting territory is where else can we put a data engine and what can we possibly achieve with that.",
-        "With DuckDB we can liberate data processing. We can really just put the data engines wherever we want and we don't have to rely on decentralized engines anymore."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "embedded_databases",
-        "industry_observations",
-        "open_source"
-      ],
-      "tone": "enthusiastic, conversational, humorous",
-      "key_insight": "The era of centralized database servers is giving way to embedded, in-process data engines that can be deployed anywhere \u2014 in pipelines, Lambda functions, browsers, and mobile apps \u2014 fundamentally changing how we architect data systems.",
-      "filename": "2024-10-17-2024-10-17-duckdb-wild"
-    },
-    {
       "summary": "Hannes M\u00fchleisen presents how DuckDB, an in-process analytical database, is being used in unexpected ways beyond its original interactive analysis purpose. He explains DuckDB's core design philosophy of end-to-end user experience and 'data confidence' \u2014 removing the terror of encountering messy datasets. He highlights three surprising deployment patterns: DuckDB as a pipeline component (e.g., Fivetran, Lambda functions), DuckDB on application servers replacing separate analytics infrastructure, and DuckDB on clients via desktop apps, mobile, and WebAssembly in browsers. His central thesis is that DuckDB liberates data processing from centralized server architectures, enabling data engines to run anywhere.",
       "key_points": [
         "DuckDB's design philosophy focuses on end-to-end user experience rather than just optimizing engine internals like join algorithms",
@@ -1242,39 +652,6 @@
       "tone": "enthusiastic, conversational, opinionated",
       "key_insight": "The future of data processing is not centralized server architectures but embeddable engines that can run anywhere \u2014 in pipelines, application servers, browsers, and mobile devices \u2014 eliminating the friction and scaling problems of traditional data infrastructure.",
       "filename": "2024-10-17-duckdb-wild"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen explains how DuckDB emerged from frustration with poor database user experiences, combining state-of-the-art analytical engine research from CWI Amsterdam with SQLite-like simplicity. The fundamental bet was on single-node scale-up over distributed scale-out, which the entire field considered heretical at the time. He traces DuckDB's origins from MonetDB Lite experiments through the decision to start from scratch, enabled by his tenure security and Mark Raasveldt's flexible PhD timeline. The 1.0 release centered on storage format stability, and DuckDB's SQL dialect innovations like GROUP BY ALL have been widely copied by Snowflake and Databricks. M\u00fchleisen expresses mixed feelings about lakehouse formats, noting that while they theoretically open walled gardens, API gatekeepers may recreate lock-in.",
-      "key_points": [
-        "DuckDB's single-node design gives it a fundamental algorithmic advantage over distributed engines, enabling pointer-based operations impossible in scale-out systems, resulting in roughly 10x performance over Spark on single nodes",
-        "The zero-dependency philosophy extends to shipping patched versions of third-party libraries to ensure portability across ancient Linux versions like CentOS 6",
-        "DuckDB's community extension model solves the dependency problem by keeping the core engine dependency-free while allowing plugins to depend on libraries like OpenSSL",
-        "SQL ergonomic improvements like GROUP BY ALL, trailing commas, and alias-first syntax came from the team using their own database and observing repeated user frustrations",
-        "Lakehouse formats theoretically open walled gardens but API gatekeepers controlling access credentials may recreate lock-in, limiting DuckDB's ability to freely query that data"
-      ],
-      "money_quotes": [
-        "The fundamental hill that we were willing to die on was to bet on single node and scale up instead of scale out.",
-        "What we set out to do with DuckDB is to somehow bring the orthodoxy of databases, features like transactions, like schemas, like state-of-the-art execution engines together with sort of this ease of use that we saw with systems like Mongo.",
-        "The whole field was chasing whales and the one customer in the world that has Google scale is Google.",
-        "Let's just solve the problems for the 99% of people who are not Google and will be rich and turns out that worked.",
-        "Many DuckDB jobs now complete faster than a Spark cluster can start up.",
-        "We actually didn't tell anyone for the longest time. I think for almost a year, we didn't tell anyone what we were doing. We would show up to group meetings and say, yeah, we were working on query parsing.",
-        "For me, that was sort of a revelation, actually, that the experience doesn't have to suck. How can we make something that people will actually use and not hate?",
-        "If everybody in, if all the whales adopt your stupid SQL feature in like two months, that's pretty motivating."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "embedded_databases",
-        "data_architecture",
-        "open_source",
-        "industry_observations",
-        "query_optimization",
-        "lakehouse"
-      ],
-      "tone": "candid, opinionated, technically grounded, reflective",
-      "key_insight": "By refusing to chase distributed scale-out and instead making an uncompromising bet on single-node performance, DuckDB gained algorithmic advantages that distributed engines structurally cannot match, while hardware trends validated that most real-world workloads never needed scale-out in the first place.",
-      "filename": "2024-10-29-2024-10-29-data-talks-rocks"
     },
     {
       "summary": "Hannes M\u00fchleisen discusses how DuckDB was built as a radical bet on single-node, in-process analytics over distributed scale-out architectures. Born from research at CWI Amsterdam, DuckDB combined state-of-the-art vectorized query execution with SQLite-like ease of use, after an earlier experiment (MonetDB Lite) proved the in-process model had demand. The 1.0 release focused on storage format stability and backward compatibility. Hannes explains how DuckDB's SQL dialect innovations like GROUP BY ALL have been widely copied, and discusses the emerging lakehouse ecosystem with mixed feelings about potential re-centralization of data access behind APIs.",
@@ -1310,37 +687,6 @@
       "filename": "2024-10-29-data-talks-rocks"
     },
     {
-      "summary": "Hannes M\u00fchleisen argues that the era of big data requiring distributed systems is effectively over, as research from Redshift and Snowflake shows the median analytics query scans only 100MB of data. He demonstrates that single-node hardware capabilities are growing faster than data processing demands, meaning most analytical workloads fit comfortably on a single machine. With smaller effective data sizes, he advocates for bringing back ACID transaction properties to analytics workflows, showing how atomicity, consistency, isolation, and durability solve real problems in data pipelines. He closes with skepticism toward Lakehouse formats like Iceberg, arguing they are limited reimplementations of features that dedicated database systems already handle better.",
-      "key_points": [
-        "Research from Redshift and Snowflake shows the median analytics query scans 100MB and P99.9 is under 300GB \u2014 both fit on a single machine",
-        "Hardware capabilities are growing faster than data processing demands, approaching a 'data singularity' where every analytics question can be answered on one node",
-        "The industry traded away convenience (ACID, primary keys, isolation) for raw distributed scale with Hadoop/Spark, but those tradeoffs are no longer necessary",
-        "ACID properties solve real analytics problems: atomic CSV ingestion, primary key enforcement, dashboard isolation during background refresh, and crash-safe durability",
-        "Lakehouse formats like Iceberg are limited reimplementations of change management that dedicated database systems handle better"
-      ],
-      "money_quotes": [
-        "Tables are a civilization technique that is older than writing things down.",
-        "The median scan of data uses 100 megabytes of data. That's not a lot. That can probably, you know, if you want it to fit on your watch.",
-        "We traded away a lot of convenience and sort of capabilities in data pipelines just for the vast and the raw scale capabilities.",
-        "Big data is somewhat dead.",
-        "If you use something like dbt, it runs these endless chains of create table as select from blah, blah, blah, which is really the opposite of change.",
-        "MongoDB manages to not actually ensure durability of data that you've written to it because it's performance. I don't know.",
-        "Iceberg in the end is just a layer of stuff on top of parquet files. And I think it's only really interesting if you have no other choice for managing updates.",
-        "Somebody, I think in the near future, will make an open source data warehouse with separate storage and compute that hopefully will make the Lakehouse formats redundant."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "database_internals",
-        "industry_observations",
-        "lakehouse",
-        "embedded_databases"
-      ],
-      "tone": "opinionated, conversational, provocative",
-      "key_insight": "With the median analytics query scanning only 100MB, the distributed big data era's tradeoffs are obsolete \u2014 single-node systems can now deliver both scale and full ACID transactional guarantees for analytics.",
-      "filename": "2024-11-25-2024-11-25-truth-large-tables"
-    },
-    {
       "summary": "Hannes M\u00fchleisen argues that the era of big data requiring distributed systems is effectively over, as research from Redshift and Snowflake shows median query scans use only 100MB and P99.9 scans fit under 300GB. This means single-node systems like DuckDB can handle virtually all analytical workloads. With smaller effective data sizes, we can reclaim ACID transaction properties that were sacrificed during the Hadoop era. He demonstrates how atomicity, consistency, isolation, and durability bring real value to analytics pipelines. He also expresses skepticism about Lakehouse formats like Iceberg, viewing them as limited workarounds for change management on object stores.",
       "key_points": [
         "Research from Redshift and Snowflake shows median query scans use 100MB of data, with P99.9 under 300GB \u2014 both easily handled by a single machine",
@@ -1372,36 +718,6 @@
       "filename": "2024-11-25-truth-large-tables"
     },
     {
-      "summary": "Hannes M\u00fchleisen presents DuckDB's ACID transaction capabilities as a solution to common data reliability problems in the Python data stack. He argues that DataFrames lack transactionality, leading to data loss from accidental overwrites, partial file writes, and race conditions. He walks through each ACID property\u2014atomicity, consistency, isolation, durability\u2014with practical analytics examples showing how DuckDB protects users from these pitfalls. He demonstrates that DuckDB's analytics-optimized MVCC implementation delivers transactional safety without the performance penalties traditionally associated with ACID compliance, making it both safer and faster than alternatives.",
-      "key_points": [
-        "The Python data stack treats data changes as an afterthought\u2014DataFrames have no undo, no transactional bundling, and no protection against partial writes or race conditions",
-        "DuckDB brings full ACID compliance to analytical workloads, letting users roll back mistakes, enforce constraints, and safely run concurrent reads and writes",
-        "DuckDB's analytics-optimized multi-version concurrency control is the world's first designed specifically for analytical use cases, avoiding the performance penalties of traditional transactional systems",
-        "DuckDB's in-process architecture enables zero-copy access to pandas DataFrames and Arrow structures, eliminating data transfer overhead",
-        "Transactions can be combined with integrity checks (like row count assertions) to create self-validating data pipelines that automatically roll back on failure"
-      ],
-      "money_quotes": [
-        "Anything that stops fitting in Excel, people are terrified. It's my experience after working with data people for a while.",
-        "The Python data stack treats changes as a complete afterthought. A data frame is something that's completely static. There is really no notion of changing this data frame without just completely recreating it.",
-        "The ACID principles are something that have emerged from decades of data management practice as a good idea. These are rules written in blood, much like the rules that govern aviation.",
-        "We are actually not VC-funded, so DuckDB is not a project that is in threat of a rug pull in the near future.",
-        "If they are blocked for five minutes because your syntax is weird, that's going to be much worse than if your CSV is 10% slower.",
-        "DuckDB has the world's first analytics optimized multi-version concurrency control.",
-        "What they then usually realize after doing that, that actually, DuckDB is usually good enough to also run on the full dataset. And then it very often translates into a production use case afterwards."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "data_architecture",
-        "embedded_databases",
-        "open_source",
-        "industry_observations"
-      ],
-      "tone": "educational, persuasive, confident",
-      "key_insight": "ACID transactions, long considered unnecessary overhead for analytics, are essential for data reliability\u2014and DuckDB proves they don't have to cost performance.",
-      "filename": "2024-12-05-2024-12-05-pydata-global"
-    },
-    {
       "summary": "Hannes M\u00fchleisen presents DuckDB's ACID transaction capabilities as a solution to common data reliability problems in the Python ecosystem. He argues that data practitioners live in fear of their data because tools like pandas lack transactional guarantees, leading to issues like accidental data loss, partial file writes, and race conditions. He walks through each ACID property (Atomicity, Consistency, Isolation, Durability) with practical analytics examples, showing how DuckDB's in-process architecture combined with full transactional support lets analysts change data with confidence. He demonstrates that DuckDB's analytics-optimized MVCC delivers these guarantees without sacrificing performance.",
       "key_points": [
         "Python data tools treat change as an afterthought\u2014DataFrames have no undo, no transactional bundling, and no protection against partial writes or race conditions",
@@ -1430,38 +746,6 @@
       "tone": "educational, opinionated, practical",
       "key_insight": "ACID transactions, long considered unnecessary overhead for analytics, are essential for data confidence\u2014and DuckDB proves they can be delivered without performance compromise in an embedded, zero-dependency package.",
       "filename": "2024-12-05-pydata-global"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen discusses DuckDB's philosophy of making database technology accessible without sacrificing correctness. He explains how DuckDB prioritizes user experience, zero-dependency installation, and state-of-the-art query processing in a single embeddable library. He critiques lakehouse formats as technically inferior reimplementations of data warehouse features driven by market forces rather than engineering merit. He argues that the industry has been solving 'whale problems' for the 99% of users who don't need distributed systems, and that single-node performance on modern hardware is sufficient for most real-world workloads. He also details DuckDB's innovations in larger-than-memory processing, ACID transactions for analytics, and the extension ecosystem.",
-      "key_points": [
-        "DuckDB packages state-of-the-art database technology into a zero-dependency, trivially installable library, prioritizing user experience over golf-course sales",
-        "Lakehouse formats are technically inferior reimplementations of data warehouse features, driven by pricing grievances rather than engineering needs, with fundamental limitations like ~1 transaction per second on Iceberg",
-        "The industry has spent 20 years solving whales' problems (Google, Netflix) while neglecting the 99% of users whose data fits comfortably on a single modern machine",
-        "DuckDB implements 'graceful degradation' for larger-than-memory processing and speculative WAL writing for efficient bulk transactions, innovations that other systems simply bypass",
-        "The extension ecosystem is DuckDB's future direction, becoming a runtime fabric that hosts a Cambrian explosion of community-built data capabilities"
-      ],
-      "money_quotes": [
-        "What if we take the body of knowledge, the orthodoxy of what the database engine should look like and just put it into a package that doesn't make you hate everything and everyone around you?",
-        "We are essentially building things that are inferior to the state of the art from 20 years ago. And somehow get excited about it.",
-        "If Oracle hadn't charged per CPU, would NoSQL ever have happened?",
-        "We cannot tell a boat sales company to install Spark. There's no point for them to run Spark to deal with their customer data. Yet we have been telling them that for the last 10 years.",
-        "I don't think anybody can realistically show me a path to more than one transaction per second on an Iceberg table.",
-        "We took this Galaxy Quest principle to query processing. We just never want to give up. We never want to surrender.",
-        "Raw performance is overrated. It's not that DuckDB isn't fast. But it's not the end-all of data things.",
-        "If we spend a year optimizing for a benchmark, is it going to make the life of a single one of our users better? I don't think so. If we spend the same amount of time on the CSV reader, is that going to make the life of users better? Absolutely."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "data_architecture",
-        "lakehouse",
-        "embedded_databases",
-        "industry_observations",
-        "open_source"
-      ],
-      "tone": "opinionated, candid, technical",
-      "key_insight": "The database industry has been solving the wrong problems for the wrong users, and DuckDB's success comes from packaging proven database technology into an accessible form for the 99% of users who never needed distributed systems.",
-      "filename": "2024-12-12-2024-12-12-joe-reis-duckdb-deep-dive"
     },
     {
       "summary": "Hannes M\u00fchleisen discusses DuckDB's origins, philosophy, and explosive growth as an embedded analytical database. He explains why DuckDB prioritizes user experience, zero-dependency installation, and state-of-the-art query processing in a simple package. He critiques Lakehouse formats as technically inferior recreations of data warehouse features driven by market forces rather than technical merit. He argues the industry has been solving 'whale problems' while neglecting the 99% of users whose data fits on a single node, and advocates for transactional semantics in analytics without performance penalties.",
@@ -1497,35 +781,6 @@
       "filename": "2024-12-12-joe-reis-duckdb-deep-dive"
     },
     {
-      "summary": "In this Posit Data Science Hangout, Hannes M\u00fchleisen discusses DuckDB's origins, architecture, and growing adoption. He explains how DuckDB emerged from frustrations teaching Spark courses and observing real data problems in the R community, evolving into an in-process analytical database that runs anywhere. He addresses questions about corporate adoption, security, database mental models, and DuckDB's deliberate focus on relational operations rather than expanding into machine learning. Hannes also discusses DuckDB's open-source governance model, where the original creators maintain directional control to avoid the fate of unfocused Apache projects.",
-      "key_points": [
-        "DuckDB was born from observing that experienced data practitioners couldn't manage Spark, suggesting the tooling was the problem, not the users",
-        "The in-process architecture eliminates client-server overhead and enables seamless integration with R and Python data structures without passwords or network protocols",
-        "DuckDB is increasingly used as a hidden building block inside corporate products like BI tools and data transformation platforms, not just as a standalone tool",
-        "Database integrity features like foreign keys, constraints, and transactions are underappreciated by data scientists who have never had them in data frame libraries",
-        "DuckDB was initially ridiculed for not being distributed, but the team was willing to wait a decade for the industry to acknowledge that distributed systems aren't necessary for most analytical workloads"
-      ],
-      "money_quotes": [
-        "I find it always funny when people sit in front of a $3,000 sort of Mac book that runs a web browser and nothing else. And then they use that to spend more money on Snowflake in order to query like a bunch of rows.",
-        "We were initially ridiculed for not having a distributed system. And it was our strong belief, and hill we were willing to die on, that you don't actually need distributed systems in order to query significant amounts of data.",
-        "After a couple of years of giving this course, we started thinking like, yeah, maybe there's something there. Maybe that doesn't have to be so difficult to write a parquet file.",
-        "Maybe we want to treat high value data better than sticking it in a CSV file. Maybe we do want to have a schema. Maybe we do want to make sure that we have the right types.",
-        "We've seen specifically Apache projects to go down the drain because they couldn't agree on a vision. And in the end, they just did whatever everyone wanted. And in the end, they're unmaintainable messes.",
-        "We have a rule that we only hire friendly people. That has worked really well so far.",
-        "If you look at what will have the biggest sort of impact for the most people, that's something that I think is worthwhile."
-      ],
-      "themes": [
-        "duckdb",
-        "embedded_databases",
-        "data_architecture",
-        "open_source",
-        "industry_observations"
-      ],
-      "tone": "conversational, candid, practical",
-      "key_insight": "DuckDB's success came from observing real user struggles with overcomplicated data tools and betting that most analytical workloads don't need distributed systems \u2014 just a well-engineered in-process engine on hardware people already own.",
-      "filename": "2025-01-09-2025-01-09-posit-hangout"
-    },
-    {
       "summary": "In this Posit Data Science Hangout, Hannes M\u00fchleisen discusses DuckDB's origins, architecture, and growing adoption. He explains how DuckDB emerged from frustrations teaching Spark courses and conversations with the R community about real data problems. He emphasizes that DuckDB's in-process architecture eliminates client-server complexity, runs anywhere from laptops to browsers, and handles mid-range data that previously required big data solutions. He addresses corporate adoption, noting DuckDB is widely embedded in BI tools and data platforms, and discusses the project's culture of friendliness and controlled governance.",
       "key_points": [
         "DuckDB originated from seeing students and experienced practitioners fail to use Spark, revealing that common data tasks were unnecessarily difficult",
@@ -1556,37 +811,6 @@
       "filename": "2025-01-09-posit-hangout"
     },
     {
-      "summary": "Hannes M\u00fchleisen opens DuckCon #6 in Amsterdam, reflecting on DuckDB's mission to eliminate fear of large datasets by making single-node analytics powerful and accessible. He presents data showing that 99.9% of analytical workloads fit on a single machine, citing evidence that the P99.9 of data set sizes in Snowflake and Redshift is under 300GB. DuckDB's adoption metrics are staggering: 32 million extension installs per month, 1.8 million unique web visitors monthly. The team previews DuckDB v1.2 (Harlequin), announces lakehouse support as the major 2025 focus, and discusses plans to make the extension ecosystem more accessible through a C API that enables extensions in Rust and Go.",
-      "key_points": [
-        "Single-node compute capability is growing faster than useful dataset sizes, with P99.9 of real-world analytical data under 300GB \u2014 confirming the 'data singularity' prediction",
-        "DuckDB adoption is explosive: 32 million monthly extension installs, 1.8 million unique monthly web visitors, making it one of the largest websites in the Netherlands",
-        "Lakehouse format support is the primary engineering focus for 2025, independent of MotherDuck",
-        "The team would not make architectural changes even with double the headcount \u2014 they'd invest in more client integrations instead, as the core engine doesn't benefit from more people",
-        "A new C API for extensions will enable community contributions in Rust and Go, lowering the C++ barrier"
-      ],
-      "money_quotes": [
-        "We saw people struggling with anything that didn't fit in Excel. And then the tools available at the time were just not nice or not instilling confidence.",
-        "The capabilities of a single node in terms of processing data have essentially risen quicker than the growth of useful data sets.",
-        "He has shown that we can actually run the industry standard benchmark TPC-H with a scale factor of 300, which is roughly equivalent to 300 gigabytes of input data on a Raspberry Pi.",
-        "The P99.9 of data set sizes was under 300 gigabyte, which is really shocking if you think about it after a decade of talking about big data.",
-        "I predicted a data singularity where 99.9% of data analysis queries could run on a single node without any problems. And then it actually happened.",
-        "Last month alone, we saw 32 million extension installs. So this is totally wild.",
-        "We accidentally made one of the bigger websites of this country. I think we have beaten the Lidl at this point.",
-        "A tool that charges you 1,000 euros per person per year is going to have to be much, much better against one that doesn't cost anything."
-      ],
-      "themes": [
-        "duckdb",
-        "embedded_databases",
-        "data_architecture",
-        "industry_observations",
-        "open_source",
-        "lakehouse"
-      ],
-      "tone": "optimistic, celebratory, candid",
-      "key_insight": "The 'data singularity' has arrived: single-node hardware capability has outpaced the growth of real-world datasets, making distributed systems unnecessary for 99.9% of analytical workloads.",
-      "filename": "2025-01-31-2025-01-31-duckcon6"
-    },
-    {
       "summary": "Hannes M\u00fchleisen opens DuckCon #6 in Amsterdam, reaffirming DuckDB's mission to make large datasets approachable rather than intimidating. He presents evidence that single-node computing power has outpaced the growth of useful data sizes, citing analysis showing P99.9 of data warehouse sizes is under 300GB. He shares adoption metrics including 32 million monthly extension installs and 1.8 million monthly website visitors. The talk transitions to Mark discussing upcoming v1.2 features and the lakehouse focus for the year ahead, followed by Q&A covering architecture, Wasm, partitioning, and extension development.",
       "key_points": [
         "Single-node computing capability has grown faster than useful dataset sizes, with P99.9 of Snowflake/Redshift datasets under 300GB",
@@ -1615,38 +839,6 @@
       "tone": "optimistic, conversational, candid",
       "key_insight": "The era of big data infrastructure is largely unnecessary for most workloads, as single-node hardware with efficient software like DuckDB can handle 99.9% of real-world analytical datasets.",
       "filename": "2025-01-31-duckcon6"
-    },
-    {
-      "summary": "In this podcast interview, Hannes M\u00fchleisen discusses DuckDB's origins at CWI, its growth to 10 million monthly downloads, and its design philosophy as a universal data wrangling tool. He explains why DuckDB avoids hardware-specific optimizations in favor of maximum portability, contrasting this with SaaS-oriented systems like ClickHouse. Hannes shares the story of building DuckDB's parquet reader from scratch due to the lack of a standalone C++ component, and argues that a competent parquet reader inevitably becomes a database engine. He is bluntly skeptical of AI in database internals, comparing it to Bitcoin in usefulness, while acknowledging AI's role in assisting users with SQL generation. He highlights DuckDB's extension ecosystem as a key growth driver that lets subcultures build what they need on top of DuckDB's infrastructure.",
-      "key_points": [
-        "DuckDB prioritizes universal portability over hardware-specific tuning, running on everything from phones to IBM mainframes to Chinese homegrown CPUs, which is fundamentally different from SaaS-oriented databases that can optimize for specific architectures",
-        "Building a competent parquet reader requires query execution capabilities like expression evaluation, filter pushdown, and parallelism \u2014 meaning it inevitably becomes a database engine",
-        "AI has no place in core database engine internals \u2014 learned indexes are worse approximations of existing structures, and AI-driven query optimization suffers from overfitting and non-transferability",
-        "DuckDB's extension ecosystem is a powerful growth driver, allowing pluggable parsers, custom index types, new data types, and file formats \u2014 something impossible to replicate in managed SaaS offerings",
-        "SQL's survival against all attempts to kill it is driven by the surprising number of business analysts who know it, not by computer scientists who control database research"
-      ],
-      "money_quotes": [
-        "I see AI on the same level of idiocy as Bitcoin personally.",
-        "A parquet reader that's competent has kind of no choice but to become a database engine.",
-        "If you're writing a parallel sort implementation, is an assistant going to help you? I have my serious doubts about that.",
-        "It feels like there's a gold rush and you sell shovels. Selling shovels is not glamorous. It is just a shop with shovels in it. But it earns a living.",
-        "You wouldn't suggest that the Linux kernel should be taking system calls in natural language. There are just some components sufficiently low on the stack that a defined interface is worth a lot.",
-        "We really never, ever want to get killed by illegal instruction \u2014 which even happened to NumPy a couple of months ago.",
-        "SQL has survived all attempts to kill it by computer scientists, because we just don't control the business analysts out there that all know how to write SQL.",
-        "In order to get some of the things we thought were important really right, we need to actually start from scratch, which is never a good idea in databases."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "data_architecture",
-        "open_source",
-        "embedded_databases",
-        "industry_observations",
-        "query_optimization"
-      ],
-      "tone": "opinionated, candid, humorous",
-      "key_insight": "DuckDB's power comes from ruthlessly prioritizing portability and simplicity as a universal component, resisting the temptation to chase hardware-specific optimizations or AI integration that would compromise its SQLite-like ubiquity.",
-      "filename": "2025-03-19-2025-03-19-data-engineering-show-ai"
     },
     {
       "summary": "Hannes M\u00fchleisen discusses DuckDB's origins, philosophy, and growth on The Data Engineering Show. He explains how DuckDB emerged from CWI research as the first in-process analytical database, designed for universal deployment from phones to space satellites. He emphasizes DuckDB's focus on portability over hardware-specific optimization, explains why they built their own Parquet reader, and shares strong skepticism about AI's role in database internals while acknowledging its value for user-facing assistance like text-to-SQL.",
@@ -1713,38 +905,6 @@
       "filename": "2025-04-10-2025-pydata-amsterdam"
     },
     {
-      "summary": "Hannes M\u00fchleisen traces the origin story of DuckDB back to 2015, when analytical data management was fragmented between expensive enterprise systems, Hadoop, immature cloud offerings, and academic spinoffs that got swallowed by corporations. He and Mark Raasveldt decided to build 'the SQLite for analytics' \u2014 a single-node, embedded, vectorized, CPU-only, open-source database. He walks through key design decisions (no distribution, no GPU, no SIMD, MIT license) and presents recent work on out-of-core hash joins that gracefully handle memory limits instead of crashing. He concludes by showing DuckDB running TPC-H at massive scale factors on commodity hardware and teases a new product launching soon.",
-      "key_points": [
-        "DuckDB was born from 'spite engineering' \u2014 frustration that superior academic database technology kept disappearing into corporate acquisitions while practitioners suffered with inadequate tools",
-        "The single-node design decision was the biggest departure from conventional wisdom, validated by data showing median queries scan ~100MB and P99.9 scans under 300GB",
-        "Vectorized execution was chosen over JIT compilation for portability \u2014 DuckDB ran on Apple M1 within five minutes of its release, while JIT-based engines would need rewrites",
-        "The 'never give up, never surrender' out-of-core hash join design allows DuckDB to gracefully handle queries exceeding available memory rather than crashing or hitting performance cliffs",
-        "DuckDB's embedded architecture liberates data management from two-tier and three-tier architectures, running everywhere from Raspberry Pis to web browsers to outer space"
-      ],
-      "money_quotes": [
-        "We can't just pip import the state of the art in data. We might have to build this ourselves.",
-        "Any sort of competent single-thread implementation is going to be better than the state-of-the-art of distributed systems.",
-        "DuckDB isn't built for real-time analytics, so it's excluded from the results, but was the fastest. I mean, at that point, you know, where you have to get the strategic popcorn reserves out at the office.",
-        "If you had a JIT engine, you would still be working on rewriting your JIT. Some people here are clearly working on that. Sorry.",
-        "We really believe that a system that people rely on should never say, oh, I cannot finish this because I don't have enough memory to do this.",
-        "We used to be so used to the fact that we scaled the application server and the database server differently. They're different things. I'm sorry. But now you can just run DuckDB on the application server.",
-        "I would claim that we have kind of finished sort of the single player campaign of DuckDB."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "query_optimization",
-        "data_architecture",
-        "open_source",
-        "academic_research",
-        "embedded_databases",
-        "industry_observations"
-      ],
-      "tone": "candid, humorous, technically deep, and triumphantly vindicated",
-      "key_insight": "The most impactful design decisions in DuckDB were the ones that defied conventional wisdom \u2014 choosing single-node over distributed, vectorization over JIT, CPU over GPU, and open source over proprietary \u2014 and each has been validated by real-world adoption.",
-      "filename": "2025-04-22-2025-04-22-data-council"
-    },
-    {
       "summary": "Hannes M\u00fchleisen recounts the origin story of DuckDB, born from frustration with the state of analytical data management in 2015, when options were expensive enterprise systems, Hadoop, immature cloud services, or bolted-on columnar extensions. He and Mark Raasveldt decided to build 'the SQLite for analytics' at CWI Amsterdam, making key design decisions: single-node over distributed, vectorized execution over JIT compilation, CPU-only with no GPU support, no hardware-specific SIMD code, and MIT-style open source licensing. He demonstrates DuckDB's out-of-core hash join capabilities and argues that the embedded architecture liberates data management by allowing DuckDB to run anywhere from browsers to Raspberry Pis to outer space.",
       "key_points": [
         "DuckDB was born from 'spite engineering' \u2014 frustration that superior academic database technology was being swallowed by corporations and never reaching users",
@@ -1778,37 +938,6 @@
       "filename": "2025-04-22-data-council"
     },
     {
-      "summary": "Hannes M\u00fchleisen and Mark Raasveldt introduce DuckLake, a new lakehouse format that replaces the complex file-based metadata layers of Iceberg and Delta with a standard database (like Postgres or DuckDB) for metadata storage while keeping Parquet files on blob storage for data. They argue that existing lakehouse formats like Iceberg were built on the Hadoop-era premise that databases don't scale, yet ironically ended up requiring a database (Postgres) as a catalog server anyway, without revisiting their original file-based design decisions. DuckLake's three principles are simplicity (just a database plus file storage), scalability (metadata is ~100,000x smaller than data, and the architecture mirrors proven designs from Snowflake and BigQuery), and speed (single round-trip queries instead of multiple file hops). The format enables features impossible in existing lakehouses: multi-table transactions, data inlining for small writes, zero-trust encryption via Parquet encryption with keys in the metadata store, and consistent catalog-level snapshots. DuckLake serves as DuckDB's answer to multiplayer/multi-user scenarios without implementing a traditional client-server protocol.",
-      "key_points": [
-        "Existing lakehouse formats (Iceberg, Delta) were designed to avoid databases but ultimately required one anyway as a catalog server, yet never revisited their file-based design decisions",
-        "DuckLake stores all metadata in a standard SQL database (Postgres, DuckDB, MySQL, etc.) while keeping data as Parquet files on any blob store, mirroring the proven architecture of Snowflake and BigQuery but with open formats",
-        "Data inlining allows small commits to be written directly to the metadata database, solving the small-writes problem that plagues Iceberg (which struggles below ~1 transaction per second)",
-        "Zero-trust encryption is possible because DuckLake only writes encrypted Parquet files to blob storage, with keys stored in the trusted metadata database",
-        "DuckLake replaces the entire lakehouse stack (format + catalog) with multi-table transactions, catalog-level time travel, and consistent cross-table snapshots"
-      ],
-      "money_quotes": [
-        "They tried so hard not to have a database in this because databases are evil. They don't scale.",
-        "In order to solve the problem of multi-table management and atomic commits, we'll invent a new system and this is no longer going to be file-based. It's going to be a service. And how does it store that? Well, it uses a system that is specifically designed to manage data. A database management system, if you will.",
-        "We are now on like 0.5 transactions per second. We went down another 10x from blockchain. Yay progress.",
-        "Any company that is managing any sort of serious amount of data will have a database server somewhere. And they will know how to back it up. They will know how to replicate it. In some sense, it's a commodity.",
-        "DuckLake is not a DuckDB specific thing. It's a standard. It's a convention of how do we manage large tables on blob stores that are stored in formats like Parquet in a sane way using a database.",
-        "The design of DuckLake is the exact same design that Snowflake and BigQuery have been using for a long time already successfully with the one difference that on the bottom, we have the open format Parquet.",
-        "You are the compute node. Wherever your application runs, is it your app server? Is it your application? Is it your local laptop, whatever? You are the compute node.",
-        "Instead of saying we'll spread out in the client server sense, we have turned this completely around with DuckLake where everyone runs a DuckDB instance."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "lakehouse",
-        "database_internals",
-        "open_source",
-        "industry_observations"
-      ],
-      "tone": "opinionated, conversational, critical",
-      "key_insight": "Lakehouse formats like Iceberg already require a database server for their catalog, so DuckLake simply uses that database for all metadata instead of maintaining redundant layers of Avro and JSON files, achieving the same proven architecture as Snowflake and BigQuery but with fully open formats.",
-      "filename": "2025-05-27-2025-05-27-introducing-ducklake"
-    },
-    {
       "summary": "Hannes M\u00fchleisen and Mark Raasveldt introduce DuckLake, a new lakehouse format that replaces the file-based metadata layers of Iceberg and Delta with a standard database (like Postgres or DuckDB) for metadata storage while keeping Parquet files on blob storage for data. They argue that existing lakehouse formats made poor design decisions by trying to avoid databases, only to eventually require catalog servers backed by databases anyway. DuckLake simplifies the architecture to just two components\u2014a metadata database and file storage\u2014enabling multi-table transactions, fast small commits, data inlining, and zero-trust encryption. The format is an open standard using simple SQL, and the DuckDB extension implementation is MIT-licensed.",
       "key_points": [
         "Existing lakehouse formats like Iceberg and Delta tried to avoid databases but ended up needing catalog servers backed by Postgres anyway, creating unnecessary architectural complexity with multiple layers of Avro, JSON, and Parquet metadata files",
@@ -1838,37 +967,6 @@
       "tone": "opinionated, conversational, satirical",
       "key_insight": "Since every lakehouse format already requires a database for its catalog server, the logical step is to store all metadata directly in that database, eliminating the complex file-based metadata layers and unlocking multi-table ACID transactions, fast small commits, and zero-trust encryption.",
       "filename": "2025-05-27-introducing-ducklake"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen presents DuckLake, a new open table format that replaces the complex metadata layers of Iceberg (Avro files, JSON manifests, REST catalogs) with a simple SQL database for metadata storage while keeping Parquet files on blob storage. The idea originated from his frustration implementing Iceberg support in DuckDB, where he found the format's complexity to be an overengineered solution to what is fundamentally an economic problem with vendor lock-in. DuckLake stores all metadata in any SQL database (Postgres, DuckDB, etc.) and data files on any blob storage, enabling cross-table commits, efficient small writes, per-file encryption, and virtually unlimited snapshots. He demonstrates the system working with both local DuckDB files and remote Postgres+S3 configurations, showing time travel, deletes, updates, and schema changes. The format reuses Iceberg's Parquet-based delete file format and plans zero-copy import/export with Iceberg for interoperability.",
-      "key_points": [
-        "DuckLake replaces Iceberg's complex metadata stack (Avro files, JSON manifests, REST catalog) with a standard SQL database, dramatically simplifying the architecture while keeping Parquet files on blob storage",
-        "The approach solves critical OpenTable format problems: small file overhead (single-row inserts no longer require writing multiple files), commit throughput (millisecond Postgres transactions vs. seconds), and cross-table atomic commits",
-        "DuckLake enables true three-axis scaling: storage (blob stores), metadata (any SQL database), and compute (any number of DuckDB instances) can all scale independently",
-        "Per-file encryption with keys stored in the metadata catalog enables untrusted blob storage, since files are useless without metadata access",
-        "The specification is intentionally simple and database-agnostic, requiring only SQL, transactions, and primary keys \u2014 someone even made it work with Excel as the metadata server"
-      ],
-      "money_quotes": [
-        "The first thing, you know, I sat down, went to the website, looked at the specification. I was like, OK, I can do this. I'm a medium-competent database developer. I can implement Iceberg in DuckDB. And so we're like, OK, right, you read the JSON file. OK, great. We can do that. Then it's like, Avro, what?",
-        "These days, you know, we have Oracle 2.0, called Snowflake, okay, but it's still this kind of emotional behavior, you know, when talking about like table technology.",
-        "People sort of threw the whole tech stack out of the window and went with something else, which is, to me, isn't sort of a logical reaction, at least, right? It's like, maybe we should be not throwing tech stacks out just because there's a company sitting on this.",
-        "We keep the good parts and we fix the bad parts, right? So the good parts are we want to have this disconnect of storage and compute.",
-        "Getting a single row to Iceberg means you're writing four files and you're writing a new snapshot and it's all pretty terrible.",
-        "We can have a thousand or tens of thousands of snapshots in Duck Lake and nobody bats an eye. It's fine, right? Like it's just a table.",
-        "Suddenly you have untrusted blob storage because the files are completely useless to anyone without access to your metadata catalog.",
-        "As we were writing up our manifest, we thought this is so painfully clear that this is the way this needs to go."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "lakehouse",
-        "open_source",
-        "database_internals",
-        "industry_observations"
-      ],
-      "tone": "opinionated, candid, technically grounded, and irreverently practical",
-      "key_insight": "Open table formats like Iceberg overcomplicated metadata management by avoiding databases, and DuckLake fixes this by simply putting the metadata back in a SQL database where it belongs while keeping the good parts \u2014 Parquet files on blob storage.",
-      "filename": "2025-06-04-2025-06-04-joe-reis-ducklake"
     },
     {
       "summary": "Hannes M\u00fchleisen introduces DuckLake, an evolution of open table formats that replaces complex metadata layers (Avro files, JSON, REST APIs) with a standard SQL database for metadata management while keeping Parquet files on blob storage. He explains how examining Iceberg's specification revealed unnecessary complexity born from an emotional reaction to vendor lock-in rather than sound technical reasoning. DuckLake separates storage, compute, and metadata into three independently scalable axes, enabling features like cross-table commits, efficient small writes, per-file encryption, and time travel without the snapshot management overhead of existing formats. The system works with any SQL database supporting transactions and primary keys as the metadata store.",
@@ -1902,36 +1000,6 @@
       "filename": "2025-06-04-joe-reis-ducklake"
     },
     {
-      "summary": "Hannes M\u00fchleisen discusses the motivations behind creating DuckLake, a new open data format that uses a standard database for metadata instead of the file-based approach taken by Iceberg and Delta Lake. He argues that Iceberg's addition of a catalog server on top of its file-based design was a fundamental departure that should have triggered a complete redesign. DuckLake simplifies the stack by eliminating roughly 15 technologies (Avro, REST APIs, Java catalog servers) and replacing them with SQL tables in any database plus Parquet files on blob storage. The format supports high-frequency updates, scales to petabyte-level tables with 100 million snapshots, and can be implemented by anyone who can talk to a database and read/write Parquet files.",
-      "key_points": [
-        "Iceberg's problems are conceptual and baked into the specification, not merely implementation issues like Hadoop's were",
-        "DuckLake stores all metadata (tables, columns, files, statistics, partitions) in a standard SQL database, enabling sub-second query planning even at petabyte scale with 100 million snapshots",
-        "The format eliminates ~15 technologies from the stack: no Java, REST, Avro, JSON, or Spark required",
-        "DuckLake can inline high-frequency updates into the metadata database and flush to Parquet later, fully transactionally, without Lambda architecture tradeoffs",
-        "Iceberg's lack of competent writers after years of existence is evidence that the format is too complex to implement correctly"
-      ],
-      "money_quotes": [
-        "I think Iceberg's problems are conceptual, fundamental, and like baked in the specification, which is an entirely different way of being wrong.",
-        "One of the things in Duck Lake that we managed to do is to cut, I want to say, like 15 technologies out of this stack.",
-        "Here's all this complicated interconnected metadata of which we have to change small bits all the time and then say, yeah, let's write a bunch of Avro files. Or you can say, well, that sounds like a job for a database.",
-        "It's not that we don't care. In fact, we care very much what people want. It's really just that these formats are challenging.",
-        "Wes McKinney has tweeted 15 years ago that big metadata is the next big problem, and I agree. That's why we should just use the formats that we have to deal with data, also deal with metadata.",
-        "By putting things behind an API, you're basically condemning everybody to the access pattern that you have chosen.",
-        "You have a database already whether you have an API or not. So by adding an API, you're adding another piece of technology to your layer cake."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "lakehouse",
-        "open_source",
-        "industry_observations",
-        "database_internals"
-      ],
-      "tone": "opinionated, candid, technically grounded",
-      "key_insight": "If you've already accepted that a lakehouse needs a database for its catalog, you should redesign the entire format around that database rather than bolting it on top of a file-based architecture.",
-      "filename": "2025-06-17-2025-06-17-motherduck-ducklake"
-    },
-    {
       "summary": "Hannes M\u00fchleisen discusses DuckLake, a new open data format he and Mark Raasveldt created as an alternative to Iceberg and Delta Lake. He argues that Iceberg's fundamental problems are conceptual, not implementation-based, particularly the bolted-on catalog server that broke its original file-only design philosophy. DuckLake's key insight is using an existing database (like Postgres) to store all metadata\u2014tables, columns, files, statistics\u2014eliminating the need for Avro, JSON, REST APIs, and Java catalog servers. The approach enables sub-second query planning even at petabyte scale with 100 million snapshots, high-frequency transactional updates, and dramatically simpler implementation for connector authors.",
       "key_points": [
         "Iceberg's problems are conceptual and baked into the specification, unlike Hadoop whose problems were implementation-based",
@@ -1961,37 +1029,6 @@
       "tone": "opinionated, candid, technically grounded with irreverent humor",
       "key_insight": "If you already need a database to manage your data lake catalog, you should redesign the entire metadata layer around that database rather than bolting one onto a file-based format that was designed to avoid needing one.",
       "filename": "2025-06-17-motherduck-ducklake"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen presents DuckLake, a new lakehouse format that replaces Iceberg's complex multi-layer file-based metadata architecture with a simple SQL database for catalog storage. He traces the evolution from single-node databases through shared-nothing architectures to disaggregated storage-compute systems, arguing that Iceberg's attempt to eliminate the metadata database backfired when they had to re-add one via the REST catalog anyway. DuckLake stores all metadata (tables, columns, files, statistics) in a standard SQL database while keeping data files on object storage, reducing round trips from five sequential steps to two. Benchmarks show DuckLake is roughly four times faster than Iceberg in a localhost best-case scenario, with features like multi-table transactions, encryption, row inlining for small appends, and Iceberg import/export compatibility.",
-      "key_points": [
-        "Iceberg's architecture ironically re-introduced the metadata database it was designed to eliminate, but kept all the file-based complexity on top of it",
-        "DuckLake reduces the metadata stack to simple SQL tables in any transactional database, cutting query planning round trips from five dependent steps to one",
-        "The system scales across three independent dimensions: storage (any file system or object store), compute (stateless nodes), and metadata (any SQL database from DuckDB to Postgres to Snowflake)",
-        "A petabyte-scale test with 100 million snapshots showed sub-second query planning for typical time-filtered queries, even on a laptop with DuckDB as metadata store",
-        "DuckLake is an open specification under MIT license, separating the standard (table schema conventions) from the implementation (currently DuckDB)"
-      ],
-      "money_quotes": [
-        "You just told us you're doing all this stuff to not have a database. And now you're adding the database back, but you never go back to your original design decisions about not having a database and having all these files.",
-        "I will never understand the decision of having four different encodings for data in one file format. You have JSON, you have Avro, and you have Parquet, and you have the whole REST thing for the catalog.",
-        "The biggest reaction we got was like, oh, it's so obvious. And we're like, yes, but you didn't do it.",
-        "Somebody told me that databases are considered legacy. And I'm like, yeah, it's a 5,000 year cultural technology. It's not legacy.",
-        "If all you have is a hammer, if all you have is files, then making everything be a file is kind of logical.",
-        "I am somebody who has actually set up an Iceberg stack by hand, and I can tell you, it takes a PhD in computer science and now a day of screaming to get this done. This is like 10 seconds.",
-        "What could you possibly do in terms of engineering to make the left side faster than the right side? I don't think there's anything you can do.",
-        "I actually managed to crash the JVM by running the official Iceberg Spark plugin on my laptop. This is the first thing you try. It's the first thing I tried. And it's reproducible."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "lakehouse",
-        "database_internals",
-        "open_source",
-        "industry_observations"
-      ],
-      "tone": "opinionated, humorous, technical",
-      "key_insight": "The lakehouse movement's attempt to eliminate metadata databases was fundamentally misguided \u2014 acknowledging you need a real database for catalog metadata and removing the file-based complexity layers yields a simpler, faster, and more scalable architecture.",
-      "filename": "2025-06-19-2025-06-19-ducklake-datacouncil"
     },
     {
       "summary": "Hannes M\u00fchleisen presents DuckLake, a new lakehouse format that replaces Iceberg's complex file-based metadata architecture with a simple SQL database for catalog management. He traces the evolution from single-node databases through shared-nothing architectures to separated storage and compute, showing how Iceberg ironically reintroduced the database it tried to eliminate via its REST catalog. DuckLake acknowledges this reality by using a proper database for metadata alongside object storage for data files, eliminating layers of Avro and JSON metadata files. The result is dramatically simpler setup, fewer round trips, and 4x better performance than Iceberg in benchmarks.",
@@ -2026,36 +1063,6 @@
       "filename": "2025-06-19-ducklake-datacouncil"
     },
     {
-      "summary": "Hannes M\u00fchleisen argues that databases and their core abstractions\u2014tables, SQL, and ACID\u2014are fundamentally worthy of enthusiasm and affection, despite widespread criticism. He traces table technology back 5,000 years to Mesopotamian clay tablets, predating written text by a millennium, establishing tables as a foundational civilizational technique. He recounts how DuckDB was born from frustration with Spark's poor developer experience, aiming to make large dataset processing work simply on a laptop. He critiques MongoDB for abandoning these proven abstractions, noting that developers end up reimplementing schema validation, joins, and consistency checks by hand\u2014and that MongoDB eventually added all three features back. He demonstrates DuckDB's vectorized execution achieving near-theoretical hardware limits, and concludes that the elegance of database abstractions should be judged separately from the clunkiness of legacy implementations.",
-      "key_points": [
-        "Tables predate written text by 1,000 years\u2014they are a 5,000-year-old civilizational technique, not just a software concept",
-        "The 'holy trinity' of databases\u2014tables, SQL, and ACID\u2014provides abstractions so fundamental that abandoning them forces developers to reimplement them poorly in application code",
-        "DuckDB was born from the realization that Spark's poor developer experience came from ignoring everything beyond core algorithms\u2014the 'bun around the hamburger meat'",
-        "Vectorized execution processes batches of 1,000 rows at a time instead of row-at-a-time, achieving near-theoretical CPU limits (3.7 billion operations/sec on a 4 GHz CPU)",
-        "Criticisms of databases conflate old implementations (Oracle, DB2) with the underlying abstractions, which remain elegant and powerful"
-      ],
-      "money_quotes": [
-        "We had tables 1,000 years before we had text. So this is a fundamental civilization technique that's older than the written text.",
-        "There is a schema, it's just you don't know what it is.",
-        "If you don't have tables, SQL and ACID, your developers will have to implement them by hand.",
-        "If you don't have ACID, then it means that your developers get to deal with consistency problems in their application. And your web developers probably are not the people that you want to be implementing consistency checks.",
-        "Tables, SQL and ACID do spark joy, and MongoDB does not.",
-        "The abstraction isn't affected by the shittiness of the implementations.",
-        "I think databases are the most complex pieces of software out there. You need kind of all of computer science to do it.",
-        "Just because something is new and shiny doesn't mean it's better from an abstraction perspective."
-      ],
-      "themes": [
-        "duckdb",
-        "database_internals",
-        "data_architecture",
-        "industry_observations",
-        "query_optimization"
-      ],
-      "tone": "enthusiastic, opinionated, humorous",
-      "key_insight": "The core database abstractions of tables, SQL, and ACID are 5,000-year-old civilizational techniques that remain fundamentally sound\u2014criticisms of databases are really criticisms of legacy implementations, not the abstractions themselves.",
-      "filename": "2025-06-27-2025-06-27-databases-worthy-affection"
-    },
-    {
       "summary": "Hannes M\u00fchleisen argues that database abstractions\u2014tables, SQL, and ACID\u2014are fundamental civilizational technologies deserving of enthusiasm rather than dismissal. He traces tables back 5,000 years to Mesopotamian clay tablets, predating written text by a millennium. He contends that criticisms of databases conflate old implementations (like Oracle) with the underlying abstractions, which remain elegant and powerful. He uses MongoDB as a cautionary tale: by initially rejecting tables, SQL, and ACID, it forced developers to reimplement those concepts poorly in application code. He concludes with a technical demonstration of DuckDB's vectorized execution achieving near-theoretical hardware limits.",
       "key_points": [
         "Tables are a 5,000-year-old civilizational technique that predates written text by 1,000 years, making them arguably the most fundamental data abstraction",
@@ -2085,37 +1092,6 @@
       "tone": "enthusiastic, opinionated, humorous",
       "key_insight": "The enduring abstractions of tables, SQL, and ACID are fundamental civilizational technologies whose elegance should not be confused with the limitations of their oldest implementations.",
       "filename": "2025-06-27-databases-worthy-affection"
-    },
-    {
-      "summary": "Hannes M\u00fchleisen and Mark Raasveldt discuss DuckLake, their reimagination of lakehouse formats that replaces file-based metadata (JSON, Avro) with a SQL relational database for metadata management while keeping data files on object stores. They argue this dramatically simplifies the lakehouse stack, reducing round trips from six or seven to two, and enabling features like data inlining for small writes, per-file encryption, and cheap snapshots. DuckLake scales from a single local DuckDB file up to thousands of compute nodes, and can serve as a backend for the Iceberg REST catalog. The project leverages DuckDB's existing infrastructure and has received overwhelmingly positive community response despite being only at version 0.2.",
-      "key_points": [
-        "DuckLake replaces file-based metadata (JSON, Avro files) with a SQL database, cutting query round trips from ~7 to 2 and eliminating significant architectural complexity",
-        "Data inlining allows small writes to go directly into the metadata store, making them immediately visible without buffering delays or tiny file proliferation",
-        "Per-file encryption with keys stored in the metadata catalog enables secure storage on completely untrusted object stores with a single boolean flag",
-        "Snapshots in DuckLake are just database rows rather than expensive file operations, enabling thousands of snapshots without performance degradation",
-        "DuckLake as a concept is engine-agnostic \u2014 Spark, Trino, and other engines can use DuckDB as a lightweight gateway to DuckLake metadata"
-      ],
-      "money_quotes": [
-        "We just looked at that stack at some point, because we are obviously the people that have to implement this in the end, because people kept asking us to make support for these things in DuckDB.",
-        "You switch on encryption and we will generate a unique encryption key for every Parquet file we write out to object storage and actually store the key in the metadata catalog. And so what you now have is you can put your Duck Lake on a completely untrusted storage and whoever has access to it can do absolutely nothing with those files.",
-        "Your client or your local machine is no longer sort of the smallest light in the architecture. But it's suddenly actually the prominent player because it's where the compute happens.",
-        "Once we accept that storage and compute are disconnected, what gravity is really left?",
-        "I think there's still such a huge gap between what is kind of possible and what is the daily reality of the data practitioners.",
-        "It's almost like there's half of the population has to drive a car from the 1920s. That would not be considered great. Let's maybe get a 1980s car. That would be a big improvement.",
-        "What surprised me the most was that it wasn't that hard. At every step of the way, we didn't really face any big hurdles. It all just kind of worked.",
-        "If the ecosystem maybe admittedly or unadmittedly adopt some of these ideas, we also consider this a huge success. Whether that's our ducky logo on it or not isn't such a huge thing."
-      ],
-      "themes": [
-        "duckdb",
-        "data_architecture",
-        "lakehouse",
-        "open_source",
-        "industry_observations",
-        "embedded_databases"
-      ],
-      "tone": "technical, conversational, opinionated, optimistic",
-      "key_insight": "Replacing file-based lakehouse metadata with a SQL database eliminates enormous complexity while preserving all the benefits of open table formats, and DuckDB's lightweight embeddability makes it a natural gateway for any engine to interact with this simpler architecture.",
-      "filename": "2025-09-09-2025-09-09-data-engineering-ducklake"
     },
     {
       "summary": "Hannes M\u00fchleisen and Mark Raasveldt introduce DuckLake, a reimagined lakehouse format that replaces file-based metadata (JSON, Avro) with a SQL relational database for all metadata management while keeping data files on object stores. The project emerged from critically examining the Iceberg and Delta tech stacks while implementing support in DuckDB, realizing the catalog database could handle everything. DuckLake dramatically reduces complexity, cutting query round trips from ~7 to 2, and enables features like data inlining (small writes go directly to the metadata store), per-file encryption with a single boolean flag, and cheap snapshots. The format scales from local single-file setups to thousands of distributed compute nodes, and can serve as a backend for Iceberg REST catalogs.",

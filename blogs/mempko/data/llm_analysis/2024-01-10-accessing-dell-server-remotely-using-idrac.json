@@ -1,0 +1,18 @@
+{
+  "summary": "A short technical guide explaining how to remotely access a Dell server's iDRac management interface from outside its local network using SSH tunneling. The post walks through creating an SSH tunnel, troubleshooting a common 400 error caused by iDRac's IP-based redirects, and using iptables NAT rules to resolve the issue.",
+  "key_points": [
+    "SSH tunneling can bridge access to iDRac from outside the local network by mapping local ports to the iDRac's HTTPS and virtual console ports",
+    "iDRac's IP-based redirects cause 400 errors when accessed via localhost, requiring an iptables NAT workaround",
+    "Remote server management requires understanding network configurations and security implications"
+  ],
+  "money_quotes": [
+    "If you attempt to connect through your local browser using https://localhost:8443, you might receive a 400 error. This occurs because iDRac redirects using its IP address.",
+    "Always ensure you have the necessary permissions and understand the security implications of remote access."
+  ],
+  "themes": [
+    "p2p_distributed"
+  ],
+  "tone": "instructional",
+  "key_insight": "SSH tunneling combined with iptables NAT rules provides a practical workaround for remotely accessing Dell iDRac interfaces that are otherwise restricted to their local network.",
+  "filename": "2024-01-10-accessing-dell-server-remotely-using-idrac"
+}

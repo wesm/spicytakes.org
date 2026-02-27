@@ -1,6 +1,6 @@
 {
   "total_posts": 75,
-  "successful": 70,
+  "successful": 75,
   "posts": [
     {
       "summary": "Inspired by a coffee shop sign asking 'What would 2PAC do?', Frazelle reflects on Tupac's song 'Changes' and draws parallels to her own life decision to take a new job in New York. She connects Tupac's message about change with Gandhi's philosophy about self-transformation, concluding that while external inspiration is valuable, ultimately you must trust yourself to make important life decisions.",
@@ -148,29 +148,119 @@
       "filename": "2015-06-20-routing-traffic-through-tor-docker-container"
     },
     {
-      "filename": "2015-06-30-r-containers-for-data-science",
-      "error": "no_json",
-      "raw": "\n"
+      "summary": "Jess Frazelle demonstrates how to build a custom Docker container for R-based data science work, driven by her philosophy of never installing tools directly on the host machine. She walks through creating a Dockerfile with popular R packages like ggplot2 and the Wes Anderson color palette, then shows how to run it with X11 forwarding for graphical output. The post is a quick, practical tutorial written during what was supposed to be her vacation.",
+      "key_points": [
+        "Docker containers provide a clean way to run R data science environments without polluting the host system",
+        "X11 forwarding enables graphical output from containerized R sessions",
+        "Custom Dockerfiles let data scientists bundle their preferred R packages into reproducible environments",
+        "Bind mounts allow containers to access local data files for analysis"
+      ],
+      "money_quotes": [
+        "You probably know by now I hate installing things on my host.",
+        "Can you imagine if the percentage of packages contributed by Hadley to CRAN was mirrored by someone to NPM or pip? It would be crazy.",
+        "So it turns out I'm pretty bad at vacation. I had this idea for a blog post and one thing lead to another and here we are\u2026",
+        "See that was super easy, now I can go back to being on vacation and reading the latest Vogue."
+      ],
+      "themes": [
+        "containers",
+        "infrastructure"
+      ],
+      "tone": "casual",
+      "key_insight": "Running R data science workflows inside Docker containers keeps the host clean and makes analytical environments reproducible and portable.",
+      "filename": "2015-06-30-r-containers-for-data-science"
     },
     {
-      "filename": "2015-07-05-this-industry-is-fucked",
-      "error": "no_json",
-      "raw": "\n"
+      "summary": "Jess Frazelle confronts the severe harassment she has faced as a woman in the tech industry, describing threats of sexual violence, death threats, and graphic disturbing images sent to her since she began speaking at conferences and contributing to open source. She expresses frustration that she cannot simply do the work she loves without enduring this abuse. Despite the hostility, she refuses to leave the industry or change who she is.",
+      "key_points": [
+        "Women in open source and tech conferences face extreme, ongoing harassment",
+        "The harassment ranges from sexual messages to death threats to graphic violent imagery",
+        "The abuse is a direct consequence of being visible in the industry",
+        "She refuses to be driven out despite the hostile environment"
+      ],
+      "money_quotes": [
+        "My least favorite topic in the world is 'Women in Tech', so I am going to make this short but I think it's something that needs to be said.",
+        "Ever since I started speaking at conferences and contributing to open source projects I have been endlessly harassed.",
+        "I've gotten hundreds of private messages on IRC and emails about sex, rape, and death threats.",
+        "I wish I could do my job, something I very obviously love doing, without any of this bullshit.",
+        "But I'm not leaving and I'm not going to stop being me. So this is me saying 'Fuck You.'"
+      ],
+      "themes": [
+        "tech_industry",
+        "open_source",
+        "career_reflections"
+      ],
+      "tone": "defiant",
+      "key_insight": "The tech industry's harassment problem is so severe that women cannot participate visibly in open source and conferences without enduring threats of violence, yet refusing to be silenced is itself an act of resistance.",
+      "filename": "2015-07-05-this-industry-is-fucked"
     },
     {
-      "filename": "2015-08-23-running-a-tor-relay-with-docker",
-      "error": "no_json",
-      "raw": "\n"
+      "summary": "This tutorial walks through how to set up three types of Tor relays (bridge, middle, and exit) using Docker containers built on Alpine Linux. The post explains the differences between relay types, with bridge relays being unlisted for censorship resistance, middle relays forwarding traffic, and exit relays being the publicly visible endpoint. It provides complete Dockerfiles and torrc configurations for each type, including a reduced exit policy that limits which ports accept traffic to minimize abuse complaints.",
+      "key_points": [
+        "Three types of Tor relays serve different roles: bridge (unlisted, helps bypass censorship), middle (forwards traffic), and exit (publicly visible endpoint that receives takedown notices)",
+        "Docker and Alpine Linux make running a Tor relay lightweight \u2014 the entire image is only 11.52MB",
+        "Exit relays should use a reduced exit policy to limit which ports route traffic, minimizing potential abuse and takedown notices",
+        "Running a relay is a way to give back to the Tor community \u2014 if you use Tor, you should consider hosting one"
+      ],
+      "money_quotes": [
+        "I figured it was important, if you are going to be a tor user, to document how you can help the Tor community by hosting a Tor relay.",
+        "Exit relays tend to be the ones recieving take down notices because the IP is the one the public sees traffic from Tor as.",
+        "If you don't want to host an exit node, host a middle relay instead! And if you want your relay not publically listed in the network then host a bridge.",
+        "The more people who run relays, the faster the Tor network will be."
+      ],
+      "themes": [
+        "containers",
+        "security",
+        "infrastructure",
+        "open_source"
+      ],
+      "tone": "instructional",
+      "key_insight": "Docker's lightweight containerization makes it trivially easy to contribute to the Tor network by running a relay, lowering the barrier for privacy infrastructure participation.",
+      "filename": "2015-08-23-running-a-tor-relay-with-docker"
     },
     {
-      "filename": "2015-09-12-tor-socks-proxy-and-privoxy-containers",
-      "error": "no_json",
-      "raw": "\n"
+      "summary": "Jess Frazelle demonstrates how to set up a Tor SOCKS5 proxy and a Privoxy HTTP proxy as separate Docker containers, continuing her series on combining Docker with Tor. She walks through the Dockerfiles, configuration changes, and runtime commands for both containers, showing how to link them together. The approach emphasizes container best practices by keeping each service in its own container rather than bundling multiple processes together.",
+      "key_points": [
+        "A Tor SOCKS5 proxy can be containerized in an Alpine-based Docker image weighing only 11.51 MB",
+        "Privoxy can be linked to the Tor proxy container to provide an HTTP proxy interface to the Tor network",
+        "Separating services into individual containers eliminates the need for init systems managing multiple processes",
+        "The SocksPort must bind to 0.0.0.0 to work correctly with the container's network namespace"
+      ],
+      "money_quotes": [
+        "I prefer my approach of 2 different containers, because it is cleaner, maybe sometimes you do not need both, and you completely eliminate the need for having an init system starting 2 processes in one container.",
+        "This image weighs in at only 11.51 MB!",
+        "Now you can import and search for keys on a key server with improved anonymity.",
+        "You could even run chrome in a container through the proxy\u2026"
+      ],
+      "themes": [
+        "containers",
+        "security",
+        "linux",
+        "infrastructure"
+      ],
+      "tone": "tutorial",
+      "key_insight": "Running Tor and Privoxy as separate linked Docker containers provides flexible, lightweight privacy proxies while adhering to the container principle of one process per container.",
+      "filename": "2015-09-12-tor-socks-proxy-and-privoxy-containers"
     },
     {
-      "filename": "2015-10-02-cgroups-all-the-way-down",
-      "error": "no_json",
-      "raw": "\n"
+      "summary": "Jess Frazelle connects a talk on decompression bombs to Docker's cgroup-based I/O throttling capabilities. After seeing a presentation on malicious compressed files that expand to consume massive resources, she highlights Docker's blkio read/write bandwidth controls as a practical defense mechanism. She demonstrates how the --read-bps-device flag can limit container I/O throughput using cgroups, effectively throttling resource consumption at the device level.",
+      "key_points": [
+        "Decompression bombs are malicious compressed files designed to consume excessive resources when extracted",
+        "Docker's blkio cgroup support allows throttling read/write bandwidth per device",
+        "The --read-bps-device flag controls the upper limit on I/O to a device but does not control disk space utilization",
+        "Cgroups provide a practical containment mechanism against resource exhaustion attacks"
+      ],
+      "money_quotes": [
+        "Most programs will not decompress the files recursively. Which just leaves us with the problem of the more sofisticated decompression bomb.",
+        "Granted, this does not control disk space utilization, BUT it does allow for throttling the upper limit on write/read to the device."
+      ],
+      "themes": [
+        "containers",
+        "security",
+        "linux"
+      ],
+      "tone": "analytical",
+      "key_insight": "Docker's cgroup-based I/O throttling provides a practical defense layer against resource exhaustion attacks like decompression bombs by limiting bandwidth at the device level.",
+      "filename": "2015-10-02-cgroups-all-the-way-down"
     },
     {
       "summary": "The post explains how to set up a reverse VPN to securely expose services from a home network to the public internet, rather than the traditional use of VPNs for accessing office networks remotely. Jess walks through the complete Docker-based setup using OpenVPN, from generating certificates on a cloud instance to configuring the client on a home NAS. The key insight is using Docker's network namespace sharing to route specific containers through the VPN tunnel, giving fine-grained control over what gets exposed.",

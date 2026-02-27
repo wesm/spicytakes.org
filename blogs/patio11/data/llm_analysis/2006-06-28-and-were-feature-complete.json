@@ -1,0 +1,27 @@
+{
+  "summary": "McKenzie documents reaching feature completeness on his bingo card software, focusing on a frustrating 6.5-hour debugging session fixing text truncation in Java Swing's JLabel component. The bug surfaced when long Japanese/English words overflowed fixed-width containers in print output. He details the technical solution involving custom LayoutManager subclasses and dynamic font resizing. He reflects on whether spending four hours fixing edge cases in a freebie data set was worth it, concluding that the polish differentiates him from competitors and enables more promotional content.",
+  "key_points": [
+    "Java Swing silently truncates text in JLabels without any notification or change to getText(), making the bug only visible in rendered or printed output",
+    "The fix required overriding LayoutManager.layoutContainer to dynamically check FontMetrics and resize fonts when text exceeds component width",
+    "Japanese-to-English localization creates particularly challenging string width assumptions due to dramatic differences in character physical widths",
+    "Spending four hours on edge cases in a freebie data set was justified because it adds polish competitors lack and enables more promotional content",
+    "Having a virtual PDF printer saved enormous waste during the iterative debugging of print output issues"
+  ],
+  "money_quotes": [
+    "Fixing two little edge cases in one little data set in a freebie I'm giving to customers took me four hours.",
+    "Was this productive use of my time, given that I could have achieved the same effect just by not including that data set and hoping customers didn't notice on their own?",
+    "This adds a bit of spit-and-polish my competitors in many cases lack and allows me to make use of more freebies than I would be able to otherwise.",
+    "Localizing Japanese to English and English to Japanese makes for some very fun times with anything that relies on any assumptions about physical width of strings, let me tell you!",
+    "The first chance you'll have to notice 'Hey, that looks funny' is when the word appears on the screen like 'Java decided to tr...'",
+    "This was pure pain to have to discover but I think its worth the price of admission for this week by itself."
+  ],
+  "themes": [
+    "engineering",
+    "business",
+    "japan",
+    "marketing"
+  ],
+  "tone": "technical, reflective, pragmatic",
+  "key_insight": "Investing hours fixing obscure edge cases in promotional materials is worthwhile because the resulting polish differentiates your product from competitors and expands what you can offer customers.",
+  "filename": "2006-06-28-and-were-feature-complete"
+}

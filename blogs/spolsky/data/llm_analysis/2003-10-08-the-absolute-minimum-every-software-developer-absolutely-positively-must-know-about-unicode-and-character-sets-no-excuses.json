@@ -1,1 +1,26 @@
-{"filename": "2003-10-08-the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses", "error": "no_json", "raw": "\n"}
+{
+  "summary": "Joel Spolsky delivers a comprehensive primer on character encodings and Unicode, arguing that every programmer must understand these concepts. He traces the history from ASCII's 7-bit simplicity through the chaos of competing code pages and DBCS systems to Unicode's unified approach. He explains the critical distinction between code points (abstract characters) and encodings (how they're stored), covering UTF-8, UTF-16, and UCS-2. The central thesis is that there is no such thing as 'plain text' \u2014 every string must have a known encoding to be interpreted correctly. He concludes with practical advice on using Content-Type headers and UTF-8 for web content.",
+  "key_points": [
+    "ASCII only covered English with 7 bits; the unused high bit spawned incompatible code pages that made international text exchange unreliable",
+    "Unicode separates the concept of a character (code point) from its storage representation (encoding), which is the key mental model programmers must adopt",
+    "UTF-8 is backward-compatible with ASCII, making it painless for English text while supporting all Unicode code points \u2014 which drove its adoption",
+    "The single most important fact: it does not make sense to have a string without knowing what encoding it uses",
+    "Browser auto-detection of encodings (like IE's frequency analysis) is unreliable and demonstrates why Postel's Law is poor engineering"
+  ],
+  "money_quotes": [
+    "If you are a programmer working in 2003 and you don't know the basics of characters, character sets, encodings, and Unicode, and I catch you, I'm going to punish you by making you peel onions for 6 months in a submarine.",
+    "All that stuff about 'plain text = ascii = characters are 8 bits' is not only wrong, it's hopelessly wrong, and if you're still programming that way, you're not much better than a medical doctor who doesn't believe in germs.",
+    "There Ain't No Such Thing As Plain Text.",
+    "It does not make sense to have a string without knowing what encoding it uses.",
+    "In Unicode, the letter A is a platonic ideal. It's just floating in heaven.",
+    "If they were Texans they wouldn't have minded guzzling twice the number of bytes. But those Californian wimps couldn't bear the idea of doubling the amount of storage it took for strings.",
+    "Postel's Law about being 'conservative in what you emit and liberal in what you accept' is quite frankly not a good engineering principle."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "humorous, didactic, opinionated",
+  "key_insight": "There is no such thing as plain text \u2014 every string has an encoding, and programmers who ignore this fundamental fact will produce software that breaks across languages and platforms.",
+  "filename": "2003-10-08-the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses"
+}

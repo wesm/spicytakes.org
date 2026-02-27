@@ -1,6 +1,6 @@
 {
-  "total_posts": 95,
-  "successful": 93,
+  "total_posts": 94,
+  "successful": 94,
   "posts": [
     {
       "summary": "This satirical piece parodies the popular 'Falsehoods Programmers Believe' format by applying it to dogs instead of technical topics. Rather than exposing edge cases in date handling or name validation, Wayne constructs a playful logical argument that all dogs are good dogs, all dogs are the best dogs, and nothing is better than dogs. The piece subverts reader expectations by using a technical writing format for pure wholesome content about canine appreciation.",
@@ -973,11 +973,6 @@
       "tone": "enthusiastic, accessible, promotional",
       "key_insight": "Powerful formal verification tools like TLA+ don't have to be hard to learn\u2014the barrier is pedagogical, not technical.",
       "filename": "2018-10-18-practical-tla"
-    },
-    {
-      "filename": "2018-10-31-3",
-      "error": "no_json",
-      "raw": "\n"
     },
     {
       "summary": "This post demonstrates how to model message queues and pub-sub systems in TLA+, providing practical examples that go beyond the typical consensus algorithm tutorials. Hillel walks through implementing an SQS-like queue with writers and readers, then extends it to handle at-least-once delivery semantics with message duplication and retry logic. He then shows a pub-sub variant where each reader has their own queue, including subscription management. The post emphasizes that TLA+ is useful for everyday distributed systems problems, not just verifying Paxos, and calls for more accessible learning resources.",
@@ -1999,11 +1994,6 @@
       "filename": "2021-02-25-action-properties"
     },
     {
-      "filename": "2021-03-28-2",
-      "error": "no_json",
-      "raw": "\n"
-    },
-    {
       "summary": "Hillel Wayne investigates why tech companies ask linked list questions in interviews, using historical research methods to trace their origins. Through interviewing older programmers, analyzing 1980s Usenet archives, and examining job postings, he builds evidence that these questions originated as practical tests for C and Pascal experience\u2014languages that required manual pointer manipulation. The practice persisted and spread through influential figures like Joel Spolsky and Gayle Laakmann McDowell, who exported questions from low-level companies like Microsoft and Google. Ironically, the original context was lost, and people now justify these questions with post-hoc rationalizations about 'CS fundamentals' or 'quick thinking.'",
       "key_points": [
         "The two common justifications for linked list questions\u2014testing CS fundamentals vs. testing reasoning ability\u2014are contradictory, suggesting the real reason has been forgotten",
@@ -2029,6 +2019,34 @@
       "tone": "investigative, methodical, wry",
       "key_insight": "Linked list interview questions began as practical tests for C programming experience in the 1980s, but lost their original context and became cargo-culted as 'CS fundamentals' tests despite being irrelevant to most modern programming work.",
       "filename": "2021-03-28-linked-lists"
+    },
+    {
+      "summary": "The post explores why formal specifications don't compose well, walking through increasingly complex attempts to combine two simple 'blinker' specs in Linear Temporal Logic. Starting with naive conjunction, each attempt reveals a new obstacle: synchronization constraints, the frame problem, fairness violations, and stuttering requirements. Even after making specs stutter-invariant to recover some composability, introducing shared state between specs causes deadlock-like failures. The conclusion is that specs must totally describe how their variables change, and component specs don't know about each other's variables, forcing practitioners to manually stitch specs together rather than compose them modularly.",
+      "key_points": [
+        "Naive conjunction of specs forces synchronization, while disjunction loses initialization guarantees \u2014 neither preserves the properties we want",
+        "The frame problem means that when one spec's action is skipped, unmentioned variables can take arbitrary values unless explicitly held constant",
+        "Stutter-invariance (allowing no-op steps) recovers composability for independent specs but sacrifices boundedness properties and expressiveness",
+        "Dependent specs sharing variables fail because each spec must totally describe its variables' behavior, leading to contradictory requirements that permanently disable one spec",
+        "The practical result is that formal methods communities tend to write large global specifications rather than composing smaller modular ones"
+      ],
+      "money_quotes": [
+        "Beginners to formal specification expect specifications should be organized like programs: multiple independent modules that interact through public interfaces, where the modules don't know about each others' private implementations.",
+        "The two blinkers are always synchronous. One can't run faster than the other, or consistently blink slightly earlier than the other, etc. This is rarely what we want when we compose specs.",
+        "Since BlinkY doesn't have x in its 'frame', it doesn't restrict x to sensible values.",
+        "We've gotten composability back! This even allows both sync and async blinkers. We just had to lose boundedness properties and significantly restrict our expressiveness. Hooray!",
+        "By sharing a flag between the two specs, we have permanently disabled one of them.",
+        "Composing specs is hard because specifications need to totally describe how their variables change, and component specs don't know about each other's variables.",
+        "This doesn't mean combining specs needs to be intrinsically hard: we can come up with new techniques to help stitch them together. But it means that there's a predilection in the communities to write large global specs, not combine smaller ones."
+      ],
+      "themes": [
+        "formal_methods",
+        "tla_plus",
+        "programming_languages",
+        "computer_science"
+      ],
+      "tone": "technical, pedagogical, wryly humorous",
+      "key_insight": "Specifications resist modular composition because each spec must totally describe the behavior of all its variables, and combining specs that share state inevitably produces contradictory requirements that can only be resolved by manually examining and integrating their internals.",
+      "filename": "2021-04-18-spec-composition"
     },
     {
       "summary": "Hillel Wayne presents a more intuitive way to understand the Liskov Substitution Principle: if a class inherits from another, it should pass all of the parent's black-box tests. The traditional approach uses three rules (method contracts, class invariants, and the history rule), but these feel arbitrary and disconnected. The testing approach unifies all three rules under one simple concept. Research by Baniassad and Summers found this pedagogical reframing significantly improved student understanding of LSP, taking them from failing to passing grades on related questions.",
@@ -2448,18 +2466,32 @@
       "filename": "2025-09-25-algdt-history"
     },
     {
-      "summary": "This is not a real blog post but rather a navigation or index page from Hillel Wayne's website. The page at /post/ appears to be a listing page for blog posts with essentially no content beyond the title 'Previous page' and the text 'Posted on'. It contains no substantive argument, analysis, or discussion.",
+      "summary": "Hillel Wayne shares a collection of Z3 SMT solver examples that were cut from his book Logic for Programmers. He walks through increasingly complex uses: solving systems of equations, proving no four distinct positive integers share both sum and product, optimizing financial contributions, reverse engineering RNG parameters, proving mathematical theorems, and modeling stock trading with Z3 arrays. He explains why most examples didn't make the book's final cut\u2014they either weren't practical enough, required too much background explanation, or weren't the right tool for the job\u2014and describes the three examples he ultimately chose.",
       "key_points": [
-        "This is a navigation/index page, not a blog post",
-        "Contains no substantive content to analyze"
+        "Z3 is an SMT solver that can handle constraints involving integers, reals, arrays, regexes, and quantified expressions, making it far more versatile than simple equation solvers",
+        "SMT arrays are actually infinite key-value maps without inherent bounds, which can cause surprising behavior if you forget to constrain index ranges",
+        "You can prove theorems by asking Z3 to find counterexamples to the negation\u2014if it returns unsat, the theorem holds (though you must also handle the 'unknown' case)",
+        "Good pedagogical examples must be understandable to newcomers, look like practical problems, and demonstrate that SMT solvers are the right tool\u2014most toy examples fail at least one criterion",
+        "Z3's optimization is dramatically slower than dedicated constraint solvers or even hand-written Python binary search, limiting its practical use for optimization problems"
       ],
-      "money_quotes": [],
+      "money_quotes": [
+        "You're supposed to learn how to do solve this as a system of equations, but if you want to cheat yourself out of an education you can have Z3 solve this for you.",
+        "An SMT (\"Satisfiability Modulo Theories\") solver is a constraint solver that understands math and basic programming concepts.",
+        "SMT operations must be total for all possible inputs, meaning Select(A, i) must return a value no matter what i is.",
+        "This means Z3 can find functions that satisfy constraints!",
+        "Z3's core engine is in C++, and yet a hand-written Python binary search finds the optimal c about a 1000x faster!",
+        "They should be understandable to someone who is new to logic, they should look like a practical problem some readers might see in their jobs, and SMT solvers should be the right tool for solving them.",
+        "If you can convert a programming function to a set of Z3 equations you can prove that the function has expected properties."
+      ],
       "themes": [
-        "miscellaneous"
+        "formal_methods",
+        "programming_languages",
+        "tutorials",
+        "software_engineering"
       ],
-      "tone": "none",
-      "key_insight": "This is a structural page from the website, not an actual blog post with analyzable content.",
-      "filename": "2025-09-25-post"
+      "tone": "playful, pedagogical, self-deprecating",
+      "key_insight": "Z3 is a remarkably versatile tool that can solve equations, prove theorems, and reverse engineer algorithms, but choosing good pedagogical examples requires balancing accessibility, practicality, and tool-appropriateness.",
+      "filename": "2026-02-23-z3-examples"
     }
   ]
 }

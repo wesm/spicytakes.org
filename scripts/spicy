@@ -286,7 +286,7 @@ def update(blog_id: str | None, update_all: bool, only_new: bool):
         bid = blog["id"]
         scraper_type = blog["scraper_type"]
 
-        console.print(f"\n[bold cyan][{bid}][/bold cyan] Scraping ({scraper_type})...")
+        console.print(f"\n[bold cyan]\\[{bid}][/bold cyan] Scraping ({scraper_type})...")
 
         success, new_posts = run_scraper(bid, scraper_type)
         if not success:
@@ -302,7 +302,7 @@ def update(blog_id: str | None, update_all: bool, only_new: bool):
                 continue
 
         # Run LLM analysis
-        console.print(f"[bold cyan][{bid}][/bold cyan] Analyzing...")
+        console.print(f"[bold cyan]\\[{bid}][/bold cyan] Analyzing...")
         quotes_before = get_blog_stats(bid)["quotes"]
 
         if run_llm_analyze(bid):
@@ -311,7 +311,7 @@ def update(blog_id: str | None, update_all: bool, only_new: bool):
             console.print(f"  [yellow]Analysis skipped or failed[/yellow]")
 
         # Run spiciness grading
-        console.print(f"[bold cyan][{bid}][/bold cyan] Grading...")
+        console.print(f"[bold cyan]\\[{bid}][/bold cyan] Grading...")
         if run_grade_spiciness(bid):
             quotes_after = get_blog_stats(bid)["quotes"]
             new_quotes = quotes_after - quotes_before

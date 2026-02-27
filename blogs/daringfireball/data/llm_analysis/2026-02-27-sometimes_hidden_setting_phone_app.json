@@ -1,0 +1,27 @@
+{
+  "summary": "Gruber examines a confusing UI design choice in iOS 26's Phone app, where Apple introduced a 'Tap Recents to Call' setting that only appears in Settings when the new Unified view is active, and completely disappears when Classic view is selected. He agrees with Adam Engst that the new Unified behavior \u2014 where tapping a row shows contact info rather than initiating a call \u2014 is superior to the legacy behavior that made accidental calls too easy. However, he argues Apple's implementation of hiding the setting is lazy and confusing, since no one expects a toggle in one app to control visibility of a switch in another app. He proposes mirroring the Classic/Unified view toggle in both the Phone app and Settings, which would make the conditional appearance of the 'Tap Recents to Call' option self-explanatory.",
+  "key_points": [
+    "The original iPhone's tap-anywhere-to-call behavior is a 20-year-old vestige of when Apple treated the iPhone as primarily a telephone, and it no longer fits modern iOS interaction patterns.",
+    "Apple's solution of hiding the 'Tap Recents to Call' setting when Classic view is active is lazy and creates confusion, since users don't expect settings to appear and disappear based on state in a different app.",
+    "Accidental phone calls are uniquely problematic because they interrupt the recipient too \u2014 making them both an inconvenience and an embarrassment.",
+    "The proper fix would be mirroring the Classic/Unified view toggle in Settings \u2192 Apps \u2192 Phone, so the conditional visibility of the 'Tap Recents to Call' option would be self-explanatory.",
+    "There's an inherent design tension: Apple wants to promote both a new layout and new tap behavior together, but a single preference switch can't cleanly default differently for two views."
+  ],
+  "money_quotes": [
+    "No one thinks of the iPhone as primarily a telephone these days, and it just isn't iOS-y to have an action initiate just by tapping anywhere in a row in a scrolling list.",
+    "Phone calls are particularly pernicious in this regard because the recipient is interrupted too \u2014 it's not just an inconvenience to you, it's an interruption to someone else, and thus also an embarrassment to you.",
+    "You don't tap on an email message to reply to it. You tap a Reply button.",
+    "Apple's solution to this dilemma \u2014 to show the 'Tap Recents to Call' in Settings if, and only if, Unified is the current view option in the Phone app \u2014 is lazy.",
+    "No one expects an option like this to only appear sometimes in Settings.",
+    "You pretty much need to understand everything I've written about in this article to understand why and when this option is visible. Which means almost no one who uses an iPhone is ever going to understand it.",
+    "No one expects a toggle in one app (Phone) to control the visibility of a switch in another app (Settings).",
+    "Classic's tap-almost-anywhere-in-the-row-to-start-a-call behavior is a vestige of some decisions with the original iPhone that haven't held up over the intervening 20 years."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "analytical, critical, constructive",
+  "key_insight": "When a UI setting's visibility depends on state managed in a completely different app, the resulting confusion reveals a lazy design shortcut that could be solved by surfacing the relevant context directly alongside the setting.",
+  "filename": "2026-02-27-sometimes_hidden_setting_phone_app"
+}

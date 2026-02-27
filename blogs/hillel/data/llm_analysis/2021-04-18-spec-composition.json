@@ -1,0 +1,28 @@
+{
+  "summary": "The post explores why formal specifications don't compose well, walking through increasingly complex attempts to combine two simple 'blinker' specs in Linear Temporal Logic. Starting with naive conjunction, each attempt reveals a new obstacle: synchronization constraints, the frame problem, fairness violations, and stuttering requirements. Even after making specs stutter-invariant to recover some composability, introducing shared state between specs causes deadlock-like failures. The conclusion is that specs must totally describe how their variables change, and component specs don't know about each other's variables, forcing practitioners to manually stitch specs together rather than compose them modularly.",
+  "key_points": [
+    "Naive conjunction of specs forces synchronization, while disjunction loses initialization guarantees \u2014 neither preserves the properties we want",
+    "The frame problem means that when one spec's action is skipped, unmentioned variables can take arbitrary values unless explicitly held constant",
+    "Stutter-invariance (allowing no-op steps) recovers composability for independent specs but sacrifices boundedness properties and expressiveness",
+    "Dependent specs sharing variables fail because each spec must totally describe its variables' behavior, leading to contradictory requirements that permanently disable one spec",
+    "The practical result is that formal methods communities tend to write large global specifications rather than composing smaller modular ones"
+  ],
+  "money_quotes": [
+    "Beginners to formal specification expect specifications should be organized like programs: multiple independent modules that interact through public interfaces, where the modules don't know about each others' private implementations.",
+    "The two blinkers are always synchronous. One can't run faster than the other, or consistently blink slightly earlier than the other, etc. This is rarely what we want when we compose specs.",
+    "Since BlinkY doesn't have x in its 'frame', it doesn't restrict x to sensible values.",
+    "We've gotten composability back! This even allows both sync and async blinkers. We just had to lose boundedness properties and significantly restrict our expressiveness. Hooray!",
+    "By sharing a flag between the two specs, we have permanently disabled one of them.",
+    "Composing specs is hard because specifications need to totally describe how their variables change, and component specs don't know about each other's variables.",
+    "This doesn't mean combining specs needs to be intrinsically hard: we can come up with new techniques to help stitch them together. But it means that there's a predilection in the communities to write large global specs, not combine smaller ones."
+  ],
+  "themes": [
+    "formal_methods",
+    "tla_plus",
+    "programming_languages",
+    "computer_science"
+  ],
+  "tone": "technical, pedagogical, wryly humorous",
+  "key_insight": "Specifications resist modular composition because each spec must totally describe the behavior of all its variables, and combining specs that share state inevitably produces contradictory requirements that can only be resolved by manually examining and integrating their internals.",
+  "filename": "2021-04-18-spec-composition"
+}

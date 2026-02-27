@@ -1,1 +1,25 @@
-{"filename": "2001-12-19-20011219", "error": "no_json", "raw": "\n"}
+{
+  "summary": "Joel describes the FogBUGZ 3.0 refactoring process, explaining why his team is incrementally cleaning up existing code rather than rewriting from scratch. They're applying mechanical, bite-sized transformations\u2014separating logic from UI, modernizing HTML to XHTML with CSS, and extracting classes\u2014while always maintaining a working version in CVS. He advocates refactoring at the start of a development cycle to maximize bug-catching time. He also explains why they departed from Extreme Programming's test-first methodology, arguing that writing unit tests after stabilizing output is more practical than predicting HTML output character-by-character in advance.",
+  "key_points": [
+    "Refactoring should apply small, mechanical transformations that are clearly safe, rather than rewriting from scratch",
+    "Eating your own dogfood during refactoring means deploying changes to your internal system immediately so bugs surface quickly",
+    "The best time to refactor is at the beginning of a development cycle, giving maximum time to catch accidentally introduced bugs",
+    "Unit tests are valuable but writing them before code (test-first XP style) is impractical when the correct output is a rapidly moving target",
+    "Separating logic from UI and eliminating code duplication are the core refactoring priorities"
+  ],
+  "money_quotes": [
+    "It's the kind of project that would tempt a lesser programmer to \"throw it out and start from scratch.\"",
+    "In the ideal world, when you refactor, you simply apply almost mechanical transformations to an existing code base that can be clearly understood to have no effect on the correctness of the code.",
+    "Because we're refactoring rather than starting from scratch, at any given time we always have a working version of FogBUGZ checked into CVS.",
+    "The best time to refactor is at the beginning of a development cycle. That gives you the maximum amount of time to catch any bugs that you introduced accidentally.",
+    "We haven't created unit tests yet, because all the HTML->XHTML+CSS cleanup that we're doing makes FogBUGZ's \"correct\" output a rapidly moving target.",
+    "If you do things in the XP order you have to figure out character-by-character what your output HTML is supposed to look like in advance, which strikes me as mind-numbingly tedious and a serious waste of time."
+  ],
+  "themes": [
+    "software-development",
+    "programming"
+  ],
+  "tone": "practical",
+  "key_insight": "Disciplined, incremental refactoring with small mechanical transformations is safer and more productive than rewriting from scratch, even when it means pragmatically departing from methodological ideals like test-first development.",
+  "filename": "2001-12-19-20011219"
+}

@@ -1,1 +1,24 @@
-{"filename": "2015-09-12-tor-socks-proxy-and-privoxy-containers", "error": "no_json", "raw": "\n"}
+{
+  "summary": "Jess Frazelle demonstrates how to set up a Tor SOCKS5 proxy and a Privoxy HTTP proxy as separate Docker containers, continuing her series on combining Docker with Tor. She walks through the Dockerfiles, configuration changes, and runtime commands for both containers, showing how to link them together. The approach emphasizes container best practices by keeping each service in its own container rather than bundling multiple processes together.",
+  "key_points": [
+    "A Tor SOCKS5 proxy can be containerized in an Alpine-based Docker image weighing only 11.51 MB",
+    "Privoxy can be linked to the Tor proxy container to provide an HTTP proxy interface to the Tor network",
+    "Separating services into individual containers eliminates the need for init systems managing multiple processes",
+    "The SocksPort must bind to 0.0.0.0 to work correctly with the container's network namespace"
+  ],
+  "money_quotes": [
+    "I prefer my approach of 2 different containers, because it is cleaner, maybe sometimes you do not need both, and you completely eliminate the need for having an init system starting 2 processes in one container.",
+    "This image weighs in at only 11.51 MB!",
+    "Now you can import and search for keys on a key server with improved anonymity.",
+    "You could even run chrome in a container through the proxy\u2026"
+  ],
+  "themes": [
+    "containers",
+    "security",
+    "linux",
+    "infrastructure"
+  ],
+  "tone": "tutorial",
+  "key_insight": "Running Tor and Privoxy as separate linked Docker containers provides flexible, lightweight privacy proxies while adhering to the container principle of one process per container.",
+  "filename": "2015-09-12-tor-socks-proxy-and-privoxy-containers"
+}

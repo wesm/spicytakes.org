@@ -1,0 +1,25 @@
+{
+  "summary": "McKenzie advocates tracking which paths within trial software lead users to click the Buy Now button, arguing this data is essential for optimizing conversions. He presents a simple technique: append query parameters to the purchase page URL from different locations in the app, then use web analytics to see which paths drive the most purchase intent. The method requires no server-side changes since web servers log and ignore parameters on static HTML pages. He notes this takes about 10 seconds to implement and provides actionable data for A/B testing nag screens, exit screens, and UI highlighting.",
+  "key_points": [
+    "Tracking which in-app paths lead to purchase clicks is critical data most small software vendors neglect to collect",
+    "Appending dummy query parameters to static HTML URLs is a zero-infrastructure way to track referral sources from within your application",
+    "Web servers will happily accept and log arbitrary parameters on static file requests, making this technique trivially easy",
+    "The data enables testing specific conversion tactics: nag screens, exit screens, highlighted menu items, and tip-of-the-day prompts",
+    "Search engine concerns about dynamic parameters don't apply since bots don't spider your desktop application"
+  ],
+  "money_quotes": [
+    "From your perspective thats the most important mouse click in your program there is.",
+    "We're computer programmers because we are too lazy to do things like that when there are 10 second solutions.",
+    "Did you know that your web server will happily take any number of parameters to a request for a static HTML file and promptly log and ignore them? Yeah, who knew.",
+    "Does a nag screen produce appreciable results? How about an exit screen? Do people click the button more when the menu item is highlighted in blue (*cough* yes *cough*)?",
+    "Since GoogleBot isn't spidering your application, you can go hog wild with referrals from there and it will never be the wiser."
+  ],
+  "themes": [
+    "marketing",
+    "business",
+    "engineering"
+  ],
+  "tone": "practical",
+  "key_insight": "You can track which paths in your trial software lead to purchases with zero infrastructure by appending query parameters to your static purchase page URL and reading the results in Google Analytics.",
+  "filename": "2006-08-05-peeking-over-your-customers-shoulders"
+}

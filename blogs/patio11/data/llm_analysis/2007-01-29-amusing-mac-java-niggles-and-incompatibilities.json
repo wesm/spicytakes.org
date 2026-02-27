@@ -1,0 +1,22 @@
+{
+  "summary": "McKenzie documents three specific Java cross-platform compatibility issues he encountered when releasing his Bingo Card Creator software on Mac. The post covers file path handling differences between Windows and Mac JARs, printer service lookup inconsistencies across platforms, and the danger of assuming individually-tested components will work correctly in combination. These are practical lessons learned from shipping real software to customers on multiple platforms.",
+  "key_points": [
+    "File path handling with ./ behaves differently in Mac JARs versus Windows, defaulting to system root instead of the JAR's directory",
+    "Java's printer service lookup doesn't guarantee the default printer appears in the available printer list on Mac, unlike Windows",
+    "Individually tested components can introduce showstopper bugs when combined, even when no direct changes were made to the failing logic",
+    "Cross-platform Java development requires testing on each target platform rather than assuming library behavior is consistent"
+  ],
+  "money_quotes": [
+    "\"don't use . here, causes problems\" is not a maximally useful comment.",
+    "If you were careless like me and assumed that the default printer was on that list if the default printer wasn't null, you will have your GUI thread choke and die with an index out of bounds error thrown by the list component.",
+    "Seemingly innocuous changes to one part of your code can have a ripple effect causing the libraries to break assumptions you have made in other parts of your code, resulting in potential showstoppers.",
+    "Swing is a known good component, the default printer is a known good component, and the printer enumeration methods are known good\u2026 but the combination of the three introduced a showstopper on the Mac.",
+    "I'm going to recode my default printer selection logic to use least-distance string comparison to get around this little feature."
+  ],
+  "themes": [
+    "engineering"
+  ],
+  "tone": "technical",
+  "key_insight": "Cross-platform Java development reveals that individually correct components can combine to produce showstopper bugs, making platform-specific testing essential even for supposedly portable code.",
+  "filename": "2007-01-29-amusing-mac-java-niggles-and-incompatibilities"
+}
