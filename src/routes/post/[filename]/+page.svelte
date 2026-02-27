@@ -258,7 +258,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: #78716c;
     text-decoration: none;
@@ -305,7 +305,7 @@
   }
 
   .meta-date {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -323,7 +323,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.2rem;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #dc2626;
     text-decoration: none;
@@ -342,7 +342,7 @@
   /* ── Title ─────────────────────────────────── */
   .post-title {
     font-family: var(--font-family-serif);
-    font-size: 1.6rem;
+    font-size: 1.75rem;
     font-weight: 600;
     color: #1c1917;
     line-height: 1.3;
@@ -358,7 +358,7 @@
   }
 
   .theme-tag {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 500;
     padding: 0.15rem 0.5rem;
     background: #f5f5f4;
@@ -372,7 +372,7 @@
   }
 
   .section-label {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -388,7 +388,7 @@
   }
 
   .section-text {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: #44403c;
   }
@@ -401,7 +401,7 @@
     padding-left: 1rem;
     border-left: 3px solid #dc2626;
     font-family: var(--font-family-serif);
-    font-size: 1.05rem;
+    font-size: 1.125rem;
 
     line-height: 1.55;
     color: #57534e;
@@ -443,7 +443,7 @@
   }
 
   .quote-score {
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     font-weight: 800;
     flex-shrink: 0;
     font-variant-numeric: tabular-nums;
@@ -451,7 +451,7 @@
 
   .quote-text {
     font-family: var(--font-family-serif);
-    font-size: 1.05rem;
+    font-size: 1.125rem;
 
     line-height: 1.55;
     color: #1c1917;
@@ -502,7 +502,7 @@
   }
 
   .transcript-label {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -520,7 +520,7 @@
   }
 
   .prose {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.7;
     color: #44403c;
   }

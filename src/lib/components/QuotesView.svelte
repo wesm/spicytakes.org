@@ -173,7 +173,7 @@
   }
 
   .control-label {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -184,7 +184,7 @@
 
   .control-select {
     appearance: none;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: #44403c;
     background: #f5f5f4;
@@ -248,7 +248,7 @@
   }
 
   .range-value {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     min-width: 1.5rem;
@@ -257,7 +257,7 @@
 
   .control-count {
     margin-left: auto;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #a8a29e;
     font-variant-numeric: tabular-nums;
@@ -280,13 +280,13 @@
 
   .year-label {
     font-family: var(--font-family-serif);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #1c1917;
   }
 
   .year-badge {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 600;
     color: #dc2626;
     background: rgba(239, 68, 68, 0.06);
@@ -343,7 +343,7 @@
 
   .card-quote {
     font-family: var(--font-family-serif);
-    font-size: 0.9rem;
+    font-size: 1rem;
 
     line-height: 1.55;
     color: #44403c;
@@ -353,7 +353,7 @@
   }
 
   .card-score {
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     font-weight: 800;
     flex-shrink: 0;
     font-variant-numeric: tabular-nums;
@@ -367,7 +367,7 @@
   }
 
   .card-source {
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: #57534e;
     transition: color 0.12s;
@@ -377,12 +377,12 @@
   }
 
   .card-date {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     color: #a8a29e;
   }
 
   .card-theme {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 500;
     padding: 0.1rem 0.4rem;
     background: #f5f5f4;
@@ -397,12 +397,12 @@
   }
 
   .empty-title {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #78716c;
   }
 
   .empty-hint {
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     color: #a8a29e;
     margin-top: 0.25rem;
   }

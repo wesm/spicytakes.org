@@ -85,7 +85,7 @@
 
   .view-tab {
     padding: 0.5rem 0.9rem;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #a8a29e;
     background: none;
@@ -109,7 +109,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     color: #a8a29e;
     font-variant-numeric: tabular-nums;
   }

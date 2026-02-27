@@ -320,7 +320,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: #78716c;
     text-decoration: none;
@@ -345,7 +345,7 @@
 
   .feed-subtitle {
     margin-top: 0.4rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #78716c;
     letter-spacing: 0.01em;
   }
@@ -378,7 +378,7 @@
   }
 
   .filter-label {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -391,7 +391,7 @@
 
   .filter-select {
     appearance: none;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: #44403c;
     background: #f5f5f4;
@@ -469,7 +469,7 @@
   }
 
   .range-value {
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     min-width: 1.5rem;
@@ -478,7 +478,7 @@
 
   .filter-count {
     margin-left: auto;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 500;
     color: #a8a29e;
     font-variant-numeric: tabular-nums;
@@ -533,14 +533,14 @@
 
   .month-label {
     font-family: var(--font-family-serif);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: #57534e;
     letter-spacing: 0.01em;
   }
 
   .month-count {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 600;
     color: #a8a29e;
     background: #f5f5f4;
@@ -620,7 +620,7 @@
   }
 
   .author-name {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #44403c;
   }
@@ -634,14 +634,14 @@
   }
 
   .post-date {
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     color: #a8a29e;
     font-variant-numeric: tabular-nums;
   }
 
   .spicy-badge {
     margin-left: auto;
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
     padding: 0.15rem 0.45rem;
     border-radius: 9999px;
@@ -650,7 +650,7 @@
 
   /* ── Title ─────────────────────────────────────── */
   .post-title {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.35;
     color: #1c1917;
@@ -667,14 +667,14 @@
 
   /* ── Summary ───────────────────────────────────── */
   .post-insight {
-    font-size: 0.85rem;
+    font-size: 0.925rem;
     line-height: 1.55;
     color: #1c1917;
     margin-bottom: 0.5rem;
   }
 
   .post-summary {
-    font-size: 0.835rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #57534e;
     margin-bottom: 0.6rem;
@@ -699,7 +699,7 @@
   }
 
   .quote-score {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 800;
     flex-shrink: 0;
     font-variant-numeric: tabular-nums;
@@ -708,7 +708,7 @@
 
   .feed-quote p {
     font-family: var(--font-family-serif);
-    font-size: 0.82rem;
+    font-size: 0.9rem;
 
     line-height: 1.55;
     color: #44403c;
@@ -729,7 +729,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.15s;

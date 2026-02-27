@@ -70,7 +70,7 @@
   }
 
   .themes-hint {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: #a8a29e;
   }
 
@@ -113,7 +113,7 @@
   }
 
   .card-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #1c1917;
     transition: color 0.12s;
@@ -123,7 +123,7 @@
   }
 
   .card-counts {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     color: #a8a29e;
     margin-top: 0.1rem;
   }
@@ -135,7 +135,7 @@
 
   .avg-label {
     display: block;
-    font-size: 0.6rem;
+    font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -143,7 +143,7 @@
   }
 
   .avg-value {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
   }
@@ -157,7 +157,7 @@
   }
 
   .quotes-label {
-    font-size: 0.6rem;
+    font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -172,7 +172,7 @@
   }
 
   .mini-score {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 800;
     flex-shrink: 0;
     font-variant-numeric: tabular-nums;
@@ -180,7 +180,7 @@
 
   .mini-text {
     font-family: var(--font-family-serif);
-    font-size: 0.78rem;
+    font-size: 0.85rem;
 
     line-height: 1.45;
     color: #78716c;
@@ -197,7 +197,7 @@
     align-items: center;
     gap: 0.3rem;
     margin-top: 0.75rem;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: #dc2626;
     transition: color 0.12s;

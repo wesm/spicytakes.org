@@ -429,7 +429,7 @@
 
   @media (min-width: 1024px) {
     .modal-panel {
-      max-width: 52rem;
+      max-width: 60rem;
     }
   }
 </style>

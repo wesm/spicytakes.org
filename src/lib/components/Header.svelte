@@ -168,7 +168,7 @@
   }
 
   .blog-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #1c1917;
     letter-spacing: -0.01em;
@@ -176,7 +176,7 @@
   }
 
   .blog-tagline {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: #a8a29e;
     white-space: nowrap;
     overflow: hidden;
@@ -187,7 +187,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 500;
     color: #78716c;
     text-decoration: none;
@@ -223,7 +223,7 @@
   .search-input {
     width: 100%;
     padding: 0.4rem 0.75rem 0.4rem 2rem;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     color: #44403c;
     background: #f5f5f4;
     border: 1px solid #e7e5e4;
@@ -251,7 +251,7 @@
     gap: 0.15rem;
     padding: 0.2rem 0.6rem;
     border-radius: 9999px;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 500;
     background: #f5f5f4;
     color: #78716c;
@@ -270,12 +270,12 @@
   }
 
   .pill-icon {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
   }
 
   .pill-count {
     opacity: 0.55;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
   }
 
   .clear-btn {
@@ -283,7 +283,7 @@
     align-items: center;
     padding: 0.2rem 0.6rem;
     border-radius: 9999px;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     font-weight: 500;
     background: rgba(239, 68, 68, 0.06);
     color: #dc2626;

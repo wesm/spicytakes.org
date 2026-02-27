@@ -73,7 +73,7 @@
     border-top: 1px solid #e7e5e4;
     padding: 2rem 1.5rem;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     color: #a8a29e;
   }
 
@@ -101,7 +101,7 @@
 
   .footer-hash {
     margin-top: 0.5rem;
-    font-size: 0.7rem;
+    font-size: 0.78rem;
     color: #d6d3d1;
   }
 
