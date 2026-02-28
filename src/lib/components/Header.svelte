@@ -300,5 +300,6 @@
     .blog-tagline,
     .source-link { display: none; }
     .search-wrap { max-width: 100%; }
+    .theme-pills { display: none; }
   }
 </style>

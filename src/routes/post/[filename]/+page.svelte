@@ -595,5 +595,8 @@
     .post-title {
       font-size: 1.25rem;
     }
+    .theme-list {
+      display: none;
+    }
   }
 </style>
