@@ -3,10 +3,7 @@ import {
   type RawPost,
   type SpicyQuote,
   type PostIndexEntry,
-  llmQuotesModules,
-  spicyQuotesModules,
-  postsIndexModules,
-  getBlogData,
+  readBlogJson,
   parseDate,
   formatTitle,
 } from '$lib/server/blog-data';
@@ -19,9 +16,17 @@ export const load: LayoutServerLoad = async () => {
     return { blogData: null };
   }
 
-  const rawData = getBlogData(llmQuotesModules, blogId, { posts: [] as RawPost[] });
-  const spicyData = getBlogData(spicyQuotesModules, blogId, { quotes: [] as SpicyQuote[] });
-  const postsIndex = getBlogData(postsIndexModules, blogId, { posts: [] as PostIndexEntry[] });
+  const [rawData, spicyData, postsIndex] = await Promise.all([
+    readBlogJson<{ posts: RawPost[] }>(
+      blogId, 'llm_quotes.json', { posts: [] }
+    ),
+    readBlogJson<{ quotes: SpicyQuote[] }>(
+      blogId, 'spicy_quotes.json', { quotes: [] }
+    ),
+    readBlogJson<{ posts: PostIndexEntry[] }>(
+      blogId, 'posts_index.json', { posts: [] }
+    ),
+  ]);
 
   // Build lookups from posts_index.json
   // Index by filename (with/without .md) and by slug for compatibility

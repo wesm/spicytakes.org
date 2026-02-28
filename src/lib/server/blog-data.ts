@@ -2,7 +2,15 @@
  * Shared blog data loading utilities.
  * Used by both +layout.server.ts (single-blog mode) and
  * the /feed route (cross-blog aggregation).
+ *
+ * Data is loaded via fs.readFile at request time (not bundled
+ * by Vite), so each Vercel deployment only pays for the files
+ * it actually needs.
  */
+
+import { readFile } from 'node:fs/promises';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export interface RawPost {
   filename: string;
@@ -33,30 +41,44 @@ export interface SpicyQuote {
   spiciness: number;
 }
 
-// Glob imports — bundled at build time by Vite
-export const llmQuotesModules = import.meta.glob<{
-  posts: RawPost[];
-}>('/blogs/*/data/llm_quotes.json', { eager: true });
+// Resolve project root: cwd in dev, relative to this file on Vercel.
+const projectRoot = import.meta.env.DEV
+  ? process.cwd()
+  : join(
+      dirname(fileURLToPath(import.meta.url)),
+      '../../../../..'
+    );
 
-export const spicyQuotesModules = import.meta.glob<{
-  quotes: SpicyQuote[];
-}>('/blogs/*/data/spicy_quotes.json', { eager: true });
+const jsonCache = new Map<string, unknown>();
 
-export const postsIndexModules = import.meta.glob<{
-  posts: PostIndexEntry[];
-}>('/blogs/*/data/posts_index.json', { eager: true });
-
-export function getBlogData<T>(
-  modules: Record<string, T>,
+export async function readBlogJson<T>(
   blogId: string,
+  filename: string,
   defaultValue: T
-): T {
-  for (const [path, module] of Object.entries(modules)) {
-    if (path.includes(`/blogs/${blogId}/`)) {
-      return module;
+): Promise<T> {
+  const rel = `blogs/${blogId}/data/${filename}`;
+  return readProjectJson(rel, defaultValue);
+}
+
+export async function readProjectJson<T>(
+  relativePath: string,
+  defaultValue: T
+): Promise<T> {
+  const cached = jsonCache.get(relativePath);
+  if (cached !== undefined) return cached as T;
+
+  const abs = join(projectRoot, relativePath);
+  try {
+    const raw = await readFile(abs, 'utf-8');
+    const parsed = JSON.parse(raw) as T;
+    jsonCache.set(relativePath, parsed);
+    return parsed;
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
+      return defaultValue;
     }
+    throw err;
   }
-  return defaultValue;
 }
 
 export function parseDate(filename: string): string | null {

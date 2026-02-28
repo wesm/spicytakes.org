@@ -336,7 +336,9 @@
   .sort-bar {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.35rem;
+    row-gap: 0.25rem;
     padding: 0.5rem 0;
     margin-bottom: 1rem;
     border-bottom: 1px solid #e7e5e4;

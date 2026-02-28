@@ -37,7 +37,7 @@ SCRAPER_TYPE=$(python3 "$UTILS" config "$BLOG_ID" scraper.type)
 POSTS_BEFORE=$(python3 "$UTILS" raw-post-count "$BLOG_ID")
 
 # Step 1: Scrape new posts
-echo "Step 1/4: Checking for new posts..."
+echo "Step 1/5: Checking for new posts..."
 
 # For github_markdown blogs, pull the local repo first (best-effort)
 if [[ "$SCRAPER_TYPE" == "github_markdown" ]]; then
@@ -85,18 +85,23 @@ echo "Found $NEW_POSTS new post(s)."
 echo ""
 
 # Step 2: Run LLM analysis on new posts
-echo "Step 2/4: Running LLM analysis on new posts..."
+echo "Step 2/5: Running LLM analysis on new posts..."
 BLOG_ID="$BLOG_ID" bash scripts/llm_analyze.sh
 echo ""
 
 # Step 3: Grade spiciness on new quotes
-echo "Step 3/4: Grading spiciness on new quotes..."
+echo "Step 3/5: Grading spiciness on new quotes..."
 BLOG_ID="$BLOG_ID" bash scripts/grade_spiciness.sh
 echo ""
 
 # Step 4: Update landing.json post/quote counts
-echo "Step 4/4: Updating landing page stats..."
+echo "Step 4/5: Updating landing page stats..."
 python3 "$UTILS" update-landing "$BLOG_ID"
+echo ""
+
+# Step 5: Rebuild feed index for landing deployment
+echo "Step 5/5: Rebuilding feed index..."
+python3 "$SCRIPT_DIR/build_feed_index.py"
 echo ""
 
 echo "=== Update Complete ==="
