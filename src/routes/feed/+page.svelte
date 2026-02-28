@@ -210,7 +210,7 @@
 
                   <!-- Summary -->
                   {#if post.summary}
-                    <p class="post-summary">{truncate(post.summary, 240)}</p>
+                    <p class="post-summary">{post.summary}</p>
                   {/if}
 
                   <!-- Quotes -->
