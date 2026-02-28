@@ -139,22 +139,17 @@ blogs/**/*.m4a
 playwright-report/
 test-results/
 
-# Exclude all blog posts and data (only current blog's files are needed)
+# Exclude all blog posts (only current blog's posts are needed)
 blogs/*/posts/
 blogs/*/transcripts/
-blogs/*/data/
 STATIC
 
-    if [ "$blog_id" = "landing" ]; then
-        echo "" >> .vercelignore
-        echo "# Landing only needs the precomputed feed index" >> .vercelignore
-        echo "!blogs/feed_index.json" >> .vercelignore
-    else
+    # Re-include the current blog's posts and transcripts
+    if [ "$blog_id" != "landing" ]; then
         echo "" >> .vercelignore
         echo "# Re-include current blog" >> .vercelignore
         echo "!blogs/${blog_id}/posts/" >> .vercelignore
         echo "!blogs/${blog_id}/transcripts/" >> .vercelignore
-        echo "!blogs/${blog_id}/data/" >> .vercelignore
     fi
 }
 

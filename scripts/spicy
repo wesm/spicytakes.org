@@ -323,28 +323,7 @@ def update(blog_id: str | None, update_all: bool, only_new: bool):
         else:
             console.print(f"  [yellow]Grading skipped or failed[/yellow]")
 
-    # Rebuild feed index after all blogs are updated
-    console.print(f"\n[bold cyan]Rebuilding feed index...[/bold cyan]")
-    feed_result = subprocess.run(
-        ["python3", str(SCRIPTS_DIR / "build_feed_index.py")],
-        cwd=str(PROJECT_DIR),
-    )
-    if feed_result.returncode != 0:
-        console.print("[yellow]Warning: Failed to rebuild feed index[/yellow]")
-
     console.print(f"\n[bold]Summary:[/bold] {total_new_posts} new posts, {total_new_quotes} new quotes")
-
-
-@cli.command("build-feed")
-def build_feed():
-    """Rebuild blogs/feed_index.json from all blogs' data."""
-    result = subprocess.run(
-        ["python3", str(SCRIPTS_DIR / "build_feed_index.py")],
-        cwd=str(PROJECT_DIR),
-    )
-    if result.returncode != 0:
-        console.print("[red]Failed to build feed index[/red]")
-        sys.exit(1)
 
 
 @cli.command("sync-stats")
