@@ -50,14 +50,27 @@ function stripEventHandlers(tag: string): string {
   );
 }
 
+/**
+ * Match an HTML opening tag, aware of quoted attribute values
+ * (so `>` inside quotes doesn't terminate the match early).
+ * Each segment is: quoted string or non-quote/non-`>` char.
+ */
+const HTML_TAG_RE =
+  /<[a-z](?:"[^"]*"|'[^']*'|[^"'>])*>/gi;
+
 /** Strip dangerous HTML tags and event handler attributes. */
 function sanitizeHtml(html: string): string {
   return html
     .replace(
-      /<\/?(script|style|iframe|object|embed|form|input|textarea|button|select|meta|link|base)\b[^>]*>/gi,
+      /<\/?(script|style|iframe|object|embed|form|input|textarea|button|select|meta|link|base)\b(?:"[^"]*"|'[^']*'|[^"'>])*>/gi,
       ''
     )
-    .replace(/<[a-z][^>]*\s+on\w+\s*=[^>]*>/gi, stripEventHandlers);
+    .replace(HTML_TAG_RE, (tag) => {
+      if (/\s+on\w+\s*=/i.test(tag)) {
+        return stripEventHandlers(tag);
+      }
+      return tag;
+    });
 }
 
 /** Strip frontmatter, parse markdown, and sanitize output. */
