@@ -46,7 +46,7 @@ const safeRenderer: Partial<marked.Renderer> = {
 /** Strip on* event handler attributes from inside an HTML tag. */
 function stripEventHandlers(tag: string): string {
   return tag.replace(
-    /\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]*)/gi, ''
+    /[\s/]+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]*)/gi, ''
   );
 }
 
@@ -59,14 +59,14 @@ const HTML_TAG_RE =
   /<[a-z](?:"[^"]*"|'[^']*'|[^"'>])*>/gi;
 
 /** Strip dangerous HTML tags and event handler attributes. */
-function sanitizeHtml(html: string): string {
+export function sanitizeHtml(html: string): string {
   return html
     .replace(
       /<\/?(script|style|iframe|object|embed|form|input|textarea|button|select|meta|link|base)\b(?:"[^"]*"|'[^']*'|[^"'>])*>/gi,
       ''
     )
     .replace(HTML_TAG_RE, (tag) => {
-      if (/\s+on\w+\s*=/i.test(tag)) {
+      if (/[\s/]+on\w+\s*=/i.test(tag)) {
         return stripEventHandlers(tag);
       }
       return tag;
