@@ -8,7 +8,9 @@ Designed for blogs like wesmckinney.com that use Quarto with transcripts.
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 import yaml
 from datetime import datetime
 from pathlib import Path
@@ -71,10 +73,26 @@ class QuartoBlogScraper(BaseScraper):
         self.local_path = Path(local_path_str).expanduser()
         self.blog_path = self.config["scraper"].get("blogPath", "blog")
         self.transcripts_path = self.config["scraper"].get("transcriptsPath", "transcripts")
+        self.repo_url = self.config["scraper"].get("repoUrl")
 
-        # Validate local path exists
+        # If local path doesn't exist, clone from repoUrl
+        if not self.local_path.exists() and self.repo_url:
+            self._tmp_dir = tempfile.mkdtemp(
+                prefix=f"spicytakes-{blog_id}-"
+            )
+            clone_path = Path(self._tmp_dir) / "repo"
+            print(f"Local path not found, cloning {self.repo_url}...")
+            subprocess.run(
+                ["git", "clone", "--depth=1", self.repo_url,
+                 str(clone_path)],
+                check=True,
+            )
+            self.local_path = clone_path
+
         if not self.local_path.exists():
-            raise FileNotFoundError(f"Source directory not found: {self.local_path}")
+            raise FileNotFoundError(
+                f"Source directory not found: {self.local_path}"
+            )
 
     def parse_frontmatter(self, content: str) -> tuple[dict, str]:
         """Extract YAML frontmatter and body from content."""
