@@ -1,6 +1,6 @@
 {
   "total_posts": 88,
-  "successful": 87,
+  "successful": 88,
   "posts": [
     {
       "summary": "A brief post recommending adblockers to eliminate distracting website advertising. The author notes they've been free from ads for 2-3 years thanks to browser extensions, and encourages readers to adopt the same approach. Two specific adblocker tools are recommended along with a comparison resource.",
@@ -2320,9 +2320,32 @@
       "filename": "2026-02-13-obsidian-rag-duckdb-sql"
     },
     {
-      "filename": "2026-03-04-git-for-data-tools",
-      "error": "no_json",
-      "raw": "Not logged in \u00b7 Please run /login\n"
+      "summary": "This is Part 2 of a series on Git-for-data workflows, examining how tools like LakeFS, Dolt, Nessie, MotherDuck, Bauplan, Neon, and DuckLake implement version control semantics for data without copying petabytes. The central insight is that all mature tools converge on the same architectural principle: separating metadata from data, using copy-on-write and pointer manipulation to enable instant branching. The post breaks tools into three categories\u2014data lake versioning, transactional databases, and analytical warehouses\u2014each with different trade-offs around merge support, branching granularity, and infrastructure requirements. Beyond storage, the post extends the analysis to orchestration (Dagster branch deployments) and AI agent workflows, showing Git-like patterns spreading across the full data engineering lifecycle. The author concludes that Git-like workflows are becoming table stakes, and recommends starting with high-risk pipelines before expanding.",
+      "key_points": [
+        "All Git-for-data tools share a common architectural principle: separating metadata from data via copy-on-write and pointer manipulation to achieve zero-copy branching.",
+        "Tools fragment into distinct categories with different trade-offs: data lake tools (LakeFS, Nessie, Bauplan) offer full merge workflows; database tools (Dolt, Neon, Supabase) vary widely from true Git semantics to branch-only with no merge; analytical warehouses (MotherDuck, DuckLake) favor snapshots over branching.",
+        "Dolt's Prolly Trees enable cell-level version history and true SQL diffs, making it the closest analog to Git semantics in a relational database context.",
+        "Orchestration tools like Dagster extend Git-for-data beyond storage, automatically creating branch deployments with cloned data on every PR\u2014solving the staging environment problem without manual data copying.",
+        "AI agents benefit from Git-like data isolation the same way parallel git worktrees benefit code: frozen, consistent data per branch eliminates interference between concurrent pipeline runs and agent tasks."
+      ],
+      "money_quotes": [
+        "The key insight from Part 1 was that all these tools separate metadata from data, using techniques like copy-on-write and pointer manipulation. But the devil is in the details.",
+        "Instead of duplicating data, they track pointers and references, enabling instant branching/cloning and zero-copy operations.",
+        "Nessie doesn't touch your data files. It's a lightweight coordination layer that brings Git semantics to your lakehouse by versioning the catalog.",
+        "It's not a true merge (it's a full replacement, not a diff-based reconciliation), but for many data workflows where you want to validate changes in isolation before promoting them, it covers the key use case.",
+        "Start small. You don't need to instrument your entire stack overnight. Look at your recent production incidents: which pipelines caused them? Those are your highest-risk areas.",
+        "We want to bring the same confidence we have with code versioning to the stateful world of data.",
+        "Git-like workflows are becoming table stakes. Maybe not today or tomorrow, but with the right tools and changes in workflow we can achieve significantly better change management, testing on production data, fast rollbacks, isolated experiments, and most importantly, peace of mind when deploying changes."
+      ],
+      "themes": [
+        "data_engineering",
+        "data_platforms",
+        "tools_products",
+        "industry_observations"
+      ],
+      "tone": "technical, practical, survey-oriented",
+      "key_insight": "Every mature Git-for-data tool converges on the same core trick\u2014separating metadata from data via pointer manipulation\u2014but they diverge significantly on merge support, granularity, and infrastructure fit, so choosing the right tool requires matching those trade-offs to your specific stack and workflow.",
+      "filename": "2026-03-04-git-for-data-tools"
     }
   ]
 }
