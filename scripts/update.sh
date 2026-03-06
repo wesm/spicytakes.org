@@ -74,23 +74,48 @@ if [[ "$NEW_POSTS" -lt 0 ]]; then
     exit 1
 fi
 
-if [[ "$NEW_POSTS" -eq 0 ]]; then
+BLOG_DIR="$PROJECT_DIR/blogs/$BLOG_ID"
+ANALYSIS_DIR="$BLOG_DIR/data/llm_analysis"
+
+# Check for failed analyses that need retrying
+FAILED_ANALYSES=0
+if [[ -d "$ANALYSIS_DIR" ]]; then
+    FAILED_ANALYSES=$(python3 -c "
+import json, glob, sys
+count = 0
+for f in glob.glob('$ANALYSIS_DIR/*.json'):
+    try:
+        with open(f) as fp:
+            if 'error' in json.load(fp):
+                count += 1
+    except Exception:
+        count += 1
+print(count)
+")
+fi
+
+if [[ "$NEW_POSTS" -eq 0 && "$FAILED_ANALYSES" -eq 0 ]]; then
     echo "No new posts found. Skipping analysis, grading, and build."
     echo ""
     echo "=== Update Complete (no changes) ==="
     exit 0
 fi
 
-echo "Found $NEW_POSTS new post(s)."
+if [[ "$NEW_POSTS" -gt 0 ]]; then
+    echo "Found $NEW_POSTS new post(s)."
+fi
+if [[ "$FAILED_ANALYSES" -gt 0 ]]; then
+    echo "Found $FAILED_ANALYSES failed analysis(es) to retry."
+fi
 echo ""
 
-# Step 2: Run LLM analysis on new posts
-echo "Step 2/4: Running LLM analysis on new posts..."
+# Step 2: Run LLM analysis
+echo "Step 2/4: Running LLM analysis..."
 BLOG_ID="$BLOG_ID" bash scripts/llm_analyze.sh
 echo ""
 
-# Step 3: Grade spiciness on new quotes
-echo "Step 3/4: Grading spiciness on new quotes..."
+# Step 3: Grade spiciness
+echo "Step 3/4: Grading spiciness..."
 BLOG_ID="$BLOG_ID" bash scripts/grade_spiciness.sh
 echo ""
 
