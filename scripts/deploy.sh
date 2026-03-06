@@ -175,10 +175,12 @@ deploy_blog() {
 
     # Link to the correct Vercel project
     echo "Linking to project..."
-    vercel link --yes --project="$project_name"
+    vercel link --yes --project="$project_name" \
+        ${VERCEL_TOKEN:+--token="$VERCEL_TOKEN"}
 
     # Deploy (builds on Vercel servers using VITE_BLOG_ID from project env vars)
-    vercel ${PROD_FLAG:+"$PROD_FLAG"} --yes
+    vercel ${PROD_FLAG:+"$PROD_FLAG"} --yes \
+        ${VERCEL_TOKEN:+--token="$VERCEL_TOKEN"}
 
     echo "Done: $blog_id"
     echo ""
