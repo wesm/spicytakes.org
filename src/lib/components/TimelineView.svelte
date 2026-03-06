@@ -8,6 +8,21 @@
     selectedPost.set(post);
   }
 
+  function topQuotes(post: Post, n = 3) {
+    return (post.money_quotes || [])
+      .map((q, i) => ({
+        quote: q,
+        spiciness: post.quote_spiciness?.[i] ?? 5,
+      }))
+      .sort((a, b) => b.spiciness - a.spiciness)
+      .slice(0, n);
+  }
+
+  function truncate(text: string, max: number): string {
+    if (!text || text.length <= max) return text || '';
+    return text.slice(0, max) + '\u2026';
+  }
+
   let sortBy = $state<'date' | 'spiciness'>('date');
   let selectedYear = $state<number | null | 'all'>('all');
   let minSpiciness = $state(1);
@@ -124,6 +139,7 @@
           </div>
           <div class="post-list">
             {#each yearSpicy as post (post.filename)}
+              {@const quotes = topQuotes(post)}
               <button onclick={() => openPost(post)} class="post-card" style="--heat: {heatColor(post.spiciness ?? 5)}">
                 <div class="card-heat" aria-hidden="true"></div>
                 <div class="card-body">
@@ -133,7 +149,22 @@
                       <span class="card-score" style="color: {heatColor(post.spiciness)}">{post.spiciness}</span>
                     {/if}
                   </div>
-                  <p class="card-summary">{post.summary}</p>
+                  {#if post.key_insight}
+                    <p class="card-insight"><strong>Key Insight:</strong> {post.key_insight}</p>
+                  {/if}
+                  {#if post.summary}
+                    <p class="card-summary">{post.summary}</p>
+                  {/if}
+                  {#if quotes.length > 0}
+                    <div class="card-quotes">
+                      {#each quotes as q}
+                        <blockquote class="card-quote">
+                          <span class="card-quote-score" style="color: {heatColor(q.spiciness)}">{q.spiciness}</span>
+                          <p>{truncate(q.quote, 180)}</p>
+                        </blockquote>
+                      {/each}
+                    </div>
+                  {/if}
                   <div class="card-meta">
                     <time class="card-date">{formatDate(post.date, 'short')}</time>
                     {#if post.themes?.length}
@@ -163,6 +194,7 @@
         </div>
         <div class="post-list">
           {#each posts as post (post.filename)}
+            {@const quotes = topQuotes(post)}
             <button onclick={() => openPost(post)} class="post-card" style="--heat: {heatColor(post.spiciness ?? 5)}">
               <div class="card-heat" aria-hidden="true"></div>
               <div class="card-body">
@@ -172,7 +204,22 @@
                     <span class="card-score" style="color: {heatColor(post.spiciness)}">{post.spiciness}</span>
                   {/if}
                 </div>
-                <p class="card-summary">{post.summary}</p>
+                {#if post.key_insight}
+                  <p class="card-insight"><strong>Key Insight:</strong> {post.key_insight}</p>
+                {/if}
+                {#if post.summary}
+                  <p class="card-summary">{post.summary}</p>
+                {/if}
+                {#if quotes.length > 0}
+                  <div class="card-quotes">
+                    {#each quotes as q}
+                      <blockquote class="card-quote">
+                        <span class="card-quote-score" style="color: {heatColor(q.spiciness)}">{q.spiciness}</span>
+                        <p>{truncate(q.quote, 180)}</p>
+                      </blockquote>
+                    {/each}
+                  </div>
+                {/if}
                 <div class="card-meta">
                   <time class="card-date">{formatDate(post.date, 'short')}</time>
                   {#if post.themes?.length}
@@ -350,7 +397,7 @@
   .post-list {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.75rem;
   }
 
   .post-card {
@@ -358,14 +405,16 @@
     text-align: left;
     background: #fff;
     border: 1px solid #e7e5e4;
-    border-radius: 0.6rem;
+    border-radius: 0.75rem;
     overflow: hidden;
     cursor: pointer;
     transition: border-color 0.15s, box-shadow 0.15s;
   }
   .post-card:hover {
     border-color: #d6d3d1;
-    box-shadow: 0 2px 8px rgba(28, 25, 23, 0.06);
+    box-shadow:
+      0 4px 12px rgba(28, 25, 23, 0.06),
+      0 1px 3px rgba(28, 25, 23, 0.04);
   }
 
   .card-heat {
@@ -373,7 +422,7 @@
     flex-shrink: 0;
     background: var(--heat);
     border-radius: 3px 0 0 3px;
-    opacity: 0.6;
+    opacity: 0.7;
     transition: opacity 0.15s;
   }
   .post-card:hover .card-heat {
@@ -383,7 +432,7 @@
   .card-body {
     flex: 1;
     min-width: 0;
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.25rem;
   }
 
   .card-top {
@@ -391,13 +440,13 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 0.75rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
   }
 
   .card-title {
     font-family: var(--font-family-serif);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: #1c1917;
     line-height: 1.35;
     transition: color 0.12s;
@@ -413,16 +462,51 @@
     font-variant-numeric: tabular-nums;
   }
 
-  .card-summary {
-    font-size: 0.875rem;
+  .card-insight {
+    font-size: 0.925rem;
     line-height: 1.55;
-    color: #78716c;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-clamp: 2;
-    margin-bottom: 0.4rem;
+    color: #1c1917;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-summary {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #57534e;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.6rem;
+    padding-left: 0.25rem;
+    border-left: 2px solid #f5f5f4;
+  }
+
+  .card-quote {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0.2rem 0;
+  }
+
+  .card-quote-score {
+    font-size: 0.72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.85;
+  }
+
+  .card-quote p {
+    font-family: var(--font-family-serif);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #44403c;
+    margin: 0;
   }
 
   .card-meta {
@@ -430,6 +514,8 @@
     align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px solid #f5f5f4;
   }
 
   .card-date {
@@ -472,6 +558,18 @@
 
     .control-range {
       width: 3.5rem;
+    }
+
+    .card-body {
+      padding: 0.75rem 1rem;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+    }
+
+    .card-quote p {
+      font-size: 0.78rem;
     }
   }
 </style>
