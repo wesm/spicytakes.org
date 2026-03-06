@@ -8,7 +8,9 @@ Designed for blogs like lucumr.pocoo.org that store posts in git.
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 import yaml
 from datetime import datetime
 from pathlib import Path
@@ -34,11 +36,28 @@ class GitHubMarkdownScraper(BaseScraper):
 
         self.local_path = Path(local_path_str).expanduser()
         self.posts_path = self.config["scraper"].get("postsPath", "posts")
+        self.repo_url = self.config["scraper"].get("repoUrl")
+        self._tmp_dir = None
 
-        # Validate local path exists
+        # If local path doesn't exist, clone from repoUrl
+        if not self.local_path.exists() and self.repo_url:
+            self._tmp_dir = tempfile.mkdtemp(
+                prefix=f"spicytakes-{blog_id}-"
+            )
+            clone_path = Path(self._tmp_dir) / "repo"
+            print(f"Local path not found, cloning {self.repo_url}...")
+            subprocess.run(
+                ["git", "clone", "--depth=1", self.repo_url,
+                 str(clone_path)],
+                check=True,
+            )
+            self.local_path = clone_path
+
         self.source_dir = self.local_path / self.posts_path
         if not self.source_dir.exists():
-            raise FileNotFoundError(f"Source directory not found: {self.source_dir}")
+            raise FileNotFoundError(
+                f"Source directory not found: {self.source_dir}"
+            )
 
     def parse_post_file(self, file_path: Path, year: int) -> dict | None:
         """Parse a markdown post file and extract metadata + content."""
