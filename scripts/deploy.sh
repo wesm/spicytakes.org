@@ -4,6 +4,7 @@
 # Usage:
 #   ./scripts/deploy.sh <blog_id> [--prod]   # Deploy one blog
 #   ./scripts/deploy.sh --all [--prod]       # Deploy all blogs
+#   ./scripts/deploy.sh --changed [--prod]   # Deploy only changed blogs
 #   ./scripts/deploy.sh --list               # List available blogs
 #
 # Examples:
@@ -58,6 +59,7 @@ ALL_BLOGS="landing benn armin wesm danluu bcantrill jessfraz geohot mrocklin cri
 
 PROD_FLAG=""
 DEPLOY_ALL=false
+DEPLOY_CHANGED=false
 LIST_ONLY=false
 BLOG_ID=""
 
@@ -72,6 +74,10 @@ while [[ $# -gt 0 ]]; do
             DEPLOY_ALL=true
             shift
             ;;
+        --changed)
+            DEPLOY_CHANGED=true
+            shift
+            ;;
         --list)
             LIST_ONLY=true
             shift
@@ -82,10 +88,12 @@ while [[ $# -gt 0 ]]; do
             echo "Usage:"
             echo "  ./scripts/deploy.sh <blog_id> [--prod]   Deploy one blog"
             echo "  ./scripts/deploy.sh --all [--prod]       Deploy all blogs"
+            echo "  ./scripts/deploy.sh --changed [--prod]   Deploy only changed blogs"
             echo "  ./scripts/deploy.sh --list               List available blogs"
             echo ""
             echo "Options:"
-            echo "  --prod    Deploy to production (default is preview)"
+            echo "  --prod      Deploy to production (default is preview)"
+            echo "  --changed   Deploy only blogs with real content changes"
             echo ""
             exit 0
             ;;
@@ -185,6 +193,28 @@ deploy_blog() {
     echo "Done: $blog_id"
     echo ""
 }
+
+# Deploy only changed blogs (excludes posts_index.json timestamp noise)
+if [ "$DEPLOY_CHANGED" = true ]; then
+    CHANGED=$(git diff --name-only -- . ':!**/posts_index.json' \
+        | grep '^blogs/' | cut -d/ -f2 | sort -u || true)
+
+    if git diff --name-only -- config/ | grep -q .; then
+        CHANGED="landing${CHANGED:+ $CHANGED}"
+    fi
+
+    if [ -z "$CHANGED" ]; then
+        echo "No blogs changed — skipping deployment"
+        exit 0
+    fi
+
+    echo "Deploying changed blogs: $CHANGED"
+    for blog in $CHANGED; do
+        deploy_blog "$blog" || echo "Warning: Failed to deploy $blog"
+    done
+    echo "Done deploying changed blogs!"
+    exit 0
+fi
 
 # Deploy all or single blog
 if [ "$DEPLOY_ALL" = true ]; then
