@@ -1,6 +1,6 @@
 {
-  "total_posts": 121,
-  "successful": 121,
+  "total_posts": 122,
+  "successful": 122,
   "posts": [
     {
       "summary": "Charity Majors introduces her new blog, outlining topics she plans to write about including tech hiring practices, infrastructure tooling, and startup acquisitions. The post is a lighthearted launch announcement that also explains the origin of her online handle '@mipsytipsy'.",
@@ -3032,6 +3032,32 @@
       "tone": "reflective, urgent, pragmatic",
       "key_insight": "SREs' career-long focus on outcomes over craft makes them uniquely positioned to lead \u2014 not resist \u2014 the AI transition, but only if they proactively engage rather than wait for change to be forced on them.",
       "filename": "2026-03-03-my-hypothetical-srecon26-keynote-xpost"
+    },
+    {
+      "summary": "Charity argues that the root cause of observability failures isn't culture or tooling but a fundamental data architecture problem: the 'three pillars' model (metrics, logs, traces) destroys the relational context that makes telemetry data exponentially more powerful. As agentic AI workflows demand increasingly precise production validation, fragmented telemetry siloes become not just suboptimal but a critical bottleneck \u2014 AI agents are already abandoning three-pillars data in favor of richer, context-intact signals.",
+      "key_points": [
+        "Data becomes combinatorially more powerful as you add more attributes, because each new field creates new combinations with every existing field",
+        "The three pillars model destroys the relational seams between signals, which is the most valuable part of any telemetry dataset",
+        "AI-SRE agents are already seeking richer signals beyond three-pillars data because fragmented context limits their reasoning ability",
+        "Joins across data siloes can't restore relational seams \u2014 once context is destroyed at write time, it cannot be reconstructed",
+        "Agentic workflows will require dramatically more precise production validation, making wide-context observability not a nice-to-have but a hard requirement"
+      ],
+      "money_quotes": [
+        "Data is made powerful by context. The more context you collect, the more powerful it becomes.",
+        "By spinning your telemetry out into siloes based on signal type, the three pillars model ends up destroying the most valuable part of your data: its relational seams.",
+        "Joins across data siloes can be better than nothing, yes. But they don't restore the relational seams.",
+        "Our wisdom must be encoded into the system, or it does not exist.",
+        "In this situation, as in so many others, AI is both the sickness and the cure."
+      ],
+      "themes": [
+        "observability",
+        "devops_sre",
+        "engineering_practices",
+        "tech_culture"
+      ],
+      "tone": "urgent and persuasive, with dry humor",
+      "key_insight": "The three pillars observability model is not just inefficient but actively destructive \u2014 it eliminates context at write time, and no amount of AI-powered joining can restore what was never preserved, which makes it incompatible with the precision demands of agentic software development.",
+      "filename": "2026-03-09-your-data-is-made-powerful-by-context-so-stop-destroying-it-already-xpost"
     }
   ]
 }
