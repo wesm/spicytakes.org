@@ -156,6 +156,29 @@ describe('buildSourceUrl', () => {
     });
   });
 
+  describe('wordpress', () => {
+    it('uses default /YYYY/MM/DD/slug/ pattern', () => {
+      const cfg = makeConfig({
+        sourceUrl: 'https://mathbabe.org',
+        scraper: { type: 'wordpress' },
+      });
+      const result = buildSourceUrl('2023-05-15-my-post.md', cfg);
+      expect(result).toBe('https://mathbabe.org/2023/05/15/my-post/');
+    });
+
+    it('uses custom sourcePostPath template', () => {
+      const cfg = makeConfig({
+        sourceUrl: 'https://www.danshapiro.com',
+        scraper: {
+          type: 'wordpress',
+          sourcePostPath: '/blog/{year}/{month}/{slug}/',
+        },
+      });
+      const result = buildSourceUrl('2025-01-20-dark-factory.md', cfg);
+      expect(result).toBe('https://www.danshapiro.com/blog/2025/01/dark-factory/');
+    });
+  });
+
   describe('source_url override', () => {
     it('uses source_url from post when available', () => {
       const cfg = makeConfig({

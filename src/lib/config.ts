@@ -39,6 +39,7 @@ import zedshawConfig from '../../config/zedshaw.json';
 import jvnsConfig from '../../config/jvns.json';
 import daringfireballConfig from '../../config/daringfireball.json';
 import patio11Config from '../../config/patio11.json';
+import danshapiroConfig from '../../config/danshapiro.json';
 import landingConfig from '../../config/landing.json';
 
 // Map of blog configs - add new blogs here
@@ -76,6 +77,7 @@ export const configs: Record<string, BlogConfig> = {
   jvns: jvnsConfig as BlogConfig,
   daringfireball: daringfireballConfig as BlogConfig,
   patio11: patio11Config as BlogConfig,
+  danshapiro: danshapiroConfig as BlogConfig,
 };
 
 // Get blog ID from env, default to 'benn'
@@ -200,12 +202,19 @@ export function buildSourceUrl(
         .replace('{slug}', slug)}`;
     }
   }
-  // For wordpress blogs (mathbabe), URL is /YYYY/MM/DD/slug/
+  // For wordpress blogs, URL defaults to /YYYY/MM/DD/slug/
+  // Supports sourcePostPath template for blogs with non-standard URL patterns
   if (cfg.scraper.type === 'wordpress') {
     const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+?)(\.md)?$/);
     if (match) {
       const [, year, month, day, slug] = match;
-      return `${cfg.sourceUrl}/${year}/${month}/${day}/${slug}/`;
+      const postPath = cfg.scraper.sourcePostPath
+        || '/{year}/{month}/{day}/{slug}/';
+      return `${cfg.sourceUrl}${postPath
+        .replace('{year}', year)
+        .replace('{month}', month)
+        .replace('{day}', day)
+        .replace('{slug}', slug)}`;
     }
   }
   // For jekyll_static blogs (nadia.xyz), URL is just /slug
