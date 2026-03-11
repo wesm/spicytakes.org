@@ -1,0 +1,21 @@
+---
+title: "Every minute you aren’t running 69 agents, you are falling behind"
+date: 2026-03-11
+url: https://geohot.github.io//blog/jekyll/update/2026/03/11/running-69-agents.html
+slug: running-69-agents
+word_count: 428
+---
+
+Just kidding.
+
+Today we should ramp down rhetoric. I thought nobody would take three minutes to escape the perpetual underclass or you are worth $0.003/hr seriously. But it looks like some people do, and you shouldn’t.
+
+Social media has been extremely toxic for the last couple months. It’s targeting you with fear and anxiety. If you don’t use this new stupid AI thing you will fall behind. If you haven’t totally updated your workflow you are worth 0. There’s people who built billion dollars companies by orchestrating 37 agents this morning AND YOU JUST SAT THERE AND ATE BREAKFAST LIKE A PLEB!
+
+This is all complete nonsense. AI is not a magical game changer, it’s simply the continuation of the exponential of progress we have been on for a long time. It’s a win in some areas, a loss in others, but overall a win and a cool tool to use. And it will continue to improve, but it won’t “go recursive” or whatever the claim is. It’s always been recursive. You see things like  [autoresearch](https://github.com/karpathy/autoresearch)  and it’s cool. But it’s not magic, it’s search. People see “AI” and they attribute some sci-fi thing to it when  [it’s just search and optimization](/blog/jekyll/update/2023/08/16/p-doom.html) . Always has been, and if you paid attention in CS class, you know the limits of those things.
+
+That said, if you have a job where you create complexity for others, you will be found out. The days of rent seekers are coming to an end. But not because there will be no more rent seeking, it’s because rent seeking is a 0 sum game and you will lose at it to bigger players. If you have a job like that, or work at a company like that, the sooner you quit the better your outcome will be. This is the real driver of the layoffs, the big players consolidating the rent seeking to them. They just say it’s AI cause that makes the stock price go up.
+
+The trick is not to play zero sum games. This is what I have been saying the whole time. Go create value for others and don’t worry about the returns. If you create more value than you consume, you are welcome in any well operating community. Not infinite, not always needs more, just  [more than you consume](/blog/jekyll/update/2025/09/02/you-are-a-good-person.html) . That’s enough, and avoid people or comparison traps that tell you otherwise. The world is not a  [Red Queen’s race](https://en.wikipedia.org/wiki/Red_Queen%27s_race) .
+
+This post will get way less traction than the doom ones, but it’s telling you the way out.
