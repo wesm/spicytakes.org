@@ -5,7 +5,7 @@
 # Build the analytics parquet file from all blog data
 parquet:
 	@echo "Building analytics parquet file..."
-	python scripts/build_analytics_parquet.py
+	uv run scripts/build_analytics_parquet.py
 
 # Run the landing page dev server (builds parquet first)
 dev: parquet
