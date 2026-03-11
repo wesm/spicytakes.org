@@ -1,0 +1,27 @@
+{
+  "summary": "Dan Shapiro surveys the emerging ecosystem of 'Dark Factories' \u2014 automated systems that turn specifications into shipping software using AI. He identifies the core pattern as the 'trycycle': a simple loop where AI writes code, checks its work, and iterates until it succeeds. He profiles three implementations of increasing complexity \u2014 Steve Yegge's Mad Max-themed Gastown, StrongDM's configurable Attractor pattern, and his own Go implementation called Kilroy \u2014 before introducing Trycycle, a minimal Claude Code skill that implements the pattern in plain English. His thesis is that AI crossed a threshold from 'slightly-lossy' to 'slightly-gainy' in iterative self-improvement, making these simple retry loops surprisingly powerful.",
+  "key_points": [
+    "The core insight behind all AI software factories is that AI improves when you do more of it \u2014 through parallel attempts (slot machine development) and iterative refinement (trycycles)",
+    "AI code generation crossed an invisible threshold where feeding models their own output started producing net improvements rather than net degradation",
+    "The ecosystem ranges from complex configurable systems (Gastown, Kilroy) to dead-simple skills (Trycycle) that implement the same fundamental loop",
+    "StrongDM open-sourced their factory specification rather than the implementation, enabling others to build their own versions",
+    "The simplest possible trycycle \u2014 plan, check, implement, check, repeat \u2014 is powerful enough to ship dozens of features and run autonomously for hours"
+  ],
+  "money_quotes": [
+    "AI gets better when you do more of it.",
+    "It seems trivial, but it's an unstoppable bulldozer that can bury any problem with time and tokens.",
+    "It used to be that when a model was fed its own output, it would break fix 9 things and break 10 \u2013 like a busy and productive company that was losing just a bit of money on every transaction.",
+    "But sometime last year, the models crossed an invisible threshold of mediocrity and went from slightly-lossy to slightly-gainy.",
+    "Every software factory has a trycycle at its heart. Some of them are just surrounded by deacons and digraphs.",
+    "Then a thought struck. What if this was just a skill?",
+    "The best part, though, is that because it's just a skill, it's instantly part of your dev flow. There's no configuration or learning curve."
+  ],
+  "themes": [
+    "ai_coding",
+    "software_engineering",
+    "product_strategy"
+  ],
+  "tone": "enthusiastic, practical, irreverent",
+  "key_insight": "The fundamental pattern powering AI software factories is a simple retry loop \u2014 plan, implement, check, repeat \u2014 that works because AI models have crossed the threshold where iterative self-correction produces net improvements.",
+  "filename": "2026-03-11-dark-factories-rise-of-the-trycycle"
+}

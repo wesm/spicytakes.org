@@ -1,0 +1,28 @@
+{
+  "summary": "Dan Shapiro describes a paradigm shift in AI-assisted development he calls 'slot machine development': dispatching multiple parallel AI coding requests, having each instance test its own work, and picking the best result. He learned the approach from StrongDM CTO Justin McCarthy and overcame his initial skepticism that every AI checkin must be manually reviewed. The method works because AI can now judge its own output, follow directions reliably, and the cost per token is trivial compared to developer-hours. Shapiro frames this as the next step in scaling compute: from training, to serial reasoning tokens, to parallel inference tokens.",
+  "key_points": [
+    "Run N parallel AI coding attempts, have each self-test, then let an AI judge pick the winner \u2014 brute-force replaces careful single-thread prompting",
+    "The apparent wastefulness is an illusion: spending 10x on tokens in a day costs less than a single engineer-hour",
+    "AI-generated testing has progressed rapidly from unit tests to Cypress to Playwright agents that autonomously try to break the app",
+    "Using different models in parallel outperforms multiple instances of the same model",
+    "This is the natural next scaling frontier: training compute \u2192 serial reasoning tokens \u2192 parallel inference tokens"
+  ],
+  "money_quotes": [
+    "You can delegate all your work in parallel and pick the winner.",
+    "Slot-machine development is just N versions in parallel, a judge, and a budget.",
+    "I've tried it, and frankly it's hard to spend as much on tokens in a day, as you pay an engineer in an hour.",
+    "Pull the wheels until the software springs forth.",
+    "First we learned to scale training compute. Then we learned to scale reasoning tokens in series. Now \u2013 inference tokens in parallel.",
+    "I remember being hunched over the chatgpt terminal, waiting for each token to arrive. When something went off the rails \u2013 panic! Abort, reprompt, nudge, pray. Spending ten times the tokens on five parallel attempts feels like lighting money on fire.",
+    "As the value of tokens climbs faster than the cost, we can justify using more of them as we do more important work."
+  ],
+  "themes": [
+    "ai_coding",
+    "software_engineering",
+    "tech_industry",
+    "product_strategy"
+  ],
+  "tone": "conversational, persuasive, anecdotal",
+  "key_insight": "The next frontier in AI-assisted development is not better single-thread prompting but massively parallel generation with automated self-evaluation \u2014 brute-forcing quality through volume and judgment.",
+  "filename": "2025-10-14-slot-machine-development"
+}

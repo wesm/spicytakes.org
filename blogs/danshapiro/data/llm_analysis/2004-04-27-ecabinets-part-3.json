@@ -1,0 +1,24 @@
+{
+  "summary": "Shapiro documents ongoing frustrations with eCabinets software, a cabinet design tool he's been evaluating. He catalogs four major issues: frequent crashes tied to the render engine, poor performance from naive rebuild-everything architecture, alarming bugs that corrupt files, and missing features like closed box construction. Despite the litany of problems, he notes the vendor is responsive with fixes and concludes the benefits still outweigh the drawbacks.",
+  "key_points": [
+    "The software crashes frequently due to render engine issues, but the lack of deterministic crash files makes bug reporting difficult",
+    "Performance suffers from a lazy architecture that rebuilds everything from scratch instead of tracking dirty state",
+    "An easily reproducible bug that corrupts files suggests inadequate testing methodology",
+    "The vendor's willingness to quickly hack out fixes partially compensates for shipping buggy software"
+  ],
+  "money_quotes": [
+    "Clearly, they're not marking dirty bits and only doing the necessary work; they're rebuilding the whole shmeer each time anything might have been changed.",
+    "This is unnerving because it's easy to reproduce, and makes me think they may not have a robust testing methadology. Or any testing methadology.",
+    "If you're going to ship buggy software, you better be prepared to fix the bugs fast.",
+    "You can't make a six-sided box. Kind of an odd limitation.",
+    "Generally, the software just feels slow and buggy. They do appear to be hard at work fixing this, and I hope they're successful."
+  ],
+  "themes": [
+    "software_engineering",
+    "maker_culture",
+    "product_strategy"
+  ],
+  "tone": "critical",
+  "key_insight": "Shipping buggy software is forgivable if you fix bugs fast, but easily reproducible corruption bugs suggest a lack of any real testing methodology.",
+  "filename": "2004-04-27-ecabinets-part-3"
+}
