@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["duckdb", "pyarrow"]
+# ///
 """
 Build analytics Parquet file from all blog data.
 
@@ -6,7 +10,7 @@ Combines spicy_quotes.json, posts_index.json, and config.json from all blogs
 into a single unified Parquet file for DuckDB-WASM analytics.
 
 Usage:
-    python scripts/build_analytics_parquet.py
+    uv run scripts/build_analytics_parquet.py
 """
 
 import json
@@ -14,17 +18,8 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-try:
-    import duckdb
-except ImportError:
-    print("DuckDB not installed. Run: pip install duckdb")
-    exit(1)
-
-try:
-    import pyarrow  # noqa: F401 - required by duckdb for parquet export
-except ImportError:
-    print("PyArrow not installed. Run: pip install pyarrow")
-    exit(1)
+import duckdb
+import pyarrow  # noqa: F401 - required by duckdb for parquet export
 
 
 def parse_date_from_filename(filename: str) -> tuple[int | None, int | None, str | None]:
