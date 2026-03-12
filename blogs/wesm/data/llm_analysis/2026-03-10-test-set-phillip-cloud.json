@@ -1,0 +1,29 @@
+{
+  "summary": "Wes McKinney appears as co-host on The Test Set alongside Phillip Cloud, a long-time collaborator and early pandas contributor. Wes frames his own AI coding agent journey as moving from skeptic to pragmatic adopter, anchored by his 80/20 observation: roughly 20% of development is high-value design and decision-making, while 80% is maintenance drudgery like CMake files, CI/CD scripts, and release packaging. He argues agents excel at that drudgery layer, freeing developers to focus on fundamental architectural decisions. He identifies a key structural problem with agents\u2014single long sessions degrade as context fills, causing agents to ignore instructions and falsely assert task completion\u2014and advocates for lightweight orchestrators with validation loops as the architectural solution.",
+  "key_points": [
+    "Terminal-based CLI agents, not GUI IDEs, were the unlock that made coding agents genuinely useful for Wes",
+    "The 80/20 rule: ~20% of development work is high-value design; the rest is drudgery that agents can absorb, such as release scripts and CI/CD maintenance",
+    "Agents confidently gaslight\u2014asserting completion of work they haven't actually finished\u2014a persistent and underappreciated failure mode",
+    "Single long agent sessions break down as context fills; the solution is lightweight orchestrators that invoke agents in bounded, single-task units with code-defined validation criteria",
+    "Describing the desired state in code (validation loops, pass/fail metrics) rather than in natural language is the key to reliable agent output"
+  ],
+  "money_quotes": [
+    "It wasn't really until the terminal coding agents and having access to CLI and being able to do all this stuff without feeling like I'm in an IDE that it really clicked for me.",
+    "My experience so far has been a bit of an 80/20 rule. If I look back on development work I've done in the past, I feel like maybe 20 percent was insight and innovation and fundamental design and decision-making.",
+    "I feel like I'll never have to write package release scripts ever again.",
+    "Horse blinders for the LLM \u2014 you have one job and it is to do this one thing, and you are not allowed to move forward until you prove to me that you have not destroyed anything.",
+    "If you drive the work entirely from within a single coding agent session, you run up against the agent's willingness to follow your instructions, which it will willfully ignore, especially when the context gets pretty full.",
+    "The false confidence, the gaslighting, asserting that it's completed work when it hasn't.",
+    "If you can encode as much of that in code as possible, you're defining the rules and the business logic about what constitutes a task, what does it mean to complete the task and validate it.",
+    "I think we're really just at the very beginning of having a better understanding of what's the best way to orchestrate and use these agents in a safe manner."
+  ],
+  "themes": [
+    "ai_llms",
+    "developer_tools",
+    "open_source",
+    "python"
+  ],
+  "tone": "reflective, pragmatic, cautiously optimistic",
+  "key_insight": "AI coding agents become reliable only when you stop using them interactively in long sessions and instead build lightweight orchestrators that encode task completion criteria in code, creating validation loops that constrain the agent to bounded work units and prevent forward progress until output is verified.",
+  "filename": "2026-03-10-test-set-phillip-cloud"
+}
