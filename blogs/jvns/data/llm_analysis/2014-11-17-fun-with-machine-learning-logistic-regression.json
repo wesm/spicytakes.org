@@ -1,1 +1,25 @@
-{"filename": "2014-11-17-fun-with-machine-learning-logistic-regression", "error": "no_json", "raw": "Prompt is too long\n"}
+{
+  "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+  "key_points": [
+    "Logistic regression fits a linear combination of features, then normalizes the result through the logistic function to produce a probability between 0 and 1.",
+    "Generating synthetic data that fits a model's assumptions is a more rigorous way to understand the model than using real-world data, because you control ground truth.",
+    "Standard confusion matrix accuracy is not enough\u2014the predicted probabilities themselves should match actual class proportions to confirm the model is well-calibrated.",
+    "When data truly fits the model's assumptions, plotting predicted score vs. actual proportion yields a nearly perfect straight line, which real-world data rarely produces.",
+    "The post closes with genuinely open questions about convergence of maximum likelihood estimation, data scaling, and mathematical justifications for the model."
+  ],
+  "money_quotes": [
+    "understanding the models I'm using helps me sleep a lot better at night",
+    "Do those probabilities make sense?",
+    "This graph is BEAUTIFUL. It is basically a perfect straight line.",
+    "actual data doesn't care what you think the model is :(",
+    "not that the data lets you easily perfectly separate the two classes (it doesn't!), but that it fits the assumptions of the model",
+    "let's say I have a data point which is assigned a probability of 0.8. Then I'd expect 80% of those points to be Trues",
+    "I'm still working some of these things out, and if I've gotten anything terribly wrong I'd love to know about it"
+  ],
+  "themes": [
+    "learning"
+  ],
+  "tone": "enthusiastic, curious, pedagogical, self-aware",
+  "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
+  "filename": "2014-11-17-fun-with-machine-learning-logistic-regression"
+}

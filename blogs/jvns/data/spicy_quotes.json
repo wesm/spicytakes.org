@@ -1,5 +1,5 @@
 {
-  "total": 3427,
+  "total": 3434,
   "quotes": [
     {
       "quote": "Maybe the documentation doesn't have to be bad? Maybe it could be just as good as reading a really great blog post, but with the benefit of also being actually correct?",
@@ -34904,7 +34904,7 @@
       "tone": "enthusiastic",
       "summary": "Julia Evans recaps her experience at PyData NYC 2014, where she gave her first machine learning talk about the importance of evaluating models and tracking experimental results over time. Her talk introduced Stripe's open-source tool 'topmodel' for storing and visualizing training results. She also highlights other talks she enjoyed, including Sasha Laundy's talk on data auditing with csvkit and Dan Blanchard's SKLL framework for streamlined scikit-learn experimentation. The post captures the energy of attending a conference and learning from people working in different domains.",
       "key_insight": "The most valuable skill in machine learning isn't building models\u2014it's systematically tracking and evaluating whether your experiments are actually making things better.",
-      "spiciness": 5
+      "spiciness": 4
     },
     {
       "quote": "\"Just remember everything forever\" is much easier said than done.",
@@ -34977,7 +34977,7 @@
       "tone": "enthusiastic",
       "summary": "Julia Evans describes her experience discovering LD_PRELOAD at Hacker School with a fellow participant. She shows how surprisingly easy it is to override arbitrary function calls in dynamically linked programs by writing a tiny shared library and setting an environment variable. The post walks through a minimal example of replacing rand() to always return 42, then briefly explains the underlying mechanism of how dynamic linkers resolve function names. She also touches on the security implications, noting that LD_PRELOAD is useful for spying on program internals, and mentions defenses like static linking.",
       "key_insight": "LD_PRELOAD is a powerful and surprisingly easy-to-use mechanism for overriding function calls in dynamically linked programs, requiring only a few lines of C code.",
-      "spiciness": 3
+      "spiciness": 4
     },
     {
       "quote": "That is LITERALLY ALL THE CODE YOU HAVE TO WRITE.",
@@ -34990,7 +34990,7 @@
       "tone": "enthusiastic",
       "summary": "Julia Evans describes her experience discovering LD_PRELOAD at Hacker School with a fellow participant. She shows how surprisingly easy it is to override arbitrary function calls in dynamically linked programs by writing a tiny shared library and setting an environment variable. The post walks through a minimal example of replacing rand() to always return 42, then briefly explains the underlying mechanism of how dynamic linkers resolve function names. She also touches on the security implications, noting that LD_PRELOAD is useful for spying on program internals, and mentions defenses like static linking.",
       "key_insight": "LD_PRELOAD is a powerful and surprisingly easy-to-use mechanism for overriding function calls in dynamically linked programs, requiring only a few lines of C code.",
-      "spiciness": 3
+      "spiciness": 5
     },
     {
       "quote": "LD_PRELOAD is an environment variable that says 'Whenever you look for a function name, look in me first!'",
@@ -35003,7 +35003,7 @@
       "tone": "enthusiastic",
       "summary": "Julia Evans describes her experience discovering LD_PRELOAD at Hacker School with a fellow participant. She shows how surprisingly easy it is to override arbitrary function calls in dynamically linked programs by writing a tiny shared library and setting an environment variable. The post walks through a minimal example of replacing rand() to always return 42, then briefly explains the underlying mechanism of how dynamic linkers resolve function names. She also touches on the security implications, noting that LD_PRELOAD is useful for spying on program internals, and mentions defenses like static linking.",
       "key_insight": "LD_PRELOAD is a powerful and surprisingly easy-to-use mechanism for overriding function calls in dynamically linked programs, requiring only a few lines of C code.",
-      "spiciness": 2
+      "spiciness": 3
     },
     {
       "quote": "Somebody explained to me at some point that if you work for the NSA and you're trying to spy on what information a program is using internally, tools like LD_PRELOAD are VERY USEFUL.",
@@ -35016,7 +35016,7 @@
       "tone": "enthusiastic",
       "summary": "Julia Evans describes her experience discovering LD_PRELOAD at Hacker School with a fellow participant. She shows how surprisingly easy it is to override arbitrary function calls in dynamically linked programs by writing a tiny shared library and setting an environment variable. The post walks through a minimal example of replacing rand() to always return 42, then briefly explains the underlying mechanism of how dynamic linkers resolve function names. She also touches on the security implications, noting that LD_PRELOAD is useful for spying on program internals, and mentions defenses like static linking.",
       "key_insight": "LD_PRELOAD is a powerful and surprisingly easy-to-use mechanism for overriding function calls in dynamically linked programs, requiring only a few lines of C code.",
-      "spiciness": 4
+      "spiciness": 5
     },
     {
       "quote": "the attacker could also LD_PRELOAD the function that lets you read environment variables\u2026",
@@ -35029,7 +35029,84 @@
       "tone": "enthusiastic",
       "summary": "Julia Evans describes her experience discovering LD_PRELOAD at Hacker School with a fellow participant. She shows how surprisingly easy it is to override arbitrary function calls in dynamically linked programs by writing a tiny shared library and setting an environment variable. The post walks through a minimal example of replacing rand() to always return 42, then briefly explains the underlying mechanism of how dynamic linkers resolve function names. She also touches on the security implications, noting that LD_PRELOAD is useful for spying on program internals, and mentions defenses like static linking.",
       "key_insight": "LD_PRELOAD is a powerful and surprisingly easy-to-use mechanism for overriding function calls in dynamically linked programs, requiring only a few lines of C code.",
+      "spiciness": 4
+    },
+    {
+      "quote": "understanding the models I'm using helps me sleep a lot better at night",
+      "filename": "2014-11-17-fun-with-machine-learning-logistic-regression",
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, curious, pedagogical, self-aware",
+      "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+      "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
       "spiciness": 3
+    },
+    {
+      "quote": "Do those probabilities make sense?",
+      "filename": "2014-11-17-fun-with-machine-learning-logistic-regression",
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, curious, pedagogical, self-aware",
+      "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+      "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
+      "spiciness": 2
+    },
+    {
+      "quote": "This graph is BEAUTIFUL. It is basically a perfect straight line.",
+      "filename": "2014-11-17-fun-with-machine-learning-logistic-regression",
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, curious, pedagogical, self-aware",
+      "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+      "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
+      "spiciness": 3
+    },
+    {
+      "quote": "actual data doesn't care what you think the model is :(",
+      "filename": "2014-11-17-fun-with-machine-learning-logistic-regression",
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, curious, pedagogical, self-aware",
+      "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+      "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
+      "spiciness": 5
+    },
+    {
+      "quote": "not that the data lets you easily perfectly separate the two classes (it doesn't!), but that it fits the assumptions of the model",
+      "filename": "2014-11-17-fun-with-machine-learning-logistic-regression",
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, curious, pedagogical, self-aware",
+      "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+      "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
+      "spiciness": 2
+    },
+    {
+      "quote": "let's say I have a data point which is assigned a probability of 0.8. Then I'd expect 80% of those points to be Trues",
+      "filename": "2014-11-17-fun-with-machine-learning-logistic-regression",
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, curious, pedagogical, self-aware",
+      "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+      "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
+      "spiciness": 2
+    },
+    {
+      "quote": "I'm still working some of these things out, and if I've gotten anything terribly wrong I'd love to know about it",
+      "filename": "2014-11-17-fun-with-machine-learning-logistic-regression",
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, curious, pedagogical, self-aware",
+      "summary": "Julia Evans walks through logistic regression from first principles, explaining how it fits a linear model and passes the output through a logistic function to produce probabilities. She demonstrates the technique by generating synthetic data that deliberately fits the model's assumptions, then fits a classifier using sklearn and evaluates it. Her key insight is that model evaluation should go beyond classification accuracy to check whether the predicted probabilities are calibrated\u2014meaning a data point assigned 80% probability should actually be True about 80% of the time. She closes with open questions she cannot yet answer, modeling intellectual honesty about her own learning process.",
+      "key_insight": "Model evaluation should include checking whether predicted probabilities are calibrated against actual class proportions, not just whether the binary classification is correct.",
+      "spiciness": 2
     },
     {
       "quote": "I often feel like the only thing I've ever learned about machine learning is how important it is to be able to answer this question, and how hard it is.",
@@ -35041,7 +35118,7 @@
       "tone": "reflective, practical, honest",
       "summary": "Julia Evans previews a talk she's preparing for PyData NYC about the practical challenges of evaluating machine learning models over time. She argues that the hardest part of machine learning isn't training models with scikit-learn, but answering 'how well does it work?' She references Cathy O'Neil's critiques of supposedly objective models to emphasize that measurement itself is fraught. The post introduces ROC curves and confusion matrices as evaluation tools, but pivots to her real interest: tracking model performance historically and designing systems that let you compare results across months and tools.",
       "key_insight": "The real challenge in machine learning isn't building models but designing systems to rigorously measure whether those models actually work, and tracking that over time.",
-      "spiciness": 5
+      "spiciness": 4
     },
     {
       "quote": "We should never trust a so-called 'objective mathematical model' when we can't even decide on a definition of success.",
@@ -35065,7 +35142,7 @@
       "tone": "reflective, practical, honest",
       "summary": "Julia Evans previews a talk she's preparing for PyData NYC about the practical challenges of evaluating machine learning models over time. She argues that the hardest part of machine learning isn't training models with scikit-learn, but answering 'how well does it work?' She references Cathy O'Neil's critiques of supposedly objective models to emphasize that measurement itself is fraught. The post introduces ROC curves and confusion matrices as evaluation tools, but pivots to her real interest: tracking model performance historically and designing systems that let you compare results across months and tools.",
       "key_insight": "The real challenge in machine learning isn't building models but designing systems to rigorously measure whether those models actually work, and tracking that over time.",
-      "spiciness": 6
+      "spiciness": 5
     },
     {
       "quote": "There's no fixed answer to how to do this \u2013 if it were easy, statisticians wouldn't have jobs.",
@@ -35089,7 +35166,7 @@
       "tone": "reflective, practical, honest",
       "summary": "Julia Evans previews a talk she's preparing for PyData NYC about the practical challenges of evaluating machine learning models over time. She argues that the hardest part of machine learning isn't training models with scikit-learn, but answering 'how well does it work?' She references Cathy O'Neil's critiques of supposedly objective models to emphasize that measurement itself is fraught. The post introduces ROC curves and confusion matrices as evaluation tools, but pivots to her real interest: tracking model performance historically and designing systems that let you compare results across months and tools.",
       "key_insight": "The real challenge in machine learning isn't building models but designing systems to rigorously measure whether those models actually work, and tracking that over time.",
-      "spiciness": 5
+      "spiciness": 6
     },
     {
       "quote": "But honestly how to use scikit-learn is not something I struggle with, and I wanted to talk about something harder.",
@@ -35101,7 +35178,7 @@
       "tone": "reflective, practical, honest",
       "summary": "Julia Evans previews a talk she's preparing for PyData NYC about the practical challenges of evaluating machine learning models over time. She argues that the hardest part of machine learning isn't training models with scikit-learn, but answering 'how well does it work?' She references Cathy O'Neil's critiques of supposedly objective models to emphasize that measurement itself is fraught. The post introduces ROC curves and confusion matrices as evaluation tools, but pivots to her real interest: tracking model performance historically and designing systems that let you compare results across months and tools.",
       "key_insight": "The real challenge in machine learning isn't building models but designing systems to rigorously measure whether those models actually work, and tracking that over time.",
-      "spiciness": 6
+      "spiciness": 4
     },
     {
       "quote": "EVERYONE IS DIFFERENT AND PEOPLE THINK LOTS OF DIFFERENT THINGS",
