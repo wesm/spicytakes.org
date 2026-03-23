@@ -197,10 +197,24 @@ deploy_blog() {
 
 # Deploy only changed blogs (excludes posts_index.json timestamp noise)
 if [ "$DEPLOY_CHANGED" = true ]; then
-    CHANGED=$(git diff --name-only -- . ':!**/posts_index.json' \
+    PATHSPEC='. :!**/posts_index.json'
+
+    # Check uncommitted, staged, AND the latest commit
+    # (works whether called before or after committing)
+    DIFF_WORK=$(git diff --name-only -- $PATHSPEC || true)
+    DIFF_STAGED=$(git diff --cached --name-only -- $PATHSPEC || true)
+    DIFF_COMMIT=$(git diff --name-only HEAD~1 HEAD \
+        -- $PATHSPEC 2>/dev/null || true)
+    ALL_CHANGES=$(printf '%s\n%s\n%s' \
+        "$DIFF_WORK" "$DIFF_STAGED" "$DIFF_COMMIT" \
+        | grep -v '^$' | sort -u)
+
+    CHANGED=$(echo "$ALL_CHANGES" \
         | grep '^blogs/' | cut -d/ -f2 | sort -u || true)
 
-    if git diff --name-only -- config/ | grep -q .; then
+    # Always deploy landing when any blog changed (stats update)
+    if [ -n "$CHANGED" ] \
+        || echo "$ALL_CHANGES" | grep -q '^config/'; then
         CHANGED="landing${CHANGED:+ $CHANGED}"
     fi
 
