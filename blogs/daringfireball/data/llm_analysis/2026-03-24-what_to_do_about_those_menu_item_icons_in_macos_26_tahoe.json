@@ -1,0 +1,26 @@
+{
+  "summary": "Gruber examines a hidden macOS preference discovered by Steven Troughton-Smith that disables the controversial menu item icons introduced in macOS 26 Tahoe. While the setting works well in some AppKit apps like Finder and Notes, it's inconsistently applied across Apple's own apps \u2014 Safari being a particular disappointment where only 3 of 18 File menu items lose their icons. He argues Apple should make this a proper System Settings toggle, fix compliance across all apps, and ultimately adopt a selective approach where icons appear only on menu items where they genuinely add clarity. Third-party developers like Brent Simmons and Rogue Amoeba have already taken matters into their own hands by removing the icons from their apps entirely.",
+  "key_points": [
+    "A hidden preference (NSMenuEnableActionImages) can disable menu icons, but compliance varies wildly across Apple's own apps \u2014 AppKit apps mostly obey, Catalyst/UIKit/SwiftUI apps mostly ignore it",
+    "Safari, one of Apple's best Mac apps, is nearly noncompliant with the setting, hiding only 3 of 18 icons in its File menu with no apparent logic to which ones are removed",
+    "The selective use of icons \u2014 only where they genuinely replace or clarify text \u2014 would make menus better than before, not worse; universal icons make none of them special",
+    "Third-party developers like Brent Simmons (NetNewsWire) and Rogue Amoeba are already shipping fixes to remove the unwanted icons from their own apps",
+    "Apple's inconsistency across its own apps (e.g., 'Rotate Left' vs. 'Rotate Clockwise') undermines their historical role as a living Human Interface Guidelines"
+  ],
+  "money_quotes": [
+    "If this worked to hide all of these cursed little turds smeared across the menu bar items of Apple's system apps in Tahoe, this hidden preference would be a proverbial pitcher of ice water in hell.",
+    "There's an outcome just waiting to be had where the MacOS menu bar is better than it used to be, not worse, by carefully adding icons only next to commands where the icons add clarity.",
+    "The rule of thumb should be that menu items should have icons if the icon alone could provide enough of a clue to replace the command name.",
+    "If every menu item has an icon, the presence of an icon is never special. If only special menu items have icons, the presence of an icon is always special.",
+    "For the most part, menu commands should be read.",
+    "A side effect of that clutter is that it reduces the effectiveness of the menu items for which icons are actually useful.",
+    "In the heyday of consistency in Apple's first-party Mac software, Apple's apps were, effectively, a living HIG."
+  ],
+  "themes": [
+    "apple",
+    "design"
+  ],
+  "tone": "critical, opinionated, meticulous",
+  "key_insight": "Universal menu icons defeat their own purpose \u2014 when every item has an icon, none stand out, but selectively applied icons for commands like Rotate actually improve clarity and make the menu bar better than before.",
+  "filename": "2026-03-24-what_to_do_about_those_menu_item_icons_in_macos_26_tahoe"
+}
