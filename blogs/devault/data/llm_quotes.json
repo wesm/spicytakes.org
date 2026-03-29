@@ -1,6 +1,6 @@
 {
-  "total_posts": 382,
-  "successful": 382,
+  "total_posts": 383,
+  "successful": 383,
   "posts": [
     {
       "summary": "DeVault argues that jQuery is unnecessary for modern web development, demonstrating that native browser APIs can handle the same tasks jQuery is commonly used for. He walks through common jQuery use cases \u2014 DOM querying, Ajax requests, animations, and tree traversal \u2014 showing vanilla JavaScript equivalents for each. While the native code is more verbose, he argues it's simpler than most developers expect. He uses his own open-source project MediaCrush as proof that sophisticated web applications can be built without jQuery. The post concludes that developers should skip jQuery for new projects and rely on MDN documentation instead.",
@@ -9827,6 +9827,31 @@
       "tone": "elegiac, principled, defiant",
       "key_insight": "When the tools you depend on become entangled with systems you find ethically intolerable, forking is an act of conscience \u2014 a way to mourn what was lost while preserving what mattered.",
       "filename": "2026-03-25-2026-03-25-Forking-vim"
+    },
+    {
+      "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+      "key_points": [
+        "tar piped through SSH can replace rsync for the common case of transferring all files to a remote host",
+        "tar's path semantics are more predictable than rsync's trailing-slash rules",
+        "The combination of tar -cz | ssh | tar -xz preserves ownership, permissions, and adds compression",
+        "tar lacks rsync's ability to skip up-to-date files, but that tradeoff is acceptable for many use cases"
+      ],
+      "money_quotes": [
+        "So apparently rsync is slop now.",
+        "tar + ssh can definitely accomodate the use case of \"transmit all of these files over an SSH connection to another host\".",
+        "I know tar is infamously difficult to remember how to use. Honestly, I kind of feel that way about rsync, too.",
+        "With rsync, to control where the files end up you have to memorize some rules about things like whether or not each path has a trailing slash.",
+        "With tar, the rules are, in my opinion, a bit easier to reason about.",
+        "Of course, you could just use scp, but this fits into my brain better."
+      ],
+      "themes": [
+        "foss",
+        "internet_infra",
+        "tech_criticism"
+      ],
+      "tone": "casual, practical, opinionated",
+      "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+      "filename": "2026-03-28-2026-03-28-rsync-without-rsync"
     }
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+  "key_points": [
+    "tar piped through SSH can replace rsync for the common case of transferring all files to a remote host",
+    "tar's path semantics are more predictable than rsync's trailing-slash rules",
+    "The combination of tar -cz | ssh | tar -xz preserves ownership, permissions, and adds compression",
+    "tar lacks rsync's ability to skip up-to-date files, but that tradeoff is acceptable for many use cases"
+  ],
+  "money_quotes": [
+    "So apparently rsync is slop now.",
+    "tar + ssh can definitely accomodate the use case of \"transmit all of these files over an SSH connection to another host\".",
+    "I know tar is infamously difficult to remember how to use. Honestly, I kind of feel that way about rsync, too.",
+    "With rsync, to control where the files end up you have to memorize some rules about things like whether or not each path has a trailing slash.",
+    "With tar, the rules are, in my opinion, a bit easier to reason about.",
+    "Of course, you could just use scp, but this fits into my brain better."
+  ],
+  "themes": [
+    "foss",
+    "internet_infra",
+    "tech_criticism"
+  ],
+  "tone": "casual, practical, opinionated",
+  "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+  "filename": "2026-03-28-2026-03-28-rsync-without-rsync"
+}

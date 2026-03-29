@@ -1,6 +1,84 @@
 {
-  "total": 2388,
+  "total": 2394,
   "quotes": [
+    {
+      "quote": "So apparently rsync is slop now.",
+      "filename": "2026-03-28-2026-03-28-rsync-without-rsync",
+      "themes": [
+        "foss",
+        "internet_infra",
+        "tech_criticism"
+      ],
+      "tone": "casual, practical, opinionated",
+      "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+      "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+      "spiciness": 6
+    },
+    {
+      "quote": "tar + ssh can definitely accomodate the use case of \"transmit all of these files over an SSH connection to another host\".",
+      "filename": "2026-03-28-2026-03-28-rsync-without-rsync",
+      "themes": [
+        "foss",
+        "internet_infra",
+        "tech_criticism"
+      ],
+      "tone": "casual, practical, opinionated",
+      "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+      "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+      "spiciness": 3
+    },
+    {
+      "quote": "I know tar is infamously difficult to remember how to use. Honestly, I kind of feel that way about rsync, too.",
+      "filename": "2026-03-28-2026-03-28-rsync-without-rsync",
+      "themes": [
+        "foss",
+        "internet_infra",
+        "tech_criticism"
+      ],
+      "tone": "casual, practical, opinionated",
+      "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+      "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+      "spiciness": 3
+    },
+    {
+      "quote": "With rsync, to control where the files end up you have to memorize some rules about things like whether or not each path has a trailing slash.",
+      "filename": "2026-03-28-2026-03-28-rsync-without-rsync",
+      "themes": [
+        "foss",
+        "internet_infra",
+        "tech_criticism"
+      ],
+      "tone": "casual, practical, opinionated",
+      "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+      "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+      "spiciness": 4
+    },
+    {
+      "quote": "With tar, the rules are, in my opinion, a bit easier to reason about.",
+      "filename": "2026-03-28-2026-03-28-rsync-without-rsync",
+      "themes": [
+        "foss",
+        "internet_infra",
+        "tech_criticism"
+      ],
+      "tone": "casual, practical, opinionated",
+      "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+      "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+      "spiciness": 2
+    },
+    {
+      "quote": "Of course, you could just use scp, but this fits into my brain better.",
+      "filename": "2026-03-28-2026-03-28-rsync-without-rsync",
+      "themes": [
+        "foss",
+        "internet_infra",
+        "tech_criticism"
+      ],
+      "tone": "casual, practical, opinionated",
+      "summary": "Drew DeVault responds to rsync being labeled 'slopware' by proposing tar piped over SSH as a simpler alternative for transferring files between hosts. He walks through the basic tar commands needed to replicate rsync's most common use case, arguing that tar's path handling rules are easier to reason about than rsync's trailing-slash quirks. He acknowledges tar doesn't handle incremental syncing but finds it sufficient for full file transfers. He also wrote a small wrapper tool called rtar to streamline the workflow.",
+      "key_insight": "Standard Unix tools like tar and SSH, composed together, can replace more complex purpose-built tools while being easier to reason about.",
+      "spiciness": 3
+    },
     {
       "quote": "Using it just feels like my thoughts flowing from my head, into my fingers, into a Vim-shaped extension of my body, and out into the world.",
       "filename": "2026-03-25-2026-03-25-Forking-vim",
@@ -90,7 +168,7 @@
       "tone": "elegiac, principled, defiant",
       "summary": "Drew DeVault announces 'Vim Classic,' a fork of Vim based on version 8.2, motivated by his opposition to generative AI being used in Vim and NeoVim's development. He reflects on his deep personal relationship with Vim and pays tribute to Bram Moolenaar, Vim's creator who passed away in 2023. DeVault argues that generative AI causes widespread environmental, social, and political harm, and he refuses to use software tainted by it. The fork strips out Vim9 Script and all post-Bram changes, drawing a clean line at the last version untouched by AI-assisted development. He invites like-minded users to contribute patches and help maintain this deliberately conservative fork.",
       "key_insight": "When the tools you depend on become entangled with systems you find ethically intolerable, forking is an act of conscience \u2014 a way to mourn what was lost while preserving what mattered.",
-      "spiciness": 8
+      "spiciness": 7
     },
     {
       "quote": "To keep my conscience clear, and continue to enjoy the relationship I have with this amazing piece of software, I have forked Vim.",
@@ -103,7 +181,7 @@
       "tone": "elegiac, principled, defiant",
       "summary": "Drew DeVault announces 'Vim Classic,' a fork of Vim based on version 8.2, motivated by his opposition to generative AI being used in Vim and NeoVim's development. He reflects on his deep personal relationship with Vim and pays tribute to Bram Moolenaar, Vim's creator who passed away in 2023. DeVault argues that generative AI causes widespread environmental, social, and political harm, and he refuses to use software tainted by it. The fork strips out Vim9 Script and all post-Bram changes, drawing a clean line at the last version untouched by AI-assisted development. He invites like-minded users to contribute patches and help maintain this deliberately conservative fork.",
       "key_insight": "When the tools you depend on become entangled with systems you find ethically intolerable, forking is an act of conscience \u2014 a way to mourn what was lost while preserving what mattered.",
-      "spiciness": 6
+      "spiciness": 5
     },
     {
       "quote": "The cult of TDD exploits the fact that TDD is very good at making you feel like a good, diligent programmer.",
