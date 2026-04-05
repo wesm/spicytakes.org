@@ -1,0 +1,27 @@
+{
+  "summary": "Armin Ronacher reports on five months of running Absurd, a durable execution system built entirely on Postgres, in production at Earendil. The core design held up well, with the thin SDK approach proving easier to understand and debug than heavyweight alternatives like Temporal. Key additions include decomposed steps, task results, a CLI tool (absurdctl), and a web dashboard (Habitat). The system is primarily used for agent workflows but has expanded to crons and deploy-surviving background jobs. He acknowledges missing features like built-in scheduling, push/webhook support, and table partitioning. The post closes with a reflection on whether open source libraries still matter when agents can generate throwaway implementations.",
+  "key_points": [
+    "Absurd's core abstraction of tasks, steps, checkpoints, and events remained stable through five months of production use, validating the original design",
+    "Keeping complexity in SQL and SDKs thin (1,400-1,900 lines vs Temporal's 170,000) makes the system easy to understand, debug, and port to new languages",
+    "The checkpoint-based replay model is superior to deterministic replay because code between steps doesn't need to be deterministic\u2014only step boundaries matter",
+    "Postgres partitioning for data lifecycle management remains an unsolved operational challenge due to transaction constraints with DETACH PARTITION CONCURRENTLY",
+    "Open source libraries face an existential question in the age of agentic engineering: agents can build throwaway implementations, but durable execution needs ecosystem and DX that throwaway code can't provide"
+  ],
+  "money_quotes": [
+    "You don't need a separate service, a compiler plugin, or an entire runtime to get durable workflows. You need a SQL file and a thin SDK.",
+    "The TypeScript SDK is about 1,400 lines. Compare that to Temporal's Python SDK at around 170,000 lines.",
+    "When something goes wrong, you can read the entire SDK in an afternoon and understand what it does.",
+    "Your code doesn't need to be deterministic outside of steps. You can call Math.random() or datetime.now() in between steps and things still work, because only the step boundaries matter.",
+    "Durable Execution is now something that plenty of startups sell you. On the other hand it's also something that an agent would build you and people might not even look for solutions any more. It's kind of \u2026 weird?",
+    "I don't think a durable execution library can support a company, I really don't. On the other hand I think it's just complex enough of a problem that it could be a good Open Source project void of commercial interests."
+  ],
+  "themes": [
+    "software_engineering",
+    "open_source",
+    "developer_tools",
+    "industry_observations"
+  ],
+  "tone": "reflective, pragmatic, technically grounded",
+  "key_insight": "A durable execution system built as a thin layer over Postgres proves that infrastructure complexity is often self-imposed, but the harder question is whether such open source projects can sustain themselves when AI agents commoditize implementation.",
+  "filename": "2026-04-04-absurd-in-production"
+}
