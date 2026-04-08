@@ -1,0 +1,29 @@
+{
+  "summary": "Simon Sp\u00e4ti interviews Mark Freeman about his Spec-Driven Development (SDD) workflow for producing consistent, high-quality results with AI coding agents like Claude Code. Mark's approach centers on spending extensive time defining requirements through ExcaliDraw diagrams, JSON schemas, and markdown specs before letting agents build, then assessing outcomes against specs rather than reviewing code directly. The first build is deliberately treated as throwaway \u2014 a form of requirements exploration \u2014 with learnings fed back into updated specs for subsequent iterations. Mark argues AI agents benefit senior engineers far more than juniors, since experience is needed to make sound architectural decisions and avoid accumulating early legacy code. The interview also covers agent parallelization with tmux and Agent Teams, the role of evals in data contract work, and the addictive 'Claude Code slot machine' dynamic of shipping AI-generated code without learning.",
+  "key_points": [
+    "Spec-Driven Development using tools like spec-kit produces more reproducible AI outcomes than vibe coding, by front-loading requirements definition with diagrams, schemas, and structured specs",
+    "The first agent-built implementation should be treated as throwaway \u2014 a requirements exploration tool \u2014 with learnings fed back to refine specs before rebuilding from scratch",
+    "AI agents amplify senior engineers disproportionately because experience is needed to make architectural decisions and exclude bad outcomes early, while juniors must blindly trust agent assessments",
+    "Outcome-driven review (testing pipeline results against specs) scales better than traditional code review when agents generate more code per minute than humans can read",
+    "Shipping lots of AI-generated code without learning is 'pseudo work' \u2014 the addictive dopamine cycle of agent output may be by design to drive token consumption"
+  ],
+  "money_quotes": [
+    "We've all become senior reviewers, more exhausted than before, with less of the work that made this fun in the first place.",
+    "The key mindset shift here is that the first build is deliberately treated as throwaway. It's requirements exploring via building.",
+    "Value first, then outcome and then worry about other things.",
+    "If you lack experience, you basically have no chance of knowing.",
+    "Claude code slot machine. Getting your dopamine hit beyond usefulness.",
+    "Shipping lots of code with AI can feel like deep work, but if you're not learning in the process, it's pseudo work.",
+    "You can't compete on compute, but you can use the factor of time, iterating multiple versions for a specified problem, and choosing the best one.",
+    "Along with the wider industry, we are figuring out how to use AI safely at scale."
+  ],
+  "themes": [
+    "data_engineering",
+    "ai_llms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "practical, reflective, cautionary",
+  "key_insight": "Consistent AI results come not from better prompting but from rigorous upfront specification \u2014 spending hours on specs and treating initial builds as disposable explorations produces far better outcomes than iterating on generated code.",
+  "filename": "2026-04-08-specs-over-vibes-interview-mark-freeman"
+}

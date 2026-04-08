@@ -1,6 +1,6 @@
 {
-  "total_posts": 89,
-  "successful": 89,
+  "total_posts": 91,
+  "successful": 91,
   "posts": [
     {
       "summary": "A brief post recommending adblockers to eliminate distracting website advertising. The author notes they've been free from ads for 2-3 years thanks to browser extensions, and encourages readers to adopt the same approach. Two specific adblocker tools are recommended along with a comparison resource.",
@@ -2375,6 +2375,64 @@
       "tone": "reflective, earnest, and evangelical\u2014passionate advocacy for deliberate, connected writing as a lifelong practice",
       "key_insight": "The future of blogging is not standalone posts but a connected web of living notes and frozen articles that compound knowledge the way the brain naturally learns\u2014and human authorship matters more than ever precisely because AI has made authentic voice a scarce resource.",
       "filename": "2026-03-06-why-i-still-blog"
+    },
+    {
+      "summary": "Simon Sp\u00e4ti argues that local-first, developer-friendly tools like MotherDuck (serverless DuckDB) and Rill (BI-as-code) are naturally suited for AI agent workflows because what's readable by developers is also readable by agents. He demonstrates how declarative YAML dashboards, SQL-based metrics layers, and CLI-first workflows create an architecture where agents can read, reason about, and build analytics autonomously. The post walks through three practical examples including Stack Overflow survey analytics and multi-cloud cost analysis. Sp\u00e4ti contends that dashboards won't disappear but will coexist with conversational BI, and that the key enabler is having semantic context defined as code. He acknowledges limitations around natural language ambiguity and the tension between AI's non-determinism and data's need for reproducibility.",
+      "key_points": [
+        "Developer-friendly tools are inherently agent-friendly: readable code, fast engines, and deterministic semantics serve both humans and AI agents equally well",
+        "MotherDuck's 1.5-tier architecture and dual execution model lets laptops serve as first-class compute nodes while seamlessly extending to cloud when needed",
+        "Rill's BI-as-code approach (YAML dashboards, SQL metrics, Git-versioned definitions) turns analytics artifacts into agent-readable context that can be autonomously built upon",
+        "Dashboards won't be replaced by chatbots because visualizations provide condensed information and drilling-down capabilities that conversation cannot match",
+        "Natural language ambiguity and AI's non-deterministic nature remain fundamental limitations for fully agentic data workflows"
+      ],
+      "money_quotes": [
+        "What is developer-friendly is also agent-friendly, with the needs of readable code, fast engines, and deterministic semantics.",
+        "The 'small data' thesis didn't anticipate the AI agent revolution, but it created the conditions for it: when your data fits on a laptop and your dashboards are YAML files, an AI agent can read, reason about, and act on your entire analytics stack.",
+        "If you feed any AI agent with a mess, you're going to end up with an even bigger mess.",
+        "The irony is that going back to local-first, text-based, SQL-defined analytics turns out to be the most forward-looking architecture. And dashboards become agents when they're written as code.",
+        "Instead of hiding business logic in a proprietary GUI that only humans can click through, you make it readable code that anyone, or anything, can openly read and reason about.",
+        "Context is king for the near future. Everything that can be locally defined, such as Rill's metrics layer and dashboards, will be so much faster and better built with agents.",
+        "The challenge with data exploration is not that people don't have the ability to manipulate data; it's that they don't know what they're looking for."
+      ],
+      "themes": [
+        "data_platforms",
+        "tools_products",
+        "ai_llms",
+        "data_engineering",
+        "industry_observations"
+      ],
+      "tone": "optimistic, technical, promotional",
+      "key_insight": "The most agent-friendly analytics architecture turns out to be the one built on old principles \u2014 local-first, text-based, SQL-defined, and version-controlled \u2014 because tools designed for developer simplicity naturally provide the readable context that AI agents need.",
+      "filename": "2026-04-07-agentic-friendly-local-first-analytics-stack"
+    },
+    {
+      "summary": "Simon Sp\u00e4ti interviews Mark Freeman about his Spec-Driven Development (SDD) workflow for producing consistent, high-quality results with AI coding agents like Claude Code. Mark's approach centers on spending extensive time defining requirements through ExcaliDraw diagrams, JSON schemas, and markdown specs before letting agents build, then assessing outcomes against specs rather than reviewing code directly. The first build is deliberately treated as throwaway \u2014 a form of requirements exploration \u2014 with learnings fed back into updated specs for subsequent iterations. Mark argues AI agents benefit senior engineers far more than juniors, since experience is needed to make sound architectural decisions and avoid accumulating early legacy code. The interview also covers agent parallelization with tmux and Agent Teams, the role of evals in data contract work, and the addictive 'Claude Code slot machine' dynamic of shipping AI-generated code without learning.",
+      "key_points": [
+        "Spec-Driven Development using tools like spec-kit produces more reproducible AI outcomes than vibe coding, by front-loading requirements definition with diagrams, schemas, and structured specs",
+        "The first agent-built implementation should be treated as throwaway \u2014 a requirements exploration tool \u2014 with learnings fed back to refine specs before rebuilding from scratch",
+        "AI agents amplify senior engineers disproportionately because experience is needed to make architectural decisions and exclude bad outcomes early, while juniors must blindly trust agent assessments",
+        "Outcome-driven review (testing pipeline results against specs) scales better than traditional code review when agents generate more code per minute than humans can read",
+        "Shipping lots of AI-generated code without learning is 'pseudo work' \u2014 the addictive dopamine cycle of agent output may be by design to drive token consumption"
+      ],
+      "money_quotes": [
+        "We've all become senior reviewers, more exhausted than before, with less of the work that made this fun in the first place.",
+        "The key mindset shift here is that the first build is deliberately treated as throwaway. It's requirements exploring via building.",
+        "Value first, then outcome and then worry about other things.",
+        "If you lack experience, you basically have no chance of knowing.",
+        "Claude code slot machine. Getting your dopamine hit beyond usefulness.",
+        "Shipping lots of code with AI can feel like deep work, but if you're not learning in the process, it's pseudo work.",
+        "You can't compete on compute, but you can use the factor of time, iterating multiple versions for a specified problem, and choosing the best one.",
+        "Along with the wider industry, we are figuring out how to use AI safely at scale."
+      ],
+      "themes": [
+        "data_engineering",
+        "ai_llms",
+        "tools_products",
+        "industry_observations"
+      ],
+      "tone": "practical, reflective, cautionary",
+      "key_insight": "Consistent AI results come not from better prompting but from rigorous upfront specification \u2014 spending hours on specs and treating initial builds as disposable explorations produces far better outcomes than iterating on generated code.",
+      "filename": "2026-04-08-specs-over-vibes-interview-mark-freeman"
     }
   ]
 }
