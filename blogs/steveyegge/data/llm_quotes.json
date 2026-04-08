@@ -1,6 +1,6 @@
 {
-  "total_posts": 103,
-  "successful": 103,
+  "total_posts": 104,
+  "successful": 104,
   "posts": [
     {
       "summary": "Yegge explains why he's reluctantly starting a blog despite hating the blog format. He critiques blogs for their chronological ordering, lack of threaded and inline comments, no version history, and poor content editing tools. After considering building his own solution in Ruby on Rails but realizing it would be another multi-year project like his 7-year game development effort, he pragmatically chooses Blogger. The post serves as both a manifesto for better self-publishing software and an explanation for why he's settling for imperfect tools.",
@@ -2819,6 +2819,34 @@
       "tone": "opinionated, conversational, pragmatic",
       "key_insight": "The future of open-source maintenance requires embracing AI-generated contributions rather than fighting them, because in a world where anyone can fork and maintain software with coding agents, community throughput and responsiveness matter more than gatekeeping.",
       "filename": "2026-03-31-vibe-maintainer-a2273a841040"
+    },
+    {
+      "summary": "Steve Yegge announces that Gas Town, his agentic AI orchestration system, and Beads, its underlying memory/knowledge graph system, have both reached v1.0.0. He recounts the chaotic early days of data loss and instability, celebrates the migration to Dolt (a Git-compatible database) that resolved architectural fragility, and highlights how non-technical users are building real software with Gas Town. The post argues that the 'Mayor' abstraction\u2014a conversational AI interface that reads agent output so you don't have to\u2014represents the future of programming interfaces. He teases Gas City, the successor platform that decomposes the stack into modular, enterprise-ready orchestration primitives.",
+      "key_points": [
+        "Beads provides the 'Missing Why' for projects\u2014while Git captures what/where/who/how, Beads captures the reasoning and decision history that agents need for forensics, recovery, and onboarding",
+        "The migration from SQLite+JSONL to Dolt eliminated race conditions, merge conflicts, and data loss that plagued the v0.x architecture",
+        "Non-technical users (including a communications major) are successfully building production software replacements using Gas Town, validating the 'vibe coding' thesis",
+        "The Mayor abstraction solves the 'wall of scrolling text' problem by acting as a Chief of Staff who reads agent output and surfaces only what matters",
+        "Gas City will decompose the entire agentic stack into modular platform primitives, moving beyond the monolithic approach of current coding agents"
+      ],
+      "money_quotes": [
+        "Claude Code is a wall of scrolling text. The harder it works, the scrollier it gets.",
+        "If Claude Code is an Executive Assistant, then the Gas Town Mayor is more like your Chief of Staff, who manages a full team of capable EAs, all working for you behind the scenes.",
+        "Beads is the Why \u2014 the missing piece in your commit history.",
+        "I've been saying since last year that by the end of 2026, people will be mostly programming by talking to a face.",
+        "It quickly became clear that Beads was like Adderall for your agent. It is an instant cognitive upgrade for any coding agent.",
+        "After a while I realized I just wanted someone to talk to, while the system was working. And perhaps, as occasion might demand, someone to yell at.",
+        "Claude Code and some other agents are trying to turn themselves into dark factories, by running subagents, and providing their own task management, memory systems, etc. But so far, they're all trying to do it with a product lens, no platform to speak of \u2014 a monolith.",
+        "People who switch to Beads soon realize they can build their own workflows and orchestration using nothing but Beads."
+      ],
+      "themes": [
+        "software_engineering",
+        "tech_industry",
+        "rants"
+      ],
+      "tone": "enthusiastic, irreverent, promotional",
+      "key_insight": "The future of programming isn't reading agent output\u2014it's conversing with an intelligent intermediary that manages agents on your behalf while maintaining a complete ledger of why decisions were made.",
+      "filename": "2026-04-03-gas-town-from-clown-show-to-v1-0-c239d9a407ec"
     }
   ]
 }

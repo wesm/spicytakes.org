@@ -1,0 +1,28 @@
+{
+  "summary": "Hillel Wayne distinguishes between two kinds of 'clever code': language-trick cleverness (like Duff's Device) and problem-insight cleverness (like using bucket sort when you know the data range). He argues that while the first kind deserves its bad reputation, insightful code can be faster, simpler, and safer than naive alternatives. However, insight is fragile\u2014it depends on specific problem properties that may change\u2014and non-transferable between team members. Wayne shows how insight acts as a confounding factor in language benchmarks and as an adoption barrier for tools like property-based testing and formal specification languages, ultimately calling for more nuanced discussions about cleverness in software engineering.",
+  "key_points": [
+    "There are two distinct kinds of clever code: language-trick cleverness (exploiting syntax/runtime quirks) and insightful cleverness (exploiting problem domain knowledge), and they should be evaluated differently",
+    "Insightful code is fragile and 'read-only'\u2014it depends on specific problem properties and requires tacit knowledge that doesn't transfer well between team members",
+    "Insight acts as a confounding factor in language comparisons: 'Beating C with Haskell' really means beating regular C with insightful Haskell, while insightful C achieves 100x speedups",
+    "Formal specification languages like PRISM require heavy insight to use because they sacrifice expressiveness for tractability, creating adoption barriers",
+    "Expert arguments about not needing safety features (memory safety, static types) are confounded by their ability to work around problems through insight"
+  ],
+  "money_quotes": [
+    "Penner wasn't beating C with Haskell, he was beating C with clever Haskell.",
+    "Insightful Haskell is faster than regular C and much slower than insightful C.",
+    "We talk about cleverness as if it's Just Bad, such as 'clever code is harder to debug'. That's going too far. Cleverness can lead to faster, safer, even clearer code.",
+    "Insight is often non-generalizable: the clever solution for problem will look nothing like the clever solution for a similar one.",
+    "Expert C programmers argue they don't need memory safety, expert Clojurists argue that static types wouldn't help them. Regardless of the other merits of their argument, they're all arguing from the perspective of an expert.",
+    "The spec is beautiful but fragile. If I want to model multiple message priorities then I have to start from scratch.",
+    "While 'pure' cleverness is something we should discourage, 'insightful' cleverness seems like something we should be approaching differently."
+  ],
+  "themes": [
+    "software_engineering",
+    "formal_methods",
+    "programming_languages",
+    "industry_observations"
+  ],
+  "tone": "analytical, nuanced, reflective",
+  "key_insight": "The blanket advice to avoid 'clever code' conflates harmful language-trick cleverness with valuable problem-insight cleverness, and recognizing this distinction is essential for honest discussions about tools, languages, and expertise.",
+  "filename": "2021-06-06-cleverness"
+}
