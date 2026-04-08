@@ -77,15 +77,26 @@ fi
 BLOG_DIR="$PROJECT_DIR/blogs/$BLOG_ID"
 ANALYSIS_DIR="$BLOG_DIR/data/llm_analysis"
 
-# Check for failed analyses that need retrying
-FAILED_ANALYSES=0
-if [[ -d "$ANALYSIS_DIR" ]]; then
-    FAILED_ANALYSES=$(python3 -c "
-import json, glob, sys
+# Check for posts needing analysis: failed analyses OR posts with no
+# analysis file at all (e.g., analysis was aborted mid-run by rate
+# limiting or a killed process).
+PENDING_ANALYSES=0
+POSTS_DIR="$BLOG_DIR/posts"
+if [[ -d "$POSTS_DIR" ]]; then
+    PENDING_ANALYSES=$(python3 -c "
+import json, glob, os, sys
+posts_dir = '$POSTS_DIR'
+analysis_dir = '$ANALYSIS_DIR'
+posts = {os.path.splitext(f)[0]
+         for f in os.listdir(posts_dir) if f.endswith('.md')}
 count = 0
-for f in glob.glob('$ANALYSIS_DIR/*.json'):
+for name in posts:
+    analysis_file = os.path.join(analysis_dir, name + '.json')
+    if not os.path.exists(analysis_file):
+        count += 1
+        continue
     try:
-        with open(f) as fp:
+        with open(analysis_file) as fp:
             if 'error' in json.load(fp):
                 count += 1
     except Exception:
@@ -94,7 +105,7 @@ print(count)
 ")
 fi
 
-if [[ "$NEW_POSTS" -eq 0 && "$FAILED_ANALYSES" -eq 0 ]]; then
+if [[ "$NEW_POSTS" -eq 0 && "$PENDING_ANALYSES" -eq 0 ]]; then
     echo "No new posts found. Skipping analysis, grading, and build."
     echo ""
     echo "=== Update Complete (no changes) ==="
@@ -104,8 +115,8 @@ fi
 if [[ "$NEW_POSTS" -gt 0 ]]; then
     echo "Found $NEW_POSTS new post(s)."
 fi
-if [[ "$FAILED_ANALYSES" -gt 0 ]]; then
-    echo "Found $FAILED_ANALYSES failed analysis(es) to retry."
+if [[ "$PENDING_ANALYSES" -gt 0 ]]; then
+    echo "Found $PENDING_ANALYSES post(s) needing analysis."
 fi
 echo ""
 
