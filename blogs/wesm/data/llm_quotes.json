@@ -1,6 +1,6 @@
 {
-  "total_posts": 90,
-  "successful": 90,
+  "total_posts": 92,
+  "successful": 92,
   "posts": [
     {
       "summary": "In this PyCon 2010 talk, Wes McKinney argues that quantitative finance suffers from a fragmented workflow where research and production are done in different languages, creating costly reimplementation. He presents Python as a strong bridge language, combining scientific tooling with systems programming capabilities. The core challenge is messy, unreliable financial data, which most tools assume is clean. To address this, he introduces pandas as a labeled data structure layer on NumPy that simplifies alignment, reshaping, missing data handling, and time series operations. He concludes that pandas aims to make Python a cohesive, R-like statistical environment that integrates with system code so researchers can focus on modeling rather than data hygiene.",
@@ -2739,6 +2739,65 @@
       "tone": "reflective, pragmatic, cautiously optimistic",
       "key_insight": "AI coding agents become reliable only when you stop using them interactively in long sessions and instead build lightweight orchestrators that encode task completion criteria in code, creating validation loops that constrain the agent to bounded work units and prevent forward progress until output is verified.",
       "filename": "2026-03-10-test-set-phillip-cloud"
+    },
+    {
+      "summary": "In this podcast episode, Wes McKinney co-hosts a conversation with Nell Thomas, VP of Data at Shopify, exploring the modern data stack, organizational culture around data teams, and the impact of AI on data work. Wes draws out discussion on how data organizations have evolved from the early 2010s 'big data' era to today's agent-driven landscape, where every company is effectively a data company. He highlights the tension between AI-powered democratization of data access and the risk of unvetted analyses, noting that agents can stress data platforms like DDoS attacks. The conversation covers the full data value chain from instrumentation to presentation, semantic layer challenges, and the importance of psychological safety in data organizations. Wes shares his excitement about agentic coding while acknowledging the need to channel that enthusiasm productively.",
+      "key_points": [
+        "AI agents interrogating data platforms can resemble DDoS attacks, replacing the natural rate-limiting of human query patterns with automated loops that stress infrastructure in new ways",
+        "The entire data value chain \u2014 from collection to semantic modeling to presentation \u2014 now has AI inserted at every layer, creating both opportunity and risk of errors propagating through unchecked vibe-coded analyses",
+        "Code artifacts have dramatically decreased in value \u2014 what once took teams years and millions of dollars can now be built in a day with agents, fundamentally changing the build-versus-buy calculus",
+        "The current moment of AI uncertainty mirrors the early Python era feeling of 'we can just do things,' and locking in approaches too early would lead to bad decisions",
+        "Data quality and foundational infrastructure remain the perennial bottleneck regardless of tooling era \u2014 the same trust and governance problems persist from pre-dbt days through the agent era"
+      ],
+      "money_quotes": [
+        "I think one of the problems I've been thinking a lot about lately is data teams do all this work to build, to engineer this whole pipeline of data collection, curation, ETL, data cleaning, data quality, and then engineering the data warehouse \u2014 and then AI pops up and people using LLMs in all of those different parts of the value chain creates a lot of opportunity, but also in every place there's an opportunity for agents gone wild.",
+        "It's almost not differentiable from a DDoS attack in some cases, where it's just running SQL queries over and over. I imagine that's going to change the way data platforms are designed, with guardrails to help agents not DDoS the data platform.",
+        "Code now has much less value. It used to be that code artifacts were the product of human labor, and you could attach a cost to this. The code-counting tools like SLOC and CLOC would be like, oh, this codebase would cost $3 million in three years to build. I built it today with my agent.",
+        "For me, what's happening right now gives me the same feeling that I got when I started to do Python in the late 2000s \u2014 I can just write code and do things. Almost 20 years later, it's that same feeling again of, we can just do things.",
+        "Who says I have to use Tableau's UI? Just give me the endpoints and I'll use Claude Code or I'll use ChatGPT to vibe code my own custom dashboard. And not knowing that what's inside might be some very large SQL queries that the person building their personalized dashboard \u2014 they can't read the SQL.",
+        "In the past, you would say, well, we can't justify staffing a team to build internal tools for certain types of platform observability. Now, that cost equation has changed.",
+        "If it saves them an hour a day, they might spend a day building the tool. If it saves them an hour a day going forward, that's material savings that can be directed toward something else."
+      ],
+      "themes": [
+        "data_infrastructure",
+        "ai_llms",
+        "developer_tools",
+        "industry_observations"
+      ],
+      "tone": "conversational, exploratory, cautiously optimistic",
+      "key_insight": "AI agents are simultaneously democratizing data access and threatening data platform stability, as automated query loops replace human rate-limiting and vibe-coded dashboards bypass the carefully curated data pipelines that data teams spent years building.",
+      "filename": "2026-03-26-test-set-nell-thomas"
+    },
+    {
+      "summary": "In this podcast with Joe Reis, Wes McKinney describes his journey from existential dread about AI in early 2025 to becoming fully immersed in agentic software development. He details his elaborate multi-agent workflow using Claude Code, Codex, and Gemini, with a custom code review system called RoboRev that reviews every commit. He argues that code produced by current AI agents is fundamentally buggy and requires rigorous multi-agent review. He explains why Go has become his preferred language for agentic development due to fast build times, and introduces his concept of 'The Mythical Agent Month' \u2014 that coding agents excel at building software facades but struggle with the hard work of making products robust, scalable, and maintainable.",
+      "key_points": [
+        "AI-generated code from even the best models like Opus 4.6 is very buggy and requires rigorous multi-agent review \u2014 Wes runs 150+ code reviews per day across multiple AI providers",
+        "Codex significantly outperforms Claude at code review because it deliberates 60-90 seconds versus Claude's 15 seconds, suggesting Claude has been optimized for engagement speed over review depth",
+        "Go is emerging as the ideal language for agentic development due to single-digit-second build times and fast execution, whereas Python is too slow at runtime and Rust compiles too slowly for tight agent feedback loops",
+        "The 'Mythical Agent Month' concept: coding agents build Potemkin software facades well but struggle with robustness, scalability, and maintainability \u2014 Fred Brooks estimated a 9x gap between working software and viable products",
+        "AI agents have filled in skill gaps in areas like DevOps, CI/CD, and sysadmin that previously blocked productivity, enabling full-stack development without specialized help"
+      ],
+      "money_quotes": [
+        "If you're just committing and shipping the code that's coming out of Opus 4.6, that code is a bunch of hot garbage. It has to be really rigorously reviewed by other agents and different agent sessions to have any semblance of confidence that you're shipping something that isn't totally slop.",
+        "Coding agents are very good at building the facade, the Potemkin's facade of the software. But when you actually go into the thorny issues associated with making it robust, making it scalable, making it maintainable by somebody other than its author \u2014 all these things can go wrong.",
+        "The whole reason to use Python is that it's easy to read and write. So if I'm not reading or writing the code, what's the point?",
+        "I put off learning Rust just long enough that I never have to learn it.",
+        "I went from existential dread a year ago to being very stimulated and very locked in. I kind of prefer the being locked in because being in a state of existential dread and feeling like my career is over was not very fun.",
+        "Coding agents don't care whether it's fun or not. They'll just do it for you. And if it doesn't work the first time, they'll keep trying until it's done.",
+        "My sense is that Opus has been reinforcement-learned to have faster cycle times to give developers the feeling of forward momentum. Faster means worse because it's doing less reasoning. But it creates more engagement with the users.",
+        "What I think is cool about coding agents now is that you can transform periods of divided or scattered attention into productive time."
+      ],
+      "themes": [
+        "ai_llms",
+        "developer_tools",
+        "career_reflections",
+        "python",
+        "industry_observations",
+        "open_source"
+      ],
+      "tone": "opinionated, energized, pragmatic",
+      "key_insight": "AI coding agents produce fundamentally buggy code that requires rigorous multi-agent adversarial review, and they excel at building software facades while struggling with the 9x harder work of turning prototypes into robust, maintainable products.",
+      "filename": "2026-04-08-joe-reis-ai-agents-mythical-agent-month"
     }
   ]
 }
