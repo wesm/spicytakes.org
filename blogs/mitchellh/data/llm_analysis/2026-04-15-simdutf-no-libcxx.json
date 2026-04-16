@@ -1,0 +1,28 @@
+{
+  "summary": "Mitchell Hashimoto details his work modifying simdutf, a high-performance Unicode library, to be buildable without libc++ or libc++abi dependencies. This was the final C++ standard library dependency blocking libghostty-vt from being fully portable across embedded, WebAssembly, and freestanding environments. He walks through the technical approach: creating a stl_compat.h shim for standard library types, replacing function-local statics with translation-unit statics to avoid __cxa_guard_acquire, and providing weak symbol shims for __cxa_pure_virtual. He emphasizes preserving ABI compatibility except when the new flag is enabled, and added CI audits to prevent regression. The bulk of the post reflects on the contributor etiquette of submitting a 3,000-line PR, where he spent more time on validation and PR preparation than on the code itself.",
+  "key_points": [
+    "Removing libc++ improves portability to embedded, WebAssembly, and freestanding environments while simplifying cross-compilation and static linking",
+    "libc++abi dependencies are sneakier than libc++ because the compiler silently emits ABI calls for ordinary language features like function-local statics",
+    "The fix involved a stl_compat.h compatibility shim, replacing function-local statics with translation-unit statics, and weak symbol shims for pure virtual slots",
+    "ABI compatibility is fully preserved when SIMDUTF_NO_LIBCXX is not set, making this a non-breaking feature addition for existing users",
+    "Submitting a large PR responsibly requires more effort on validation and communication than on the code itself, especially in the age of AI-assisted contributions"
+  ],
+  "money_quotes": [
+    "Getting something working and getting something merged are two different things.",
+    "The sneakier part is libc++abi, which provides the C++ ABI, including things like exception handling, virtual function tables, RTTI, etc.",
+    "They show up because the compiler quietly emits calls into the C++ ABI runtime for ordinary-looking language features.",
+    "Ironically, the full diff took me about 2 hours to put together, but the extra validation work and PR preparation took me about 3 hours.",
+    "I spent more time on the human boundary than the code itself, as we should out of respect for the effort maintainers put into their projects.",
+    "And I know the burden of recent AI slop.",
+    "Since by definition someone using SIMDUTF_NO_LIBCXX is not interested in libc++, these ABI breakages felt like a feature rather than a bug.",
+    "So I put in the effort I would want from an all-star contributor and tried to be that person for the simdutf maintainers."
+  ],
+  "themes": [
+    "ghostty",
+    "systems",
+    "devtools"
+  ],
+  "tone": "technical",
+  "key_insight": "Removing hidden C++ ABI dependencies requires both deep toolchain knowledge and, equally important, the human discipline to present large contributions in a way that respects maintainers' time.",
+  "filename": "2026-04-15-simdutf-no-libcxx"
+}
