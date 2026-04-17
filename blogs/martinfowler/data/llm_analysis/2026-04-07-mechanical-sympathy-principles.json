@@ -1,0 +1,26 @@
+{
+  "summary": "The post introduces mechanical sympathy \u2014 understanding hardware to write performant software \u2014 borrowing the concept from Martin Thompson and Formula 1 racing. It explains how CPU memory hierarchies favor sequential, predictable access patterns over random access. The article covers false sharing in cache lines as a hidden performance killer in multithreaded applications, and advocates for the Single Writer Principle to eliminate mutex contention. It demonstrates these ideas through a practical AI inference service example, showing how natural batching further improves throughput. The post concludes that these principles scale from individual applications to entire system architectures, but urges developers to prioritize observability before optimization.",
+  "key_points": [
+    "CPU memory hierarchies reward sequential, predictable access patterns \u2014 linear access vastly outperforms random access across memory pages",
+    "False sharing occurs when multiple threads write to different variables in the same cache line, causing dramatic latency increases that can be fixed with padding",
+    "The Single Writer Principle eliminates mutexes by dedicating a single actor thread to own all writes, using async messaging from other threads",
+    "Natural batching outperforms timeout-based batching by greedily building batches from available queue data rather than waiting for a fixed interval or size",
+    "These low-level principles scale to system-level architecture, but observability and measurement must come before optimization"
+  ],
+  "money_quotes": [
+    "And yet, software is still slow, from seconds-long cold starts for simple serverless functions, to hours-long ETL pipelines that merely transform CSV files into rows in a database.",
+    "By having 'sympathy' for the hardware our software runs on, we can create surprisingly performant systems.",
+    "In practice, these bets mean linear access outperforms access within the same page, which in turn vastly outperforms random access across pages.",
+    "You get False Sharing: Two CPUs fighting over access to two different variables in the same cache line, forcing the CPUs to take turns accessing the variables via the shared L3 cache.",
+    "Avoid protecting writable resources with a mutex. Instead, dedicate a single thread ('actor') to own every write, and use asynchronous messaging to submit writes from other threads to the actor.",
+    "In both cases, the performance of natural batching is twice as good as a timeout-based strategy.",
+    "When we write software that's mechanically sympathetic, performance follows naturally, at every scale.",
+    "Prioritize observability before optimization \u2014 you can't improve what you can't measure."
+  ],
+  "themes": [
+    "architecture"
+  ],
+  "tone": "technical",
+  "key_insight": "Writing performant software requires sympathy for hardware mechanics \u2014 sequential memory access, eliminating false sharing, single-writer ownership, and natural batching \u2014 but always measure before you optimize.",
+  "filename": "2026-04-07-mechanical-sympathy-principles"
+}

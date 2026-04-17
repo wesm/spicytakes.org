@@ -1,0 +1,30 @@
+{
+  "summary": "Martin Fowler introduces 'harness engineering' as the practice of building feedforward guides and feedback sensors around coding agents to increase confidence in their output. He distinguishes between computational controls (deterministic tools like linters and tests) and inferential controls (LLM-based semantic judgment), arguing both are necessary. The harness regulates three dimensions: maintainability, architecture fitness, and functional behaviour, with behaviour being the hardest unsolved problem. Fowler emphasizes that harnesses attempt to externalize the implicit knowledge human developers bring, but cannot fully replace human judgment. He frames this as an emerging engineering discipline, not a one-time configuration, where humans steer agents by iterating on the harness itself.",
+  "key_points": [
+    "A coding agent harness combines feedforward guides (steering before action) and feedback sensors (enabling self-correction after action), and both are needed to avoid repeated mistakes or unvalidated rules.",
+    "Controls are either computational (deterministic, fast, cheap) or inferential (semantic, expensive, non-deterministic), and should be distributed across the change lifecycle with cheaper checks running earlier.",
+    "Maintainability is the easiest dimension to harness with existing tooling, but the behavioural harness \u2014 ensuring functional correctness \u2014 remains largely unsolved and still depends heavily on human testing.",
+    "Harnessability varies by codebase: strongly typed languages, clear module boundaries, and greenfield projects are easier to harness, while legacy systems with technical debt face the hardest problem where the harness is most needed.",
+    "Harness engineering is an ongoing practice of externalizing human developer experience into explicit, maintainable systems of controls \u2014 not a one-time setup."
+  ],
+  "money_quotes": [
+    "A well-built outer harness serves two goals: it increases the probability that the agent gets it right in the first place, and it provides a feedback loop that self-corrects as many issues as possible before they even reach human eyes.",
+    "Separately, you get either an agent that keeps repeating the same mistakes (feedback-only) or an agent that encodes rules but never finds out whether they worked (feed-forward-only).",
+    "A coding agent has none of this: no social accountability, no aesthetic disgust at a 300-line function, no intuition that 'we don't do it that way here,' and no organisational memory.",
+    "Legacy teams, especially with applications that have accrued a lot of technical debt, face the harder problem: the harness is most needed where it is hardest to build.",
+    "Neither catches reliably some of the higher-impact problems: Misdiagnosis of issues, overengineering and unnecessary features, misunderstood instructions.",
+    "A good harness should not necessarily aim to fully eliminate human input, but to direct it to where our input is most important.",
+    "Building this outer harness is emerging as an ongoing engineering practice, not a one-time configuration.",
+    "Teams may start picking tech stacks and structures partly based on what harnesses are already available for them."
+  ],
+  "themes": [
+    "architecture",
+    "testing",
+    "agile",
+    "ai_llms",
+    "technical_leadership"
+  ],
+  "tone": "analytical",
+  "key_insight": "Coding agent harnesses must combine anticipatory guides with self-correcting feedback sensors across maintainability, architecture, and behaviour dimensions, but the hardest problem \u2014 ensuring functional correctness \u2014 remains unsolved and still requires human judgment.",
+  "filename": "2026-04-02-harness-engineering"
+}
