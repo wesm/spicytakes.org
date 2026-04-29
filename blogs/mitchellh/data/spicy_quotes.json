@@ -1,6 +1,84 @@
 {
-  "total": 327,
+  "total": 333,
   "quotes": [
+    {
+      "quote": "Some might call this sick, but my hobby and work and passion all align and for most of my life they got to also live in one place on the internet: GitHub.",
+      "filename": "2026-04-28-ghostty-leaving-github",
+      "themes": [
+        "ghostty",
+        "devtools",
+        "infrastructure"
+      ],
+      "tone": "reflective, personal, bittersweet",
+      "summary": "Mitchell Hashimoto announces that Ghostty, his terminal emulator project, will be leaving GitHub due to persistent reliability issues. He reflects on his deep, 18-year personal connection to GitHub as user #1299, describing it as the place that has made him happiest throughout his life. Despite this emotional attachment, he explains that near-daily outages have made GitHub untenable for serious work, blocking PR reviews and CI pipelines for hours at a time. The move will be incremental, with a read-only mirror kept on GitHub, while his personal projects remain there for now.",
+      "key_insight": "Even the most devoted users will eventually leave a platform when persistent reliability failures make it impossible to do serious work, no matter how deep the emotional attachment.",
+      "spiciness": 5
+    },
+    {
+      "quote": "I love GitHub more than a person should love a thing, and I'm mad at it.",
+      "filename": "2026-04-28-ghostty-leaving-github",
+      "themes": [
+        "ghostty",
+        "devtools",
+        "infrastructure"
+      ],
+      "tone": "reflective, personal, bittersweet",
+      "summary": "Mitchell Hashimoto announces that Ghostty, his terminal emulator project, will be leaving GitHub due to persistent reliability issues. He reflects on his deep, 18-year personal connection to GitHub as user #1299, describing it as the place that has made him happiest throughout his life. Despite this emotional attachment, he explains that near-daily outages have made GitHub untenable for serious work, blocking PR reviews and CI pipelines for hours at a time. The move will be incremental, with a read-only mirror kept on GitHub, while his personal projects remain there for now.",
+      "key_insight": "Even the most devoted users will eventually leave a platform when persistent reliability failures make it impossible to do serious work, no matter how deep the emotional attachment.",
+      "spiciness": 8
+    },
+    {
+      "quote": "This is no longer a place for serious work if it just blocks you out for hours per day, every day.",
+      "filename": "2026-04-28-ghostty-leaving-github",
+      "themes": [
+        "ghostty",
+        "devtools",
+        "infrastructure"
+      ],
+      "tone": "reflective, personal, bittersweet",
+      "summary": "Mitchell Hashimoto announces that Ghostty, his terminal emulator project, will be leaving GitHub due to persistent reliability issues. He reflects on his deep, 18-year personal connection to GitHub as user #1299, describing it as the place that has made him happiest throughout his life. Despite this emotional attachment, he explains that near-daily outages have made GitHub untenable for serious work, blocking PR reviews and CI pipelines for hours at a time. The move will be incremental, with a read-only mirror kept on GitHub, while his personal projects remain there for now.",
+      "key_insight": "Even the most devoted users will eventually leave a platform when persistent reliability failures make it impossible to do serious work, no matter how deep the emotional attachment.",
+      "spiciness": 7
+    },
+    {
+      "quote": "I want to be there but it doesn't want me to be there. I want to get work done and it doesn't want me to get work done. I want to ship software and it doesn't want me to ship software.",
+      "filename": "2026-04-28-ghostty-leaving-github",
+      "themes": [
+        "ghostty",
+        "devtools",
+        "infrastructure"
+      ],
+      "tone": "reflective, personal, bittersweet",
+      "summary": "Mitchell Hashimoto announces that Ghostty, his terminal emulator project, will be leaving GitHub due to persistent reliability issues. He reflects on his deep, 18-year personal connection to GitHub as user #1299, describing it as the place that has made him happiest throughout his life. Despite this emotional attachment, he explains that near-daily outages have made GitHub untenable for serious work, blocking PR reviews and CI pipelines for hours at a time. The move will be incremental, with a read-only mirror kept on GitHub, while his personal projects remain there for now.",
+      "key_insight": "Even the most devoted users will eventually leave a platform when persistent reliability failures make it impossible to do serious work, no matter how deep the emotional attachment.",
+      "spiciness": 6
+    },
+    {
+      "quote": "After 18 years, I've got to go. I'd love to come back one day, but this will have to be predicated on real results and improvements, not words and promises.",
+      "filename": "2026-04-28-ghostty-leaving-github",
+      "themes": [
+        "ghostty",
+        "devtools",
+        "infrastructure"
+      ],
+      "tone": "reflective, personal, bittersweet",
+      "summary": "Mitchell Hashimoto announces that Ghostty, his terminal emulator project, will be leaving GitHub due to persistent reliability issues. He reflects on his deep, 18-year personal connection to GitHub as user #1299, describing it as the place that has made him happiest throughout his life. Despite this emotional attachment, he explains that near-daily outages have made GitHub untenable for serious work, blocking PR reviews and CI pipelines for hours at a time. The move will be incremental, with a read-only mirror kept on GitHub, while his personal projects remain there for now.",
+      "key_insight": "Even the most devoted users will eventually leave a platform when persistent reliability failures make it impossible to do serious work, no matter how deep the emotional attachment.",
+      "spiciness": 7
+    },
+    {
+      "quote": "Did you know I started Vagrant (my first successful open source project) in large part because I hoped it would get me a job at GitHub?",
+      "filename": "2026-04-28-ghostty-leaving-github",
+      "themes": [
+        "ghostty",
+        "devtools",
+        "infrastructure"
+      ],
+      "tone": "reflective, personal, bittersweet",
+      "summary": "Mitchell Hashimoto announces that Ghostty, his terminal emulator project, will be leaving GitHub due to persistent reliability issues. He reflects on his deep, 18-year personal connection to GitHub as user #1299, describing it as the place that has made him happiest throughout his life. Despite this emotional attachment, he explains that near-daily outages have made GitHub untenable for serious work, blocking PR reviews and CI pipelines for hours at a time. The move will be incremental, with a read-only mirror kept on GitHub, while his personal projects remain there for now.",
+      "key_insight": "Even the most devoted users will eventually leave a platform when persistent reliability failures make it impossible to do serious work, no matter how deep the emotional attachment.",
+      "spiciness": 4
+    },
     {
       "quote": "Getting something working and getting something merged are two different things.",
       "filename": "2026-04-15-simdutf-no-libcxx",
@@ -38,7 +116,7 @@
       "tone": "technical",
       "summary": "Mitchell Hashimoto details his work modifying simdutf, a high-performance Unicode library, to be buildable without libc++ or libc++abi dependencies. This was the final C++ standard library dependency blocking libghostty-vt from being fully portable across embedded, WebAssembly, and freestanding environments. He walks through the technical approach: creating a stl_compat.h shim for standard library types, replacing function-local statics with translation-unit statics to avoid __cxa_guard_acquire, and providing weak symbol shims for __cxa_pure_virtual. He emphasizes preserving ABI compatibility except when the new flag is enabled, and added CI audits to prevent regression. The bulk of the post reflects on the contributor etiquette of submitting a 3,000-line PR, where he spent more time on validation and PR preparation than on the code itself.",
       "key_insight": "Removing hidden C++ ABI dependencies requires both deep toolchain knowledge and, equally important, the human discipline to present large contributions in a way that respects maintainers' time.",
-      "spiciness": 2
+      "spiciness": 3
     },
     {
       "quote": "Ironically, the full diff took me about 2 hours to put together, but the extra validation work and PR preparation took me about 3 hours.",
@@ -51,7 +129,7 @@
       "tone": "technical",
       "summary": "Mitchell Hashimoto details his work modifying simdutf, a high-performance Unicode library, to be buildable without libc++ or libc++abi dependencies. This was the final C++ standard library dependency blocking libghostty-vt from being fully portable across embedded, WebAssembly, and freestanding environments. He walks through the technical approach: creating a stl_compat.h shim for standard library types, replacing function-local statics with translation-unit statics to avoid __cxa_guard_acquire, and providing weak symbol shims for __cxa_pure_virtual. He emphasizes preserving ABI compatibility except when the new flag is enabled, and added CI audits to prevent regression. The bulk of the post reflects on the contributor etiquette of submitting a 3,000-line PR, where he spent more time on validation and PR preparation than on the code itself.",
       "key_insight": "Removing hidden C++ ABI dependencies requires both deep toolchain knowledge and, equally important, the human discipline to present large contributions in a way that respects maintainers' time.",
-      "spiciness": 3
+      "spiciness": 5
     },
     {
       "quote": "I spent more time on the human boundary than the code itself, as we should out of respect for the effort maintainers put into their projects.",
@@ -64,7 +142,7 @@
       "tone": "technical",
       "summary": "Mitchell Hashimoto details his work modifying simdutf, a high-performance Unicode library, to be buildable without libc++ or libc++abi dependencies. This was the final C++ standard library dependency blocking libghostty-vt from being fully portable across embedded, WebAssembly, and freestanding environments. He walks through the technical approach: creating a stl_compat.h shim for standard library types, replacing function-local statics with translation-unit statics to avoid __cxa_guard_acquire, and providing weak symbol shims for __cxa_pure_virtual. He emphasizes preserving ABI compatibility except when the new flag is enabled, and added CI audits to prevent regression. The bulk of the post reflects on the contributor etiquette of submitting a 3,000-line PR, where he spent more time on validation and PR preparation than on the code itself.",
       "key_insight": "Removing hidden C++ ABI dependencies requires both deep toolchain knowledge and, equally important, the human discipline to present large contributions in a way that respects maintainers' time.",
-      "spiciness": 4
+      "spiciness": 6
     },
     {
       "quote": "And I know the burden of recent AI slop.",
@@ -77,7 +155,7 @@
       "tone": "technical",
       "summary": "Mitchell Hashimoto details his work modifying simdutf, a high-performance Unicode library, to be buildable without libc++ or libc++abi dependencies. This was the final C++ standard library dependency blocking libghostty-vt from being fully portable across embedded, WebAssembly, and freestanding environments. He walks through the technical approach: creating a stl_compat.h shim for standard library types, replacing function-local statics with translation-unit statics to avoid __cxa_guard_acquire, and providing weak symbol shims for __cxa_pure_virtual. He emphasizes preserving ABI compatibility except when the new flag is enabled, and added CI audits to prevent regression. The bulk of the post reflects on the contributor etiquette of submitting a 3,000-line PR, where he spent more time on validation and PR preparation than on the code itself.",
       "key_insight": "Removing hidden C++ ABI dependencies requires both deep toolchain knowledge and, equally important, the human discipline to present large contributions in a way that respects maintainers' time.",
-      "spiciness": 5
+      "spiciness": 7
     },
     {
       "quote": "Since by definition someone using SIMDUTF_NO_LIBCXX is not interested in libc++, these ABI breakages felt like a feature rather than a bug.",
@@ -90,7 +168,7 @@
       "tone": "technical",
       "summary": "Mitchell Hashimoto details his work modifying simdutf, a high-performance Unicode library, to be buildable without libc++ or libc++abi dependencies. This was the final C++ standard library dependency blocking libghostty-vt from being fully portable across embedded, WebAssembly, and freestanding environments. He walks through the technical approach: creating a stl_compat.h shim for standard library types, replacing function-local statics with translation-unit statics to avoid __cxa_guard_acquire, and providing weak symbol shims for __cxa_pure_virtual. He emphasizes preserving ABI compatibility except when the new flag is enabled, and added CI audits to prevent regression. The bulk of the post reflects on the contributor etiquette of submitting a 3,000-line PR, where he spent more time on validation and PR preparation than on the code itself.",
       "key_insight": "Removing hidden C++ ABI dependencies requires both deep toolchain knowledge and, equally important, the human discipline to present large contributions in a way that respects maintainers' time.",
-      "spiciness": 4
+      "spiciness": 5
     },
     {
       "quote": "So I put in the effort I would want from an all-star contributor and tried to be that person for the simdutf maintainers.",
@@ -103,7 +181,7 @@
       "tone": "technical",
       "summary": "Mitchell Hashimoto details his work modifying simdutf, a high-performance Unicode library, to be buildable without libc++ or libc++abi dependencies. This was the final C++ standard library dependency blocking libghostty-vt from being fully portable across embedded, WebAssembly, and freestanding environments. He walks through the technical approach: creating a stl_compat.h shim for standard library types, replacing function-local statics with translation-unit statics to avoid __cxa_guard_acquire, and providing weak symbol shims for __cxa_pure_virtual. He emphasizes preserving ABI compatibility except when the new flag is enabled, and added CI audits to prevent regression. The bulk of the post reflects on the contributor etiquette of submitting a 3,000-line PR, where he spent more time on validation and PR preparation than on the code itself.",
       "key_insight": "Removing hidden C++ ABI dependencies requires both deep toolchain knowledge and, equally important, the human discipline to present large contributions in a way that respects maintainers' time.",
-      "spiciness": 3
+      "spiciness": 4
     },
     {
       "quote": "The most effective way to build software and get massive adoption is no longer high quality mainline apps but via building blocks that enable and encourage others to build quantity over quality.",
