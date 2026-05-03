@@ -1,6 +1,6 @@
 {
-  "total_posts": 588,
-  "successful": 588,
+  "total_posts": 589,
+  "successful": 589,
   "posts": [
     {
       "summary": "Julia Evans briefly documents her decision to switch from Jekyll to Octopress for her blog. She found Jekyll's HTML, CSS, and layout configuration tedious, and Octopress offered an easier setup experience. The post is essentially a first impression noting that things look okay so far. Her main remaining concern is customizing the color scheme to be more orange.",
@@ -14498,6 +14498,32 @@
       "tone": "enthusiastic, reflective, optimistic",
       "key_insight": "Contributing examples to official man pages is a high-leverage way to improve documentation accuracy and accessibility, because the review process guarantees correctness in a way blog posts never can.",
       "filename": "2026-03-10-examples-for-the-tcpdump-and-dig-man-pages"
+    },
+    {
+      "summary": "Julia Evans explores how to write integration tests for Vue components that run directly in the browser, without using Node.js or any server-side JavaScript runtime. She uses QUnit as a lightweight test framework and creates a simple mountComponent helper to render Vue components in temporary DOM elements. The post walks through practical challenges like waiting for async rendering, filling out forms programmatically, and identifying elements for testing. She discovers that many testing pain points (like elements appearing before they're ready) point to genuine UX improvements. The approach aligns with her ongoing project of doing frontend development without Node, and she finds the experience genuinely enjoyable despite its rough edges.",
+      "key_points": [
+        "Vue components can be tested directly in a browser tab using QUnit and a simple mountComponent helper, without any Node.js tooling",
+        "Waiting for async DOM updates requires polling-based waitFor functions rather than brittle sleep calls, and figuring out the right condition to wait for is often the hardest part",
+        "Form interactions in tests require dispatching the correct DOM events (input for textareas, change for checkboxes) to notify Vue of changes",
+        "Testing pain points often reveal real UX issues \u2014 if an element isn't ready for tests to interact with, it probably isn't ready for users either",
+        "Chrome's built-in code coverage tool can provide test coverage data without any additional tooling"
+      ],
+      "money_quotes": [
+        "I just don't test my frontend code which doesn't feel great.",
+        "I think we all learned a long time ago that putting random sleep() calls in your tests and hoping that the timings are right is slow and flaky and extremely frustrating.",
+        "If there's an element in the DOM that isn't actually ready for the user to interact with, maybe I shouldn't be displaying it yet!",
+        "Feels like there's a way to make the app more accessible and easier to test at the same time.",
+        "My frontend projects always feel so fragile because they're untested, and maybe one day I'll have a test suite I'm confident in!",
+        "I feel like I'm constantly learning how to do super basic tasks.",
+        "I really had a blast doing this."
+      ],
+      "themes": [
+        "debugging",
+        "learning"
+      ],
+      "tone": "enthusiastic, exploratory, reflective",
+      "key_insight": "You can write meaningful integration tests for Vue components directly in the browser without any build tools or Node.js, and the friction points you encounter often reveal genuine improvements to make in your application's UX.",
+      "filename": "2026-05-02-testing-vue-components-in-the-browser"
     }
   ]
 }
