@@ -1,0 +1,29 @@
+{
+  "summary": "Armin argues that local AI models are held back not by model quality but by fragmentation and lack of polish in the local inference stack. The gap between hosted and local experiences comes from too many moving parts\u2014inference engines, quantizations, templates, configs\u2014that users must assemble themselves. He advocates for picking one model, one engine, one hardware config and polishing it end-to-end rather than spreading effort across every new release. He highlights ds4.c, Salvatore Sanfilippo's narrow inference engine for DeepSeek V4 Flash on high-RAM Macs, as the right approach. He built pi-ds4 to embed ds4.c directly into the Pi coding agent with zero configuration, treating local inference as a first-class provider rather than a pile of manual setup.",
+  "key_points": [
+    "Local models fail not because of model quality but because the stack is fragmented across engines, quantizations, templates, and configs that users must manually assemble",
+    "Tool parameter streaming is a concrete example of how 'runnable' is not 'finished'\u2014without it, local coding agents feel broken during long inference",
+    "The community spreads attention across every new model release instead of building critical mass behind one polished end-to-end configuration",
+    "ds4.c represents the right approach: a deliberately narrow, model-specific engine that owns the entire stack for one hardware target",
+    "Locking AI experimentation behind hosted APIs and subscriptions is bad for developers\u2014local models are essential for open access to the technology"
+  ],
+  "money_quotes": [
+    "I really, really want local models to work.",
+    "The thought of locking all the experimentation away from the average developer really upsets me.",
+    "A lot of local model work optimizes for making models runnable. That is necessary, but it is not the same thing as making them feel finished.",
+    "Hosted model providers do not ship a bag of weights and ask you to figure out the rest, and we need to approach that line of thinking for local models too.",
+    "Let's pick one winner and polish the hell out of it.",
+    "This is a terrible way to build confidence.",
+    "Engineers need hammers and a hammer that's locked behind a subscription in a data center in another country does not qualify.",
+    "I'm getting big old Python packaging vibes."
+  ],
+  "themes": [
+    "developer_tools",
+    "open_source",
+    "software_engineering",
+    "industry_observations"
+  ],
+  "tone": "opinionated, urgent, practical",
+  "key_insight": "The local model ecosystem needs to stop optimizing for making every model runnable and instead pick one configuration and polish it end-to-end until it matches the ergonomics of hosted providers.",
+  "filename": "2026-05-08-local-models"
+}
