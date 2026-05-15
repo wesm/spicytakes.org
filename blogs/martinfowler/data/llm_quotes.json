@@ -1,6 +1,6 @@
 {
-  "total_posts": 727,
-  "successful": 727,
+  "total_posts": 728,
+  "successful": 728,
   "posts": [
     {
       "summary": "This 2003 workshop report explores how to scale XP and Agile methods beyond small teams, featuring perspectives from Ken Schwaber, Philippe Kruchten, and Martin Fowler. The key tension throughout is whether scaling Agile is even the right question to ask. Practitioners shared techniques like seeding new teams with architecture founders and coordinating sync points between autonomous teams. However, Martin Fowler's keynote challenged the premise entirely, arguing that many teams are unnecessarily large and should scale down rather than scale up their methodology. The conference highlighted that communication-centric practices pose the greatest scaling challenges, while coding mechanics like TDD and pair programming can scale more readily.",
@@ -17709,6 +17709,31 @@
       "tone": "reflective",
       "key_insight": "As LLMs commoditize code generation, the enduring value of coding shifts from producing machine instructions to building precise conceptual vocabularies that both humans and LLMs can reason with.",
       "filename": "2026-05-12-what-is-code"
+    },
+    {
+      "summary": "Martin Fowler describes a pattern he calls 'Interrogatory LLM,' where instead of writing extensive context documents for LLMs, you prompt the LLM to interview you and extract the needed information through conversation. He credits Harper Reed for popularizing this approach, noting the importance of having the LLM ask one question at a time. Fowler extends the pattern to document review, where an LLM interviews domain experts to validate specifications rather than asking them to read and critique documents directly. He argues this technique has broad applicability beyond LLM workflows, serving as a writing aid for people who struggle to get knowledge out of their heads into written form.",
+      "key_points": [
+        "Complex LLM tasks require extensive context, and having the LLM interview a human to build that context is more effective than writing it all upfront",
+        "The interrogatory pattern works for both document creation and document review, where an LLM interviews experts to validate existing specifications",
+        "Constraining the LLM to ask one question at a time produces better results, though it needs frequent reminding",
+        "The technique serves as a general-purpose knowledge extraction tool for people who find writing difficult, producing usable output even if it lacks literary polish",
+        "Multiple interrogatory sessions can be chained: one to build a document, others to review it with different experts"
+      ],
+      "money_quotes": [
+        "The obvious way to do this is for a human to write this context, but an alternative is to use an LLM to write this context after interviewing a human.",
+        "People often find reviewing hard, so a conversation with an LLM might be more fruitful, particularly if the document isn't well-written.",
+        "To really understand something, I need to write about it. But different people are different. Many folks find writing hard, often very hard.",
+        "This can be a real problem when we need to get information out of someone's head into a form that other humans can consume.",
+        "Maybe such people would find it easier to ask an LLM to interview them than to write a document themselves.",
+        "Certainly the result will have that tang of AI-writing that folks like me shudder at - but that's better than not having the information itself, either due to rushed writing or no writing at all."
+      ],
+      "themes": [
+        "ai_llms",
+        "technical_leadership"
+      ],
+      "tone": "reflective",
+      "key_insight": "Rather than laboriously writing context for LLMs or documents for humans, you can flip the interaction and have the LLM interview you, turning conversation into structured knowledge.",
+      "filename": "2026-05-14-InterrogatoryLLM"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "total_posts": 92,
-  "successful": 92,
+  "total_posts": 93,
+  "successful": 93,
   "posts": [
     {
       "summary": "A brief post recommending adblockers to eliminate distracting website advertising. The author notes they've been free from ads for 2-3 years thanks to browser extensions, and encourages readers to adopt the same approach. Two specific adblocker tools are recommended along with a comparison resource.",
@@ -2463,6 +2463,35 @@
       "tone": "opinionated, practical, reflective",
       "key_insight": "AI agents don't eliminate the need for BI \u2014 they expose that the real value was always in the governed metrics, semantic layers, and maintained infrastructure underneath the dashboards.",
       "filename": "2026-04-21-bi-is-not-dead-2026"
+    },
+    {
+      "summary": "Simon Sp\u00e4ti traces the 25-year history of external tables from Oracle 9i in 2001 to modern lakehouse architectures, arguing they represent one of data engineering's most enduring patterns. He explains that external tables are essentially pointers to data stored outside a database, queryable via SQL without moving data. The post compares internal vs. external storage tradeoffs around query speed, cost, and data freshness, with benchmarks showing external tables pay only a 1.3\u00d7\u20131.7\u00d7 performance tax while offering up to 20\u00d7 storage cost savings. Sp\u00e4ti shows how the pattern evolved from CSV parsing to open table formats with ACID guarantees, and argues that with DuckLake and open catalogs, the distinction between external and internal is dissolving. He invokes the Lindy Effect to predict external tables will persist another 25 years.",
+      "key_points": [
+        "External tables have been a recurring pattern across every generation of database technology since 2001, from Oracle to Snowflake to Databricks, validating the Lindy Effect",
+        "The hot vs. cold data temperature determines when to use internal storage (dashboards, frequent queries) vs. external tables (archival, ad-hoc, cost-sensitive workloads with up to 20\u00d7 cheaper storage)",
+        "The evolution path went from 'read CSVs on disk' to 'Iceberg table IS the warehouse table', each step keeping data in place while adding database semantics back in",
+        "DuckDB and DuckLake represent the next evolution: DuckDB does schema-on-read without formal DDL, while DuckLake solves the small-file problem by inlining metadata in a SQL catalog",
+        "The modern external table isn't really external anymore \u2014 open table formats and catalogs are making the warehouse a stateless rental over a bucket you own"
+      ],
+      "money_quotes": [
+        "Everything that is old will be new again. Exactly what the Lindy Effect is all about.",
+        "The modern external table isn't external anymore. DuckDB reads them directly, and DuckLake handles the metadata that multifile lakehouse architectures would otherwise drown in.",
+        "The lesson from history is that whenever someone tries to replace it, the pattern is that reading data in place always beats moving it.",
+        "The external table, once a humble workaround for avoiding data loads, has become the architectural foundation of the data lakehouse.",
+        "With open data catalogs, the warehouse becomes a stateless rental over a bucket you own, and external tables are increasingly managed.",
+        "The cycle from 'external table for cheap storage' to 'external table as a full ACID database on S3' took 25 years, completing the journey back to database principles while maintaining the separation of storage and compute.",
+        "Disk space was growing more quickly than our compute needs, which is what triggered the adoption of external tables."
+      ],
+      "themes": [
+        "data_engineering",
+        "data_platforms",
+        "data_modeling",
+        "tools_products",
+        "industry_observations"
+      ],
+      "tone": "technical, historically grounded, optimistic",
+      "key_insight": "External tables represent one of data engineering's most durable patterns because the principle of reading data in place rather than moving it only grows more valuable as formats evolve, and with modern lakehouse architectures the line between external and internal storage is finally dissolving.",
+      "filename": "2026-05-14-modern-external-tables-and-evolution"
     }
   ]
 }
