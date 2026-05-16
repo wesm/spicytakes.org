@@ -1,6 +1,6 @@
 {
-  "total_posts": 590,
-  "successful": 590,
+  "total_posts": 591,
+  "successful": 591,
   "posts": [
     {
       "summary": "Julia Evans briefly documents her decision to switch from Jekyll to Octopress for her blog. She found Jekyll's HTML, CSS, and layout configuration tedious, and Octopress offered an easier setup experience. The post is essentially a first impression noting that things look okay so far. Her main remaining concern is customizing the color scheme to be more orange.",
@@ -14545,6 +14545,31 @@
       "tone": "casual, practical, self-deprecating",
       "key_insight": "When moving away from CSS frameworks like Tailwind, curated colour palettes remain valuable for developers who aren't confident with colour design.",
       "filename": "2026-05-04-css-colour-palettes"
+    },
+    {
+      "summary": "Julia Evans describes her journey migrating several sites away from Tailwind CSS toward semantic HTML and vanilla CSS. She explains the nine systems she's developing to structure her CSS codebase, many inspired by what Tailwind taught her. She covers resets, component-based organization, color palettes, font size variables, utility classes, base styles, spacing, responsive grid layouts, and her minimal esbuild setup. She concludes that while Tailwind was valuable for learning CSS organization, she's now skilled enough to pick and choose which constraints to keep while gaining the flexibility that vanilla CSS offers.",
+      "key_points": [
+        "Tailwind taught her valuable CSS organization principles (resets, color palettes, font scales) that she's now reimplementing in vanilla CSS",
+        "She organizes CSS by components with unique classes and separate files, ensuring one component's styles never override another's",
+        "CSS grid with auto-fit replaces media-query-heavy responsive design, enabling layouts that aren't possible with Tailwind",
+        "Modern CSS features like native imports and nested selectors eliminate most need for build tools, with esbuild as a lightweight optional bundler",
+        "She's moving away from Tailwind because it increasingly requires a build system, she's outgrown its constraints, and mixing Tailwind with vanilla CSS became unmaintainable"
+      ],
+      "money_quotes": [
+        "Given the choice between a pile of complete chaos and Tailwind, I was really happy to choose Tailwind.",
+        "Every CSS code base has a bunch of different things going on (layouts! fonts! colours! common components!) and it's extremely useful to have systems or guidelines to manage each of those things, otherwise things descend into chaos.",
+        "Tailwind has systems for some of these, and I already know those systems! Maybe I can imitate the systems I like!",
+        "So editing the CSS for one component won't mysteriously break something in another component.",
+        "I haven't done anything programmatic that ensures that components won't interfere with each other, but just having a convention and trying my best already feels like a big improvement.",
+        "Ultimately Tailwind is limiting: if you want to do Weird Stuff in your CSS, it's not always possible with Tailwind.",
+        "I still feel happy that I started using Tailwind, even if I'm moving away from it now. I learned a lot from using it and I can still use some parts from it in my sites even after deleting tailwind.min.css."
+      ],
+      "themes": [
+        "learning"
+      ],
+      "tone": "enthusiastic, reflective, practical",
+      "key_insight": "Tailwind's greatest value may be as a teaching tool \u2014 it instills CSS organization principles that eventually empower you to outgrow the framework itself.",
+      "filename": "2026-05-15-moving-away-from-tailwind--and-learning-to-structure-my-css-"
     }
   ]
 }
