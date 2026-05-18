@@ -1,0 +1,29 @@
+{
+  "summary": "Martin Fowler presents Structured Prompt-Driven Development (SPDD), a methodology developed by Thoughtworks' internal IT teams that treats AI prompts as first-class, version-controlled delivery artifacts rather than disposable chat interactions. The approach uses a seven-part 'REASONS Canvas' to capture requirements, domain models, design intent, constraints, and task breakdowns before any code generation. SPDD establishes a closed-loop workflow where prompts and code evolve together: logic corrections update the prompt first, while refactorings update code first then sync back. The article walks through a complete example of enhancing a billing engine, demonstrating how the method moves uncertainty leftward and makes AI-generated changes governable, reviewable, and reusable at the team level.",
+  "key_points": [
+    "Individual AI coding speed gains don't automatically translate to team-level throughput \u2014 ambiguity, review burden, and integration issues scale alongside faster code generation",
+    "SPDD's REASONS Canvas structures prompts across seven dimensions (Requirements, Entities, Approach, Structure, Operations, Norms, Safeguards) to align intent before code generation",
+    "The workflow enforces a key rule: when reality diverges, fix the prompt first then update the code \u2014 keeping prompts and code synchronized as co-evolving artifacts",
+    "Logic corrections flow from requirements to prompt to code, while refactorings flow from code back to prompt \u2014 two distinct change strategies based on whether observable behavior changes",
+    "SPDD is best suited for logic-heavy, compliance-driven, scaled delivery and poorly suited for exploratory spikes, firefighting, or aesthetic-driven work"
+  ],
+  "money_quotes": [
+    "It's like buying a Ferrari and driving it on muddy roads: the engine is powerful, but your arrival time is determined by road conditions and traffic.",
+    "The real question isn't 'How do we generate more code?' It's how do we make AI-generated changes governable, reviewable, and reusable, so teams get faster and safer?",
+    "When reality diverges, fix the prompt first \u2014 then update the code.",
+    "Reviews move away from 'spot the bug' toward 'check the intent.'",
+    "In the AI era, software development isn't a contest of model IQ. It's a contest of engineer cognitive bandwidth \u2014 how clearly we can think, frame problems, and make decisions.",
+    "The framework in this article is only the 'moves.' The real advantage comes from sharpening the meta-skills behind it: abstraction and modelling, systematic analysis, and a deep understanding of the business as a whole.",
+    "Don't worry about making mistakes, and don't stress over not catching every single detail perfectly on the first try. As long as we keep iterating and advancing through the SPDD workflow, there are plenty of opportunities to course-correct."
+  ],
+  "themes": [
+    "architecture",
+    "agile",
+    "ai_llms",
+    "technical_leadership",
+    "domain_driven"
+  ],
+  "tone": "methodical, pragmatic, instructional",
+  "key_insight": "AI coding assistants deliver real team-level value not through faster individual code generation, but through structured, version-controlled prompts that make AI output governable, reviewable, and aligned with intent.",
+  "filename": "2026-04-28-structured-prompt-driven"
+}
