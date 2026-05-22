@@ -1,6 +1,6 @@
 {
-  "total_posts": 729,
-  "successful": 729,
+  "total_posts": 731,
+  "successful": 731,
   "posts": [
     {
       "summary": "This 2003 workshop report explores how to scale XP and Agile methods beyond small teams, featuring perspectives from Ken Schwaber, Philippe Kruchten, and Martin Fowler. The key tension throughout is whether scaling Agile is even the right question to ask. Practitioners shared techniques like seeding new teams with architecture founders and coordinating sync points between autonomous teams. However, Martin Fowler's keynote challenged the premise entirely, arguing that many teams are unnecessarily large and should scale down rather than scale up their methodology. The conference highlighted that communication-centric practices pose the greatest scaling challenges, while coding mechanics like TDD and pair programming can scale more readily.",
@@ -17763,6 +17763,58 @@
       "tone": "reflective",
       "key_insight": "Rather than laboriously writing context for LLMs or documents for humans, you can flip the interaction and have the LLM interview you, turning conversation into structured knowledge.",
       "filename": "2026-05-14-InterrogatoryLLM"
+    },
+    {
+      "summary": "Martin Fowler defines agentic programming as a new mode of software development where humans prompt LLM agents to generate code and then review the results, rather than typing code directly. He distinguishes it from vibe coding, where developers ignore the code entirely, and from simple code completion. The workflow involves terminal-based tools where LLMs manipulate source trees, run tests, and iterate autonomously before human review. Fowler argues this shift raises fundamental questions about future programming skills, emphasizing harness engineering and domain understanding as central competencies.",
+      "key_points": [
+        "Agentic programming is distinct from both vibe coding (no code review) and LLM-assisted code completion (LLM as co-pilot inside IDE)",
+        "The current agentic workflow involves terminal-based prompting with saved guideline documents, where LLMs directly manipulate source trees and run tests autonomously",
+        "Harness engineering\u2014building guides and sensors around LLMs\u2014emerges as a central skill for programmers",
+        "Domain understanding and customer collaboration become more important as code generation shifts to agents"
+      ],
+      "money_quotes": [
+        "Increasingly software developers are not typing code into their IDEs. Instead they prompt an LLM to do so, then review the results.",
+        "This is a profound change to the nature of programming, where humans oversee LLM agents who generate the code.",
+        "Humans are still responsible for what the software does and how it works, but use different skills to create their products.",
+        "With vibe coding humans don't look at the code, indeed they forget that it even exists, while with agentic programming they are concerned with the code, often giving it detailed review.",
+        "The LLM then manipulates the source tree directly, creating and modifying files, running the code, evaluating the results of tests, and continuing development work, often for extended periods.",
+        "Harness engineering, focusing on working on the guides and sensors around the LLM seem central.",
+        "This raises the importance of programmers understanding the domain they are working with, collaborating with users and customers to iteratively define and build their product."
+      ],
+      "themes": [
+        "ai_llms",
+        "technical_leadership"
+      ],
+      "tone": "reflective",
+      "key_insight": "Agentic programming redefines the developer's role from writing code to overseeing LLM agents and reviewing their output, making harness engineering and domain expertise the essential skills.",
+      "filename": "2026-05-21-AgenticProgramming"
+    },
+    {
+      "summary": "Martin Fowler defines vibe coding as building software by prompting an LLM without ever examining the generated code, a technique coined by Andrej Karpathy in early 2025. He draws a sharp distinction between vibe coding and agentic programming, where developers still review and care about code quality. While vibe coding democratizes software creation for non-programmers, Fowler warns of serious limitations around security, maintainability, and correctness. He concludes that vibe-coded software is best treated as disposable, limited to personal use or small trusted groups who accept the inherent risks.",
+      "key_points": [
+        "Vibe coding's defining characteristic is 'forget that the code even exists' \u2014 distinguishing it from agentic programming where developers still review LLM-generated code",
+        "Security is the most serious risk: vibe-coded applications can expose sensitive information and credentials, creating attack surfaces for malicious actors",
+        "Low-quality vibed code creates a compounding problem \u2014 it becomes harder for even LLMs to modify and enhance over time, suggesting well-structured code benefits AI tools too",
+        "LLM non-determinism means enhancements can silently introduce errors in unrelated parts of the codebase, and those errors may not be visible to the user",
+        "Vibe coding is useful for non-programmers building personal tools and for experienced developers creating disposable prototypes"
+      ],
+      "money_quotes": [
+        "Since the vibe coder doesn't look at the code, they don't need programming skills, so it's perfect for someone with no programming knowledge to build applications for their own use.",
+        "Sadly the term 'vibe coding' really caught on, so many people use it to mean agentic programming. However I feel that despite this rapid Semantic Diffusion, it's worth trying to keep the concepts of vibe coding and agentic programming separate, as they are both different to use and different in their consequences.",
+        "LLMs are inherently vulnerable as they provide a large attack surface for predators.",
+        "With little attention to the code, vibed software can rapidly produce many lines of code of a very low quality. Such code makes it difficult, even for an LLM, to modify and enhance the software in the future.",
+        "While it's possible that growing LLM capabilities will allow it to work with even the largest bowls of spaghetti software, thus far it seems clear that well-structured software makes life easier for LLMs too.",
+        "We should thus treat LLM-generated software with skepticism, it can still be useful, but we need to be aware of the risks.",
+        "Code that is more complex, more widely-used, and with more consequences to its risks should not be forgotten about."
+      ],
+      "themes": [
+        "ai_llms",
+        "architecture",
+        "technical_leadership"
+      ],
+      "tone": "measured, cautionary, taxonomic",
+      "key_insight": "Vibe coding and agentic programming are fundamentally different practices with different consequences, and conflating them obscures the real risks of building software you never inspect.",
+      "filename": "2026-05-21-VibeCoding"
     }
   ]
 }
