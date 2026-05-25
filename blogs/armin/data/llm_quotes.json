@@ -1,6 +1,6 @@
 {
-  "total_posts": 213,
-  "successful": 213,
+  "total_posts": 214,
+  "successful": 214,
   "posts": [
     {
       "summary": "Ronacher delivers a harsh critique of Dan Brown\u2019s \"Digital Fortress,\" arguing that the novel is riddled with basic technical errors and shallow, sensationalized depictions of technology and security. He walks through the plot and then systematically dismantles its handling of computers, networking, and cryptography, stressing that the book misuses terminology and violates even elementary principles. He also objects to implausible cultural and geographic portrayals, particularly of Spain. The cumulative effect, in his view, is a story that collapses under its own factual mistakes. He concludes that the book is dull, childish, and not worth reading or buying.",
@@ -5975,6 +5975,35 @@
       "tone": "opinionated, urgent, practical",
       "key_insight": "The local model ecosystem needs to stop optimizing for making every model runnable and instead pick one configuration and polish it end-to-end until it matches the ergonomics of hosted providers.",
       "filename": "2026-05-08-local-models"
+    },
+    {
+      "summary": "Armin Ronacher reflects on maintaining Pi's open source project in the age of AI-generated contributions, describing how LLM-assisted issue reports and pull requests are degrading the quality of open source collaboration. He details how 'slop issues'\u2014bug reports run through LLMs that add confident but wrong diagnoses\u2014actively mislead both human maintainers and AI agents trying to fix them. He critiques how LLMs systematically over-engineer fixes by adding tolerant readers and fallbacks instead of enforcing invariants, growing needless complexity. The post describes Pi's own workflow of using AI agents to triage issues while explicitly instructing them not to trust LLM-generated analysis. Ronacher argues that AI has increased the volume of code and projects without increasing the number of maintainers or users who need software, fragmenting effort that should be shared. He concludes that open source needs more human-to-human collaboration, not more isolated work with machines.",
+      "key_points": [
+        "LLM-assisted issue reports that contain confident but wrong diagnoses are worse than no diagnosis at all, because they mislead both humans and AI agents that treat the analysis as evidence rather than rumor",
+        "LLMs systematically over-engineer fixes by adding tolerant readers and fallbacks instead of enforcing invariants, growing complexity that undermines well-designed systems",
+        "Pi's tracker data shows that of 3,145 external issues and PRs in 90 days, only 17% of auto-closed issues were reopened and less than 10% of PRs were merged",
+        "AI has not increased the number of people who need software or maintainers who can review it\u2014it has mostly increased the volume of code and projects competing for attention",
+        "Open source derives its value from community and human collaboration, not from individuals working in isolation with AI agents"
+      ],
+      "money_quotes": [
+        "A bad issue that contains a plausible but wrong diagnosis creates extra work.",
+        "If you do not know the root cause, say that. I too can operate a clanker, and I would rather do this myself than use your slop.",
+        "Almost always, the correct fix is not to handle the bad state, but to make the bad state impossible.",
+        "All these models see a local failure and try to locally defend against it. As maintainers we have to keep pulling the conversation back to the global invariant, which is harder than it should be, and it's laborious.",
+        "If your clanker shits on someone else's issue tracker then it's not the fault of GitHub, it's yours alone.",
+        "AI has not increased the number of people who need software, or the number of maintainers who can review it. It has mostly increased the amount of code and the number of projects competing for attention.",
+        "We need stronger foundations, not weaker ones. Open Source needs more collaboration, not more isolated work with a machine.",
+        "Agency lies with humans, not with machines. Calling these things agents I still believe is a mistake, but alas."
+      ],
+      "themes": [
+        "open_source",
+        "software_engineering",
+        "developer_tools",
+        "industry_observations"
+      ],
+      "tone": "critical, opinionated, reflective",
+      "key_insight": "AI-generated contributions to open source are degrading collaboration by increasing volume without increasing quality, replacing human-to-human communication with isolated human-machine workarounds, and systematically favoring local complexity over global correctness.",
+      "filename": "2026-05-24-pi-oss"
     }
   ]
 }
