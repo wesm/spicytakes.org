@@ -1,6 +1,6 @@
 {
-  "total_posts": 93,
-  "successful": 93,
+  "total_posts": 95,
+  "successful": 95,
   "posts": [
     {
       "summary": "A brief post recommending adblockers to eliminate distracting website advertising. The author notes they've been free from ads for 2-3 years thanks to browser extensions, and encourages readers to adopt the same approach. Two specific adblocker tools are recommended along with a comparison resource.",
@@ -2492,6 +2492,65 @@
       "tone": "technical, historically grounded, optimistic",
       "key_insight": "External tables represent one of data engineering's most durable patterns because the principle of reading data in place rather than moving it only grows more valuable as formats evolve, and with modern lakehouse architectures the line between external and internal storage is finally dissolving.",
       "filename": "2026-05-14-modern-external-tables-and-evolution"
+    },
+    {
+      "summary": "Simon Sp\u00e4ti presents a comprehensive 'almanack' of Dagster, tracing its evolution from a developer-friendly ETL framework in 2018 to a full open data platform. He argues that Dagster's key innovations \u2014 data-aware orchestration, the shift from task-based DAGs to declarative data assets, and composable architecture \u2014 address the inherent complexity of enterprise data systems. Drawing on Rich Hickey's 'Simple Made Easy' philosophy, he frames composability as the antidote to enterprise data complexity. The post positions Dagster as the right abstraction layer for building open data platforms, with its control plane unifying metadata, lineage, and observability across heterogeneous systems.",
+      "key_points": [
+        "Dagster pioneered the shift from imperative task-based DAGs to declarative asset-based orchestration, letting engineers define outcomes rather than implementation steps",
+        "Composability \u2014 the ability to assemble, reassemble, and swap components \u2014 is what makes complex enterprise data systems manageable, echoing Rich Hickey's philosophy",
+        "Dagster's resource model decouples storage from compute, enabling identical pipeline logic across local dev and production environments through pure configuration",
+        "As an open-source orchestrator with a unified control plane, Dagster functions as an open data platform that integrates lineage, catalog, and observability without vendor lock-in",
+        "Software-Defined Assets allow pre-runtime declaration of data assets and their dependencies, enabling version-controlled, reproducible data lineage"
+      ],
+      "money_quotes": [
+        "Heterogeneous data complexity is a fact of the enterprise data lifecycle.",
+        "It's not code but data pipelines and DAGs, but what everyone cares about are their outcomes: the data assets.",
+        "Composable is what makes systems simpler: the ability to assemble, reassemble, and swap individual components into a flexible whole.",
+        "Resources decouple storage from compute \u2014 both are interchangeable without changing pipeline logic, by pure configuration \u2014 that's the beauty of declarative data systems.",
+        "State is never simple. Unfortunately for us, data engineering is all state: every datum is tied to a timestamp of when it was created, processed, or backfilled.",
+        "It's the abstraction layer for data engineering to solve hard business problems, an open data platform with opinionated design decisions that compound the longer you build on them.",
+        "The data platform layer is the priority, so AI can build on top of a great foundation."
+      ],
+      "themes": [
+        "data_engineering",
+        "data_platforms",
+        "tools_products",
+        "industry_observations"
+      ],
+      "tone": "enthusiastic, reflective, technical",
+      "key_insight": "Dagster's evolution from ETL orchestrator to open data platform demonstrates that composability and declarative asset-based thinking are the keys to taming enterprise data complexity.",
+      "filename": "2026-05-26-dagster-almanack-open-data-platform"
+    },
+    {
+      "summary": "Simon Sp\u00e4ti interviews Chris Riccomini on AI's impact on data engineering, covering correctness in financial data, the case for LLMs speaking Substrait instead of SQL, security concerns with AI agents, and the future of the data engineer role. Chris argues that AI will handle the majority of data engineering work once tooling catches up, and that the distinct 'data engineer' role may fold into a unified data role. The conversation emphasizes plan-mode-first workflows, quality gates, and managing LLM context through techniques like the Ralph Loop. Chris also suggests that programming language choice will increasingly be driven by agent ergonomics\u2014performance, stability, and token cost\u2014rather than human preference.",
+      "key_points": [
+        "LLMs should speak Substrait (or equivalent IR) instead of SQL, enabling fewer tokens, less hallucination, and client-side query optimization with physical operators",
+        "Living in plan mode and iterating extensively on plans before implementation is essential for complex AI-assisted work, combined with quality gates and context management via the Ralph Loop",
+        "AI hallucination fears in data analytics are valid but pre-date AI\u2014incorrect queries in executive reviews were already common, and AI paired with humans may actually improve accuracy",
+        "The data engineer role may dissolve into a unified data role encompassing engineering, analysis, and ML as AI handles more grunt work and the shift-left movement continues",
+        "Programming language choice is shifting from human ergonomics to agent ergonomics, optimizing for performance, stability, and token cost rather than developer preference"
+      ],
+      "money_quotes": [
+        "I think this is a reasonable fear, but it's also a problem we had before AI.",
+        "You need to have the LLM iterate on the plan for many iterations. Probe its plan, ask it for details, ask it to expand sections.",
+        "I'll be frank: I think AI will do the majority of the data engineering work in the future. I think we're already at a point where it can; the tooling and practices just haven't yet adapted.",
+        "We over-specialized the data space. It might have been necessary, but it isn't now.",
+        "In that world, I just don't care about the language my software is written in.",
+        "I care more about the characteristics of the output: its performance, stability, and cost to build (i.e. tokens).",
+        "I think I would have learned a lot more without AI. But I also wouldn't have done the work.",
+        "I was very disappointed in their (lack of) security model. It's the most important part, and it was completely lacking."
+      ],
+      "themes": [
+        "data_engineering",
+        "ai_llms",
+        "data_platforms",
+        "tools_products",
+        "industry_observations",
+        "career_reflections"
+      ],
+      "tone": "practical, forward-looking, conversational",
+      "key_insight": "AI is already capable of handling most data engineering work, but the tooling, security models, and organizational practices haven't caught up\u2014and when they do, the distinct data engineer role may not survive as a separate discipline.",
+      "filename": "2026-05-26-how-to-use-ai-with-de-chris-riccomini"
     }
   ]
 }

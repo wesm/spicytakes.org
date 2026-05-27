@@ -1,0 +1,28 @@
+{
+  "summary": "Simon Sp\u00e4ti presents a comprehensive 'almanack' of Dagster, tracing its evolution from a developer-friendly ETL framework in 2018 to a full open data platform. He argues that Dagster's key innovations \u2014 data-aware orchestration, the shift from task-based DAGs to declarative data assets, and composable architecture \u2014 address the inherent complexity of enterprise data systems. Drawing on Rich Hickey's 'Simple Made Easy' philosophy, he frames composability as the antidote to enterprise data complexity. The post positions Dagster as the right abstraction layer for building open data platforms, with its control plane unifying metadata, lineage, and observability across heterogeneous systems.",
+  "key_points": [
+    "Dagster pioneered the shift from imperative task-based DAGs to declarative asset-based orchestration, letting engineers define outcomes rather than implementation steps",
+    "Composability \u2014 the ability to assemble, reassemble, and swap components \u2014 is what makes complex enterprise data systems manageable, echoing Rich Hickey's philosophy",
+    "Dagster's resource model decouples storage from compute, enabling identical pipeline logic across local dev and production environments through pure configuration",
+    "As an open-source orchestrator with a unified control plane, Dagster functions as an open data platform that integrates lineage, catalog, and observability without vendor lock-in",
+    "Software-Defined Assets allow pre-runtime declaration of data assets and their dependencies, enabling version-controlled, reproducible data lineage"
+  ],
+  "money_quotes": [
+    "Heterogeneous data complexity is a fact of the enterprise data lifecycle.",
+    "It's not code but data pipelines and DAGs, but what everyone cares about are their outcomes: the data assets.",
+    "Composable is what makes systems simpler: the ability to assemble, reassemble, and swap individual components into a flexible whole.",
+    "Resources decouple storage from compute \u2014 both are interchangeable without changing pipeline logic, by pure configuration \u2014 that's the beauty of declarative data systems.",
+    "State is never simple. Unfortunately for us, data engineering is all state: every datum is tied to a timestamp of when it was created, processed, or backfilled.",
+    "It's the abstraction layer for data engineering to solve hard business problems, an open data platform with opinionated design decisions that compound the longer you build on them.",
+    "The data platform layer is the priority, so AI can build on top of a great foundation."
+  ],
+  "themes": [
+    "data_engineering",
+    "data_platforms",
+    "tools_products",
+    "industry_observations"
+  ],
+  "tone": "enthusiastic, reflective, technical",
+  "key_insight": "Dagster's evolution from ETL orchestrator to open data platform demonstrates that composability and declarative asset-based thinking are the keys to taming enterprise data complexity.",
+  "filename": "2026-05-26-dagster-almanack-open-data-platform"
+}
