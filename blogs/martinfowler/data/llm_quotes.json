@@ -1,6 +1,6 @@
 {
-  "total_posts": 731,
-  "successful": 731,
+  "total_posts": 733,
+  "successful": 733,
   "posts": [
     {
       "summary": "This 2003 workshop report explores how to scale XP and Agile methods beyond small teams, featuring perspectives from Ken Schwaber, Philippe Kruchten, and Martin Fowler. The key tension throughout is whether scaling Agile is even the right question to ask. Practitioners shared techniques like seeding new teams with architecture founders and coordinating sync points between autonomous teams. However, Martin Fowler's keynote challenged the premise entirely, arguing that many teams are unnecessarily large and should scale down rather than scale up their methodology. The conference highlighted that communication-centric practices pose the greatest scaling challenges, while coding mechanics like TDD and pair programming can scale more readily.",
@@ -17765,6 +17765,36 @@
       "filename": "2026-05-14-InterrogatoryLLM"
     },
     {
+      "summary": "Fowler explores how various 'sensors' \u2014 automated feedback mechanisms ranging from linters to AI-driven modularity reviews \u2014 can help maintain code quality in AI-generated codebases. He categorizes sensors as computational (static analysis, dependency rules, mutation testing) and inferential (LLM-based reviews), testing them across an internal TypeScript/NextJS application rebuilt with AI. He finds that computational sensors work well at the file/function level but struggle with cross-file concerns like modularity, where LLM-based semantic interpretation proves far more effective. Mutation testing emerges as crucial for validating AI-generated test suites, which often achieve high coverage without meaningful assertions. Despite the promise of these sensors, Fowler cautions they don't remove humans from the loop and warns about potential false senses of security.",
+      "key_points": [
+        "AI agents suffer from the same internal quality problems as human developers \u2014 tangled codebases lead to wrong implementations, duplications, and excessive context loading",
+        "Computational sensors like ESLint are more valuable now because AI reduces the cost of creating custom rules while increasing the benefit, since AI makes more of the hygiene mistakes they catch",
+        "Raw coupling metrics are too noisy for AI to interpret usefully on their own, but LLM-based modularity reviews with good prompts found genuinely concerning design issues the agent had silently accumulated",
+        "AI-generated test suites often achieve high coverage through broad acceptance tests without meaningful assertions \u2014 mutation testing reveals these dangerous gaps",
+        "Without human review, coupling expertise, and extra AI reviews, coding agents definitively compound inadvertent technical debt"
+      ],
+      "money_quotes": [
+        "I usually see the first signs of cracks in the maintainability of an AI-generated codebase when the number of files changed for a small adjustment increases.",
+        "Internal quality problems affect AI agents in similar ways that they affect human developers.",
+        "Cost is reduced because it's much cheaper to create custom scripts and rules with AI. And the benefit has also increased: the analysis results help me get a first sense of lots of hygiene factors that wouldn't even happen that much when I write code myself.",
+        "I can't help but wonder if this can also lead to a false sense of security and an illusion of quality.",
+        "Without human review and coupling expertise, AND without these extra AI reviews, the agent was definitely compounding inadvertent technical debt.",
+        "Coverage tells us that a line was executed, but not that its impact was verified.",
+        "Acceptance tests increase coverage, but are often not very assertion-heavy, giving us a false sense of security in test effectiveness \u2014 mutation testing helps us monitor that gap.",
+        "While some of these sensors really do increase my trust into the quality of the outcomes, they are not a magical solution to take the human totally out of the loop."
+      ],
+      "themes": [
+        "architecture",
+        "testing",
+        "ai_llms",
+        "refactoring",
+        "technical_leadership"
+      ],
+      "tone": "reflective, pragmatic, exploratory",
+      "key_insight": "Maintaining code quality in AI-generated codebases requires layered sensors \u2014 computational tools catch file-level issues while LLM-based inferential reviews are essential for detecting the semantic modularity problems that AI agents silently accumulate.",
+      "filename": "2026-05-20-sensors-for-coding-agents"
+    },
+    {
       "summary": "Martin Fowler defines agentic programming as a new mode of software development where humans prompt LLM agents to generate code and then review the results, rather than typing code directly. He distinguishes it from vibe coding, where developers ignore the code entirely, and from simple code completion. The workflow involves terminal-based tools where LLMs manipulate source trees, run tests, and iterate autonomously before human review. Fowler argues this shift raises fundamental questions about future programming skills, emphasizing harness engineering and domain understanding as central competencies.",
       "key_points": [
         "Agentic programming is distinct from both vibe coding (no code review) and LLM-assisted code completion (LLM as co-pilot inside IDE)",
@@ -17815,6 +17845,35 @@
       "tone": "measured, cautionary, taxonomic",
       "key_insight": "Vibe coding and agentic programming are fundamentally different practices with different consequences, and conflating them obscures the real risks of building software you never inspect.",
       "filename": "2026-05-21-VibeCoding"
+    },
+    {
+      "summary": "Fowler's team at Thoughtworks discovered serious security vulnerabilities when scaling a vibe-coded prototype, where AI tools recommended making storage buckets public and assigning excessive token permissions. The post argues that prompting AI to be secure is fundamentally insufficient \u2014 organizations must enforce security through deterministic checks, structured context files, and deployment gates. Drawing on harness engineering concepts, the article distinguishes between inferential controls (prompts) and computational controls (linters, scanners) that actually prevent insecure code from shipping. The piece provides a practical roadmap from short-term habits to long-term organizational changes for securing AI-generated code.",
+      "key_points": [
+        "AI coding tools consistently suggest the path of least resistance, which is rarely the secure path \u2014 both incidents required human judgment to catch dangerous recommendations",
+        "Prompts are insufficient security controls because they can be overridden, misunderstood, or ignored; deterministic gates in the development pipeline are the real enforcement mechanism",
+        "Business functions building with AI are not exempt from engineering security obligations \u2014 even lightweight internal prototypes must comply with enterprise security standards",
+        "A versioned security context file loaded into every AI session, paired with automated scanning gates, transforms ad-hoc prompting into operational security discipline",
+        "Industry data shows 25% of AI-generated code has confirmed vulnerabilities, 1 in 5 enterprise breaches are now caused by AI-generated code, and 62% of security teams say they cannot keep up"
+      ],
+      "money_quotes": [
+        "Speed without guardrails is a risk no team can afford to ignore.",
+        "AI tools often suggest the path of least resistance. That path is not always the secure path.",
+        "Telling an AI agent to be safe is not the same as enforcing that it is safe.",
+        "Prompts can be overridden, misunderstood, or ignored. The moment a user pushes back on a restriction, or phrases a request differently, the constraint can evaporate.",
+        "Prompting for test-driven development is not the same as enforcing code coverage thresholds in your build tool. One is a suggestion. The other is a gate.",
+        "The path of least resistance and the secure path are rarely the same thing.",
+        "Passive security awareness is not enough when AI is generating code at speed.",
+        "That shift \u2014 from depending on humans to catch issues, to building technical security rules, automated checks and human accountability into the workflow \u2014 has become our blueprint for moving fast while maintaining engineering rigor in the agentic era."
+      ],
+      "themes": [
+        "architecture",
+        "ai_llms",
+        "technical_leadership",
+        "testing"
+      ],
+      "tone": "cautionary-practical",
+      "key_insight": "Securing AI-generated code requires moving from probabilistic prompt-based suggestions to deterministic, automated enforcement gates that structurally prevent insecure code from reaching production.",
+      "filename": "2026-05-27-vibesec-reckoning"
     }
   ]
 }

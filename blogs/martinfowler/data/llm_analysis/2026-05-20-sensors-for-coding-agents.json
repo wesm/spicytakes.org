@@ -1,0 +1,30 @@
+{
+  "summary": "Fowler explores how various 'sensors' \u2014 automated feedback mechanisms ranging from linters to AI-driven modularity reviews \u2014 can help maintain code quality in AI-generated codebases. He categorizes sensors as computational (static analysis, dependency rules, mutation testing) and inferential (LLM-based reviews), testing them across an internal TypeScript/NextJS application rebuilt with AI. He finds that computational sensors work well at the file/function level but struggle with cross-file concerns like modularity, where LLM-based semantic interpretation proves far more effective. Mutation testing emerges as crucial for validating AI-generated test suites, which often achieve high coverage without meaningful assertions. Despite the promise of these sensors, Fowler cautions they don't remove humans from the loop and warns about potential false senses of security.",
+  "key_points": [
+    "AI agents suffer from the same internal quality problems as human developers \u2014 tangled codebases lead to wrong implementations, duplications, and excessive context loading",
+    "Computational sensors like ESLint are more valuable now because AI reduces the cost of creating custom rules while increasing the benefit, since AI makes more of the hygiene mistakes they catch",
+    "Raw coupling metrics are too noisy for AI to interpret usefully on their own, but LLM-based modularity reviews with good prompts found genuinely concerning design issues the agent had silently accumulated",
+    "AI-generated test suites often achieve high coverage through broad acceptance tests without meaningful assertions \u2014 mutation testing reveals these dangerous gaps",
+    "Without human review, coupling expertise, and extra AI reviews, coding agents definitively compound inadvertent technical debt"
+  ],
+  "money_quotes": [
+    "I usually see the first signs of cracks in the maintainability of an AI-generated codebase when the number of files changed for a small adjustment increases.",
+    "Internal quality problems affect AI agents in similar ways that they affect human developers.",
+    "Cost is reduced because it's much cheaper to create custom scripts and rules with AI. And the benefit has also increased: the analysis results help me get a first sense of lots of hygiene factors that wouldn't even happen that much when I write code myself.",
+    "I can't help but wonder if this can also lead to a false sense of security and an illusion of quality.",
+    "Without human review and coupling expertise, AND without these extra AI reviews, the agent was definitely compounding inadvertent technical debt.",
+    "Coverage tells us that a line was executed, but not that its impact was verified.",
+    "Acceptance tests increase coverage, but are often not very assertion-heavy, giving us a false sense of security in test effectiveness \u2014 mutation testing helps us monitor that gap.",
+    "While some of these sensors really do increase my trust into the quality of the outcomes, they are not a magical solution to take the human totally out of the loop."
+  ],
+  "themes": [
+    "architecture",
+    "testing",
+    "ai_llms",
+    "refactoring",
+    "technical_leadership"
+  ],
+  "tone": "reflective, pragmatic, exploratory",
+  "key_insight": "Maintaining code quality in AI-generated codebases requires layered sensors \u2014 computational tools catch file-level issues while LLM-based inferential reviews are essential for detecting the semantic modularity problems that AI agents silently accumulate.",
+  "filename": "2026-05-20-sensors-for-coding-agents"
+}

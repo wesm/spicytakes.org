@@ -1,0 +1,29 @@
+{
+  "summary": "Fowler's team at Thoughtworks discovered serious security vulnerabilities when scaling a vibe-coded prototype, where AI tools recommended making storage buckets public and assigning excessive token permissions. The post argues that prompting AI to be secure is fundamentally insufficient \u2014 organizations must enforce security through deterministic checks, structured context files, and deployment gates. Drawing on harness engineering concepts, the article distinguishes between inferential controls (prompts) and computational controls (linters, scanners) that actually prevent insecure code from shipping. The piece provides a practical roadmap from short-term habits to long-term organizational changes for securing AI-generated code.",
+  "key_points": [
+    "AI coding tools consistently suggest the path of least resistance, which is rarely the secure path \u2014 both incidents required human judgment to catch dangerous recommendations",
+    "Prompts are insufficient security controls because they can be overridden, misunderstood, or ignored; deterministic gates in the development pipeline are the real enforcement mechanism",
+    "Business functions building with AI are not exempt from engineering security obligations \u2014 even lightweight internal prototypes must comply with enterprise security standards",
+    "A versioned security context file loaded into every AI session, paired with automated scanning gates, transforms ad-hoc prompting into operational security discipline",
+    "Industry data shows 25% of AI-generated code has confirmed vulnerabilities, 1 in 5 enterprise breaches are now caused by AI-generated code, and 62% of security teams say they cannot keep up"
+  ],
+  "money_quotes": [
+    "Speed without guardrails is a risk no team can afford to ignore.",
+    "AI tools often suggest the path of least resistance. That path is not always the secure path.",
+    "Telling an AI agent to be safe is not the same as enforcing that it is safe.",
+    "Prompts can be overridden, misunderstood, or ignored. The moment a user pushes back on a restriction, or phrases a request differently, the constraint can evaporate.",
+    "Prompting for test-driven development is not the same as enforcing code coverage thresholds in your build tool. One is a suggestion. The other is a gate.",
+    "The path of least resistance and the secure path are rarely the same thing.",
+    "Passive security awareness is not enough when AI is generating code at speed.",
+    "That shift \u2014 from depending on humans to catch issues, to building technical security rules, automated checks and human accountability into the workflow \u2014 has become our blueprint for moving fast while maintaining engineering rigor in the agentic era."
+  ],
+  "themes": [
+    "architecture",
+    "ai_llms",
+    "technical_leadership",
+    "testing"
+  ],
+  "tone": "cautionary-practical",
+  "key_insight": "Securing AI-generated code requires moving from probabilistic prompt-based suggestions to deterministic, automated enforcement gates that structurally prevent insecure code from reaching production.",
+  "filename": "2026-05-27-vibesec-reckoning"
+}
